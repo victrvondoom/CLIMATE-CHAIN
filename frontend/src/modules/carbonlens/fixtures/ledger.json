@@ -1,0 +1,79 @@
+{
+  "network": "hardhat",
+  "chainId": 31337,
+  "contract": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  "period": 2026,
+  "entries": [
+    {
+      "project_id": "CL-001",
+      "tx_hash": "0xdc06b14f87f7ed6e3e88858b064a7c6a7575f7fbb3c7347d3196a8630b41ac6f",
+      "block": 3,
+      "status": "Verified",
+      "claimed": 9100,
+      "verified": 9458,
+      "issued": 9100,
+      "serial_start": 1,
+      "serial_end": 9100,
+      "report_hash": "0x14c7702bf4868b4c59522f0c1b2bb3f75f1da76abf9dde0bef21f50e9dfc735c",
+      "report_hash_matches": true
+    },
+    {
+      "project_id": "CL-002",
+      "tx_hash": "0xe92267436eb4d62a836a7e23adb93941f8a69194bfdb7b9c316fbb585e8c65ee",
+      "block": 5,
+      "status": "Verified",
+      "claimed": 6000,
+      "verified": 6238,
+      "issued": 6000,
+      "serial_start": 9101,
+      "serial_end": 15100,
+      "report_hash": "0x23a4698daf43290b1ada484a3eea657b4ad9677f8d327e80b892c2b0490885a8",
+      "report_hash_matches": true
+    },
+    {
+      "project_id": "CL-003",
+      "tx_hash": "0x09cc69a3cc58119ee31f11e1975f3231f6887707d2786a202021905bca504d39",
+      "block": 7,
+      "status": "Reversal",
+      "claimed": 20000,
+      "verified": 0,
+      "issued": 0,
+      "serial_start": 0,
+      "serial_end": 0,
+      "report_hash": "0xf520abdeda4d0dae8d8a6db10a38eb8c7947dd3327b65614756ab5d71708b77d",
+      "report_hash_matches": true
+    },
+    {
+      "project_id": "CL-004",
+      "tx_hash": "0x1f0893aadc56fdd34f6219cd37e24f7a8e23e627ed3a51f729b2153d9fc323ba",
+      "block": 9,
+      "status": "OverClaimed",
+      "claimed": 12000,
+      "verified": 6685,
+      "issued": 6685,
+      "serial_start": 15101,
+      "serial_end": 21785,
+      "report_hash": "0xca8b52d8d33872f4eb94051948c6c97b5a2e7d62ffa185bd071819d0e16cc125",
+      "report_hash_matches": true
+    },
+    {
+      "project_id": "CL-005",
+      "tx_hash": "0xf5addbd349941101377d9b1744b9546aca956295e09d7ab35a7ce2f45e391636",
+      "block": 11,
+      "status": "Reversal",
+      "claimed": 24000,
+      "verified": 0,
+      "issued": 0,
+      "serial_start": 0,
+      "serial_end": 0,
+      "report_hash": "0x007118c2b3fed769de392dd0e931716410a380d0bacf3df0487aaa7889174529",
+      "report_hash_matches": true
+    }
+  ],
+  "retirement": {
+    "project_id": "CL-001",
+    "amount": 2275,
+    "beneficiary": "Demo Corp FY2026 Scope 1 offset",
+    "tx_hash": "0xdbbc77a2b21f8e76b33707c8358cd638551d1712227bae43144e66239889dc4c"
+  }
+}

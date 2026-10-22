@@ -1,0 +1,178 @@
+{
+  "generated_at": "2026-10-15T17:35:02Z",
+  "model": {
+    "type": "RandomForest (120 trees)",
+    "accuracy": 0.9955393473307291,
+    "f1_forest": 0.9957356180436358,
+    "confusion_matrix_ref_x_map": [
+      [
+        399,
+        4
+      ],
+      [
+        1,
+        396
+      ]
+    ],
+    "n_reference_samples": 800,
+    "false_loss_rate": 0.013192716356598333,
+    "n_pixels": 196608
+  },
+  "projects": [
+    {
+      "project_id": "CL-001",
+      "name": "Western Ghats Canopy Guard",
+      "country": "India",
+      "total_area_ha": 1850,
+      "claimed_forest_ha": 1200,
+      "claimed_credits": 9100,
+      "seed": 11,
+      "deforest_patches": 0,
+      "forest_frac": 0.65,
+      "measured": {
+        "baseline_forest_pct": 64.76,
+        "current_forest_pct": 64.38,
+        "current_forest_ci95_pct": 0.47,
+        "verified_forest_ha": 1182.4,
+        "forest_loss_ha": 0.0,
+        "loss_significant": false,
+        "reversal_tco2e": 0
+      },
+      "verified_credits": 9458,
+      "issuable_credits": 9100,
+      "overclaim_ratio": 0.962,
+      "status": "VERIFIED",
+      "params": {
+        "seq_rate_t_per_ha_yr": 8.0,
+        "stock_t_per_ha": 550.0,
+        "overclaim_flag": 1.1,
+        "pixel_ha": 0.01
+      },
+      "report_hash": "0x14c7702bf4868b4c59522f0c1b2bb3f75f1da76abf9dde0bef21f50e9dfc735c"
+    },
+    {
+      "project_id": "CL-002",
+      "name": "Sundarbans Mangrove Shield",
+      "country": "Bangladesh",
+      "total_area_ha": 1450,
+      "claimed_forest_ha": 800,
+      "claimed_credits": 6000,
+      "seed": 22,
+      "deforest_patches": 0,
+      "forest_frac": 0.55,
+      "measured": {
+        "baseline_forest_pct": 54.66,
+        "current_forest_pct": 54.3,
+        "current_forest_ci95_pct": 0.52,
+        "verified_forest_ha": 779.8,
+        "forest_loss_ha": 0.0,
+        "loss_significant": false,
+        "reversal_tco2e": 0
+      },
+      "verified_credits": 6238,
+      "issuable_credits": 6000,
+      "overclaim_ratio": 0.962,
+      "status": "VERIFIED",
+      "params": {
+        "seq_rate_t_per_ha_yr": 8.0,
+        "stock_t_per_ha": 550.0,
+        "overclaim_flag": 1.1,
+        "pixel_ha": 0.01
+      },
+      "report_hash": "0x23a4698daf43290b1ada484a3eea657b4ad9677f8d327e80b892c2b0490885a8"
+    },
+    {
+      "project_id": "CL-003",
+      "name": "Mato Grosso Reserve",
+      "country": "Brazil",
+      "total_area_ha": 4100,
+      "claimed_forest_ha": 2500,
+      "claimed_credits": 20000,
+      "seed": 33,
+      "deforest_patches": 4,
+      "forest_frac": 0.6,
+      "measured": {
+        "baseline_forest_pct": 60.3,
+        "current_forest_pct": 50.83,
+        "current_forest_ci95_pct": 0.54,
+        "verified_forest_ha": 2061.6,
+        "forest_loss_ha": 363.9,
+        "loss_significant": true,
+        "reversal_tco2e": 200149
+      },
+      "verified_credits": 0,
+      "issuable_credits": 0,
+      "overclaim_ratio": null,
+      "status": "REVERSAL",
+      "params": {
+        "seq_rate_t_per_ha_yr": 8.0,
+        "stock_t_per_ha": 550.0,
+        "overclaim_flag": 1.1,
+        "pixel_ha": 0.01
+      },
+      "report_hash": "0xf520abdeda4d0dae8d8a6db10a38eb8c7947dd3327b65614756ab5d71708b77d"
+    },
+    {
+      "project_id": "CL-004",
+      "name": "Borneo Peat Forest Trust",
+      "country": "Indonesia",
+      "total_area_ha": 1800,
+      "claimed_forest_ha": 1500,
+      "claimed_credits": 12000,
+      "seed": 44,
+      "deforest_patches": 0,
+      "forest_frac": 0.5,
+      "measured": {
+        "baseline_forest_pct": 47.15,
+        "current_forest_pct": 46.99,
+        "current_forest_ci95_pct": 0.57,
+        "verified_forest_ha": 835.6,
+        "forest_loss_ha": 0.0,
+        "loss_significant": false,
+        "reversal_tco2e": 0
+      },
+      "verified_credits": 6685,
+      "issuable_credits": 6685,
+      "overclaim_ratio": 1.795,
+      "status": "OVER-CLAIMED",
+      "params": {
+        "seq_rate_t_per_ha_yr": 8.0,
+        "stock_t_per_ha": 550.0,
+        "overclaim_flag": 1.1,
+        "pixel_ha": 0.01
+      },
+      "report_hash": "0xca8b52d8d33872f4eb94051948c6c97b5a2e7d62ffa185bd071819d0e16cc125"
+    },
+    {
+      "project_id": "CL-005",
+      "name": "Congo Basin Corridor",
+      "country": "DR Congo",
+      "total_area_ha": 4300,
+      "claimed_forest_ha": 3000,
+      "claimed_credits": 24000,
+      "seed": 55,
+      "deforest_patches": 8,
+      "forest_frac": 0.7,
+      "measured": {
+        "baseline_forest_pct": 69.41,
+        "current_forest_pct": 59.31,
+        "current_forest_ci95_pct": 0.49,
+        "verified_forest_ha": 2529.0,
+        "forest_loss_ha": 402.1,
+        "loss_significant": true,
+        "reversal_tco2e": 221177
+      },
+      "verified_credits": 0,
+      "issuable_credits": 0,
+      "overclaim_ratio": null,
+      "status": "REVERSAL",
+      "params": {
+        "seq_rate_t_per_ha_yr": 8.0,
+        "stock_t_per_ha": 550.0,
+        "overclaim_flag": 1.1,
+        "pixel_ha": 0.01
+      },
+      "report_hash": "0x007118c2b3fed769de392dd0e931716410a380d0bacf3df0487aaa7889174529"
+    }
+  ]
+}

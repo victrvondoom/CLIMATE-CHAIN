@@ -1,0 +1,130 @@
+.m-carbonlens-page {
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.m-carbonlens-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.m-carbonlens-head h2 {
+  margin: 2px 0 4px;
+}
+
+.m-carbonlens-head p {
+  margin: 0;
+}
+
+.m-carbonlens-kicker {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.7;
+}
+
+.m-carbonlens-mode {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+
+.m-carbonlens-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.m-carbonlens-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.m-carbonlens-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.m-carbonlens-table caption {
+  text-align: left;
+  font-size: 12px;
+  opacity: 0.75;
+  padding-bottom: 6px;
+}
+
+.m-carbonlens-table th,
+.m-carbonlens-table td {
+  text-align: left;
+  padding: 6px 8px;
+  border-bottom: 1px solid rgba(127, 127, 127, 0.25);
+  vertical-align: top;
+}
+
+.m-carbonlens-hash {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+}
+
+.m-carbonlens-note {
+  font-size: 12px;
+  opacity: 0.8;
+  margin: 6px 0 0;
+}
+
+.m-carbonlens-muted {
+  opacity: 0.6;
+  font-size: 12px;
+}
+
+.m-carbonlens-ok {
+  color: #1b7f4a;
+  font-weight: 600;
+}
+
+.m-carbonlens-bad {
+  color: #b3261e;
+  font-weight: 600;
+}
+
+.m-carbonlens-actions {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.m-carbonlens-button {
+  justify-self: start;
+  font: inherit;
+  font-size: 14px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.m-carbonlens-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+@media (max-width: 480px) {
+  .m-carbonlens-page {
+    padding: 16px;
+  }
+}
