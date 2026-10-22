@@ -1,0 +1,226 @@
+/* Flarewatch module styles. Every class starts with m-flarewatch-. */
+
+.m-flarewatch {
+  --m-flarewatch-tone: #70dba5;
+  --m-flarewatch-panel: var(--panel-solid, #131e34);
+  --m-flarewatch-line: var(--line, rgba(120, 150, 200, 0.18));
+  --m-flarewatch-text: var(--text, #e9eff8);
+  --m-flarewatch-muted: var(--muted, #8ea0b8);
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  color: var(--m-flarewatch-text);
+  font-family: var(--font, system-ui, sans-serif);
+}
+
+.m-flarewatch-head h2 {
+  margin: 4px 0 8px;
+  font-size: clamp(20px, 3vw, 28px);
+}
+
+.m-flarewatch-kicker {
+  margin: 0;
+  color: var(--m-flarewatch-tone);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.m-flarewatch-lede,
+.m-flarewatch-note {
+  margin: 6px 0;
+  color: var(--m-flarewatch-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.m-flarewatch-card {
+  padding: 16px;
+  border: 1px solid var(--m-flarewatch-line);
+  border-top: 2px solid var(--m-flarewatch-tone);
+  border-radius: 12px;
+  background: var(--m-flarewatch-panel);
+  min-width: 0;
+}
+
+.m-flarewatch-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.m-flarewatch-card h3 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.m-flarewatch-mode {
+  padding: 3px 8px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  color: #70dba5;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.m-flarewatch-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.m-flarewatch-stats > div {
+  display: grid;
+  gap: 4px;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(8, 14, 25, 0.6);
+}
+
+.m-flarewatch-stat-label {
+  color: var(--m-flarewatch-muted);
+  font-size: 12px;
+}
+
+.m-flarewatch-stat-value {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.m-flarewatch-table-wrap {
+  overflow-x: auto;
+}
+
+.m-flarewatch-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.m-flarewatch-table th,
+.m-flarewatch-table td {
+  padding: 8px 6px;
+  border-bottom: 1px solid var(--m-flarewatch-line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.m-flarewatch-table th {
+  color: var(--m-flarewatch-muted);
+  font-weight: 600;
+}
+
+.m-flarewatch-hash {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  color: var(--m-flarewatch-muted);
+}
+
+.m-flarewatch-site {
+  display: grid;
+  gap: 2px;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.m-flarewatch-nights {
+  color: var(--m-flarewatch-muted);
+  font-family: var(--font, system-ui, sans-serif);
+  font-size: 12px;
+}
+
+.m-flarewatch-class {
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--m-flarewatch-line);
+  color: var(--m-flarewatch-muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.m-flarewatch-class-persistent {
+  border-color: #f2cf69;
+  color: #f2cf69;
+}
+
+.m-flarewatch-ok {
+  color: #34d399;
+  font-weight: 600;
+}
+
+.m-flarewatch-bad {
+  color: #f87171;
+  font-weight: 600;
+}
+
+.m-flarewatch-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.m-flarewatch-controls {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.m-flarewatch-btn,
+.m-flarewatch-tab {
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--m-flarewatch-line);
+  background: transparent;
+  color: var(--m-flarewatch-text);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.m-flarewatch-btn-primary,
+.m-flarewatch-tab-on {
+  border-color: var(--m-flarewatch-tone);
+  background: rgba(112, 219, 165, 0.12);
+}
+
+.m-flarewatch-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.m-flarewatch-records {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.m-flarewatch-records li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.m-flarewatch-not-ported ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  color: var(--m-flarewatch-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .m-flarewatch {
+    padding: 16px;
+  }
+}
