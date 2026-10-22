@@ -1,0 +1,1696 @@
+{
+ "label": "DEMO",
+ "source": {
+  "folder": "CarbonTrace-main",
+  "files": [
+   "backend/app/scenarios.py",
+   "backend/app/scoring.py",
+   "backend/app/geo.py",
+   "backend/app/satellite.py",
+   "backend/tests/test_scoring.py",
+   "contracts-pkg/contracts/CarbonTraceRegistry.sol",
+   "contracts-pkg/test/CarbonTraceRegistry.test.js"
+  ]
+ },
+ "note": "The seven preset Fraud Lab scenarios. Polygon, area and cell list come from backend/app/geo.py. Monthly observations come from SimulatedProvider, a seeded synthetic NDVI series, not satellite data. golden is the output of backend/app/scoring.py assess() on those inputs.",
+ "scenarios": [
+  {
+   "id": "legit-wayanad",
+   "title": "Rainforest restoration, Western Ghats",
+   "expect": "approved",
+   "request": {
+    "name": "Wayanad Rainforest Restoration",
+    "vintage": 2025,
+    "claimedTonnes": 700,
+    "projectType": "reforestation",
+    "polygon": [
+     [
+      76.0999553297573,
+      11.647025955468735
+     ],
+     [
+      76.11024645705243,
+      11.647224917249986
+     ],
+     [
+      76.11004467024271,
+      11.657173006312513
+     ],
+     [
+      76.100157116567,
+      11.656974044531264
+     ],
+     [
+      76.0999553297573,
+      11.647025955468735
+     ]
+    ]
+   },
+   "geometry": {
+    "areaHa": 120.9999711117069,
+    "cells": [
+     218283123012658,
+     218283123012659,
+     218283123012660,
+     218283123012661,
+     218283123012662,
+     218287417979954,
+     218287417979955,
+     218287417979956,
+     218287417979957,
+     218287417979958,
+     218291712947250,
+     218291712947251,
+     218291712947252,
+     218291712947253,
+     218291712947254,
+     218296007914546,
+     218296007914547,
+     218296007914548,
+     218296007914549,
+     218296007914550,
+     218300302881842,
+     218300302881843,
+     218300302881844,
+     218300302881845,
+     218300302881846,
+     218304597849138,
+     218304597849139,
+     218304597849140,
+     218304597849141,
+     218304597849142
+    ]
+   },
+   "satellite": {
+    "provider": "simulated",
+    "simulated": true,
+    "biome": "Tropical moist forest",
+    "sequestrationRate": 9,
+    "lowConfidence": false,
+    "observations": [
+     {
+      "month": 1,
+      "meanNdvi": 0.8116,
+      "p10": 0.7616,
+      "p90": 0.8616,
+      "canopyFraction": 0.9852,
+      "validFraction": 0.6747
+     },
+     {
+      "month": 2,
+      "meanNdvi": 0.8127,
+      "p10": 0.7627,
+      "p90": 0.8627,
+      "canopyFraction": 0.9823,
+      "validFraction": 0.8271
+     },
+     {
+      "month": 3,
+      "meanNdvi": 0.8233,
+      "p10": 0.7733,
+      "p90": 0.8733,
+      "canopyFraction": 0.9973,
+      "validFraction": 0.6748
+     },
+     {
+      "month": 4,
+      "meanNdvi": 0.8124,
+      "p10": 0.7624,
+      "p90": 0.8624,
+      "canopyFraction": 0.9934,
+      "validFraction": 0.8601
+     },
+     {
+      "month": 5,
+      "meanNdvi": 0.8076,
+      "p10": 0.7576,
+      "p90": 0.8576,
+      "canopyFraction": 0.991,
+      "validFraction": 0.8428
+     },
+     {
+      "month": 6,
+      "meanNdvi": 0.8097,
+      "p10": 0.7597,
+      "p90": 0.8597,
+      "canopyFraction": 0.9768,
+      "validFraction": 0.417
+     },
+     {
+      "month": 7,
+      "meanNdvi": 0.8373,
+      "p10": 0.7873,
+      "p90": 0.8873,
+      "canopyFraction": 1,
+      "validFraction": 0.6103
+     },
+     {
+      "month": 8,
+      "meanNdvi": 0.8514,
+      "p10": 0.8014,
+      "p90": 0.9014,
+      "canopyFraction": 0.9794,
+      "validFraction": 0.6109
+     },
+     {
+      "month": 9,
+      "meanNdvi": 0.8506,
+      "p10": 0.8006,
+      "p90": 0.9006,
+      "canopyFraction": 0.9858,
+      "validFraction": 0.4367
+     },
+     {
+      "month": 10,
+      "meanNdvi": 0.8521,
+      "p10": 0.8021,
+      "p90": 0.9021,
+      "canopyFraction": 1,
+      "validFraction": 0.7094
+     },
+     {
+      "month": 11,
+      "meanNdvi": 0.8437,
+      "p10": 0.7937,
+      "p90": 0.8937,
+      "canopyFraction": 0.9953,
+      "validFraction": 0.7966
+     },
+     {
+      "month": 12,
+      "meanNdvi": 0.8437,
+      "p10": 0.7937,
+      "p90": 0.8937,
+      "canopyFraction": 0.9903,
+      "validFraction": 0.7721
+     }
+    ]
+   },
+   "golden": {
+    "score": 98,
+    "approved": true,
+    "verifiedTonnes": 700,
+    "capacityTonnes": 1078.5,
+    "claimedTonnes": 700,
+    "capsApplied": [],
+    "checks": [
+     {
+      "id": "canopy",
+      "status": "pass"
+     },
+     {
+      "id": "greenness",
+      "status": "pass"
+     },
+     {
+      "id": "clearing",
+      "status": "pass"
+     },
+     {
+      "id": "biome",
+      "status": "pass"
+     },
+     {
+      "id": "claim",
+      "status": "pass"
+     },
+     {
+      "id": "coverage",
+      "status": "pass"
+     }
+    ],
+    "metrics": {
+     "area_ha": 121,
+     "cells": 30,
+     "canopy_fraction": 0.9904,
+     "median_ndvi": 0.8303,
+     "max_monthly_drop": 0.0109,
+     "year_decline": -0.0325,
+     "months_observed": 12,
+     "mean_valid_fraction": 0.686,
+     "claim_to_capacity_ratio": 0.6491,
+     "sequestration_rate": 9
+    },
+    "components": {
+     "vegetation": 1,
+     "stability": 1,
+     "claim_plausibility": 1,
+     "confidence": 0.843,
+     "weights": {
+      "vegetation": 0.5,
+      "stability": 0.2,
+      "claim_plausibility": 0.2,
+      "confidence": 0.1
+     }
+    }
+   }
+  },
+  {
+   "id": "double-count",
+   "title": "Same land, claimed again",
+   "expect": "chain-rejects",
+   "request": {
+    "name": "Wayanad Carbon Partners (duplicate)",
+    "vintage": 2025,
+    "claimedTonnes": 700,
+    "projectType": "reforestation",
+    "polygon": [
+     [
+      76.0999553297573,
+      11.647025955468735
+     ],
+     [
+      76.11024645705243,
+      11.647224917249986
+     ],
+     [
+      76.11004467024271,
+      11.657173006312513
+     ],
+     [
+      76.100157116567,
+      11.656974044531264
+     ],
+     [
+      76.0999553297573,
+      11.647025955468735
+     ]
+    ]
+   },
+   "geometry": {
+    "areaHa": 120.9999711117069,
+    "cells": [
+     218283123012658,
+     218283123012659,
+     218283123012660,
+     218283123012661,
+     218283123012662,
+     218287417979954,
+     218287417979955,
+     218287417979956,
+     218287417979957,
+     218287417979958,
+     218291712947250,
+     218291712947251,
+     218291712947252,
+     218291712947253,
+     218291712947254,
+     218296007914546,
+     218296007914547,
+     218296007914548,
+     218296007914549,
+     218296007914550,
+     218300302881842,
+     218300302881843,
+     218300302881844,
+     218300302881845,
+     218300302881846,
+     218304597849138,
+     218304597849139,
+     218304597849140,
+     218304597849141,
+     218304597849142
+    ]
+   },
+   "satellite": {
+    "provider": "simulated",
+    "simulated": true,
+    "biome": "Tropical moist forest",
+    "sequestrationRate": 9,
+    "lowConfidence": false,
+    "observations": [
+     {
+      "month": 1,
+      "meanNdvi": 0.8116,
+      "p10": 0.7616,
+      "p90": 0.8616,
+      "canopyFraction": 0.9852,
+      "validFraction": 0.6747
+     },
+     {
+      "month": 2,
+      "meanNdvi": 0.8127,
+      "p10": 0.7627,
+      "p90": 0.8627,
+      "canopyFraction": 0.9823,
+      "validFraction": 0.8271
+     },
+     {
+      "month": 3,
+      "meanNdvi": 0.8233,
+      "p10": 0.7733,
+      "p90": 0.8733,
+      "canopyFraction": 0.9973,
+      "validFraction": 0.6748
+     },
+     {
+      "month": 4,
+      "meanNdvi": 0.8124,
+      "p10": 0.7624,
+      "p90": 0.8624,
+      "canopyFraction": 0.9934,
+      "validFraction": 0.8601
+     },
+     {
+      "month": 5,
+      "meanNdvi": 0.8076,
+      "p10": 0.7576,
+      "p90": 0.8576,
+      "canopyFraction": 0.991,
+      "validFraction": 0.8428
+     },
+     {
+      "month": 6,
+      "meanNdvi": 0.8097,
+      "p10": 0.7597,
+      "p90": 0.8597,
+      "canopyFraction": 0.9768,
+      "validFraction": 0.417
+     },
+     {
+      "month": 7,
+      "meanNdvi": 0.8373,
+      "p10": 0.7873,
+      "p90": 0.8873,
+      "canopyFraction": 1,
+      "validFraction": 0.6103
+     },
+     {
+      "month": 8,
+      "meanNdvi": 0.8514,
+      "p10": 0.8014,
+      "p90": 0.9014,
+      "canopyFraction": 0.9794,
+      "validFraction": 0.6109
+     },
+     {
+      "month": 9,
+      "meanNdvi": 0.8506,
+      "p10": 0.8006,
+      "p90": 0.9006,
+      "canopyFraction": 0.9858,
+      "validFraction": 0.4367
+     },
+     {
+      "month": 10,
+      "meanNdvi": 0.8521,
+      "p10": 0.8021,
+      "p90": 0.9021,
+      "canopyFraction": 1,
+      "validFraction": 0.7094
+     },
+     {
+      "month": 11,
+      "meanNdvi": 0.8437,
+      "p10": 0.7937,
+      "p90": 0.8937,
+      "canopyFraction": 0.9953,
+      "validFraction": 0.7966
+     },
+     {
+      "month": 12,
+      "meanNdvi": 0.8437,
+      "p10": 0.7937,
+      "p90": 0.8937,
+      "canopyFraction": 0.9903,
+      "validFraction": 0.7721
+     }
+    ]
+   },
+   "golden": {
+    "score": 98,
+    "approved": true,
+    "verifiedTonnes": 700,
+    "capacityTonnes": 1078.5,
+    "claimedTonnes": 700,
+    "capsApplied": [],
+    "checks": [
+     {
+      "id": "canopy",
+      "status": "pass"
+     },
+     {
+      "id": "greenness",
+      "status": "pass"
+     },
+     {
+      "id": "clearing",
+      "status": "pass"
+     },
+     {
+      "id": "biome",
+      "status": "pass"
+     },
+     {
+      "id": "claim",
+      "status": "pass"
+     },
+     {
+      "id": "coverage",
+      "status": "pass"
+     }
+    ],
+    "metrics": {
+     "area_ha": 121,
+     "cells": 30,
+     "canopy_fraction": 0.9904,
+     "median_ndvi": 0.8303,
+     "max_monthly_drop": 0.0109,
+     "year_decline": -0.0325,
+     "months_observed": 12,
+     "mean_valid_fraction": 0.686,
+     "claim_to_capacity_ratio": 0.6491,
+     "sequestration_rate": 9
+    },
+    "components": {
+     "vegetation": 1,
+     "stability": 1,
+     "claim_plausibility": 1,
+     "confidence": 0.843,
+     "weights": {
+      "vegetation": 0.5,
+      "stability": 0.2,
+      "claim_plausibility": 0.2,
+      "confidence": 0.1
+     }
+    }
+   }
+  },
+  {
+   "id": "fake-desert",
+   "title": "A 'forest' in the Thar Desert",
+   "expect": "rejected",
+   "request": {
+    "name": "Thar Green Wall Project",
+    "vintage": 2025,
+    "claimedTonnes": 5000,
+    "projectType": "reforestation",
+    "polygon": [
+     [
+      70.99395081079248,
+      26.99457376960226
+     ],
+     [
+      71.00623066488374,
+      26.99473655651419
+     ],
+     [
+      71.00604918920752,
+      27.005589017309674
+     ],
+     [
+      70.99413228646871,
+      27.00542623039774
+     ],
+     [
+      70.99395081079248,
+      26.99457376960226
+     ]
+    ]
+   },
+   "geometry": {
+    "areaHa": 143.99993050504744,
+    "cells": [
+     251242702039609,
+     251242702039610,
+     251242702039611,
+     251242702039612,
+     251242702039613,
+     251242702039614,
+     251246997006905,
+     251246997006906,
+     251246997006907,
+     251246997006908,
+     251246997006909,
+     251246997006910,
+     251251291974201,
+     251251291974202,
+     251251291974203,
+     251251291974204,
+     251251291974205,
+     251251291974206,
+     251255586941497,
+     251255586941498,
+     251255586941499,
+     251255586941500,
+     251255586941501,
+     251255586941502,
+     251259881908793,
+     251259881908794,
+     251259881908795,
+     251259881908796,
+     251259881908797,
+     251259881908798,
+     251264176876089,
+     251264176876090,
+     251264176876091,
+     251264176876092,
+     251264176876093,
+     251264176876094
+    ]
+   },
+   "satellite": {
+    "provider": "simulated",
+    "simulated": true,
+    "biome": "Arid desert",
+    "sequestrationRate": 0,
+    "lowConfidence": false,
+    "observations": [
+     {
+      "month": 1,
+      "meanNdvi": 0.0801,
+      "p10": 0.0501,
+      "p90": 0.1101,
+      "canopyFraction": 0,
+      "validFraction": 0.6243
+     },
+     {
+      "month": 2,
+      "meanNdvi": 0.0439,
+      "p10": 0.0139,
+      "p90": 0.0739,
+      "canopyFraction": 0,
+      "validFraction": 0.8104
+     },
+     {
+      "month": 3,
+      "meanNdvi": 0.0601,
+      "p10": 0.0301,
+      "p90": 0.0901,
+      "canopyFraction": 0.0179,
+      "validFraction": 0.6943
+     },
+     {
+      "month": 4,
+      "meanNdvi": 0.0617,
+      "p10": 0.0317,
+      "p90": 0.0917,
+      "canopyFraction": 0,
+      "validFraction": 0.6848
+     },
+     {
+      "month": 5,
+      "meanNdvi": 0.0656,
+      "p10": 0.0356,
+      "p90": 0.0956,
+      "canopyFraction": 0.0027,
+      "validFraction": 0.9632
+     },
+     {
+      "month": 6,
+      "meanNdvi": 0.0848,
+      "p10": 0.0548,
+      "p90": 0.1148,
+      "canopyFraction": 0.0028,
+      "validFraction": 0.6663
+     },
+     {
+      "month": 7,
+      "meanNdvi": 0.1022,
+      "p10": 0.0722,
+      "p90": 0.1322,
+      "canopyFraction": 0,
+      "validFraction": 0.6826
+     },
+     {
+      "month": 8,
+      "meanNdvi": 0.0994,
+      "p10": 0.0694,
+      "p90": 0.1294,
+      "canopyFraction": 0.0027,
+      "validFraction": 0.8611
+     },
+     {
+      "month": 9,
+      "meanNdvi": 0.0825,
+      "p10": 0.0525,
+      "p90": 0.1125,
+      "canopyFraction": 0.0228,
+      "validFraction": 0.6405
+     },
+     {
+      "month": 10,
+      "meanNdvi": 0.0639,
+      "p10": 0.0339,
+      "p90": 0.0939,
+      "canopyFraction": 0,
+      "validFraction": 0.9788
+     },
+     {
+      "month": 11,
+      "meanNdvi": 0.0967,
+      "p10": 0.0667,
+      "p90": 0.1267,
+      "canopyFraction": 0,
+      "validFraction": 0.7305
+     },
+     {
+      "month": 12,
+      "meanNdvi": 0.0578,
+      "p10": 0.0278,
+      "p90": 0.0878,
+      "canopyFraction": 0,
+      "validFraction": 0.6177
+     }
+    ]
+   },
+   "golden": {
+    "score": 29,
+    "approved": false,
+    "verifiedTonnes": 0,
+    "capacityTonnes": 0,
+    "claimedTonnes": 5000,
+    "capsApplied": [
+     "non_forest_biome",
+     "insufficient_canopy",
+     "implausible_claim"
+    ],
+    "checks": [
+     {
+      "id": "canopy",
+      "status": "fail"
+     },
+     {
+      "id": "greenness",
+      "status": "fail"
+     },
+     {
+      "id": "clearing",
+      "status": "pass"
+     },
+     {
+      "id": "biome",
+      "status": "fail"
+     },
+     {
+      "id": "claim",
+      "status": "fail"
+     },
+     {
+      "id": "coverage",
+      "status": "pass"
+     }
+    ],
+    "metrics": {
+     "area_ha": 144,
+     "cells": 36,
+     "canopy_fraction": 0.0038,
+     "median_ndvi": 0.0728,
+     "max_monthly_drop": 0.0389,
+     "year_decline": -0.0138,
+     "months_observed": 12,
+     "mean_valid_fraction": 0.7462,
+     "claim_to_capacity_ratio": null,
+     "sequestration_rate": 0
+    },
+    "components": {
+     "vegetation": 0,
+     "stability": 1,
+     "claim_plausibility": 0,
+     "confidence": 0.8731,
+     "weights": {
+      "vegetation": 0.5,
+      "stability": 0.2,
+      "claim_plausibility": 0.2,
+      "confidence": 0.1
+     }
+    }
+   }
+  },
+  {
+   "id": "fake-city",
+   "title": "'Urban forest' in a dense city",
+   "expect": "rejected",
+   "request": {
+    "name": "Metro Canopy Credits",
+    "vintage": 2025,
+    "claimedTonnes": 3000,
+    "projectType": "conservation",
+    "polygon": [
+     [
+      80.26538880682969,
+      13.075478141335214
+     ],
+     [
+      80.2747034170337,
+      13.075568578508511
+     ],
+     [
+      80.2746111931703,
+      13.084612295838081
+     ],
+     [
+      80.2654810306931,
+      13.084521858664786
+     ],
+     [
+      80.26538880682969,
+      13.075478141335214
+     ]
+    ]
+   },
+   "geometry": {
+    "areaHa": 99.99998777508421,
+    "cells": [
+     221349729664085,
+     221349729664086,
+     221349729664087,
+     221349729664088,
+     221354024631380,
+     221354024631381,
+     221354024631382,
+     221354024631383,
+     221354024631384,
+     221354024631385,
+     221358319598676,
+     221358319598677,
+     221358319598678,
+     221358319598679,
+     221358319598680,
+     221358319598681,
+     221362614565972,
+     221362614565973,
+     221362614565974,
+     221362614565975,
+     221362614565976,
+     221362614565977,
+     221366909533268,
+     221366909533269,
+     221366909533270,
+     221366909533271,
+     221366909533272,
+     221366909533273,
+     221371204500565,
+     221371204500566,
+     221371204500567,
+     221371204500568
+    ]
+   },
+   "satellite": {
+    "provider": "simulated",
+    "simulated": true,
+    "biome": "Urban / built-up",
+    "sequestrationRate": 0,
+    "lowConfidence": false,
+    "observations": [
+     {
+      "month": 1,
+      "meanNdvi": 0.2497,
+      "p10": 0.0997,
+      "p90": 0.3997,
+      "canopyFraction": 0.02,
+      "validFraction": 0.751
+     },
+     {
+      "month": 2,
+      "meanNdvi": 0.2366,
+      "p10": 0.0866,
+      "p90": 0.3866,
+      "canopyFraction": 0.0023,
+      "validFraction": 0.8018
+     },
+     {
+      "month": 3,
+      "meanNdvi": 0.228,
+      "p10": 0.078,
+      "p90": 0.378,
+      "canopyFraction": 0.0183,
+      "validFraction": 0.8997
+     },
+     {
+      "month": 4,
+      "meanNdvi": 0.224,
+      "p10": 0.074,
+      "p90": 0.374,
+      "canopyFraction": 0.0071,
+      "validFraction": 0.7081
+     },
+     {
+      "month": 5,
+      "meanNdvi": 0.2206,
+      "p10": 0.0706,
+      "p90": 0.3706,
+      "canopyFraction": 0.0365,
+      "validFraction": 0.8638
+     },
+     {
+      "month": 6,
+      "meanNdvi": 0.2157,
+      "p10": 0.0657,
+      "p90": 0.3657,
+      "canopyFraction": 0.0317,
+      "validFraction": 0.7336
+     },
+     {
+      "month": 7,
+      "meanNdvi": 0.2355,
+      "p10": 0.0855,
+      "p90": 0.3855,
+      "canopyFraction": 0.0431,
+      "validFraction": 0.7656
+     },
+     {
+      "month": 8,
+      "meanNdvi": 0.2449,
+      "p10": 0.0949,
+      "p90": 0.3949,
+      "canopyFraction": 0.0207,
+      "validFraction": 0.9456
+     },
+     {
+      "month": 9,
+      "meanNdvi": 0.2478,
+      "p10": 0.0978,
+      "p90": 0.3978,
+      "canopyFraction": 0.0051,
+      "validFraction": 0.9031
+     },
+     {
+      "month": 10,
+      "meanNdvi": 0.2744,
+      "p10": 0.1244,
+      "p90": 0.4244,
+      "canopyFraction": 0.0474,
+      "validFraction": 0.7459
+     },
+     {
+      "month": 11,
+      "meanNdvi": 0.273,
+      "p10": 0.123,
+      "p90": 0.423,
+      "canopyFraction": 0.054,
+      "validFraction": 0.7285
+     },
+     {
+      "month": 12,
+      "meanNdvi": 0.2787,
+      "p10": 0.1287,
+      "p90": 0.4287,
+      "canopyFraction": 0.0621,
+      "validFraction": 0.8912
+     }
+    ]
+   },
+   "golden": {
+    "score": 29,
+    "approved": false,
+    "verifiedTonnes": 0,
+    "capacityTonnes": 0,
+    "claimedTonnes": 3000,
+    "capsApplied": [
+     "non_forest_biome",
+     "insufficient_canopy",
+     "implausible_claim"
+    ],
+    "checks": [
+     {
+      "id": "canopy",
+      "status": "fail"
+     },
+     {
+      "id": "greenness",
+      "status": "fail"
+     },
+     {
+      "id": "clearing",
+      "status": "pass"
+     },
+     {
+      "id": "biome",
+      "status": "fail"
+     },
+     {
+      "id": "claim",
+      "status": "fail"
+     },
+     {
+      "id": "coverage",
+      "status": "pass"
+     }
+    ],
+    "metrics": {
+     "area_ha": 100,
+     "cells": 32,
+     "canopy_fraction": 0.0288,
+     "median_ndvi": 0.2408,
+     "max_monthly_drop": 0.0131,
+     "year_decline": -0.0339,
+     "months_observed": 12,
+     "mean_valid_fraction": 0.8115,
+     "claim_to_capacity_ratio": null,
+     "sequestration_rate": 0
+    },
+    "components": {
+     "vegetation": 0,
+     "stability": 1,
+     "claim_plausibility": 0,
+     "confidence": 0.9057,
+     "weights": {
+      "vegetation": 0.5,
+      "stability": 0.2,
+      "claim_plausibility": 0.2,
+      "confidence": 0.1
+     }
+    }
+   }
+  },
+  {
+   "id": "cleared-forest",
+   "title": "Forest that was cut down mid-year",
+   "expect": "rejected",
+   "request": {
+    "name": "Rondonia Conservation Parcel",
+    "vintage": 2025,
+    "claimedTonnes": 9000,
+    "projectType": "conservation",
+    "polygon": [
+     [
+      -63.00594431275893,
+      -10.805878416264221
+     ],
+     [
+      -62.9938773578583,
+      -10.805702063776295
+     ],
+     [
+      -62.99405568724107,
+      -10.793945231247854
+     ],
+     [
+      -63.005765983376165,
+      -10.79412158373578
+     ],
+     [
+      -63.00594431275893,
+      -10.805878416264221
+     ]
+    ]
+   },
+   "geometry": {
+    "areaHa": 169.00003307950888,
+    "cells": [
+     170067820078209,
+     170067820078210,
+     170067820078211,
+     170067820078212,
+     170067820078213,
+     170067820078214,
+     170072115045505,
+     170072115045506,
+     170072115045507,
+     170072115045508,
+     170072115045509,
+     170072115045510,
+     170076410012801,
+     170076410012802,
+     170076410012803,
+     170076410012804,
+     170076410012805,
+     170076410012806,
+     170080704980097,
+     170080704980098,
+     170080704980099,
+     170080704980100,
+     170080704980101,
+     170080704980102,
+     170084999947393,
+     170084999947394,
+     170084999947395,
+     170084999947396,
+     170084999947397,
+     170084999947398,
+     170089294914689,
+     170089294914690,
+     170089294914691,
+     170089294914692,
+     170089294914693,
+     170089294914694
+    ]
+   },
+   "satellite": {
+    "provider": "simulated",
+    "simulated": true,
+    "biome": "Tropical moist forest",
+    "sequestrationRate": 10,
+    "lowConfidence": false,
+    "observations": [
+     {
+      "month": 1,
+      "meanNdvi": 0.8382,
+      "p10": 0.7782,
+      "p90": 0.8982,
+      "canopyFraction": 0.9805,
+      "validFraction": 0.8507
+     },
+     {
+      "month": 2,
+      "meanNdvi": 0.8427,
+      "p10": 0.7827,
+      "p90": 0.9027,
+      "canopyFraction": 1,
+      "validFraction": 0.7069
+     },
+     {
+      "month": 3,
+      "meanNdvi": 0.8538,
+      "p10": 0.7938,
+      "p90": 0.9138,
+      "canopyFraction": 0.984,
+      "validFraction": 0.8214
+     },
+     {
+      "month": 4,
+      "meanNdvi": 0.8445,
+      "p10": 0.7845,
+      "p90": 0.9045,
+      "canopyFraction": 0.9993,
+      "validFraction": 0.8824
+     },
+     {
+      "month": 5,
+      "meanNdvi": 0.8388,
+      "p10": 0.7788,
+      "p90": 0.8988,
+      "canopyFraction": 0.987,
+      "validFraction": 0.8366
+     },
+     {
+      "month": 6,
+      "meanNdvi": 0.2936,
+      "p10": 0.2336,
+      "p90": 0.3536,
+      "canopyFraction": 0.0451,
+      "validFraction": 0.86
+     },
+     {
+      "month": 7,
+      "meanNdvi": 0.2744,
+      "p10": 0.2144,
+      "p90": 0.3344,
+      "canopyFraction": 0.0489,
+      "validFraction": 0.6803
+     },
+     {
+      "month": 8,
+      "meanNdvi": 0.2815,
+      "p10": 0.2215,
+      "p90": 0.3415,
+      "canopyFraction": 0.0342,
+      "validFraction": 0.7365
+     },
+     {
+      "month": 9,
+      "meanNdvi": 0.2649,
+      "p10": 0.2049,
+      "p90": 0.3249,
+      "canopyFraction": 0.0345,
+      "validFraction": 0.8718
+     },
+     {
+      "month": 10,
+      "meanNdvi": 0.2715,
+      "p10": 0.2115,
+      "p90": 0.3315,
+      "canopyFraction": 0.059,
+      "validFraction": 0.8544
+     },
+     {
+      "month": 11,
+      "meanNdvi": 0.3031,
+      "p10": 0.2431,
+      "p90": 0.3631,
+      "canopyFraction": 0.0676,
+      "validFraction": 0.7859
+     },
+     {
+      "month": 12,
+      "meanNdvi": 0.2728,
+      "p10": 0.2128,
+      "p90": 0.3328,
+      "canopyFraction": 0.0402,
+      "validFraction": 0.8091
+     }
+    ]
+   },
+   "golden": {
+    "score": 21,
+    "approved": false,
+    "verifiedTonnes": 0,
+    "capacityTonnes": 753,
+    "claimedTonnes": 9000,
+    "capsApplied": [
+     "implausible_claim",
+     "clearing_detected"
+    ],
+    "checks": [
+     {
+      "id": "canopy",
+      "status": "warn"
+     },
+     {
+      "id": "greenness",
+      "status": "fail"
+     },
+     {
+      "id": "clearing",
+      "status": "fail"
+     },
+     {
+      "id": "biome",
+      "status": "pass"
+     },
+     {
+      "id": "claim",
+      "status": "fail"
+     },
+     {
+      "id": "coverage",
+      "status": "pass"
+     }
+    ],
+    "metrics": {
+     "area_ha": 169,
+     "cells": 36,
+     "canopy_fraction": 0.4456,
+     "median_ndvi": 0.2984,
+     "max_monthly_drop": 0.5452,
+     "year_decline": 0.5667,
+     "months_observed": 12,
+     "mean_valid_fraction": 0.808,
+     "claim_to_capacity_ratio": 11.9522,
+     "sequestration_rate": 10
+    },
+    "components": {
+     "vegetation": 0.2456,
+     "stability": 0,
+     "claim_plausibility": 0,
+     "confidence": 0.904,
+     "weights": {
+      "vegetation": 0.5,
+      "stability": 0.2,
+      "claim_plausibility": 0.2,
+      "confidence": 0.1
+     }
+    }
+   }
+  },
+  {
+   "id": "inflated-claim",
+   "title": "Real forest, inflated numbers",
+   "expect": "approved-trimmed",
+   "request": {
+    "name": "Borneo Peat Forest Reserve",
+    "vintage": 2025,
+    "claimedTonnes": 1500,
+    "projectType": "conservation",
+    "polygon": [
+     [
+      113.99595720563715,
+      0.795930327201693
+     ],
+     [
+      114.00416407819372,
+      0.7960524173856423
+     ],
+     [
+      114.00404279436285,
+      0.8041917629822563
+     ],
+     [
+      113.99607848946803,
+      0.8040696727983071
+     ],
+     [
+      113.99595720563715,
+      0.795930327201693
+     ]
+    ]
+   },
+   "geometry": {
+    "areaHa": 80.99999919652704,
+    "cells": [
+     194982925450806,
+     194982925450807,
+     194982925450808,
+     194982925450809,
+     194987220418102,
+     194987220418103,
+     194987220418104,
+     194987220418105,
+     194991515385398,
+     194991515385399,
+     194991515385400,
+     194991515385401,
+     194995810352694,
+     194995810352695,
+     194995810352696,
+     194995810352697
+    ]
+   },
+   "satellite": {
+    "provider": "simulated",
+    "simulated": true,
+    "biome": "Tropical moist forest",
+    "sequestrationRate": 10,
+    "lowConfidence": false,
+    "observations": [
+     {
+      "month": 1,
+      "meanNdvi": 0.8432,
+      "p10": 0.7932,
+      "p90": 0.8932,
+      "canopyFraction": 1,
+      "validFraction": 0.6987
+     },
+     {
+      "month": 2,
+      "meanNdvi": 0.8152,
+      "p10": 0.7652,
+      "p90": 0.8652,
+      "canopyFraction": 0.9848,
+      "validFraction": 0.9293
+     },
+     {
+      "month": 3,
+      "meanNdvi": 0.8456,
+      "p10": 0.7956,
+      "p90": 0.8956,
+      "canopyFraction": 0.9961,
+      "validFraction": 0.7574
+     },
+     {
+      "month": 4,
+      "meanNdvi": 0.8423,
+      "p10": 0.7923,
+      "p90": 0.8923,
+      "canopyFraction": 0.9978,
+      "validFraction": 0.8284
+     },
+     {
+      "month": 5,
+      "meanNdvi": 0.8518,
+      "p10": 0.8018,
+      "p90": 0.9018,
+      "canopyFraction": 1,
+      "validFraction": 0.6449
+     },
+     {
+      "month": 6,
+      "meanNdvi": 0.8306,
+      "p10": 0.7806,
+      "p90": 0.8806,
+      "canopyFraction": 0.9908,
+      "validFraction": 0.547
+     },
+     {
+      "month": 7,
+      "meanNdvi": 0.8027,
+      "p10": 0.7527,
+      "p90": 0.8527,
+      "canopyFraction": 0.9963,
+      "validFraction": 0.5406
+     },
+     {
+      "month": 8,
+      "meanNdvi": 0.8053,
+      "p10": 0.7553,
+      "p90": 0.8553,
+      "canopyFraction": 0.9696,
+      "validFraction": 0.5841
+     },
+     {
+      "month": 9,
+      "meanNdvi": 0.8207,
+      "p10": 0.7707,
+      "p90": 0.8707,
+      "canopyFraction": 1,
+      "validFraction": 0.5917
+     },
+     {
+      "month": 10,
+      "meanNdvi": 0.8175,
+      "p10": 0.7675,
+      "p90": 0.8675,
+      "canopyFraction": 0.9901,
+      "validFraction": 0.9121
+     },
+     {
+      "month": 11,
+      "meanNdvi": 0.8238,
+      "p10": 0.7738,
+      "p90": 0.8738,
+      "canopyFraction": 0.987,
+      "validFraction": 0.9308
+     },
+     {
+      "month": 12,
+      "meanNdvi": 0.8287,
+      "p10": 0.7787,
+      "p90": 0.8787,
+      "canopyFraction": 0.9806,
+      "validFraction": 0.9502
+     }
+    ]
+   },
+   "golden": {
+    "score": 90,
+    "approved": true,
+    "verifiedTonnes": 802,
+    "capacityTonnes": 802.44,
+    "claimedTonnes": 1500,
+    "capsApplied": [],
+    "checks": [
+     {
+      "id": "canopy",
+      "status": "pass"
+     },
+     {
+      "id": "greenness",
+      "status": "pass"
+     },
+     {
+      "id": "clearing",
+      "status": "pass"
+     },
+     {
+      "id": "biome",
+      "status": "pass"
+     },
+     {
+      "id": "claim",
+      "status": "warn"
+     },
+     {
+      "id": "coverage",
+      "status": "pass"
+     }
+    ],
+    "metrics": {
+     "area_ha": 81,
+     "cells": 16,
+     "canopy_fraction": 0.9907,
+     "median_ndvi": 0.8262,
+     "max_monthly_drop": 0.028,
+     "year_decline": 0.0139,
+     "months_observed": 12,
+     "mean_valid_fraction": 0.7429,
+     "claim_to_capacity_ratio": 1.8693,
+     "sequestration_rate": 10
+    },
+    "components": {
+     "vegetation": 1,
+     "stability": 1,
+     "claim_plausibility": 0.5653,
+     "confidence": 0.8715,
+     "weights": {
+      "vegetation": 0.5,
+      "stability": 0.2,
+      "claim_plausibility": 0.2,
+      "confidence": 0.1
+     }
+    }
+   }
+  },
+  {
+   "id": "legit-oregon",
+   "title": "Temperate conifer reforestation, Oregon",
+   "expect": "approved",
+   "request": {
+    "name": "Coast Range Conifer Recovery",
+    "vintage": 2025,
+    "claimedTonnes": 700,
+    "projectType": "reforestation",
+    "polygon": [
+     [
+      -123.60949494316144,
+      44.793217212002816
+     ],
+     [
+      -123.59022020854371,
+      44.79342069564274
+     ],
+     [
+      -123.59050505683855,
+      44.80698627163709
+     ],
+     [
+      -123.60921009486658,
+      44.80678278799718
+     ],
+     [
+      -123.60949494316144,
+      44.793217212002816
+     ]
+    ]
+   },
+   "geometry": {
+    "areaHa": 224.9997354638134,
+    "cells": [
+     289463615909411,
+     289463615909412,
+     289463615909413,
+     289463615909414,
+     289463615909415,
+     289463615909416,
+     289463615909417,
+     289463615909418,
+     289463615909419,
+     289463615909420,
+     289467910876707,
+     289467910876708,
+     289467910876709,
+     289467910876710,
+     289467910876711,
+     289467910876712,
+     289467910876713,
+     289467910876714,
+     289467910876715,
+     289467910876716,
+     289472205844003,
+     289472205844004,
+     289472205844005,
+     289472205844006,
+     289472205844007,
+     289472205844008,
+     289472205844009,
+     289472205844010,
+     289472205844011,
+     289472205844012,
+     289476500811299,
+     289476500811300,
+     289476500811301,
+     289476500811302,
+     289476500811303,
+     289476500811304,
+     289476500811305,
+     289476500811306,
+     289476500811307,
+     289476500811308,
+     289480795778595,
+     289480795778596,
+     289480795778597,
+     289480795778598,
+     289480795778599,
+     289480795778600,
+     289480795778601,
+     289480795778602,
+     289480795778603,
+     289480795778604,
+     289485090745891,
+     289485090745892,
+     289485090745893,
+     289485090745894,
+     289485090745895,
+     289485090745896,
+     289485090745897,
+     289485090745898,
+     289485090745899,
+     289485090745900,
+     289489385713187,
+     289489385713188,
+     289489385713189,
+     289489385713190,
+     289489385713191,
+     289489385713192,
+     289489385713193,
+     289489385713194,
+     289489385713195,
+     289489385713196,
+     289493680680483,
+     289493680680484,
+     289493680680485,
+     289493680680486,
+     289493680680487,
+     289493680680488,
+     289493680680489,
+     289493680680490,
+     289493680680491,
+     289493680680492
+    ]
+   },
+   "satellite": {
+    "provider": "simulated",
+    "simulated": true,
+    "biome": "Temperate conifer forest",
+    "sequestrationRate": 6,
+    "lowConfidence": false,
+    "observations": [
+     {
+      "month": 1,
+      "meanNdvi": 0.683,
+      "p10": 0.613,
+      "p90": 0.753,
+      "canopyFraction": 0.9381,
+      "validFraction": 0.8711
+     },
+     {
+      "month": 2,
+      "meanNdvi": 0.6759,
+      "p10": 0.6059,
+      "p90": 0.7459,
+      "canopyFraction": 0.9142,
+      "validFraction": 0.7853
+     },
+     {
+      "month": 3,
+      "meanNdvi": 0.6863,
+      "p10": 0.6163,
+      "p90": 0.7563,
+      "canopyFraction": 0.9435,
+      "validFraction": 0.841
+     },
+     {
+      "month": 4,
+      "meanNdvi": 0.7409,
+      "p10": 0.6709,
+      "p90": 0.8109,
+      "canopyFraction": 0.964,
+      "validFraction": 0.9205
+     },
+     {
+      "month": 5,
+      "meanNdvi": 0.7386,
+      "p10": 0.6686,
+      "p90": 0.8086,
+      "canopyFraction": 0.9779,
+      "validFraction": 0.953
+     },
+     {
+      "month": 6,
+      "meanNdvi": 0.7605,
+      "p10": 0.6905,
+      "p90": 0.8305,
+      "canopyFraction": 0.9821,
+      "validFraction": 0.9763
+     },
+     {
+      "month": 7,
+      "meanNdvi": 0.7561,
+      "p10": 0.6861,
+      "p90": 0.8261,
+      "canopyFraction": 0.9697,
+      "validFraction": 0.9624
+     },
+     {
+      "month": 8,
+      "meanNdvi": 0.762,
+      "p10": 0.692,
+      "p90": 0.832,
+      "canopyFraction": 0.9727,
+      "validFraction": 0.9729
+     },
+     {
+      "month": 9,
+      "meanNdvi": 0.7445,
+      "p10": 0.6745,
+      "p90": 0.8145,
+      "canopyFraction": 0.947,
+      "validFraction": 0.9288
+     },
+     {
+      "month": 10,
+      "meanNdvi": 0.7206,
+      "p10": 0.6506,
+      "p90": 0.7906,
+      "canopyFraction": 0.9635,
+      "validFraction": 0.7651
+     },
+     {
+      "month": 11,
+      "meanNdvi": 0.7161,
+      "p10": 0.6461,
+      "p90": 0.7861,
+      "canopyFraction": 0.9499,
+      "validFraction": 0.7926
+     },
+     {
+      "month": 12,
+      "meanNdvi": 0.7137,
+      "p10": 0.6437,
+      "p90": 0.7837,
+      "canopyFraction": 0.9392,
+      "validFraction": 0.916
+     }
+    ]
+   },
+   "golden": {
+    "score": 99,
+    "approved": true,
+    "verifiedTonnes": 700,
+    "capacityTonnes": 1290.77,
+    "claimedTonnes": 700,
+    "capsApplied": [],
+    "checks": [
+     {
+      "id": "canopy",
+      "status": "pass"
+     },
+     {
+      "id": "greenness",
+      "status": "pass"
+     },
+     {
+      "id": "clearing",
+      "status": "pass"
+     },
+     {
+      "id": "biome",
+      "status": "pass"
+     },
+     {
+      "id": "claim",
+      "status": "pass"
+     },
+     {
+      "id": "coverage",
+      "status": "pass"
+     }
+    ],
+    "metrics": {
+     "area_ha": 225,
+     "cells": 80,
+     "canopy_fraction": 0.9561,
+     "median_ndvi": 0.7296,
+     "max_monthly_drop": 0.0239,
+     "year_decline": -0.0272,
+     "months_observed": 12,
+     "mean_valid_fraction": 0.8904,
+     "claim_to_capacity_ratio": 0.5423,
+     "sequestration_rate": 6
+    },
+    "components": {
+     "vegetation": 1,
+     "stability": 1,
+     "claim_plausibility": 1,
+     "confidence": 0.9452,
+     "weights": {
+      "vegetation": 0.5,
+      "stability": 0.2,
+      "claim_plausibility": 0.2,
+      "confidence": 0.1
+     }
+    }
+   }
+  }
+ ]
+}
