@@ -1,0 +1,14 @@
+{
+  "name": "climate-chain-gateway",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node gateway.mjs",
+    "worker": "node mission-worker.mjs",
+    "supervisor": "node mission-supervisor.mjs",
+    "test": "node --test"
+  }
+}
