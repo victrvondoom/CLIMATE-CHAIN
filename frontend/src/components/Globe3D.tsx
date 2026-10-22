@@ -8,10 +8,10 @@ import * as THREE from 'three';
 import type { Overview } from '../types';
 
 const PILOTS: { id: string; name: string; lat: number; lng: number; color: number }[] = [
-  { id: 'waste', name: 'JunkSnap', lat: 26.29, lng: 73.02, color: 0xf0b429 },
-  { id: 'fire', name: 'clearsky', lat: 30.9, lng: 75.85, color: 0xff7a3d },
-  { id: 'water', name: 'Teesri Shikayat', lat: 19.12, lng: 72.84, color: 0x38bdf8 },
-  { id: 'air', name: 'The Vayu Project', lat: 28.61, lng: 77.23, color: 0xa78bfa },
+  { id: 'waste', name: 'JunkSnap', lat: 26.29, lng: 73.02, color: 0x1b1916 },
+  { id: 'fire', name: 'clearsky', lat: 30.9, lng: 75.85, color: 0x1b1916 },
+  { id: 'water', name: 'Teesri Shikayat', lat: 19.12, lng: 72.84, color: 0x1b1916 },
+  { id: 'air', name: 'The Vayu Project', lat: 28.61, lng: 77.23, color: 0x1b1916 },
 ];
 
 // Decorative pilot-to-pilot links for the overview only.
@@ -86,17 +86,17 @@ export function Globe3D({ data, showPilotBeacons = true, showSchematicLinks = tr
     // --- the dark body (occludes the far wireframe so the sphere reads as solid) ---
     globe.add(new THREE.Mesh(
       new THREE.SphereGeometry(R * 0.985, 48, 48),
-      new THREE.MeshBasicMaterial({ color: 0x0a1428 }),
+      new THREE.MeshBasicMaterial({ color: 0xfbf9f2 }),
     ));
 
     // --- hologram wireframe ---
     globe.add(new THREE.LineSegments(
       new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(R * 0.99, 3)),
-      new THREE.LineBasicMaterial({ color: 0x2a4d7f, transparent: true, opacity: 0.3 }),
+      new THREE.LineBasicMaterial({ color: 0x77726a, transparent: true, opacity: 0.3 }),
     ));
 
     // --- graticule: latitude rings and meridians ---
-    const gratMat = new THREE.LineBasicMaterial({ color: 0x1c3a63, transparent: true, opacity: 0.45 });
+    const gratMat = new THREE.LineBasicMaterial({ color: 0x77726a, transparent: true, opacity: 0.45 });
     for (let lat = -60; lat <= 60; lat += 30) {
       const y = R * Math.sin((lat * Math.PI) / 180);
       const rad = R * Math.cos((lat * Math.PI) / 180);
@@ -127,7 +127,7 @@ export function Globe3D({ data, showPilotBeacons = true, showSchematicLinks = tr
     }
 
     // --- orbital chain rings (decorative, tilted to pass over the pilots) ---
-    const dashMat = new THREE.LineDashedMaterial({ color: 0x3f6bb0, dashSize: 0.35, gapSize: 0.55, transparent: true, opacity: 0.4 });
+    const dashMat = new THREE.LineDashedMaterial({ color: 0x77726a, dashSize: 0.35, gapSize: 0.55, transparent: true, opacity: 0.4 });
     for (const tilt of [0.95, -0.7]) {
       const geo = new THREE.BufferGeometry();
       geo.setAttribute('position', new THREE.BufferAttribute(circlePoints(128, R * 1.32), 3));
@@ -149,11 +149,11 @@ export function Globe3D({ data, showPilotBeacons = true, showSchematicLinks = tr
       starPos[i * 3 + 2] = v.z;
     }
     starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
-    scene.add(new THREE.Points(starGeo, new THREE.PointsMaterial({ color: 0x9db8e0, size: 0.45, transparent: true, opacity: 0.8 })));
+    scene.add(new THREE.Points(starGeo, new THREE.PointsMaterial({ color: 0x77726a, size: 0.45, transparent: true, opacity: 0.8 })));
 
     // --- atmosphere halo behind the globe ---
     const glow = glowTexture();
-    const haloMat = () => new THREE.SpriteMaterial({ map: glow, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false });
+    const haloMat = () => new THREE.SpriteMaterial({ map: glow, transparent: true, blending: THREE.NormalBlending, depthWrite: false });
 
     // --- pilot beacons: dot + beam + pulsing halo ---
     const beamMats: THREE.MeshBasicMaterial[] = [];
@@ -199,7 +199,7 @@ export function Globe3D({ data, showPilotBeacons = true, showSchematicLinks = tr
       const geometry = new THREE.BufferGeometry();
       geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
       const material = new THREE.PointsMaterial({
-        color: data.sources.junksnap.mode === 'live' ? 0xffd166 : 0xc28a24,
+        color: data.sources.junksnap.mode === 'live' ? 0x1b1916 : 0x1b1916,
         size: 0.26,
         sizeAttenuation: true,
         transparent: true,
@@ -211,7 +211,7 @@ export function Globe3D({ data, showPilotBeacons = true, showSchematicLinks = tr
     if (reviewLat !== undefined && Number.isFinite(reviewLat) && reviewLng !== undefined && Number.isFinite(reviewLng)) {
       const marker = new THREE.Mesh(
         new THREE.SphereGeometry(0.3, 18, 18),
-        new THREE.MeshBasicMaterial({ color: 0xffd166, wireframe: true }),
+        new THREE.MeshBasicMaterial({ color: 0x1b1916, wireframe: true }),
       );
       marker.position.copy(toVec3(reviewLat, reviewLng, R + 0.2));
       globe.add(marker);
@@ -223,7 +223,7 @@ export function Globe3D({ data, showPilotBeacons = true, showSchematicLinks = tr
       const pos = toVec3(data.air.place.lat, data.air.place.lng, R + 0.17);
       const marker = new THREE.Mesh(
         new THREE.SphereGeometry(0.28, 18, 18),
-        new THREE.MeshBasicMaterial({ color: data.sources.vayu.mode === 'live' ? 0xd5c6ff : 0x7562a8, wireframe: true }),
+        new THREE.MeshBasicMaterial({ color: data.sources.vayu.mode === 'live' ? 0x1b1916 : 0x1b1916, wireframe: true }),
       );
       marker.position.copy(pos);
       globe.add(marker);
@@ -238,7 +238,7 @@ export function Globe3D({ data, showPilotBeacons = true, showSchematicLinks = tr
         color: new THREE.Color(PILOTS[a].color).lerp(new THREE.Color(PILOTS[b].color), 0.5),
         transparent: true,
         opacity: 0.75,
-        blending: THREE.AdditiveBlending,
+        blending: THREE.NormalBlending,
       });
       globe.add(new THREE.Line(geo, mat));
     });

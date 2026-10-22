@@ -1,11 +1,11 @@
 /* Flarewatch module styles. Every class starts with m-flarewatch-. */
 
 .m-flarewatch {
-  --m-flarewatch-tone: #70dba5;
-  --m-flarewatch-panel: var(--panel-solid, #131e34);
-  --m-flarewatch-line: var(--line, rgba(120, 150, 200, 0.18));
-  --m-flarewatch-text: var(--text, #e9eff8);
-  --m-flarewatch-muted: var(--muted, #8ea0b8);
+  --m-flarewatch-tone: var(--ink);
+  --m-flarewatch-panel: var(--panel-solid, var(--paper-raised));
+  --m-flarewatch-line: var(--line, var(--rule));
+  --m-flarewatch-text: var(--text, var(--ink));
+  --m-flarewatch-muted: var(--muted, var(--ink-3));
   display: grid;
   gap: 16px;
   padding: 16px;
@@ -62,7 +62,7 @@
   padding: 3px 8px;
   border: 1px solid currentColor;
   border-radius: 999px;
-  color: #70dba5;
+  color: var(--ink);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -81,7 +81,7 @@
   gap: 4px;
   padding: 10px;
   border-radius: 10px;
-  background: rgba(8, 14, 25, 0.6);
+  background: var(--paper-raised);
 }
 
 .m-flarewatch-stat-label {
@@ -144,17 +144,17 @@
 }
 
 .m-flarewatch-class-persistent {
-  border-color: #f2cf69;
-  color: #f2cf69;
+  border-color: var(--ink);
+  color: var(--ink);
 }
 
 .m-flarewatch-ok {
-  color: #34d399;
+  color: var(--ink);
   font-weight: 600;
 }
 
 .m-flarewatch-bad {
-  color: #f87171;
+  color: var(--ink-3);
   font-weight: 600;
 }
 
@@ -187,11 +187,11 @@
 .m-flarewatch-btn-primary,
 .m-flarewatch-tab-on {
   border-color: var(--m-flarewatch-tone);
-  background: rgba(112, 219, 165, 0.12);
+  background: rgba(255,253,247,0.75);
 }
 
 .m-flarewatch-btn:disabled {
-  opacity: 0.5;
+  opacity: 0.72;
   cursor: default;
 }
 

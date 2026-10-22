@@ -70,7 +70,7 @@
 .m-clearsky-table td {
   text-align: left;
   padding: 6px 4px;
-  border-bottom: 1px solid rgba(127, 127, 127, 0.25);
+  border-bottom: 1px solid var(--rule);
   overflow-wrap: anywhere;
 }
 
@@ -82,19 +82,19 @@
   padding: 2px 8px;
   font-size: 0.8rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--ink);
 }
 
 .m-clearsky-red {
-  background: #b42318;
+  background: var(--paper-raised);
 }
 
 .m-clearsky-yellow {
-  background: #b54708;
+  background: var(--paper-raised);
 }
 
 .m-clearsky-green {
-  background: #067647;
+  background: var(--paper-raised);
 }
 
 .m-clearsky-reasons,
@@ -114,7 +114,7 @@
 .m-clearsky-routes li {
   display: grid;
   gap: 4px;
-  border-bottom: 1px solid rgba(127, 127, 127, 0.25);
+  border-bottom: 1px solid var(--rule);
   padding-bottom: 6px;
 }
 
@@ -126,7 +126,7 @@
 
 .m-clearsky-chip,
 .m-clearsky-action {
-  border: 1px solid rgba(127, 127, 127, 0.5);
+  border: 1px solid var(--rule);
   border-radius: 8px;
   background: transparent;
   color: inherit;
@@ -145,7 +145,7 @@
   margin: 0;
   padding: 10px;
   border-radius: 8px;
-  background: rgba(127, 127, 127, 0.08);
+  background: rgba(23,21,19,0.06);
   font-size: 0.92rem;
 }
 
@@ -156,11 +156,11 @@
 }
 
 .m-clearsky-error {
-  color: #b42318;
+  color: var(--ink);
 }
 
 @media (prefers-color-scheme: dark) {
   .m-clearsky-error {
-    color: #fda29b;
+    color: var(--ink);
   }
 }

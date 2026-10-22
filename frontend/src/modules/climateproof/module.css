@@ -1,12 +1,12 @@
 .m-climateproof-root {
-  --m-climateproof-ink: #1b2b33;
-  --m-climateproof-muted: #55676f;
-  --m-climateproof-line: #cbd9de;
-  --m-climateproof-paper: #f5f8f9;
-  --m-climateproof-accent: #2f6f8f;
-  --m-climateproof-ok: #237a4b;
-  --m-climateproof-bad: #b3261e;
-  --m-climateproof-sim: #8a5a00;
+  --m-climateproof-ink: var(--ink);
+  --m-climateproof-muted: var(--ink-3);
+  --m-climateproof-line: var(--ink);
+  --m-climateproof-paper: var(--paper-raised);
+  --m-climateproof-accent: var(--ink);
+  --m-climateproof-ok: var(--paper-raised);
+  --m-climateproof-bad: var(--paper-raised);
+  --m-climateproof-sim: var(--paper-raised);
   color: var(--m-climateproof-ink);
   display: grid;
   gap: 16px;
@@ -17,24 +17,24 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) .m-climateproof-root {
-    --m-climateproof-ink: #e4edf1;
-    --m-climateproof-muted: #a6b9c1;
-    --m-climateproof-line: #374a52;
-    --m-climateproof-paper: #1a262b;
-    --m-climateproof-ok: #6fd39a;
-    --m-climateproof-bad: #ff9b93;
-    --m-climateproof-sim: #f0c36b;
+    --m-climateproof-ink: var(--ink);
+    --m-climateproof-muted: var(--ink);
+    --m-climateproof-line: var(--ink);
+    --m-climateproof-paper: var(--paper-raised);
+    --m-climateproof-ok: var(--ink);
+    --m-climateproof-bad: var(--ink);
+    --m-climateproof-sim: var(--ink);
   }
 }
 
 :root[data-theme='dark'] .m-climateproof-root {
-  --m-climateproof-ink: #e4edf1;
-  --m-climateproof-muted: #a6b9c1;
-  --m-climateproof-line: #374a52;
-  --m-climateproof-paper: #1a262b;
-  --m-climateproof-ok: #6fd39a;
-  --m-climateproof-bad: #ff9b93;
-  --m-climateproof-sim: #f0c36b;
+  --m-climateproof-ink: var(--ink);
+  --m-climateproof-muted: var(--ink);
+  --m-climateproof-line: var(--ink);
+  --m-climateproof-paper: var(--paper-raised);
+  --m-climateproof-ok: var(--ink);
+  --m-climateproof-bad: var(--ink);
+  --m-climateproof-sim: var(--ink);
 }
 
 .m-climateproof-head {
@@ -125,12 +125,12 @@
   border-radius: 8px;
   border: 1px solid var(--m-climateproof-accent);
   background: var(--m-climateproof-accent);
-  color: #fff;
+  color: var(--ink);
   cursor: pointer;
 }
 
 .m-climateproof-btn:disabled {
-  opacity: 0.45;
+  opacity: 0.72;
   cursor: not-allowed;
 }
 

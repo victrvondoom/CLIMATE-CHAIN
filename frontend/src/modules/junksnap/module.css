@@ -70,7 +70,7 @@
 .m-junksnap-table td {
   text-align: left;
   padding: 6px 4px;
-  border-bottom: 1px solid rgba(127, 127, 127, 0.25);
+  border-bottom: 1px solid var(--rule);
   overflow-wrap: anywhere;
 }
 
@@ -82,7 +82,7 @@
 
 .m-junksnap-chip,
 .m-junksnap-action {
-  border: 1px solid rgba(127, 127, 127, 0.5);
+  border: 1px solid var(--rule);
   border-radius: 8px;
   background: transparent;
   color: inherit;
@@ -112,7 +112,7 @@
   margin: 0;
   padding: 10px;
   border-radius: 8px;
-  background: rgba(127, 127, 127, 0.08);
+  background: rgba(23,21,19,0.06);
   font: inherit;
   font-size: 0.88rem;
 }
@@ -126,12 +126,12 @@
 
 .m-junksnap-error {
   margin: 0;
-  color: #b42318;
+  color: var(--ink);
 }
 
 @media (prefers-color-scheme: dark) {
   .m-junksnap-error {
-    color: #fda29b;
+    color: var(--ink);
   }
 }
 

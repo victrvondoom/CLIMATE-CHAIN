@@ -70,7 +70,7 @@
 .m-carbonlens-table td {
   text-align: left;
   padding: 6px 8px;
-  border-bottom: 1px solid rgba(127, 127, 127, 0.25);
+  border-bottom: 1px solid var(--rule);
   vertical-align: top;
 }
 
@@ -86,17 +86,17 @@
 }
 
 .m-carbonlens-muted {
-  opacity: 0.6;
+  opacity: 0.72;
   font-size: 12px;
 }
 
 .m-carbonlens-ok {
-  color: #1b7f4a;
+  color: var(--ink-3);
   font-weight: 600;
 }
 
 .m-carbonlens-bad {
-  color: #b3261e;
+  color: var(--ink);
   font-weight: 600;
 }
 
@@ -119,7 +119,7 @@
 }
 
 .m-carbonlens-button:disabled {
-  opacity: 0.5;
+  opacity: 0.72;
   cursor: default;
 }
 

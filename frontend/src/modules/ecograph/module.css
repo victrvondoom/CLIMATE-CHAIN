@@ -22,8 +22,8 @@
 .m-ecograph-mode {
   padding: 2px 8px;
   border-radius: 4px;
-  background: #5b4a12;
-  color: #fff3c4;
+  background: var(--paper-raised);
+  color: var(--ink);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -87,18 +87,18 @@
 }
 
 .m-ecograph-band-freeze {
-  background: #7a1f1f;
-  color: #ffe4e4;
+  background: var(--paper-raised);
+  color: var(--ink);
 }
 
 .m-ecograph-band-review {
-  background: #6b4b10;
-  color: #fff1d0;
+  background: var(--paper-raised);
+  color: var(--ink);
 }
 
 .m-ecograph-band-watch {
-  background: #24472e;
-  color: #e2f5e7;
+  background: var(--paper-raised);
+  color: var(--ink);
 }
 
 .m-ecograph-state {
@@ -142,7 +142,7 @@
 
 .m-ecograph-error {
   margin: 0;
-  color: #b42318;
+  color: var(--ink);
   font-size: 13px;
 }
 

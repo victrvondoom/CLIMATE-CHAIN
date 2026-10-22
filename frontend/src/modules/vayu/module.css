@@ -1,17 +1,17 @@
 .m-vayu-root {
-  --m-vayu-ink: #1d2a24;
-  --m-vayu-muted: #56655d;
-  --m-vayu-line: #cdd8d0;
-  --m-vayu-paper: #f6f8f5;
-  --m-vayu-good: #2e7d4f;
-  --m-vayu-satisfactory: #7aa73a;
-  --m-vayu-moderate: #c9a227;
-  --m-vayu-poor: #d9731c;
-  --m-vayu-very-poor: #c0392b;
-  --m-vayu-severe: #7a1f2b;
-  --m-vayu-current: #2e7d4f;
-  --m-vayu-old: #b07d12;
-  --m-vayu-dropped: #a33a3a;
+  --m-vayu-ink: var(--ink);
+  --m-vayu-muted: var(--ink-3);
+  --m-vayu-line: var(--ink);
+  --m-vayu-paper: var(--paper-raised);
+  --m-vayu-good: var(--paper-raised);
+  --m-vayu-satisfactory: var(--ink);
+  --m-vayu-moderate: var(--ink);
+  --m-vayu-poor: var(--ink);
+  --m-vayu-very-poor: var(--paper-raised);
+  --m-vayu-severe: var(--paper-raised);
+  --m-vayu-current: var(--paper-raised);
+  --m-vayu-old: var(--ink);
+  --m-vayu-dropped: var(--paper-raised);
   color: var(--m-vayu-ink);
   display: grid;
   gap: 16px;
@@ -22,18 +22,18 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) .m-vayu-root {
-    --m-vayu-ink: #e6eee9;
-    --m-vayu-muted: #a9b8af;
-    --m-vayu-line: #37463e;
-    --m-vayu-paper: #18211d;
+    --m-vayu-ink: var(--ink);
+    --m-vayu-muted: var(--ink);
+    --m-vayu-line: var(--ink);
+    --m-vayu-paper: var(--paper-raised);
   }
 }
 
 :root[data-theme='dark'] .m-vayu-root {
-  --m-vayu-ink: #e6eee9;
-  --m-vayu-muted: #a9b8af;
-  --m-vayu-line: #37463e;
-  --m-vayu-paper: #18211d;
+  --m-vayu-ink: var(--ink);
+  --m-vayu-muted: var(--ink);
+  --m-vayu-line: var(--ink);
+  --m-vayu-paper: var(--paper-raised);
 }
 
 .m-vayu-head {
@@ -72,7 +72,7 @@
 }
 
 .m-vayu-mode-research {
-  color: #2f5d8a;
+  color: var(--ink);
 }
 
 .m-vayu-mode-live {

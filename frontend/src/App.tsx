@@ -11,6 +11,7 @@ import { AgentMemory } from './modules/AgentMemory';
 import { CLIMATE_MODULES } from './modules';
 import { ModuleScreen, findModule } from './modules/ModuleScreen';
 import { EvidenceLedger } from './modules/EvidenceLedger';
+import { SessionDesk } from './modules/SessionDesk';
 import { CommandPalette } from './components/CommandPalette';
 import { WorkspaceErrorBoundary } from './components/WorkspaceErrorBoundary';
 
@@ -20,6 +21,7 @@ const MissionStudio = lazy(() => import('./modules/MissionStudio').then((module)
 const CascadeReview = lazy(() => import('./modules/CascadeReview').then((module) => ({ default: module.CascadeReview })));
 
 const NAV: { id: WorkspaceView; label: string; title: string; section: 'workspace' | 'signals' }[] = [
+  { id: 'session', label: 'Review desk', title: 'Climate Chain', section: 'workspace' },
   { id: 'overview', label: 'Command center', title: 'Climate Chain', section: 'workspace' },
   { id: 'memory', label: 'AI engineering memory', title: 'Engineering memory', section: 'workspace' },
   { id: 'ledger', label: 'Evidence ledger', title: 'Evidence ledger', section: 'workspace' },
@@ -34,7 +36,7 @@ const NAV: { id: WorkspaceView; label: string; title: string; section: 'workspac
 ];
 
 export default function App() {
-  const [view, setView] = useState<WorkspaceView>('overview');
+  const [view, setView] = useState<WorkspaceView>('session');
   const [activeStage, setActiveStage] = useState<StageId>('sense');
   const [focus, setFocus] = useState<FocusId>('farmland');
   const [studioSelection, setStudioSelection] = useState<string[]>(() => CAPABILITIES.map((item) => item.id));
@@ -121,7 +123,7 @@ export default function App() {
 
   const activeModule = view.startsWith('module:') ? findModule(view.slice('module:'.length)) : undefined;
   const nav = NAV.find((n) => n.id === view);
-  const title = activeModule?.name ?? nav?.title ?? 'Climate Chain';
+  const title = nav?.title ?? 'Climate Chain';
   const navigate = (destination: WorkspaceView, memoryId?: string, missionId?: string) => {
     setFocusMemoryId(memoryId ?? null);
     setFocusMissionId(missionId ?? null);
@@ -139,7 +141,7 @@ export default function App() {
           <div className="brand-mark">CC</div>
           <div>
             <div className="brand-name">Climate Chain</div>
-            <div className="brand-sub">One path · {PROJECT_FOLDER_COUNT} projects</div>
+            <div className="brand-sub">Review desk · {PROJECT_FOLDER_COUNT} modules</div>
           </div>
         </div>
         <nav className="primary-nav" aria-label="Main navigation">
@@ -231,6 +233,7 @@ export default function App() {
           {data && view === 'fire' && <Fire data={data} />}
           {data && view === 'water' && <Water data={data} />}
           {data && view === 'air' && <Air data={data} city={city} onCity={setCity} />}
+          {view === 'session' && <SessionDesk />}
           {view === 'ledger' && <EvidenceLedger />}
           {activeModule && <ModuleScreen climateModule={activeModule} />}
         </WorkspaceErrorBoundary>

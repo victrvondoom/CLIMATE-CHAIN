@@ -22,8 +22,8 @@
 .m-grounded-mode {
   padding: 2px 8px;
   border-radius: 4px;
-  background: #5b4a12;
-  color: #fff3c4;
+  background: var(--paper-raised);
+  color: var(--ink);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -83,11 +83,11 @@
 }
 
 .m-grounded-trace-soc {
-  stroke: #2f7d4f;
+  stroke: var(--ink);
 }
 
 .m-grounded-trace-grid {
-  stroke: #b5651d;
+  stroke: var(--ink);
   stroke-dasharray: 4 3;
   opacity: 0.85;
 }

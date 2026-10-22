@@ -1,11 +1,11 @@
 /* GridProof module styles. Every class starts with m-gridproof-. */
 
 .m-gridproof {
-  --m-gridproof-tone: #f2cf69;
-  --m-gridproof-panel: var(--panel-solid, #131e34);
-  --m-gridproof-line: var(--line, rgba(120, 150, 200, 0.18));
-  --m-gridproof-text: var(--text, #e9eff8);
-  --m-gridproof-muted: var(--muted, #8ea0b8);
+  --m-gridproof-tone: var(--ink);
+  --m-gridproof-panel: var(--panel-solid, var(--paper-raised));
+  --m-gridproof-line: var(--line, var(--rule));
+  --m-gridproof-text: var(--text, var(--ink));
+  --m-gridproof-muted: var(--muted, var(--ink-3));
   display: grid;
   gap: 16px;
   padding: 16px;
@@ -62,7 +62,7 @@
   padding: 3px 8px;
   border: 1px solid currentColor;
   border-radius: 999px;
-  color: #f2cf69;
+  color: var(--ink);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -88,7 +88,7 @@
   padding: 6px 8px;
   border-radius: 8px;
   border: 1px solid var(--m-gridproof-line);
-  background: #0b1424;
+  background: var(--paper-raised);
   color: var(--m-gridproof-text);
   font: inherit;
 }
@@ -123,7 +123,7 @@
 }
 
 .m-gridproof-row-flag td {
-  background: rgba(248, 113, 113, 0.08);
+  background: rgba(255,253,247,0.75);
 }
 
 .m-gridproof-why {
@@ -151,11 +151,11 @@
 
 .m-gridproof-btn-primary {
   border-color: var(--m-gridproof-tone);
-  background: rgba(242, 207, 105, 0.12);
+  background: rgba(255,253,247,0.75);
 }
 
 .m-gridproof-btn:hover {
-  background: rgba(242, 207, 105, 0.1);
+  background: rgba(255,253,247,0.75);
 }
 
 .m-gridproof-stats {

@@ -18,7 +18,7 @@
 
 .m-plotlock-tagline {
   margin: 4px 0 0;
-  color: #5b6b63;
+  color: var(--ink-3);
 }
 
 .m-plotlock-mode {
@@ -32,13 +32,13 @@
 }
 
 .m-plotlock-mode-simulated {
-  color: #7a5b00;
-  background: #fff4cc;
+  color: var(--paper);
+  background: var(--ink);
 }
 
 .m-plotlock-mode-research {
-  color: #0b5c4a;
-  background: #d9f5ec;
+  color: var(--ink);
+  background: var(--paper-raised);
 }
 
 .m-plotlock-grid {
@@ -59,7 +59,7 @@
 .m-plotlock-card-sub {
   margin: 0 0 12px;
   font-size: 0.85rem;
-  color: #5b6b63;
+  color: var(--ink-3);
 }
 
 .m-plotlock-table-wrap {
@@ -76,7 +76,7 @@
 .m-plotlock-table td {
   text-align: left;
   padding: 6px 8px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid var(--rule);
   vertical-align: top;
 }
 
@@ -100,18 +100,18 @@
 }
 
 .m-plotlock-verdict-noburn {
-  background: #d9f5ec;
-  color: #0b5c4a;
+  background: var(--paper-raised);
+  color: var(--ink);
 }
 
 .m-plotlock-verdict-burned {
-  background: #fde2e0;
-  color: #8a1c12;
+  background: var(--paper-raised);
+  color: var(--ink);
 }
 
 .m-plotlock-verdict-uncertain {
-  background: #ececec;
-  color: #3b3b3b;
+  background: var(--paper-raised);
+  color: var(--ink);
 }
 
 .m-plotlock-signal {
@@ -127,11 +127,11 @@
 
 .m-plotlock-note {
   font-size: 0.85rem;
-  color: #5b6b63;
+  color: var(--ink-3);
 }
 
 .m-plotlock-error {
-  color: #8a1c12;
+  color: var(--ink);
 }
 
 .m-plotlock-button {
@@ -139,8 +139,8 @@
   padding: 8px 14px;
   border: 0;
   border-radius: 8px;
-  background: #0b5c4a;
-  color: #fff;
+  background: var(--paper-raised);
+  color: var(--ink);
   cursor: pointer;
 }
 

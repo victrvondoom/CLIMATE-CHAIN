@@ -22,8 +22,8 @@
 .m-carbontrace-mode {
   padding: 2px 8px;
   border-radius: 4px;
-  background: #3b3b5c;
-  color: #e6e6ff;
+  background: var(--paper-raised);
+  color: var(--ink);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -94,7 +94,7 @@
 .m-carbontrace-table th,
 .m-carbontrace-table td {
   padding: 6px 8px;
-  border-bottom: 1px solid rgba(127, 127, 127, 0.3);
+  border-bottom: 1px solid var(--rule);
   text-align: left;
   vertical-align: top;
 }
@@ -106,15 +106,15 @@
 }
 
 .m-carbontrace-status-pass {
-  color: #1f7a3d;
+  color: var(--ink-3);
 }
 
 .m-carbontrace-status-warn {
-  color: #9a6700;
+  color: var(--ink-3);
 }
 
 .m-carbontrace-status-fail {
-  color: #b42318;
+  color: var(--ink);
 }
 
 .m-carbontrace-actions {

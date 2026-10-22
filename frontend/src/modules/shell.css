@@ -2,15 +2,15 @@
    the cross-module ledger, and the stage groups in the sidebar. Reuses the tokens in styles.css. */
 
 .module-screen {
-  --tone: #79d4c8;
+  --tone: var(--ink);
   display: flex;
   flex-direction: column;
   gap: 16px;
   padding: 22px;
   border-radius: 18px;
-  background: linear-gradient(160deg, rgba(20, 32, 54, 0.92), rgba(9, 14, 26, 0.96));
-  border: 1px solid rgba(150, 190, 230, 0.16);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  background: linear-gradient(160deg, var(--paper-raised), var(--paper-raised));
+  border: 1px solid var(--rule);
+  box-shadow: 0 24px 60px rgba(23,21,19,0.16), inset 0 1px 0 rgba(255,253,247,0.9);
 }
 
 .module-head h2 {
@@ -22,7 +22,7 @@
 .module-tagline {
   margin: 0;
   max-width: 66ch;
-  color: #c3d1e4;
+  color: var(--ink);
   font-size: 14px;
   line-height: 1.5;
 }
@@ -47,10 +47,10 @@
 .module-features li {
   padding: 10px 12px;
   border-radius: 10px;
-  border: 1px solid rgba(120, 150, 200, 0.14);
+  border: 1px solid var(--rule);
   border-left: 2px solid var(--tone);
-  background: rgba(10, 18, 32, 0.6);
-  color: #c3d1e4;
+  background: var(--paper-raised);
+  color: var(--ink);
   font-size: 13px;
   line-height: 1.45;
 }
@@ -68,10 +68,10 @@
   letter-spacing: 0.12em;
 }
 
-.mode-live { color: #0b1220; background: #79d4c8; }
-.mode-simulated { color: #0b1220; background: #f2cf69; }
-.mode-research { color: #0b1220; background: #9ee8dc; }
-.mode-demo { color: #e9eff8; background: rgba(167, 139, 250, 0.32); border: 1px solid rgba(167, 139, 250, 0.5); }
+.mode-live { color: var(--paper); background: var(--ink); }
+.mode-simulated { color: var(--paper); background: var(--ink); }
+.mode-research { color: var(--paper); background: var(--ink); }
+.mode-demo { color: var(--ink); background: rgba(255,253,247,0.75); border: 1px solid var(--rule); }
 
 .ledger {
   display: flex;
@@ -105,8 +105,8 @@
   gap: 8px;
   padding: 14px 16px;
   border-radius: 14px;
-  border: 1px solid rgba(120, 150, 200, 0.14);
-  background: rgba(10, 18, 32, 0.6);
+  border: 1px solid var(--rule);
+  background: var(--paper-raised);
 }
 
 .ledger-meta {
@@ -118,7 +118,7 @@
 
 .ledger-item p {
   margin: 0;
-  color: #c3d1e4;
+  color: var(--ink);
   font-size: 13px;
 }
 
@@ -133,7 +133,7 @@
 
 .nav-stage-label {
   padding: 10px 0 4px 2px;
-  color: #6f819b;
+  color: var(--ink-3);
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;

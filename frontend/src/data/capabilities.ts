@@ -5,7 +5,7 @@ import type { ModuleId } from '../types';
 // gateway serves at /api/v1/projects. Add or edit a project there, not here.
 
 export type StageId = 'sense' | 'verify' | 'act' | 'finance' | 'prove';
-export type WorkspaceView = 'overview' | 'mission' | 'studio' | 'capabilities' | 'cascade' | 'memory' | 'ledger' | `module:${string}` | ModuleId;
+export type WorkspaceView = 'session' | 'overview' | 'mission' | 'studio' | 'capabilities' | 'cascade' | 'memory' | 'ledger' | `module:${string}` | ModuleId;
 
 interface RegistryProject {
   id: string;
