@@ -1,0 +1,46 @@
+{
+ "source": "projects/rantai-3c-master/src/components/CarbonOffsetMarketplace.tsx (projects list)",
+ "note": "The four offset projects listed in the source marketplace. Prices are USD per tonne of CO2. The payment-provider and certifier names are the source's own listing text.",
+ "projects": [
+  {
+   "id": "reforest-indo",
+   "name": "Indonesia Rainforest Restoration",
+   "provider": "Yayasan KEHATI",
+   "type": "reforestation",
+   "pricePerTon": 15,
+   "location": "Kalimantan, Indonesia",
+   "certification": "Gold Standard",
+   "impact": "Each credit protects 10 trees and supports 1 local farmer"
+  },
+  {
+   "id": "solar-java",
+   "name": "Java Solar Farm Initiative",
+   "provider": "PLN Renewable Energy",
+   "type": "renewable",
+   "pricePerTon": 12,
+   "location": "West Java, Indonesia",
+   "certification": "VCS (Verified Carbon Standard)",
+   "impact": "Powers 5,000 homes with clean energy per 1 ton offset"
+  },
+  {
+   "id": "mangrove-sulawesi",
+   "name": "Sulawesi Mangrove Conservation",
+   "provider": "Blue Forests",
+   "type": "conservation",
+   "pricePerTon": 18,
+   "location": "Sulawesi, Indonesia",
+   "certification": "Plan Vivo",
+   "impact": "Protects 50m² of mangrove ecosystem per ton"
+  },
+  {
+   "id": "ccus-jakarta",
+   "name": "Jakarta Carbon Capture Technology",
+   "provider": "Pertamina CCS",
+   "type": "technology",
+   "pricePerTon": 25,
+   "location": "Jakarta, Indonesia",
+   "certification": "ISO 14064",
+   "impact": "Prevents 1 ton CO₂ from entering atmosphere"
+  }
+ ]
+}

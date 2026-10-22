@@ -1,0 +1,17 @@
+{
+ "source": "projects/rantai-3c-master/src/contracts/CarbonDAO.sol (castVote, executeProposal)",
+ "note": "ILLUSTRATIVE, SIMULATED. The source has no sample ballots. Weights stand for token balances, which castVote reads on chain. The voting window is in seconds since the epoch.",
+ "proposal": {
+  "id": 0,
+  "title": "Fund a mangrove restoration round (illustrative)",
+  "startTime": 1700000000,
+  "endTime": 1700604800,
+  "quorumPercentage": 10,
+  "totalSupply": 1000
+ },
+ "ballots": [
+  { "voter": "member-a", "support": true, "weight": 400, "at": 1700100000 },
+  { "voter": "member-b", "support": false, "weight": 250, "at": 1700200000 },
+  { "voter": "member-c", "support": true, "weight": 150, "at": 1700300000 }
+ ]
+}
