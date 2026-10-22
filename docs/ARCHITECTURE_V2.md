@@ -31,7 +31,7 @@ Rules for a module:
 1. **Domain logic is pure TypeScript** in `domain/`, with no React and no DOM. Port the project's rules, not its framework. Each rule gets a unit test. Where the source has tests or fixtures, reuse their expected values as test vectors.
 2. **Data is inherited, not invented.** Copy the smallest fixture from the source folder into `fixtures/` (keep each file under 200 KB). Put the source path in `source.files`. If the feature needs a live source, call an existing gateway route only; do not add a route.
 3. **Honest labels.** Use `mode` for the data the module shows. Fixture data is `SIMULATED` or `DEMO` unless it is a measured result copied from the project's own outputs, which is `RESEARCH`. Never label fixture data `LIVE`.
-4. **Hashing and evidence** go through `src/core/evidence.ts`. A module records evidence with `createEvidence` and `appendEvidence`. It does not write its own storage.
+4. **Hashing and evidence** go through `src/core/evidence.ts`. A module records evidence with `createEvidence` and `appendLedger`. It does not write its own storage.
 5. **Surgical scope.** A module touches only `frontend/src/modules/<id>/`. Do not edit shared files (`App.tsx`, `capabilities.ts`, `styles.css`, `package.json`, the registry, the gateway). If a module needs a shared change, stop and report it.
 6. **CSS** lives in `modules/<id>/module.css`, and every class starts with `m-<id>-`. Import it from `module.tsx`.
 7. **No new dependencies.** The app already has React, Three.js, Vite, Vitest, and ESLint.

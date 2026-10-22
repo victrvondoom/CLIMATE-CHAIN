@@ -11,6 +11,9 @@ import carbontwin from './carbontwin/module';
 import hourmatch from './hourmatch/module';
 import plotlock from './plotlock/module';
 import rantai from './rantai/module';
+import ecograph from './ecograph/module';
+import grounded from './grounded/module';
+import carbontrace from './carbontrace/module';
 
 // The native module list the shell renders, in mission-stage order.
 // Only the integrator edits this file: one import per module, then one entry here.
@@ -27,4 +30,7 @@ export const CLIMATE_MODULES: ClimateModule[] = [
   hourmatch,
   plotlock,
   rantai,
+  ecograph,
+  grounded,
+  carbontrace,
 ];
