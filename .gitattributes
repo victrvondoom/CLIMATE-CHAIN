@@ -1,0 +1,3 @@
+# Module fixtures must match their source bytes exactly. Some anchors and
+# digests are computed over the file bytes, so git must not rewrite line endings.
+frontend/src/modules/*/fixtures/* -text
