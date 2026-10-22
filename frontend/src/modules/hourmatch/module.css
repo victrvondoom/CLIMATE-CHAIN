@@ -1,0 +1,170 @@
+.m-hourmatch {
+  display: grid;
+  gap: 16px;
+}
+
+.m-hourmatch-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.m-hourmatch-title {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.m-hourmatch-tagline {
+  margin: 4px 0 0;
+  color: #5b6b63;
+}
+
+.m-hourmatch-mode {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+}
+
+.m-hourmatch-mode-demo {
+  color: #7a5b00;
+  background: #fff4cc;
+}
+
+.m-hourmatch-mode-research {
+  color: #0b5c4a;
+  background: #d9f5ec;
+}
+
+.m-hourmatch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 16px;
+}
+
+.m-hourmatch-wide {
+  grid-column: 1 / -1;
+}
+
+.m-hourmatch-card-title {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+}
+
+.m-hourmatch-card-sub {
+  margin: 0 0 12px;
+  font-size: 0.85rem;
+  color: #5b6b63;
+}
+
+.m-hourmatch-table-wrap {
+  overflow-x: auto;
+}
+
+.m-hourmatch-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.m-hourmatch-table th,
+.m-hourmatch-table td {
+  text-align: left;
+  padding: 6px 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  vertical-align: top;
+}
+
+.m-hourmatch-table td.m-hourmatch-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.m-hourmatch-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.m-hourmatch-input {
+  width: 100%;
+  min-height: 84px;
+  padding: 10px;
+  font: inherit;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  box-sizing: border-box;
+}
+
+.m-hourmatch-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0;
+}
+
+.m-hourmatch-chip {
+  font: inherit;
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.m-hourmatch-button {
+  font: inherit;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 8px;
+  background: #0b5c4a;
+  color: #fff;
+  cursor: pointer;
+}
+
+.m-hourmatch-verdict {
+  display: inline-block;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.m-hourmatch-verdict-supported {
+  background: #d9f5ec;
+  color: #0b5c4a;
+}
+
+.m-hourmatch-verdict-not {
+  background: #fde2e0;
+  color: #8a1c12;
+}
+
+.m-hourmatch-list {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  font-size: 0.9rem;
+}
+
+.m-hourmatch-error {
+  color: #8a1c12;
+}
+
+.m-hourmatch-note {
+  font-size: 0.85rem;
+  color: #5b6b63;
+}
+
+.m-hourmatch-code {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.8rem;
+  word-break: break-all;
+}
