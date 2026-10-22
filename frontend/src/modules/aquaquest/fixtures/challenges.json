@@ -1,0 +1,65 @@
+{
+  "note": "Five community challenges copied from js/data/challenges.js (AquaQuest). Only id, title, type, goal, points and status are kept. These are the project's demo data, not live community records.",
+  "challenges": [
+    {
+      "id": "chal_cleanup_bakkhali",
+      "title": "Bakkhali River Clean-up",
+      "activityType": "cleanup",
+      "evidenceType": "before-after",
+      "siteId": "bakkhali_river",
+      "goal": 50,
+      "points": 50,
+      "status": "open",
+      "joined": 32,
+      "maxParticipants": 50
+    },
+    {
+      "id": "chal_observation_week",
+      "title": "7-Day Observation Streak",
+      "activityType": "observation",
+      "evidenceType": "observation",
+      "siteId": null,
+      "goal": 100,
+      "points": 250,
+      "status": "open",
+      "joined": 847,
+      "maxParticipants": 1000
+    },
+    {
+      "id": "chal_rumaliar_canal",
+      "title": "Rumaliar Canal Restoration",
+      "activityType": "restoration",
+      "evidenceType": "before-after",
+      "siteId": "rumaliar_canal",
+      "goal": 40,
+      "points": 150,
+      "status": "open",
+      "joined": 18,
+      "maxParticipants": 40
+    },
+    {
+      "id": "chal_biodiversity_watch",
+      "title": "Biodiversity Watch — Himchari",
+      "activityType": "wildlife",
+      "evidenceType": "wildlife-observation",
+      "siteId": "himchari_waterfall",
+      "goal": 30,
+      "points": 80,
+      "status": "open",
+      "joined": 24,
+      "maxParticipants": 30
+    },
+    {
+      "id": "chal_kolatoli_marine",
+      "title": "Kolatoli Beach Marine Litter Survey",
+      "activityType": "cleanup",
+      "evidenceType": "before-after",
+      "siteId": "kolatoli_beach",
+      "goal": 60,
+      "points": 120,
+      "status": "open",
+      "joined": 41,
+      "maxParticipants": 60
+    }
+  ]
+}
