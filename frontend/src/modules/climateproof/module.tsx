@@ -339,6 +339,7 @@ const climateModule: ClimateModule = {
     'Humidity (0 to 100) and PM2.5 (0 or more) range checks',
     'IQR outlier signals, labelled as exploratory',
     'SHA-256 fingerprint, expected-hash check and integrity report download',
+    'Evidence record for each check',
   ],
   source: {
     folder: 'ClimateProof-AI-main',
