@@ -1,0 +1,165 @@
+/* Scoped to the EcoGraph module. Every class starts with m-ecograph-. */
+
+.m-ecograph-root {
+  display: grid;
+  gap: 16px;
+  padding: 0 16px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.m-ecograph-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.m-ecograph-title-row h2 {
+  margin: 0;
+}
+
+.m-ecograph-mode {
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #5b4a12;
+  color: #fff3c4;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.m-ecograph-chip {
+  padding: 2px 8px;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.m-ecograph-note {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.m-ecograph-meta {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.m-ecograph-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.m-ecograph-list {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 4px;
+}
+
+.m-ecograph-cases {
+  display: grid;
+  gap: 12px;
+}
+
+.m-ecograph-case-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.m-ecograph-case-head h3 {
+  margin: 0;
+  flex: 1 1 200px;
+}
+
+.m-ecograph-band,
+.m-ecograph-state {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.m-ecograph-band-freeze {
+  background: #7a1f1f;
+  color: #ffe4e4;
+}
+
+.m-ecograph-band-review {
+  background: #6b4b10;
+  color: #fff1d0;
+}
+
+.m-ecograph-band-watch {
+  background: #24472e;
+  color: #e2f5e7;
+}
+
+.m-ecograph-state {
+  border: 1px solid currentColor;
+  opacity: 0.85;
+}
+
+.m-ecograph-signals {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.m-ecograph-weight {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.8;
+}
+
+.m-ecograph-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.m-ecograph-field {
+  display: grid;
+  gap: 4px;
+  flex: 1 1 260px;
+  font-size: 13px;
+}
+
+.m-ecograph-field textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+}
+
+.m-ecograph-error {
+  margin: 0;
+  color: #b42318;
+  font-size: 13px;
+}
+
+.m-ecograph-log {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.m-ecograph-log code {
+  font-size: 12px;
+}
+
+@media (max-width: 480px) {
+  .m-ecograph-root {
+    padding: 0 16px;
+  }
+}
