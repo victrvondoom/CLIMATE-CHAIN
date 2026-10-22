@@ -14,6 +14,9 @@ import rantai from './rantai/module';
 import ecograph from './ecograph/module';
 import grounded from './grounded/module';
 import carbontrace from './carbontrace/module';
+import plume from './plume/module';
+import flarewatch from './flarewatch/module';
+import gridproof from './gridproof/module';
 
 // The native module list the shell renders, in mission-stage order.
 // Only the integrator edits this file: one import per module, then one entry here.
@@ -33,4 +36,7 @@ export const CLIMATE_MODULES: ClimateModule[] = [
   ecograph,
   grounded,
   carbontrace,
+  plume,
+  flarewatch,
+  gridproof,
 ];
