@@ -1,0 +1,1566 @@
+{
+ "source": "projects/hourmatch-master/public/samples/sample_certificates.csv",
+ "note": "Certificates bought by Northbay Fab (fictional) per plant and hour. Plants are fictional; output curves scaled from Taipower data.",
+ "columns": [
+  "hour",
+  "kwh",
+  "plant",
+  "commission_year"
+ ],
+ "rows": [
+  {
+   "hour": "2026-10-06 00:00",
+   "kwh": 20000,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-06 01:00",
+   "kwh": 19878,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-06 02:00",
+   "kwh": 19578,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-06 03:00",
+   "kwh": 19445,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-06 04:00",
+   "kwh": 19367,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-06 05:00",
+   "kwh": 48,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-06 05:00",
+   "kwh": 19359,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-06 06:00",
+   "kwh": 695,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-06 06:00",
+   "kwh": 19312,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-06 07:00",
+   "kwh": 5041,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-06 07:00",
+   "kwh": 19581,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-06 08:00",
+   "kwh": 12177,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-06 08:00",
+   "kwh": 19684,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-06 09:00",
+   "kwh": 18876,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-06 09:00",
+   "kwh": 19620,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-06 10:00",
+   "kwh": 21945,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-06 10:00",
+   "kwh": 19539,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-06 11:00",
+   "kwh": 21962,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-06 11:00",
+   "kwh": 19487,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-06 12:00",
+   "kwh": 22115,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-06 12:00",
+   "kwh": 19650,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-06 13:00",
+   "kwh": 20400,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-06 13:00",
+   "kwh": 19684,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-06 14:00",
+   "kwh": 16364,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-06 14:00",
+   "kwh": 19768,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-06 15:00",
+   "kwh": 11344,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-06 15:00",
+   "kwh": 19774,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-06 16:00",
+   "kwh": 5730,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-06 16:00",
+   "kwh": 19840,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-06 17:00",
+   "kwh": 1234,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-06 17:00",
+   "kwh": 19802,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-06 18:00",
+   "kwh": 19711,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-06 19:00",
+   "kwh": 19651,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-06 20:00",
+   "kwh": 19676,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-06 21:00",
+   "kwh": 19574,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-06 22:00",
+   "kwh": 19635,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-06 23:00",
+   "kwh": 19534,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 00:00",
+   "kwh": 19261,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 01:00",
+   "kwh": 18958,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 02:00",
+   "kwh": 18874,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 03:00",
+   "kwh": 18803,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 04:00",
+   "kwh": 18613,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 05:00",
+   "kwh": 34,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-07 05:00",
+   "kwh": 18319,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 06:00",
+   "kwh": 664,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-07 06:00",
+   "kwh": 18389,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 07:00",
+   "kwh": 5292,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-07 07:00",
+   "kwh": 18379,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 08:00",
+   "kwh": 12387,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-07 08:00",
+   "kwh": 18187,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 09:00",
+   "kwh": 18507,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-07 09:00",
+   "kwh": 18436,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 10:00",
+   "kwh": 22195,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-07 10:00",
+   "kwh": 18039,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 11:00",
+   "kwh": 24066,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-07 11:00",
+   "kwh": 17748,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 12:00",
+   "kwh": 23347,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-07 12:00",
+   "kwh": 18010,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 13:00",
+   "kwh": 21788,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-07 13:00",
+   "kwh": 18072,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 14:00",
+   "kwh": 18848,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-07 14:00",
+   "kwh": 18398,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 15:00",
+   "kwh": 13329,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-07 15:00",
+   "kwh": 19214,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 16:00",
+   "kwh": 6535,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-07 16:00",
+   "kwh": 19122,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 17:00",
+   "kwh": 1586,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-07 17:00",
+   "kwh": 19134,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 18:00",
+   "kwh": 19156,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 19:00",
+   "kwh": 19228,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 20:00",
+   "kwh": 19068,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 21:00",
+   "kwh": 18750,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 22:00",
+   "kwh": 18595,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-07 23:00",
+   "kwh": 18095,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 00:00",
+   "kwh": 16994,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 01:00",
+   "kwh": 15870,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 02:00",
+   "kwh": 15060,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 03:00",
+   "kwh": 13943,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 04:00",
+   "kwh": 12589,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 05:00",
+   "kwh": 15,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-08 05:00",
+   "kwh": 11661,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 06:00",
+   "kwh": 654,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-08 06:00",
+   "kwh": 10897,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 07:00",
+   "kwh": 5043,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-08 07:00",
+   "kwh": 10541,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 08:00",
+   "kwh": 11371,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-08 08:00",
+   "kwh": 10499,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 09:00",
+   "kwh": 17202,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-08 09:00",
+   "kwh": 10292,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 10:00",
+   "kwh": 20885,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-08 10:00",
+   "kwh": 10415,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 11:00",
+   "kwh": 22477,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-08 11:00",
+   "kwh": 10978,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 12:00",
+   "kwh": 22928,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-08 12:00",
+   "kwh": 11630,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 13:00",
+   "kwh": 20747,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-08 13:00",
+   "kwh": 12589,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 14:00",
+   "kwh": 16708,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-08 14:00",
+   "kwh": 14294,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 15:00",
+   "kwh": 11657,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-08 15:00",
+   "kwh": 15983,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 16:00",
+   "kwh": 5857,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-08 16:00",
+   "kwh": 17669,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 17:00",
+   "kwh": 1399,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-08 17:00",
+   "kwh": 18517,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 18:00",
+   "kwh": 18434,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 19:00",
+   "kwh": 18356,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 20:00",
+   "kwh": 17938,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 21:00",
+   "kwh": 17241,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 22:00",
+   "kwh": 16724,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-08 23:00",
+   "kwh": 16395,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 00:00",
+   "kwh": 15709,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 01:00",
+   "kwh": 15311,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 02:00",
+   "kwh": 14726,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 03:00",
+   "kwh": 13958,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 04:00",
+   "kwh": 13405,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 05:00",
+   "kwh": 16,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-09 05:00",
+   "kwh": 12758,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 06:00",
+   "kwh": 887,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-09 06:00",
+   "kwh": 12476,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 07:00",
+   "kwh": 6468,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-09 07:00",
+   "kwh": 11561,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 08:00",
+   "kwh": 14342,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-09 08:00",
+   "kwh": 11088,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 09:00",
+   "kwh": 20528,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-09 09:00",
+   "kwh": 11874,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 10:00",
+   "kwh": 24257,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-09 10:00",
+   "kwh": 13518,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 11:00",
+   "kwh": 25500,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-09 11:00",
+   "kwh": 15165,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 12:00",
+   "kwh": 25454,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-09 12:00",
+   "kwh": 16547,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 13:00",
+   "kwh": 23473,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-09 13:00",
+   "kwh": 17175,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 14:00",
+   "kwh": 20060,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-09 14:00",
+   "kwh": 17996,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 15:00",
+   "kwh": 14040,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-09 15:00",
+   "kwh": 18326,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 16:00",
+   "kwh": 6998,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-09 16:00",
+   "kwh": 18176,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 17:00",
+   "kwh": 1313,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-09 17:00",
+   "kwh": 17612,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 18:00",
+   "kwh": 18480,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 19:00",
+   "kwh": 18522,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 20:00",
+   "kwh": 18000,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 21:00",
+   "kwh": 17402,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 22:00",
+   "kwh": 16518,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-09 23:00",
+   "kwh": 15165,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 00:00",
+   "kwh": 14377,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 01:00",
+   "kwh": 14191,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 02:00",
+   "kwh": 14204,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 03:00",
+   "kwh": 14203,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 04:00",
+   "kwh": 13734,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 05:00",
+   "kwh": 25,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-10 05:00",
+   "kwh": 12861,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 06:00",
+   "kwh": 797,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-10 06:00",
+   "kwh": 13499,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 07:00",
+   "kwh": 6379,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-10 07:00",
+   "kwh": 13814,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 08:00",
+   "kwh": 13724,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-10 08:00",
+   "kwh": 13881,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 09:00",
+   "kwh": 19884,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-10 09:00",
+   "kwh": 14699,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 10:00",
+   "kwh": 23501,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-10 10:00",
+   "kwh": 15698,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 11:00",
+   "kwh": 25143,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-10 11:00",
+   "kwh": 17160,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 12:00",
+   "kwh": 24654,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-10 12:00",
+   "kwh": 18261,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 13:00",
+   "kwh": 22805,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-10 13:00",
+   "kwh": 18684,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 14:00",
+   "kwh": 19795,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-10 14:00",
+   "kwh": 18777,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 15:00",
+   "kwh": 14229,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-10 15:00",
+   "kwh": 18793,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 16:00",
+   "kwh": 6936,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-10 16:00",
+   "kwh": 19137,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 17:00",
+   "kwh": 1201,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-10 17:00",
+   "kwh": 19311,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 18:00",
+   "kwh": 19192,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 19:00",
+   "kwh": 18995,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 20:00",
+   "kwh": 18556,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 21:00",
+   "kwh": 18270,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 22:00",
+   "kwh": 17574,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-10 23:00",
+   "kwh": 16464,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 00:00",
+   "kwh": 15708,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 01:00",
+   "kwh": 15022,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 02:00",
+   "kwh": 14158,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 03:00",
+   "kwh": 14241,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 04:00",
+   "kwh": 14453,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 05:00",
+   "kwh": 20,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-11 05:00",
+   "kwh": 13955,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 06:00",
+   "kwh": 757,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-11 06:00",
+   "kwh": 14122,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 07:00",
+   "kwh": 5396,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-11 07:00",
+   "kwh": 14533,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 08:00",
+   "kwh": 12472,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-11 08:00",
+   "kwh": 14904,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 09:00",
+   "kwh": 19175,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-11 09:00",
+   "kwh": 15821,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 10:00",
+   "kwh": 22778,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-11 10:00",
+   "kwh": 16739,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 11:00",
+   "kwh": 24434,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-11 11:00",
+   "kwh": 16746,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 12:00",
+   "kwh": 24023,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-11 12:00",
+   "kwh": 15926,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 13:00",
+   "kwh": 22435,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-11 13:00",
+   "kwh": 15589,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 14:00",
+   "kwh": 18905,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-11 14:00",
+   "kwh": 15419,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 15:00",
+   "kwh": 13359,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-11 15:00",
+   "kwh": 15531,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 16:00",
+   "kwh": 6369,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-11 16:00",
+   "kwh": 16481,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 17:00",
+   "kwh": 1156,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-11 17:00",
+   "kwh": 17039,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 18:00",
+   "kwh": 16986,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 19:00",
+   "kwh": 16598,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 20:00",
+   "kwh": 16150,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 21:00",
+   "kwh": 15299,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 22:00",
+   "kwh": 13540,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-11 23:00",
+   "kwh": 11979,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 00:00",
+   "kwh": 11262,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 01:00",
+   "kwh": 10858,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 02:00",
+   "kwh": 10464,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 03:00",
+   "kwh": 11779,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 04:00",
+   "kwh": 12600,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 05:00",
+   "kwh": 22,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-12 05:00",
+   "kwh": 12182,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 06:00",
+   "kwh": 918,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-12 06:00",
+   "kwh": 11428,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 07:00",
+   "kwh": 6197,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-12 07:00",
+   "kwh": 10203,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 08:00",
+   "kwh": 13693,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-12 08:00",
+   "kwh": 8560,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 09:00",
+   "kwh": 19568,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-12 09:00",
+   "kwh": 7559,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 10:00",
+   "kwh": 23087,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-12 10:00",
+   "kwh": 6532,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 11:00",
+   "kwh": 25025,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-12 11:00",
+   "kwh": 5664,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 12:00",
+   "kwh": 25063,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-12 12:00",
+   "kwh": 5819,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 13:00",
+   "kwh": 23416,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-12 13:00",
+   "kwh": 6724,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 14:00",
+   "kwh": 19845,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-12 14:00",
+   "kwh": 7905,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 15:00",
+   "kwh": 13970,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-12 15:00",
+   "kwh": 8919,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 16:00",
+   "kwh": 6887,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-12 16:00",
+   "kwh": 9770,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 17:00",
+   "kwh": 1420,
+   "plant": "Sunfield Solar (fictional)",
+   "commission_year": 2021
+  },
+  {
+   "hour": "2026-10-12 17:00",
+   "kwh": 9215,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 18:00",
+   "kwh": 8461,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 19:00",
+   "kwh": 7136,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 20:00",
+   "kwh": 5264,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 21:00",
+   "kwh": 3556,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 22:00",
+   "kwh": 2217,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  },
+  {
+   "hour": "2026-10-12 23:00",
+   "kwh": 1546,
+   "plant": "Strait Wind (fictional)",
+   "commission_year": 2024
+  }
+ ]
+}
