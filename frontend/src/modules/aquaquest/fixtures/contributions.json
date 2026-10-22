@@ -1,0 +1,50 @@
+{
+  "note": "Five demo contributions copied from js/demo-data.js (AquaQuest). Contributor names, avatars, contact details and exact coordinates are removed; contributors are pseudonymous slots. Demo data, not live records.",
+  "contributions": [
+    {
+      "id": "AQ-1001",
+      "challengeId": "chal_cleanup_bakkhali",
+      "siteId": "bakkhali_river",
+      "activityType": "cleanup",
+      "contributorId": "slot-1",
+      "submittedAt": "2026-10-22T18:10:49.751Z",
+      "verified": true
+    },
+    {
+      "id": "AQ-1002",
+      "challengeId": "chal_cleanup_bakkhali",
+      "siteId": "bakkhali_river",
+      "activityType": "cleanup",
+      "contributorId": "slot-2",
+      "submittedAt": "2026-10-22T17:28:49.751Z",
+      "verified": false
+    },
+    {
+      "id": "AQ-1003",
+      "challengeId": "chal_rumaliar_canal",
+      "siteId": "rumaliar_canal",
+      "activityType": "restoration",
+      "contributorId": "slot-3",
+      "submittedAt": "2026-10-22T13:28:49.751Z",
+      "verified": true
+    },
+    {
+      "id": "AQ-1004",
+      "challengeId": "chal_observation_week",
+      "siteId": "bakkhali_river",
+      "activityType": "observation",
+      "contributorId": "slot-4",
+      "submittedAt": "2026-10-22T16:28:49.751Z",
+      "verified": true
+    },
+    {
+      "id": "AQ-1005",
+      "challengeId": "chal_biodiversity_watch",
+      "siteId": "himchari_stream",
+      "activityType": "wildlife",
+      "contributorId": "slot-5",
+      "submittedAt": "2026-10-22T14:28:49.751Z",
+      "verified": true
+    }
+  ]
+}

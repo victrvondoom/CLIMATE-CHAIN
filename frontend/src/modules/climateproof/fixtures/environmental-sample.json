@@ -1,0 +1,6 @@
+{
+  "note": "Synthetic sample, copied verbatim from ClimateProof-AI-main/sample_data/environmental_sample.csv. It is not real environmental data.",
+  "source": "ClimateProof-AI-main/sample_data/environmental_sample.csv",
+  "sha256": "c4d83801aeb55f2d2331c348ded51bf269145cdaa2b35db9abff9a5c0abd6cd9",
+  "csv": "timestamp,location,temperature_c,humidity_pct,pm25,source_id\n2026-10-01T10:00:00Z,Skardu,18.5,42,12.1,sensor-01\n2026-10-01T11:00:00Z,Skardu,19.0,40,13.0,sensor-01\n2026-10-01T12:00:00Z,Skardu,21.0,38,14.0,sensor-01\n2026-10-01T13:00:00Z,Skardu,20.0,39,15.0,sensor-01\n2026-10-01T14:00:00Z,Skardu,19.5,40,65.0,sensor-01\n"
+}
