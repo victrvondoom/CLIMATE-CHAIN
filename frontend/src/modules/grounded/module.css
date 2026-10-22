@@ -1,0 +1,114 @@
+/* Scoped to the grounded module. Every class starts with m-grounded-. */
+
+.m-grounded-root {
+  display: grid;
+  gap: 16px;
+  padding: 0 16px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.m-grounded-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.m-grounded-title-row h2 {
+  margin: 0;
+}
+
+.m-grounded-mode {
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #5b4a12;
+  color: #fff3c4;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.m-grounded-chip {
+  padding: 2px 8px;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.m-grounded-meta {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.m-grounded-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.m-grounded-field {
+  display: grid;
+  gap: 4px;
+  font-size: 13px;
+}
+
+.m-grounded-field select,
+.m-grounded-field input {
+  max-width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+}
+
+.m-grounded-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.m-grounded-trace {
+  display: block;
+  width: 100%;
+  height: 160px;
+  margin: 8px 0;
+  border-bottom: 1px solid currentColor;
+  overflow: visible;
+}
+
+.m-grounded-trace polyline {
+  fill: none;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.m-grounded-trace-soc {
+  stroke: #2f7d4f;
+}
+
+.m-grounded-trace-grid {
+  stroke: #b5651d;
+  stroke-dasharray: 4 3;
+  opacity: 0.85;
+}
+
+.m-grounded-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.m-grounded-list {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 4px;
+  font-size: 14px;
+}
+
+@media (max-width: 480px) {
+  .m-grounded-root {
+    padding: 0 16px;
+  }
+}
