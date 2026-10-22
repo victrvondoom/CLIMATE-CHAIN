@@ -13,13 +13,14 @@ const Globe3D = lazy(() => import('../components/Globe3D').then((module) => ({ d
 
 const SEVERITY_LABEL: Record<string, string> = { high: 'HIGH', medium: 'MEDIUM', low: 'INFO' };
 
-export function Overview({ data, apps, onNavigate, onMission, onCapabilities, onStudio }: {
+export function Overview({ data, apps, onNavigate, onMission, onCapabilities, onStudio, onModule }: {
   data: Overview;
   apps: Record<string, ProjectAppStatus>;
   onNavigate: (m: ModuleId) => void;
   onMission: (stage: StageId) => void;
   onCapabilities: () => void;
   onStudio: () => void;
+  onModule: (id: string) => void;
 }) {
   const { waste, fire, water, air, sources, feed } = data;
   const scrollToLaunchpad = () => document.getElementById('launchpad')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -142,7 +143,7 @@ export function Overview({ data, apps, onNavigate, onMission, onCapabilities, on
         </Card>
       </div>
 
-      <Launchpad apps={apps} onDetails={onCapabilities} />
+      <Launchpad apps={apps} onDetails={onCapabilities} onOpenModule={onModule} />
     </div>
   );
 }

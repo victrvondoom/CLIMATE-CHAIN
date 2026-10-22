@@ -1,0 +1,140 @@
+/* Shell pieces shared by every native module: the module frame, evidence mode pills,
+   the cross-module ledger, and the stage groups in the sidebar. Reuses the tokens in styles.css. */
+
+.module-screen {
+  --tone: #79d4c8;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 22px;
+  border-radius: 18px;
+  background: linear-gradient(160deg, rgba(20, 32, 54, 0.92), rgba(9, 14, 26, 0.96));
+  border: 1px solid rgba(150, 190, 230, 0.16);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.module-head h2 {
+  margin: 4px 0 6px;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+}
+
+.module-tagline {
+  margin: 0;
+  max-width: 66ch;
+  color: #c3d1e4;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.module-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.module-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.module-features li {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(120, 150, 200, 0.14);
+  border-left: 2px solid var(--tone);
+  background: rgba(10, 18, 32, 0.6);
+  color: #c3d1e4;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.module-body {
+  min-width: 0;
+}
+
+.mode-pill {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.mode-live { color: #0b1220; background: #79d4c8; }
+.mode-simulated { color: #0b1220; background: #f2cf69; }
+.mode-research { color: #0b1220; background: #9ee8dc; }
+.mode-demo { color: #e9eff8; background: rgba(167, 139, 250, 0.32); border: 1px solid rgba(167, 139, 250, 0.5); }
+
+.ledger {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ledger-head h2 {
+  margin: 4px 0 6px;
+  font-size: 22px;
+}
+
+.ledger-head p {
+  margin: 0;
+  max-width: 66ch;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.ledger-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ledger-item {
+  display: grid;
+  gap: 8px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(120, 150, 200, 0.14);
+  background: rgba(10, 18, 32, 0.6);
+}
+
+.ledger-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.ledger-item p {
+  margin: 0;
+  color: #c3d1e4;
+  font-size: 13px;
+}
+
+.ledger-digest {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.ledger-ok { color: var(--good); font-size: 12px; }
+.ledger-bad { color: var(--bad); font-size: 12px; }
+.ledger-empty { color: var(--muted); }
+
+.nav-stage-label {
+  padding: 10px 0 4px 2px;
+  color: #6f819b;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}

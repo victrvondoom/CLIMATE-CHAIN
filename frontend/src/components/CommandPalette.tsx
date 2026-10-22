@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from 'react';
 import { CAPABILITIES, type WorkspaceView } from '../data/capabilities';
 import type { AgentMemoryEntry } from '../api';
+import { CLIMATE_MODULES } from '../modules';
 
 interface Command { id: string; label: string; detail: string; view: WorkspaceView; memoryId?: string; missionId?: string }
 interface SavedMissionChoice { id: string; title: string; status: string }
@@ -31,6 +32,8 @@ export function CommandPalette({ open, onClose, onNavigate, memories = [] }: { o
     { id: 'studio', label: 'Mission Studio', detail: 'Create and review missions', view: 'studio' },
     { id: 'memory', label: 'Engineering Memory', detail: 'Recall gate and judgment vault', view: 'memory' },
     ...CAPABILITIES.map((item) => ({ id: item.id, label: item.name, detail: `${item.domain} · ${item.readiness}`, view: (item.module ?? 'capabilities') as WorkspaceView })),
+    { id: 'ledger', label: 'Evidence ledger', detail: 'Every recorded outcome, with a digest check', view: 'ledger' },
+    ...CLIMATE_MODULES.map((item) => ({ id: `module-${item.id}`, label: item.name, detail: `Native module · ${item.stages.join(' · ')} · ${item.mode}`, view: `module:${item.id}` as WorkspaceView })),
     ...memories.filter((entry) => entry.status === 'active').map((entry) => ({ id: `memory-${entry.id}`, label: entry.title, detail: `Memory · ${entry.scope} · ${entry.rule.slice(0, 110)}`, view: 'memory' as WorkspaceView, memoryId: entry.id })),
     ...savedMissions.map((mission) => ({ id: `mission-${mission.id}`, label: mission.title, detail: `Saved mission · ${mission.status} · local browser history`, view: 'studio' as WorkspaceView, missionId: mission.id })),
   ], [memories, savedMissions]);

@@ -4,6 +4,7 @@
 
 import { CAPABILITIES, STAGES, type Capability } from '../data/capabilities';
 import { ANNOUNCEMENTS, type Announcement } from '../data/announcements';
+import { CLIMATE_MODULES } from './index';
 import type { ProjectAppStatus } from '../api';
 import '../launchpad.css';
 
@@ -33,7 +34,7 @@ export function AnnouncementBand({ onAction }: { onAction: (to: Announcement['ac
   );
 }
 
-export function Launchpad({ apps, onDetails }: { apps: Record<string, ProjectAppStatus>; onDetails: () => void }) {
+export function Launchpad({ apps, onDetails, onOpenModule }: { apps: Record<string, ProjectAppStatus>; onDetails: () => void; onOpenModule: (id: string) => void }) {
   const projects = CAPABILITIES.filter((item) => !item.central);
   const openHere = projects.filter((item) => apps[item.id]?.available).length;
   const withLiveLink = projects.filter((item) => item.href).length;
@@ -52,15 +53,16 @@ export function Launchpad({ apps, onDetails }: { apps: Record<string, ProjectApp
       </header>
       <div className="launchpad-grid">
         {projects.map((project) => (
-          <LaunchCard key={project.id} project={project} app={apps[project.id]} onDetails={onDetails} />
+          <LaunchCard key={project.id} project={project} app={apps[project.id]} onDetails={onDetails} onOpenModule={onOpenModule} />
         ))}
       </div>
     </section>
   );
 }
 
-function LaunchCard({ project, app, onDetails }: { project: Capability; app?: ProjectAppStatus; onDetails: () => void }) {
+function LaunchCard({ project, app, onDetails, onOpenModule }: { project: Capability; app?: ProjectAppStatus; onDetails: () => void; onOpenModule: (id: string) => void }) {
   const openHere = app?.available ? app.path : null;
+  const hasModule = CLIMATE_MODULES.some((item) => item.id === project.id);
   const status = openHere ? 'Open here' : project.href ? 'Live link' : 'Source project';
   return (
     <article className={`capability-card launch-card tone-${project.tone}`}>
@@ -83,6 +85,7 @@ function LaunchCard({ project, app, onDetails }: { project: Capability; app?: Pr
       </div>
       <p className="launch-readiness">{project.readiness}</p>
       <div className="launch-actions">
+        {hasModule && <button type="button" className="text-action launch-module" onClick={() => onOpenModule(project.id)}>Open module <span aria-hidden="true">→</span></button>}
         {openHere && <a className="text-action" href={openHere} target="_blank" rel="noreferrer">Open app here <span aria-hidden="true">↗</span></a>}
         {project.href && <a className="text-action" href={project.href} target="_blank" rel="noreferrer">{project.linkLabel ?? 'Open live'} <span aria-hidden="true">↗</span></a>}
         {app && !app.available && <span className="launch-build">Build needed: <code>{app.build ?? 'see the project README'}</code></span>}

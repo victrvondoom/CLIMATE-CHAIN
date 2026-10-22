@@ -6,8 +6,11 @@ import { Waste } from './modules/Waste';
 import { Fire } from './modules/Fire';
 import { Water } from './modules/Water';
 import { Air } from './modules/Air';
-import { CAPABILITIES, PROJECT_FOLDER_COUNT, type FocusId, type StageId, type WorkspaceView } from './data/capabilities';
+import { CAPABILITIES, PROJECT_FOLDER_COUNT, STAGES, type FocusId, type StageId, type WorkspaceView } from './data/capabilities';
 import { AgentMemory } from './modules/AgentMemory';
+import { CLIMATE_MODULES } from './modules';
+import { ModuleScreen, findModule } from './modules/ModuleScreen';
+import { EvidenceLedger } from './modules/EvidenceLedger';
 import { CommandPalette } from './components/CommandPalette';
 import { WorkspaceErrorBoundary } from './components/WorkspaceErrorBoundary';
 
@@ -19,6 +22,7 @@ const CascadeReview = lazy(() => import('./modules/CascadeReview').then((module)
 const NAV: { id: WorkspaceView; label: string; title: string; section: 'workspace' | 'signals' }[] = [
   { id: 'overview', label: 'Command center', title: 'Climate Chain', section: 'workspace' },
   { id: 'memory', label: 'AI engineering memory', title: 'Engineering memory', section: 'workspace' },
+  { id: 'ledger', label: 'Evidence ledger', title: 'Evidence ledger', section: 'workspace' },
   { id: 'studio', label: 'Unified mission studio', title: 'Unified mission studio', section: 'workspace' },
   { id: 'mission', label: 'Guided mission path', title: 'From signal to proof', section: 'workspace' },
   { id: 'cascade', label: 'Place-based review', title: 'Climate Cascade Review', section: 'workspace' },
@@ -115,7 +119,9 @@ export default function App() {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, []);
 
-  const nav = NAV.find((n) => n.id === view)!;
+  const activeModule = view.startsWith('module:') ? findModule(view.slice('module:'.length)) : undefined;
+  const nav = NAV.find((n) => n.id === view);
+  const title = activeModule?.name ?? nav?.title ?? 'Climate Chain';
   const navigate = (destination: WorkspaceView, memoryId?: string, missionId?: string) => {
     setFocusMemoryId(memoryId ?? null);
     setFocusMissionId(missionId ?? null);
@@ -159,6 +165,29 @@ export default function App() {
               {n.label}
             </button>
           ))}
+          <div className="nav-section-label nav-section-spaced">NATIVE MODULES · {CLIMATE_MODULES.length}</div>
+          {STAGES.map((stage) => {
+            const members = CLIMATE_MODULES.filter((item) => item.stages.includes(stage.id));
+            if (members.length === 0) return null;
+            return (
+              <div key={stage.id}>
+                <div className="nav-stage-label">{stage.number} {stage.title}</div>
+                {members.map((item) => {
+                  const target = `module:${item.id}` as const;
+                  return (
+                    <button
+                      key={item.id}
+                      className={'nav-item nav-module' + (view === target ? ' active' : '')}
+                      onClick={() => navigate(target)}
+                      aria-current={view === target ? 'page' : undefined}
+                    >
+                      {item.name}
+                    </button>
+                  );
+                })}
+              </div>
+            );
+          })}
         </nav>
         <div className="services">
           <div className="services-title">Upstreams</div>
@@ -178,7 +207,7 @@ export default function App() {
 
       <main className="main">
         <header className="topbar">
-          <h1 className="topbar-title">{nav.title}</h1>
+          <h1 className="topbar-title">{title}</h1>
           <button type="button" className="command-open" onClick={() => setCommandOpen(true)} aria-label="Open command palette">Search <kbd>⌘K</kbd></button>
           <div className="muted small">as of {data ? new Date(data.asOf).toLocaleTimeString() : '…'}</div>
         </header>
@@ -189,9 +218,9 @@ export default function App() {
         </div>
         {error && view !== 'memory' && <div className="error">Gateway unreachable: {error}. Start it with `node gateway/gateway.mjs`.</div>}
         {!data && !error && view !== 'memory' && <div className="muted">Loading the chain…</div>}
-        <WorkspaceErrorBoundary key={view} label={nav.title}>
+        <WorkspaceErrorBoundary key={view} label={title}>
           {view === 'memory' && <AgentMemory focusMemoryId={focusMemoryId} onSnapshot={updateMemoryGate} />}
-          {data && view === 'overview' && <OverviewView data={data} apps={projectApps} onNavigate={navigate} onMission={(stage) => { setActiveStage(stage); navigate('mission'); }} onCapabilities={() => navigate('capabilities')} onStudio={() => navigate('studio')} />}
+          {data && view === 'overview' && <OverviewView data={data} apps={projectApps} onNavigate={navigate} onMission={(stage) => { setActiveStage(stage); navigate('mission'); }} onCapabilities={() => navigate('capabilities')} onStudio={() => navigate('studio')} onModule={(id) => navigate(`module:${id}`)} />}
           <Suspense fallback={<div className="loading-panel">Opening the workspace…</div>}>
             {view === 'mission' && <MissionPath data={data} activeStage={activeStage} onStage={setActiveStage} focus={focus} onFocus={setFocus} onNavigate={navigate} />}
             {view === 'studio' && <MissionStudio data={data} loading={!data && !error} focus={focus} onFocus={setFocus} selection={studioSelection} onSelection={setStudioSelection} title={studioTitle} onTitle={setStudioTitle} place={studioPlace} onPlace={setStudioPlace} onNavigate={navigate} focusMissionId={focusMissionId} />}
@@ -202,6 +231,8 @@ export default function App() {
           {data && view === 'fire' && <Fire data={data} />}
           {data && view === 'water' && <Water data={data} />}
           {data && view === 'air' && <Air data={data} city={city} onCity={setCity} />}
+          {view === 'ledger' && <EvidenceLedger />}
+          {activeModule && <ModuleScreen climateModule={activeModule} />}
         </WorkspaceErrorBoundary>
       </main>
       <CommandPalette open={commandOpen} onClose={() => setCommandOpen(false)} onNavigate={navigate} memories={memorySnapshot?.activeEntries ?? []} />
