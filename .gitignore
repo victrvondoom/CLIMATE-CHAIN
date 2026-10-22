@@ -20,3 +20,6 @@ projects/
 
 # Browser-test artifacts and memory exports. Never versioned.
 .playwright-cli/
+
+# Agent worktrees and local tool state. Never versioned.
+.claude/
