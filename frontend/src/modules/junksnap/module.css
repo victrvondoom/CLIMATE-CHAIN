@@ -1,0 +1,142 @@
+.m-junksnap-page {
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+  color: inherit;
+}
+
+.m-junksnap-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.m-junksnap-head h2 {
+  margin: 0 0 4px;
+}
+
+.m-junksnap-head p {
+  margin: 0;
+}
+
+.m-junksnap-kicker {
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.m-junksnap-mode {
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.m-junksnap-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+}
+
+.m-junksnap-card {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.m-junksnap-card h3 {
+  margin: 0;
+}
+
+.m-junksnap-note {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.m-junksnap-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.m-junksnap-table th,
+.m-junksnap-table td {
+  text-align: left;
+  padding: 6px 4px;
+  border-bottom: 1px solid rgba(127, 127, 127, 0.25);
+  overflow-wrap: anywhere;
+}
+
+.m-junksnap-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.m-junksnap-chip,
+.m-junksnap-action {
+  border: 1px solid rgba(127, 127, 127, 0.5);
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  padding: 6px 10px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.m-junksnap-chip-on {
+  border-color: currentColor;
+  font-weight: 600;
+}
+
+.m-junksnap-letter {
+  display: grid;
+  gap: 8px;
+}
+
+.m-junksnap-subject {
+  margin: 0;
+  font-weight: 600;
+}
+
+.m-junksnap-body {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 0;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(127, 127, 127, 0.08);
+  font: inherit;
+  font-size: 0.88rem;
+}
+
+.m-junksnap-citations {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.88rem;
+  overflow-wrap: anywhere;
+}
+
+.m-junksnap-error {
+  margin: 0;
+  color: #b42318;
+}
+
+@media (prefers-color-scheme: dark) {
+  .m-junksnap-error {
+    color: #fda29b;
+  }
+}
+
+@media (max-width: 480px) {
+  .m-junksnap-page {
+    padding: 16px;
+  }
+}

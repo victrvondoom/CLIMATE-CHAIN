@@ -1,0 +1,58 @@
+{
+  "_note": "Excerpt of the source test fixture backend/server/tests/letters/fixtures/rules (rules.json and texts/sample_rules_en.txt). The document is a test sample, not a real statute. The place is a placeholder with fixture names, not real seats.",
+  "document": "Sample Waste Rules (test fixture)",
+  "pages": {
+    "3": "15. Dumpsites.—(1) All existing solid waste dumpsites or garbage vulnerable points to be\ngeographically mapped and assessed for accumulation of solid waste by the concerned local body.\n(vii) plan for collection and transportation of waste from garbage vulnerable points and hot spots for littering;\n(x) schedule for street sweeping and placement of waste bins as per prescribed norms;",
+    "4": "(xi) mapping of vacant plots of land under public or private ownership vulnerable for open\ndumping of solid waste including railway land;"
+  },
+  "rules": [
+    {
+      "ruleId": "fx-dumpsites",
+      "clause": "15(1)",
+      "clauseMarker": "(1)",
+      "exactText": "All existing solid waste dumpsites or garbage vulnerable points to be geographically mapped",
+      "page": 3,
+      "sourceSha256": "f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1",
+      "situationTags": ["waste_dump", "vacant_plot", "roadside", "drain", "other"]
+    },
+    {
+      "ruleId": "fx-hot-spots",
+      "clause": "39(2)(vii)",
+      "clauseMarker": "(vii)",
+      "exactText": "plan for collection and transportation of waste from garbage vulnerable points and hot spots for littering",
+      "page": 3,
+      "sourceSha256": "f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1",
+      "situationTags": ["waste_dump", "vacant_plot", "roadside", "other"]
+    },
+    {
+      "ruleId": "fx-bins",
+      "clause": "39(2)(x)",
+      "clauseMarker": "(x)",
+      "exactText": "schedule for street sweeping and placement of waste bins as per prescribed norms",
+      "page": 3,
+      "sourceSha256": "f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1",
+      "situationTags": ["no_bin", "no_pickup"]
+    },
+    {
+      "ruleId": "fx-vacant-plots",
+      "clause": "39(2)(xi)",
+      "clauseMarker": "(xi)",
+      "exactText": "mapping of vacant plots of land under public or private ownership vulnerable for open dumping of solid waste",
+      "page": 4,
+      "sourceSha256": "f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1",
+      "situationTags": ["vacant_plot"]
+    }
+  ],
+  "place": {
+    "state": "Fixture State",
+    "district": { "id": "dist-fx", "name": "Fixture District" },
+    "town": "Fixture Town",
+    "ward": { "id": "ward-fx-1", "name": "Ward 1 (fixture)" },
+    "assemblySeat": { "id": "seat-fx-a", "name": "Assembly seat (fixture)" },
+    "loksabhaSeat": { "id": "seat-fx-mp", "name": "Lok Sabha seat (fixture)" },
+    "representatives": [
+      { "office": "councillor", "seatId": "ward-fx-1" },
+      { "office": "mla", "seatId": "seat-fx-a" }
+    ]
+  }
+}
