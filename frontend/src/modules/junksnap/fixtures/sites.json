@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fixture-site-a",
+    "reportType": "no_bin",
+    "context": "no_bin",
+    "backers": 1,
+    "reportCount": 1
+  },
+  {
+    "id": "fixture-site-b",
+    "reportType": "waste_dump",
+    "context": "vacant_plot",
+    "backers": 3,
+    "reportCount": 3
+  },
+  {
+    "id": "fixture-site-c",
+    "reportType": "waste_dump",
+    "context": "vacant_plot",
+    "backers": 12,
+    "reportCount": 12
+  }
+]
