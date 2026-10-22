@@ -1,0 +1,37 @@
+{
+  "_note": "Copied from clearsky data/seed (villages.json, fields.json, balers.json), keeping only the fields the port reads. Farmer phone numbers are left out. Scored as of 2026-10-20, the source test date.",
+  "asOf": "2026-10-20",
+  "villages": [
+    { "villageId": "V025", "name": "Chhajli", "fireHistoryScore": 0.9157 },
+    { "villageId": "V026", "name": "Jakhepal", "fireHistoryScore": 1.0 }
+  ],
+  "fields": [
+    {
+      "fieldId": "F-SEED-001",
+      "villageId": "V026",
+      "acres": 9,
+      "lat": 30.05855,
+      "lng": 75.818706,
+      "status": "HARVESTED",
+      "harvestDate": "2026-10-15",
+      "sowingDeadline": "2026-10-25",
+      "harvestConfirmed": true
+    },
+    {
+      "fieldId": "F-SEED-002",
+      "villageId": "V025",
+      "acres": 12,
+      "lat": 30.074004,
+      "lng": 75.854932,
+      "status": "HARVESTED",
+      "harvestDate": "2026-10-16",
+      "sowingDeadline": "2026-10-23",
+      "harvestConfirmed": true
+    }
+  ],
+  "balers": [
+    { "id": "B01", "lat": 30.273143, "lng": 76.040302, "acresPerDay": 15, "radiusKm": 18, "active": true },
+    { "id": "B02", "lat": 30.304877, "lng": 76.010132, "acresPerDay": 13, "radiusKm": 24, "active": true },
+    { "id": "B03", "lat": 30.251572, "lng": 75.843357, "acresPerDay": 15, "radiusKm": 23, "active": true }
+  ]
+}

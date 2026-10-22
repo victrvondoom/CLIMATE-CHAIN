@@ -1,0 +1,166 @@
+.m-clearsky-page {
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+  color: inherit;
+}
+
+.m-clearsky-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.m-clearsky-head h2 {
+  margin: 0 0 4px;
+}
+
+.m-clearsky-head p {
+  margin: 0;
+}
+
+.m-clearsky-kicker {
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.m-clearsky-mode {
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.m-clearsky-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+}
+
+.m-clearsky-card {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.m-clearsky-card h3 {
+  margin: 0;
+}
+
+.m-clearsky-stats {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+
+.m-clearsky-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.m-clearsky-table th,
+.m-clearsky-table td {
+  text-align: left;
+  padding: 6px 4px;
+  border-bottom: 1px solid rgba(127, 127, 127, 0.25);
+  overflow-wrap: anywhere;
+}
+
+.m-clearsky-band {
+  display: inline-block;
+  min-width: 4.5em;
+  text-align: center;
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.m-clearsky-red {
+  background: #b42318;
+}
+
+.m-clearsky-yellow {
+  background: #b54708;
+}
+
+.m-clearsky-green {
+  background: #067647;
+}
+
+.m-clearsky-reasons,
+.m-clearsky-routes {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.88rem;
+  display: grid;
+  gap: 6px;
+}
+
+.m-clearsky-routes {
+  list-style: none;
+  padding-left: 0;
+}
+
+.m-clearsky-routes li {
+  display: grid;
+  gap: 4px;
+  border-bottom: 1px solid rgba(127, 127, 127, 0.25);
+  padding-bottom: 6px;
+}
+
+.m-clearsky-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.m-clearsky-chip,
+.m-clearsky-action {
+  border: 1px solid rgba(127, 127, 127, 0.5);
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  padding: 6px 10px;
+  font: inherit;
+  cursor: pointer;
+  justify-self: start;
+}
+
+.m-clearsky-chip-on {
+  border-color: currentColor;
+  font-weight: 600;
+}
+
+.m-clearsky-message {
+  margin: 0;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(127, 127, 127, 0.08);
+  font-size: 0.92rem;
+}
+
+.m-clearsky-sub {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.m-clearsky-error {
+  color: #b42318;
+}
+
+@media (prefers-color-scheme: dark) {
+  .m-clearsky-error {
+    color: #fda29b;
+  }
+}
