@@ -1,0 +1,103 @@
+.m-carbonshield-page {
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.m-carbonshield-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.m-carbonshield-head h2 {
+  margin: 2px 0 4px;
+}
+
+.m-carbonshield-head p {
+  margin: 0;
+}
+
+.m-carbonshield-kicker {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.7;
+}
+
+.m-carbonshield-mode {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+
+.m-carbonshield-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.m-carbonshield-stats .card {
+  margin: 0;
+}
+
+.m-carbonshield-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.m-carbonshield-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.m-carbonshield-table th,
+.m-carbonshield-table td {
+  text-align: left;
+  padding: 6px 8px;
+  border-bottom: 1px solid rgba(127, 127, 127, 0.25);
+  vertical-align: top;
+}
+
+.m-carbonshield-hash {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+}
+
+.m-carbonshield-note {
+  font-size: 12px;
+  opacity: 0.8;
+  margin: 6px 0 0;
+}
+
+.m-carbonshield-muted {
+  opacity: 0.6;
+  font-size: 12px;
+}
+
+.m-carbonshield-list {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  font-size: 13px;
+}
+
+.m-carbonshield-ok {
+  color: #1b7f4a;
+  font-weight: 600;
+}
+
+.m-carbonshield-bad {
+  color: #b3261e;
+  font-weight: 600;
+}
