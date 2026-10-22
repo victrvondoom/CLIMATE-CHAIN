@@ -1,0 +1,68 @@
+{
+  "label": "RESEARCH",
+  "name": "Ausgrid measured network reference",
+  "scope": "PUBLIC_REFERENCE",
+  "status": "VERIFIED_REFERENCE",
+  "source": {
+    "folder": "grounded-main",
+    "files": [
+      "data/ausgrid-measured-reference.json"
+    ]
+  },
+  "note": "Summary of a measured public reference (Ausgrid, New South Wales). It is not Jaipur site telemetry. The 96-slot demand and PV profiles and the 73 outage-duration quantiles are left out.",
+  "demand": {
+    "station": "Auburn 33_11kV",
+    "firstDate": "2024-05-01",
+    "lastDate": "2025-04-29",
+    "readings": 34944,
+    "completeSlots": 96,
+    "meanMW": 12.394,
+    "peakMW": 30.887
+  },
+  "pv": {
+    "firstDate": "1/07/2012",
+    "lastDate": "30/06/2013",
+    "readings": 5252112,
+    "customers": 300,
+    "nativeResolutionMinutes": 30,
+    "normalizedResolutionMinutes": 15
+  },
+  "reliability": {
+    "period": "2016-07-01 to 2021-06-30",
+    "saidiMinutesPerCustomerYear": 73.09,
+    "saifiInterruptionsPerCustomerYear": 0.58,
+    "meanRestorationHours": 3.161,
+    "medianRestorationHours": 1.771,
+    "p90RestorationHours": 6.4,
+    "p95RestorationHours": 10.238,
+    "eventCount": 9210
+  },
+  "quality": {
+    "demandCompletenessPct": 99.73,
+    "pvCompletenessPct": 99.93
+  },
+  "validation": {
+    "method": "Blocked temporal holdout: every fifth observed day/event withheld before profile comparison",
+    "status": "PASS",
+    "demand": {
+      "trainDays": 292,
+      "holdoutDays": 72,
+      "maePct": 0.415,
+      "rmsePct": 0.518
+    },
+    "pv": {
+      "trainDays": 292,
+      "holdoutDays": 73,
+      "maeCapacityFactor": 0.007,
+      "rmseCapacityFactor": 0.012
+    },
+    "outage": {
+      "trainEvents": 7368,
+      "holdoutEvents": 1842,
+      "ksStatistic": 0.0231,
+      "medianShiftHours": 0.04
+    }
+  },
+  "disclosure": "Measured public reference cohort from the Ausgrid network in New South Wales. It is not Jaipur site telemetry and must not be represented as local commissioning data.",
+  "fingerprint": "SITE-68A008486D22"
+}
