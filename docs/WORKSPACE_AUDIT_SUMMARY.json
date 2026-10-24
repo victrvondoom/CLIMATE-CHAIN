@@ -1,0 +1,204 @@
+{
+  "timestamp": "2026-10-24T16:05:42.793Z",
+  "workspaceRoot": "C:\\Users\\Administrator\\Downloads\\current going on hackathons work\\IEEE CLIMATE CHAIN",
+  "projects": {
+    "AquaQuest-main": {
+      "existsInRoot": true,
+      "existsInClimateChain": true,
+      "rootFiles": 107,
+      "projFiles": 107,
+      "rootTotalBytes": 10153934,
+      "projTotalBytes": 10153934,
+      "exactMatchingFiles": 0,
+      "modifiedFiles": 0,
+      "rootOnlyEphemeralFiles": 0
+    },
+    "CarbonTrace-main": {
+      "existsInRoot": true,
+      "existsInClimateChain": true,
+      "rootFiles": 70,
+      "projFiles": 70,
+      "rootTotalBytes": 448558,
+      "projTotalBytes": 448558,
+      "exactMatchingFiles": 0,
+      "modifiedFiles": 0,
+      "rootOnlyEphemeralFiles": 0
+    },
+    "ClimateProof-AI-main": {
+      "existsInRoot": true,
+      "existsInClimateChain": true,
+      "rootFiles": 10,
+      "projFiles": 10,
+      "rootTotalBytes": 38865,
+      "projTotalBytes": 38865,
+      "exactMatchingFiles": 0,
+      "modifiedFiles": 0,
+      "rootOnlyEphemeralFiles": 0
+    },
+    "JunkSnap-main": {
+      "existsInRoot": true,
+      "existsInClimateChain": true,
+      "rootFiles": 3686,
+      "projFiles": 3622,
+      "rootTotalBytes": 47836360,
+      "projTotalBytes": 46712992,
+      "exactMatchingFiles": 0,
+      "modifiedFiles": 0,
+      "rootOnlyEphemeralFiles": 64
+    },
+    "PLUME-main": {
+      "existsInRoot": true,
+      "existsInClimateChain": true,
+      "rootFiles": 793,
+      "projFiles": 253,
+      "rootTotalBytes": 154128855,
+      "projTotalBytes": 69736084,
+      "exactMatchingFiles": 0,
+      "modifiedFiles": 0,
+      "rootOnlyEphemeralFiles": 540
+    },
+    "carbonlens-main": {
+      "existsInRoot": true,
+      "existsInClimateChain": true,
+      "rootFiles": 20,
+      "projFiles": 21,
+      "rootTotalBytes": 83254,
+      "projTotalBytes": 107002,
+      "exactMatchingFiles": 0,
+      "modifiedFiles": 0,
+      "rootOnlyEphemeralFiles": 0
+    },
+    "carbonshield-main": {
+      "existsInRoot": true,
+      "existsInClimateChain": true,
+      "rootFiles": 10900,
+      "projFiles": 195,
+      "rootTotalBytes": 410188699,
+      "projTotalBytes": 3064336,
+      "exactMatchingFiles": 0,
+      "modifiedFiles": 0,
+      "rootOnlyEphemeralFiles": 10705
+    },
+    "carbontwin-main": {
+      "existsInRoot": true,
+      "existsInClimateChain": true,
+      "rootFiles": 47,
+      "projFiles": 39,
+      "rootTotalBytes": 32702110,
+      "projTotalBytes": 32635656,
+      "exactMatchingFiles": 0,
+      "modifiedFiles": 0,
+      "rootOnlyEphemeralFiles": 8
+    },
+    "clearsky-main": {
+      "existsInRoot": true,
+      "existsInClimateChain": true,
+      "rootFiles": 325,
+      "projFiles": 324,
+      "rootTotalBytes": 95328119,
+      "projTotalBytes": 95326279,
+      "exactMatchingFiles": 0,
+      "modifiedFiles": 0,
+      "rootOnlyEphemeralFiles": 1
+    },
+    "ecograph-main": {
+      "existsInRoot": true,
+      "existsInClimateChain": true,
+      "rootFiles": 186,
+      "projFiles": 172,
+      "rootTotalBytes": 44949589,
+      "projTotalBytes": 44742630,
+      "exactMatchingFiles": 0,
+      "modifiedFiles": 0,
+      "rootOnlyEphemeralFiles": 14
+    },
+    "flarewatch-main": {
+      "existsInRoot": true,
+      "existsInClimateChain": true,
+      "rootFiles": 38,
+      "projFiles": 38,
+      "rootTotalBytes": 306531,
+      "projTotalBytes": 306531,
+      "exactMatchingFiles": 0,
+      "modifiedFiles": 0,
+      "rootOnlyEphemeralFiles": 0
+    },
+    "gridproof-main": {
+      "existsInRoot": true,
+      "existsInClimateChain": true,
+      "rootFiles": 49,
+      "projFiles": 49,
+      "rootTotalBytes": 401249,
+      "projTotalBytes": 401249,
+      "exactMatchingFiles": 0,
+      "modifiedFiles": 0,
+      "rootOnlyEphemeralFiles": 0
+    },
+    "grounded-main": {
+      "existsInRoot": true,
+      "existsInClimateChain": true,
+      "rootFiles": 322,
+      "projFiles": 322,
+      "rootTotalBytes": 44776543,
+      "projTotalBytes": 44776543,
+      "exactMatchingFiles": 0,
+      "modifiedFiles": 0,
+      "rootOnlyEphemeralFiles": 0
+    },
+    "hourmatch-master": {
+      "existsInRoot": true,
+      "existsInClimateChain": true,
+      "rootFiles": 64,
+      "projFiles": 64,
+      "rootTotalBytes": 755647,
+      "projTotalBytes": 755647,
+      "exactMatchingFiles": 0,
+      "modifiedFiles": 0,
+      "rootOnlyEphemeralFiles": 0
+    },
+    "plotlock-main": {
+      "existsInRoot": true,
+      "existsInClimateChain": true,
+      "rootFiles": 29,
+      "projFiles": 29,
+      "rootTotalBytes": 466980,
+      "projTotalBytes": 466980,
+      "exactMatchingFiles": 0,
+      "modifiedFiles": 0,
+      "rootOnlyEphemeralFiles": 0
+    },
+    "rantai-3c-master": {
+      "existsInRoot": true,
+      "existsInClimateChain": true,
+      "rootFiles": 290,
+      "projFiles": 137,
+      "rootTotalBytes": 531702683,
+      "projTotalBytes": 1287810,
+      "exactMatchingFiles": 0,
+      "modifiedFiles": 0,
+      "rootOnlyEphemeralFiles": 153
+    },
+    "teesri-shikayat-main": {
+      "existsInRoot": true,
+      "existsInClimateChain": true,
+      "rootFiles": 2442,
+      "projFiles": 75,
+      "rootTotalBytes": 60895515,
+      "projTotalBytes": 2780045,
+      "exactMatchingFiles": 0,
+      "modifiedFiles": 0,
+      "rootOnlyEphemeralFiles": 2367
+    },
+    "the-vayu-project-main": {
+      "existsInRoot": true,
+      "existsInClimateChain": true,
+      "rootFiles": 604,
+      "projFiles": 604,
+      "rootTotalBytes": 16542900,
+      "projTotalBytes": 16542900,
+      "exactMatchingFiles": 0,
+      "modifiedFiles": 0,
+      "rootOnlyEphemeralFiles": 0
+    }
+  }
+}

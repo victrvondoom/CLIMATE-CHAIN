@@ -1,0 +1,39 @@
+# Dependencies and build output
+node_modules/
+frontend/dist/
+climate-chain/frontend/dist/
+blockchain/artifacts/
+blockchain/cache/
+climate-chain/blockchain/artifacts/
+climate-chain/blockchain/cache/
+blockchain/deployments/localhost.json
+blockchain/deployments/integrity-localhost.json
+climate-chain/blockchain/deployments/localhost.json
+climate-chain/blockchain/deployments/integrity-localhost.json
+gateway/.integrity-data/
+climate-chain/gateway/.integrity-data/
+.venv/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.tsbuildinfo
+
+# Vendored project copies and safe archive
+projects/
+climate-chain/projects/
+.archive/
+
+# Local secrets and logs
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+
+# Browser-test artifacts and memory exports. Never versioned.
+.playwright-cli/
+output/
+
+# Agent worktrees and local tool state. Never versioned.
+.claude/

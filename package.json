@@ -1,0 +1,26 @@
+{
+  "name": "ieee-climate-chain",
+  "version": "1.0.0",
+  "description": "Unified Climate Chain Platform — Multi-Track Climate Intelligence, Evidence Ledger, and Trust Firewall",
+  "private": true,
+  "scripts": {
+    "start": "powershell.exe -ExecutionPolicy Bypass -File .\\start.ps1",
+    "test": "npm run test:blockchain && npm run test:gateway && npm run test:frontend",
+    "test:blockchain": "npm test --prefix climate-chain/blockchain",
+    "test:gateway": "npm test --prefix climate-chain/gateway",
+    "test:frontend": "npm test --prefix climate-chain/frontend",
+    "build": "npm run build --prefix climate-chain/frontend",
+    "lint": "npm run lint --prefix climate-chain/frontend"
+  },
+  "keywords": [
+    "climate",
+    "ieee",
+    "blockchain",
+    "evidence",
+    "trust-firewall",
+    "environmental-intelligence",
+    "zero-greenwashing"
+  ],
+  "author": "Climate Chain Team",
+  "license": "MIT"
+}

@@ -1,0 +1,1850 @@
+{
+    "version":  1,
+    "generatedFrom":  "ClimateChain OS master execution prompt, tasks 001-240",
+    "updatedAt":  "2026-10-21",
+    "statusLegend":  [
+                         "not_started",
+                         "in_progress",
+                         "partial",
+                         "completed",
+                         "blocked"
+                     ],
+    "phaseNodes":  [
+                       {
+                           "id":  "phase-0",
+                           "name":  "Forensic repository audit",
+                           "taskIds":  [
+                                           "001",
+                                           "002",
+                                           "003",
+                                           "004",
+                                           "005",
+                                           "006",
+                                           "007",
+                                           "008",
+                                           "009",
+                                           "010",
+                                           "011",
+                                           "012",
+                                           "013",
+                                           "014",
+                                           "015"
+                                       ],
+                           "dependsOn":  [
+
+                                         ]
+                       },
+                       {
+                           "id":  "phase-1",
+                           "name":  "Platform architecture",
+                           "taskIds":  [
+                                           "016",
+                                           "017",
+                                           "018",
+                                           "019",
+                                           "020",
+                                           "021",
+                                           "022",
+                                           "023",
+                                           "024",
+                                           "025",
+                                           "026",
+                                           "027",
+                                           "028",
+                                           "029",
+                                           "030"
+                                       ],
+                           "dependsOn":  [
+                                             "phase-0"
+                                         ]
+                       },
+                       {
+                           "id":  "phase-2",
+                           "name":  "Shared climate data foundation",
+                           "taskIds":  [
+                                           "031",
+                                           "032",
+                                           "033",
+                                           "034",
+                                           "035",
+                                           "036",
+                                           "037",
+                                           "038",
+                                           "039",
+                                           "040",
+                                           "041",
+                                           "042",
+                                           "043",
+                                           "044",
+                                           "045"
+                                       ],
+                           "dependsOn":  [
+                                             "phase-1"
+                                         ]
+                       },
+                       {
+                           "id":  "phase-3",
+                           "name":  "Unified backend and API gateway",
+                           "taskIds":  [
+                                           "046",
+                                           "047",
+                                           "048",
+                                           "049",
+                                           "050",
+                                           "051",
+                                           "052",
+                                           "053",
+                                           "054",
+                                           "055",
+                                           "056",
+                                           "057",
+                                           "058",
+                                           "059",
+                                           "060"
+                                       ],
+                           "dependsOn":  [
+                                             "phase-2"
+                                         ]
+                       },
+                       {
+                           "id":  "phase-4",
+                           "name":  "Civic climate intelligence",
+                           "taskIds":  [
+                                           "061",
+                                           "062",
+                                           "063",
+                                           "064",
+                                           "065",
+                                           "066",
+                                           "067",
+                                           "068",
+                                           "069",
+                                           "070",
+                                           "071",
+                                           "072",
+                                           "073",
+                                           "074",
+                                           "075",
+                                           "076",
+                                           "077",
+                                           "078",
+                                           "079",
+                                           "080"
+                                       ],
+                           "dependsOn":  [
+                                             "phase-3"
+                                         ]
+                       },
+                       {
+                           "id":  "phase-5",
+                           "name":  "Carbon integrity engine",
+                           "taskIds":  [
+                                           "081",
+                                           "082",
+                                           "083",
+                                           "084",
+                                           "085",
+                                           "086",
+                                           "087",
+                                           "088",
+                                           "089",
+                                           "090",
+                                           "091",
+                                           "092",
+                                           "093",
+                                           "094",
+                                           "095",
+                                           "096",
+                                           "097",
+                                           "098",
+                                           "099",
+                                           "100"
+                                       ],
+                           "dependsOn":  [
+                                             "phase-3"
+                                         ]
+                       },
+                       {
+                           "id":  "phase-6",
+                           "name":  "Methane intervention and verified funding",
+                           "taskIds":  [
+                                           "101",
+                                           "102",
+                                           "103",
+                                           "104",
+                                           "105",
+                                           "106",
+                                           "107",
+                                           "108",
+                                           "109",
+                                           "110",
+                                           "111",
+                                           "112"
+                                       ],
+                           "dependsOn":  [
+                                             "phase-3"
+                                         ]
+                       },
+                       {
+                           "id":  "phase-7",
+                           "name":  "Energy resilience engine",
+                           "taskIds":  [
+                                           "113",
+                                           "114",
+                                           "115",
+                                           "116",
+                                           "117",
+                                           "118",
+                                           "119",
+                                           "120",
+                                           "121",
+                                           "122",
+                                           "123"
+                                       ],
+                           "dependsOn":  [
+                                             "phase-3"
+                                         ]
+                       },
+                       {
+                           "id":  "phase-8",
+                           "name":  "Citizen science and governance",
+                           "taskIds":  [
+                                           "124",
+                                           "125",
+                                           "126",
+                                           "127",
+                                           "128",
+                                           "129",
+                                           "130",
+                                           "131",
+                                           "132",
+                                           "133",
+                                           "134",
+                                           "135"
+                                       ],
+                           "dependsOn":  [
+                                             "phase-3"
+                                         ]
+                       },
+                       {
+                           "id":  "phase-9",
+                           "name":  "Cross-domain intelligence",
+                           "taskIds":  [
+                                           "136",
+                                           "137",
+                                           "138",
+                                           "139",
+                                           "140",
+                                           "141",
+                                           "142",
+                                           "143",
+                                           "144",
+                                           "145",
+                                           "146",
+                                           "147",
+                                           "148",
+                                           "149",
+                                           "150"
+                                       ],
+                           "dependsOn":  [
+                                             "phase-4",
+                                             "phase-5",
+                                             "phase-6",
+                                             "phase-7",
+                                             "phase-8"
+                                         ]
+                       },
+                       {
+                           "id":  "phase-10",
+                           "name":  "Shared evidence and trust layer",
+                           "taskIds":  [
+                                           "151",
+                                           "152",
+                                           "153",
+                                           "154",
+                                           "155",
+                                           "156",
+                                           "157",
+                                           "158",
+                                           "159",
+                                           "160",
+                                           "161",
+                                           "162",
+                                           "163",
+                                           "164",
+                                           "165"
+                                       ],
+                           "dependsOn":  [
+                                             "phase-2",
+                                             "phase-9"
+                                         ]
+                       },
+                       {
+                           "id":  "phase-11",
+                           "name":  "Autonomous agents with human approval",
+                           "taskIds":  [
+                                           "166",
+                                           "167",
+                                           "168",
+                                           "169",
+                                           "170",
+                                           "171",
+                                           "172",
+                                           "173",
+                                           "174",
+                                           "175",
+                                           "176",
+                                           "177",
+                                           "178"
+                                       ],
+                           "dependsOn":  [
+                                             "phase-3",
+                                             "phase-10"
+                                         ]
+                       },
+                       {
+                           "id":  "phase-12",
+                           "name":  "Command center frontend",
+                           "taskIds":  [
+                                           "179",
+                                           "180",
+                                           "181",
+                                           "182",
+                                           "183",
+                                           "184",
+                                           "185",
+                                           "186",
+                                           "187",
+                                           "188",
+                                           "189",
+                                           "190",
+                                           "191",
+                                           "192",
+                                           "193",
+                                           "194",
+                                           "195"
+                                       ],
+                           "dependsOn":  [
+                                             "phase-9",
+                                             "phase-10"
+                                         ]
+                       },
+                       {
+                           "id":  "phase-13",
+                           "name":  "Data and model engineering",
+                           "taskIds":  [
+                                           "196",
+                                           "197",
+                                           "198",
+                                           "199",
+                                           "200",
+                                           "201",
+                                           "202",
+                                           "203",
+                                           "204",
+                                           "205",
+                                           "206",
+                                           "207",
+                                           "208",
+                                           "209",
+                                           "210"
+                                       ],
+                           "dependsOn":  [
+                                             "phase-2"
+                                         ]
+                       },
+                       {
+                           "id":  "phase-14",
+                           "name":  "Security and reliability",
+                           "taskIds":  [
+                                           "211",
+                                           "212",
+                                           "213",
+                                           "214",
+                                           "215",
+                                           "216",
+                                           "217",
+                                           "218",
+                                           "219",
+                                           "220",
+                                           "221",
+                                           "222",
+                                           "223",
+                                           "224",
+                                           "225"
+                                       ],
+                           "dependsOn":  [
+                                             "phase-3",
+                                             "phase-10"
+                                         ]
+                       },
+                       {
+                           "id":  "phase-15",
+                           "name":  "Deployment and local reproducibility",
+                           "taskIds":  [
+                                           "226",
+                                           "227",
+                                           "228",
+                                           "229",
+                                           "230",
+                                           "231",
+                                           "232",
+                                           "233",
+                                           "234",
+                                           "235",
+                                           "236",
+                                           "237",
+                                           "238",
+                                           "239",
+                                           "240"
+                                       ],
+                           "dependsOn":  [
+                                             "phase-12",
+                                             "phase-13",
+                                             "phase-14"
+                                         ]
+                       }
+                   ],
+    "tasks":  [
+                  {
+                      "id":  "001",
+                      "phase":  "phase-0",
+                      "title":  "Identify the repository root and all project boundaries.",
+                      "status":  "completed"
+                  },
+                  {
+                      "id":  "002",
+                      "phase":  "phase-0",
+                      "title":  "Read the root README and all 13 project READMEs.",
+                      "status":  "completed"
+                  },
+                  {
+                      "id":  "003",
+                      "phase":  "phase-0",
+                      "title":  "Inventory languages, frameworks, package managers, runtimes, and database technologies.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "004",
+                      "phase":  "phase-0",
+                      "title":  "Inspect frontend entry points and routing structures.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "005",
+                      "phase":  "phase-0",
+                      "title":  "Inspect backend entry points and exposed API routes.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "006",
+                      "phase":  "phase-0",
+                      "title":  "Inspect database schemas, migration files, and persistence implementations.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "007",
+                      "phase":  "phase-0",
+                      "title":  "Inspect AI/ML models, inference pipelines, and model dependencies.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "008",
+                      "phase":  "phase-0",
+                      "title":  "Inspect blockchain contracts and transaction workflows.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "009",
+                      "phase":  "phase-0",
+                      "title":  "Inspect container, AWS, deployment, and infrastructure definitions.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "010",
+                      "phase":  "phase-0",
+                      "title":  "Identify duplicate code, models, services, and interfaces.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "011",
+                      "phase":  "phase-0",
+                      "title":  "Identify broken references, imports, scripts, API calls, and configuration.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "012",
+                      "phase":  "phase-0",
+                      "title":  "Audit package and runtime compatibility between modules.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "013",
+                      "phase":  "phase-0",
+                      "title":  "Execute feasible existing tests and record baseline results.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "014",
+                      "phase":  "phase-0",
+                      "title":  "Audit repository licensing, intellectual property boundaries, and source attribution.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "015",
+                      "phase":  "phase-0",
+                      "title":  "Create `docs/audit/REPOSITORY_AUDIT.md`.",
+                      "status":  "completed"
+                  },
+                  {
+                      "id":  "016",
+                      "phase":  "phase-1",
+                      "title":  "Define a shared modular architecture.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "017",
+                      "phase":  "phase-1",
+                      "title":  "Identify the existing `climate-chain` components suitable for reuse.",
+                      "status":  "completed"
+                  },
+                  {
+                      "id":  "018",
+                      "phase":  "phase-1",
+                      "title":  "Define service boundaries for the thirteen projects.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "019",
+                      "phase":  "phase-1",
+                      "title":  "Define a canonical environmental observation schema.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "020",
+                      "phase":  "phase-1",
+                      "title":  "Define a universal climate incident model.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "021",
+                      "phase":  "phase-1",
+                      "title":  "Define an intervention and case-management model.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "022",
+                      "phase":  "phase-1",
+                      "title":  "Define an evidence and provenance model.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "023",
+                      "phase":  "phase-1",
+                      "title":  "Define environmental assets and geographic entities.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "024",
+                      "phase":  "phase-1",
+                      "title":  "Define organizations, stakeholders, users, and roles.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "025",
+                      "phase":  "phase-1",
+                      "title":  "Define cross-module event contracts.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "026",
+                      "phase":  "phase-1",
+                      "title":  "Define integration adapters and normalized response contracts.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "027",
+                      "phase":  "phase-1",
+                      "title":  "Define module registration and feature-flag capabilities.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "028",
+                      "phase":  "phase-1",
+                      "title":  "Define geospatial search and indexing strategies.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "029",
+                      "phase":  "phase-1",
+                      "title":  "Define auditable decision and intervention records.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "030",
+                      "phase":  "phase-1",
+                      "title":  "Create executable implementation scaffolding and architecture documentation.",
+                      "status":  "completed"
+                  },
+                  {
+                      "id":  "031",
+                      "phase":  "phase-2",
+                      "title":  "Implement normalized observation identifiers.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "032",
+                      "phase":  "phase-2",
+                      "title":  "Implement observation source typing.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "033",
+                      "phase":  "phase-2",
+                      "title":  "Implement timestamps with timezone-safe storage.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "034",
+                      "phase":  "phase-2",
+                      "title":  "Implement geospatial coordinates and validation.",
+                      "status":  "completed"
+                  },
+                  {
+                      "id":  "035",
+                      "phase":  "phase-2",
+                      "title":  "Implement observed quantities with units.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "036",
+                      "phase":  "phase-2",
+                      "title":  "Implement uncertainty and confidence metadata.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "037",
+                      "phase":  "phase-2",
+                      "title":  "Implement source provenance links.",
+                      "status":  "completed"
+                  },
+                  {
+                      "id":  "038",
+                      "phase":  "phase-2",
+                      "title":  "Implement evidence attachment references.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "039",
+                      "phase":  "phase-2",
+                      "title":  "Implement incident status and lifecycle transitions.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "040",
+                      "phase":  "phase-2",
+                      "title":  "Implement intervention ownership and approvals.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "041",
+                      "phase":  "phase-2",
+                      "title":  "Implement observation-to-incident relationships.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "042",
+                      "phase":  "phase-2",
+                      "title":  "Implement cross-module entity relationships.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "043",
+                      "phase":  "phase-2",
+                      "title":  "Implement schema versioning.",
+                      "status":  "completed"
+                  },
+                  {
+                      "id":  "044",
+                      "phase":  "phase-2",
+                      "title":  "Implement database migrations and seeded development data.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "045",
+                      "phase":  "phase-2",
+                      "title":  "Implement validation and persistence tests.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "046",
+                      "phase":  "phase-3",
+                      "title":  "Audit and extend the existing gateway.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "047",
+                      "phase":  "phase-3",
+                      "title":  "Normalize API responses across projects.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "048",
+                      "phase":  "phase-3",
+                      "title":  "Implement versioned API contracts.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "049",
+                      "phase":  "phase-3",
+                      "title":  "Add common health and readiness endpoints.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "050",
+                      "phase":  "phase-3",
+                      "title":  "Add observations ingestion APIs.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "051",
+                      "phase":  "phase-3",
+                      "title":  "Add incident search and filtering APIs.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "052",
+                      "phase":  "phase-3",
+                      "title":  "Add environmental asset APIs.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "053",
+                      "phase":  "phase-3",
+                      "title":  "Add geographic bounding-box queries.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "054",
+                      "phase":  "phase-3",
+                      "title":  "Add evidence record retrieval APIs.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "055",
+                      "phase":  "phase-3",
+                      "title":  "Add risk-assessment APIs.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "056",
+                      "phase":  "phase-3",
+                      "title":  "Add intervention workflow APIs.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "057",
+                      "phase":  "phase-3",
+                      "title":  "Add verification and audit-history APIs.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "058",
+                      "phase":  "phase-3",
+                      "title":  "Implement service timeout, retry, and circuit-breaker behavior where justified.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "059",
+                      "phase":  "phase-3",
+                      "title":  "Implement consistent request validation, errors, and response metadata.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "060",
+                      "phase":  "phase-3",
+                      "title":  "Implement API contract and integration tests.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "061",
+                      "phase":  "phase-4",
+                      "title":  "Integrate JunkSnap reporting through an adapter.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "062",
+                      "phase":  "phase-4",
+                      "title":  "Normalize waste report evidence.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "063",
+                      "phase":  "phase-4",
+                      "title":  "Support privacy-safe photo handling.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "064",
+                      "phase":  "phase-4",
+                      "title":  "Connect waste sites to geographical administrative boundaries where authoritative data exists.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "065",
+                      "phase":  "phase-4",
+                      "title":  "Integrate human corroboration and report verification.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "066",
+                      "phase":  "phase-4",
+                      "title":  "Implement intervention case creation for verified sites.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "067",
+                      "phase":  "phase-4",
+                      "title":  "Integrate clearsky fire and field-data services.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "068",
+                      "phase":  "phase-4",
+                      "title":  "Normalize fire observations and historical satellite detections.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "069",
+                      "phase":  "phase-4",
+                      "title":  "Integrate fire-risk scoring with documented inputs.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "070",
+                      "phase":  "phase-4",
+                      "title":  "Expose agricultural residue matching where the existing implementation supports it.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "071",
+                      "phase":  "phase-4",
+                      "title":  "Connect fire alerts to regional incident records.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "072",
+                      "phase":  "phase-4",
+                      "title":  "Integrate teesri-shikayat complaints through an adapter.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "073",
+                      "phase":  "phase-4",
+                      "title":  "Preserve its existing spatial-temporal tripwire logic.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "074",
+                      "phase":  "phase-4",
+                      "title":  "Provide configurable and tested water incident thresholds.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "075",
+                      "phase":  "phase-4",
+                      "title":  "Connect water cases to human verification and authority workflows.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "076",
+                      "phase":  "phase-4",
+                      "title":  "Integrate Vayu air-quality observations.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "077",
+                      "phase":  "phase-4",
+                      "title":  "Preserve source names, distance, measurement age, and attribution.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "078",
+                      "phase":  "phase-4",
+                      "title":  "Normalize AQI and pollutant units without misleading conversions.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "079",
+                      "phase":  "phase-4",
+                      "title":  "Integrate hardware sensor observations where genuinely supported.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "080",
+                      "phase":  "phase-4",
+                      "title":  "Expose hyperlocal air exposure and monitoring views.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "081",
+                      "phase":  "phase-5",
+                      "title":  "Audit carbon data models across four projects.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "082",
+                      "phase":  "phase-5",
+                      "title":  "Identify overlapping registry and project identifiers.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "083",
+                      "phase":  "phase-5",
+                      "title":  "Design canonical carbon project records.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "084",
+                      "phase":  "phase-5",
+                      "title":  "Design canonical credit issuance and retirement records.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "085",
+                      "phase":  "phase-5",
+                      "title":  "Implement credit lifecycle validation.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "086",
+                      "phase":  "phase-5",
+                      "title":  "Preserve carbonlens land-cover and reversal-detection logic where executable.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "087",
+                      "phase":  "phase-5",
+                      "title":  "Preserve its uncertainty and bias-correction calculations.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "088",
+                      "phase":  "phase-5",
+                      "title":  "Integrate carbonshield methodology stress-test inputs.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "089",
+                      "phase":  "phase-5",
+                      "title":  "Implement scenario-based methodology risk assessments.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "090",
+                      "phase":  "phase-5",
+                      "title":  "Integrate carbontwin candidate duplicate matching.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "091",
+                      "phase":  "phase-5",
+                      "title":  "Preserve human-reviewable matching evidence.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "092",
+                      "phase":  "phase-5",
+                      "title":  "Integrate ecograph fraud graph inputs.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "093",
+                      "phase":  "phase-5",
+                      "title":  "Implement or connect graph-based suspicious-pattern detection.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "094",
+                      "phase":  "phase-5",
+                      "title":  "Combine findings using documented aggregation rules.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "095",
+                      "phase":  "phase-5",
+                      "title":  "Produce explainable project-level integrity reports.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "096",
+                      "phase":  "phase-5",
+                      "title":  "Implement evidence links for every material fraud finding.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "097",
+                      "phase":  "phase-5",
+                      "title":  "Implement human approval for high-impact decisions.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "098",
+                      "phase":  "phase-5",
+                      "title":  "Preserve existing contract-verification capabilities where valid.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "099",
+                      "phase":  "phase-5",
+                      "title":  "Add negative, adversarial, and duplicate-claim test cases.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "100",
+                      "phase":  "phase-5",
+                      "title":  "Build a Carbon Integrity dashboard.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "101",
+                      "phase":  "phase-6",
+                      "title":  "Audit the PLUME data and processing architecture.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "102",
+                      "phase":  "phase-6",
+                      "title":  "Integrate or adapt methane plume records.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "103",
+                      "phase":  "phase-6",
+                      "title":  "Implement plume geographic search.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "104",
+                      "phase":  "phase-6",
+                      "title":  "Preserve clustering and grouping methods with explicit parameters.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "105",
+                      "phase":  "phase-6",
+                      "title":  "Implement explainable plume prioritization.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "106",
+                      "phase":  "phase-6",
+                      "title":  "Link methane incidents to environmental assets.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "107",
+                      "phase":  "phase-6",
+                      "title":  "Connect proposed repairs to intervention records.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "108",
+                      "phase":  "phase-6",
+                      "title":  "Implement intervention approval states.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "109",
+                      "phase":  "phase-6",
+                      "title":  "Model independent post-repair verification.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "110",
+                      "phase":  "phase-6",
+                      "title":  "Preserve EIP-712 signature validation where supported.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "111",
+                      "phase":  "phase-6",
+                      "title":  "Ensure financial-release workflows are opt-in and never execute during ordinary tests.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "112",
+                      "phase":  "phase-6",
+                      "title":  "Implement a methane intervention and audit dashboard.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "113",
+                      "phase":  "phase-7",
+                      "title":  "Audit grounded\u0027s simulation implementation.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "114",
+                      "phase":  "phase-7",
+                      "title":  "Extract reusable energy scenario interfaces.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "115",
+                      "phase":  "phase-7",
+                      "title":  "Integrate solar generation models.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "116",
+                      "phase":  "phase-7",
+                      "title":  "Integrate battery state-of-charge constraints.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "117",
+                      "phase":  "phase-7",
+                      "title":  "Integrate grid availability scenarios.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "118",
+                      "phase":  "phase-7",
+                      "title":  "Integrate critical-load prioritization.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "119",
+                      "phase":  "phase-7",
+                      "title":  "Preserve microgrid optimization logic.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "120",
+                      "phase":  "phase-7",
+                      "title":  "Preserve holdout validation and distinguish optimized results from unseen evaluation.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "121",
+                      "phase":  "phase-7",
+                      "title":  "Expose scenario comparison APIs.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "122",
+                      "phase":  "phase-7",
+                      "title":  "Build a resilience scenario interface.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "123",
+                      "phase":  "phase-7",
+                      "title":  "Link energy scenarios to climate risks without inventing predictive causality.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "124",
+                      "phase":  "phase-8",
+                      "title":  "Audit AquaQuest and rantai-3c implementations.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "125",
+                      "phase":  "phase-8",
+                      "title":  "Integrate useful citizen observation UI patterns.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "126",
+                      "phase":  "phase-8",
+                      "title":  "Implement freshwater observation submission.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "127",
+                      "phase":  "phase-8",
+                      "title":  "Implement attachment validation and moderation boundaries.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "128",
+                      "phase":  "phase-8",
+                      "title":  "Implement basic community contribution history.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "129",
+                      "phase":  "phase-8",
+                      "title":  "Implement optional achievements based on verifiable actions.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "130",
+                      "phase":  "phase-8",
+                      "title":  "Prevent reward inflation through duplicate or fraudulent reports.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "131",
+                      "phase":  "phase-8",
+                      "title":  "Evaluate offline-first workflows where the existing PWA supports them.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "132",
+                      "phase":  "phase-8",
+                      "title":  "Integrate useful carbon record visualization from rantai-3c.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "133",
+                      "phase":  "phase-8",
+                      "title":  "Distinguish actual blockchain assets from simulated certificates.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "134",
+                      "phase":  "phase-8",
+                      "title":  "Implement stakeholder approval and governance records.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "135",
+                      "phase":  "phase-8",
+                      "title":  "Connect engagement features to verified environmental action.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "136",
+                      "phase":  "phase-9",
+                      "title":  "Implement geographic and temporal correlation utilities.",
+                      "status":  "completed"
+                  },
+                  {
+                      "id":  "137",
+                      "phase":  "phase-9",
+                      "title":  "Build an environmental incident relationship model.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "138",
+                      "phase":  "phase-9",
+                      "title":  "Identify nearby observations across multiple domains.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "139",
+                      "phase":  "phase-9",
+                      "title":  "Implement configurable correlation thresholds.",
+                      "status":  "completed"
+                  },
+                  {
+                      "id":  "140",
+                      "phase":  "phase-9",
+                      "title":  "Separate observed correlations from predicted impacts.",
+                      "status":  "completed"
+                  },
+                  {
+                      "id":  "141",
+                      "phase":  "phase-9",
+                      "title":  "Add source-specific confidence indicators.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "142",
+                      "phase":  "phase-9",
+                      "title":  "Implement evidence-supported incident clusters.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "143",
+                      "phase":  "phase-9",
+                      "title":  "Implement risk prioritization with transparent scoring.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "144",
+                      "phase":  "phase-9",
+                      "title":  "Implement action recommendations grounded in available evidence.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "145",
+                      "phase":  "phase-9",
+                      "title":  "Provide explanations and uncertainty for recommendations.",
+                      "status":  "completed"
+                  },
+                  {
+                      "id":  "146",
+                      "phase":  "phase-9",
+                      "title":  "Add incident escalation and human-review rules.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "147",
+                      "phase":  "phase-9",
+                      "title":  "Implement configurable regional summaries.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "148",
+                      "phase":  "phase-9",
+                      "title":  "Implement environmental trend comparison.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "149",
+                      "phase":  "phase-9",
+                      "title":  "Implement cross-domain timeline reconstruction.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "150",
+                      "phase":  "phase-9",
+                      "title":  "Test relationships against deliberately misleading and contradictory observations.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "151",
+                      "phase":  "phase-10",
+                      "title":  "Implement content hashing for evidence records.",
+                      "status":  "completed"
+                  },
+                  {
+                      "id":  "152",
+                      "phase":  "phase-10",
+                      "title":  "Implement deterministic evidence manifests.",
+                      "status":  "completed"
+                  },
+                  {
+                      "id":  "153",
+                      "phase":  "phase-10",
+                      "title":  "Preserve original-source references.",
+                      "status":  "completed"
+                  },
+                  {
+                      "id":  "154",
+                      "phase":  "phase-10",
+                      "title":  "Record acquisition and processing timestamps.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "155",
+                      "phase":  "phase-10",
+                      "title":  "Record processing algorithms and versions.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "156",
+                      "phase":  "phase-10",
+                      "title":  "Track original and transformed evidence separately.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "157",
+                      "phase":  "phase-10",
+                      "title":  "Record AI-generated outputs as derived evidence.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "158",
+                      "phase":  "phase-10",
+                      "title":  "Implement evidence integrity verification.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "159",
+                      "phase":  "phase-10",
+                      "title":  "Implement chain-of-custody events.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "160",
+                      "phase":  "phase-10",
+                      "title":  "Implement actor and approval attribution.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "161",
+                      "phase":  "phase-10",
+                      "title":  "Implement append-only logical audit events.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "162",
+                      "phase":  "phase-10",
+                      "title":  "Provide human-readable evidence timelines.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "163",
+                      "phase":  "phase-10",
+                      "title":  "Implement evidence export.",
+                      "status":  "completed"
+                  },
+                  {
+                      "id":  "164",
+                      "phase":  "phase-10",
+                      "title":  "Test tampering detection and unauthorized modification.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "165",
+                      "phase":  "phase-10",
+                      "title":  "Expose provenance throughout the UI.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "166",
+                      "phase":  "phase-11",
+                      "title":  "Audit existing agents and their tool interfaces.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "167",
+                      "phase":  "phase-11",
+                      "title":  "Extract reusable tool contracts.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "168",
+                      "phase":  "phase-11",
+                      "title":  "Implement read-only environmental query tools.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "169",
+                      "phase":  "phase-11",
+                      "title":  "Implement structured incident summarization.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "170",
+                      "phase":  "phase-11",
+                      "title":  "Implement evidence citation validation.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "171",
+                      "phase":  "phase-11",
+                      "title":  "Implement constrained action proposal generation.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "172",
+                      "phase":  "phase-11",
+                      "title":  "Implement explicit human approval boundaries.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "173",
+                      "phase":  "phase-11",
+                      "title":  "Implement configurable agent permissions.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "174",
+                      "phase":  "phase-11",
+                      "title":  "Implement agent execution logs.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "175",
+                      "phase":  "phase-11",
+                      "title":  "Implement model-independent fallback behaviors.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "176",
+                      "phase":  "phase-11",
+                      "title":  "Implement prompt-injection and malicious document tests.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "177",
+                      "phase":  "phase-11",
+                      "title":  "Implement hallucination and unsupported-claim evaluation cases.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "178",
+                      "phase":  "phase-11",
+                      "title":  "Integrate the agent assistant into relevant operator workflows.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "179",
+                      "phase":  "phase-12",
+                      "title":  "Audit the current frontend and existing shared components.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "180",
+                      "phase":  "phase-12",
+                      "title":  "Establish consistent navigation.",
+                      "status":  "completed"
+                  },
+                  {
+                      "id":  "181",
+                      "phase":  "phase-12",
+                      "title":  "Implement a unified dashboard shell.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "182",
+                      "phase":  "phase-12",
+                      "title":  "Implement module navigation and feature discovery.",
+                      "status":  "completed"
+                  },
+                  {
+                      "id":  "183",
+                      "phase":  "phase-12",
+                      "title":  "Integrate reusable climate metric cards.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "184",
+                      "phase":  "phase-12",
+                      "title":  "Integrate configurable geospatial layers.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "185",
+                      "phase":  "phase-12",
+                      "title":  "Implement a unified incident detail view.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "186",
+                      "phase":  "phase-12",
+                      "title":  "Implement source provenance visualization.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "187",
+                      "phase":  "phase-12",
+                      "title":  "Implement interactive incident timelines.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "188",
+                      "phase":  "phase-12",
+                      "title":  "Implement intervention status visualization.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "189",
+                      "phase":  "phase-12",
+                      "title":  "Implement carbon integrity findings views.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "190",
+                      "phase":  "phase-12",
+                      "title":  "Implement methane intervention views.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "191",
+                      "phase":  "phase-12",
+                      "title":  "Implement energy scenario comparisons.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "192",
+                      "phase":  "phase-12",
+                      "title":  "Implement explicit live/stale/synthetic data states.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "193",
+                      "phase":  "phase-12",
+                      "title":  "Improve responsive behavior and keyboard accessibility.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "194",
+                      "phase":  "phase-12",
+                      "title":  "Implement reusable error, loading, and empty states.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "195",
+                      "phase":  "phase-12",
+                      "title":  "Add frontend functional and end-to-end tests.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "196",
+                      "phase":  "phase-13",
+                      "title":  "Inventory existing real, historical, synthetic, and simulated datasets.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "197",
+                      "phase":  "phase-13",
+                      "title":  "Validate dataset licenses and permissible use.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "198",
+                      "phase":  "phase-13",
+                      "title":  "Create a normalized ingestion contract.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "199",
+                      "phase":  "phase-13",
+                      "title":  "Add data quality validation.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "200",
+                      "phase":  "phase-13",
+                      "title":  "Add schema drift detection.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "201",
+                      "phase":  "phase-13",
+                      "title":  "Add source freshness monitoring.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "202",
+                      "phase":  "phase-13",
+                      "title":  "Add duplicate observation detection.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "203",
+                      "phase":  "phase-13",
+                      "title":  "Preserve raw and processed datasets appropriately.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "204",
+                      "phase":  "phase-13",
+                      "title":  "Build reproducible model evaluation scripts.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "205",
+                      "phase":  "phase-13",
+                      "title":  "Reproduce existing claimed results where feasible.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "206",
+                      "phase":  "phase-13",
+                      "title":  "Implement simple statistical or heuristic baselines.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "207",
+                      "phase":  "phase-13",
+                      "title":  "Compare complex models against baselines.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "208",
+                      "phase":  "phase-13",
+                      "title":  "Evaluate false positives and false negatives.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "209",
+                      "phase":  "phase-13",
+                      "title":  "Add model output uncertainty and version tracking.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "210",
+                      "phase":  "phase-13",
+                      "title":  "Create dataset and model documentation.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "211",
+                      "phase":  "phase-14",
+                      "title":  "Identify exposed secrets and insecure defaults without disclosing secret values.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "212",
+                      "phase":  "phase-14",
+                      "title":  "Implement secure environment variable handling.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "213",
+                      "phase":  "phase-14",
+                      "title":  "Validate untrusted API and webhook inputs.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "214",
+                      "phase":  "phase-14",
+                      "title":  "Evaluate authentication coverage.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "215",
+                      "phase":  "phase-14",
+                      "title":  "Implement or strengthen role-based authorization.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "216",
+                      "phase":  "phase-14",
+                      "title":  "Add ownership and organization access checks.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "217",
+                      "phase":  "phase-14",
+                      "title":  "Protect evidence attachments from unauthorized access.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "218",
+                      "phase":  "phase-14",
+                      "title":  "Add rate limiting where necessary.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "219",
+                      "phase":  "phase-14",
+                      "title":  "Protect external fetching against SSRF and unsafe redirects.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "220",
+                      "phase":  "phase-14",
+                      "title":  "Add security regression tests.",
+                      "status":  "partial"
+                  },
+                  {
+                      "id":  "221",
+                      "phase":  "phase-14",
+                      "title":  "Implement structured error handling.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "222",
+                      "phase":  "phase-14",
+                      "title":  "Add useful application logging.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "223",
+                      "phase":  "phase-14",
+                      "title":  "Add health and dependency diagnostics.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "224",
+                      "phase":  "phase-14",
+                      "title":  "Add performance measurements for critical flows.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "225",
+                      "phase":  "phase-14",
+                      "title":  "Produce a prioritized security and reliability report.",
+                      "status":  "completed"
+                  },
+                  {
+                      "id":  "226",
+                      "phase":  "phase-15",
+                      "title":  "Audit existing deployment scripts.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "227",
+                      "phase":  "phase-15",
+                      "title":  "Audit container configurations.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "228",
+                      "phase":  "phase-15",
+                      "title":  "Design the smallest complete local development environment.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "229",
+                      "phase":  "phase-15",
+                      "title":  "Implement environment templates without secrets.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "230",
+                      "phase":  "phase-15",
+                      "title":  "Implement deterministic development data seeding.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "231",
+                      "phase":  "phase-15",
+                      "title":  "Add a single documented application startup path.",
+                      "status":  "completed"
+                  },
+                  {
+                      "id":  "232",
+                      "phase":  "phase-15",
+                      "title":  "Add service startup dependency checks.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "233",
+                      "phase":  "phase-15",
+                      "title":  "Implement database initialization and migrations.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "234",
+                      "phase":  "phase-15",
+                      "title":  "Implement a development smoke-test script.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "235",
+                      "phase":  "phase-15",
+                      "title":  "Add independent module health checks.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "236",
+                      "phase":  "phase-15",
+                      "title":  "Audit existing CI workflows.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "237",
+                      "phase":  "phase-15",
+                      "title":  "Implement build and test CI checks.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "238",
+                      "phase":  "phase-15",
+                      "title":  "Validate containerized application startup if supported.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "239",
+                      "phase":  "phase-15",
+                      "title":  "Document cloud deployment prerequisites and costs.",
+                      "status":  "not_started"
+                  },
+                  {
+                      "id":  "240",
+                      "phase":  "phase-15",
+                      "title":  "Document reproducible local demonstration instructions.",
+                      "status":  "completed"
+                  }
+              ]
+}
