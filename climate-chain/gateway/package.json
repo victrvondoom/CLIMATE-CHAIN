@@ -1,0 +1,17 @@
+{
+  "name": "climate-chain-gateway",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^22.19.0 || ^23.8.0 || >=24.6.0"
+  },
+  "scripts": {
+    "start": "node --use-system-ca gateway.mjs",
+    "worker": "node --use-system-ca mission-worker.mjs",
+    "supervisor": "node --use-system-ca mission-supervisor.mjs",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "ethers": "^6.17.0"
+  }
+}

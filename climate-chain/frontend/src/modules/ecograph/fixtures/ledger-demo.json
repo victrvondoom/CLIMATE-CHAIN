@@ -1,0 +1,6884 @@
+{
+ "label": "DEMO",
+ "seed": 7,
+ "source": {
+  "folder": "ecograph-main",
+  "files": [
+   "eco/graph.py",
+   "eco/evaluate.py",
+   "eco/detect.py",
+   "tests/test_detection.py"
+  ]
+ },
+ "note": "Planted-subgraph extract of the synthetic ledger that eco/graph.py generate(seed=7) builds. It keeps every credit the 7 planted findings and 6 decoy groups touch, the full credit lists of the four overlap-case projects (P-12, P-41, P-25, P-26), and the projects, parcels, trades, retirements and audits of those credits. Other background credits are omitted; they were checked not to change any planted finding. Values are copied unchanged.",
+ "registries": [
+  {
+   "id": "REG-1",
+   "name": "VeriCarbon Registry"
+  },
+  {
+   "id": "REG-2",
+   "name": "TerraRegistry"
+  },
+  {
+   "id": "REG-3",
+   "name": "GreenLedger"
+  }
+ ],
+ "parcels": [
+  {
+   "id": "LP-003",
+   "geohash": "ve1371",
+   "hectares": 810,
+   "country": "India"
+  },
+  {
+   "id": "LP-004",
+   "geohash": "k7149e",
+   "hectares": 260,
+   "country": "India"
+  },
+  {
+   "id": "LP-005",
+   "geohash": "k9536c",
+   "hectares": 200,
+   "country": "India"
+  },
+  {
+   "id": "LP-006",
+   "geohash": "v16geb",
+   "hectares": 670,
+   "country": "India"
+  },
+  {
+   "id": "LP-007",
+   "geohash": "s97572",
+   "hectares": 810,
+   "country": "Indonesia"
+  },
+  {
+   "id": "LP-008",
+   "geohash": "vgbf92",
+   "hectares": 230,
+   "country": "India"
+  },
+  {
+   "id": "LP-009",
+   "geohash": "mb4ge1",
+   "hectares": 170,
+   "country": "India"
+  },
+  {
+   "id": "LP-010",
+   "geohash": "vbbcgf",
+   "hectares": 160,
+   "country": "Brazil"
+  },
+  {
+   "id": "LP-011",
+   "geohash": "u219f9",
+   "hectares": 570,
+   "country": "Ghana"
+  },
+  {
+   "id": "LP-012",
+   "geohash": "s0fc53",
+   "hectares": 710,
+   "country": "Brazil"
+  },
+  {
+   "id": "LP-013",
+   "geohash": "s47ddg",
+   "hectares": 180,
+   "country": "Kenya"
+  },
+  {
+   "id": "LP-014",
+   "geohash": "u84e8e",
+   "hectares": 530,
+   "country": "Ghana"
+  },
+  {
+   "id": "LP-015",
+   "geohash": "u74254",
+   "hectares": 370,
+   "country": "Ghana"
+  },
+  {
+   "id": "LP-019",
+   "geohash": "mf53b1",
+   "hectares": 210,
+   "country": "Brazil"
+  },
+  {
+   "id": "LP-021",
+   "geohash": "sccg33",
+   "hectares": 700,
+   "country": "Peru"
+  },
+  {
+   "id": "LP-024",
+   "geohash": "v928hc",
+   "hectares": 290,
+   "country": "Indonesia"
+  },
+  {
+   "id": "LP-027",
+   "geohash": "s6cfcc",
+   "hectares": 180,
+   "country": "Kenya"
+  },
+  {
+   "id": "LP-028",
+   "geohash": "mg6b6g",
+   "hectares": 870,
+   "country": "India"
+  },
+  {
+   "id": "LP-034",
+   "geohash": "m1cfhe",
+   "hectares": 720,
+   "country": "Kenya"
+  },
+  {
+   "id": "LP-035",
+   "geohash": "v4hh0f",
+   "hectares": 310,
+   "country": "India"
+  },
+  {
+   "id": "LP-036",
+   "geohash": "k454g3",
+   "hectares": 790,
+   "country": "Brazil"
+  },
+  {
+   "id": "LP-037",
+   "geohash": "vhg317",
+   "hectares": 320,
+   "country": "Indonesia"
+  },
+  {
+   "id": "LP-038",
+   "geohash": "k3hf02",
+   "hectares": 640,
+   "country": "Indonesia"
+  },
+  {
+   "id": "LP-040",
+   "geohash": "u4e3df",
+   "hectares": 480,
+   "country": "Brazil"
+  },
+  {
+   "id": "LP-054",
+   "geohash": "ugdh96",
+   "hectares": 370,
+   "country": "Indonesia"
+  },
+  {
+   "id": "LP-058",
+   "geohash": "kd7m2a",
+   "hectares": 80,
+   "country": "Kenya"
+  },
+  {
+   "id": "LP-059",
+   "geohash": "kd7m2b",
+   "hectares": 410,
+   "country": "Kenya"
+  },
+  {
+   "id": "LP-060",
+   "geohash": "sbb719",
+   "hectares": 350,
+   "country": "Peru"
+  }
+ ],
+ "buyers": [
+  {
+   "id": "DEV-02",
+   "name": "Developer 02",
+   "kind": "developer"
+  },
+  {
+   "id": "DEV-03",
+   "name": "Developer 03",
+   "kind": "developer"
+  },
+  {
+   "id": "DEV-04",
+   "name": "Developer 04",
+   "kind": "developer"
+  },
+  {
+   "id": "DEV-05",
+   "name": "Developer 05",
+   "kind": "developer"
+  },
+  {
+   "id": "DEV-06",
+   "name": "Developer 06",
+   "kind": "developer"
+  },
+  {
+   "id": "DEV-07",
+   "name": "Developer 07",
+   "kind": "developer"
+  },
+  {
+   "id": "DEV-08",
+   "name": "Developer 08",
+   "kind": "developer"
+  },
+  {
+   "id": "DEV-09",
+   "name": "Developer 09",
+   "kind": "developer"
+  },
+  {
+   "id": "DEV-12",
+   "name": "Developer 12",
+   "kind": "developer"
+  },
+  {
+   "id": "DEV-14",
+   "name": "Developer 14",
+   "kind": "developer"
+  },
+  {
+   "id": "DEV-16",
+   "name": "Developer 16",
+   "kind": "developer"
+  },
+  {
+   "id": "DEV-19",
+   "name": "Developer 19",
+   "kind": "developer"
+  },
+  {
+   "id": "DEV-20",
+   "name": "Developer 20",
+   "kind": "developer"
+  },
+  {
+   "id": "DEV-25",
+   "name": "Developer 25",
+   "kind": "developer"
+  },
+  {
+   "id": "DEV-26",
+   "name": "Developer 26",
+   "kind": "developer"
+  },
+  {
+   "id": "DEV-27",
+   "name": "Developer 27",
+   "kind": "developer"
+  },
+  {
+   "id": "DEV-29",
+   "name": "Developer 29",
+   "kind": "developer"
+  },
+  {
+   "id": "DEV-33",
+   "name": "Developer 33",
+   "kind": "developer"
+  },
+  {
+   "id": "DEV-34",
+   "name": "Developer 34",
+   "kind": "developer"
+  },
+  {
+   "id": "DEV-35",
+   "name": "Developer 35",
+   "kind": "developer"
+  },
+  {
+   "id": "DEV-36",
+   "name": "Developer 36",
+   "kind": "developer"
+  },
+  {
+   "id": "DEV-38",
+   "name": "Developer 38",
+   "kind": "developer"
+  },
+  {
+   "id": "DEV-41",
+   "name": "Developer 41",
+   "kind": "developer"
+  },
+  {
+   "id": "BR-01",
+   "name": "Broker 01",
+   "kind": "broker"
+  },
+  {
+   "id": "BR-02",
+   "name": "Broker 02",
+   "kind": "broker"
+  },
+  {
+   "id": "BR-03",
+   "name": "Broker 03",
+   "kind": "broker"
+  },
+  {
+   "id": "BR-04",
+   "name": "Broker 04",
+   "kind": "broker"
+  },
+  {
+   "id": "BR-05",
+   "name": "Broker 05",
+   "kind": "broker"
+  },
+  {
+   "id": "BR-06",
+   "name": "Broker 06",
+   "kind": "broker"
+  },
+  {
+   "id": "BR-07",
+   "name": "Broker 07",
+   "kind": "broker"
+  },
+  {
+   "id": "BR-08",
+   "name": "Broker 08",
+   "kind": "broker"
+  },
+  {
+   "id": "BR-09",
+   "name": "Broker 09",
+   "kind": "broker"
+  },
+  {
+   "id": "BR-10",
+   "name": "Broker 10",
+   "kind": "broker"
+  },
+  {
+   "id": "BR-11",
+   "name": "Broker 11",
+   "kind": "broker"
+  },
+  {
+   "id": "BR-12",
+   "name": "Broker 12",
+   "kind": "broker"
+  },
+  {
+   "id": "BR-13",
+   "name": "Broker 13",
+   "kind": "broker"
+  },
+  {
+   "id": "BR-14",
+   "name": "Broker 14",
+   "kind": "broker"
+  },
+  {
+   "id": "BR-15",
+   "name": "Broker 15",
+   "kind": "broker"
+  },
+  {
+   "id": "BR-16",
+   "name": "Broker 16",
+   "kind": "broker"
+  },
+  {
+   "id": "BR-17",
+   "name": "Broker 17",
+   "kind": "broker"
+  },
+  {
+   "id": "BR-18",
+   "name": "Broker 18",
+   "kind": "broker"
+  },
+  {
+   "id": "BR-19",
+   "name": "Broker 19",
+   "kind": "broker"
+  },
+  {
+   "id": "BR-20",
+   "name": "Broker 20",
+   "kind": "broker"
+  },
+  {
+   "id": "CO-01",
+   "name": "Meridian Foods",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-02",
+   "name": "Altair Freight",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-03",
+   "name": "Quill Retail",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-04",
+   "name": "Borealis Steel",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-05",
+   "name": "Harbor Airlines",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-08",
+   "name": "Corporate 08",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-10",
+   "name": "Corporate 10",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-11",
+   "name": "Corporate 11",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-13",
+   "name": "Corporate 13",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-14",
+   "name": "Corporate 14",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-15",
+   "name": "Corporate 15",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-16",
+   "name": "Corporate 16",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-17",
+   "name": "Corporate 17",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-19",
+   "name": "Corporate 19",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-20",
+   "name": "Corporate 20",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-21",
+   "name": "Corporate 21",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-22",
+   "name": "Corporate 22",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-23",
+   "name": "Corporate 23",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-25",
+   "name": "Corporate 25",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-26",
+   "name": "Corporate 26",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-27",
+   "name": "Corporate 27",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-28",
+   "name": "Corporate 28",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-30",
+   "name": "Corporate 30",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-31",
+   "name": "Corporate 31",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-32",
+   "name": "Corporate 32",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-33",
+   "name": "Corporate 33",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-35",
+   "name": "Corporate 35",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-36",
+   "name": "Corporate 36",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-37",
+   "name": "Corporate 37",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-38",
+   "name": "Corporate 38",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-39",
+   "name": "Corporate 39",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-40",
+   "name": "Corporate 40",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-42",
+   "name": "Corporate 42",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-44",
+   "name": "Corporate 44",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-45",
+   "name": "Corporate 45",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-46",
+   "name": "Corporate 46",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-47",
+   "name": "Corporate 47",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-48",
+   "name": "Corporate 48",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-50",
+   "name": "Corporate 50",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-51",
+   "name": "Corporate 51",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-52",
+   "name": "Corporate 52",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-53",
+   "name": "Corporate 53",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-54",
+   "name": "Corporate 54",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-55",
+   "name": "Corporate 55",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-57",
+   "name": "Corporate 57",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-58",
+   "name": "Corporate 58",
+   "kind": "corporate"
+  },
+  {
+   "id": "CO-59",
+   "name": "Corporate 59",
+   "kind": "corporate"
+  }
+ ],
+ "projects": [
+  {
+   "id": "P-02",
+   "name": "Mangrove Restoration P-02",
+   "type": "mangrove restoration",
+   "country": "India",
+   "vintage": 2020,
+   "status": "ACTIVE",
+   "registry": "REG-3",
+   "developer": "DEV-02"
+  },
+  {
+   "id": "P-03",
+   "name": "Forest Protection P-03",
+   "type": "cookstove",
+   "country": "India",
+   "vintage": 2020,
+   "status": "ACTIVE",
+   "registry": "REG-1",
+   "developer": "DEV-03"
+  },
+  {
+   "id": "P-04",
+   "name": "Mangrove Restoration P-04",
+   "type": "peatland",
+   "country": "India",
+   "vintage": 2020,
+   "status": "ACTIVE",
+   "registry": "REG-2",
+   "developer": "DEV-04"
+  },
+  {
+   "id": "P-05",
+   "name": "Cookstove P-05",
+   "type": "forest protection",
+   "country": "Indonesia",
+   "vintage": 2020,
+   "status": "ACTIVE",
+   "registry": "REG-3",
+   "developer": "DEV-05"
+  },
+  {
+   "id": "P-06",
+   "name": "Mangrove Restoration P-06",
+   "type": "reforestation",
+   "country": "India",
+   "vintage": 2020,
+   "status": "ACTIVE",
+   "registry": "REG-1",
+   "developer": "DEV-06"
+  },
+  {
+   "id": "P-07",
+   "name": "Peatland P-07",
+   "type": "mangrove restoration",
+   "country": "Ghana",
+   "vintage": 2019,
+   "status": "ACTIVE",
+   "registry": "REG-1",
+   "developer": "DEV-07"
+  },
+  {
+   "id": "P-08",
+   "name": "Reforestation P-08",
+   "type": "cookstove",
+   "country": "Kenya",
+   "vintage": 2021,
+   "status": "ACTIVE",
+   "registry": "REG-3",
+   "developer": "DEV-08"
+  },
+  {
+   "id": "P-09",
+   "name": "Peatland P-09",
+   "type": "peatland",
+   "country": "Ghana",
+   "vintage": 2020,
+   "status": "ACTIVE",
+   "registry": "REG-1",
+   "developer": "DEV-09"
+  },
+  {
+   "id": "P-12",
+   "name": "Cookstove P-12",
+   "type": "mangrove restoration",
+   "country": "Brazil",
+   "vintage": 2019,
+   "status": "ACTIVE",
+   "registry": "REG-1",
+   "developer": "DEV-12"
+  },
+  {
+   "id": "P-14",
+   "name": "Mangrove Restoration P-14",
+   "type": "peatland",
+   "country": "Peru",
+   "vintage": 2021,
+   "status": "ACTIVE",
+   "registry": "REG-3",
+   "developer": "DEV-14"
+  },
+  {
+   "id": "P-16",
+   "name": "Forest Protection P-16",
+   "type": "reforestation",
+   "country": "Indonesia",
+   "vintage": 2020,
+   "status": "ACTIVE",
+   "registry": "REG-2",
+   "developer": "DEV-16"
+  },
+  {
+   "id": "P-19",
+   "name": "Cookstove P-19",
+   "type": "peatland",
+   "country": "Ghana",
+   "vintage": 2020,
+   "status": "ACTIVE",
+   "registry": "REG-2",
+   "developer": "DEV-19"
+  },
+  {
+   "id": "P-20",
+   "name": "Reforestation P-20",
+   "type": "forest protection",
+   "country": "India",
+   "vintage": 2019,
+   "status": "ACTIVE",
+   "registry": "REG-3",
+   "developer": "DEV-20"
+  },
+  {
+   "id": "P-25",
+   "name": "Forest Protection P-25",
+   "type": "forest protection",
+   "country": "Kenya",
+   "vintage": 2021,
+   "status": "ACTIVE",
+   "registry": "REG-3",
+   "developer": "DEV-25"
+  },
+  {
+   "id": "P-26",
+   "name": "Peatland P-26",
+   "type": "reforestation",
+   "country": "Kenya",
+   "vintage": 2019,
+   "status": "ACTIVE",
+   "registry": "REG-3",
+   "developer": "DEV-26"
+  },
+  {
+   "id": "P-27",
+   "name": "Forest Protection P-27",
+   "type": "mangrove restoration",
+   "country": "Indonesia",
+   "vintage": 2019,
+   "status": "ACTIVE",
+   "registry": "REG-1",
+   "developer": "DEV-27"
+  },
+  {
+   "id": "P-29",
+   "name": "Peatland P-29",
+   "type": "peatland",
+   "country": "Brazil",
+   "vintage": 2020,
+   "status": "ACTIVE",
+   "registry": "REG-3",
+   "developer": "DEV-29"
+  },
+  {
+   "id": "P-33",
+   "name": "Mangrove Restoration P-33",
+   "type": "cookstove",
+   "country": "Peru",
+   "vintage": 2014,
+   "status": "ENDED",
+   "registry": "REG-1",
+   "developer": "DEV-33"
+  },
+  {
+   "id": "P-34",
+   "name": "Reforestation P-34",
+   "type": "peatland",
+   "country": "Peru",
+   "vintage": 2019,
+   "status": "ACTIVE",
+   "registry": "REG-2",
+   "developer": "DEV-34"
+  },
+  {
+   "id": "P-35",
+   "name": "Mangrove Restoration P-35",
+   "type": "forest protection",
+   "country": "Kenya",
+   "vintage": 2022,
+   "status": "ACTIVE",
+   "registry": "REG-3",
+   "developer": "DEV-35"
+  },
+  {
+   "id": "P-36",
+   "name": "Forest Protection P-36",
+   "type": "reforestation",
+   "country": "Kenya",
+   "vintage": 2020,
+   "status": "ACTIVE",
+   "registry": "REG-1",
+   "developer": "DEV-36"
+  },
+  {
+   "id": "P-38",
+   "name": "Cookstove P-38",
+   "type": "cookstove",
+   "country": "Indonesia",
+   "vintage": 2020,
+   "status": "ACTIVE",
+   "registry": "REG-3",
+   "developer": "DEV-38"
+  },
+  {
+   "id": "P-41",
+   "name": "Mangrove Restoration P-41",
+   "type": "reforestation",
+   "country": "Brazil",
+   "vintage": 2020,
+   "status": "ACTIVE",
+   "registry": "REG-2",
+   "developer": "DEV-41"
+  }
+ ],
+ "credits": [
+  {
+   "id": "CR-00041",
+   "project": "P-02",
+   "vintage": 2020,
+   "tonnes": 210,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00042",
+   "project": "P-02",
+   "vintage": 2020,
+   "tonnes": 380,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00043",
+   "project": "P-02",
+   "vintage": 2020,
+   "tonnes": 450,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00044",
+   "project": "P-02",
+   "vintage": 2020,
+   "tonnes": 320,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00045",
+   "project": "P-02",
+   "vintage": 2020,
+   "tonnes": 490,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00046",
+   "project": "P-02",
+   "vintage": 2020,
+   "tonnes": 120,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00047",
+   "project": "P-02",
+   "vintage": 2020,
+   "tonnes": 110,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00048",
+   "project": "P-02",
+   "vintage": 2020,
+   "tonnes": 90,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00049",
+   "project": "P-02",
+   "vintage": 2020,
+   "tonnes": 240,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00050",
+   "project": "P-02",
+   "vintage": 2020,
+   "tonnes": 380,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00051",
+   "project": "P-02",
+   "vintage": 2020,
+   "tonnes": 420,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00052",
+   "project": "P-02",
+   "vintage": 2020,
+   "tonnes": 170,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00053",
+   "project": "P-02",
+   "vintage": 2020,
+   "tonnes": 290,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00054",
+   "project": "P-02",
+   "vintage": 2020,
+   "tonnes": 210,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00055",
+   "project": "P-02",
+   "vintage": 2020,
+   "tonnes": 190,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00056",
+   "project": "P-02",
+   "vintage": 2020,
+   "tonnes": 430,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00057",
+   "project": "P-02",
+   "vintage": 2020,
+   "tonnes": 50,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00058",
+   "project": "P-02",
+   "vintage": 2020,
+   "tonnes": 50,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00059",
+   "project": "P-02",
+   "vintage": 2020,
+   "tonnes": 390,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00060",
+   "project": "P-02",
+   "vintage": 2020,
+   "tonnes": 240,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00089",
+   "project": "P-03",
+   "vintage": 2020,
+   "tonnes": 70,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00132",
+   "project": "P-04",
+   "vintage": 2020,
+   "tonnes": 300,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00133",
+   "project": "P-04",
+   "vintage": 2020,
+   "tonnes": 330,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00134",
+   "project": "P-04",
+   "vintage": 2020,
+   "tonnes": 250,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00135",
+   "project": "P-04",
+   "vintage": 2020,
+   "tonnes": 120,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00136",
+   "project": "P-04",
+   "vintage": 2020,
+   "tonnes": 100,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00137",
+   "project": "P-04",
+   "vintage": 2020,
+   "tonnes": 150,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00138",
+   "project": "P-04",
+   "vintage": 2020,
+   "tonnes": 260,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00139",
+   "project": "P-04",
+   "vintage": 2020,
+   "tonnes": 170,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00140",
+   "project": "P-04",
+   "vintage": 2020,
+   "tonnes": 160,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00141",
+   "project": "P-04",
+   "vintage": 2020,
+   "tonnes": 460,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00142",
+   "project": "P-04",
+   "vintage": 2020,
+   "tonnes": 380,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00143",
+   "project": "P-04",
+   "vintage": 2020,
+   "tonnes": 340,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00144",
+   "project": "P-04",
+   "vintage": 2020,
+   "tonnes": 70,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00145",
+   "project": "P-04",
+   "vintage": 2020,
+   "tonnes": 240,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00146",
+   "project": "P-04",
+   "vintage": 2020,
+   "tonnes": 470,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00147",
+   "project": "P-04",
+   "vintage": 2020,
+   "tonnes": 290,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00148",
+   "project": "P-04",
+   "vintage": 2020,
+   "tonnes": 280,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00149",
+   "project": "P-04",
+   "vintage": 2020,
+   "tonnes": 260,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00150",
+   "project": "P-04",
+   "vintage": 2020,
+   "tonnes": 330,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00151",
+   "project": "P-04",
+   "vintage": 2020,
+   "tonnes": 150,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00206",
+   "project": "P-06",
+   "vintage": 2020,
+   "tonnes": 60,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00207",
+   "project": "P-06",
+   "vintage": 2020,
+   "tonnes": 190,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00208",
+   "project": "P-06",
+   "vintage": 2020,
+   "tonnes": 110,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00209",
+   "project": "P-06",
+   "vintage": 2020,
+   "tonnes": 350,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00210",
+   "project": "P-06",
+   "vintage": 2020,
+   "tonnes": 340,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00211",
+   "project": "P-06",
+   "vintage": 2020,
+   "tonnes": 290,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00212",
+   "project": "P-06",
+   "vintage": 2020,
+   "tonnes": 210,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00213",
+   "project": "P-06",
+   "vintage": 2020,
+   "tonnes": 320,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00214",
+   "project": "P-06",
+   "vintage": 2020,
+   "tonnes": 360,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00215",
+   "project": "P-06",
+   "vintage": 2020,
+   "tonnes": 130,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00216",
+   "project": "P-06",
+   "vintage": 2020,
+   "tonnes": 360,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00217",
+   "project": "P-06",
+   "vintage": 2020,
+   "tonnes": 160,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00218",
+   "project": "P-06",
+   "vintage": 2020,
+   "tonnes": 50,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00219",
+   "project": "P-06",
+   "vintage": 2020,
+   "tonnes": 240,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00220",
+   "project": "P-06",
+   "vintage": 2020,
+   "tonnes": 490,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00221",
+   "project": "P-06",
+   "vintage": 2020,
+   "tonnes": 140,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00222",
+   "project": "P-06",
+   "vintage": 2020,
+   "tonnes": 430,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00223",
+   "project": "P-06",
+   "vintage": 2020,
+   "tonnes": 200,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00224",
+   "project": "P-06",
+   "vintage": 2020,
+   "tonnes": 250,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00225",
+   "project": "P-06",
+   "vintage": 2020,
+   "tonnes": 250,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00266",
+   "project": "P-08",
+   "vintage": 2021,
+   "tonnes": 220,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00267",
+   "project": "P-08",
+   "vintage": 2021,
+   "tonnes": 410,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00268",
+   "project": "P-08",
+   "vintage": 2021,
+   "tonnes": 220,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00269",
+   "project": "P-08",
+   "vintage": 2021,
+   "tonnes": 280,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00270",
+   "project": "P-08",
+   "vintage": 2021,
+   "tonnes": 210,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00271",
+   "project": "P-08",
+   "vintage": 2021,
+   "tonnes": 210,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00272",
+   "project": "P-08",
+   "vintage": 2021,
+   "tonnes": 170,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00273",
+   "project": "P-08",
+   "vintage": 2021,
+   "tonnes": 330,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00274",
+   "project": "P-08",
+   "vintage": 2021,
+   "tonnes": 200,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00275",
+   "project": "P-08",
+   "vintage": 2021,
+   "tonnes": 160,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00276",
+   "project": "P-08",
+   "vintage": 2021,
+   "tonnes": 200,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00277",
+   "project": "P-08",
+   "vintage": 2021,
+   "tonnes": 200,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00278",
+   "project": "P-08",
+   "vintage": 2021,
+   "tonnes": 140,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00279",
+   "project": "P-08",
+   "vintage": 2021,
+   "tonnes": 230,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00280",
+   "project": "P-08",
+   "vintage": 2021,
+   "tonnes": 420,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00281",
+   "project": "P-08",
+   "vintage": 2021,
+   "tonnes": 170,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00282",
+   "project": "P-08",
+   "vintage": 2021,
+   "tonnes": 250,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00283",
+   "project": "P-08",
+   "vintage": 2021,
+   "tonnes": 90,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00284",
+   "project": "P-08",
+   "vintage": 2021,
+   "tonnes": 300,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00285",
+   "project": "P-08",
+   "vintage": 2021,
+   "tonnes": 210,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00303",
+   "project": "P-09",
+   "vintage": 2020,
+   "tonnes": 120,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00304",
+   "project": "P-09",
+   "vintage": 2020,
+   "tonnes": 80,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00305",
+   "project": "P-09",
+   "vintage": 2020,
+   "tonnes": 170,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00306",
+   "project": "P-09",
+   "vintage": 2020,
+   "tonnes": 430,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00307",
+   "project": "P-09",
+   "vintage": 2020,
+   "tonnes": 420,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00308",
+   "project": "P-09",
+   "vintage": 2020,
+   "tonnes": 170,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00309",
+   "project": "P-09",
+   "vintage": 2020,
+   "tonnes": 90,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00310",
+   "project": "P-09",
+   "vintage": 2020,
+   "tonnes": 280,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00311",
+   "project": "P-09",
+   "vintage": 2020,
+   "tonnes": 370,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00312",
+   "project": "P-09",
+   "vintage": 2020,
+   "tonnes": 160,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00313",
+   "project": "P-09",
+   "vintage": 2020,
+   "tonnes": 330,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00314",
+   "project": "P-09",
+   "vintage": 2020,
+   "tonnes": 430,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00315",
+   "project": "P-09",
+   "vintage": 2020,
+   "tonnes": 210,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00316",
+   "project": "P-09",
+   "vintage": 2020,
+   "tonnes": 470,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00317",
+   "project": "P-09",
+   "vintage": 2020,
+   "tonnes": 50,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00318",
+   "project": "P-09",
+   "vintage": 2020,
+   "tonnes": 110,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00319",
+   "project": "P-09",
+   "vintage": 2020,
+   "tonnes": 450,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00320",
+   "project": "P-09",
+   "vintage": 2020,
+   "tonnes": 430,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00321",
+   "project": "P-09",
+   "vintage": 2020,
+   "tonnes": 440,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00322",
+   "project": "P-09",
+   "vintage": 2020,
+   "tonnes": 270,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00427",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 450,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00428",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 190,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00429",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 440,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00430",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 300,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00431",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 440,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00432",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 170,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00433",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 350,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00434",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 160,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00435",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 410,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00436",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 180,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00437",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 70,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00438",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 300,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00439",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 380,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00440",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 150,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00441",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 290,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00442",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 270,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00443",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 120,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00444",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 140,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00445",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 200,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00446",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 170,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00447",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 70,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00448",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 400,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00449",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 480,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00450",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 70,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00451",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 470,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00452",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 250,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00453",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 120,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00454",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 290,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00455",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 430,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00456",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 340,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00457",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 400,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00458",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 450,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00459",
+   "project": "P-12",
+   "vintage": 2019,
+   "tonnes": 240,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00508",
+   "project": "P-14",
+   "vintage": 2021,
+   "tonnes": 90,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00509",
+   "project": "P-14",
+   "vintage": 2021,
+   "tonnes": 440,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00510",
+   "project": "P-14",
+   "vintage": 2021,
+   "tonnes": 490,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00511",
+   "project": "P-14",
+   "vintage": 2021,
+   "tonnes": 120,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00512",
+   "project": "P-14",
+   "vintage": 2021,
+   "tonnes": 170,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00580",
+   "project": "P-16",
+   "vintage": 2020,
+   "tonnes": 380,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00581",
+   "project": "P-16",
+   "vintage": 2020,
+   "tonnes": 210,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00582",
+   "project": "P-16",
+   "vintage": 2020,
+   "tonnes": 240,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00583",
+   "project": "P-16",
+   "vintage": 2020,
+   "tonnes": 450,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00584",
+   "project": "P-16",
+   "vintage": 2020,
+   "tonnes": 420,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00585",
+   "project": "P-16",
+   "vintage": 2020,
+   "tonnes": 470,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00586",
+   "project": "P-16",
+   "vintage": 2020,
+   "tonnes": 250,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00587",
+   "project": "P-16",
+   "vintage": 2020,
+   "tonnes": 50,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00588",
+   "project": "P-16",
+   "vintage": 2020,
+   "tonnes": 70,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00589",
+   "project": "P-16",
+   "vintage": 2020,
+   "tonnes": 190,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00691",
+   "project": "P-19",
+   "vintage": 2020,
+   "tonnes": 460,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00692",
+   "project": "P-19",
+   "vintage": 2020,
+   "tonnes": 330,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00693",
+   "project": "P-19",
+   "vintage": 2020,
+   "tonnes": 160,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00694",
+   "project": "P-19",
+   "vintage": 2020,
+   "tonnes": 190,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00721",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 170,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00722",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 150,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00723",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 250,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00724",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 170,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00725",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 290,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00726",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 260,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00727",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 430,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00728",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 200,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00729",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 290,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00730",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 450,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00731",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 490,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00732",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 470,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00733",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 390,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00734",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 350,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00735",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 350,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00736",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 380,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00737",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 490,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00738",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 50,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00739",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 60,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00740",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 320,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00741",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 190,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00742",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 410,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00743",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 240,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00744",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 180,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00745",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 300,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00746",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 440,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00747",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 420,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00748",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 90,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00749",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 410,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00750",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 150,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00751",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 140,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00752",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 70,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00753",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 60,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00754",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 120,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00755",
+   "project": "P-20",
+   "vintage": 2019,
+   "tonnes": 110,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00932",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 290,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00933",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 140,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00934",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 140,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00935",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 240,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00936",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 240,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00937",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 320,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00938",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 220,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00939",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 170,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00940",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 110,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00941",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 450,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00942",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 110,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00943",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 220,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00944",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 180,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00945",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 290,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00946",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 340,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00947",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 70,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00948",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 50,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00949",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 300,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00950",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 320,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00951",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 490,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00952",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 190,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00953",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 370,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00954",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 450,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00955",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 230,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00956",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 340,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00957",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 60,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00958",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 140,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00959",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 210,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00960",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 430,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00961",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 300,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00962",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 50,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00963",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 200,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00964",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 320,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00965",
+   "project": "P-25",
+   "vintage": 2021,
+   "tonnes": 490,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00966",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 420,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00967",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 460,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00968",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 310,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00969",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 190,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00970",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 470,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00971",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 460,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00972",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 460,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00973",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 490,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00974",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 420,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00975",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 190,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00976",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 480,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00977",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 160,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00978",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 460,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00979",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 120,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00980",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 340,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00981",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 320,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00982",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 250,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00983",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 210,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00984",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 450,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00985",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 490,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00986",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 110,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00987",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 310,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00988",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 200,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00989",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 300,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00990",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 450,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00991",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 150,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00992",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 210,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00993",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 320,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00994",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 350,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00995",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 340,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-00996",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 60,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00997",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 440,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00998",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 310,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-00999",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 380,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01000",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 480,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01001",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 470,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-01002",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 160,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-01003",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 460,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01004",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 250,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01005",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 50,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01006",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 290,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01007",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 360,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-01008",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 110,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01009",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 70,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01010",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 210,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01011",
+   "project": "P-26",
+   "vintage": 2019,
+   "tonnes": 390,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01012",
+   "project": "P-27",
+   "vintage": 2019,
+   "tonnes": 150,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01013",
+   "project": "P-27",
+   "vintage": 2019,
+   "tonnes": 170,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01583",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 460,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-01584",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 110,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-01585",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 350,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01586",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 250,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-01587",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 280,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-01588",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 210,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-01589",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 290,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-01590",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 120,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01591",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 280,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01592",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 350,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-01593",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 290,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-01594",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 150,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01595",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 330,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01596",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 200,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-01597",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 140,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01598",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 480,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01599",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 50,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01600",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 340,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01601",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 170,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01602",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 70,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01603",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 150,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01604",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 190,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01605",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 90,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01606",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 440,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01607",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 280,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01608",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 130,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01609",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 330,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01610",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 110,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01611",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 290,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01612",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 60,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01613",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 450,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-01614",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 90,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01615",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 330,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01616",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 260,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01617",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 250,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-01618",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 190,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-01619",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 350,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-01620",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 120,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01621",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 450,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01622",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 280,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01623",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 140,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01624",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 260,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-01625",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 190,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-01626",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 80,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01627",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 160,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01628",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 330,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01629",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 400,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01630",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 140,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01631",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 330,
+   "status": "RETIRED"
+  },
+  {
+   "id": "CR-01632",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 140,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01633",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 220,
+   "status": "ACTIVE"
+  },
+  {
+   "id": "CR-01634",
+   "project": "P-41",
+   "vintage": 2020,
+   "tonnes": 310,
+   "status": "ACTIVE"
+  }
+ ],
+ "covers": [
+  {
+   "p": "P-02",
+   "lp": "LP-003"
+  },
+  {
+   "p": "P-03",
+   "lp": "LP-004"
+  },
+  {
+   "p": "P-03",
+   "lp": "LP-005"
+  },
+  {
+   "p": "P-04",
+   "lp": "LP-006"
+  },
+  {
+   "p": "P-05",
+   "lp": "LP-007"
+  },
+  {
+   "p": "P-05",
+   "lp": "LP-008"
+  },
+  {
+   "p": "P-06",
+   "lp": "LP-009"
+  },
+  {
+   "p": "P-06",
+   "lp": "LP-010"
+  },
+  {
+   "p": "P-07",
+   "lp": "LP-011"
+  },
+  {
+   "p": "P-07",
+   "lp": "LP-012"
+  },
+  {
+   "p": "P-08",
+   "lp": "LP-013"
+  },
+  {
+   "p": "P-09",
+   "lp": "LP-014"
+  },
+  {
+   "p": "P-09",
+   "lp": "LP-015"
+  },
+  {
+   "p": "P-12",
+   "lp": "LP-019"
+  },
+  {
+   "p": "P-14",
+   "lp": "LP-021"
+  },
+  {
+   "p": "P-16",
+   "lp": "LP-024"
+  },
+  {
+   "p": "P-19",
+   "lp": "LP-011"
+  },
+  {
+   "p": "P-19",
+   "lp": "LP-027"
+  },
+  {
+   "p": "P-20",
+   "lp": "LP-028"
+  },
+  {
+   "p": "P-25",
+   "lp": "LP-034"
+  },
+  {
+   "p": "P-25",
+   "lp": "LP-035"
+  },
+  {
+   "p": "P-26",
+   "lp": "LP-034"
+  },
+  {
+   "p": "P-26",
+   "lp": "LP-036"
+  },
+  {
+   "p": "P-27",
+   "lp": "LP-037"
+  },
+  {
+   "p": "P-27",
+   "lp": "LP-038"
+  },
+  {
+   "p": "P-29",
+   "lp": "LP-040"
+  },
+  {
+   "p": "P-33",
+   "lp": "LP-060"
+  },
+  {
+   "p": "P-34",
+   "lp": "LP-060"
+  },
+  {
+   "p": "P-35",
+   "lp": "LP-058"
+  },
+  {
+   "p": "P-36",
+   "lp": "LP-059"
+  },
+  {
+   "p": "P-38",
+   "lp": "LP-054"
+  },
+  {
+   "p": "P-41",
+   "lp": "LP-019"
+  }
+ ],
+ "audits": [
+  {
+   "p": "P-02",
+   "id": "AR-02",
+   "auditor": "Orbit Audit Partners",
+   "date": "2022-09-10"
+  },
+  {
+   "p": "P-03",
+   "id": "AR-03",
+   "auditor": "Northfield Assurance",
+   "date": "2023-01-16"
+  },
+  {
+   "p": "P-04",
+   "id": "AR-04",
+   "auditor": "Cedar & Vale Verification",
+   "date": "2022-09-12"
+  },
+  {
+   "p": "P-06",
+   "id": "AR-06",
+   "auditor": "Northfield Assurance",
+   "date": "2022-09-16"
+  },
+  {
+   "p": "P-07",
+   "id": "AR-07",
+   "auditor": "Cedar & Vale Verification",
+   "date": "2024-04-11"
+  },
+  {
+   "p": "P-08",
+   "id": "AR-08",
+   "auditor": "Orbit Audit Partners",
+   "date": "2022-07-17"
+  },
+  {
+   "p": "P-09",
+   "id": "AR-09",
+   "auditor": "Northfield Assurance",
+   "date": "2023-05-10"
+  },
+  {
+   "p": "P-16",
+   "id": "AR-16",
+   "auditor": "Cedar & Vale Verification",
+   "date": "2024-08-14"
+  },
+  {
+   "p": "P-20",
+   "id": "AR-20",
+   "auditor": "Orbit Audit Partners",
+   "date": "2024-02-12"
+  },
+  {
+   "p": "P-25",
+   "id": "AR-25",
+   "auditor": "Cedar & Vale Verification",
+   "date": "2023-06-11"
+  },
+  {
+   "p": "P-26",
+   "id": "AR-26",
+   "auditor": "Orbit Audit Partners",
+   "date": "2023-07-14"
+  },
+  {
+   "p": "P-27",
+   "id": "AR-27",
+   "auditor": "Northfield Assurance",
+   "date": "2024-05-12"
+  },
+  {
+   "p": "P-33",
+   "id": "AR-33",
+   "auditor": "Northfield Assurance",
+   "date": "2023-09-16"
+  },
+  {
+   "p": "P-34",
+   "id": "AR-34",
+   "auditor": "Cedar & Vale Verification",
+   "date": "2022-09-17"
+  },
+  {
+   "p": "P-35",
+   "id": "AR-35",
+   "auditor": "Orbit Audit Partners",
+   "date": "2023-03-18"
+  },
+  {
+   "p": "P-36",
+   "id": "AR-36",
+   "auditor": "Northfield Assurance",
+   "date": "2023-09-11"
+  }
+ ],
+ "trades": [
+  {
+   "credit": "CR-00691",
+   "a": "DEV-19",
+   "b": "BR-02",
+   "day": 20
+  },
+  {
+   "credit": "CR-00691",
+   "a": "BR-02",
+   "b": "CO-08",
+   "day": 23
+  },
+  {
+   "credit": "CR-00691",
+   "a": "CO-08",
+   "b": "BR-05",
+   "day": 26
+  },
+  {
+   "credit": "CR-00691",
+   "a": "BR-05",
+   "b": "BR-02",
+   "day": 29
+  },
+  {
+   "credit": "CR-00692",
+   "a": "DEV-19",
+   "b": "BR-02",
+   "day": 32
+  },
+  {
+   "credit": "CR-00692",
+   "a": "BR-02",
+   "b": "CO-08",
+   "day": 35
+  },
+  {
+   "credit": "CR-00692",
+   "a": "CO-08",
+   "b": "BR-05",
+   "day": 38
+  },
+  {
+   "credit": "CR-00692",
+   "a": "BR-05",
+   "b": "BR-02",
+   "day": 41
+  },
+  {
+   "credit": "CR-00693",
+   "a": "DEV-19",
+   "b": "BR-02",
+   "day": 44
+  },
+  {
+   "credit": "CR-00693",
+   "a": "BR-02",
+   "b": "CO-08",
+   "day": 47
+  },
+  {
+   "credit": "CR-00693",
+   "a": "CO-08",
+   "b": "BR-05",
+   "day": 50
+  },
+  {
+   "credit": "CR-00693",
+   "a": "BR-05",
+   "b": "BR-02",
+   "day": 53
+  },
+  {
+   "credit": "CR-00694",
+   "a": "DEV-19",
+   "b": "BR-07",
+   "day": 30
+  },
+  {
+   "credit": "CR-00694",
+   "a": "BR-07",
+   "b": "CO-14",
+   "day": 34
+  },
+  {
+   "credit": "CR-00089",
+   "a": "DEV-03",
+   "b": "BR-13",
+   "day": 66
+  },
+  {
+   "credit": "CR-00089",
+   "a": "BR-13",
+   "b": "CO-17",
+   "day": 70
+  },
+  {
+   "credit": "CR-01012",
+   "a": "DEV-27",
+   "b": "BR-09",
+   "day": 100
+  },
+  {
+   "credit": "CR-01012",
+   "a": "BR-09",
+   "b": "BR-11",
+   "day": 103
+  },
+  {
+   "credit": "CR-01012",
+   "a": "BR-11",
+   "b": "CO-22",
+   "day": 106
+  },
+  {
+   "credit": "CR-01012",
+   "a": "CO-22",
+   "b": "BR-12",
+   "day": 109
+  },
+  {
+   "credit": "CR-01012",
+   "a": "BR-12",
+   "b": "BR-09",
+   "day": 112
+  },
+  {
+   "credit": "CR-01013",
+   "a": "DEV-27",
+   "b": "BR-09",
+   "day": 115
+  },
+  {
+   "credit": "CR-01013",
+   "a": "BR-09",
+   "b": "BR-11",
+   "day": 118
+  },
+  {
+   "credit": "CR-01013",
+   "a": "BR-11",
+   "b": "CO-22",
+   "day": 121
+  },
+  {
+   "credit": "CR-01013",
+   "a": "CO-22",
+   "b": "BR-12",
+   "day": 124
+  },
+  {
+   "credit": "CR-01013",
+   "a": "BR-12",
+   "b": "BR-09",
+   "day": 127
+  },
+  {
+   "credit": "CR-00508",
+   "a": "DEV-14",
+   "b": "BR-14",
+   "day": 30
+  },
+  {
+   "credit": "CR-00508",
+   "a": "BR-14",
+   "b": "BR-15",
+   "day": 35
+  },
+  {
+   "credit": "CR-00508",
+   "a": "BR-15",
+   "b": "BR-16",
+   "day": 40
+  },
+  {
+   "credit": "CR-00508",
+   "a": "BR-16",
+   "b": "BR-17",
+   "day": 45
+  },
+  {
+   "credit": "CR-00508",
+   "a": "BR-17",
+   "b": "CO-33",
+   "day": 50
+  },
+  {
+   "credit": "CR-00509",
+   "a": "DEV-14",
+   "b": "BR-14",
+   "day": 30
+  },
+  {
+   "credit": "CR-00509",
+   "a": "BR-14",
+   "b": "BR-15",
+   "day": 35
+  },
+  {
+   "credit": "CR-00509",
+   "a": "BR-15",
+   "b": "BR-16",
+   "day": 40
+  },
+  {
+   "credit": "CR-00509",
+   "a": "BR-16",
+   "b": "BR-17",
+   "day": 45
+  },
+  {
+   "credit": "CR-00509",
+   "a": "BR-17",
+   "b": "CO-33",
+   "day": 50
+  },
+  {
+   "credit": "CR-00510",
+   "a": "DEV-14",
+   "b": "BR-14",
+   "day": 30
+  },
+  {
+   "credit": "CR-00510",
+   "a": "BR-14",
+   "b": "BR-15",
+   "day": 35
+  },
+  {
+   "credit": "CR-00510",
+   "a": "BR-15",
+   "b": "BR-16",
+   "day": 40
+  },
+  {
+   "credit": "CR-00510",
+   "a": "BR-16",
+   "b": "BR-17",
+   "day": 45
+  },
+  {
+   "credit": "CR-00510",
+   "a": "BR-17",
+   "b": "CO-33",
+   "day": 50
+  },
+  {
+   "credit": "CR-00511",
+   "a": "DEV-14",
+   "b": "BR-14",
+   "day": 30
+  },
+  {
+   "credit": "CR-00511",
+   "a": "BR-14",
+   "b": "BR-15",
+   "day": 35
+  },
+  {
+   "credit": "CR-00511",
+   "a": "BR-15",
+   "b": "BR-16",
+   "day": 40
+  },
+  {
+   "credit": "CR-00511",
+   "a": "BR-16",
+   "b": "BR-17",
+   "day": 45
+  },
+  {
+   "credit": "CR-00511",
+   "a": "BR-17",
+   "b": "CO-33",
+   "day": 50
+  },
+  {
+   "credit": "CR-00512",
+   "a": "DEV-14",
+   "b": "BR-14",
+   "day": 30
+  },
+  {
+   "credit": "CR-00512",
+   "a": "BR-14",
+   "b": "BR-15",
+   "day": 35
+  },
+  {
+   "credit": "CR-00512",
+   "a": "BR-15",
+   "b": "BR-16",
+   "day": 40
+  },
+  {
+   "credit": "CR-00512",
+   "a": "BR-16",
+   "b": "BR-17",
+   "day": 45
+  },
+  {
+   "credit": "CR-00512",
+   "a": "BR-17",
+   "b": "CO-33",
+   "day": 50
+  },
+  {
+   "credit": "CR-00580",
+   "a": "DEV-16",
+   "b": "BR-03",
+   "day": 40
+  },
+  {
+   "credit": "CR-00580",
+   "a": "BR-03",
+   "b": "BR-04",
+   "day": 55
+  },
+  {
+   "credit": "CR-00581",
+   "a": "DEV-16",
+   "b": "BR-04",
+   "day": 41
+  },
+  {
+   "credit": "CR-00581",
+   "a": "BR-04",
+   "b": "BR-03",
+   "day": 56
+  },
+  {
+   "credit": "CR-00582",
+   "a": "DEV-16",
+   "b": "BR-03",
+   "day": 42
+  },
+  {
+   "credit": "CR-00582",
+   "a": "BR-03",
+   "b": "BR-04",
+   "day": 57
+  },
+  {
+   "credit": "CR-00583",
+   "a": "DEV-16",
+   "b": "BR-04",
+   "day": 43
+  },
+  {
+   "credit": "CR-00583",
+   "a": "BR-04",
+   "b": "BR-03",
+   "day": 58
+  },
+  {
+   "credit": "CR-00584",
+   "a": "DEV-16",
+   "b": "BR-03",
+   "day": 44
+  },
+  {
+   "credit": "CR-00584",
+   "a": "BR-03",
+   "b": "BR-04",
+   "day": 59
+  },
+  {
+   "credit": "CR-00585",
+   "a": "DEV-16",
+   "b": "BR-04",
+   "day": 45
+  },
+  {
+   "credit": "CR-00585",
+   "a": "BR-04",
+   "b": "BR-03",
+   "day": 60
+  },
+  {
+   "credit": "CR-00586",
+   "a": "DEV-16",
+   "b": "BR-03",
+   "day": 46
+  },
+  {
+   "credit": "CR-00586",
+   "a": "BR-03",
+   "b": "BR-04",
+   "day": 61
+  },
+  {
+   "credit": "CR-00587",
+   "a": "DEV-16",
+   "b": "BR-04",
+   "day": 47
+  },
+  {
+   "credit": "CR-00587",
+   "a": "BR-04",
+   "b": "BR-03",
+   "day": 62
+  },
+  {
+   "credit": "CR-00588",
+   "a": "DEV-16",
+   "b": "BR-03",
+   "day": 48
+  },
+  {
+   "credit": "CR-00588",
+   "a": "BR-03",
+   "b": "BR-04",
+   "day": 63
+  },
+  {
+   "credit": "CR-00589",
+   "a": "DEV-16",
+   "b": "BR-04",
+   "day": 49
+  },
+  {
+   "credit": "CR-00589",
+   "a": "BR-04",
+   "b": "BR-03",
+   "day": 64
+  },
+  {
+   "credit": "CR-00721",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00722",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00723",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00724",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00725",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00726",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00727",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00728",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00729",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00730",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00731",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00732",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00733",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00734",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00735",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00736",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00737",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00738",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00739",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00740",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00741",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00742",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00743",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00744",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00745",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00746",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00747",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00748",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00749",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00750",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00751",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00752",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00753",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00754",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00755",
+   "a": "DEV-20",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00041",
+   "a": "DEV-02",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00042",
+   "a": "DEV-02",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00043",
+   "a": "DEV-02",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00044",
+   "a": "DEV-02",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00045",
+   "a": "DEV-02",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00046",
+   "a": "DEV-02",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00047",
+   "a": "DEV-02",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00048",
+   "a": "DEV-02",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00049",
+   "a": "DEV-02",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00050",
+   "a": "DEV-02",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00051",
+   "a": "DEV-02",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00052",
+   "a": "DEV-02",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00053",
+   "a": "DEV-02",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00054",
+   "a": "DEV-02",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00055",
+   "a": "DEV-02",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00056",
+   "a": "DEV-02",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00057",
+   "a": "DEV-02",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00058",
+   "a": "DEV-02",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00059",
+   "a": "DEV-02",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00060",
+   "a": "DEV-02",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00132",
+   "a": "DEV-04",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00133",
+   "a": "DEV-04",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00134",
+   "a": "DEV-04",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00135",
+   "a": "DEV-04",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00136",
+   "a": "DEV-04",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00137",
+   "a": "DEV-04",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00138",
+   "a": "DEV-04",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00139",
+   "a": "DEV-04",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00140",
+   "a": "DEV-04",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00141",
+   "a": "DEV-04",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00142",
+   "a": "DEV-04",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00143",
+   "a": "DEV-04",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00144",
+   "a": "DEV-04",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00145",
+   "a": "DEV-04",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00146",
+   "a": "DEV-04",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00147",
+   "a": "DEV-04",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00148",
+   "a": "DEV-04",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00149",
+   "a": "DEV-04",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00150",
+   "a": "DEV-04",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00151",
+   "a": "DEV-04",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00206",
+   "a": "DEV-06",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00207",
+   "a": "DEV-06",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00208",
+   "a": "DEV-06",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00209",
+   "a": "DEV-06",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00210",
+   "a": "DEV-06",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00211",
+   "a": "DEV-06",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00212",
+   "a": "DEV-06",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00213",
+   "a": "DEV-06",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00214",
+   "a": "DEV-06",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00215",
+   "a": "DEV-06",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00216",
+   "a": "DEV-06",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00217",
+   "a": "DEV-06",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00218",
+   "a": "DEV-06",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00219",
+   "a": "DEV-06",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00220",
+   "a": "DEV-06",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00221",
+   "a": "DEV-06",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00222",
+   "a": "DEV-06",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00223",
+   "a": "DEV-06",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00224",
+   "a": "DEV-06",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00225",
+   "a": "DEV-06",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00266",
+   "a": "DEV-08",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00267",
+   "a": "DEV-08",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00268",
+   "a": "DEV-08",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00269",
+   "a": "DEV-08",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00270",
+   "a": "DEV-08",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00271",
+   "a": "DEV-08",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00272",
+   "a": "DEV-08",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00273",
+   "a": "DEV-08",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00274",
+   "a": "DEV-08",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00275",
+   "a": "DEV-08",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00276",
+   "a": "DEV-08",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00277",
+   "a": "DEV-08",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00278",
+   "a": "DEV-08",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00279",
+   "a": "DEV-08",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00280",
+   "a": "DEV-08",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00281",
+   "a": "DEV-08",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00282",
+   "a": "DEV-08",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00283",
+   "a": "DEV-08",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00284",
+   "a": "DEV-08",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00285",
+   "a": "DEV-08",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00303",
+   "a": "DEV-09",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00304",
+   "a": "DEV-09",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00305",
+   "a": "DEV-09",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00306",
+   "a": "DEV-09",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00307",
+   "a": "DEV-09",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00308",
+   "a": "DEV-09",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00309",
+   "a": "DEV-09",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00310",
+   "a": "DEV-09",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00311",
+   "a": "DEV-09",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00312",
+   "a": "DEV-09",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00313",
+   "a": "DEV-09",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00314",
+   "a": "DEV-09",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00315",
+   "a": "DEV-09",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00316",
+   "a": "DEV-09",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00317",
+   "a": "DEV-09",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00318",
+   "a": "DEV-09",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00319",
+   "a": "DEV-09",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00320",
+   "a": "DEV-09",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00321",
+   "a": "DEV-09",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00322",
+   "a": "DEV-09",
+   "b": "CO-01",
+   "day": 82
+  },
+  {
+   "credit": "CR-00429",
+   "a": "DEV-12",
+   "b": "CO-35",
+   "day": 139
+  },
+  {
+   "credit": "CR-00430",
+   "a": "DEV-12",
+   "b": "CO-15",
+   "day": 165
+  },
+  {
+   "credit": "CR-00431",
+   "a": "DEV-12",
+   "b": "CO-45",
+   "day": 188
+  },
+  {
+   "credit": "CR-00432",
+   "a": "DEV-12",
+   "b": "BR-07",
+   "day": 182
+  },
+  {
+   "credit": "CR-00432",
+   "a": "BR-07",
+   "b": "CO-19",
+   "day": 185
+  },
+  {
+   "credit": "CR-00433",
+   "a": "DEV-12",
+   "b": "BR-07",
+   "day": 168
+  },
+  {
+   "credit": "CR-00433",
+   "a": "BR-07",
+   "b": "BR-14",
+   "day": 171
+  },
+  {
+   "credit": "CR-00433",
+   "a": "BR-14",
+   "b": "CO-28",
+   "day": 174
+  },
+  {
+   "credit": "CR-00434",
+   "a": "DEV-12",
+   "b": "BR-20",
+   "day": 64
+  },
+  {
+   "credit": "CR-00434",
+   "a": "BR-20",
+   "b": "CO-57",
+   "day": 67
+  },
+  {
+   "credit": "CR-00435",
+   "a": "DEV-12",
+   "b": "BR-18",
+   "day": 105
+  },
+  {
+   "credit": "CR-00435",
+   "a": "BR-18",
+   "b": "BR-19",
+   "day": 108
+  },
+  {
+   "credit": "CR-00435",
+   "a": "BR-19",
+   "b": "CO-05",
+   "day": 111
+  },
+  {
+   "credit": "CR-00437",
+   "a": "DEV-12",
+   "b": "BR-18",
+   "day": 114
+  },
+  {
+   "credit": "CR-00437",
+   "a": "BR-18",
+   "b": "CO-42",
+   "day": 117
+  },
+  {
+   "credit": "CR-00438",
+   "a": "DEV-12",
+   "b": "BR-14",
+   "day": 159
+  },
+  {
+   "credit": "CR-00438",
+   "a": "BR-14",
+   "b": "CO-30",
+   "day": 162
+  },
+  {
+   "credit": "CR-00441",
+   "a": "DEV-12",
+   "b": "BR-01",
+   "day": 27
+  },
+  {
+   "credit": "CR-00441",
+   "a": "BR-01",
+   "b": "BR-10",
+   "day": 30
+  },
+  {
+   "credit": "CR-00441",
+   "a": "BR-10",
+   "b": "CO-25",
+   "day": 33
+  },
+  {
+   "credit": "CR-00442",
+   "a": "DEV-12",
+   "b": "CO-16",
+   "day": 179
+  },
+  {
+   "credit": "CR-00448",
+   "a": "DEV-12",
+   "b": "BR-10",
+   "day": 86
+  },
+  {
+   "credit": "CR-00448",
+   "a": "BR-10",
+   "b": "CO-35",
+   "day": 89
+  },
+  {
+   "credit": "CR-00451",
+   "a": "DEV-12",
+   "b": "BR-17",
+   "day": 173
+  },
+  {
+   "credit": "CR-00451",
+   "a": "BR-17",
+   "b": "CO-55",
+   "day": 176
+  },
+  {
+   "credit": "CR-00452",
+   "a": "DEV-12",
+   "b": "CO-52",
+   "day": 69
+  },
+  {
+   "credit": "CR-00454",
+   "a": "DEV-12",
+   "b": "BR-10",
+   "day": 186
+  },
+  {
+   "credit": "CR-00454",
+   "a": "BR-10",
+   "b": "CO-46",
+   "day": 189
+  },
+  {
+   "credit": "CR-00455",
+   "a": "DEV-12",
+   "b": "BR-19",
+   "day": 19
+  },
+  {
+   "credit": "CR-00455",
+   "a": "BR-19",
+   "b": "CO-03",
+   "day": 22
+  },
+  {
+   "credit": "CR-00456",
+   "a": "DEV-12",
+   "b": "BR-19",
+   "day": 88
+  },
+  {
+   "credit": "CR-00456",
+   "a": "BR-19",
+   "b": "BR-15",
+   "day": 91
+  },
+  {
+   "credit": "CR-00456",
+   "a": "BR-15",
+   "b": "CO-04",
+   "day": 94
+  },
+  {
+   "credit": "CR-00457",
+   "a": "DEV-12",
+   "b": "CO-15",
+   "day": 155
+  },
+  {
+   "credit": "CR-00459",
+   "a": "DEV-12",
+   "b": "BR-18",
+   "day": 66
+  },
+  {
+   "credit": "CR-00459",
+   "a": "BR-18",
+   "b": "CO-52",
+   "day": 69
+  },
+  {
+   "credit": "CR-00932",
+   "a": "DEV-25",
+   "b": "CO-45",
+   "day": 49
+  },
+  {
+   "credit": "CR-00934",
+   "a": "DEV-25",
+   "b": "CO-46",
+   "day": 135
+  },
+  {
+   "credit": "CR-00936",
+   "a": "DEV-25",
+   "b": "BR-06",
+   "day": 84
+  },
+  {
+   "credit": "CR-00936",
+   "a": "BR-06",
+   "b": "BR-07",
+   "day": 87
+  },
+  {
+   "credit": "CR-00936",
+   "a": "BR-07",
+   "b": "CO-20",
+   "day": 90
+  },
+  {
+   "credit": "CR-00937",
+   "a": "DEV-25",
+   "b": "BR-15",
+   "day": 145
+  },
+  {
+   "credit": "CR-00937",
+   "a": "BR-15",
+   "b": "CO-32",
+   "day": 148
+  },
+  {
+   "credit": "CR-00939",
+   "a": "DEV-25",
+   "b": "BR-19",
+   "day": 42
+  },
+  {
+   "credit": "CR-00939",
+   "a": "BR-19",
+   "b": "BR-16",
+   "day": 45
+  },
+  {
+   "credit": "CR-00939",
+   "a": "BR-16",
+   "b": "CO-50",
+   "day": 48
+  },
+  {
+   "credit": "CR-00940",
+   "a": "DEV-25",
+   "b": "CO-03",
+   "day": 163
+  },
+  {
+   "credit": "CR-00941",
+   "a": "DEV-25",
+   "b": "CO-15",
+   "day": 85
+  },
+  {
+   "credit": "CR-00945",
+   "a": "DEV-25",
+   "b": "CO-05",
+   "day": 45
+  },
+  {
+   "credit": "CR-00946",
+   "a": "DEV-25",
+   "b": "CO-59",
+   "day": 57
+  },
+  {
+   "credit": "CR-00947",
+   "a": "DEV-25",
+   "b": "CO-55",
+   "day": 20
+  },
+  {
+   "credit": "CR-00948",
+   "a": "DEV-25",
+   "b": "BR-15",
+   "day": 41
+  },
+  {
+   "credit": "CR-00948",
+   "a": "BR-15",
+   "b": "BR-17",
+   "day": 44
+  },
+  {
+   "credit": "CR-00948",
+   "a": "BR-17",
+   "b": "CO-42",
+   "day": 47
+  },
+  {
+   "credit": "CR-00949",
+   "a": "DEV-25",
+   "b": "CO-17",
+   "day": 76
+  },
+  {
+   "credit": "CR-00950",
+   "a": "DEV-25",
+   "b": "CO-11",
+   "day": 182
+  },
+  {
+   "credit": "CR-00953",
+   "a": "DEV-25",
+   "b": "BR-16",
+   "day": 133
+  },
+  {
+   "credit": "CR-00953",
+   "a": "BR-16",
+   "b": "CO-26",
+   "day": 136
+  },
+  {
+   "credit": "CR-00956",
+   "a": "DEV-25",
+   "b": "BR-07",
+   "day": 200
+  },
+  {
+   "credit": "CR-00956",
+   "a": "BR-07",
+   "b": "CO-37",
+   "day": 203
+  },
+  {
+   "credit": "CR-00957",
+   "a": "DEV-25",
+   "b": "BR-08",
+   "day": 172
+  },
+  {
+   "credit": "CR-00957",
+   "a": "BR-08",
+   "b": "BR-20",
+   "day": 175
+  },
+  {
+   "credit": "CR-00957",
+   "a": "BR-20",
+   "b": "CO-15",
+   "day": 178
+  },
+  {
+   "credit": "CR-00958",
+   "a": "DEV-25",
+   "b": "BR-10",
+   "day": 156
+  },
+  {
+   "credit": "CR-00958",
+   "a": "BR-10",
+   "b": "CO-28",
+   "day": 159
+  },
+  {
+   "credit": "CR-00959",
+   "a": "DEV-25",
+   "b": "BR-10",
+   "day": 40
+  },
+  {
+   "credit": "CR-00959",
+   "a": "BR-10",
+   "b": "CO-54",
+   "day": 43
+  },
+  {
+   "credit": "CR-00960",
+   "a": "DEV-25",
+   "b": "BR-15",
+   "day": 177
+  },
+  {
+   "credit": "CR-00960",
+   "a": "BR-15",
+   "b": "CO-31",
+   "day": 180
+  },
+  {
+   "credit": "CR-00963",
+   "a": "DEV-25",
+   "b": "BR-08",
+   "day": 116
+  },
+  {
+   "credit": "CR-00963",
+   "a": "BR-08",
+   "b": "CO-45",
+   "day": 119
+  },
+  {
+   "credit": "CR-00964",
+   "a": "DEV-25",
+   "b": "CO-13",
+   "day": 126
+  },
+  {
+   "credit": "CR-00965",
+   "a": "DEV-25",
+   "b": "CO-03",
+   "day": 56
+  },
+  {
+   "credit": "CR-00966",
+   "a": "DEV-26",
+   "b": "CO-58",
+   "day": 83
+  },
+  {
+   "credit": "CR-00970",
+   "a": "DEV-26",
+   "b": "CO-48",
+   "day": 83
+  },
+  {
+   "credit": "CR-00972",
+   "a": "DEV-26",
+   "b": "CO-15",
+   "day": 68
+  },
+  {
+   "credit": "CR-00973",
+   "a": "DEV-26",
+   "b": "BR-15",
+   "day": 69
+  },
+  {
+   "credit": "CR-00973",
+   "a": "BR-15",
+   "b": "CO-14",
+   "day": 72
+  },
+  {
+   "credit": "CR-00976",
+   "a": "DEV-26",
+   "b": "BR-06",
+   "day": 62
+  },
+  {
+   "credit": "CR-00976",
+   "a": "BR-06",
+   "b": "CO-52",
+   "day": 65
+  },
+  {
+   "credit": "CR-00977",
+   "a": "DEV-26",
+   "b": "BR-20",
+   "day": 62
+  },
+  {
+   "credit": "CR-00977",
+   "a": "BR-20",
+   "b": "CO-03",
+   "day": 65
+  },
+  {
+   "credit": "CR-00979",
+   "a": "DEV-26",
+   "b": "BR-08",
+   "day": 111
+  },
+  {
+   "credit": "CR-00979",
+   "a": "BR-08",
+   "b": "CO-23",
+   "day": 114
+  },
+  {
+   "credit": "CR-00980",
+   "a": "DEV-26",
+   "b": "BR-10",
+   "day": 109
+  },
+  {
+   "credit": "CR-00980",
+   "a": "BR-10",
+   "b": "CO-14",
+   "day": 112
+  },
+  {
+   "credit": "CR-00981",
+   "a": "DEV-26",
+   "b": "BR-08",
+   "day": 35
+  },
+  {
+   "credit": "CR-00981",
+   "a": "BR-08",
+   "b": "BR-16",
+   "day": 38
+  },
+  {
+   "credit": "CR-00981",
+   "a": "BR-16",
+   "b": "CO-36",
+   "day": 41
+  },
+  {
+   "credit": "CR-00983",
+   "a": "DEV-26",
+   "b": "CO-57",
+   "day": 54
+  },
+  {
+   "credit": "CR-00984",
+   "a": "DEV-26",
+   "b": "BR-19",
+   "day": 191
+  },
+  {
+   "credit": "CR-00984",
+   "a": "BR-19",
+   "b": "CO-44",
+   "day": 194
+  },
+  {
+   "credit": "CR-00985",
+   "a": "DEV-26",
+   "b": "CO-28",
+   "day": 118
+  },
+  {
+   "credit": "CR-00988",
+   "a": "DEV-26",
+   "b": "BR-01",
+   "day": 80
+  },
+  {
+   "credit": "CR-00988",
+   "a": "BR-01",
+   "b": "CO-54",
+   "day": 83
+  },
+  {
+   "credit": "CR-00989",
+   "a": "DEV-26",
+   "b": "BR-01",
+   "day": 190
+  },
+  {
+   "credit": "CR-00989",
+   "a": "BR-01",
+   "b": "CO-53",
+   "day": 193
+  },
+  {
+   "credit": "CR-00990",
+   "a": "DEV-26",
+   "b": "CO-10",
+   "day": 138
+  },
+  {
+   "credit": "CR-00994",
+   "a": "DEV-26",
+   "b": "BR-15",
+   "day": 187
+  },
+  {
+   "credit": "CR-00994",
+   "a": "BR-15",
+   "b": "CO-45",
+   "day": 190
+  },
+  {
+   "credit": "CR-00995",
+   "a": "DEV-26",
+   "b": "BR-01",
+   "day": 72
+  },
+  {
+   "credit": "CR-00995",
+   "a": "BR-01",
+   "b": "BR-18",
+   "day": 75
+  },
+  {
+   "credit": "CR-00995",
+   "a": "BR-18",
+   "b": "CO-32",
+   "day": 78
+  },
+  {
+   "credit": "CR-00997",
+   "a": "DEV-26",
+   "b": "CO-31",
+   "day": 43
+  },
+  {
+   "credit": "CR-00999",
+   "a": "DEV-26",
+   "b": "BR-06",
+   "day": 162
+  },
+  {
+   "credit": "CR-00999",
+   "a": "BR-06",
+   "b": "CO-04",
+   "day": 165
+  },
+  {
+   "credit": "CR-01001",
+   "a": "DEV-26",
+   "b": "CO-55",
+   "day": 32
+  },
+  {
+   "credit": "CR-01002",
+   "a": "DEV-26",
+   "b": "BR-07",
+   "day": 126
+  },
+  {
+   "credit": "CR-01002",
+   "a": "BR-07",
+   "b": "CO-55",
+   "day": 129
+  },
+  {
+   "credit": "CR-01007",
+   "a": "DEV-26",
+   "b": "CO-21",
+   "day": 111
+  },
+  {
+   "credit": "CR-01009",
+   "a": "DEV-26",
+   "b": "BR-19",
+   "day": 173
+  },
+  {
+   "credit": "CR-01009",
+   "a": "BR-19",
+   "b": "BR-06",
+   "day": 176
+  },
+  {
+   "credit": "CR-01009",
+   "a": "BR-06",
+   "b": "CO-38",
+   "day": 179
+  },
+  {
+   "credit": "CR-01583",
+   "a": "DEV-41",
+   "b": "BR-17",
+   "day": 146
+  },
+  {
+   "credit": "CR-01583",
+   "a": "BR-17",
+   "b": "CO-05",
+   "day": 149
+  },
+  {
+   "credit": "CR-01584",
+   "a": "DEV-41",
+   "b": "BR-01",
+   "day": 47
+  },
+  {
+   "credit": "CR-01584",
+   "a": "BR-01",
+   "b": "BR-14",
+   "day": 50
+  },
+  {
+   "credit": "CR-01584",
+   "a": "BR-14",
+   "b": "CO-03",
+   "day": 53
+  },
+  {
+   "credit": "CR-01586",
+   "a": "DEV-41",
+   "b": "CO-16",
+   "day": 126
+  },
+  {
+   "credit": "CR-01587",
+   "a": "DEV-41",
+   "b": "BR-17",
+   "day": 15
+  },
+  {
+   "credit": "CR-01587",
+   "a": "BR-17",
+   "b": "BR-15",
+   "day": 18
+  },
+  {
+   "credit": "CR-01587",
+   "a": "BR-15",
+   "b": "CO-17",
+   "day": 21
+  },
+  {
+   "credit": "CR-01588",
+   "a": "DEV-41",
+   "b": "BR-10",
+   "day": 16
+  },
+  {
+   "credit": "CR-01588",
+   "a": "BR-10",
+   "b": "BR-15",
+   "day": 19
+  },
+  {
+   "credit": "CR-01588",
+   "a": "BR-15",
+   "b": "CO-47",
+   "day": 22
+  },
+  {
+   "credit": "CR-01589",
+   "a": "DEV-41",
+   "b": "CO-25",
+   "day": 140
+  },
+  {
+   "credit": "CR-01590",
+   "a": "DEV-41",
+   "b": "BR-20",
+   "day": 172
+  },
+  {
+   "credit": "CR-01590",
+   "a": "BR-20",
+   "b": "CO-31",
+   "day": 175
+  },
+  {
+   "credit": "CR-01592",
+   "a": "DEV-41",
+   "b": "BR-07",
+   "day": 156
+  },
+  {
+   "credit": "CR-01592",
+   "a": "BR-07",
+   "b": "BR-06",
+   "day": 159
+  },
+  {
+   "credit": "CR-01592",
+   "a": "BR-06",
+   "b": "CO-04",
+   "day": 162
+  },
+  {
+   "credit": "CR-01593",
+   "a": "DEV-41",
+   "b": "CO-39",
+   "day": 97
+  },
+  {
+   "credit": "CR-01596",
+   "a": "DEV-41",
+   "b": "BR-18",
+   "day": 28
+  },
+  {
+   "credit": "CR-01596",
+   "a": "BR-18",
+   "b": "CO-52",
+   "day": 31
+  },
+  {
+   "credit": "CR-01597",
+   "a": "DEV-41",
+   "b": "BR-07",
+   "day": 124
+  },
+  {
+   "credit": "CR-01597",
+   "a": "BR-07",
+   "b": "BR-13",
+   "day": 127
+  },
+  {
+   "credit": "CR-01597",
+   "a": "BR-13",
+   "b": "CO-51",
+   "day": 130
+  },
+  {
+   "credit": "CR-01600",
+   "a": "DEV-41",
+   "b": "CO-32",
+   "day": 111
+  },
+  {
+   "credit": "CR-01601",
+   "a": "DEV-41",
+   "b": "CO-30",
+   "day": 107
+  },
+  {
+   "credit": "CR-01603",
+   "a": "DEV-41",
+   "b": "BR-20",
+   "day": 59
+  },
+  {
+   "credit": "CR-01603",
+   "a": "BR-20",
+   "b": "CO-02",
+   "day": 62
+  },
+  {
+   "credit": "CR-01606",
+   "a": "DEV-41",
+   "b": "CO-16",
+   "day": 96
+  },
+  {
+   "credit": "CR-01609",
+   "a": "DEV-41",
+   "b": "BR-13",
+   "day": 83
+  },
+  {
+   "credit": "CR-01609",
+   "a": "BR-13",
+   "b": "BR-07",
+   "day": 86
+  },
+  {
+   "credit": "CR-01609",
+   "a": "BR-07",
+   "b": "CO-46",
+   "day": 89
+  },
+  {
+   "credit": "CR-01611",
+   "a": "DEV-41",
+   "b": "CO-45",
+   "day": 158
+  },
+  {
+   "credit": "CR-01613",
+   "a": "DEV-41",
+   "b": "BR-07",
+   "day": 140
+  },
+  {
+   "credit": "CR-01613",
+   "a": "BR-07",
+   "b": "BR-20",
+   "day": 143
+  },
+  {
+   "credit": "CR-01613",
+   "a": "BR-20",
+   "b": "CO-42",
+   "day": 146
+  },
+  {
+   "credit": "CR-01617",
+   "a": "DEV-41",
+   "b": "BR-16",
+   "day": 200
+  },
+  {
+   "credit": "CR-01617",
+   "a": "BR-16",
+   "b": "BR-19",
+   "day": 203
+  },
+  {
+   "credit": "CR-01617",
+   "a": "BR-19",
+   "b": "CO-03",
+   "day": 206
+  },
+  {
+   "credit": "CR-01618",
+   "a": "DEV-41",
+   "b": "CO-13",
+   "day": 127
+  },
+  {
+   "credit": "CR-01619",
+   "a": "DEV-41",
+   "b": "BR-01",
+   "day": 56
+  },
+  {
+   "credit": "CR-01619",
+   "a": "BR-01",
+   "b": "BR-20",
+   "day": 59
+  },
+  {
+   "credit": "CR-01619",
+   "a": "BR-20",
+   "b": "CO-11",
+   "day": 62
+  },
+  {
+   "credit": "CR-01624",
+   "a": "DEV-41",
+   "b": "BR-15",
+   "day": 33
+  },
+  {
+   "credit": "CR-01624",
+   "a": "BR-15",
+   "b": "CO-51",
+   "day": 36
+  },
+  {
+   "credit": "CR-01625",
+   "a": "DEV-41",
+   "b": "BR-18",
+   "day": 48
+  },
+  {
+   "credit": "CR-01625",
+   "a": "BR-18",
+   "b": "BR-16",
+   "day": 51
+  },
+  {
+   "credit": "CR-01625",
+   "a": "BR-16",
+   "b": "CO-13",
+   "day": 54
+  },
+  {
+   "credit": "CR-01630",
+   "a": "DEV-41",
+   "b": "BR-06",
+   "day": 78
+  },
+  {
+   "credit": "CR-01630",
+   "a": "BR-06",
+   "b": "CO-27",
+   "day": 81
+  },
+  {
+   "credit": "CR-01631",
+   "a": "DEV-41",
+   "b": "BR-19",
+   "day": 40
+  },
+  {
+   "credit": "CR-01631",
+   "a": "BR-19",
+   "b": "BR-17",
+   "day": 43
+  },
+  {
+   "credit": "CR-01631",
+   "a": "BR-17",
+   "b": "CO-19",
+   "day": 46
+  }
+ ],
+ "retires": [
+  {
+   "credit": "CR-00694",
+   "b": "CO-14",
+   "day": 40,
+   "claim": "CLM-4410"
+  },
+  {
+   "credit": "CR-00694",
+   "b": "CO-31",
+   "day": 58,
+   "claim": "CLM-5207"
+  },
+  {
+   "credit": "CR-00089",
+   "b": "CO-17",
+   "day": 75,
+   "claim": "CLM-6120"
+  },
+  {
+   "credit": "CR-00089",
+   "b": "CO-40",
+   "day": 90,
+   "claim": "CLM-6388"
+  },
+  {
+   "credit": "CR-00508",
+   "b": "CO-33",
+   "day": 60,
+   "claim": "CLM-7425"
+  },
+  {
+   "credit": "CR-00509",
+   "b": "CO-33",
+   "day": 60,
+   "claim": "CLM-7452"
+  },
+  {
+   "credit": "CR-00510",
+   "b": "CO-33",
+   "day": 60,
+   "claim": "CLM-7190"
+  },
+  {
+   "credit": "CR-00511",
+   "b": "CO-33",
+   "day": 60,
+   "claim": "CLM-7283"
+  },
+  {
+   "credit": "CR-00512",
+   "b": "CO-33",
+   "day": 60,
+   "claim": "CLM-7201"
+  },
+  {
+   "credit": "CR-00721",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8932"
+  },
+  {
+   "credit": "CR-00722",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8136"
+  },
+  {
+   "credit": "CR-00723",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8254"
+  },
+  {
+   "credit": "CR-00724",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8576"
+  },
+  {
+   "credit": "CR-00725",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8037"
+  },
+  {
+   "credit": "CR-00726",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8719"
+  },
+  {
+   "credit": "CR-00727",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8588"
+  },
+  {
+   "credit": "CR-00728",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8364"
+  },
+  {
+   "credit": "CR-00729",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8991"
+  },
+  {
+   "credit": "CR-00730",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8123"
+  },
+  {
+   "credit": "CR-00731",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8731"
+  },
+  {
+   "credit": "CR-00732",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8836"
+  },
+  {
+   "credit": "CR-00733",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8797"
+  },
+  {
+   "credit": "CR-00734",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8590"
+  },
+  {
+   "credit": "CR-00735",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8298"
+  },
+  {
+   "credit": "CR-00736",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8976"
+  },
+  {
+   "credit": "CR-00737",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8457"
+  },
+  {
+   "credit": "CR-00738",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8543"
+  },
+  {
+   "credit": "CR-00739",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8021"
+  },
+  {
+   "credit": "CR-00740",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8990"
+  },
+  {
+   "credit": "CR-00741",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8229"
+  },
+  {
+   "credit": "CR-00742",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8171"
+  },
+  {
+   "credit": "CR-00743",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8319"
+  },
+  {
+   "credit": "CR-00744",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8568"
+  },
+  {
+   "credit": "CR-00745",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8019"
+  },
+  {
+   "credit": "CR-00746",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8948"
+  },
+  {
+   "credit": "CR-00747",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8267"
+  },
+  {
+   "credit": "CR-00748",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8857"
+  },
+  {
+   "credit": "CR-00749",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8535"
+  },
+  {
+   "credit": "CR-00750",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8719"
+  },
+  {
+   "credit": "CR-00751",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8105"
+  },
+  {
+   "credit": "CR-00752",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8890"
+  },
+  {
+   "credit": "CR-00753",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8734"
+  },
+  {
+   "credit": "CR-00754",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8046"
+  },
+  {
+   "credit": "CR-00755",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8126"
+  },
+  {
+   "credit": "CR-00041",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8505"
+  },
+  {
+   "credit": "CR-00042",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8112"
+  },
+  {
+   "credit": "CR-00043",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8124"
+  },
+  {
+   "credit": "CR-00044",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8905"
+  },
+  {
+   "credit": "CR-00045",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8554"
+  },
+  {
+   "credit": "CR-00046",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8881"
+  },
+  {
+   "credit": "CR-00047",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8150"
+  },
+  {
+   "credit": "CR-00048",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8764"
+  },
+  {
+   "credit": "CR-00049",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8168"
+  },
+  {
+   "credit": "CR-00050",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8960"
+  },
+  {
+   "credit": "CR-00051",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8710"
+  },
+  {
+   "credit": "CR-00052",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8611"
+  },
+  {
+   "credit": "CR-00053",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8405"
+  },
+  {
+   "credit": "CR-00054",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8795"
+  },
+  {
+   "credit": "CR-00055",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8346"
+  },
+  {
+   "credit": "CR-00056",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8246"
+  },
+  {
+   "credit": "CR-00057",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8732"
+  },
+  {
+   "credit": "CR-00058",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8863"
+  },
+  {
+   "credit": "CR-00059",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8834"
+  },
+  {
+   "credit": "CR-00060",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8867"
+  },
+  {
+   "credit": "CR-00132",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8332"
+  },
+  {
+   "credit": "CR-00133",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8980"
+  },
+  {
+   "credit": "CR-00134",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8255"
+  },
+  {
+   "credit": "CR-00135",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8679"
+  },
+  {
+   "credit": "CR-00136",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8373"
+  },
+  {
+   "credit": "CR-00137",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8543"
+  },
+  {
+   "credit": "CR-00138",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8070"
+  },
+  {
+   "credit": "CR-00139",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8443"
+  },
+  {
+   "credit": "CR-00140",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8516"
+  },
+  {
+   "credit": "CR-00141",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8230"
+  },
+  {
+   "credit": "CR-00142",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8430"
+  },
+  {
+   "credit": "CR-00143",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8795"
+  },
+  {
+   "credit": "CR-00144",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8648"
+  },
+  {
+   "credit": "CR-00145",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8828"
+  },
+  {
+   "credit": "CR-00146",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8035"
+  },
+  {
+   "credit": "CR-00147",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8939"
+  },
+  {
+   "credit": "CR-00148",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8643"
+  },
+  {
+   "credit": "CR-00149",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8636"
+  },
+  {
+   "credit": "CR-00150",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8256"
+  },
+  {
+   "credit": "CR-00151",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8532"
+  },
+  {
+   "credit": "CR-00206",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8444"
+  },
+  {
+   "credit": "CR-00207",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8973"
+  },
+  {
+   "credit": "CR-00208",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8294"
+  },
+  {
+   "credit": "CR-00209",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8312"
+  },
+  {
+   "credit": "CR-00210",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8663"
+  },
+  {
+   "credit": "CR-00211",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8123"
+  },
+  {
+   "credit": "CR-00212",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8608"
+  },
+  {
+   "credit": "CR-00213",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8086"
+  },
+  {
+   "credit": "CR-00214",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8604"
+  },
+  {
+   "credit": "CR-00215",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8450"
+  },
+  {
+   "credit": "CR-00216",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8523"
+  },
+  {
+   "credit": "CR-00217",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8906"
+  },
+  {
+   "credit": "CR-00218",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8937"
+  },
+  {
+   "credit": "CR-00219",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8591"
+  },
+  {
+   "credit": "CR-00220",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8280"
+  },
+  {
+   "credit": "CR-00221",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8753"
+  },
+  {
+   "credit": "CR-00222",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8758"
+  },
+  {
+   "credit": "CR-00223",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8859"
+  },
+  {
+   "credit": "CR-00224",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8624"
+  },
+  {
+   "credit": "CR-00225",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8665"
+  },
+  {
+   "credit": "CR-00266",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8206"
+  },
+  {
+   "credit": "CR-00267",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8471"
+  },
+  {
+   "credit": "CR-00268",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8627"
+  },
+  {
+   "credit": "CR-00269",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8480"
+  },
+  {
+   "credit": "CR-00270",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8031"
+  },
+  {
+   "credit": "CR-00271",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8341"
+  },
+  {
+   "credit": "CR-00272",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8193"
+  },
+  {
+   "credit": "CR-00273",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8992"
+  },
+  {
+   "credit": "CR-00274",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8012"
+  },
+  {
+   "credit": "CR-00275",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8166"
+  },
+  {
+   "credit": "CR-00276",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8331"
+  },
+  {
+   "credit": "CR-00277",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8503"
+  },
+  {
+   "credit": "CR-00278",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8291"
+  },
+  {
+   "credit": "CR-00279",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8302"
+  },
+  {
+   "credit": "CR-00280",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8790"
+  },
+  {
+   "credit": "CR-00281",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8162"
+  },
+  {
+   "credit": "CR-00282",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8620"
+  },
+  {
+   "credit": "CR-00283",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8450"
+  },
+  {
+   "credit": "CR-00284",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8529"
+  },
+  {
+   "credit": "CR-00285",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8854"
+  },
+  {
+   "credit": "CR-00303",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8362"
+  },
+  {
+   "credit": "CR-00304",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8533"
+  },
+  {
+   "credit": "CR-00305",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8982"
+  },
+  {
+   "credit": "CR-00306",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8426"
+  },
+  {
+   "credit": "CR-00307",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8684"
+  },
+  {
+   "credit": "CR-00308",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8143"
+  },
+  {
+   "credit": "CR-00309",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8631"
+  },
+  {
+   "credit": "CR-00310",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8840"
+  },
+  {
+   "credit": "CR-00311",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8756"
+  },
+  {
+   "credit": "CR-00312",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8275"
+  },
+  {
+   "credit": "CR-00313",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8422"
+  },
+  {
+   "credit": "CR-00314",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8004"
+  },
+  {
+   "credit": "CR-00315",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8784"
+  },
+  {
+   "credit": "CR-00316",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8509"
+  },
+  {
+   "credit": "CR-00317",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8985"
+  },
+  {
+   "credit": "CR-00318",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8427"
+  },
+  {
+   "credit": "CR-00319",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8893"
+  },
+  {
+   "credit": "CR-00320",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8388"
+  },
+  {
+   "credit": "CR-00321",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8709"
+  },
+  {
+   "credit": "CR-00322",
+   "b": "CO-01",
+   "day": 88,
+   "claim": "CLM-8294"
+  },
+  {
+   "credit": "CR-00431",
+   "b": "CO-45",
+   "day": 196,
+   "claim": "CLM-9070"
+  },
+  {
+   "credit": "CR-00434",
+   "b": "CO-57",
+   "day": 75,
+   "claim": "CLM-4877"
+  },
+  {
+   "credit": "CR-00435",
+   "b": "CO-05",
+   "day": 119,
+   "claim": "CLM-2427"
+  },
+  {
+   "credit": "CR-00437",
+   "b": "CO-42",
+   "day": 125,
+   "claim": "CLM-1267"
+  },
+  {
+   "credit": "CR-00438",
+   "b": "CO-30",
+   "day": 170,
+   "claim": "CLM-9935"
+  },
+  {
+   "credit": "CR-00441",
+   "b": "CO-25",
+   "day": 41,
+   "claim": "CLM-9817"
+  },
+  {
+   "credit": "CR-00442",
+   "b": "CO-16",
+   "day": 187,
+   "claim": "CLM-4016"
+  },
+  {
+   "credit": "CR-00448",
+   "b": "CO-35",
+   "day": 97,
+   "claim": "CLM-1148"
+  },
+  {
+   "credit": "CR-00451",
+   "b": "CO-55",
+   "day": 184,
+   "claim": "CLM-9419"
+  },
+  {
+   "credit": "CR-00452",
+   "b": "CO-52",
+   "day": 77,
+   "claim": "CLM-6425"
+  },
+  {
+   "credit": "CR-00455",
+   "b": "CO-03",
+   "day": 30,
+   "claim": "CLM-9396"
+  },
+  {
+   "credit": "CR-00459",
+   "b": "CO-52",
+   "day": 77,
+   "claim": "CLM-7677"
+  },
+  {
+   "credit": "CR-00932",
+   "b": "CO-45",
+   "day": 57,
+   "claim": "CLM-9220"
+  },
+  {
+   "credit": "CR-00934",
+   "b": "CO-46",
+   "day": 143,
+   "claim": "CLM-9752"
+  },
+  {
+   "credit": "CR-00936",
+   "b": "CO-20",
+   "day": 98,
+   "claim": "CLM-6238"
+  },
+  {
+   "credit": "CR-00937",
+   "b": "CO-32",
+   "day": 156,
+   "claim": "CLM-2744"
+  },
+  {
+   "credit": "CR-00940",
+   "b": "CO-03",
+   "day": 171,
+   "claim": "CLM-8437"
+  },
+  {
+   "credit": "CR-00941",
+   "b": "CO-15",
+   "day": 93,
+   "claim": "CLM-3157"
+  },
+  {
+   "credit": "CR-00945",
+   "b": "CO-05",
+   "day": 53,
+   "claim": "CLM-5926"
+  },
+  {
+   "credit": "CR-00946",
+   "b": "CO-59",
+   "day": 65,
+   "claim": "CLM-5602"
+  },
+  {
+   "credit": "CR-00947",
+   "b": "CO-55",
+   "day": 28,
+   "claim": "CLM-2498"
+  },
+  {
+   "credit": "CR-00950",
+   "b": "CO-11",
+   "day": 190,
+   "claim": "CLM-4671"
+  },
+  {
+   "credit": "CR-00953",
+   "b": "CO-26",
+   "day": 144,
+   "claim": "CLM-6848"
+  },
+  {
+   "credit": "CR-00957",
+   "b": "CO-15",
+   "day": 186,
+   "claim": "CLM-6711"
+  },
+  {
+   "credit": "CR-00958",
+   "b": "CO-28",
+   "day": 167,
+   "claim": "CLM-1031"
+  },
+  {
+   "credit": "CR-00959",
+   "b": "CO-54",
+   "day": 51,
+   "claim": "CLM-2566"
+  },
+  {
+   "credit": "CR-00963",
+   "b": "CO-45",
+   "day": 127,
+   "claim": "CLM-3997"
+  },
+  {
+   "credit": "CR-00964",
+   "b": "CO-13",
+   "day": 134,
+   "claim": "CLM-9252"
+  },
+  {
+   "credit": "CR-00965",
+   "b": "CO-03",
+   "day": 64,
+   "claim": "CLM-2669"
+  },
+  {
+   "credit": "CR-00970",
+   "b": "CO-48",
+   "day": 91,
+   "claim": "CLM-2656"
+  },
+  {
+   "credit": "CR-00972",
+   "b": "CO-15",
+   "day": 76,
+   "claim": "CLM-5139"
+  },
+  {
+   "credit": "CR-00976",
+   "b": "CO-52",
+   "day": 73,
+   "claim": "CLM-2771"
+  },
+  {
+   "credit": "CR-00977",
+   "b": "CO-03",
+   "day": 73,
+   "claim": "CLM-7360"
+  },
+  {
+   "credit": "CR-00979",
+   "b": "CO-23",
+   "day": 122,
+   "claim": "CLM-9697"
+  },
+  {
+   "credit": "CR-00980",
+   "b": "CO-14",
+   "day": 120,
+   "claim": "CLM-4534"
+  },
+  {
+   "credit": "CR-00984",
+   "b": "CO-44",
+   "day": 202,
+   "claim": "CLM-1042"
+  },
+  {
+   "credit": "CR-00985",
+   "b": "CO-28",
+   "day": 126,
+   "claim": "CLM-4792"
+  },
+  {
+   "credit": "CR-00988",
+   "b": "CO-54",
+   "day": 91,
+   "claim": "CLM-2116"
+  },
+  {
+   "credit": "CR-00989",
+   "b": "CO-53",
+   "day": 201,
+   "claim": "CLM-9213"
+  },
+  {
+   "credit": "CR-00990",
+   "b": "CO-10",
+   "day": 146,
+   "claim": "CLM-8273"
+  },
+  {
+   "credit": "CR-00994",
+   "b": "CO-45",
+   "day": 198,
+   "claim": "CLM-5567"
+  },
+  {
+   "credit": "CR-00995",
+   "b": "CO-32",
+   "day": 86,
+   "claim": "CLM-5524"
+  },
+  {
+   "credit": "CR-01001",
+   "b": "CO-55",
+   "day": 40,
+   "claim": "CLM-1316"
+  },
+  {
+   "credit": "CR-01002",
+   "b": "CO-55",
+   "day": 137,
+   "claim": "CLM-9253"
+  },
+  {
+   "credit": "CR-01007",
+   "b": "CO-21",
+   "day": 119,
+   "claim": "CLM-4948"
+  },
+  {
+   "credit": "CR-01583",
+   "b": "CO-05",
+   "day": 157,
+   "claim": "CLM-3665"
+  },
+  {
+   "credit": "CR-01584",
+   "b": "CO-03",
+   "day": 61,
+   "claim": "CLM-1215"
+  },
+  {
+   "credit": "CR-01586",
+   "b": "CO-16",
+   "day": 134,
+   "claim": "CLM-7653"
+  },
+  {
+   "credit": "CR-01587",
+   "b": "CO-17",
+   "day": 29,
+   "claim": "CLM-2355"
+  },
+  {
+   "credit": "CR-01588",
+   "b": "CO-47",
+   "day": 30,
+   "claim": "CLM-2021"
+  },
+  {
+   "credit": "CR-01589",
+   "b": "CO-25",
+   "day": 148,
+   "claim": "CLM-8446"
+  },
+  {
+   "credit": "CR-01592",
+   "b": "CO-04",
+   "day": 170,
+   "claim": "CLM-7723"
+  },
+  {
+   "credit": "CR-01593",
+   "b": "CO-39",
+   "day": 105,
+   "claim": "CLM-8569"
+  },
+  {
+   "credit": "CR-01596",
+   "b": "CO-52",
+   "day": 39,
+   "claim": "CLM-2512"
+  },
+  {
+   "credit": "CR-01613",
+   "b": "CO-42",
+   "day": 154,
+   "claim": "CLM-3468"
+  },
+  {
+   "credit": "CR-01617",
+   "b": "CO-03",
+   "day": 214,
+   "claim": "CLM-2231"
+  },
+  {
+   "credit": "CR-01618",
+   "b": "CO-13",
+   "day": 135,
+   "claim": "CLM-7008"
+  },
+  {
+   "credit": "CR-01619",
+   "b": "CO-11",
+   "day": 70,
+   "claim": "CLM-5322"
+  },
+  {
+   "credit": "CR-01624",
+   "b": "CO-51",
+   "day": 44,
+   "claim": "CLM-2063"
+  },
+  {
+   "credit": "CR-01625",
+   "b": "CO-13",
+   "day": 62,
+   "claim": "CLM-4212"
+  },
+  {
+   "credit": "CR-01631",
+   "b": "CO-19",
+   "day": 54,
+   "claim": "CLM-9935"
+  }
+ ],
+ "truth": {
+  "findings": [
+   {
+    "type": "overlap",
+    "key": "P-07|P-19"
+   },
+   {
+    "type": "loop",
+    "key": "BR-02|BR-05|CO-08"
+   },
+   {
+    "type": "double_retirement",
+    "key": "CR-00694"
+   },
+   {
+    "type": "double_retirement",
+    "key": "CR-00089"
+   },
+   {
+    "type": "loop",
+    "key": "BR-09|BR-11|BR-12|CO-22"
+   },
+   {
+    "type": "registry_duplicate",
+    "key": "P-12|P-41"
+   },
+   {
+    "type": "overlap",
+    "key": "P-25|P-26"
+   }
+  ],
+  "decoys": [
+   {
+    "note": "neighbouring parcels with near-identical geohashes (P-35, P-36), not the same land"
+   },
+   {
+    "note": "ended project followed by a new one on the same parcel (P-33, P-34), a legitimate succession"
+   },
+   {
+    "note": "long resale chain of five hops with no repeated holder"
+   },
+   {
+    "note": "BR-03 and BR-04 swap different credits both ways, a 2-cycle that never returns the same credit"
+   },
+   {
+    "note": "Meridian Foods (CO-01) retires 135 credits, a large honest buyer"
+   },
+   {
+    "note": "seven projects have no audit report on file, a weak signal that never raises a case alone"
+   }
+  ]
+ }
+}

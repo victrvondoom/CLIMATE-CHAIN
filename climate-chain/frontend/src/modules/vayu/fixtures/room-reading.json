@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "id": "r1",
+  "thingId": "vayu-dev-01",
+  "ts": "2026-10-05T10:00:00.000Z",
+  "pm1": 22,
+  "pm25": 38.5,
+  "pm4": 52,
+  "pm10": 61.2,
+  "tempC": 29.4,
+  "rhPct": 52,
+  "flags": [],
+  "simulated": false
+}

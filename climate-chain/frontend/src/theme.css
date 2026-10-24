@@ -1,0 +1,635 @@
+/* Shared cream surfaces and warm ink. Feature sheets use these same tokens,
+   including lazy-loaded Earth panels and satellite control overlays. */
+
+:root {
+  /* Canonical Creamy White Palette (Phase 4 Specification) */
+  --background: #F5F3EE;
+  --surface: #FFFEFA;
+  --surface-secondary: #F0EDE6;
+  --text-primary: #171717;
+  --text-secondary: #64615C;
+  --border: #DDD8CF;
+
+  /* Editorial Creamy Surface Mappings */
+  --cream-white: var(--surface);
+  --cream-porcelain: #FBF9F4;
+  --cream-ivory: var(--surface-secondary);
+  --cream-vanilla: var(--background);
+  --cream-oat: #EBE6DC;
+  --cream-inset: #E2DCD1;
+  --paper: var(--background);
+  --paper-raised: var(--surface);
+  --paper-sunk: var(--surface-secondary);
+  --ink: var(--text-primary);
+  --ink-2: #3E3B36;
+  --ink-3: var(--text-secondary);
+  --rule: var(--border);
+  --rule-strong: #C9C3B7;
+  --shadow-1: 0 1px 3px 0 rgba(48, 36, 20, 0.04), 0 1px 2px -1px rgba(48, 36, 20, 0.03);
+  --shadow-2: 0 6px 20px -3px rgba(48, 36, 20, 0.06), 0 2px 6px -2px rgba(48, 36, 20, 0.03);
+  --cream-shadow-inset: inset 0 2px 4px 0 rgba(48, 36, 20, 0.04);
+  --cream-shadow-frame: 0 12px 32px -6px rgba(48, 36, 20, 0.07), 0 4px 12px -2px rgba(48, 36, 20, 0.03);
+  --serif: "Figtree Variable", "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --sans: "Figtree Variable", "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Rich warm climate domain accent colors */
+  --bg: var(--background);
+  --bg-2: var(--surface-secondary);
+  --panel: var(--surface);
+  --panel-solid: var(--surface);
+  --line: var(--border);
+  --text: var(--text-primary);
+  --muted: var(--text-secondary);
+  --waste: #b45309;
+  --fire: #b84a1d;
+  --water: #27627e;
+  --air: #526e51;
+  --good: #3a684b;
+  --bad: #b3392f;
+  color-scheme: light;
+}
+
+html,
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before,
+body::after {
+  content: none;
+  display: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  color: var(--ink);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+
+svg text {
+  fill: var(--ink-2);
+}
+
+/* EB Garamond has a small x-height, so the editorial scale runs a step larger than the UI face. */
+h1 { font-size: clamp(30px, 4vw, 40px); line-height: 1.08; font-variant-numeric: lining-nums; }
+h2 { font-size: clamp(24px, 3vw, 28px); line-height: 1.15; font-variant-numeric: lining-nums; }
+h3 { font-size: 20px; line-height: 1.22; font-variant-numeric: lining-nums; }
+
+p,
+li,
+label,
+td,
+th {
+  color: var(--ink-2);
+}
+
+.muted,
+small,
+.eyebrow,
+.nav-section-label,
+.nav-stage-label {
+  color: var(--ink-3);
+}
+
+.eyebrow,
+.nav-section-label,
+.nav-stage-label {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Panels are paper lifted off the page: a light top edge, a soft contact shadow and a deeper drop. */
+.card,
+.capability-card,
+.launch-card,
+.announce-item,
+.studio-tool,
+.ledger-item,
+.module-features li,
+.flow-preview-step,
+.chip3d,
+.command-dialog,
+.desk-panel,
+.packet-card {
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: 15px;
+  box-shadow: var(--shadow-1);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.card:hover,
+.capability-card:hover,
+.launch-card:hover,
+.announce-item:hover,
+.flow-preview-step:hover,
+.chip3d:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-2);
+}
+
+.hero,
+.module-screen,
+.announce-band,
+.launchpad-counts span {
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  box-shadow: var(--shadow-2);
+}
+
+/* Buttons press into the page. Primary is solid ink; everything else is an outlined plate. */
+button,
+.text-action,
+.mini-action,
+.hero-cta,
+.primary-action,
+.hero-library-link {
+  font-family: var(--sans);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button,
+.mini-action {
+  background: var(--paper-raised);
+  color: var(--ink);
+  border: 1px solid var(--rule-strong);
+  padding: 7px 14px;
+  box-shadow: var(--shadow-1);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+button:hover,
+.mini-action:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-2);
+}
+
+button:active,
+.mini-action:active {
+  transform: translateY(1px);
+  box-shadow: inset 0 2px 4px rgba(27, 25, 22, 0.18);
+}
+
+.hero-cta,
+.primary-action {
+  background: linear-gradient(145deg, var(--cream-white), var(--cream-vanilla));
+  color: var(--ink);
+  border: 1px solid var(--rule-strong);
+  padding: 10px 18px;
+  box-shadow: var(--shadow-2);
+}
+
+.hero-cta:hover,
+.primary-action:hover {
+  background: linear-gradient(145deg, var(--cream-white), var(--cream-ivory));
+}
+
+.text-action,
+.hero-library-link {
+  background: transparent;
+  border: 0;
+  padding: 2px 0;
+  box-shadow: none;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule-strong);
+  text-underline-offset: 3px;
+}
+
+.text-action:hover,
+.hero-library-link:hover {
+  transform: none;
+  box-shadow: none;
+  text-decoration-color: var(--ink);
+}
+
+input,
+select,
+textarea {
+  font-family: var(--sans);
+  background: var(--paper-sunk);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  box-shadow: inset 0 1px 2px rgba(27, 25, 22, 0.08);
+  padding: 7px 10px;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+a {
+  color: var(--ink);
+}
+
+/* Shell: a quiet rail on the left, a sheet of paper on the right. */
+.app {
+  background: var(--paper);
+}
+
+.sidebar {
+  background: var(--paper-sunk);
+  border-right: 1px solid var(--rule);
+  box-shadow: inset -1px 0 0 rgba(255, 253, 247, 0.6);
+}
+
+.brand-name {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--ink);
+}
+
+.brand-sub {
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.brand-mark {
+  background: linear-gradient(145deg, var(--cream-white), var(--cream-vanilla));
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 11px;
+  box-shadow: var(--shadow-2);
+}
+
+.nav-item {
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  box-shadow: none;
+  color: var(--ink-2);
+  font-size: 14px;
+  padding: 7px 10px;
+  text-align: left;
+}
+
+.nav-item:hover {
+  background: rgba(27, 25, 22, 0.05);
+  transform: none;
+  box-shadow: none;
+  color: var(--ink);
+}
+
+.nav-item.active {
+  background: var(--paper-raised);
+  color: var(--ink);
+  font-weight: 600;
+  box-shadow: inset 2px 0 0 var(--ink), var(--shadow-1);
+  transform: none;
+}
+
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 22px;
+  margin-bottom: 32px;
+}
+
+.topbar .command-open {
+  margin-left: 4px;
+}
+
+.module-head {
+  display: grid;
+  gap: 6px;
+}
+
+.module-head h2 {
+  margin: 0;
+}
+
+.module-meta {
+  margin-top: 4px;
+}
+
+.topbar-title {
+  font-family: var(--serif);
+  font-size: 26px;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.command-open,
+.memory-gate-strip {
+  box-shadow: var(--shadow-1);
+}
+
+.hero-title h1 {
+  font-family: var(--serif);
+  font-size: 44px;
+  color: var(--ink);
+  text-shadow: none;
+}
+
+.hero-title p {
+  color: var(--ink-2);
+  text-shadow: none;
+}
+
+.chip3d {
+  backdrop-filter: none;
+}
+
+.chip3d-value {
+  font-family: var(--serif);
+  color: var(--ink);
+}
+
+/* Reference views keep their structure; only the surface changes. */
+.feed-item,
+.ledger > *,
+.card header {
+  border-color: var(--rule);
+}
+
+.error,
+.loading-panel,
+.muted.small {
+  color: var(--ink-3);
+}
+
+/* Review desk: one narrow path, stage then module then packet then verdict. */
+.desk {
+  display: grid;
+  gap: 32px;
+  max-width: 980px;
+}
+
+.desk-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.desk-head h2 {
+  margin: 4px 0 4px;
+}
+
+nav.desk-crumbs,
+.desk-crumbs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+.desk-panel {
+  display: grid;
+  gap: 20px;
+  padding: 32px 34px;
+}
+
+.desk-panel h3 {
+  margin: 0;
+}
+
+.desk p,
+.desk-panel p {
+  margin: 0;
+}
+
+.desk-crumbs button {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  color: var(--ink-2);
+  text-decoration: underline;
+  text-decoration-color: var(--rule-strong);
+  text-underline-offset: 3px;
+}
+
+.desk-crumbs button:hover {
+  transform: none;
+  box-shadow: none;
+  color: var(--ink);
+}
+
+.desk-crumbs .desk-crumb-here {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.desk-stages {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.desk-stage {
+  display: grid;
+  gap: 6px;
+  text-align: left;
+  padding: 14px;
+  min-height: 92px;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  box-shadow: var(--shadow-1);
+  color: var(--ink);
+}
+
+.desk-stage strong {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.desk-stage span {
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+.desk-stage .desk-count {
+  font-family: var(--serif);
+  font-size: 26px;
+  color: var(--ink);
+}
+
+.desk-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.desk-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 14px;
+  text-align: left;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  box-shadow: var(--shadow-1);
+  color: var(--ink);
+}
+
+.desk-row span {
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+.packet-card {
+  display: grid;
+  gap: 16px;
+  padding: 26px 28px;
+}
+
+.packet-claim {
+  font-family: var(--serif);
+  font-size: 26px;
+  line-height: 1.3;
+  color: var(--ink);
+  margin: 0;
+}
+
+.packet-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+.packet-hash {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 12px;
+  color: var(--ink-2);
+  background: var(--paper-sunk);
+  padding: 3px 7px;
+  border-radius: 6px;
+  box-shadow: inset 0 1px 2px rgba(27, 25, 22, 0.08);
+}
+
+.packet-payload {
+  max-height: 260px;
+  overflow: auto;
+  margin: 0;
+  padding: 14px;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  background: var(--paper-sunk);
+  border-radius: 8px;
+  box-shadow: inset 0 1px 3px rgba(27, 25, 22, 0.1);
+}
+
+.verdict-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.verdict-row .verdict-accept {
+  background: linear-gradient(145deg, var(--cream-white), var(--cream-vanilla));
+  color: var(--ink);
+  border-color: var(--rule-strong);
+}
+
+.intake {
+  display: grid;
+  gap: 10px;
+}
+
+.intake textarea {
+  min-height: 150px;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.intake-errors {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.schema-block {
+  margin: 0;
+  padding: 14px;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  background: var(--paper-sunk);
+  border-radius: 8px;
+  color: var(--ink-2);
+  box-shadow: inset 0 1px 3px rgba(27, 25, 22, 0.1);
+  overflow: auto;
+}
+
+/* Consistent surfaces for native modules, status pills and operator actions. */
+.app :is(.mode-pill, .mode-badge, .memory-mode, .mission-status-badge),
+.memory-button-primary,
+.module-screen button {
+  color: var(--ink);
+  background: linear-gradient(145deg, var(--cream-white), var(--cream-vanilla));
+  border: 1px solid var(--rule-strong);
+  box-shadow: var(--shadow-1);
+}
+.card:nth-child(3n + 2), .desk-stage:nth-child(3n + 2), .launch-card:nth-child(3n + 2) { background: var(--cream-ivory); }
+.card:nth-child(3n), .desk-stage:nth-child(3n), .launch-card:nth-child(3n) { background: var(--cream-vanilla); }
+.card, .desk-stage, .launch-card { box-shadow: var(--shadow-2); }
+input[type=checkbox], input[type=radio], input[type=range], progress { accent-color: var(--ink-2); }
+.memory-text-button:hover:not(:disabled) { color: var(--ink); }
+.command-input-wrap:focus-within { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 10px; }
+.search-field input:focus-visible, .memory-search input:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+@media (max-width: 720px) {
+  .desk-stages {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .packet-claim {
+    font-size: 21px;
+  }
+
+  h1 { font-size: 26px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  .app button:hover, .app button:active, .app .card:hover, .app .capability-card:hover,
+  .app .launch-card:hover, .app .announce-item:hover, .app .flow-preview-step:hover,
+  .app .chip3d:hover { transform: none; }
+}

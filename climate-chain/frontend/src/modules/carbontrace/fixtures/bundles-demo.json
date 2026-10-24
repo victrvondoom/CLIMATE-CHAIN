@@ -1,0 +1,262 @@
+{
+ "label": "DEMO",
+ "note": "Two evidence bundles from the verification step, hashed as the source hashes them: canonical JSON of the bundle. The source commits keccak256 on-chain. This app re-hashes with SHA-256 because WebCrypto has no keccak256, so sha256 is recomputed here.",
+ "records": [
+  {
+   "id": "BUNDLE-legit-wayanad",
+   "moduleId": "carbontrace",
+   "kind": "verification-bundle",
+   "mode": "DEMO",
+   "summary": "Rainforest restoration, Western Ghats: 700 t verified of 700 t claimed",
+   "createdAt": "2025-01-01T00:00:00.000Z",
+   "sha256": "8eac46e81641d639b6e590bf5498e30a21bf6045d92e84edcef2dae58d7f6c1c",
+   "payload": {
+    "model": "carbontrace-score-1.0",
+    "request": {
+     "name": "Wayanad Rainforest Restoration",
+     "vintage": 2025,
+     "claimedTonnes": 700,
+     "projectType": "reforestation",
+     "polygon": [
+      [
+       76.0999553297573,
+       11.647025955468735
+      ],
+      [
+       76.11024645705243,
+       11.647224917249986
+      ],
+      [
+       76.11004467024271,
+       11.657173006312513
+      ],
+      [
+       76.100157116567,
+       11.656974044531264
+      ],
+      [
+       76.0999553297573,
+       11.647025955468735
+      ]
+     ]
+    },
+    "cells": [
+     218283123012658,
+     218283123012659,
+     218283123012660,
+     218283123012661,
+     218283123012662,
+     218287417979954,
+     218287417979955,
+     218287417979956,
+     218287417979957,
+     218287417979958,
+     218291712947250,
+     218291712947251,
+     218291712947252,
+     218291712947253,
+     218291712947254,
+     218296007914546,
+     218296007914547,
+     218296007914548,
+     218296007914549,
+     218296007914550,
+     218300302881842,
+     218300302881843,
+     218300302881844,
+     218300302881845,
+     218300302881846,
+     218304597849138,
+     218304597849139,
+     218304597849140,
+     218304597849141,
+     218304597849142
+    ],
+    "assessment": {
+     "score": 98,
+     "approved": true,
+     "verifiedTonnes": 700,
+     "capacityTonnes": 1078.5,
+     "checks": [
+      {
+       "id": "canopy",
+       "status": "pass",
+       "value": "99% of the site"
+      },
+      {
+       "id": "greenness",
+       "status": "pass",
+       "value": "0.83"
+      },
+      {
+       "id": "clearing",
+       "status": "pass",
+       "value": "largest monthly drop 0.01"
+      },
+      {
+       "id": "biome",
+       "status": "pass",
+       "value": "Tropical moist forest"
+      },
+      {
+       "id": "claim",
+       "status": "pass",
+       "value": "claimed 700 t vs capacity 1,078 t"
+      },
+      {
+       "id": "coverage",
+       "status": "pass",
+       "value": "12 of 12 months usable"
+      }
+     ],
+     "metrics": {
+      "area_ha": 121,
+      "cells": 30,
+      "canopy_fraction": 0.9904,
+      "median_ndvi": 0.8303,
+      "max_monthly_drop": 0.0109,
+      "year_decline": -0.0325,
+      "months_observed": 12,
+      "mean_valid_fraction": 0.686,
+      "claim_to_capacity_ratio": 0.6491,
+      "sequestration_rate": 9
+     },
+     "components": {
+      "vegetation": 1,
+      "stability": 1,
+      "claim_plausibility": 1,
+      "confidence": 0.843,
+      "weights": {
+       "vegetation": 0.5,
+       "stability": 0.2,
+       "claim_plausibility": 0.2,
+       "confidence": 0.1
+      }
+     },
+     "capsApplied": []
+    }
+   }
+  },
+  {
+   "id": "BUNDLE-inflated-claim",
+   "moduleId": "carbontrace",
+   "kind": "verification-bundle",
+   "mode": "DEMO",
+   "summary": "Real forest, inflated numbers: 802 t verified of 1500 t claimed",
+   "createdAt": "2025-01-01T00:00:00.000Z",
+   "sha256": "11c51a7e80469e77595d9a978e79e0b4b98039e34f7bc323d952b632b7e079b8",
+   "payload": {
+    "model": "carbontrace-score-1.0",
+    "request": {
+     "name": "Borneo Peat Forest Reserve",
+     "vintage": 2025,
+     "claimedTonnes": 1500,
+     "projectType": "conservation",
+     "polygon": [
+      [
+       113.99595720563715,
+       0.795930327201693
+      ],
+      [
+       114.00416407819372,
+       0.7960524173856423
+      ],
+      [
+       114.00404279436285,
+       0.8041917629822563
+      ],
+      [
+       113.99607848946803,
+       0.8040696727983071
+      ],
+      [
+       113.99595720563715,
+       0.795930327201693
+      ]
+     ]
+    },
+    "cells": [
+     194982925450806,
+     194982925450807,
+     194982925450808,
+     194982925450809,
+     194987220418102,
+     194987220418103,
+     194987220418104,
+     194987220418105,
+     194991515385398,
+     194991515385399,
+     194991515385400,
+     194991515385401,
+     194995810352694,
+     194995810352695,
+     194995810352696,
+     194995810352697
+    ],
+    "assessment": {
+     "score": 90,
+     "approved": true,
+     "verifiedTonnes": 802,
+     "capacityTonnes": 802.44,
+     "checks": [
+      {
+       "id": "canopy",
+       "status": "pass",
+       "value": "99% of the site"
+      },
+      {
+       "id": "greenness",
+       "status": "pass",
+       "value": "0.83"
+      },
+      {
+       "id": "clearing",
+       "status": "pass",
+       "value": "largest monthly drop 0.03"
+      },
+      {
+       "id": "biome",
+       "status": "pass",
+       "value": "Tropical moist forest"
+      },
+      {
+       "id": "claim",
+       "status": "warn",
+       "value": "claimed 1,500 t vs capacity 802 t"
+      },
+      {
+       "id": "coverage",
+       "status": "pass",
+       "value": "12 of 12 months usable"
+      }
+     ],
+     "metrics": {
+      "area_ha": 81,
+      "cells": 16,
+      "canopy_fraction": 0.9907,
+      "median_ndvi": 0.8262,
+      "max_monthly_drop": 0.028,
+      "year_decline": 0.0139,
+      "months_observed": 12,
+      "mean_valid_fraction": 0.7429,
+      "claim_to_capacity_ratio": 1.8693,
+      "sequestration_rate": 10
+     },
+     "components": {
+      "vegetation": 1,
+      "stability": 1,
+      "claim_plausibility": 0.5653,
+      "confidence": 0.8715,
+      "weights": {
+       "vegetation": 0.5,
+       "stability": 0.2,
+       "claim_plausibility": 0.2,
+       "confidence": 0.1
+      }
+     },
+     "capsApplied": []
+    }
+   }
+  }
+ ]
+}

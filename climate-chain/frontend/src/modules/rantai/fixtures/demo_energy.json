@@ -1,0 +1,12 @@
+{
+ "source": "projects/rantai-3c-master/src/app/dashboard/page.tsx (generateDemoData)",
+ "note": "Fictional demo records shipped with the source dashboard. Consumption in kWh.",
+ "records": [
+  { "id": "demo-1", "date": "2024-01-15", "category": "Office Lighting", "consumption": 120.5, "location": "Jakarta", "source": "Grid" },
+  { "id": "demo-2", "date": "2024-01-15", "category": "Air Conditioning", "consumption": 450.2, "location": "Jakarta", "source": "Grid" },
+  { "id": "demo-3", "date": "2024-01-15", "category": "Data Center", "consumption": 890.7, "location": "Jakarta", "source": "Grid" },
+  { "id": "demo-4", "date": "2024-01-15", "category": "Manufacturing", "consumption": 340.8, "location": "Surabaya", "source": "Solar" },
+  { "id": "demo-5", "date": "2024-01-15", "category": "Vehicle Charging", "consumption": 180.3, "location": "Bandung", "source": "Grid" },
+  { "id": "demo-6", "date": "2024-01-15", "category": "Warehouse", "consumption": 95.6, "location": "Medan", "source": "Hybrid" }
+ ]
+}

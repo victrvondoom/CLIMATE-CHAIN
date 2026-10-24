@@ -1,0 +1,217 @@
+/* GridProof module styles. Every class starts with m-gridproof-. */
+
+.m-gridproof {
+  --m-gridproof-tone: var(--ink);
+  --m-gridproof-panel: var(--panel-solid, var(--paper-raised));
+  --m-gridproof-line: var(--line, var(--rule));
+  --m-gridproof-text: var(--text, var(--ink));
+  --m-gridproof-muted: var(--muted, var(--ink-3));
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  color: var(--m-gridproof-text);
+  font-family: var(--font, system-ui, sans-serif);
+}
+
+.m-gridproof-head h2 {
+  margin: 4px 0 8px;
+  font-size: clamp(20px, 3vw, 28px);
+}
+
+.m-gridproof-kicker {
+  margin: 0;
+  color: var(--m-gridproof-tone);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.m-gridproof-lede,
+.m-gridproof-note {
+  margin: 6px 0;
+  color: var(--m-gridproof-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.m-gridproof-card {
+  padding: 16px;
+  border: 1px solid var(--m-gridproof-line);
+  border-top: 2px solid var(--m-gridproof-tone);
+  border-radius: 12px;
+  background: var(--m-gridproof-panel);
+  min-width: 0;
+}
+
+.m-gridproof-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.m-gridproof-card h3 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.m-gridproof-mode {
+  padding: 3px 8px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.m-gridproof-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 10px 0;
+}
+
+.m-gridproof-controls label {
+  display: grid;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--m-gridproof-muted);
+}
+
+.m-gridproof-controls select {
+  min-width: 220px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--m-gridproof-line);
+  background: var(--paper-raised);
+  color: var(--m-gridproof-text);
+  font: inherit;
+}
+
+.m-gridproof-table-wrap {
+  overflow-x: auto;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.m-gridproof-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.m-gridproof-table th,
+.m-gridproof-table td {
+  padding: 7px 6px;
+  border-bottom: 1px solid var(--m-gridproof-line);
+  text-align: left;
+  vertical-align: top;
+  font-variant-numeric: tabular-nums;
+}
+
+.m-gridproof-table th {
+  position: sticky;
+  top: 0;
+  background: var(--m-gridproof-panel);
+  color: var(--m-gridproof-muted);
+  font-weight: 600;
+}
+
+.m-gridproof-row-flag td {
+  background: rgba(255,253,247,0.75);
+}
+
+.m-gridproof-why {
+  color: var(--m-gridproof-muted);
+  min-width: 220px;
+}
+
+.m-gridproof-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.m-gridproof-btn {
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--m-gridproof-line);
+  background: transparent;
+  color: var(--m-gridproof-text);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.m-gridproof-btn-primary {
+  border-color: var(--m-gridproof-tone);
+  background: rgba(255,253,247,0.75);
+}
+
+.m-gridproof-btn:hover {
+  background: rgba(255,253,247,0.75);
+}
+
+.m-gridproof-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 8px 0;
+  font-size: 14px;
+  color: var(--m-gridproof-muted);
+}
+
+.m-gridproof-stats strong {
+  color: var(--m-gridproof-text);
+}
+
+.m-gridproof-message {
+  margin: 8px 0 0;
+  font-size: 13px;
+}
+
+.m-gridproof-records {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.m-gridproof-records li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.m-gridproof-hash {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  color: var(--m-gridproof-muted);
+}
+
+.m-gridproof-not-ported ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  color: var(--m-gridproof-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .m-gridproof {
+    padding: 16px;
+  }
+
+  .m-gridproof-controls select {
+    min-width: 0;
+    width: 100%;
+  }
+}

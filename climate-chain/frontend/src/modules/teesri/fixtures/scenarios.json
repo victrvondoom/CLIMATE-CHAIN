@@ -1,0 +1,56 @@
+{
+  "_note": "Scenarios from teesri-shikayat tests/test_tripwire.py. Homes are simulated (sim-A, sim-B, ...) and placed in metres north and east of the Dongri point (18.9622, 72.8368); h is hours after 10:00 on 2026-10-08. The expected decision is the one the source test asserts.",
+  "base": { "lat": 18.9622, "lon": 72.8368, "startIso": "2026-10-08T10:00:00Z" },
+  "scenarios": [
+    {
+      "id": "three-homes-212m-71h",
+      "title": "Three homes, 212 m apart, 71 hours",
+      "expect": "incident",
+      "reports": [
+        { "home": "A", "northM": 0, "eastM": 0, "h": 0, "dirty": true },
+        { "home": "B", "northM": 0, "eastM": 212, "h": 30, "dirty": true },
+        { "home": "C", "northM": 100, "eastM": 106, "h": 71, "dirty": true }
+      ]
+    },
+    {
+      "id": "one-home-300m-away",
+      "title": "The only other home is 300 m away",
+      "expect": "none",
+      "reports": [
+        { "home": "A", "northM": 0, "eastM": 0, "h": 0, "dirty": true },
+        { "home": "B", "northM": 0, "eastM": 50, "h": 0, "dirty": true },
+        { "home": "C", "northM": 300, "eastM": 25, "h": 1, "dirty": true }
+      ]
+    },
+    {
+      "id": "reports-span-73h",
+      "title": "Reports spanning 73 hours",
+      "expect": "none",
+      "reports": [
+        { "home": "A", "northM": 0, "eastM": 0, "h": 0, "dirty": true },
+        { "home": "B", "northM": 50, "eastM": 0, "h": 60, "dirty": true },
+        { "home": "C", "northM": 0, "eastM": 50, "h": 73, "dirty": true }
+      ]
+    },
+    {
+      "id": "one-building-tank",
+      "title": "One building: three taps within 30 m",
+      "expect": "tank",
+      "reports": [
+        { "home": "A", "northM": 0, "eastM": 0, "h": 0, "dirty": true },
+        { "home": "B", "northM": 10, "eastM": 5, "h": 0, "dirty": true },
+        { "home": "C", "northM": 5, "eastM": 15, "h": 2, "dirty": true }
+      ]
+    },
+    {
+      "id": "clear-water-not-counted",
+      "title": "Clear water never counts",
+      "expect": "none",
+      "reports": [
+        { "home": "A", "northM": 0, "eastM": 0, "h": 0, "dirty": true },
+        { "home": "B", "northM": 0, "eastM": 40, "h": 0, "dirty": false },
+        { "home": "C", "northM": 40, "eastM": 0, "h": 1, "dirty": true }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,302 @@
+/* PLUME module styles. Every class starts with m-plume-. */
+
+.m-plume {
+  --m-plume-tone: var(--ink);
+  --m-plume-panel: var(--panel-solid, var(--paper-raised));
+  --m-plume-line: var(--line, var(--rule));
+  --m-plume-text: var(--text, var(--ink));
+  --m-plume-muted: var(--muted, var(--ink-3));
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+  color: var(--m-plume-text);
+  font-family: var(--font, system-ui, sans-serif);
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.m-plume-head h2 {
+  margin: 4px 0 8px;
+  font-size: clamp(20px, 3vw, 28px);
+}
+
+.m-plume-kicker {
+  margin: 0;
+  color: var(--m-plume-tone);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.m-plume-lede,
+.m-plume-note {
+  margin: 6px 0;
+  color: var(--m-plume-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.m-plume-card {
+  padding: 16px;
+  border: 1px solid var(--m-plume-line);
+  border-top: 2px solid var(--m-plume-tone);
+  border-radius: 12px;
+  background: var(--m-plume-panel);
+  min-width: 0;
+}
+
+.m-plume-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.m-plume-card h3 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.m-plume-mode {
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+}
+
+.m-plume-mode-research {
+  color: var(--ink);
+}
+
+.m-plume-mode-simulated {
+  color: var(--ink);
+}
+
+.m-plume-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 10px 0;
+}
+
+.m-plume-controls label {
+  display: grid;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--m-plume-muted);
+}
+
+.m-plume-controls select {
+  min-width: 160px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--m-plume-line);
+  background: var(--paper-raised);
+  color: var(--m-plume-text);
+  font: inherit;
+}
+
+.m-plume-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.m-plume-stats > div {
+  display: grid;
+  gap: 4px;
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--paper-raised);
+}
+
+.m-plume-stat-label {
+  font-size: 12px;
+  color: var(--m-plume-muted);
+}
+
+.m-plume-stat-value {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.m-plume-table-wrap {
+  overflow-x: auto;
+}
+
+.m-plume-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.m-plume-table th,
+.m-plume-table td {
+  padding: 8px 6px;
+  border-bottom: 1px solid var(--m-plume-line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.m-plume-table th {
+  color: var(--m-plume-muted);
+  font-weight: 600;
+}
+
+.m-plume-row {
+  cursor: pointer;
+}
+
+.m-plume-row:hover {
+  background: rgba(255,253,247,0.75);
+}
+
+.m-plume-score {
+  font-weight: 700;
+  color: var(--m-plume-tone);
+}
+
+.m-plume-source {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 12px;
+  word-break: break-all;
+}
+
+.m-plume-factors {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.m-plume-factors li {
+  display: grid;
+  grid-template-columns: minmax(150px, 200px) minmax(150px, 220px) 1fr;
+  gap: 8px;
+  align-items: baseline;
+  font-size: 13px;
+}
+
+.m-plume-factor-name {
+  font-weight: 600;
+}
+
+.m-plume-factor-value {
+  font-variant-numeric: tabular-nums;
+}
+
+.m-plume-factor-evidence {
+  color: var(--m-plume-muted);
+}
+
+.m-plume-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 10px 0;
+}
+
+.m-plume-status-label {
+  color: var(--m-plume-muted);
+  font-size: 13px;
+}
+
+.m-plume-status-value {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-weight: 700;
+}
+
+.m-plume-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.m-plume-action,
+.m-plume-reset {
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--m-plume-tone);
+  background: transparent;
+  color: var(--m-plume-text);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.m-plume-reset {
+  border-color: var(--m-plume-line);
+  color: var(--m-plume-muted);
+  text-transform: none;
+}
+
+.m-plume-action:hover,
+.m-plume-reset:hover {
+  background: rgba(255,253,247,0.75);
+}
+
+.m-plume-message {
+  margin: 10px 0 0;
+  font-size: 13px;
+}
+
+.m-plume-receipts {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.m-plume-receipts li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.m-plume-receipt-summary {
+  flex: 1 1 260px;
+}
+
+.m-plume-receipt-hash {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  color: var(--m-plume-muted);
+}
+
+.m-plume-ok {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.m-plume-bad {
+  color: var(--ink-3);
+  font-weight: 600;
+}
+
+.m-plume-not-ported ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  color: var(--m-plume-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .m-plume {
+    padding: 16px;
+  }
+
+  .m-plume-factors li {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}

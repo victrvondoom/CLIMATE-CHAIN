@@ -1,0 +1,32 @@
+# Dependencies and build output
+node_modules/
+frontend/dist/
+blockchain/artifacts/
+blockchain/cache/
+blockchain/deployments/localhost.json
+blockchain/deployments/integrity-localhost.json
+gateway/.integrity-data/
+.venv/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.tsbuildinfo
+
+# Vendored project copies (368 MB). Kept on disk, not versioned. See projects/ README in docs.
+projects/
+
+# Local secrets and logs
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+
+# Browser-test artifacts and memory exports. Never versioned.
+.playwright-cli/
+
+# Agent worktrees and local tool state. Never versioned.
+.claude/
+output/
+

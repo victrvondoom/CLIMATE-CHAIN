@@ -1,0 +1,144 @@
+/* Scoped to the CarbonTrace module. Every class starts with m-carbontrace-. */
+
+.m-carbontrace-root {
+  display: grid;
+  gap: 16px;
+  padding: 0 16px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.m-carbontrace-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.m-carbontrace-title-row h2 {
+  margin: 0;
+}
+
+.m-carbontrace-mode {
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--paper-raised);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.m-carbontrace-chip {
+  padding: 2px 8px;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.m-carbontrace-note,
+.m-carbontrace-meta {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.m-carbontrace-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.m-carbontrace-verifier {
+  display: grid;
+  gap: 12px;
+}
+
+.m-carbontrace-verifier > h3 {
+  margin: 0;
+}
+
+.m-carbontrace-scenarios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px;
+}
+
+.m-carbontrace-scenario {
+  display: grid;
+  gap: 4px;
+  text-align: left;
+  padding: 10px;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.m-carbontrace-scenario.is-selected {
+  box-shadow: 0 0 0 2px currentColor inset;
+}
+
+.m-carbontrace-scenario-title {
+  font-weight: 700;
+}
+
+.m-carbontrace-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.m-carbontrace-table th,
+.m-carbontrace-table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+}
+
+.m-carbontrace-status {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.m-carbontrace-status-pass {
+  color: var(--ink-3);
+}
+
+.m-carbontrace-status-warn {
+  color: var(--ink-3);
+}
+
+.m-carbontrace-status-fail {
+  color: var(--ink);
+}
+
+.m-carbontrace-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.m-carbontrace-list {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.m-carbontrace-list code {
+  font-size: 12px;
+}
+
+@media (max-width: 480px) {
+  .m-carbontrace-root {
+    padding: 0 16px;
+  }
+}

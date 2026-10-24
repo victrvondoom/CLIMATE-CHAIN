@@ -1,0 +1,262 @@
+/* Launchpad and announced features for the command center.
+   Reuses the workspace tokens from styles.css (--panel, --line, --muted, tone classes). */
+
+.announce-band {
+  position: relative;
+  padding: 22px;
+  border-radius: 18px;
+  background:
+    radial-gradient(120% 140% at 0% 0%, rgba(255,253,247,0.75), transparent 55%),
+    radial-gradient(90% 120% at 100% 100%, rgba(255,253,247,0.75), transparent 60%),
+    linear-gradient(160deg, var(--paper-raised), var(--paper-raised));
+  border: 1px solid var(--rule);
+  box-shadow: 0 24px 60px rgba(23,21,19,0.16), inset 0 1px 0 rgba(255,253,247,0.9);
+}
+
+.announce-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.announce-head h2 {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+}
+
+.announce-kicker {
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: rgba(255,253,247,0.75);
+  border: 1px solid var(--rule);
+}
+
+.announce-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+}
+
+.announce-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 14px;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.announce-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--rule);
+}
+
+.announce-item h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.announce-item p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.announce-item .text-action {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.announce-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.announce-meta time {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.announce-tag {
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.announce-new { color: var(--paper); background: var(--ink); }
+.announce-live { color: var(--paper); background: var(--ink); }
+.announce-preview { color: var(--ink); background: rgba(255,253,247,0.75); border: 1px solid var(--rule); }
+
+.launchpad {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  scroll-margin-top: 24px;
+}
+
+.launchpad-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.launchpad-head h2 {
+  margin: 4px 0 6px;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+}
+
+.launchpad-head p {
+  margin: 0;
+  max-width: 62ch;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.launchpad-counts {
+  display: flex;
+  gap: 10px;
+}
+
+.launchpad-counts span {
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: var(--muted);
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+}
+
+.launchpad-counts strong {
+  display: block;
+  font-size: 20px;
+  color: var(--text);
+}
+
+.launchpad-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(268px, 1fr));
+  gap: 14px;
+}
+
+.launch-card {
+  min-height: 0;
+  gap: 10px;
+}
+
+.launch-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.launch-domain {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.launch-status {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.launch-status.is-here {
+  color: var(--ink);
+  border-color: var(--rule);
+  background: rgba(255,253,247,0.75);
+}
+
+.launch-card h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.launch-descriptor {
+  margin: 0;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.launch-readiness {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.launch-stages {
+  display: flex;
+  gap: 5px;
+}
+
+.launch-stages .stage-chip {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 22px;
+  border-radius: 7px;
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--ink-3);
+  background: rgba(255,253,247,0.75);
+  border: 1px solid var(--rule);
+}
+
+.launch-stages .stage-chip.is-on {
+  color: var(--paper);
+  background: var(--tone, var(--ink));
+  border-color: transparent;
+}
+
+.launch-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+.launch-build {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.launch-build code {
+  font-size: 11px;
+  color: var(--ink);
+}
+
+@media (max-width: 640px) {
+  .announce-band { padding: 16px; }
+  .launchpad-head { align-items: stretch; }
+  .launchpad-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .announce-item { transition: none; }
+}

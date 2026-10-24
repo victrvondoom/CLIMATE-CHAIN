@@ -1,0 +1,107 @@
+/* Climate Integrity Lab. Paper and ink tokens from theme.css; meaning is carried by labels and
+   solid versus dashed borders rather than colour. Container queries keep the layout right when
+   the lab is a half-width panel in the pinned grid. */
+
+.il { display: flex; flex-direction: column; gap: 16px; min-width: 0; container-type: inline-size; }
+.il-panel { min-width: 0; padding: 28px; background: var(--paper-raised); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow-1); }
+.il-panel h2 { margin: 6px 0 8px; font-size: 22px; }
+.il-panel h3 { margin: 0 0 8px; font-size: 17px; }
+.il-head { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 18px; }
+.il-ledger { display: flex; flex-direction: column; gap: 8px; min-width: 0; padding: 12px; background: var(--paper-sunk); border: 1px solid var(--rule); border-radius: 12px; }
+
+.il-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.il-badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px; border: 1px solid var(--rule-strong); border-radius: 999px; font-size: 10px; font-weight: 800; letter-spacing: 0.08em; }
+.il-badge-model { background: var(--cream-vanilla); }
+.il-badge-live { background: var(--ink); border-color: var(--ink); color: var(--paper-raised); }
+.il-badge-cached { background: var(--cream-oat); }
+.il-badge-derived { background: var(--cream-ivory); border-style: dashed; }
+.il-badge-chain { background: var(--ink-2); border-color: var(--ink-2); color: var(--paper-raised); }
+.il-badge-pass { background: var(--ink); border-color: var(--ink); color: var(--paper-raised); }
+.il-badge-fail { border: 2px dashed var(--ink); }
+.il-badge-demo { border: 2px solid var(--ink); }
+.il-badge-offline { border: 2px dashed var(--ink); }
+.il-badge-test { background: var(--paper-sunk); }
+
+.il-facts { display: grid; grid-template-columns: minmax(130px, 200px) minmax(0, 1fr); gap: 6px 14px; margin: 8px 0; }
+.il-facts > div { display: contents; }
+.il-facts dt { color: var(--ink-3); font-size: 12px; }
+.il-facts dd { min-width: 0; margin: 0; font-size: 13px; overflow-wrap: anywhere; }
+.il-code { padding: 1px 4px; border-radius: 4px; background: var(--paper-sunk); font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace; font-size: 12px; overflow-wrap: anywhere; word-break: break-all; }
+
+.il-steps { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; }
+.il-step { display: flex; align-items: center; gap: 8px; min-width: 0; padding: 8px 10px; border-radius: 12px; text-align: left; }
+.il-step strong { display: block; font-size: 13px; }
+.il-step small { display: block; color: var(--ink-3); font-size: 11px; }
+.il-step-number { display: inline-grid; flex: none; place-items: center; width: 24px; height: 24px; border: 1px solid var(--rule-strong); border-radius: 50%; font-size: 12px; font-weight: 700; }
+.il-step.active { background: var(--ink); color: var(--paper-raised); }
+.il-step.active small { color: var(--cream-oat); }
+.il-step.done .il-step-number { background: var(--ink); color: var(--paper-raised); }
+.il-step:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.il-form { display: flex; flex-wrap: wrap; gap: 12px; margin: 10px 0; }
+.il-form label { display: flex; flex-direction: column; gap: 4px; min-width: 180px; color: var(--ink-3); font-size: 12px; }
+.il-form-wide label { flex: 1 1 100%; }
+.il-form textarea { box-sizing: border-box; width: 100%; font: inherit; }
+.il-modes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 0 0 12px; padding: 10px; border: 1px solid var(--rule); border-radius: 12px; }
+.il-modes legend { padding: 0 4px; color: var(--ink-3); font-size: 12px; }
+.il-modes label { display: flex; align-items: flex-start; gap: 8px; padding: 8px; border: 1px solid transparent; border-radius: 10px; cursor: pointer; }
+.il-modes label.active { background: var(--paper-sunk); border-color: var(--rule-strong); }
+.il-modes small { display: block; color: var(--ink-3); font-size: 11px; }
+
+.il-result { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--rule); }
+.il-note { margin: 10px 0; padding: 10px 12px; background: var(--paper-sunk); border: 1px solid var(--rule); border-radius: 12px; }
+.il-note p { margin: 6px 0 0; }
+.il-note ul, .il-note ol { margin: 6px 0 0; padding-left: 18px; }
+.il-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.il-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 10px 0; }
+.il-link { color: var(--ink); font-size: 12px; text-decoration: underline; }
+.il-warning { padding: 8px 12px; background: var(--paper-sunk); border-left: 3px solid var(--ink); font-size: 13px; }
+.il-error { padding: 10px 12px; background: var(--paper-raised); border: 2px dashed var(--ink); border-radius: 12px; }
+.il-ok, .il-bad { font-size: 13px; overflow-wrap: anywhere; }
+.il-verify { margin-top: 6px; padding: 11px 18px; font-size: 14px; }
+.il-verdict { margin: 12px 0; padding: 10px 12px; border-radius: 12px; font-weight: 800; letter-spacing: 0.02em; }
+.il-verdict.ok { background: var(--ink); color: var(--paper-raised); }
+.il-verdict.bad { border: 2px dashed var(--ink); }
+
+.il-checks h4 { margin: 4px 0 6px; font-size: 13px; }
+.il-checks ul { display: flex; flex-direction: column; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.il-checks li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 6px; font-size: 12px; }
+.il-checks li strong { display: block; font-weight: 600; }
+.il-checks li.bad strong { text-decoration: underline wavy; }
+.il-mark { font-weight: 800; }
+
+.il-details summary { margin-top: 8px; font-size: 13px; cursor: pointer; }
+.il-details pre { max-height: 320px; padding: 10px; overflow: auto; background: var(--paper-sunk); border-radius: 8px; font-size: 11px; white-space: pre-wrap; overflow-wrap: anywhere; }
+
+.il-lineage { display: flex; flex-direction: column; gap: 10px; margin: 8px 0; }
+.il-lineage-row { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 8px; }
+.il-node { display: flex; flex-direction: column; gap: 4px; min-width: 0; padding: 10px; background: var(--paper-raised); border: 1px solid var(--rule-strong); border-radius: 12px; }
+.il-node.old { background: var(--paper-sunk); border-style: dashed; }
+.il-node small { color: var(--ink-3); font-size: 11px; }
+.il-arrow { font-size: 18px; }
+
+.il-table-wrap { overflow-x: auto; }
+.il-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.il-table caption { padding-bottom: 6px; color: var(--ink-3); font-size: 11px; text-align: left; }
+.il-table th, .il-table td { padding: 6px 8px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; }
+.il-table td small { display: block; color: var(--ink-3); font-size: 10px; }
+.il-row-rejected td { background: var(--paper-sunk); }
+
+.il-steps-list { display: flex; flex-direction: column; gap: 10px; padding-left: 20px; }
+.il-steps-list li span, .il-steps-list li small { display: block; }
+.il-steps-list li small { color: var(--ink-3); }
+
+@container (max-width: 1000px) {
+  .il-head { grid-template-columns: minmax(0, 1fr); }
+  .il-steps { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+@container (max-width: 640px) {
+  .il-panel { padding: 20px; }
+  .il-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .il-modes, .il-columns { grid-template-columns: minmax(0, 1fr); }
+  .il-facts { grid-template-columns: minmax(0, 1fr); }
+  .il-facts dt { margin-top: 6px; }
+  .il-lineage-row { grid-template-columns: minmax(0, 1fr); }
+  .il-arrow { justify-self: center; transform: rotate(90deg); }
+}

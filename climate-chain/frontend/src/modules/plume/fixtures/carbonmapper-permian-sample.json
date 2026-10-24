@@ -1,0 +1,1465 @@
+{
+ "note": "Sample of 60 real Carbon Mapper CH4 plume records (Permian Basin) and their Carbon Mapper source groups, trimmed to the fields the port uses. Data: Carbon Mapper (carbonmapper.org).",
+ "source": "projects/PLUME-main/backend/tests/fixtures/carbonmapper_sample.json",
+ "plumes": [
+  {
+   "id": "1d73a695-3a39-417c-a45f-19c71d8d5a33",
+   "plume_id": "tan20260309t184938c94s4001-B",
+   "scene_id": "8d2f5810-b3f0-4d38-9793-232c314c708d",
+   "scene_timestamp": "2026-03-09T18:49:38.940Z",
+   "platform": "Planet Tanager 1",
+   "instrument": "tan",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": true,
+   "emission_auto": null,
+   "emission_uncertainty_auto": null,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77101611788423,
+     31.845406520984298
+    ]
+   }
+  },
+  {
+   "id": "518e2878-7798-49a7-9c51-02dfef3f3337",
+   "plume_id": "tan20260126t183705c75s4001-Q",
+   "scene_id": "62994ccf-b7ac-4547-bc32-f2d3e191c484",
+   "scene_timestamp": "2026-01-26T18:37:05.750Z",
+   "platform": "Planet Tanager 1",
+   "instrument": "tan",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": true,
+   "emission_auto": null,
+   "emission_uncertainty_auto": null,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77226473946777,
+     31.84441414982369
+    ]
+   }
+  },
+  {
+   "id": "7e11a172-52d3-4f37-b545-95ead0abfb77",
+   "plume_id": "tan20251217t183849c09s4001-Q",
+   "scene_id": "d544014d-1184-467a-a244-1864d8542e42",
+   "scene_timestamp": "2025-12-17T18:38:49.090Z",
+   "platform": "Planet Tanager 1",
+   "instrument": "tan",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 153.54396389851763,
+   "emission_uncertainty_auto": 87.85323486652877,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77192726210052,
+     31.84572935072552
+    ]
+   }
+  },
+  {
+   "id": "074ca4d0-5bcb-4f3d-8c71-11c5cd1ac25d",
+   "plume_id": "tan20250813t182026c58s4001-D",
+   "scene_id": "fd7e2985-1059-441a-8d08-5f6e3a11c15f",
+   "scene_timestamp": "2025-08-13T18:20:26.580Z",
+   "platform": "Planet Tanager 1",
+   "instrument": "tan",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 490.1986185004712,
+   "emission_uncertainty_auto": 201.24647366436648,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.7722510788672,
+     31.844854362635488
+    ]
+   }
+  },
+  {
+   "id": "48107ebe-6de3-49d3-8699-37e195fbffa5",
+   "plume_id": "emi20250808t144449p10003-B",
+   "scene_id": "8522e8d2-a63d-486c-9f3d-73531807bc3a",
+   "scene_timestamp": "2025-08-08T14:44:49Z",
+   "platform": "ISS",
+   "instrument": "emi",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": true,
+   "emission_auto": null,
+   "emission_uncertainty_auto": null,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77171598280447,
+     31.844919030989843
+    ]
+   }
+  },
+  {
+   "id": "bd38e948-4d97-402c-b3b4-1db9db3655d6",
+   "plume_id": "tan20250730t181831c58s4001-B",
+   "scene_id": "f13fdcb7-26e4-4b98-9363-bceef5918940",
+   "scene_timestamp": "2025-07-30T18:18:31.580Z",
+   "platform": "Planet Tanager 1",
+   "instrument": "tan",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 745.8049183192362,
+   "emission_uncertainty_auto": 133.18790648166473,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77270419064338,
+     31.844724083356013
+    ]
+   }
+  },
+  {
+   "id": "85950765-418b-45c8-b56c-ac8ed70fd107",
+   "plume_id": "tan20250430t180543c00s4001-B",
+   "scene_id": "3b46ea8f-1341-4d6c-90e9-21b1753bdb15",
+   "scene_timestamp": "2025-04-30T18:05:43Z",
+   "platform": "Planet Tanager 1",
+   "instrument": "tan",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": true,
+   "emission_auto": null,
+   "emission_uncertainty_auto": null,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77243244041694,
+     31.844744722890468
+    ]
+   }
+  },
+  {
+   "id": "622abcbc-ce5b-43e2-8315-3c1ec13f6cad",
+   "plume_id": "tan20250101t175004c00s4001-E",
+   "scene_id": "519c4c32-5054-42ab-9e82-950b650ed1f1",
+   "scene_timestamp": "2025-01-01T17:50:04Z",
+   "platform": "Planet Tanager 1",
+   "instrument": "tan",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 728.2855888684276,
+   "emission_uncertainty_auto": 125.67919236663926,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.7726236735601,
+     31.844750519108132
+    ]
+   }
+  },
+  {
+   "id": "306db057-a5cc-4927-8520-0fa7f24f47d3",
+   "plume_id": "tan20241227t174829c00s4001-L",
+   "scene_id": "c2d88aa1-d46c-4d4b-94db-9bc4adbe72e6",
+   "scene_timestamp": "2024-12-27T17:48:29Z",
+   "platform": "Planet Tanager 1",
+   "instrument": "tan",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 872.5861743450745,
+   "emission_uncertainty_auto": 190.17417221671334,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77251298773997,
+     31.84489693992208
+    ]
+   }
+  },
+  {
+   "id": "a44500ca-028e-4365-bd42-8824bca8546c",
+   "plume_id": "tan20241024t173701c00s4001-K",
+   "scene_id": "097a85c6-4aa1-4f85-8597-0071e6492f35",
+   "scene_timestamp": "2024-10-24T17:37:01Z",
+   "platform": "Planet Tanager 1",
+   "instrument": "tan",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 1711.0503972979025,
+   "emission_uncertainty_auto": 266.7893038833854,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77249838356938,
+     31.84465102071131
+    ]
+   }
+  },
+  {
+   "id": "28ebfb1c-af08-4718-9568-3d4a9d3404b8",
+   "plume_id": "av320241009t191258-M",
+   "scene_id": "be1d9209-90cf-4113-a23b-07c67a397bfb",
+   "scene_timestamp": "2024-10-09T19:12:58Z",
+   "platform": "AVIRIS-3",
+   "instrument": "av3",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 2376.178907078825,
+   "emission_uncertainty_auto": 318.6074069227841,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77219362496683,
+     31.844864644495544
+    ]
+   }
+  },
+  {
+   "id": "42e56a33-7c86-4a7a-8511-5d0d019111fb",
+   "plume_id": "tan20241009t174656c00s4001-B",
+   "scene_id": "1b12c12d-ea2a-4c3a-ab70-bc8e4023f759",
+   "scene_timestamp": "2024-10-09T17:46:56Z",
+   "platform": "Planet Tanager 1",
+   "instrument": "tan",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 3688.254120461429,
+   "emission_uncertainty_auto": 506.20128551650777,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77234576103459,
+     31.84438827893358
+    ]
+   }
+  },
+  {
+   "id": "0350384d-05b9-4763-b640-287d895f26ce",
+   "plume_id": "av320241009t174434-C",
+   "scene_id": "aa1ffe3c-2b9d-4d63-b015-ebc7e4c571e7",
+   "scene_timestamp": "2024-10-09T17:44:34Z",
+   "platform": "AVIRIS-3",
+   "instrument": "av3",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": true,
+   "emission_auto": null,
+   "emission_uncertainty_auto": null,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77222108465688,
+     31.84487445234305
+    ]
+   }
+  },
+  {
+   "id": "75093251-6e6d-415a-8067-efe148cbf84a",
+   "plume_id": "av320241009t174434-W",
+   "scene_id": "aa1ffe3c-2b9d-4d63-b015-ebc7e4c571e7",
+   "scene_timestamp": "2024-10-09T17:44:34Z",
+   "platform": "AVIRIS-3",
+   "instrument": "av3",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": true,
+   "emission_auto": null,
+   "emission_uncertainty_auto": null,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77266590663014,
+     31.84481636040597
+    ]
+   }
+  },
+  {
+   "id": "6d845137-95d2-4d1a-84df-628380f58892",
+   "plume_id": "av320241009t174434-X",
+   "scene_id": "aa1ffe3c-2b9d-4d63-b015-ebc7e4c571e7",
+   "scene_timestamp": "2024-10-09T17:44:34Z",
+   "platform": "AVIRIS-3",
+   "instrument": "av3",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 3570.3019553323816,
+   "emission_uncertainty_auto": 735.2931283291238,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77233176899136,
+     31.845049054869165
+    ]
+   }
+  },
+  {
+   "id": "89263ec3-2979-4b7f-9c83-163e43e55123",
+   "plume_id": "av320241009t165217-CH",
+   "scene_id": "cec5d9f1-ec85-464d-8443-7f446ba588d5",
+   "scene_timestamp": "2024-10-09T16:52:17Z",
+   "platform": "AVIRIS-3",
+   "instrument": "av3",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": true,
+   "emission_auto": null,
+   "emission_uncertainty_auto": null,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77264006027828,
+     31.84485819375338
+    ]
+   }
+  },
+  {
+   "id": "cb400624-2295-4c31-a6a1-8d11e4bf55d7",
+   "plume_id": "av320241009t165217-I",
+   "scene_id": "cec5d9f1-ec85-464d-8443-7f446ba588d5",
+   "scene_timestamp": "2024-10-09T16:52:17Z",
+   "platform": "AVIRIS-3",
+   "instrument": "av3",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 3614.242520776178,
+   "emission_uncertainty_auto": 325.5237629116309,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77230370793379,
+     31.845314925263907
+    ]
+   }
+  },
+  {
+   "id": "57680845-3063-4552-baeb-c06d11a51264",
+   "plume_id": "av320241009t165217-J",
+   "scene_id": "cec5d9f1-ec85-464d-8443-7f446ba588d5",
+   "scene_timestamp": "2024-10-09T16:52:17Z",
+   "platform": "AVIRIS-3",
+   "instrument": "av3",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 782.9959931802039,
+   "emission_uncertainty_auto": 98.31618573350168,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77223846115966,
+     31.844868126809573
+    ]
+   }
+  },
+  {
+   "id": "62879e07-e5a7-4cb9-9a2a-d761ff61c236",
+   "plume_id": "av320241001t172751-L",
+   "scene_id": "ab9e0346-6e63-424b-bf22-d5c91905b57b",
+   "scene_timestamp": "2024-10-01T17:27:51Z",
+   "platform": "AVIRIS-3",
+   "instrument": "av3",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": true,
+   "emission_auto": null,
+   "emission_uncertainty_auto": null,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77238990450431,
+     31.845048010331837
+    ]
+   }
+  },
+  {
+   "id": "702ec845-dfe2-4e85-816b-c68b84e0f96e",
+   "plume_id": "av320241001t172751-M",
+   "scene_id": "ab9e0346-6e63-424b-bf22-d5c91905b57b",
+   "scene_timestamp": "2024-10-01T17:27:51Z",
+   "platform": "AVIRIS-3",
+   "instrument": "av3",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 5635.789058027111,
+   "emission_uncertainty_auto": 805.7338756193113,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77224338935426,
+     31.84484059354581
+    ]
+   }
+  },
+  {
+   "id": "1ade4081-cb35-47e9-98a5-723b5cb57455",
+   "plume_id": "emi20240812t213903p14030-F",
+   "scene_id": "d6f4f482-ac14-46c0-b2f4-5696d4446014",
+   "scene_timestamp": "2024-08-12T21:39:03Z",
+   "platform": "ISS",
+   "instrument": "emi",
+   "sector": null,
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 2219.032659092568,
+   "emission_uncertainty_auto": 359.3501856630323,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -102.09166274063563,
+     32.305572426861985
+    ]
+   }
+  },
+  {
+   "id": "52400bff-2f0b-41ab-8cc2-fe730ef9f2c3",
+   "plume_id": "emi20240127t195915p13009-D",
+   "scene_id": "88137ed5-2778-46b5-a427-040d5498b09b",
+   "scene_timestamp": "2024-01-27T19:59:15Z",
+   "platform": "ISS",
+   "instrument": "emi",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 4685.202720514079,
+   "emission_uncertainty_auto": 1193.4510828827804,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77165563918767,
+     31.845105209063902
+    ]
+   }
+  },
+  {
+   "id": "916d7236-3aad-46d9-9fa7-7571f00e652f",
+   "plume_id": "emi20231201t183549p12016-B",
+   "scene_id": "9a473194-c334-485f-ae11-ed4f85488e6d",
+   "scene_timestamp": "2023-12-01T18:35:49Z",
+   "platform": "ISS",
+   "instrument": "emi",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 4050.9719795713245,
+   "emission_uncertainty_auto": 1212.3246508518832,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77220692665071,
+     31.8447511349478
+    ]
+   }
+  },
+  {
+   "id": "2b2f1b3a-4304-43eb-a4f3-6ed1593fee76",
+   "plume_id": "GAO20230825t190315p0000-A",
+   "scene_id": "787381cc-a469-4ce7-bc4a-cb34bf4e6379",
+   "scene_timestamp": "2023-08-25T19:03:15Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "6A",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 201.2339642256285,
+   "emission_uncertainty_auto": 42.48787817990141,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -102.5036148329164,
+     31.768470147768284
+    ]
+   }
+  },
+  {
+   "id": "6efae85f-0a1e-437a-99ae-cd66c00a1a44",
+   "plume_id": "GAO20230825t163030p0000-A",
+   "scene_id": "571f8c91-2ecc-43ee-b296-4c289c38f82c",
+   "scene_timestamp": "2023-08-25T16:30:30Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "6A",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 198.65370962889978,
+   "emission_uncertainty_auto": 53.759976195494865,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -102.50359233311718,
+     31.768676079712762
+    ]
+   }
+  },
+  {
+   "id": "d5c9e14b-4f55-47dd-8835-537fb306963a",
+   "plume_id": "GAO20230824t182756p0000-E",
+   "scene_id": "84f133e6-9532-45e6-9947-dcfb445f2500",
+   "scene_timestamp": "2023-08-24T18:27:56Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 1055.553621545644,
+   "emission_uncertainty_auto": 100.64448355514642,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77252815910181,
+     31.84486540935157
+    ]
+   }
+  },
+  {
+   "id": "750b0147-dd52-4d17-9371-e71cdeb7601b",
+   "plume_id": "GAO20230824t180435p0000-L",
+   "scene_id": "1029fa38-dd9e-4da0-87e4-ac5bf4648da0",
+   "scene_timestamp": "2023-08-24T18:04:35Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 1626.7005104344487,
+   "emission_uncertainty_auto": 198.44892107695208,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77224598612011,
+     31.844946722940435
+    ]
+   }
+  },
+  {
+   "id": "960e1811-b06c-4e18-abdc-9707e53f3ed2",
+   "plume_id": "GAO20230824t175835p0000-F",
+   "scene_id": "6e05126f-a888-4cf2-9d2f-4f15091c1f84",
+   "scene_timestamp": "2023-08-24T17:58:35Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": true,
+   "emission_auto": null,
+   "emission_uncertainty_auto": null,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77260048498543,
+     31.84490323082011
+    ]
+   }
+  },
+  {
+   "id": "440babb8-2871-46c0-b7ec-abddb7076e1d",
+   "plume_id": "GAO20230824t175835p0000-G",
+   "scene_id": "6e05126f-a888-4cf2-9d2f-4f15091c1f84",
+   "scene_timestamp": "2023-08-24T17:58:35Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 840.5531809451122,
+   "emission_uncertainty_auto": 193.0300603543858,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77229603878601,
+     31.844901580710854
+    ]
+   }
+  },
+  {
+   "id": "ec882562-4c6f-4094-84d8-0f8928a71c3b",
+   "plume_id": "emi20230824t175349p12024-B",
+   "scene_id": "36ebfa8f-43ca-49ff-9a63-a64ed1314476",
+   "scene_timestamp": "2023-08-24T17:53:49Z",
+   "platform": "ISS",
+   "instrument": "emi",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 1413.2908345959981,
+   "emission_uncertainty_auto": 383.28521938753073,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77195499113644,
+     31.844957659429
+    ]
+   }
+  },
+  {
+   "id": "d1c12cce-d5d0-4869-8e40-65f63b70a96a",
+   "plume_id": "GAO20230824t175220p0000-F",
+   "scene_id": "8b876808-7175-4f3d-adf8-546d99fe82a1",
+   "scene_timestamp": "2023-08-24T17:52:20Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 966.2910911523572,
+   "emission_uncertainty_auto": 122.52924749310321,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77242351674464,
+     31.844870042313545
+    ]
+   }
+  },
+  {
+   "id": "a04576af-a678-4b94-9e68-96a6b5adcc13",
+   "plume_id": "GAO20230824t174552p0000-G",
+   "scene_id": "ca959cef-f5a5-487d-b659-88420f2ee033",
+   "scene_timestamp": "2023-08-24T17:45:52Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 1107.670062428425,
+   "emission_uncertainty_auto": 251.08507307604935,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77228052261157,
+     31.844948363926378
+    ]
+   }
+  },
+  {
+   "id": "0bb37ff8-c05c-48a9-8e95-badce84b33f0",
+   "plume_id": "GAO20230824t173950p0000-G",
+   "scene_id": "a60ac2ad-d07e-4dbb-b304-7448da74f83d",
+   "scene_timestamp": "2023-08-24T17:39:50Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 689.4073690792895,
+   "emission_uncertainty_auto": 178.51731292762148,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77228889555651,
+     31.844944673672273
+    ]
+   }
+  },
+  {
+   "id": "7aae0271-3f66-49ea-b909-aabf89944c72",
+   "plume_id": "GAO20230824t172827p0000-E",
+   "scene_id": "be7a2650-b5d3-48b9-ba9e-589e031b6e2e",
+   "scene_timestamp": "2023-08-24T17:28:27Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 1349.023829553036,
+   "emission_uncertainty_auto": 253.66188285686118,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77250975240969,
+     31.844870857410115
+    ]
+   }
+  },
+  {
+   "id": "531edfde-49b5-4af8-a09c-70961ab6cd2d",
+   "plume_id": "GAO20230821t161748p0000-P",
+   "scene_id": "18ea4c7d-79ae-4349-9318-5f1aa186c48a",
+   "scene_timestamp": "2023-08-21T16:17:48Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": true,
+   "emission_auto": null,
+   "emission_uncertainty_auto": null,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77246322108999,
+     31.844857816069435
+    ]
+   }
+  },
+  {
+   "id": "5d44765f-b745-4a90-9a75-39696918fd8e",
+   "plume_id": "GAO20230820t195642p0000-B",
+   "scene_id": "500e6529-0572-4944-913f-b68a488e381f",
+   "scene_timestamp": "2023-08-20T19:56:42Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 1394.538424981337,
+   "emission_uncertainty_auto": 177.48073872272946,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77251034640203,
+     31.844870382860435
+    ]
+   }
+  },
+  {
+   "id": "aecab086-492b-4589-828b-41c8200c257e",
+   "plume_id": "GAO20230820t194917p0000-B",
+   "scene_id": "3df9e332-c5c7-4d83-a729-4aaa1a1edbac",
+   "scene_timestamp": "2023-08-20T19:49:17Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 1563.3013384548751,
+   "emission_uncertainty_auto": 181.99238359877646,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77235405885948,
+     31.844907318457743
+    ]
+   }
+  },
+  {
+   "id": "626c7ba3-f038-4f72-b0f5-80e8356c5c77",
+   "plume_id": "GAO20230820t194323p0000-A",
+   "scene_id": "59fedead-9128-4400-8253-9c230ff2a5f1",
+   "scene_timestamp": "2023-08-20T19:43:23Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 1236.8738623603424,
+   "emission_uncertainty_auto": 227.77465797423127,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77225698877056,
+     31.8449039073934
+    ]
+   }
+  },
+  {
+   "id": "4f7cc1a1-5805-44c8-ae3a-30036fb35c95",
+   "plume_id": "GAO20230820t193517p0000-C",
+   "scene_id": "6fb58cce-3e72-4333-8e5a-71018c6f0424",
+   "scene_timestamp": "2023-08-20T19:35:17Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 1102.4251074809197,
+   "emission_uncertainty_auto": 140.13039511886456,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77246946301203,
+     31.844998692880836
+    ]
+   }
+  },
+  {
+   "id": "169604b2-24cb-4f6d-aa7c-e67d0a035ea4",
+   "plume_id": "emi20230820t192855p13028-A",
+   "scene_id": "cded0024-fb9c-4109-b75f-747c4d558cf4",
+   "scene_timestamp": "2023-08-20T19:28:55Z",
+   "platform": "ISS",
+   "instrument": "emi",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 1341.2082887015088,
+   "emission_uncertainty_auto": 457.2676558992444,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77233380369199,
+     31.84477576517793
+    ]
+   }
+  },
+  {
+   "id": "e86847ac-da35-4f3e-8891-2b3c034cfa70",
+   "plume_id": "GAO20230820t192807p0000-B",
+   "scene_id": "e4573287-257a-4758-b1ae-be93f449d3c7",
+   "scene_timestamp": "2023-08-20T19:28:07Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 979.2778103053226,
+   "emission_uncertainty_auto": 152.43760579384883,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77225607479791,
+     31.844907753664074
+    ]
+   }
+  },
+  {
+   "id": "6c97ed94-2eee-4dc4-8966-fa5a71367ae7",
+   "plume_id": "GAO20230820t191647p0000-C",
+   "scene_id": "ae7a786d-e21a-4f38-9260-98914e805fa7",
+   "scene_timestamp": "2023-08-20T19:16:47Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 1772.975332813784,
+   "emission_uncertainty_auto": 276.5692405331998,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77240671695013,
+     31.844951262965424
+    ]
+   }
+  },
+  {
+   "id": "a70449cf-bb1e-4dfb-8c3d-b4f195862046",
+   "plume_id": "GAO20230819t155159p0000-A",
+   "scene_id": "36c7a0e3-6173-41e4-b48f-479a0c05fb1a",
+   "scene_timestamp": "2023-08-19T15:51:59Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": true,
+   "emission_auto": null,
+   "emission_uncertainty_auto": null,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77256541968234,
+     31.844956564242025
+    ]
+   }
+  },
+  {
+   "id": "267086e6-9639-4955-aee7-421e8353ee49",
+   "plume_id": "GAO20230818t193430p0000-A",
+   "scene_id": "ae6e3e3d-049b-48ff-928a-36799bb77545",
+   "scene_timestamp": "2023-08-18T19:34:30Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "6A",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 252.98718429220375,
+   "emission_uncertainty_auto": 101.9127710199394,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -102.50326760237596,
+     31.768597646353143
+    ]
+   }
+  },
+  {
+   "id": "d7a963f0-adef-4422-af32-397604ffeb01",
+   "plume_id": "GAO20230817t161255p0000-A",
+   "scene_id": "28549b18-28b5-49ca-8638-ac19e07784f7",
+   "scene_timestamp": "2023-08-17T16:12:55Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 1777.0589071762001,
+   "emission_uncertainty_auto": 155.09882403889668,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77249097987928,
+     31.84491375116714
+    ]
+   }
+  },
+  {
+   "id": "af273d51-6523-4b98-8823-8d70554ec5ab",
+   "plume_id": "emi20230804t174141p12016-C",
+   "scene_id": "5dba3d07-9e63-4ad5-a8f8-70b861e912ff",
+   "scene_timestamp": "2023-08-04T17:41:41Z",
+   "platform": "ISS",
+   "instrument": "emi",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 2274.000871011809,
+   "emission_uncertainty_auto": 657.0973059154475,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77183753651747,
+     31.845434391896887
+    ]
+   }
+  },
+  {
+   "id": "a9a192be-1834-491d-b86c-7243fcfb5fc6",
+   "plume_id": "emi20230731t191834p13015-C",
+   "scene_id": "0b37fdd5-6e16-4177-a232-d0467351a3f8",
+   "scene_timestamp": "2023-07-31T19:18:34Z",
+   "platform": "ISS",
+   "instrument": "emi",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 3132.7776450754054,
+   "emission_uncertainty_auto": 396.01653956281876,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77268395782684,
+     31.84486488125549
+    ]
+   }
+  },
+  {
+   "id": "1b3bf130-1d9c-45cc-b71e-e40f67a1b92c",
+   "plume_id": "emi20230620t193656p13024-H",
+   "scene_id": "f0687d48-2428-4476-b45c-c44f9d96c545",
+   "scene_timestamp": "2023-06-20T19:36:56Z",
+   "platform": "ISS",
+   "instrument": "emi",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 997.6847001981849,
+   "emission_uncertainty_auto": 331.6962720529207,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77181936851092,
+     31.84459536231813
+    ]
+   }
+  },
+  {
+   "id": "761ec909-1e05-4815-b31c-a2ab21af5744",
+   "plume_id": "GAO20211016t150755p0000-B",
+   "scene_id": "1ce38f89-76a8-4c91-9b90-a1b417227fa0",
+   "scene_timestamp": "2021-10-16T15:07:55Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 1936.11168,
+   "emission_uncertainty_auto": 1186.28634,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77342,
+     31.845067
+    ]
+   }
+  },
+  {
+   "id": "40cf0f6e-1792-4dfb-a761-f472f86127c2",
+   "plume_id": "GAO20211004t155049p0000-C",
+   "scene_id": "b3b1d989-ab3f-408d-8d55-553c4df079f9",
+   "scene_timestamp": "2021-10-04T15:50:49Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 3561.41364,
+   "emission_uncertainty_auto": 1687.54448,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77186,
+     31.845327
+    ]
+   }
+  },
+  {
+   "id": "bd373795-31d0-4c0c-afab-0d66c2d0d885",
+   "plume_id": "GAO20210726t173952p0000-I",
+   "scene_id": "7693ca13-d597-4f26-adb1-782b4cc2a9fc",
+   "scene_timestamp": "2021-07-26T17:39:52Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 227.9189,
+   "emission_uncertainty_auto": 92.66765995,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.7708,
+     31.845778
+    ]
+   }
+  },
+  {
+   "id": "9b5a7d9c-e54f-4555-97a0-d4a5263a3f03",
+   "plume_id": "GAO20200718t184740p0000-D",
+   "scene_id": "228baaff-6174-41a8-aaed-9549bae4fc9b",
+   "scene_timestamp": "2020-07-18T18:47:40Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 332.629688,
+   "emission_uncertainty_auto": 70.31584337,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.772193,
+     31.844997
+    ]
+   }
+  },
+  {
+   "id": "cbe53673-2175-4e5b-806a-4556d1856edd",
+   "plume_id": "GAO20191020t165717p0000-B",
+   "scene_id": "91f7ba1e-966b-4cea-9084-3ffad9018bf7",
+   "scene_timestamp": "2019-10-20T16:57:17Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 2084.23781,
+   "emission_uncertainty_auto": 736.495455,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77195,
+     31.845123
+    ]
+   }
+  },
+  {
+   "id": "cb81417b-2e6f-40da-b850-93cc489d6b36",
+   "plume_id": "GAO20191020t163829p0000-A",
+   "scene_id": "06202f6a-49b8-4c4d-84c5-5c6bddbbaf31",
+   "scene_timestamp": "2019-10-20T16:38:29Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 1827.84302,
+   "emission_uncertainty_auto": 642.946341,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.7723,
+     31.845004
+    ]
+   }
+  },
+  {
+   "id": "9db2c6f0-89a3-4e54-bfd8-c070307212a2",
+   "plume_id": "ang20191018t183859-8",
+   "scene_id": "a42c9690-b0e9-460a-a668-79aea7eb91ef",
+   "scene_timestamp": "2019-10-18T18:38:59Z",
+   "platform": "AVIRIS-NG",
+   "instrument": "ang",
+   "sector": "1B2",
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 2478.963036296619,
+   "emission_uncertainty_auto": 385.4121115575431,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.77192136974799,
+     31.84560805764355
+    ]
+   }
+  },
+  {
+   "id": "947e03b9-0f8b-44fc-ae2e-83e27116e581",
+   "plume_id": "av320241004t192754-H",
+   "scene_id": "c8450506-236e-4602-8b06-820ee5eaec82",
+   "scene_timestamp": "2024-10-04T19:27:54Z",
+   "platform": "AVIRIS-3",
+   "instrument": "av3",
+   "sector": null,
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 36.87506715337967,
+   "emission_uncertainty_auto": 17.036274661907193,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -103.94618951336561,
+     32.060438649475415
+    ]
+   }
+  },
+  {
+   "id": "7c6d278a-855a-435a-b55b-843b6d65a687",
+   "plume_id": "av320241001t174515-X",
+   "scene_id": "161e9224-77a5-43f8-b074-990e284c4f81",
+   "scene_timestamp": "2024-10-01T17:45:15Z",
+   "platform": "AVIRIS-3",
+   "instrument": "av3",
+   "sector": null,
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 91.73603975518671,
+   "emission_uncertainty_auto": 9.127810486988627,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -101.78068138356592,
+     31.948089795374287
+    ]
+   }
+  },
+  {
+   "id": "1ade4081-cb35-47e9-98a5-723b5cb57455",
+   "plume_id": "emi20240812t213903p14030-F",
+   "scene_id": "d6f4f482-ac14-46c0-b2f4-5696d4446014",
+   "scene_timestamp": "2024-08-12T21:39:03Z",
+   "platform": "ISS",
+   "instrument": "emi",
+   "sector": null,
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 2219.032659092568,
+   "emission_uncertainty_auto": 359.3501856630323,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -102.09166274063563,
+     32.305572426861985
+    ]
+   }
+  },
+  {
+   "id": "f4ef3a47-78a6-4128-a8f6-5c28e3037d49",
+   "plume_id": "emi20231008t161127p11016-L",
+   "scene_id": "67ce6d1b-6b3a-4024-8927-8f1480729ee2",
+   "scene_timestamp": "2023-10-08T16:11:27Z",
+   "platform": "ISS",
+   "instrument": "emi",
+   "sector": null,
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 539.7025773664803,
+   "emission_uncertainty_auto": 292.5626683779924,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -104.00338882605155,
+     32.19644265280634
+    ]
+   }
+  },
+  {
+   "id": "1cd84e8b-11cd-46c6-990d-de932a2ff59b",
+   "plume_id": "GAO20230829t180855p0000-B",
+   "scene_id": "e2bca77a-534c-4934-bc55-b12ddf4c0f84",
+   "scene_timestamp": "2023-08-29T18:08:55Z",
+   "platform": "Global Airborne Observatory",
+   "instrument": "GAO",
+   "sector": null,
+   "gas": "CH4",
+   "status": "published",
+   "plume_quality": null,
+   "hide_emission": false,
+   "emission_auto": 199.3738213502019,
+   "emission_uncertainty_auto": 66.30468966956454,
+   "geometry_json": {
+    "type": "Point",
+    "coordinates": [
+     -103.10734042569347,
+     32.37604002009307
+    ]
+   }
+  }
+ ],
+ "sources": [
+  {
+   "source_name": "CH4_6A_1000m_-102.50349_31.76858?plume_gas=CH4&bbox=-104.5&bbox=31.0&bbox=-101.0&bbox=33.5",
+   "sector": "6A",
+   "plume_ids": [
+    "GAO20230818t193430p0000-A",
+    "GAO20230825t163030p0000-A",
+    "GAO20230825t190315p0000-A"
+   ],
+   "persistence": 1,
+   "detection_date_count": 2,
+   "observation_date_count": 2,
+   "emission_auto": 193.14153778852327,
+   "emission_uncertainty_auto": 66.99769457253575
+  },
+  {
+   "source_name": "CH4_NA_250m_-103.94619_32.06044?plume_gas=CH4&bbox=-104.5&bbox=31.0&bbox=-101.0&bbox=33.5",
+   "sector": "NA",
+   "plume_ids": [
+    "av320241004t192754-H"
+   ],
+   "persistence": 0.030303030303030304,
+   "detection_date_count": 1,
+   "observation_date_count": 33,
+   "emission_auto": 1.1174262773751416,
+   "emission_uncertainty_auto": 0.516250747330521
+  },
+  {
+   "source_name": "CH4_NA_250m_-103.10734_32.37604?plume_gas=CH4&bbox=-104.5&bbox=31.0&bbox=-101.0&bbox=33.5",
+   "sector": "NA",
+   "plume_ids": [
+    "GAO20230827t185654p0000-A",
+    "GAO20230829t180855p0000-B"
+   ],
+   "persistence": 0.3333333333333333,
+   "detection_date_count": 2,
+   "observation_date_count": 6,
+   "emission_auto": 52.646824160770585,
+   "emission_uncertainty_auto": 19.314946112493654
+  },
+  {
+   "source_name": "CH4_NA_250m_-102.09166_32.30557?plume_gas=CH4&bbox=-104.5&bbox=31.0&bbox=-101.0&bbox=33.5",
+   "sector": "NA",
+   "plume_ids": [
+    "emi20240812t213903p14030-F"
+   ],
+   "persistence": 0.07692307692307693,
+   "detection_date_count": 1,
+   "observation_date_count": 13,
+   "emission_auto": 170.69481993019753,
+   "emission_uncertainty_auto": 27.642321974079405
+  },
+  {
+   "source_name": "CH4_NA_250m_-104.00339_32.19644?plume_gas=CH4&bbox=-104.5&bbox=31.0&bbox=-101.0&bbox=33.5",
+   "sector": "NA",
+   "plume_ids": [
+    "emi20231008t161127p11016-L"
+   ],
+   "persistence": 0.022222222222222223,
+   "detection_date_count": 1,
+   "observation_date_count": 45,
+   "emission_auto": 11.993390608144008,
+   "emission_uncertainty_auto": 6.501392630622053
+  },
+  {
+   "source_name": "CH4_NA_250m_-101.78068_31.94809?plume_gas=CH4&bbox=-104.5&bbox=31.0&bbox=-101.0&bbox=33.5",
+   "sector": "NA",
+   "plume_ids": [
+    "av320241001t174515-X"
+   ],
+   "persistence": 0.05,
+   "detection_date_count": 1,
+   "observation_date_count": 20,
+   "emission_auto": 4.586801987759335,
+   "emission_uncertainty_auto": 0.4563905243494314
+  },
+  {
+   "source_name": "CH4_1B2_250m_-101.77227_31.84496?plume_gas=CH4&bbox=-104.5&bbox=31.0&bbox=-101.0&bbox=33.5",
+   "sector": "1B2",
+   "plume_ids": [
+    "ang20191018t183859-8",
+    "av320241001t172751-L",
+    "av320241001t172751-M",
+    "av320241009t165217-CH",
+    "av320241009t165217-I",
+    "av320241009t165217-J",
+    "av320241009t174434-C",
+    "av320241009t174434-W",
+    "av320241009t174434-X",
+    "av320241009t191258-M",
+    "emi20230620t193656p13024-H",
+    "emi20230731t191834p13015-C",
+    "emi20230804t174141p12016-C",
+    "emi20230820t192855p13028-A",
+    "emi20230824t175349p12024-B",
+    "emi20231201t183549p12016-B",
+    "emi20240127t195915p13009-D",
+    "emi20250808t144449p10003-B",
+    "GAO20191020t163829p0000-A",
+    "GAO20191020t165717p0000-B",
+    "GAO20200718t184740p0000-D",
+    "GAO20210726t173952p0000-I",
+    "GAO20211004t155049p0000-C",
+    "GAO20211016t150755p0000-B",
+    "GAO20230817t161255p0000-A",
+    "GAO20230819t155159p0000-A",
+    "GAO20230820t191647p0000-C",
+    "GAO20230820t192807p0000-B",
+    "GAO20230820t193517p0000-C",
+    "GAO20230820t194323p0000-A",
+    "GAO20230820t194917p0000-B",
+    "GAO20230820t195642p0000-B",
+    "GAO20230821t161748p0000-P",
+    "GAO20230824t172827p0000-E",
+    "GAO20230824t173950p0000-G",
+    "GAO20230824t174552p0000-G",
+    "GAO20230824t175220p0000-F",
+    "GAO20230824t175835p0000-F",
+    "GAO20230824t175835p0000-G",
+    "GAO20230824t180435p0000-L",
+    "GAO20230824t182756p0000-E",
+    "tan20241009t174656c00s4001-B",
+    "tan20241024t173701c00s4001-K",
+    "tan20241227t174829c00s4001-L",
+    "tan20250101t175004c00s4001-E",
+    "tan20250430t180543c00s4001-B",
+    "tan20250730t181831c58s4001-B",
+    "tan20250813t182026c58s4001-D",
+    "tan20251217t183849c09s4001-Q",
+    "tan20260126t183705c75s4001-Q",
+    "tan20260309t184938c94s4001-B"
+   ],
+   "persistence": 0.7777777777777778,
+   "detection_date_count": 28,
+   "observation_date_count": 36,
+   "emission_auto": 1344.5425191779796,
+   "emission_uncertainty_auto": 315.8855487583662
+  }
+ ]
+}
