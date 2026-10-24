@@ -51,6 +51,7 @@ import {
   getDatasetsCatalog,
   getTimelineObservations,
   generateObservationEvidenceManifest,
+  getLiveTelemetryTick,
   POLICY_EVENTS
 } from './historical-service.mjs';
 
@@ -510,6 +511,10 @@ function handleHistory(req, res, url) {
       return sendJson(res, 400, { error: { code: 'invalid_observation_request', message: manifest.error } });
     }
     return sendJson(res, 200, manifest);
+  }
+  if (subpath === 'live-tick') {
+    const indicator = url.searchParams.get('indicator') || 'temperature_anomaly';
+    return sendJson(res, 200, getLiveTelemetryTick(indicator));
   }
   return sendJson(res, 404, { error: { code: 'not_found', message: `Unknown historical route: ${url.pathname}` } });
 }

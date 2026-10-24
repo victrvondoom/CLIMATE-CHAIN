@@ -654,3 +654,27 @@ export function fetchObservationEvidence(indicator: string, year: number, signal
   return getJson<ObservationEvidenceManifest>(`/api/v1/history/observation-evidence?${qs}`, signal);
 }
 
+export interface LiveTelemetryTick {
+  indicator: string;
+  timestamp: string;
+  epoch_ms: number;
+  value: number;
+  unit: string;
+  uncertainty: number;
+  delta: number;
+  delta_percent: number;
+  direction: 'up' | 'down' | 'flat';
+  session_high: number;
+  session_low: number;
+  tick_count: number;
+  proof_hash: string;
+  station: string;
+  block_number: number;
+}
+
+export function fetchLiveTelemetryTick(indicator = 'temperature_anomaly', signal?: AbortSignal): Promise<LiveTelemetryTick> {
+  const qs = new URLSearchParams({ indicator });
+  return getJson<LiveTelemetryTick>(`/api/v1/history/live-tick?${qs}`, signal);
+}
+
+
