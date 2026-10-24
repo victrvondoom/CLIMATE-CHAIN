@@ -10,6 +10,11 @@ export interface SourceStatus {
   domain: string;
   status: string;
   http: number;
+  checkedAt?: string;
+  latencyMs?: number | null;
+  lastCheckAt?: string | null;
+  lastSuccessAt?: string | null;
+  error?: { code: string; message: string; status?: number } | null;
 }
 
 export interface WasteSite {
@@ -37,6 +42,7 @@ export interface FireStats {
   tonnesBooked: number;
   tonnesDelivered: number;
   payoutsEstimatedInr: number;
+  demoPrices?: boolean | null;
   redFields: number;
   yellowFields: number;
   alertsSent: number;
@@ -93,6 +99,17 @@ export interface CascadeResponse {
       bothSourcesObserved: boolean;
       nearestMonitorWithinRadius: boolean | null;
       observationsWithinTimeWindow: boolean | null;
+    };
+    coverage: {
+      score: number;
+      availableDimensions: number;
+      totalDimensions: number;
+      dimensions: {
+        observedSources: boolean;
+        monitorDistance: boolean;
+        reportAndReadingTimes: boolean;
+      };
+      meaning: string;
     };
     proximity: {
       nearestMonitorDistanceKm: number | null;

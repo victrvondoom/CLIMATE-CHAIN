@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { STAGES, type StageId } from '../data/capabilities';
 import { hashValue } from '../core/evidence';
 import { EXAMPLE_PAYLOAD, checkPacket, examplePacket } from '../core/packet';
-import { decide, queuePacket, readSession, waitingAt, type SessionItem, type Verdict } from '../core/session';
+import { MAX_NOTE, decide, queuePacket, readSession, subscribeSession, waitingAt, type SessionItem, type Verdict } from '../core/session';
 import { CLIMATE_MODULES } from './index';
 
 // The review desk. One path, four levels: stage, then module, then packet, then verdict.
@@ -36,13 +36,22 @@ const STATUS_LABEL: Record<SessionItem['status'], string> = {
 
 const stageOf = (id: StageId) => STAGES.find((stage) => stage.id === id)!;
 
-export function SessionDesk() {
+export function SessionDesk({ onOpenModule }: { onOpenModule?: (id: string) => void }) {
   const [items, setItems] = useState<SessionItem[]>(() => readSession());
   const [path, setPath] = useState<Path>({ stage: null, moduleId: null, packetId: null });
   const [text, setText] = useState('');
   const [errors, setErrors] = useState<string[]>([]);
   const [notice, setNotice] = useState('');
   const [reviewerNote, setReviewerNote] = useState('');
+  const [busy, setBusy] = useState(false);
+  const pending = useRef(false);
+
+  useEffect(() => {
+    const sync = () => setItems(readSession());
+    const unsubscribe = subscribeSession(sync);
+    sync();
+    return unsubscribe;
+  }, []);
 
   const refresh = () => setItems(readSession());
   const total = waitingAt(items);
@@ -53,9 +62,31 @@ export function SessionDesk() {
     .sort((a, b) => Number(b.status === 'waiting') - Number(a.status === 'waiting'));
   const current = items.find((item) => item.id === path.packetId) ?? null;
 
-  async function submit() {
+  function navigate(next: Path) {
+    if (pending.current) return;
+    setPath(next);
+    setReviewerNote('');
+    setNotice('');
+    setErrors([]);
+  }
+
+  async function runAction(action: () => Promise<void>) {
+    if (pending.current) return;
+    pending.current = true;
+    setBusy(true);
     setErrors([]);
     setNotice('');
+    try {
+      await action();
+    } catch (error) {
+      setErrors([error instanceof Error ? error.message : 'The action could not finish. Please retry.']);
+    } finally {
+      pending.current = false;
+      setBusy(false);
+    }
+  }
+
+  async function submit() {
     let parsed: unknown;
     try {
       parsed = JSON.parse(text);
@@ -74,7 +105,7 @@ export function SessionDesk() {
     else if (queued.saved) {
       setNotice('Queued for review.');
       setText('');
-    } else setNotice('Checked, but this browser would not save it.');
+    } else setErrors(['The packet passed validation, but this browser could not save it. Your input is retained; enable site storage and retry.']);
   }
 
   async function loadExample() {
@@ -88,17 +119,23 @@ export function SessionDesk() {
     if (!current) return;
     const result = await decide(current.id, verdict, reviewerNote);
     refresh();
-    setReviewerNote('');
     if (!result.item) setNotice('That packet is no longer in the queue.');
-    else if (result.ledgerSaved) setNotice(`Recorded as ${verdict} in the evidence ledger.`);
-    else setNotice(`Recorded as ${verdict}, but the ledger could not save it.`);
+    else if (result.alreadyDecided) setNotice(`This packet was already ${result.item.status}. The latest decision is shown.`);
+    else if (!result.sessionSaved) setErrors([result.ledgerSaved
+      ? 'The verdict reached the ledger, but the review queue could not save it. The packet is still waiting; enable site storage before retrying.'
+      : 'The verdict could not be saved to the queue or ledger. Enable site storage and retry.']);
+    else {
+      setReviewerNote('');
+      if (result.ledgerSaved) setNotice(`Recorded as ${verdict} in the evidence ledger.`);
+      else setErrors([`The queue saved ${verdict}, but the evidence ledger could not save its record.`]);
+    }
   }
 
   function nextWaiting() {
     if (!path.stage || !path.moduleId) return;
-    const next = packetsAt(path.stage, path.moduleId).find((item) => item.status === 'waiting');
-    setPath({ ...path, packetId: next?.id ?? null });
-    setNotice('');
+    const next = packetsAt(path.stage, path.moduleId).find((item) => item.status === 'waiting' && item.id !== path.packetId);
+    if (next) navigate({ ...path, packetId: next.id });
+    else setNotice('No other packets are waiting for this module and stage.');
   }
 
   const title = path.packetId ? 'Verdict' : path.moduleId ? moduleName(path.moduleId) : path.stage ? stageOf(path.stage).title : 'Review desk';
@@ -119,16 +156,16 @@ export function SessionDesk() {
           <p className="muted">{subtitle}</p>
         </div>
         <nav className="desk-crumbs" aria-label="Path">
-          <button type="button" onClick={() => setPath({ stage: null, moduleId: null, packetId: null })}>All stages</button>
+          <button type="button" onClick={() => navigate({ stage: null, moduleId: null, packetId: null })}>All stages</button>
           {path.stage && <span aria-hidden="true">/</span>}
           {path.stage && (
-            <button type="button" onClick={() => setPath({ stage: path.stage, moduleId: null, packetId: null })}>
+            <button type="button" onClick={() => navigate({ stage: path.stage, moduleId: null, packetId: null })}>
               {stageOf(path.stage).title}
             </button>
           )}
           {path.moduleId && <span aria-hidden="true">/</span>}
           {path.moduleId && (
-            <button type="button" onClick={() => setPath({ stage: path.stage, moduleId: path.moduleId, packetId: null })}>
+            <button type="button" onClick={() => navigate({ stage: path.stage, moduleId: path.moduleId, packetId: null })}>
               {moduleName(path.moduleId)}
             </button>
           )}
@@ -136,6 +173,10 @@ export function SessionDesk() {
           {path.packetId && <span className="desk-crumb-here">Packet</span>}
         </nav>
       </header>
+
+      <p className="muted" role="status">{items.length} local packet{items.length === 1 ? '' : 's'} · {total} waiting · {items.length - total} reviewed. Updates follow activity in this browser and other tabs.</p>
+      {errors.length > 0 && <ul className="intake-errors" role="alert">{errors.map((error) => <li key={error}>{error}</li>)}</ul>}
+      {notice && <p className="muted" role="status">{notice}</p>}
 
       {!path.stage && (
         <>
@@ -145,7 +186,7 @@ export function SessionDesk() {
                 key={stage.id}
                 type="button"
                 className="desk-stage"
-                onClick={() => setPath({ stage: stage.id, moduleId: null, packetId: null })}
+                onClick={() => navigate({ stage: stage.id, moduleId: null, packetId: null })}
               >
                 <span>{stage.number}</span>
                 <strong>{stage.title}</strong>
@@ -155,6 +196,16 @@ export function SessionDesk() {
             ))}
           </div>
 
+          {onOpenModule && (
+            <section className="desk-panel" aria-labelledby="desk-work-title">
+              <h3 id="desk-work-title">Create evidence in a module</h3>
+              <p className="muted">Run a native workflow, record its result, then queue that result for human review. Outcomes and verdicts stay in this browser.</p>
+              <div className="verdict-row">
+                {CLIMATE_MODULES.map((item) => <button key={item.id} type="button" onClick={() => onOpenModule(item.id)}>{item.name}</button>)}
+              </div>
+            </section>
+          )}
+
           <section className="desk-panel intake" aria-labelledby="intake-title">
             <h3 id="intake-title">Agent intake</h3>
             <p className="muted">An agent submits one packet of this shape. Anything else is refused, and every problem is listed.</p>
@@ -162,21 +213,16 @@ export function SessionDesk() {
             <textarea
               aria-label="Packet JSON"
               value={text}
+              disabled={busy}
               onChange={(event) => setText(event.target.value)}
               placeholder="Paste one packet as JSON"
             />
             <div className="verdict-row">
-              <button type="button" className="primary-action" onClick={() => void submit()} disabled={text.trim().length === 0}>
-                Queue packet
+              <button type="button" className="primary-action" onClick={() => void runAction(submit)} disabled={busy || text.trim().length === 0}>
+                {busy ? 'Working…' : 'Queue packet'}
               </button>
-              <button type="button" onClick={() => void loadExample()}>Load example</button>
+              <button type="button" onClick={() => void runAction(loadExample)} disabled={busy}>Load example</button>
             </div>
-            {errors.length > 0 && (
-              <ul className="intake-errors" role="alert">
-                {errors.map((error) => <li key={error}>{error}</li>)}
-              </ul>
-            )}
-            {notice && <p className="muted" role="status">{notice}</p>}
           </section>
         </>
       )}
@@ -185,7 +231,7 @@ export function SessionDesk() {
         <ul className="desk-list">
           {modulesIn(path.stage).map((item) => (
             <li key={item.id}>
-              <button type="button" className="desk-row" onClick={() => setPath({ stage: path.stage, moduleId: item.id, packetId: null })}>
+              <button type="button" className="desk-row" onClick={() => navigate({ stage: path.stage, moduleId: item.id, packetId: null })}>
                 <strong>{item.name}</strong>
                 <span>{waitingAt(items, path.stage!, item.id)} waiting · {item.mode}</span>
               </button>
@@ -199,7 +245,7 @@ export function SessionDesk() {
           <ul className="desk-list">
             {packetsAt(path.stage, path.moduleId).map((item) => (
               <li key={item.id}>
-                <button type="button" className="desk-row" onClick={() => setPath({ ...path, packetId: item.id })}>
+                <button type="button" className="desk-row" onClick={() => navigate({ ...path, packetId: item.id })}>
                   <strong>{item.packet.claim}</strong>
                   <span>{STATUS_LABEL[item.status]}</span>
                 </button>
@@ -207,10 +253,13 @@ export function SessionDesk() {
             ))}
           </ul>
           {packetsAt(path.stage, path.moduleId).length === 0 && (
-            <p className="muted">No packets for this module in this stage yet. Agents queue them from the intake on the first screen.</p>
+            <p className="muted">No packets for this module in this stage yet. Run the module to create evidence, or submit a checked packet from Agent intake.</p>
           )}
+          {onOpenModule && <button type="button" className="primary-action" onClick={() => onOpenModule(path.moduleId!)}>Open {moduleName(path.moduleId)} workflow</button>}
         </>
       )}
+
+      {path.packetId && !current && <p className="muted" role="status">This packet is no longer available in local storage. Return to its module to choose another packet.</p>}
 
       {current && (
         <article className="packet-card" aria-label="Packet to review">
@@ -230,24 +279,25 @@ export function SessionDesk() {
               <textarea
                 aria-label="Reviewer note"
                 value={reviewerNote}
+                disabled={busy}
+                maxLength={MAX_NOTE}
                 onChange={(event) => setReviewerNote(event.target.value)}
                 placeholder="Reviewer note (optional, 280 characters)"
               />
               <div className="verdict-row">
-                <button type="button" className="verdict-accept" onClick={() => void record('accepted')}>Accept</button>
-                <button type="button" onClick={() => void record('held')}>Hold</button>
-                <button type="button" onClick={() => void record('rejected')}>Reject</button>
-                <button type="button" className="text-action" onClick={nextWaiting}>Next waiting packet</button>
+                <button type="button" className="verdict-accept" disabled={busy} onClick={() => void runAction(() => record('accepted'))}>Accept</button>
+                <button type="button" disabled={busy} onClick={() => void runAction(() => record('held'))}>Hold</button>
+                <button type="button" disabled={busy} onClick={() => void runAction(() => record('rejected'))}>Reject</button>
+                <button type="button" className="text-action" disabled={busy} onClick={nextWaiting}>Next waiting packet</button>
               </div>
             </>
           ) : (
-            <p className="muted">
+            <><p className="muted">
               Decided {current.decidedAt ? new Date(current.decidedAt).toLocaleString() : ''}
               {current.note ? `. Note: ${current.note}` : ''}
               {current.ledgerSaved === false ? '. The ledger did not save this verdict.' : ''}
-            </p>
+            </p><button type="button" className="text-action" disabled={busy} onClick={nextWaiting}>Next waiting packet</button></>
           )}
-          {notice && <p className="muted" role="status">{notice}</p>}
         </article>
       )}
     </section>

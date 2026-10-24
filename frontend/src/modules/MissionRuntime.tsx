@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { CAPABILITIES, FOCUSES, STAGES, type FocusId, type StageId } from '../data/capabilities';
-import { createDurableMission, durableMissionAction, fetchDurableMission, fetchDurableMissions, fetchGatewayHealth, type DurableMission, type DurableMissionDefinition, type DurableMissionEvent, type GatewayHealth } from '../api';
+import { createDurableMission, durableMissionAction, durableMissionTaskAction, fetchDurableMission, fetchDurableMissions, fetchGatewayHealth, type DurableMission, type DurableMissionDefinition, type DurableMissionEvent, type GatewayHealth } from '../api';
 import type { Overview } from '../types';
+import { useLiveQuery } from '../hooks/useLiveQuery';
 
 type MissionStatus = 'planned' | 'running' | 'paused' | 'simulated' | 'failed';
 type StageStatus = 'waiting' | 'ready' | 'simulated';
@@ -174,79 +175,53 @@ export function buildDurableMissionDefinition(title: string, place: string, data
   };
 }
 
+function TaskDecision({ waitingApproval, retryable, blocked, onDecide }: {
+  waitingApproval: boolean;
+  retryable: boolean;
+  blocked: boolean;
+  onDecide: (decision: 'approve' | 'reject' | 'retry', operator: string, comment: string) => Promise<void>;
+}) {
+  const [operator, setOperator] = useState('');
+  const [comment, setComment] = useState('');
+  const [reviewed, setReviewed] = useState(false);
+  if (!waitingApproval && !retryable) return null;
+  const validOperator = /^[A-Za-z0-9][A-Za-z0-9._@-]{0,127}$/.test(operator.trim());
+  return <div className="mission-runtime-notice">
+    <strong>{waitingApproval ? 'Human task decision required' : 'Task recovery'}</strong>
+    <span>{waitingApproval ? 'Review the input, output and evidence before recording your decision. Approval applies to this local task.' : 'Retry resets this task and its failed dependents in the local mission store.'}</span>
+    <label className="studio-field"><span>Operator ID</span><input value={operator} maxLength={128} disabled={blocked} onChange={(event) => { setOperator(event.target.value); setReviewed(false); }} placeholder="Your operator ID" autoComplete="off" /></label>
+    <label className="studio-field"><span>{waitingApproval ? 'Review note (optional)' : 'Retry reason (optional)'}</span><input value={comment} maxLength={waitingApproval ? 1000 : 500} disabled={blocked} onChange={(event) => { setComment(event.target.value); setReviewed(false); }} /></label>
+    <label><input type="checkbox" checked={reviewed} disabled={blocked} onChange={(event) => setReviewed(event.target.checked)} /> I reviewed this task and choose to record this decision.</label>
+    <div className="mission-runtime-actions">{waitingApproval ? <><button type="button" className="mini-action" disabled={blocked || !validOperator || !reviewed} onClick={() => void onDecide('approve', operator.trim(), comment)}>Approve local task</button><button type="button" className="mini-action" disabled={blocked || !validOperator || !reviewed} onClick={() => void onDecide('reject', operator.trim(), comment)}>Reject task</button></> : <button type="button" className="mini-action" disabled={blocked || !validOperator || !reviewed} onClick={() => void onDecide('retry', operator.trim(), comment)}>Retry task</button>}</div>
+  </div>;
+}
+
 function DurableMissionPanel({ title, place, data, loading }: { title: string; place: string; data: Overview | null; loading: boolean }) {
-  const [missions, setMissions] = useState<DurableMission[]>([]);
-  const [events, setEvents] = useState<DurableMissionEvent[]>([]);
   const [selectedId, setSelectedId] = useState('');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
-  const [loadingList, setLoadingList] = useState(true);
-  const [integrity, setIntegrity] = useState<{ valid: boolean; code?: string; message?: string } | null>(null);
-  const [gatewayHealth, setGatewayHealth] = useState<GatewayHealth | null>(null);
-  const [gatewayHealthError, setGatewayHealthError] = useState('');
-  const selected = missions.find((mission) => mission.id === selectedId) ?? null;
-  const workerPending = missions.some((mission) => ['QUEUED', 'RETRYING'].includes(mission.status) && mission.memoryRetrieval !== null);
+  const listQuery = useLiveQuery(fetchDurableMissions, { intervalMs: 3_000, allowOffline: true });
+  const missions = listQuery.data?.missions ?? [];
+  const targetId = missions.some((mission) => mission.id === selectedId) ? selectedId : missions[0]?.id ?? '';
+  const detailLoader = useCallback(async (signal: AbortSignal) => targetId ? fetchDurableMission(targetId, signal) : null, [targetId]);
+  const detailQuery = useLiveQuery(detailLoader, { intervalMs: 2_000, key: targetId, allowOffline: true });
+  const healthQuery = useLiveQuery(fetchGatewayHealth, { intervalMs: 8_000, allowOffline: true });
+  const gatewayHealth = healthQuery.error || !healthQuery.online ? null : healthQuery.data;
+  const gatewayHealthError = healthQuery.error;
+  const loadingList = listQuery.loading;
+  const integrity = listQuery.error || !listQuery.online ? null : listQuery.data?.integrity ?? null;
+  const detail = detailQuery.data?.mission.id === targetId ? detailQuery.data : null;
+  const selected = detail?.mission ?? missions.find((mission) => mission.id === targetId) ?? null;
+  const events = detail?.events ?? [];
+  const queryError = listQuery.error || detailQuery.error || (!listQuery.online ? 'You are offline. Reconnect to refresh mission status.' : '') || (integrity && !integrity.valid ? `Mission store integrity check failed: ${integrity.code ?? integrity.message ?? 'unknown error'}` : '');
+  const actionBlocked = busy || !integrity?.valid || Boolean(queryError) || detailQuery.loading;
 
-  const refresh = useCallback(async (signal?: AbortSignal) => {
-    try {
-      const snapshot = await fetchDurableMissions(signal);
-      setMissions(snapshot.missions);
-      setIntegrity(snapshot.integrity);
-      setError(snapshot.integrity.valid ? '' : `Mission store integrity check failed: ${snapshot.integrity.code ?? snapshot.integrity.message ?? 'unknown error'}`);
-      const targetId = selectedId || snapshot.missions[0]?.id || '';
-      if (targetId && snapshot.missions.some((mission) => mission.id === targetId)) {
-        const detail = await fetchDurableMission(targetId, signal);
-        setSelectedId(targetId);
-        setEvents(detail.events);
-      } else {
-        setEvents([]);
-      }
-    } catch (cause) {
-      if (cause instanceof DOMException && cause.name === 'AbortError') return;
-      setError(cause instanceof Error ? cause.message : 'Could not reach the local mission service.');
-      setIntegrity(null);
-    } finally {
-      setLoadingList(false);
-    }
-  }, [selectedId]);
-
-  useEffect(() => {
-    const controller = new AbortController();
-    void refresh(controller.signal);
-    const timer = window.setInterval(() => { void refresh(controller.signal); }, workerPending ? 1_000 : 15_000);
-    return () => { controller.abort(); window.clearInterval(timer); };
-  }, [refresh, workerPending]);
-
-  useEffect(() => {
-    let active = true;
-    let timer: number | undefined;
-    let request: AbortController | undefined;
-    const poll = async () => {
-      request = new AbortController();
-      try {
-        const health = await fetchGatewayHealth(request.signal);
-        if (!active) return;
-        setGatewayHealth(health);
-        setGatewayHealthError('');
-      } catch (cause) {
-        if (!active || (cause instanceof DOMException && cause.name === 'AbortError')) return;
-        setGatewayHealth(null);
-        setGatewayHealthError(cause instanceof Error ? cause.message : 'System health is unavailable.');
-      } finally {
-        if (active) timer = window.setTimeout(() => { void poll(); }, 4_000);
-      }
-    };
-    void poll();
-    return () => { active = false; request?.abort(); if (timer !== undefined) window.clearTimeout(timer); };
-  }, []);
-
-  async function selectMission(id: string) {
-    setSelectedId(id);
-    setError('');
-    try { const detail = await fetchDurableMission(id); setEvents(detail.events); }
-    catch (cause) { setError(cause instanceof Error ? cause.message : 'Could not load mission events.'); }
+  async function refresh() {
+    await Promise.all([listQuery.refresh(), detailQuery.refresh(), healthQuery.refresh()]);
   }
+
+  function selectMission(id: string) { setSelectedId(id); setError(''); }
 
   async function createFromSnapshot() {
     if (!data) { setError('A unified source snapshot is required before creating a mission. Refresh the Command Center and retry.'); return; }
@@ -262,7 +237,7 @@ function DurableMissionPanel({ title, place, data, loading }: { title: string; p
   }
 
   async function action(name: 'validate' | 'queue' | 'run' | 'pause' | 'resume' | 'cancel') {
-    if (!selected) return;
+    if (!selected || actionBlocked) return;
     setBusy(true); setError(''); setNotice('');
     try {
       if (name === 'validate') {
@@ -280,8 +255,21 @@ function DurableMissionPanel({ title, place, data, loading }: { title: string; p
     finally { setBusy(false); }
   }
 
+  async function decideTask(taskId: string, decision: 'approve' | 'reject' | 'retry', operator: string, comment: string) {
+    if (!selected || actionBlocked) return;
+    setBusy(true); setError(''); setNotice('');
+    try {
+      if (decision === 'retry') await durableMissionTaskAction(selected.id, taskId, 'retry', { actor: operator, reason: comment });
+      else await durableMissionTaskAction(selected.id, taskId, 'approve', { approvedBy: operator, decision, comment });
+      setNotice(decision === 'retry' ? 'Task retry recorded. The local worker will resume when readiness checks pass.' : `Human ${decision === 'approve' ? 'approval' : 'rejection'} recorded for this local task.`);
+      await refresh();
+    } catch (cause) { setError(cause instanceof Error ? cause.message : 'Could not record this task decision.'); }
+    finally { setBusy(false); }
+  }
+
   function exportReport() {
     if (!selected) return;
+    if (!detail || detailQuery.error) { setError('Refresh the selected mission before exporting its evidence report.'); return; }
     const content = durableReport(selected, events);
     const url = URL.createObjectURL(new Blob([content], { type: 'text/markdown;charset=utf-8' }));
     const anchor = document.createElement('a'); anchor.href = url; anchor.download = `${selected.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'climate-mission'}-execution-report.md`; anchor.click();
@@ -290,29 +278,31 @@ function DurableMissionPanel({ title, place, data, loading }: { title: string; p
   }
 
   return <section className="card durable-mission-panel" aria-label="Durable backend mission execution">
-    <div className="section-heading"><div><span className="eyebrow">DURABLE LOCAL EXECUTION</span><h2>Gateway mission engine</h2><p>Server-persisted workflow with a checksummed store, bounded deterministic task allowlist, memory-readiness gate, and evidence trace.</p></div><div className="durable-mission-toolbar"><span className={integrity?.valid ? 'durable-store-state ready' : 'durable-store-state'}>{integrity?.valid ? 'STORE VERIFIED' : loadingList ? 'CHECKING STORE' : 'STORE UNAVAILABLE'}</span><button type="button" className="mini-action" onClick={() => { setLoadingList(true); void refresh(); }}>Refresh</button></div></div>
+    <div className="section-heading"><div><span className="eyebrow">DURABLE LOCAL EXECUTION</span><h2>Gateway mission engine</h2><p>Server-persisted workflow with a checksummed store, bounded deterministic task allowlist, memory-readiness gate, and evidence trace.</p><small role="status">{listQuery.refreshing ? 'Refreshing mission store…' : listQuery.updatedAt ? `Last checked ${new Date(listQuery.updatedAt).toLocaleTimeString()} · automatic updates while visible` : 'Checking mission store…'}</small></div><div className="durable-mission-toolbar"><span className={integrity?.valid ? 'durable-store-state ready' : 'durable-store-state'}>{integrity?.valid ? 'STORE VERIFIED' : loadingList ? 'CHECKING STORE' : 'STORE UNAVAILABLE'}</span><button type="button" className="mini-action" disabled={listQuery.refreshing || detailQuery.refreshing || healthQuery.refreshing} onClick={() => void refresh()}>Refresh</button></div></div>
     <div className={`gateway-health-summary ${gatewayHealth?.status === 'ready' ? 'ready' : ''}`} role="status"><strong>{gatewayHealth ? gatewayHealth.status === 'ready' ? 'System ready' : 'System degraded' : gatewayHealthError ? 'Gateway health unavailable' : 'Checking gateway health'}</strong><span>{gatewayHealth ? `Worker ${workerHealthLabel(gatewayHealth.worker)} · memory ${gatewayHealth.memory.status} (${gatewayHealth.memory.count ?? '—'} records) · mission store ${gatewayHealth.missions.status} (${gatewayHealth.missions.count ?? '—'} missions) · ${gatewayHealth.connectors.filter((connector) => connector.status === 'connected').length}/${gatewayHealth.connectors.length} connector reads successful · correlation ${gatewayHealth.correlationId}` : gatewayHealthError || 'Health checks worker heartbeat, local vault integrity, mission storage, and connector state.'}</span></div>
-    {error && <p role="alert" className="mission-runtime-error">{error}</p>}{notice && <p role="status" className="studio-notice">{notice}</p>}
+    {(error || queryError) && <p role="alert" className="mission-runtime-error">{error || queryError} <button type="button" className="text-action" onClick={() => void refresh()}>Retry mission service</button></p>}{notice && <p role="status" className="studio-notice">{notice}</p>}
     {!loading && data && <div className="durable-source-grid" aria-label="Connector read status and provenance">{(['junksnap', 'clearsky', 'teesri', 'vayu'] as const).map((source) => {
       const item = data.sources[source];
       const statusText = item.mode === 'mock' ? 'SIMULATED FALLBACK' : item.connection === 'contract_invalid' ? 'CONTRACT INVALID' : item.connection === 'connected' ? (item.provenance?.mode === 'model' || item.provenance?.mode === 'replay' ? `CONNECTED · ${item.provenance.mode.toUpperCase()}` : 'CONNECTED · SOURCE SNAPSHOT') : 'DISCONNECTED';
       return <details className="durable-source-item" key={source}><summary><span className={item.connection === 'connected' && item.mode === 'live' ? 'source-led connected' : 'source-led'} /><strong>{item.label}</strong><small>{statusText}</small>{item.provenance?.cacheHit && <em>cached</em>}</summary><div><span>Schema: {item.provenance?.schema ?? 'not validated'}</span><span>Fetched: {item.provenance?.fetchedAt ? new Date(item.provenance.fetchedAt).toLocaleString() : 'no source response'}</span>{item.provenance && <span>Latency: {item.provenance.elapsedMs} ms · {item.provenance.attempts} attempt(s)</span>}{item.error && <p role="alert">{item.error.code}: {item.error.message}</p>}</div></details>;
     })}</div>}
     {!loading && <div className="durable-mission-toolbar"><span className="durable-mission-disclosure">Snapshot source modes are carried into each observation. Disconnected feeds remain visibly simulated. No specialist write actions run here.</span><button type="button" className="mini-action" onClick={() => void createFromSnapshot()} disabled={busy || !data}>Create from current snapshot</button></div>}
-    {!loadingList && missions.length > 0 && <label className="durable-mission-picker"><span>Persistent mission history</span><select value={selectedId} onChange={(event) => void selectMission(event.target.value)}>{missions.map((mission) => <option key={mission.id} value={mission.id}>{mission.title} · {mission.status}</option>)}</select></label>}
+    {!loadingList && missions.length > 0 && <label className="durable-mission-picker"><span>Persistent mission history</span><select value={targetId} disabled={busy} onChange={(event) => selectMission(event.target.value)}>{missions.map((mission) => <option key={mission.id} value={mission.id}>{mission.title} · {mission.status}</option>)}</select></label>}
     {selected && <div className="durable-mission-detail">
       <div className="mission-runtime-top"><div><span className="eyebrow">{selected.status} · {selected.id.slice(0, 8)}</span><h3>{selected.title}</h3><small>Correlation {selected.correlationId}</small></div><div className="mission-runtime-actions">
-        {selected.status === 'CREATED' && <button className="mini-action" disabled={busy} onClick={() => void action('validate')}>Validate + queue</button>}
-        {selected.status === 'QUEUED' && <button className="mini-action" disabled={busy} onClick={() => void action('run')}>{selected.memoryRetrieval ? 'Refresh gate & queue' : 'Queue local worker'}</button>}
-        {selected.status === 'RUNNING' && <button className="mini-action" disabled={busy} onClick={() => void action('pause')}>Pause</button>}
-        {selected.status === 'PAUSED' && <button className="mini-action" disabled={busy} onClick={() => void action('resume')}>Resume</button>}
-        {!['COMPLETED', 'CANCELLED'].includes(selected.status) && <button className="mini-action" disabled={busy} onClick={() => void action('cancel')}>Cancel</button>}
-        <button className="mini-action" disabled={busy} onClick={exportReport}>Export evidence report</button>
+        {selected.status === 'CREATED' && <button className="mini-action" disabled={actionBlocked} onClick={() => void action('validate')}>Validate + queue</button>}
+        {selected.status === 'VALIDATED' && <button className="mini-action" disabled={actionBlocked} onClick={() => void action('queue')}>Queue validated mission</button>}
+        {selected.status === 'QUEUED' && <button className="mini-action" disabled={actionBlocked} onClick={() => void action('run')}>{selected.memoryRetrieval ? 'Refresh gate & queue' : 'Queue local worker'}</button>}
+        {selected.status === 'RUNNING' && <button className="mini-action" disabled={actionBlocked} onClick={() => void action('pause')}>Pause</button>}
+        {selected.status === 'PAUSED' && <button className="mini-action" disabled={actionBlocked} onClick={() => void action('resume')}>Resume</button>}
+        {!['COMPLETED', 'CANCELLED'].includes(selected.status) && <button className="mini-action" disabled={actionBlocked} onClick={() => void action('cancel')}>Cancel</button>}
+        <button className="mini-action" disabled={actionBlocked || !detail} onClick={exportReport}>Export evidence report</button>
       </div></div>
-      <div className="durable-task-list">{selected.tasks.map((task) => <details className="durable-task" key={task.id} open={task.status === 'FAILED'}><summary><span>{task.status}</span><strong>{task.title}</strong><small>{task.type}{task.dependsOn.length ? ` · after ${task.dependsOn.join(', ')}` : ''}</small></summary><div className="durable-task-content">{task.failure && <p role="alert">{task.failure.code}: {task.failure.message}</p>}{task.output && <><h4>Output artifact</h4><pre>{JSON.stringify(task.output, null, 2)}</pre></>}{task.evidence && <><h4>Execution evidence</h4><pre>{JSON.stringify(task.evidence, null, 2)}</pre></>}</div></details>)}</div>
+      <div className="durable-task-list">{selected.tasks.map((task) => <details className="durable-task" key={`${selected.id}:${task.id}`} open={task.status === 'FAILED' || task.status === 'WAITING_APPROVAL'}><summary><span>{task.status}</span><strong>{task.title}</strong><small>{task.type}{task.dependsOn.length ? ` · after ${task.dependsOn.join(', ')}` : ''}</small></summary><div className="durable-task-content"><h4>Task input</h4><pre>{JSON.stringify(task.input, null, 2)}</pre>{task.failure && <p role="alert">{task.failure.code}: {task.failure.message}</p>}{task.output && <><h4>Output artifact</h4><pre>{JSON.stringify(task.output, null, 2)}</pre></>}{task.evidence && <><h4>Execution evidence</h4><pre>{JSON.stringify(task.evidence, null, 2)}</pre></>}{task.approval && <><h4>Human decision</h4><pre>{JSON.stringify(task.approval, null, 2)}</pre></>}<TaskDecision key={`${selected.id}:${task.id}:${task.status}`} waitingApproval={task.status === 'WAITING_APPROVAL'} retryable={['FAILED', 'BLOCKED'].includes(selected.status) && ['FAILED', 'BLOCKED'].includes(task.status)} blocked={actionBlocked} onDecide={(decision, operator, comment) => decideTask(task.id, decision, operator, comment)} /></div></details>)}</div>
       <div className="mission-timeline"><div className="mission-timeline-head"><h4>Durable event timeline</h4><span>{events.length} events · reload-safe</span></div>{events.map((item) => <div className="mission-timeline-event" key={item.id}><time dateTime={item.at}>{new Date(item.at).toLocaleString()}</time><div><strong>{item.type}</strong><p>{item.taskId ? `Task ${item.taskId} · ` : ''}{JSON.stringify(item.details)}</p></div></div>)}</div>
     </div>}
-    {!loadingList && missions.length === 0 && <div className="mission-empty-state"><strong>No gateway missions yet</strong><span>Create a source review mission after the unified snapshot is loaded. The browser-only plans below remain separate and preserved.</span></div>}
+    {loadingList && <p role="status">Loading persistent mission history…</p>}
+    {!loadingList && !listQuery.error && missions.length === 0 && <div className="mission-empty-state"><strong>No gateway missions yet</strong><span>Create a source review mission after the unified snapshot is loaded. The browser-only plans below remain separate and preserved.</span></div>}
     <p className="durable-mission-disclosure">A separate local worker process claims queued tasks only after memory readiness passes; retrieval traces older than five minutes are not claimable. Three task types perform bounded local transformations; the connector task reads only reviewed ClearSky aggregates or Vayu samples at configured city centers. Vayu output is capped at 24 timestamped PM2.5 samples and omits place/station identifiers, coordinates, and free-text rationale. Tasks cannot run shell commands or access general filesystems, databases, arbitrary network destinations, or specialist write actions. Memory IDs are recorded for traceability; handlers do not interpret memory instructions. The launcher supervises the worker; manual development can run `npm run worker` separately.</p>
   </section>;
 }
@@ -337,22 +327,59 @@ export function MissionRuntime({ title, place, focus, capabilityIds, data, onLoa
   const [error, setError] = useState(initialState.error);
   const [notice, setNotice] = useState('');
   const [persistenceReady, setPersistenceReady] = useState(!initialState.error);
+  const missionsRef = useRef(initialState.missions);
+  const handledFocus = useRef<string | null>(null);
   const active = missions.find((item) => item.id === activeId) ?? null;
   const nextStage = active ? STAGES.find((stage) => active.stages[stage.id] === 'ready') : undefined;
   const eventCount = useMemo(() => active?.events.length ?? 0, [active]);
 
-  function commit(next: MissionRecord[]) {
+  const syncHistory = useCallback(() => {
+    try {
+      const next = readMissions();
+      missionsRef.current = next;
+      setMissions(next);
+      setPersistenceReady(true);
+    } catch (cause) {
+      setPersistenceReady(false);
+      setError(cause instanceof Error ? cause.message : 'Could not synchronize browser mission history.');
+    }
+  }, []);
+
+  useEffect(() => {
+    const onStorage = (change: StorageEvent) => { if (change.key === STORAGE_KEY || change.key === null) syncHistory(); };
+    window.addEventListener('storage', onStorage);
+    window.addEventListener('focus', syncHistory);
+    return () => { window.removeEventListener('storage', onStorage); window.removeEventListener('focus', syncHistory); };
+  }, [syncHistory]);
+
+  function commit(change: (current: MissionRecord[]) => MissionRecord[]) {
+    let current = missionsRef.current;
+    if (persistenceReady) {
+      try { current = readMissions(); }
+      catch (cause) {
+        setPersistenceReady(false);
+        setError(cause instanceof Error ? cause.message : 'Could not read the latest mission history.');
+        return false;
+      }
+    }
+    const next = change(current);
+    missionsRef.current = next;
     setMissions(next);
-    if (!persistenceReady) return;
-    try { saveMissions(next); }
+    if (!persistenceReady) return false;
+    try { saveMissions(next); window.dispatchEvent(new Event('climate-chain:missions-changed')); return true; }
     catch {
       setPersistenceReady(false);
       setError('Mission changes are visible for this session but browser storage failed. Export the report before closing this tab.');
+      return false;
     }
   }
 
   function update(id: string, change: (mission: MissionRecord) => MissionRecord) {
-    commit(missions.map((mission) => mission.id === id ? change(mission) : mission));
+    commit((current) => current.map((mission) => {
+      if (mission.id !== id) return mission;
+      const updated = change(mission);
+      return updated.report ? { ...updated, report: reportFor(updated, data) } : updated;
+    }));
   }
 
   function create() {
@@ -363,8 +390,8 @@ export function MissionRuntime({ title, place, focus, capabilityIds, data, onLoa
       createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
       events: [event('Mission created', 'Saved as a local plan. No source project was contacted.')],
     };
-    commit([record, ...missions]); setActiveId(record.id);
-    try { localStorage.setItem(`${STORAGE_KEY}.active`, record.id); setNotice('Mission saved to this browser.'); }
+    const persisted = commit((current) => [record, ...current]); setActiveId(record.id);
+    try { localStorage.setItem(`${STORAGE_KEY}.active`, record.id); setNotice(persisted ? 'Mission saved to this browser.' : 'Mission is available for this session. Export JSON to keep a portable copy.'); }
     catch { setError('The browser could not persist the active mission pointer. Export the report to keep a portable copy.'); }
   }
 
@@ -374,9 +401,11 @@ export function MissionRuntime({ title, place, focus, capabilityIds, data, onLoa
   }, [onLoadMission]);
 
   useEffect(() => {
-    if (!focusMissionId) return;
+    if (!focusMissionId) { handledFocus.current = null; return; }
+    if (handledFocus.current === focusMissionId) return;
     const mission = missions.find((item) => item.id === focusMissionId);
-    if (!mission || mission.id === activeId) return;
+    if (!mission) return;
+    handledFocus.current = focusMissionId;
     selectMission(mission);
     const timer = window.setTimeout(() => document.getElementById(`mission-history-${mission.id}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 80);
     return () => window.clearTimeout(timer);
@@ -423,7 +452,7 @@ export function MissionRuntime({ title, place, focus, capabilityIds, data, onLoa
 
   function exportReport(mission = active) {
     if (!mission) return;
-    const content = mission.report ?? reportFor(mission, data);
+    const content = reportFor(mission, data);
     const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement('a'); anchor.href = url; anchor.download = `${(mission.title || 'mission').toLowerCase().replace(/[^a-z0-9]+/g, '-')}-report.md`; anchor.click();
@@ -448,7 +477,7 @@ export function MissionRuntime({ title, place, focus, capabilityIds, data, onLoa
       const candidate = parsed && typeof parsed === 'object' && 'mission' in parsed ? (parsed as { mission: unknown }).mission : parsed;
       if (!validMission(candidate)) throw new Error('This JSON is not a supported Climate Chain mission record.');
       const imported = { ...candidate, id: crypto.randomUUID(), approved: false, status: 'planned' as const, stages: { ...EMPTY_STAGES }, updatedAt: new Date().toISOString(), events: [event('Mission imported', 'Imported as a fresh plan; previous stage status and approval were not carried forward.'), ...candidate.events] };
-      commit([imported, ...missions]); setActiveId(imported.id); setNotice('Mission imported as a new, unapproved local plan.');
+      const persisted = commit((current) => [imported, ...current]); setActiveId(imported.id); setNotice(persisted ? 'Mission imported as a new, unapproved local plan.' : 'Mission imported for this session. Export JSON to keep a portable copy.');
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : 'Could not import mission JSON.');
     }
@@ -456,14 +485,14 @@ export function MissionRuntime({ title, place, focus, capabilityIds, data, onLoa
 
   function remove(mission: MissionRecord) {
     if (!window.confirm(`Delete local mission “${mission.title}” and its timeline?`)) return;
-    commit(missions.filter((item) => item.id !== mission.id));
+    commit((current) => current.filter((item) => item.id !== mission.id));
     if (activeId === mission.id) setActiveId(null);
     setNotice('Local mission removed.');
   }
 
   return <><DurableMissionPanel title={title} place={place} data={data} loading={!data} /><section className="card mission-runtime" aria-label="Browser-local planning workflow">
     <div className="section-heading"><div><span className="eyebrow">MISSION HISTORY · LOCAL WORKFLOW</span><h2>Save, simulate, and review</h2><p>Mission records and event timelines persist in this browser. Dry-run steps are simulated and do not call the 13 source projects.</p></div>
-      <div className="mission-runtime-actions"><button type="button" className="mini-action" onClick={() => document.getElementById('mission-import-file')?.click()}>Import JSON</button><input id="mission-import-file" type="file" accept="application/json,.json" hidden onChange={(event) => { void importMission(event.currentTarget.files?.[0]); event.currentTarget.value = ''; }} /><button type="button" className="mini-action" onClick={create} disabled={!capabilityIds.length}>Save current plan</button></div>
+      <div className="mission-runtime-actions"><button type="button" className="mini-action" onClick={syncHistory}>Refresh local history</button><button type="button" className="mini-action" onClick={() => document.getElementById('mission-import-file')?.click()}>Import JSON</button><input id="mission-import-file" type="file" accept="application/json,.json" hidden onChange={(event) => { void importMission(event.currentTarget.files?.[0]); event.currentTarget.value = ''; }} /><button type="button" className="mini-action" onClick={create} disabled={!capabilityIds.length}>Save current plan</button></div>
     </div>
     {error && <p role="alert" className="mission-runtime-error">{error}</p>}{notice && <p role="status" className="studio-notice">{notice}</p>}
     {missions.length > 0 && <div className="mission-history" aria-label="Saved mission history">{missions.map((mission) => <article id={`mission-history-${mission.id}`} className={'mission-history-item' + (mission.id === activeId ? ' active' : '')} key={mission.id}>

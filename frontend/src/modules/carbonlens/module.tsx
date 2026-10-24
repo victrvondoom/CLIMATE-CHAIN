@@ -15,24 +15,36 @@ function CarbonLensPage() {
   const serials = useMemo(() => auditSerials(ledger.entries), []);
   const [checks, setChecks] = useState<HashCheck[] | null>(null);
   const [status, setStatus] = useState('');
+  const [query, setQuery] = useState('');
+  const [onlyIssues, setOnlyIssues] = useState(false);
+  const [revision, setRevision] = useState(0);
+  const [verificationError, setVerificationError] = useState<string | null>(null);
+  const [recording, setRecording] = useState(false);
 
   useEffect(() => {
     let live = true;
+    setChecks(null);
+    setVerificationError(null);
     void checkReportHashes(results.projects).then((rows) => {
       if (live) setChecks(rows);
-    });
+    }).catch((error: unknown) => { if (live) setVerificationError(error instanceof Error ? error.message : 'Report verification failed.'); });
     return () => {
       live = false;
     };
-  }, []);
+  }, [revision]);
 
   const ledgerRows = useMemo(() => (checks ? compareWithLedger(ledger.entries, checks) : []), [checks]);
   const model = results.model;
   const cm = model.confusion_matrix_ref_x_map;
   const matching = checks ? checks.filter((c) => c.matches).length : 0;
+  const visibleProjects = results.projects.filter((project) => `${project.project_id} ${project.country} ${project.status}`.toLowerCase().includes(query.toLowerCase()));
+  const projectIds = new Set(visibleProjects.map((project) => project.project_id));
+  const visibleChecks = checks?.filter((check) => projectIds.has(check.project_id) && (!onlyIssues || !check.matches || !ledgerRows.find((row) => row.project_id === check.project_id)?.same));
 
   async function recordChecks() {
     if (!checks) return;
+    setRecording(true);
+    try {
     const entry = await createEvidence({
       moduleId: 'carbonlens',
       kind: 'report-hash-check',
@@ -48,6 +60,8 @@ function CarbonLensPage() {
         ? `Recorded ${entry.id.slice(0, 8)} with digest ${short(entry.sha256)}.`
         : 'Not saved: browser storage is unavailable. The checks are still shown here.',
     );
+    } catch (error) { setStatus(error instanceof Error ? error.message : 'Could not record the checks.'); }
+    finally { setRecording(false); }
   }
 
   return (
@@ -65,6 +79,14 @@ function CarbonLensPage() {
           RESEARCH
         </span>
       </header>
+
+      <div className="data-controls">
+        <label>Find project <input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Project identifier, country, status…" /></label>
+        <label><input type="checkbox" checked={onlyIssues} onChange={(event) => setOnlyIssues(event.target.checked)} />Only mismatching hashes</label>
+        <button type="button" disabled={!checks && !verificationError} onClick={() => setRevision((value) => value + 1)}>{!checks && !verificationError ? 'Verifying…' : 'Re-run report verification'}</button>
+        <span role="status">{visibleProjects.length} of {results.projects.length} projects</span>
+      </div>
+      {verificationError && <p role="alert">Verification unavailable: {verificationError}</p>}
 
       <Card>
         <h3>Random-forest land classification</h3>
@@ -124,7 +146,7 @@ function CarbonLensPage() {
               </tr>
             </thead>
             <tbody>
-              {results.projects.map((p) => (
+              {visibleProjects.map((p) => (
                 <tr key={p.project_id}>
                   <td>
                     {p.project_id} <span className="m-carbonlens-muted">{p.country}</span>
@@ -161,6 +183,7 @@ function CarbonLensPage() {
             </thead>
             <tbody>
               {ledger.entries.map((e, i) => {
+                if (!projectIds.has(e.project_id)) return null;
                 const issues = serials.entries[i].issues;
                 return (
                   <tr key={e.project_id}>
@@ -197,7 +220,7 @@ function CarbonLensPage() {
                 </tr>
               </thead>
               <tbody>
-                {checks.map((c) => {
+                {visibleChecks?.map((c) => {
                   const row = ledgerRows.find((r) => r.project_id === c.project_id);
                   return (
                     <tr key={c.project_id}>
@@ -213,12 +236,13 @@ function CarbonLensPage() {
             </table>
           </div>
         ) : (
-          <p className="m-carbonlens-note">Computing SHA-256 digests…</p>
+          <p className="m-carbonlens-note">{verificationError ? 'Report verification failed. Re-run verification to try again.' : 'Computing SHA-256 digests…'}</p>
         )}
         <div className="m-carbonlens-actions">
-          <button type="button" className="m-carbonlens-button" onClick={() => void recordChecks()} disabled={!checks}>
-            Record these checks to the evidence ledger
+          <button type="button" className="m-carbonlens-button" onClick={() => void recordChecks()} disabled={!checks || recording}>
+            {recording ? 'Saving checks…' : 'Record all checks to the evidence ledger'}
           </button>
+          {checks && visibleChecks?.length === 0 && <p role="status">No hash checks match these filters.</p>}
           {status ? <p className="m-carbonlens-note" role="status">{status}</p> : null}
           <p className="m-carbonlens-note">
             {checks ? `${matching} of ${checks.length} report hashes match.` : ''}

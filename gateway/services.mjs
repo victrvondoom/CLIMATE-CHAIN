@@ -102,6 +102,7 @@ export function normalizeFire(stats) {
     tonnesBooked: stats.tonnes_booked,
     tonnesDelivered: stats.tonnes_delivered,
     payoutsEstimatedInr: stats.payouts_estimated_inr,
+    demoPrices: typeof stats.demo_prices === 'boolean' ? stats.demo_prices : null,
     redFields: stats.red_fields,
     yellowFields: stats.yellow_fields,
     alertsSent: stats.alerts_sent,

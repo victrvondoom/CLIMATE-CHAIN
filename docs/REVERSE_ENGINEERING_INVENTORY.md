@@ -64,3 +64,12 @@ Other notes:
 - PLUME, grounded, rantai-3c, gridproof, carbontwin's source, and CarbonTrace were not built or run here.
 - ClimateProof AI is linked as a launch point only; its FastAPI and Streamlit apps are not wired into the gateway.
 - The hackathon test and evidence figures are the projects' own claims and have not been independently checked.
+
+## Feature catalogue and workspace search
+
+- Features in the 18 project folders and the central product are listed once in [`FEATURE_CATALOG.md`](FEATURE_CATALOG.md) and [`../registry/features.json`](../registry/features.json). Shared capabilities use one canonical feature with each project's status, summary, and file:line evidence retained as a separate implementation. Project entries point to canonical feature IDs.
+- Project tracks are defined once in [`../registry/projects.json`](../registry/projects.json), served with the registry at `/api/v1/projects`, and used by the capability library, Launchpad, and mission studio. Cross-listed projects keep one project record and appear in every applicable track.
+- Method: read-only source reading by seven code-explorer passes, one per group of projects, plus the central gateway and frontend. The raw per-project records are in [`feature-audit/`](feature-audit/). Nothing was run, so statuses come from reading the code and the projects' own claims are marked as such.
+- Merge: `node scripts/build-feature-catalogue.mjs` rebuilds both files, collapses normalized duplicate names and reviewed repeated audit IDs, and fails if any registry claim would be lost. A registry feature with no matching code feature is carried over as `unverified` (three today). `gateway/tests/feature-catalogue.test.mjs` checks canonical uniqueness, project links, and retained evidence.
+- Search: `GET /api/v1/knowledge/search?q=…&limit=…` and `GET /api/v1/knowledge/sources` return ranked, redacted excerpts from the root docs, project READMEs and docs, the registry and the catalogue, each with its source file and line. This is lexical BM25 only, so it generates no answer. The capability library has a search panel.
+- REA was not used. These are source repositories, and REA is for shipped binaries and runtime capture.

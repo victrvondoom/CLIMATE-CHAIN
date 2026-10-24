@@ -59,6 +59,19 @@ export function assessCascade({ site, air, wasteMode, airUpstreamMode, sourceUrl
     : temporalGapHours <= thresholds.timeWindowHours &&
       siteAgeHours >= 0 && airAgeHours >= 0 &&
       siteAgeHours <= thresholds.timeWindowHours && airAgeHours <= thresholds.timeWindowHours;
+  const coverageDimensions = {
+    observedSources: sourceEligible,
+    monitorDistance: spatialEligible !== null,
+    reportAndReadingTimes: temporalEligible !== null,
+  };
+  const availableDimensions = Object.values(coverageDimensions).filter(Boolean).length;
+  const coverage = {
+    score: Math.round((availableDimensions / 3) * 100),
+    availableDimensions,
+    totalDimensions: 3,
+    dimensions: coverageDimensions,
+    meaning: 'Evidence availability only; it does not score threshold success, accuracy, causality, emissions or climate impact.',
+  };
 
   let status = 'not_evaluable';
   if (!validPoint(site)) status = 'missing_location';
@@ -81,6 +94,7 @@ export function assessCascade({ site, air, wasteMode, airUpstreamMode, sourceUrl
       nearestMonitorWithinRadius: spatialEligible,
       observationsWithinTimeWindow: temporalEligible,
     },
+    coverage,
     proximity: {
       nearestMonitorDistanceKm: distanceKm,
       distanceMeaning: 'Vayu-reported distance from the rounded query point to its nearest monitor; monitor coordinates are not included in this response.',

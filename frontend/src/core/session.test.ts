@@ -71,6 +71,19 @@ describe('review queue', () => {
     expect(result.item?.note).toHaveLength(MAX_NOTE);
   });
 
+  it('keeps the first human decision when two actions overlap', async () => {
+    stubStorage();
+    const { item } = await queuePacket(await packet());
+    const results = await Promise.all([
+      decide(item.id, 'accepted', 'First review'),
+      decide(item.id, 'rejected', 'Second review'),
+    ]);
+    expect(results.filter((result) => result.alreadyDecided)).toHaveLength(1);
+    expect(readLedger()).toHaveLength(1);
+    const [saved] = readSession();
+    expect(readLedger()[0].payload).toMatchObject({ verdict: saved.status, note: saved.note });
+  });
+
   it('does nothing for an unknown packet', async () => {
     stubStorage();
     const result = await decide('no-such-id', 'rejected', '');

@@ -42,7 +42,7 @@ export function Sparkline({ hours, max = 250 }: { hours: { t: string; pm25: numb
     return `${x.toFixed(1)},${y.toFixed(1)}`;
   });
   return (
-    <svg className="sparkline" viewBox={`0 0 ${w} ${h}`} preserveAspectRatio="none" role="img" aria-label="24 hour PM2.5">
+    <svg className="sparkline" viewBox={`0 0 ${w} ${h}`} preserveAspectRatio="none" role="img" aria-label={`PM2.5 trend across ${hours.length} readings`}>
       <polyline className="spark-line" points={points.join(' ')} />
       <polyline className="spark-fill" points={`0,${h} ${points.join(' ')} ${w},${h}`} />
       <line x1="0" y1={h - (115 / max) * h} x2={w} y2={h - (115 / max) * h} className="who-line" />
@@ -74,10 +74,16 @@ export function ModuleTag({ modules }: { modules: string[] }) {
   );
 }
 
-export function ExternalLink({ href, children }: { href: string; children: ReactNode }) {
+export function ExternalLink({ href: _href, children, onClick }: { href?: string; children: ReactNode; onClick?: () => void }) {
   return (
-    <a className="ext" href={href} target="_blank" rel="noreferrer noopener">
-      {children} <span aria-hidden>↗</span>
-    </a>
+    <button
+      type="button"
+      className="ext-inapp"
+      onClick={onClick}
+      title="Integrated natively into Climate Chain centralized workflow"
+    >
+      <span className="ext-label">{children}</span>
+      <span className="ext-tag">Centralized In-App</span>
+    </button>
   );
 }

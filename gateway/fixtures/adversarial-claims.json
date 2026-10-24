@@ -1,0 +1,4600 @@
+[
+  {
+    "id": 1,
+    "name": "Valid Environmental Observation 1 (Anand Vihar, Delhi)",
+    "category": "VALID_OBSERVATION",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-obs-1",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monitoring_0"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-e3fd7c82528b2453d2eae9b3",
+          "digest": "2ceeef85101874b5134d88bbe2e2b2bc7313fe370ec5a5bdfcb5db2ce116df59"
+        }
+      ],
+      "result": {
+        "statement": "Observed ambient concentration",
+        "value": 15,
+        "basis": "OBSERVED_MONITOR"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-e3fd7c82528b2453d2eae9b3",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T08:00:00.000Z",
+        "endUtc": "2026-10-24T08:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-delhi-anand-vihar-analyte_0",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T08:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "analyte_0@1",
+          "analyte": "analyte_0",
+          "basis": "OBSERVED_MONITOR",
+          "value": 15,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T08:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T08:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "2ceeef85101874b5134d88bbe2e2b2bc7313fe370ec5a5bdfcb5db2ce116df59"
+  },
+  {
+    "id": 2,
+    "name": "Valid Environmental Observation 2 (Ludhiana Agricultural Belt)",
+    "category": "VALID_OBSERVATION",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-obs-2",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "punjab-ludhiana",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monitoring_1"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-7f76b34f61bd0d643e646b6e",
+          "digest": "3f914967791bc03c8d284d3f2fe1704876bc7183db6f0aa0adf7c6037ab248b3"
+        }
+      ],
+      "result": {
+        "statement": "Observed ambient concentration",
+        "value": 17,
+        "basis": "OBSERVED_MONITOR"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-7f76b34f61bd0d643e646b6e",
+      "location": {
+        "siteId": "punjab-ludhiana",
+        "lat": 30.901,
+        "lon": 75.8573
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T08:00:00.000Z",
+        "endUtc": "2026-10-24T08:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-punjab-ludhiana-analyte_1",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T08:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "analyte_1@1",
+          "analyte": "analyte_1",
+          "basis": "OBSERVED_MONITOR",
+          "value": 17,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T08:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T08:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "3f914967791bc03c8d284d3f2fe1704876bc7183db6f0aa0adf7c6037ab248b3"
+  },
+  {
+    "id": 3,
+    "name": "Valid Environmental Observation 3 (Permian Basin Wellhead #4)",
+    "category": "VALID_OBSERVATION",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-obs-3",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "permian-basin-tx",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monitoring_2"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-2cca777896a333eb1af78209",
+          "digest": "3488e942ffe9e271f4e75d3a219cebc486d0d53f00a09278b684db47b9c401a9"
+        }
+      ],
+      "result": {
+        "statement": "Observed ambient concentration",
+        "value": 19,
+        "basis": "OBSERVED_MONITOR"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-2cca777896a333eb1af78209",
+      "location": {
+        "siteId": "permian-basin-tx",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T08:00:00.000Z",
+        "endUtc": "2026-10-24T08:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-permian-basin-tx-analyte_2",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T08:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "analyte_2@1",
+          "analyte": "analyte_2",
+          "basis": "OBSERVED_MONITOR",
+          "value": 19,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T08:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T08:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "3488e942ffe9e271f4e75d3a219cebc486d0d53f00a09278b684db47b9c401a9"
+  },
+  {
+    "id": 4,
+    "name": "Valid Environmental Observation 4 (Oloibiri Wellflow #2)",
+    "category": "VALID_OBSERVATION",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-obs-4",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "niger-delta-flaring",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monitoring_3"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-29e2cfc2bb167fa3b4f716bc",
+          "digest": "d13ff2a8e74aff7f98c8ec5d5dcd384814bf979546f94a156f8fee1dab7d48f0"
+        }
+      ],
+      "result": {
+        "statement": "Observed ambient concentration",
+        "value": 21,
+        "basis": "OBSERVED_MONITOR"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-29e2cfc2bb167fa3b4f716bc",
+      "location": {
+        "siteId": "niger-delta-flaring",
+        "lat": 4.685,
+        "lon": 6.24
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T08:00:00.000Z",
+        "endUtc": "2026-10-24T08:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-niger-delta-flaring-analyte_3",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T08:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "analyte_3@1",
+          "analyte": "analyte_3",
+          "basis": "OBSERVED_MONITOR",
+          "value": 21,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T08:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T08:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "d13ff2a8e74aff7f98c8ec5d5dcd384814bf979546f94a156f8fee1dab7d48f0"
+  },
+  {
+    "id": 5,
+    "name": "Valid Environmental Observation 5 (Acre Conservation Block C)",
+    "category": "VALID_OBSERVATION",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-obs-5",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "amazon-acre-forest",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monitoring_4"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-de1d721df942db737a29becd",
+          "digest": "1fa75d7cb2571c7e96197b6cba276e1c4d4403e4c7ee5bc1056fc3cf22eab577"
+        }
+      ],
+      "result": {
+        "statement": "Observed ambient concentration",
+        "value": 23,
+        "basis": "OBSERVED_MONITOR"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-de1d721df942db737a29becd",
+      "location": {
+        "siteId": "amazon-acre-forest",
+        "lat": -9.97,
+        "lon": -67.81
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T08:00:00.000Z",
+        "endUtc": "2026-10-24T08:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-amazon-acre-forest-analyte_4",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T08:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "analyte_4@1",
+          "analyte": "analyte_4",
+          "basis": "OBSERVED_MONITOR",
+          "value": 23,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T08:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T08:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "1fa75d7cb2571c7e96197b6cba276e1c4d4403e4c7ee5bc1056fc3cf22eab577"
+  },
+  {
+    "id": 6,
+    "name": "Valid Environmental Observation 6 (Anand Vihar, Delhi)",
+    "category": "VALID_OBSERVATION",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-obs-6",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monitoring_5"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-344cd06fa22912917b7a6c0d",
+          "digest": "66350e60ab930c66b747e38130d20a76df90bbc547d8d6a832c3a8398fcc338c"
+        }
+      ],
+      "result": {
+        "statement": "Observed ambient concentration",
+        "value": 25,
+        "basis": "OBSERVED_MONITOR"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-344cd06fa22912917b7a6c0d",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T08:00:00.000Z",
+        "endUtc": "2026-10-24T08:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-delhi-anand-vihar-analyte_5",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T08:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "analyte_5@1",
+          "analyte": "analyte_5",
+          "basis": "OBSERVED_MONITOR",
+          "value": 25,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T08:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T08:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "66350e60ab930c66b747e38130d20a76df90bbc547d8d6a832c3a8398fcc338c"
+  },
+  {
+    "id": 7,
+    "name": "Valid Environmental Observation 7 (Ludhiana Agricultural Belt)",
+    "category": "VALID_OBSERVATION",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-obs-7",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "punjab-ludhiana",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monitoring_6"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-87038da12b0f1ccd1a43b006",
+          "digest": "730204d1651985c450f1f7df65bf8107ccbd5a9a1aca03f003aadf8f09d25543"
+        }
+      ],
+      "result": {
+        "statement": "Observed ambient concentration",
+        "value": 27,
+        "basis": "OBSERVED_MONITOR"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-87038da12b0f1ccd1a43b006",
+      "location": {
+        "siteId": "punjab-ludhiana",
+        "lat": 30.901,
+        "lon": 75.8573
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T08:00:00.000Z",
+        "endUtc": "2026-10-24T08:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-punjab-ludhiana-analyte_6",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T08:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "analyte_6@1",
+          "analyte": "analyte_6",
+          "basis": "OBSERVED_MONITOR",
+          "value": 27,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T08:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T08:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "730204d1651985c450f1f7df65bf8107ccbd5a9a1aca03f003aadf8f09d25543"
+  },
+  {
+    "id": 8,
+    "name": "Valid Environmental Observation 8 (Permian Basin Wellhead #4)",
+    "category": "VALID_OBSERVATION",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-obs-8",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "permian-basin-tx",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monitoring_7"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-64113e200d7e42fddd4bfb38",
+          "digest": "9b3558403273b0a81dedfc1d70c154ddd0cf47e4250e62605f5e96a3b6f9ac35"
+        }
+      ],
+      "result": {
+        "statement": "Observed ambient concentration",
+        "value": 29,
+        "basis": "OBSERVED_MONITOR"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-64113e200d7e42fddd4bfb38",
+      "location": {
+        "siteId": "permian-basin-tx",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T08:00:00.000Z",
+        "endUtc": "2026-10-24T08:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-permian-basin-tx-analyte_7",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T08:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "analyte_7@1",
+          "analyte": "analyte_7",
+          "basis": "OBSERVED_MONITOR",
+          "value": 29,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T08:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T08:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "9b3558403273b0a81dedfc1d70c154ddd0cf47e4250e62605f5e96a3b6f9ac35"
+  },
+  {
+    "id": 9,
+    "name": "Valid Environmental Observation 9 (Oloibiri Wellflow #2)",
+    "category": "VALID_OBSERVATION",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-obs-9",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "niger-delta-flaring",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monitoring_8"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-73157291202db05c5c6e6f08",
+          "digest": "827a4875b3fb28ac425835e5601d44848f3d3990e97404f2615b9f9cf2e4e8be"
+        }
+      ],
+      "result": {
+        "statement": "Observed ambient concentration",
+        "value": 31,
+        "basis": "OBSERVED_MONITOR"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-73157291202db05c5c6e6f08",
+      "location": {
+        "siteId": "niger-delta-flaring",
+        "lat": 4.685,
+        "lon": 6.24
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T08:00:00.000Z",
+        "endUtc": "2026-10-24T08:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-niger-delta-flaring-analyte_8",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T08:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "analyte_8@1",
+          "analyte": "analyte_8",
+          "basis": "OBSERVED_MONITOR",
+          "value": 31,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T08:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T08:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "827a4875b3fb28ac425835e5601d44848f3d3990e97404f2615b9f9cf2e4e8be"
+  },
+  {
+    "id": 10,
+    "name": "Valid Environmental Observation 10 (Acre Conservation Block C)",
+    "category": "VALID_OBSERVATION",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-obs-10",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "amazon-acre-forest",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monitoring_9"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-a4b8811d03a2aee1a6ab7e37",
+          "digest": "94389dd84ce1c455076207721e03684881c3dd63d92ea79047c772082cc65007"
+        }
+      ],
+      "result": {
+        "statement": "Observed ambient concentration",
+        "value": 33,
+        "basis": "OBSERVED_MONITOR"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-a4b8811d03a2aee1a6ab7e37",
+      "location": {
+        "siteId": "amazon-acre-forest",
+        "lat": -9.97,
+        "lon": -67.81
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T08:00:00.000Z",
+        "endUtc": "2026-10-24T08:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-amazon-acre-forest-analyte_9",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T08:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "analyte_9@1",
+          "analyte": "analyte_9",
+          "basis": "OBSERVED_MONITOR",
+          "value": 33,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T08:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T08:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "94389dd84ce1c455076207721e03684881c3dd63d92ea79047c772082cc65007"
+  },
+  {
+    "id": 11,
+    "name": "Valid Risk Alert 1 (Anand Vihar, Delhi)",
+    "category": "VALID_RISK_ALERT",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-risk-11",
+      "claimType": "ENVIRONMENTAL_RISK_ALERT",
+      "scope": {
+        "domain": "fire_prevention",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "burn_risk_alert"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-500d33e69d557636a71b25ff",
+          "digest": "50b49b833df6402c854745466bd762a5717312a6ae771c327ab8d9664a9851b8"
+        }
+      ],
+      "result": {
+        "statement": "High fire ignition probability in next 48 hours",
+        "value": 0.82,
+        "basis": "PREDICTIVE_RADAR"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-500d33e69d557636a71b25ff",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-delhi-anand-vihar-burn_risk_index",
+          "dataKind": "PREDICTIVE_MODEL",
+          "basis": "MODEL_FORECAST",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "burn_risk_index@1",
+          "analyte": "burn_risk_index",
+          "basis": "MODEL_FORECAST",
+          "value": 0.82,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "forecastHorizonHours": 48
+    },
+    "expectedDigest": "50b49b833df6402c854745466bd762a5717312a6ae771c327ab8d9664a9851b8"
+  },
+  {
+    "id": 12,
+    "name": "Valid Risk Alert 2 (Ludhiana Agricultural Belt)",
+    "category": "VALID_RISK_ALERT",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-risk-12",
+      "claimType": "ENVIRONMENTAL_RISK_ALERT",
+      "scope": {
+        "domain": "fire_prevention",
+        "boundary": "punjab-ludhiana",
+        "timeEpoch": "2026-10-24",
+        "activityType": "burn_risk_alert"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-547362f51157290ba40a12a4",
+          "digest": "3f5dc01f1ffd8563d1b40355e167a0bef3931fe04710f6e72428941ea2272e2d"
+        }
+      ],
+      "result": {
+        "statement": "High fire ignition probability in next 48 hours",
+        "value": 0.82,
+        "basis": "PREDICTIVE_RADAR"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-547362f51157290ba40a12a4",
+      "location": {
+        "siteId": "punjab-ludhiana",
+        "lat": 30.901,
+        "lon": 75.8573
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-punjab-ludhiana-burn_risk_index",
+          "dataKind": "PREDICTIVE_MODEL",
+          "basis": "MODEL_FORECAST",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "burn_risk_index@1",
+          "analyte": "burn_risk_index",
+          "basis": "MODEL_FORECAST",
+          "value": 0.82,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "forecastHorizonHours": 48
+    },
+    "expectedDigest": "3f5dc01f1ffd8563d1b40355e167a0bef3931fe04710f6e72428941ea2272e2d"
+  },
+  {
+    "id": 13,
+    "name": "Valid Risk Alert 3 (Permian Basin Wellhead #4)",
+    "category": "VALID_RISK_ALERT",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-risk-13",
+      "claimType": "ENVIRONMENTAL_RISK_ALERT",
+      "scope": {
+        "domain": "fire_prevention",
+        "boundary": "permian-basin-tx",
+        "timeEpoch": "2026-10-24",
+        "activityType": "burn_risk_alert"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-d807e897e21a70bb222caa89",
+          "digest": "2a3f7fbfdd07f04c761bebe29498a8e72ab93975f0cce0a4a37649e08abcb3f8"
+        }
+      ],
+      "result": {
+        "statement": "High fire ignition probability in next 48 hours",
+        "value": 0.82,
+        "basis": "PREDICTIVE_RADAR"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-d807e897e21a70bb222caa89",
+      "location": {
+        "siteId": "permian-basin-tx",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-permian-basin-tx-burn_risk_index",
+          "dataKind": "PREDICTIVE_MODEL",
+          "basis": "MODEL_FORECAST",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "burn_risk_index@1",
+          "analyte": "burn_risk_index",
+          "basis": "MODEL_FORECAST",
+          "value": 0.82,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "forecastHorizonHours": 48
+    },
+    "expectedDigest": "2a3f7fbfdd07f04c761bebe29498a8e72ab93975f0cce0a4a37649e08abcb3f8"
+  },
+  {
+    "id": 14,
+    "name": "Valid Risk Alert 4 (Oloibiri Wellflow #2)",
+    "category": "VALID_RISK_ALERT",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-risk-14",
+      "claimType": "ENVIRONMENTAL_RISK_ALERT",
+      "scope": {
+        "domain": "fire_prevention",
+        "boundary": "niger-delta-flaring",
+        "timeEpoch": "2026-10-24",
+        "activityType": "burn_risk_alert"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-dbf6f99bb1fb01cc8f41ad3d",
+          "digest": "380024ef2fb9e2127e6dbf9605e75d62f5619aa1256b989b333f6b23c2702ce0"
+        }
+      ],
+      "result": {
+        "statement": "High fire ignition probability in next 48 hours",
+        "value": 0.82,
+        "basis": "PREDICTIVE_RADAR"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-dbf6f99bb1fb01cc8f41ad3d",
+      "location": {
+        "siteId": "niger-delta-flaring",
+        "lat": 4.685,
+        "lon": 6.24
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-niger-delta-flaring-burn_risk_index",
+          "dataKind": "PREDICTIVE_MODEL",
+          "basis": "MODEL_FORECAST",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "burn_risk_index@1",
+          "analyte": "burn_risk_index",
+          "basis": "MODEL_FORECAST",
+          "value": 0.82,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "forecastHorizonHours": 48
+    },
+    "expectedDigest": "380024ef2fb9e2127e6dbf9605e75d62f5619aa1256b989b333f6b23c2702ce0"
+  },
+  {
+    "id": 15,
+    "name": "Valid Risk Alert 5 (Acre Conservation Block C)",
+    "category": "VALID_RISK_ALERT",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-risk-15",
+      "claimType": "ENVIRONMENTAL_RISK_ALERT",
+      "scope": {
+        "domain": "fire_prevention",
+        "boundary": "amazon-acre-forest",
+        "timeEpoch": "2026-10-24",
+        "activityType": "burn_risk_alert"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-26dfa8e94bda4412ba80edd9",
+          "digest": "a040cd4f1b2dbf5bd08c7353923a2123bc34c3d13b278ea27545866ef75561f1"
+        }
+      ],
+      "result": {
+        "statement": "High fire ignition probability in next 48 hours",
+        "value": 0.82,
+        "basis": "PREDICTIVE_RADAR"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-26dfa8e94bda4412ba80edd9",
+      "location": {
+        "siteId": "amazon-acre-forest",
+        "lat": -9.97,
+        "lon": -67.81
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-amazon-acre-forest-burn_risk_index",
+          "dataKind": "PREDICTIVE_MODEL",
+          "basis": "MODEL_FORECAST",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "burn_risk_index@1",
+          "analyte": "burn_risk_index",
+          "basis": "MODEL_FORECAST",
+          "value": 0.82,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "forecastHorizonHours": 48
+    },
+    "expectedDigest": "a040cd4f1b2dbf5bd08c7353923a2123bc34c3d13b278ea27545866ef75561f1"
+  },
+  {
+    "id": 16,
+    "name": "Valid Intervention Completion 1 (Anand Vihar, Delhi)",
+    "category": "VALID_INTERVENTION",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-intervention-16",
+      "claimType": "INTERVENTION_COMPLETION",
+      "scope": {
+        "domain": "agriculture_residue",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "baler_logistics"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-d3700a40791426f0dc19ac68",
+          "digest": "91496bdc51de80342c4b9d8f417f17bbf1a049a7dc393390ea2fc4b7b7f4a5d9"
+        }
+      ],
+      "result": {
+        "statement": "Paddy straw residue cleared and delivered to boiler",
+        "basis": "FIELD_DISPATCH_MANIFEST"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-d3700a40791426f0dc19ac68",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-delhi-anand-vihar-baler_dispatch",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "COMMUNITY_REPORT",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "baler_dispatch@1",
+          "analyte": "baler_dispatch",
+          "basis": "COMMUNITY_REPORT",
+          "value": 1,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "manifest": {
+        "dispatchId": "baler-job-0",
+        "status": "COMPLETED",
+        "balesCollectedTons": 45.2,
+        "verifier": "punjab-field-agent"
+      }
+    },
+    "expectedDigest": "91496bdc51de80342c4b9d8f417f17bbf1a049a7dc393390ea2fc4b7b7f4a5d9"
+  },
+  {
+    "id": 17,
+    "name": "Valid Intervention Completion 2 (Ludhiana Agricultural Belt)",
+    "category": "VALID_INTERVENTION",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-intervention-17",
+      "claimType": "INTERVENTION_COMPLETION",
+      "scope": {
+        "domain": "agriculture_residue",
+        "boundary": "punjab-ludhiana",
+        "timeEpoch": "2026-10-24",
+        "activityType": "baler_logistics"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-acb0662df24968a672607a61",
+          "digest": "593af48ab124b3489773d4d3dfd34f7c84bf8fd054a9186dd01f7a23801473fa"
+        }
+      ],
+      "result": {
+        "statement": "Paddy straw residue cleared and delivered to boiler",
+        "basis": "FIELD_DISPATCH_MANIFEST"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-acb0662df24968a672607a61",
+      "location": {
+        "siteId": "punjab-ludhiana",
+        "lat": 30.901,
+        "lon": 75.8573
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-punjab-ludhiana-baler_dispatch",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "COMMUNITY_REPORT",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "baler_dispatch@1",
+          "analyte": "baler_dispatch",
+          "basis": "COMMUNITY_REPORT",
+          "value": 1,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "manifest": {
+        "dispatchId": "baler-job-1",
+        "status": "COMPLETED",
+        "balesCollectedTons": 45.2,
+        "verifier": "punjab-field-agent"
+      }
+    },
+    "expectedDigest": "593af48ab124b3489773d4d3dfd34f7c84bf8fd054a9186dd01f7a23801473fa"
+  },
+  {
+    "id": 18,
+    "name": "Valid Intervention Completion 3 (Permian Basin Wellhead #4)",
+    "category": "VALID_INTERVENTION",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-intervention-18",
+      "claimType": "INTERVENTION_COMPLETION",
+      "scope": {
+        "domain": "agriculture_residue",
+        "boundary": "permian-basin-tx",
+        "timeEpoch": "2026-10-24",
+        "activityType": "baler_logistics"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-4b8346723599c5e3f3485ab4",
+          "digest": "d72451db6d80e040edb9dd627c559a248290c09d797cc042621ee5b62043d099"
+        }
+      ],
+      "result": {
+        "statement": "Paddy straw residue cleared and delivered to boiler",
+        "basis": "FIELD_DISPATCH_MANIFEST"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-4b8346723599c5e3f3485ab4",
+      "location": {
+        "siteId": "permian-basin-tx",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-permian-basin-tx-baler_dispatch",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "COMMUNITY_REPORT",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "baler_dispatch@1",
+          "analyte": "baler_dispatch",
+          "basis": "COMMUNITY_REPORT",
+          "value": 1,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "manifest": {
+        "dispatchId": "baler-job-2",
+        "status": "COMPLETED",
+        "balesCollectedTons": 45.2,
+        "verifier": "punjab-field-agent"
+      }
+    },
+    "expectedDigest": "d72451db6d80e040edb9dd627c559a248290c09d797cc042621ee5b62043d099"
+  },
+  {
+    "id": 19,
+    "name": "Valid Intervention Completion 4 (Oloibiri Wellflow #2)",
+    "category": "VALID_INTERVENTION",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-intervention-19",
+      "claimType": "INTERVENTION_COMPLETION",
+      "scope": {
+        "domain": "agriculture_residue",
+        "boundary": "niger-delta-flaring",
+        "timeEpoch": "2026-10-24",
+        "activityType": "baler_logistics"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-106c760e0c91f351cff7f8c2",
+          "digest": "0241c44441311d9fb1a12adb88af6a7c0bbf9c003900bfd944006b4140099695"
+        }
+      ],
+      "result": {
+        "statement": "Paddy straw residue cleared and delivered to boiler",
+        "basis": "FIELD_DISPATCH_MANIFEST"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-106c760e0c91f351cff7f8c2",
+      "location": {
+        "siteId": "niger-delta-flaring",
+        "lat": 4.685,
+        "lon": 6.24
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-niger-delta-flaring-baler_dispatch",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "COMMUNITY_REPORT",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "baler_dispatch@1",
+          "analyte": "baler_dispatch",
+          "basis": "COMMUNITY_REPORT",
+          "value": 1,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "manifest": {
+        "dispatchId": "baler-job-3",
+        "status": "COMPLETED",
+        "balesCollectedTons": 45.2,
+        "verifier": "punjab-field-agent"
+      }
+    },
+    "expectedDigest": "0241c44441311d9fb1a12adb88af6a7c0bbf9c003900bfd944006b4140099695"
+  },
+  {
+    "id": 20,
+    "name": "Valid Intervention Completion 5 (Acre Conservation Block C)",
+    "category": "VALID_INTERVENTION",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-intervention-20",
+      "claimType": "INTERVENTION_COMPLETION",
+      "scope": {
+        "domain": "agriculture_residue",
+        "boundary": "amazon-acre-forest",
+        "timeEpoch": "2026-10-24",
+        "activityType": "baler_logistics"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-e89f542db735715c8fd23a07",
+          "digest": "c79ae3c48c17ec65309a22f4c433b9899ced27363d02ef98505d75d6bbb7bc13"
+        }
+      ],
+      "result": {
+        "statement": "Paddy straw residue cleared and delivered to boiler",
+        "basis": "FIELD_DISPATCH_MANIFEST"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-e89f542db735715c8fd23a07",
+      "location": {
+        "siteId": "amazon-acre-forest",
+        "lat": -9.97,
+        "lon": -67.81
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-amazon-acre-forest-baler_dispatch",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "COMMUNITY_REPORT",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "baler_dispatch@1",
+          "analyte": "baler_dispatch",
+          "basis": "COMMUNITY_REPORT",
+          "value": 1,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "manifest": {
+        "dispatchId": "baler-job-4",
+        "status": "COMPLETED",
+        "balesCollectedTons": 45.2,
+        "verifier": "punjab-field-agent"
+      }
+    },
+    "expectedDigest": "c79ae3c48c17ec65309a22f4c433b9899ced27363d02ef98505d75d6bbb7bc13"
+  },
+  {
+    "id": 21,
+    "name": "Valid Quantified Emissions Reduction 1 (Permian CH4)",
+    "category": "VALID_REDUCTION",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-emissions-21",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "methane_abatement",
+        "boundary": "permian-basin-tx",
+        "timeEpoch": "2026-Q1",
+        "activityType": "wellhead_repair_0"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-5ab2cb2e1da1a2a863d247bf",
+          "digest": "461f3e9db276d4fb77b7f78a159b99eb80d550b78d181b85ad108c46659d170f"
+        }
+      ],
+      "result": {
+        "statement": "Direct leak repair avoiding 12.4 tCO2e/day",
+        "baselineMethodology": "EPA Subpart W 98.233(r)",
+        "value": 12.4,
+        "unit": "tCO2e/day",
+        "basis": "EMPIRICAL_MEASUREMENT"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-5ab2cb2e1da1a2a863d247bf",
+      "location": {
+        "siteId": "permian-basin-tx",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-permian-basin-tx-ch4_plume",
+          "dataKind": "SATELLITE_MEASURED_CARBON_MAPPER",
+          "basis": "SATELLITE_MEASURED",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "ch4_plume@1",
+          "analyte": "ch4_plume",
+          "basis": "SATELLITE_MEASURED",
+          "value": 450,
+          "unit": "kg/hr",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "methodology": "EPA Subpart W + FLIR optical camera confirmation"
+    },
+    "expectedDigest": "461f3e9db276d4fb77b7f78a159b99eb80d550b78d181b85ad108c46659d170f"
+  },
+  {
+    "id": 22,
+    "name": "Valid Quantified Emissions Reduction 2 (Permian CH4)",
+    "category": "VALID_REDUCTION",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-emissions-22",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "methane_abatement",
+        "boundary": "permian-basin-tx",
+        "timeEpoch": "2026-Q2",
+        "activityType": "wellhead_repair_1"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-5ab2cb2e1da1a2a863d247bf",
+          "digest": "461f3e9db276d4fb77b7f78a159b99eb80d550b78d181b85ad108c46659d170f"
+        }
+      ],
+      "result": {
+        "statement": "Direct leak repair avoiding 12.4 tCO2e/day",
+        "baselineMethodology": "EPA Subpart W 98.233(r)",
+        "value": 12.4,
+        "unit": "tCO2e/day",
+        "basis": "EMPIRICAL_MEASUREMENT"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-5ab2cb2e1da1a2a863d247bf",
+      "location": {
+        "siteId": "permian-basin-tx",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-permian-basin-tx-ch4_plume",
+          "dataKind": "SATELLITE_MEASURED_CARBON_MAPPER",
+          "basis": "SATELLITE_MEASURED",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "ch4_plume@1",
+          "analyte": "ch4_plume",
+          "basis": "SATELLITE_MEASURED",
+          "value": 450,
+          "unit": "kg/hr",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "methodology": "EPA Subpart W + FLIR optical camera confirmation"
+    },
+    "expectedDigest": "461f3e9db276d4fb77b7f78a159b99eb80d550b78d181b85ad108c46659d170f"
+  },
+  {
+    "id": 23,
+    "name": "Valid Quantified Emissions Reduction 3 (Permian CH4)",
+    "category": "VALID_REDUCTION",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-emissions-23",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "methane_abatement",
+        "boundary": "permian-basin-tx",
+        "timeEpoch": "2026-Q3",
+        "activityType": "wellhead_repair_2"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-5ab2cb2e1da1a2a863d247bf",
+          "digest": "461f3e9db276d4fb77b7f78a159b99eb80d550b78d181b85ad108c46659d170f"
+        }
+      ],
+      "result": {
+        "statement": "Direct leak repair avoiding 12.4 tCO2e/day",
+        "baselineMethodology": "EPA Subpart W 98.233(r)",
+        "value": 12.4,
+        "unit": "tCO2e/day",
+        "basis": "EMPIRICAL_MEASUREMENT"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-5ab2cb2e1da1a2a863d247bf",
+      "location": {
+        "siteId": "permian-basin-tx",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-permian-basin-tx-ch4_plume",
+          "dataKind": "SATELLITE_MEASURED_CARBON_MAPPER",
+          "basis": "SATELLITE_MEASURED",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "ch4_plume@1",
+          "analyte": "ch4_plume",
+          "basis": "SATELLITE_MEASURED",
+          "value": 450,
+          "unit": "kg/hr",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "methodology": "EPA Subpart W + FLIR optical camera confirmation"
+    },
+    "expectedDigest": "461f3e9db276d4fb77b7f78a159b99eb80d550b78d181b85ad108c46659d170f"
+  },
+  {
+    "id": 24,
+    "name": "Valid Quantified Emissions Reduction 4 (Permian CH4)",
+    "category": "VALID_REDUCTION",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-valid-emissions-24",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "methane_abatement",
+        "boundary": "permian-basin-tx",
+        "timeEpoch": "2026-Q4",
+        "activityType": "wellhead_repair_3"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-5ab2cb2e1da1a2a863d247bf",
+          "digest": "461f3e9db276d4fb77b7f78a159b99eb80d550b78d181b85ad108c46659d170f"
+        }
+      ],
+      "result": {
+        "statement": "Direct leak repair avoiding 12.4 tCO2e/day",
+        "baselineMethodology": "EPA Subpart W 98.233(r)",
+        "value": 12.4,
+        "unit": "tCO2e/day",
+        "basis": "EMPIRICAL_MEASUREMENT"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-5ab2cb2e1da1a2a863d247bf",
+      "location": {
+        "siteId": "permian-basin-tx",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-permian-basin-tx-ch4_plume",
+          "dataKind": "SATELLITE_MEASURED_CARBON_MAPPER",
+          "basis": "SATELLITE_MEASURED",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "ch4_plume@1",
+          "analyte": "ch4_plume",
+          "basis": "SATELLITE_MEASURED",
+          "value": 450,
+          "unit": "kg/hr",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "methodology": "EPA Subpart W + FLIR optical camera confirmation"
+    },
+    "expectedDigest": "461f3e9db276d4fb77b7f78a159b99eb80d550b78d181b85ad108c46659d170f"
+  },
+  {
+    "id": 25,
+    "name": "Tampered Evidence with Stale Digest 1 (Anand Vihar, Delhi)",
+    "category": "TAMPERED_HASH_MISMATCH",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-tampered-25",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "tampered_0"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-8f7af3681d58ccf4170537f1",
+          "digest": "ec4994e6b7b85c5a35a1e6bb872e0862bb0ad626f3569b21ea8ba8b35766cded"
+        }
+      ],
+      "result": {
+        "statement": "Falsified observation with replayed authentic hash",
+        "value": 999.9
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-8f7af3681d58ccf4170537f1",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-delhi-anand-vihar-pm2_5",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@1",
+          "analyte": "pm2_5",
+          "basis": "OBSERVED_MONITOR",
+          "value": 999.9,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "ec4994e6b7b85c5a35a1e6bb872e0862bb0ad626f3569b21ea8ba8b35766cded"
+  },
+  {
+    "id": 26,
+    "name": "Tampered Evidence with Stale Digest 2 (Ludhiana Agricultural Belt)",
+    "category": "TAMPERED_HASH_MISMATCH",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-tampered-26",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "punjab-ludhiana",
+        "timeEpoch": "2026-10-24",
+        "activityType": "tampered_1"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-f040f62bdfddd5ff4963e071",
+          "digest": "46c2be4616ea88b964362f2b411a4859f4f619bdb2bfeed2d56186c88c8fcb44"
+        }
+      ],
+      "result": {
+        "statement": "Falsified observation with replayed authentic hash",
+        "value": 999.9
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-f040f62bdfddd5ff4963e071",
+      "location": {
+        "siteId": "punjab-ludhiana",
+        "lat": 30.901,
+        "lon": 75.8573
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-punjab-ludhiana-pm2_5",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@1",
+          "analyte": "pm2_5",
+          "basis": "OBSERVED_MONITOR",
+          "value": 999.9,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "46c2be4616ea88b964362f2b411a4859f4f619bdb2bfeed2d56186c88c8fcb44"
+  },
+  {
+    "id": 27,
+    "name": "Tampered Evidence with Stale Digest 3 (Permian Basin Wellhead #4)",
+    "category": "TAMPERED_HASH_MISMATCH",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-tampered-27",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "permian-basin-tx",
+        "timeEpoch": "2026-10-24",
+        "activityType": "tampered_2"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-ec9add835e8adad9e67e061a",
+          "digest": "f9467d7dbfe5fa3264a2b083db3eb6379c92eb694097afaa943e8d02e440a79f"
+        }
+      ],
+      "result": {
+        "statement": "Falsified observation with replayed authentic hash",
+        "value": 999.9
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-ec9add835e8adad9e67e061a",
+      "location": {
+        "siteId": "permian-basin-tx",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-permian-basin-tx-pm2_5",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@1",
+          "analyte": "pm2_5",
+          "basis": "OBSERVED_MONITOR",
+          "value": 999.9,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "f9467d7dbfe5fa3264a2b083db3eb6379c92eb694097afaa943e8d02e440a79f"
+  },
+  {
+    "id": 28,
+    "name": "Tampered Evidence with Stale Digest 4 (Oloibiri Wellflow #2)",
+    "category": "TAMPERED_HASH_MISMATCH",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-tampered-28",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "niger-delta-flaring",
+        "timeEpoch": "2026-10-24",
+        "activityType": "tampered_3"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-85de22865d5e970abea87e22",
+          "digest": "e950148d4c3081169066f4a49c1dc5a086813dacd326b5e7d8c3e8e1bead2241"
+        }
+      ],
+      "result": {
+        "statement": "Falsified observation with replayed authentic hash",
+        "value": 999.9
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-85de22865d5e970abea87e22",
+      "location": {
+        "siteId": "niger-delta-flaring",
+        "lat": 4.685,
+        "lon": 6.24
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-niger-delta-flaring-pm2_5",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@1",
+          "analyte": "pm2_5",
+          "basis": "OBSERVED_MONITOR",
+          "value": 999.9,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "e950148d4c3081169066f4a49c1dc5a086813dacd326b5e7d8c3e8e1bead2241"
+  },
+  {
+    "id": 29,
+    "name": "Tampered Evidence with Stale Digest 5 (Acre Conservation Block C)",
+    "category": "TAMPERED_HASH_MISMATCH",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-tampered-29",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "amazon-acre-forest",
+        "timeEpoch": "2026-10-24",
+        "activityType": "tampered_4"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-f0b529349c7ce33a12050cf7",
+          "digest": "2253edbf6119eb63b7da670de20bde8393826149092e2300903e250d7dc65c0a"
+        }
+      ],
+      "result": {
+        "statement": "Falsified observation with replayed authentic hash",
+        "value": 999.9
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-f0b529349c7ce33a12050cf7",
+      "location": {
+        "siteId": "amazon-acre-forest",
+        "lat": -9.97,
+        "lon": -67.81
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-amazon-acre-forest-pm2_5",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@1",
+          "analyte": "pm2_5",
+          "basis": "OBSERVED_MONITOR",
+          "value": 999.9,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "2253edbf6119eb63b7da670de20bde8393826149092e2300903e250d7dc65c0a"
+  },
+  {
+    "id": 30,
+    "name": "Modelled Forecast Claimed as Physical Observation 1",
+    "category": "MODEL_AS_OBSERVATION",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-model-as-obs-30",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "model_as_obs_0"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-8f7af3681d58ccf4170537f1",
+          "digest": "9c1f2dcdf9476a2f73331b3b867d173c97ca6b2c1a0d962b3ecf645dabf2ec23"
+        }
+      ],
+      "result": {
+        "statement": "Claiming Open-Meteo CAMS forecast as physical monitor reading",
+        "value": 65,
+        "basis": "MODEL_FORECAST"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-8f7af3681d58ccf4170537f1",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-delhi-anand-vihar-pm2_5",
+          "dataKind": "CAMS_MODEL_REANALYSIS",
+          "basis": "MODEL_FORECAST",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@1",
+          "analyte": "pm2_5",
+          "basis": "MODEL_FORECAST",
+          "value": 65,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "9c1f2dcdf9476a2f73331b3b867d173c97ca6b2c1a0d962b3ecf645dabf2ec23"
+  },
+  {
+    "id": 31,
+    "name": "Modelled Forecast Claimed as Physical Observation 2",
+    "category": "MODEL_AS_OBSERVATION",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-model-as-obs-31",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "punjab-ludhiana",
+        "timeEpoch": "2026-10-24",
+        "activityType": "model_as_obs_1"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-f040f62bdfddd5ff4963e071",
+          "digest": "7786a2e03c6438c0e1c9ab666d75c80379c9df13f0cf41de43c5207bdfc592a7"
+        }
+      ],
+      "result": {
+        "statement": "Claiming Open-Meteo CAMS forecast as physical monitor reading",
+        "value": 65,
+        "basis": "MODEL_FORECAST"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-f040f62bdfddd5ff4963e071",
+      "location": {
+        "siteId": "punjab-ludhiana",
+        "lat": 30.901,
+        "lon": 75.8573
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-punjab-ludhiana-pm2_5",
+          "dataKind": "CAMS_MODEL_REANALYSIS",
+          "basis": "MODEL_FORECAST",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@1",
+          "analyte": "pm2_5",
+          "basis": "MODEL_FORECAST",
+          "value": 65,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "7786a2e03c6438c0e1c9ab666d75c80379c9df13f0cf41de43c5207bdfc592a7"
+  },
+  {
+    "id": 32,
+    "name": "Modelled Forecast Claimed as Physical Observation 3",
+    "category": "MODEL_AS_OBSERVATION",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-model-as-obs-32",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "permian-basin-tx",
+        "timeEpoch": "2026-10-24",
+        "activityType": "model_as_obs_2"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-ec9add835e8adad9e67e061a",
+          "digest": "ebb52670de286621ac5c13ba97c856e15c42d6edaa7c4a4d4b3a124f9297aa2d"
+        }
+      ],
+      "result": {
+        "statement": "Claiming Open-Meteo CAMS forecast as physical monitor reading",
+        "value": 65,
+        "basis": "MODEL_FORECAST"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-ec9add835e8adad9e67e061a",
+      "location": {
+        "siteId": "permian-basin-tx",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-permian-basin-tx-pm2_5",
+          "dataKind": "CAMS_MODEL_REANALYSIS",
+          "basis": "MODEL_FORECAST",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@1",
+          "analyte": "pm2_5",
+          "basis": "MODEL_FORECAST",
+          "value": 65,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "ebb52670de286621ac5c13ba97c856e15c42d6edaa7c4a4d4b3a124f9297aa2d"
+  },
+  {
+    "id": 33,
+    "name": "Modelled Forecast Claimed as Physical Observation 4",
+    "category": "MODEL_AS_OBSERVATION",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-model-as-obs-33",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "niger-delta-flaring",
+        "timeEpoch": "2026-10-24",
+        "activityType": "model_as_obs_3"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-85de22865d5e970abea87e22",
+          "digest": "578d574a3af9cc178d8bdc92d714fb4c8bdae137ad9b118cf520089bb53a18ba"
+        }
+      ],
+      "result": {
+        "statement": "Claiming Open-Meteo CAMS forecast as physical monitor reading",
+        "value": 65,
+        "basis": "MODEL_FORECAST"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-85de22865d5e970abea87e22",
+      "location": {
+        "siteId": "niger-delta-flaring",
+        "lat": 4.685,
+        "lon": 6.24
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-niger-delta-flaring-pm2_5",
+          "dataKind": "CAMS_MODEL_REANALYSIS",
+          "basis": "MODEL_FORECAST",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@1",
+          "analyte": "pm2_5",
+          "basis": "MODEL_FORECAST",
+          "value": 65,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "578d574a3af9cc178d8bdc92d714fb4c8bdae137ad9b118cf520089bb53a18ba"
+  },
+  {
+    "id": 34,
+    "name": "Modelled Forecast Claimed as Physical Observation 5",
+    "category": "MODEL_AS_OBSERVATION",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-model-as-obs-34",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "amazon-acre-forest",
+        "timeEpoch": "2026-10-24",
+        "activityType": "model_as_obs_4"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-f0b529349c7ce33a12050cf7",
+          "digest": "2fcff97997a2a533383793e82cff626c1dc934ad9f4b62796b572bce5d7ee0d2"
+        }
+      ],
+      "result": {
+        "statement": "Claiming Open-Meteo CAMS forecast as physical monitor reading",
+        "value": 65,
+        "basis": "MODEL_FORECAST"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-f0b529349c7ce33a12050cf7",
+      "location": {
+        "siteId": "amazon-acre-forest",
+        "lat": -9.97,
+        "lon": -67.81
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-amazon-acre-forest-pm2_5",
+          "dataKind": "CAMS_MODEL_REANALYSIS",
+          "basis": "MODEL_FORECAST",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@1",
+          "analyte": "pm2_5",
+          "basis": "MODEL_FORECAST",
+          "value": 65,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "2fcff97997a2a533383793e82cff626c1dc934ad9f4b62796b572bce5d7ee0d2"
+  },
+  {
+    "id": 35,
+    "name": "Model Forecast Claimed as Quantified Carbon Cut 1",
+    "category": "MODEL_AS_CARBON_REDUCTION",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-model-carbon-35",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "carbon_offset",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "model_offset_0"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-e61d0d2b5c7043847fcd75cc",
+          "digest": "791cb5d14dfb10338bb0f33d968063578b1c0d845d62f7267cba4d8de57ef19e"
+        }
+      ],
+      "result": {
+        "statement": "Simulated atmospheric model used to claim 500 tCO2e carbon credits",
+        "value": 500,
+        "basis": "MODEL_FORECAST"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-e61d0d2b5c7043847fcd75cc",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-delhi-anand-vihar-co2_model",
+          "dataKind": "GLOBAL_CLIMATE_MODEL",
+          "basis": "MODEL_FORECAST",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "co2_model@1",
+          "analyte": "co2_model",
+          "basis": "MODEL_FORECAST",
+          "value": 500,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "791cb5d14dfb10338bb0f33d968063578b1c0d845d62f7267cba4d8de57ef19e"
+  },
+  {
+    "id": 36,
+    "name": "Model Forecast Claimed as Quantified Carbon Cut 2",
+    "category": "MODEL_AS_CARBON_REDUCTION",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-model-carbon-36",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "carbon_offset",
+        "boundary": "punjab-ludhiana",
+        "timeEpoch": "2026-10-24",
+        "activityType": "model_offset_1"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-1d8a70bc4b95e5e7be4c2481",
+          "digest": "a78ab19b4777ee63f63b34a7b9c36e1135796b0db861f87aaceb4f20b7f6f7c2"
+        }
+      ],
+      "result": {
+        "statement": "Simulated atmospheric model used to claim 500 tCO2e carbon credits",
+        "value": 500,
+        "basis": "MODEL_FORECAST"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-1d8a70bc4b95e5e7be4c2481",
+      "location": {
+        "siteId": "punjab-ludhiana",
+        "lat": 30.901,
+        "lon": 75.8573
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-punjab-ludhiana-co2_model",
+          "dataKind": "GLOBAL_CLIMATE_MODEL",
+          "basis": "MODEL_FORECAST",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "co2_model@1",
+          "analyte": "co2_model",
+          "basis": "MODEL_FORECAST",
+          "value": 500,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "a78ab19b4777ee63f63b34a7b9c36e1135796b0db861f87aaceb4f20b7f6f7c2"
+  },
+  {
+    "id": 37,
+    "name": "Model Forecast Claimed as Quantified Carbon Cut 3",
+    "category": "MODEL_AS_CARBON_REDUCTION",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-model-carbon-37",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "carbon_offset",
+        "boundary": "permian-basin-tx",
+        "timeEpoch": "2026-10-24",
+        "activityType": "model_offset_2"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-09ee0e8f9ad8cba1f6903424",
+          "digest": "589610c8ceb35f952e0fb751a303b6f9d07102196e585ca896176a7910d09d5f"
+        }
+      ],
+      "result": {
+        "statement": "Simulated atmospheric model used to claim 500 tCO2e carbon credits",
+        "value": 500,
+        "basis": "MODEL_FORECAST"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-09ee0e8f9ad8cba1f6903424",
+      "location": {
+        "siteId": "permian-basin-tx",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-permian-basin-tx-co2_model",
+          "dataKind": "GLOBAL_CLIMATE_MODEL",
+          "basis": "MODEL_FORECAST",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "co2_model@1",
+          "analyte": "co2_model",
+          "basis": "MODEL_FORECAST",
+          "value": 500,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "589610c8ceb35f952e0fb751a303b6f9d07102196e585ca896176a7910d09d5f"
+  },
+  {
+    "id": 38,
+    "name": "Model Forecast Claimed as Quantified Carbon Cut 4",
+    "category": "MODEL_AS_CARBON_REDUCTION",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-model-carbon-38",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "carbon_offset",
+        "boundary": "niger-delta-flaring",
+        "timeEpoch": "2026-10-24",
+        "activityType": "model_offset_3"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-2c8ddd4fbb9796aaa8865904",
+          "digest": "c679b14099aaa109987aada5c49b8189051ffe260e0b038b4321d539fe4f09ea"
+        }
+      ],
+      "result": {
+        "statement": "Simulated atmospheric model used to claim 500 tCO2e carbon credits",
+        "value": 500,
+        "basis": "MODEL_FORECAST"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-2c8ddd4fbb9796aaa8865904",
+      "location": {
+        "siteId": "niger-delta-flaring",
+        "lat": 4.685,
+        "lon": 6.24
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-niger-delta-flaring-co2_model",
+          "dataKind": "GLOBAL_CLIMATE_MODEL",
+          "basis": "MODEL_FORECAST",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "co2_model@1",
+          "analyte": "co2_model",
+          "basis": "MODEL_FORECAST",
+          "value": 500,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "c679b14099aaa109987aada5c49b8189051ffe260e0b038b4321d539fe4f09ea"
+  },
+  {
+    "id": 39,
+    "name": "Model Forecast Claimed as Quantified Carbon Cut 5",
+    "category": "MODEL_AS_CARBON_REDUCTION",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-model-carbon-39",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "carbon_offset",
+        "boundary": "amazon-acre-forest",
+        "timeEpoch": "2026-10-24",
+        "activityType": "model_offset_4"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-165e232a4e0f64c5d67dd7fa",
+          "digest": "e1b5d61af8ceedf0d6f3df374d6a22fb338a586c55f11efb4ff90589a3a2f729"
+        }
+      ],
+      "result": {
+        "statement": "Simulated atmospheric model used to claim 500 tCO2e carbon credits",
+        "value": 500,
+        "basis": "MODEL_FORECAST"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-165e232a4e0f64c5d67dd7fa",
+      "location": {
+        "siteId": "amazon-acre-forest",
+        "lat": -9.97,
+        "lon": -67.81
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-amazon-acre-forest-co2_model",
+          "dataKind": "GLOBAL_CLIMATE_MODEL",
+          "basis": "MODEL_FORECAST",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "co2_model@1",
+          "analyte": "co2_model",
+          "basis": "MODEL_FORECAST",
+          "value": 500,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "e1b5d61af8ceedf0d6f3df374d6a22fb338a586c55f11efb4ff90589a3a2f729"
+  },
+  {
+    "id": 40,
+    "name": "Stale Physical Observation (96h old) 1",
+    "category": "STALE_EVIDENCE",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-stale-40",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "stale_0"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-b434ca78664ac6f97b2fc179",
+          "digest": "023d0925bf7075d791332f98286b02ba12f1f2ee7e7cd4a81eb92be26621aa9b"
+        }
+      ],
+      "result": {
+        "statement": "Outdated observation claiming current air quality status",
+        "value": 30
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-b434ca78664ac6f97b2fc179",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-20T12:00:00.000Z",
+        "endUtc": "2026-10-20T12:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-delhi-anand-vihar-pm2_5",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-20T12:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@1",
+          "analyte": "pm2_5",
+          "basis": "OBSERVED_MONITOR",
+          "value": 30,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-20T12:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-20T12:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "023d0925bf7075d791332f98286b02ba12f1f2ee7e7cd4a81eb92be26621aa9b"
+  },
+  {
+    "id": 41,
+    "name": "Stale Physical Observation (120h old) 2",
+    "category": "STALE_EVIDENCE",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-stale-41",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "punjab-ludhiana",
+        "timeEpoch": "2026-10-24",
+        "activityType": "stale_1"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-1d34f959da7b5b88aa3b04d8",
+          "digest": "963113cd127a979ca6ebe4d5095437682716b79fa65572eda77301628dd7ed77"
+        }
+      ],
+      "result": {
+        "statement": "Outdated observation claiming current air quality status",
+        "value": 30
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-1d34f959da7b5b88aa3b04d8",
+      "location": {
+        "siteId": "punjab-ludhiana",
+        "lat": 30.901,
+        "lon": 75.8573
+      },
+      "timeframe": {
+        "startUtc": "2026-10-19T12:00:00.000Z",
+        "endUtc": "2026-10-19T12:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-punjab-ludhiana-pm2_5",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-19T12:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@1",
+          "analyte": "pm2_5",
+          "basis": "OBSERVED_MONITOR",
+          "value": 30,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-19T12:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-19T12:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "963113cd127a979ca6ebe4d5095437682716b79fa65572eda77301628dd7ed77"
+  },
+  {
+    "id": 42,
+    "name": "Stale Physical Observation (144h old) 3",
+    "category": "STALE_EVIDENCE",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-stale-42",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "permian-basin-tx",
+        "timeEpoch": "2026-10-24",
+        "activityType": "stale_2"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-8e9a38d26344866d4f126dcb",
+          "digest": "da5dfc2d18980e5a18273b760a8720fb0a89de1a550d68443593fa905e27bba8"
+        }
+      ],
+      "result": {
+        "statement": "Outdated observation claiming current air quality status",
+        "value": 30
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-8e9a38d26344866d4f126dcb",
+      "location": {
+        "siteId": "permian-basin-tx",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-18T12:00:00.000Z",
+        "endUtc": "2026-10-18T12:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-permian-basin-tx-pm2_5",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-18T12:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@1",
+          "analyte": "pm2_5",
+          "basis": "OBSERVED_MONITOR",
+          "value": 30,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-18T12:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-18T12:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "da5dfc2d18980e5a18273b760a8720fb0a89de1a550d68443593fa905e27bba8"
+  },
+  {
+    "id": 43,
+    "name": "Stale Physical Observation (168h old) 4",
+    "category": "STALE_EVIDENCE",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-stale-43",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "niger-delta-flaring",
+        "timeEpoch": "2026-10-24",
+        "activityType": "stale_3"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-ae29238d6daabce75e0b0a6e",
+          "digest": "84e3ca7d7c7119c993543892938b6436a78168c39bd5af5cd669bbcd00d07160"
+        }
+      ],
+      "result": {
+        "statement": "Outdated observation claiming current air quality status",
+        "value": 30
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-ae29238d6daabce75e0b0a6e",
+      "location": {
+        "siteId": "niger-delta-flaring",
+        "lat": 4.685,
+        "lon": 6.24
+      },
+      "timeframe": {
+        "startUtc": "2026-10-17T12:00:00.000Z",
+        "endUtc": "2026-10-17T12:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-niger-delta-flaring-pm2_5",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-17T12:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@1",
+          "analyte": "pm2_5",
+          "basis": "OBSERVED_MONITOR",
+          "value": 30,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-17T12:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-17T12:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "84e3ca7d7c7119c993543892938b6436a78168c39bd5af5cd669bbcd00d07160"
+  },
+  {
+    "id": 44,
+    "name": "Stale Physical Observation (192h old) 5",
+    "category": "STALE_EVIDENCE",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-stale-44",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "amazon-acre-forest",
+        "timeEpoch": "2026-10-24",
+        "activityType": "stale_4"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-f917c59525e0756f7ef35d73",
+          "digest": "fa1984c05e85eb2ecf20a36f86f1557a2b41db24cc7deff9061089986b3bb313"
+        }
+      ],
+      "result": {
+        "statement": "Outdated observation claiming current air quality status",
+        "value": 30
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-f917c59525e0756f7ef35d73",
+      "location": {
+        "siteId": "amazon-acre-forest",
+        "lat": -9.97,
+        "lon": -67.81
+      },
+      "timeframe": {
+        "startUtc": "2026-10-16T12:00:00.000Z",
+        "endUtc": "2026-10-16T12:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-amazon-acre-forest-pm2_5",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-16T12:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@1",
+          "analyte": "pm2_5",
+          "basis": "OBSERVED_MONITOR",
+          "value": 30,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-16T12:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-16T12:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "fa1984c05e85eb2ecf20a36f86f1557a2b41db24cc7deff9061089986b3bb313"
+  },
+  {
+    "id": 45,
+    "name": "Duplicate Scope Evasion via New Claim ID 1",
+    "category": "DUPLICATE_SCOPE_EVASION",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-duplicate-evasion-45",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "annual_air_audit"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-78a082f2b91d807c55f305fe",
+          "digest": "0eb34c4887e1d290059c2b6b30dbb2e0cdfd2d90998cfc7c523e526cb3190624"
+        }
+      ],
+      "result": {
+        "statement": "Attempt to duplicate air quality claim using brand new claim ID",
+        "value": 50
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-78a082f2b91d807c55f305fe",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T09:00:00.000Z",
+        "endUtc": "2026-10-24T09:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-delhi-anand-vihar-pm2_5",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T09:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@1",
+          "analyte": "pm2_5",
+          "basis": "OBSERVED_MONITOR",
+          "value": 50,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T09:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T09:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "0eb34c4887e1d290059c2b6b30dbb2e0cdfd2d90998cfc7c523e526cb3190624",
+    "existingClaims": [
+      {
+        "claimId": "cl-original-established-claim-001",
+        "status": "Submitted",
+        "scope": {
+          "domain": "air_quality",
+          "boundary": "delhi-anand-vihar",
+          "timeEpoch": "2026-10-24",
+          "activityType": "annual_air_audit"
+        },
+        "compositeScopeKey": "3234c5fff56d09297e673004f8c718c5c367c571406e2d754d5924bda96bb8f7",
+        "evidence": [
+          {
+            "digest": "0x1111222233334444555566667777888899990000aaaabbbbccccddddeeeeffff"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Duplicate Scope Evasion via New Claim ID 2",
+    "category": "DUPLICATE_SCOPE_EVASION",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-duplicate-evasion-46",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "annual_air_audit"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-78a082f2b91d807c55f305fe",
+          "digest": "0eb34c4887e1d290059c2b6b30dbb2e0cdfd2d90998cfc7c523e526cb3190624"
+        }
+      ],
+      "result": {
+        "statement": "Attempt to duplicate air quality claim using brand new claim ID",
+        "value": 50
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-78a082f2b91d807c55f305fe",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T09:00:00.000Z",
+        "endUtc": "2026-10-24T09:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-delhi-anand-vihar-pm2_5",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T09:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@1",
+          "analyte": "pm2_5",
+          "basis": "OBSERVED_MONITOR",
+          "value": 50,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T09:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T09:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "0eb34c4887e1d290059c2b6b30dbb2e0cdfd2d90998cfc7c523e526cb3190624",
+    "existingClaims": [
+      {
+        "claimId": "cl-original-established-claim-001",
+        "status": "Submitted",
+        "scope": {
+          "domain": "air_quality",
+          "boundary": "delhi-anand-vihar",
+          "timeEpoch": "2026-10-24",
+          "activityType": "annual_air_audit"
+        },
+        "compositeScopeKey": "3234c5fff56d09297e673004f8c718c5c367c571406e2d754d5924bda96bb8f7",
+        "evidence": [
+          {
+            "digest": "0x1111222233334444555566667777888899990000aaaabbbbccccddddeeeeffff"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Duplicate Scope Evasion via New Claim ID 3",
+    "category": "DUPLICATE_SCOPE_EVASION",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-duplicate-evasion-47",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "annual_air_audit"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-78a082f2b91d807c55f305fe",
+          "digest": "0eb34c4887e1d290059c2b6b30dbb2e0cdfd2d90998cfc7c523e526cb3190624"
+        }
+      ],
+      "result": {
+        "statement": "Attempt to duplicate air quality claim using brand new claim ID",
+        "value": 50
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-78a082f2b91d807c55f305fe",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T09:00:00.000Z",
+        "endUtc": "2026-10-24T09:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-delhi-anand-vihar-pm2_5",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T09:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@1",
+          "analyte": "pm2_5",
+          "basis": "OBSERVED_MONITOR",
+          "value": 50,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T09:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T09:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "0eb34c4887e1d290059c2b6b30dbb2e0cdfd2d90998cfc7c523e526cb3190624",
+    "existingClaims": [
+      {
+        "claimId": "cl-original-established-claim-001",
+        "status": "Submitted",
+        "scope": {
+          "domain": "air_quality",
+          "boundary": "delhi-anand-vihar",
+          "timeEpoch": "2026-10-24",
+          "activityType": "annual_air_audit"
+        },
+        "compositeScopeKey": "3234c5fff56d09297e673004f8c718c5c367c571406e2d754d5924bda96bb8f7",
+        "evidence": [
+          {
+            "digest": "0x1111222233334444555566667777888899990000aaaabbbbccccddddeeeeffff"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Duplicate Scope Evasion via New Claim ID 4",
+    "category": "DUPLICATE_SCOPE_EVASION",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-duplicate-evasion-48",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "annual_air_audit"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-78a082f2b91d807c55f305fe",
+          "digest": "0eb34c4887e1d290059c2b6b30dbb2e0cdfd2d90998cfc7c523e526cb3190624"
+        }
+      ],
+      "result": {
+        "statement": "Attempt to duplicate air quality claim using brand new claim ID",
+        "value": 50
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-78a082f2b91d807c55f305fe",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T09:00:00.000Z",
+        "endUtc": "2026-10-24T09:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-delhi-anand-vihar-pm2_5",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T09:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@1",
+          "analyte": "pm2_5",
+          "basis": "OBSERVED_MONITOR",
+          "value": 50,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T09:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T09:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "0eb34c4887e1d290059c2b6b30dbb2e0cdfd2d90998cfc7c523e526cb3190624",
+    "existingClaims": [
+      {
+        "claimId": "cl-original-established-claim-001",
+        "status": "Submitted",
+        "scope": {
+          "domain": "air_quality",
+          "boundary": "delhi-anand-vihar",
+          "timeEpoch": "2026-10-24",
+          "activityType": "annual_air_audit"
+        },
+        "compositeScopeKey": "3234c5fff56d09297e673004f8c718c5c367c571406e2d754d5924bda96bb8f7",
+        "evidence": [
+          {
+            "digest": "0x1111222233334444555566667777888899990000aaaabbbbccccddddeeeeffff"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Legitimate Co-located Activity (straw_baling_collection)",
+    "category": "LEGITIMATE_COLOCATED",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-colocated-legit-49",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "punjab_decarb",
+        "boundary": "punjab-ludhiana",
+        "timeEpoch": "2026-10-24",
+        "activityType": "straw_baling_collection"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-594b9f610403878c84827708",
+          "digest": "18c1ed6af0295ad3d957be8b82d68e61298d1357c762c19dc4f2dc206994fc74"
+        }
+      ],
+      "result": {
+        "statement": "Legitimate distinct activity on shared boundary: straw_baling_collection",
+        "value": 100
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-594b9f610403878c84827708",
+      "location": {
+        "siteId": "punjab-ludhiana",
+        "lat": 30.901,
+        "lon": 75.8573
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-punjab-ludhiana-straw_baling_collection",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "straw_baling_collection@1",
+          "analyte": "straw_baling_collection",
+          "basis": "OBSERVED_MONITOR",
+          "value": 100,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "18c1ed6af0295ad3d957be8b82d68e61298d1357c762c19dc4f2dc206994fc74",
+    "existingClaims": [
+      {
+        "claimId": "cl-prior-different-activity-999",
+        "status": "Submitted",
+        "scope": {
+          "domain": "punjab_decarb",
+          "boundary": "punjab-ludhiana",
+          "timeEpoch": "2026-10-24",
+          "activityType": "canal_irrigation_monitoring"
+        },
+        "compositeScopeKey": "b3355832c3d82c93137c1b055c603a442fb3a42bd83c766408fa34c51e392c33",
+        "evidence": [
+          {
+            "digest": "0x9999888877776666555544443333222211110000aaaabbbbccccddddeeeeffff"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Legitimate Co-located Activity (solar_pump_installation)",
+    "category": "LEGITIMATE_COLOCATED",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-colocated-legit-50",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "punjab_decarb",
+        "boundary": "punjab-ludhiana",
+        "timeEpoch": "2026-10-24",
+        "activityType": "solar_pump_installation"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-07f9bcad07948b8bbaf786af",
+          "digest": "b7dd9d34e7431b110b9542da286ae94ce06cc9f119b1d6ebd0126b8c4afedd23"
+        }
+      ],
+      "result": {
+        "statement": "Legitimate distinct activity on shared boundary: solar_pump_installation",
+        "value": 100
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-07f9bcad07948b8bbaf786af",
+      "location": {
+        "siteId": "punjab-ludhiana",
+        "lat": 30.901,
+        "lon": 75.8573
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-punjab-ludhiana-solar_pump_installation",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "solar_pump_installation@1",
+          "analyte": "solar_pump_installation",
+          "basis": "OBSERVED_MONITOR",
+          "value": 100,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "b7dd9d34e7431b110b9542da286ae94ce06cc9f119b1d6ebd0126b8c4afedd23",
+    "existingClaims": [
+      {
+        "claimId": "cl-prior-different-activity-999",
+        "status": "Submitted",
+        "scope": {
+          "domain": "punjab_decarb",
+          "boundary": "punjab-ludhiana",
+          "timeEpoch": "2026-10-24",
+          "activityType": "canal_irrigation_monitoring"
+        },
+        "compositeScopeKey": "b3355832c3d82c93137c1b055c603a442fb3a42bd83c766408fa34c51e392c33",
+        "evidence": [
+          {
+            "digest": "0x9999888877776666555544443333222211110000aaaabbbbccccddddeeeeffff"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "name": "Legitimate Co-located Activity (methane_digester_audit)",
+    "category": "LEGITIMATE_COLOCATED",
+    "expectedVerdict": "ACCEPTED",
+    "isUnsafeClaim": false,
+    "claim": {
+      "claimId": "cl-colocated-legit-51",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "punjab_decarb",
+        "boundary": "punjab-ludhiana",
+        "timeEpoch": "2026-10-24",
+        "activityType": "methane_digester_audit"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-a504f05f356c4dafce3d1b49",
+          "digest": "c540c15f9f3ca512fddaa7935829022088bffcacfc14979264e062a7fc728a6d"
+        }
+      ],
+      "result": {
+        "statement": "Legitimate distinct activity on shared boundary: methane_digester_audit",
+        "value": 100
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-a504f05f356c4dafce3d1b49",
+      "location": {
+        "siteId": "punjab-ludhiana",
+        "lat": 30.901,
+        "lon": 75.8573
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-punjab-ludhiana-methane_digester_audit",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "methane_digester_audit@1",
+          "analyte": "methane_digester_audit",
+          "basis": "OBSERVED_MONITOR",
+          "value": 100,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "c540c15f9f3ca512fddaa7935829022088bffcacfc14979264e062a7fc728a6d",
+    "existingClaims": [
+      {
+        "claimId": "cl-prior-different-activity-999",
+        "status": "Submitted",
+        "scope": {
+          "domain": "punjab_decarb",
+          "boundary": "punjab-ludhiana",
+          "timeEpoch": "2026-10-24",
+          "activityType": "canal_irrigation_monitoring"
+        },
+        "compositeScopeKey": "b3355832c3d82c93137c1b055c603a442fb3a42bd83c766408fa34c51e392c33",
+        "evidence": [
+          {
+            "digest": "0x9999888877776666555544443333222211110000aaaabbbbccccddddeeeeffff"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Missing Provenance Custody Trail 1",
+    "category": "MISSING_PROVENANCE",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-broken-custody-52",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "broken_custody_0"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-8f7af3681d58ccf4170537f1",
+          "digest": "ad39a7f2660ba2def43e89e146ad561f56f4660c16c416489a329253301bdeb0"
+        }
+      ],
+      "result": {
+        "statement": "Data with unverified transformation pipeline",
+        "value": 40
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-8f7af3681d58ccf4170537f1",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-delhi-anand-vihar-pm2_5",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@1",
+          "analyte": "pm2_5",
+          "basis": "OBSERVED_MONITOR",
+          "value": 40,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        }
+      ]
+    },
+    "expectedDigest": "ad39a7f2660ba2def43e89e146ad561f56f4660c16c416489a329253301bdeb0"
+  },
+  {
+    "id": 53,
+    "name": "Missing Provenance Custody Trail 2",
+    "category": "MISSING_PROVENANCE",
+    "expectedVerdict": "REJECTED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-broken-custody-53",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "punjab-ludhiana",
+        "timeEpoch": "2026-10-24",
+        "activityType": "broken_custody_1"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-f040f62bdfddd5ff4963e071",
+          "digest": "ac37d89e6037b4d91b9747cef5c7e28bf91e629acfeebd25c6a5296e7c1543a3"
+        }
+      ],
+      "result": {
+        "statement": "Data with unverified transformation pipeline",
+        "value": 40
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-f040f62bdfddd5ff4963e071",
+      "location": {
+        "siteId": "punjab-ludhiana",
+        "lat": 30.901,
+        "lon": 75.8573
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-punjab-ludhiana-pm2_5",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@1",
+          "analyte": "pm2_5",
+          "basis": "OBSERVED_MONITOR",
+          "value": 40,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        }
+      ]
+    },
+    "expectedDigest": "ac37d89e6037b4d91b9747cef5c7e28bf91e629acfeebd25c6a5296e7c1543a3"
+  },
+  {
+    "id": 54,
+    "name": "Contradictory Dual-Sensor Assertions 1",
+    "category": "CONTRADICTORY_EVIDENCE",
+    "expectedVerdict": "HUMAN_REVIEW_REQUIRED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-contradictory-54",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "contradictory_0"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-8f7af3681d58ccf4170537f1",
+          "digest": "47d11b7cd4dc83ec92a93382b98ccf0948ecbffe9550415ee891926542c80e65"
+        }
+      ],
+      "result": {
+        "statement": "Observation with unresolved collocated discrepancy",
+        "value": 185
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-8f7af3681d58ccf4170537f1",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-delhi-anand-vihar-pm2_5",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@1",
+          "analyte": "pm2_5",
+          "basis": "OBSERVED_MONITOR",
+          "value": 185,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [
+        {
+          "with": "Secondary Reference Monitor #2",
+          "status": "CONTRADICTORY",
+          "reason": "Primary monitor reported 185 μg/m³ while collocated reference monitor reported 22 μg/m³ (8.4x discrepancy)."
+        }
+      ],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "47d11b7cd4dc83ec92a93382b98ccf0948ecbffe9550415ee891926542c80e65"
+  },
+  {
+    "id": 55,
+    "name": "Contradictory Dual-Sensor Assertions 2",
+    "category": "CONTRADICTORY_EVIDENCE",
+    "expectedVerdict": "HUMAN_REVIEW_REQUIRED",
+    "isUnsafeClaim": true,
+    "claim": {
+      "claimId": "cl-contradictory-55",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "punjab-ludhiana",
+        "timeEpoch": "2026-10-24",
+        "activityType": "contradictory_1"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-f040f62bdfddd5ff4963e071",
+          "digest": "4627b12bfb178be09cd165e7acd922ba4f5299b761cfa581192dd779f754a546"
+        }
+      ],
+      "result": {
+        "statement": "Observation with unresolved collocated discrepancy",
+        "value": 185
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-f040f62bdfddd5ff4963e071",
+      "location": {
+        "siteId": "punjab-ludhiana",
+        "lat": 30.901,
+        "lon": 75.8573
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "source-punjab-ludhiana-pm2_5",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T10:00:00.000Z",
+          "spatialResolution": "Point sensor (10m)",
+          "temporalResolution": "1 hour"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@1",
+          "analyte": "pm2_5",
+          "basis": "OBSERVED_MONITOR",
+          "value": 185,
+          "unit": "μg/m³",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Sensor factory calibration tolerance +/- 5%"
+      ],
+      "comparisons": [
+        {
+          "with": "Secondary Reference Monitor #2",
+          "status": "CONTRADICTORY",
+          "reason": "Primary monitor reported 185 μg/m³ while collocated reference monitor reported 22 μg/m³ (8.4x discrepancy)."
+        }
+      ],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "sensor-gateway"
+        },
+        {
+          "step": "normalised",
+          "actor": "normalizer-v1"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "4627b12bfb178be09cd165e7acd922ba4f5299b761cfa581192dd779f754a546"
+  }
+]

@@ -1,0 +1,551 @@
+/* Dashboard shell: one library rail and one stage. Colours come from the paper and ink tokens in theme.css. */
+
+.dash {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 34px;
+  align-items: start;
+}
+
+.dash-library {
+  position: sticky;
+  top: 12px;
+  max-height: calc(100vh - 24px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  padding: 22px;
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow-1);
+}
+
+.dash-find input {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 13px;
+}
+
+.dash-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dash-group h3 {
+  margin: 0 0 3px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.dash-group-head button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 2px 0;
+  background: transparent;
+  border: 0;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  cursor: pointer;
+}
+
+.dash-toggle-state {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.dash-subgroup {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 4px;
+}
+
+.dash-subhead {
+  margin: 4px 0 1px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--ink-3);
+}
+
+.dash-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 10px;
+}
+
+.dash-item.active {
+  background: rgba(23, 21, 19, 0.06);
+  box-shadow: -4px 0 14px rgba(23, 21, 19, 0.12);
+}
+
+.dash-open {
+  flex: 1;
+  min-width: 0;
+  padding: 9px 10px;
+  background: transparent;
+  border: 0;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 13px;
+  text-align: left;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+
+.dash-open:hover {
+  color: var(--ink);
+  background: rgba(23, 21, 19, 0.05);
+}
+
+.dash-open[aria-current='page'] {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.dash-pin {
+  flex: none;
+  padding: 3px 8px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: transparent;
+  font: inherit;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--ink-3);
+  cursor: pointer;
+}
+
+.dash-pin[aria-pressed='true'] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper-raised);
+}
+
+.dash-pin:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.dash-stage {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.dash-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 20px;
+}
+
+.dash-toolbar .muted {
+  margin-left: auto;
+}
+
+.dash-layout {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--paper-raised);
+}
+
+.dash-layout button,
+.dash-pin-current,
+.dash-panel-actions button {
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font: inherit;
+  font-size: 12px;
+  color: var(--ink-3);
+  cursor: pointer;
+}
+
+.dash-layout button[aria-pressed='true'] {
+  background: var(--ink);
+  color: var(--paper-raised);
+}
+
+.dash-pin-current {
+  border: 1px solid var(--rule);
+  background: var(--paper-raised);
+  color: var(--ink);
+}
+
+.dash-pin-current[aria-pressed='true'] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper-raised);
+}
+
+.dash-pin-current:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.dash-hint {
+  margin: 0;
+}
+
+.dash-focus {
+  min-width: 0;
+}
+
+.dash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.dash-panel {
+  min-width: 0;
+  overflow-x: auto;
+  padding: 14px;
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow-1);
+}
+
+.dash-panel-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.dash-panel-bar h2 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.dash-panel-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.dash-panel-actions button {
+  border: 1px solid var(--rule);
+  background: var(--paper-raised);
+  color: var(--ink);
+}
+
+/* The groups wrapper only exists so narrow screens can fold the list; wide screens lay out its
+   children as direct children of the library, as before. */
+.dash-library-groups {
+  display: contents;
+}
+
+.dash-library-toggle {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .dash {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Folded by default: the search field and one toggle on a single row. Typing a search or
+     pressing the toggle unfolds the full list below. */
+  .dash-library {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .dash-library-toggle {
+    display: inline-flex;
+    white-space: nowrap;
+    font-size: 13px;
+  }
+
+  .dash-library-groups {
+    display: none;
+  }
+
+  .dash-library-open .dash-library-groups {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+    align-items: start;
+    gap: 14px;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+
+  .dash-library-open .dash-library-groups > .dash-group:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .dash-toolbar .muted {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .dash-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Modern clean dashboard stage & drawer */
+.dash-clean-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.dash-toolbar-clean {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 16px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.dash-toolbar-left,
+.dash-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dash-library-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  color: #0f172a;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.dash-library-btn:hover,
+.dash-library-btn.active {
+  background: #eee4d1;
+  border-color: #d8c7ad;
+}
+
+.badge-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 6px;
+  background: #382e24;
+  color: #fdfbf7;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.dash-layout-toggle {
+  display: inline-flex;
+  background: #f5eedf;
+  padding: 2px;
+  border-radius: 8px;
+  border: 1px solid #e5dac6;
+}
+
+.dash-layout-toggle button {
+  padding: 5px 12px;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  color: #756654;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.dash-layout-toggle button.active {
+  background: #fffdf9;
+  color: #241e17;
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(48, 36, 20, 0.05);
+}
+
+.dash-pin-action {
+  padding: 6px 12px;
+  background: #fbf7ee;
+  border: 1px solid #decbb4;
+  border-radius: 8px;
+  color: #5c4e3e;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.dash-pin-action:hover {
+  background: #f5ecd8;
+  color: #241e17;
+  border-color: #caa888;
+}
+
+.dash-pin-action[aria-pressed="true"] {
+  background: #efe5d2;
+  color: #382e24;
+  border-color: #bca88a;
+  font-weight: 700;
+}
+
+.dash-stage-full {
+  width: 100%;
+}
+
+.grid-empty-hint {
+  padding: 24px;
+  background: #fffdf9;
+  border: 1px dashed #d8c7ad;
+  border-radius: 12px;
+  text-align: center;
+  color: #756654;
+}
+
+/* Modal Drawer for Browsing Views */
+.view-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(36, 30, 23, 0.55);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.view-drawer-modal {
+  background: #fffdf9;
+  width: min(840px, 100%);
+  max-height: 85vh;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(48, 36, 20, 0.16);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #e7ddca;
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border-bottom: 1px solid #eee4d1;
+}
+
+.drawer-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #241e17;
+}
+
+.drawer-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #756654;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+.drawer-close:hover {
+  background: #f5eedf;
+  color: #241e17;
+}
+
+.drawer-search {
+  padding: 12px 24px;
+  background: #f8f4ea;
+  border-bottom: 1px solid #eee4d1;
+}
+
+.drawer-search input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #decbb4;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  background: #fffdf9;
+  color: #241e17;
+}
+
+.drawer-search input:focus {
+  border-color: #8c683b;
+  box-shadow: 0 0 0 3px rgba(140, 104, 59, 0.15);
+}
+
+.drawer-groups-scroll {
+  padding: 20px 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.drawer-group h4 {
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8c7b68;
+}
+
+.drawer-items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 8px;
+}
+
+.stage-subgroup {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.stage-tag {
+  font-size: 11px;
+  font-weight: 600;
+  color: #8c683b;
+}

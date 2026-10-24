@@ -10,6 +10,8 @@ import {
   memoryEncryptionProvider,
   memoryEncryptionStatus,
   memoryKeyringFileName,
+  parseDpapiOutput,
+  runDpapi,
   rotateMemoryDataKey,
 } from '../memory-crypto.mjs';
 
@@ -24,6 +26,41 @@ async function temporaryDirectory(t) {
   });
   return directory;
 }
+
+test('DPAPI output parser extracts its marked result despite unrelated PowerShell output', () => {
+  const output = 'PowerShell host output\r\nCLIMATE_CHAIN_DPAPI_RESULT:AQID\r\n';
+  assert.deepEqual(parseDpapiOutput(output), Buffer.from([1, 2, 3]));
+});
+
+test('DPAPI output parser fails closed when the result marker is missing, repeated or malformed', () => {
+  assert.throws(() => parseDpapiOutput('PowerShell host output'), /invalid key envelope/u);
+  assert.throws(() => parseDpapiOutput('CLIMATE_CHAIN_DPAPI_RESULT:AQID\nCLIMATE_CHAIN_DPAPI_RESULT:BAUG'), /invalid key envelope/u);
+  assert.throws(() => parseDpapiOutput('CLIMATE_CHAIN_DPAPI_RESULT:not-base64'), /invalid key envelope/u);
+});
+
+test('DPAPI retries one malformed host response, then accepts only a valid marked envelope', () => {
+  let calls = 0;
+  const spawn = () => {
+    calls += 1;
+    return {
+      error: null,
+      status: 0,
+      stdout: calls === 1 ? 'CLIMATE_CHAIN_DPAPI_RESULT:not-base64\n' : 'Host output\nCLIMATE_CHAIN_DPAPI_RESULT:AQID\n',
+    };
+  };
+  assert.deepEqual(runDpapi('unprotect', 'opaque-envelope', spawn), Buffer.from([1, 2, 3]));
+  assert.equal(calls, 2);
+});
+
+test('DPAPI keeps failing closed after its one bounded parse retry', () => {
+  let calls = 0;
+  const spawn = () => {
+    calls += 1;
+    return { error: null, status: 0, stdout: 'CLIMATE_CHAIN_DPAPI_RESULT:not-base64\n' };
+  };
+  assert.throws(() => runDpapi('unprotect', 'opaque-envelope', spawn), /invalid key envelope/u);
+  assert.equal(calls, 2);
+});
 
 test('AES-256-GCM encrypts content and rejects authenticated tampering', async (t) => {
   const directory = await temporaryDirectory(t);

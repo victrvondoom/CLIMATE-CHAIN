@@ -339,6 +339,13 @@ test('gateway mission API executes behind its local boundary and survives gatewa
     const stoppedStatus = await stoppedHealth.json();
     assert.equal(stoppedStatus.worker.status, 'stopped', JSON.stringify(stoppedStatus.worker));
     assert.equal(stoppedHealth.status, 503);
+    // The app polls /api/status: same degraded report, but a 200 so browsers do not log a failure.
+    const statusView = await fetch(`${base}/api/status`);
+    assert.equal(statusView.status, 200);
+    const statusBody = await statusView.json();
+    assert.equal(statusBody.status, 'degraded');
+    assert.equal(statusBody.worker.status, 'stopped');
+    assert.equal(statusBody.worker.available, false);
     const restarted = await fetch(`${base}/api/missions/${missionId}`);
     assert.equal(restarted.status, 200);
     const record = await restarted.json();

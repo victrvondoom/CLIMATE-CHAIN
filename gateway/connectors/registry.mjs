@@ -70,6 +70,7 @@ function validateClearSky(value) {
     errors.push(issue('$.fields_saved_after_alert', 'must be a finite number or null'));
   }
   if (value.today != null && !isString(value.today)) errors.push(issue('$.today', 'must be a string when present'));
+  if (value.demo_prices != null && typeof value.demo_prices !== 'boolean') errors.push(issue('$.demo_prices', 'must be a boolean when present'));
   return errors;
 }
 

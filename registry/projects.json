@@ -1,8 +1,15 @@
 {
-  "$comment": "Single source of truth for every project merged into Climate Chain. Read by the gateway (/api/v1/projects, /apps/<id>/) and by the frontend (capability library, mission studio, command palette). Folder paths are relative to climate-chain/projects/. Stage ids: sense, verify, act, finance, prove.",
+  "$comment": "Single source of truth for projects and IEEE Climate Chain tracks. Read by the gateway (/api/v1/projects, /apps/<id>/) and frontend. Each project declares every fitting track. Folder paths are relative to climate-chain/projects/. Stage ids: sense, verify, act, finance, prove.",
+  "tracks": [
+    { "id": "carbon-markets-emissions-transparency", "label": "Carbon Markets & Emissions Transparency", "detail": "Measure, verify, issue and trace climate claims across carbon projects, emissions and credit markets." },
+    { "id": "renewable-energy-energy-trading", "label": "Renewable Energy & Energy Trading", "detail": "Match clean generation and demand, validate certificates, and support reliable energy decisions." },
+    { "id": "sustainable-supply-chains", "label": "Sustainable Supply Chains", "detail": "Trace waste, agricultural residue and buyer or municipal handoffs toward lower-impact operations." },
+    { "id": "climate-data-environmental-monitoring", "label": "Climate Data & Environmental Monitoring", "detail": "Collect, validate and interpret environmental observations with source, location, timing and integrity evidence." }
+  ],
   "projects": [
     {
       "id": "climate-chain",
+      "tracks": ["carbon-markets-emissions-transparency", "renewable-energy-energy-trading", "sustainable-supply-chains", "climate-data-environmental-monitoring"],
       "name": "Climate Chain",
       "folder": null,
       "descriptor": "The shared command center",
@@ -21,6 +28,7 @@
     },
     {
       "id": "junksnap",
+      "tracks": ["sustainable-supply-chains", "climate-data-environmental-monitoring"],
       "name": "JunkSnap",
       "folder": "JunkSnap-main",
       "descriptor": "Waste evidence to municipal action",
@@ -41,17 +49,19 @@
     },
     {
       "id": "clearsky",
+      "tracks": ["sustainable-supply-chains", "climate-data-environmental-monitoring"],
       "name": "clearsky",
       "folder": "clearsky-main",
       "descriptor": "Prevent stubble fires before ignition",
       "domain": "Fire · Punjab",
-      "stages": ["sense", "act", "prove"],
+      "stages": ["sense", "act", "finance", "prove"],
       "features": [
         "Hindi and Punjabi WhatsApp field intake",
         "Burn Risk Radar and village alerts",
-        "Baler and buyer routing for straw"
+        "Baler and buyer routing for straw",
+        "Estimated farmer payouts from demo buyer prices"
       ],
-      "evidence": "Live pilot dashboard and AWS API",
+      "evidence": "Live pilot dashboard and AWS API; payout figures are estimates from demo prices",
       "readiness": "Live app and API",
       "liveUrl": "https://clearsky.akkki.tech",
       "linkLabel": "Open clearsky",
@@ -61,6 +71,7 @@
     },
     {
       "id": "teesri",
+      "tracks": ["climate-data-environmental-monitoring"],
       "name": "Teesri Shikayat",
       "folder": "teesri-shikayat-main",
       "descriptor": "Neighbourhood water-safety tripwire",
@@ -81,6 +92,7 @@
     },
     {
       "id": "vayu",
+      "tracks": ["climate-data-environmental-monitoring"],
       "name": "The Vayu Project",
       "folder": "the-vayu-project-main",
       "descriptor": "One place, one provenance-backed air answer",
@@ -101,6 +113,7 @@
     },
     {
       "id": "aquaquest",
+      "tracks": ["climate-data-environmental-monitoring"],
       "name": "AquaQuest",
       "folder": "AquaQuest-main",
       "descriptor": "Freshwater citizen science",
@@ -121,6 +134,7 @@
     },
     {
       "id": "plume",
+      "tracks": ["carbon-markets-emissions-transparency", "climate-data-environmental-monitoring"],
       "name": "PLUME",
       "folder": "PLUME-main",
       "descriptor": "Methane detection to verified repair funding",
@@ -140,6 +154,7 @@
     },
     {
       "id": "carbonlens",
+      "tracks": ["carbon-markets-emissions-transparency", "climate-data-environmental-monitoring"],
       "name": "CarbonLens",
       "folder": "carbonlens-main",
       "descriptor": "Satellite checks for forest credit claims",
@@ -160,6 +175,7 @@
     },
     {
       "id": "carbonshield",
+      "tracks": ["carbon-markets-emissions-transparency", "climate-data-environmental-monitoring"],
       "name": "CarbonShield",
       "folder": "carbonshield-main",
       "descriptor": "REDD+ claims under red-team review",
@@ -179,6 +195,7 @@
     },
     {
       "id": "carbontwin",
+      "tracks": ["carbon-markets-emissions-transparency"],
       "name": "CarbonTwin",
       "folder": "carbontwin-main",
       "descriptor": "Cross-registry double-issuance checks",
@@ -199,6 +216,7 @@
     },
     {
       "id": "ecograph",
+      "tracks": ["carbon-markets-emissions-transparency"],
       "name": "EcoGraph",
       "folder": "ecograph-main",
       "descriptor": "Explainable ledger-fraud graph review",
@@ -219,6 +237,7 @@
     },
     {
       "id": "grounded",
+      "tracks": ["renewable-energy-energy-trading"],
       "name": "grounded",
       "folder": "grounded-main",
       "descriptor": "Microgrid resilience decision support",
@@ -238,6 +257,7 @@
     },
     {
       "id": "rantai",
+      "tracks": ["carbon-markets-emissions-transparency"],
       "name": "rantai-3c",
       "folder": "rantai-3c-master",
       "descriptor": "Web3 carbon management demo",
@@ -257,6 +277,7 @@
     },
     {
       "id": "carbontrace",
+      "tracks": ["carbon-markets-emissions-transparency", "climate-data-environmental-monitoring"],
       "name": "CarbonTrace",
       "folder": "CarbonTrace-main",
       "descriptor": "Carbon credits checked against satellite evidence before they exist",
@@ -269,12 +290,12 @@
       ],
       "evidence": "Project README reports 27 contract tests, 50 backend tests and 8 frontend tests",
       "readiness": "Local demo (make run) and Docker Compose",
-      "track": "Carbon Markets & Emissions Transparency",
       "stack": ["React + Vite + Leaflet", "FastAPI + web3 + shapely", "Hardhat registry contract", "Docker Compose"],
       "tone": "carbon"
     },
     {
       "id": "climateproof",
+      "tracks": ["climate-data-environmental-monitoring"],
       "name": "ClimateProof AI",
       "folder": "ClimateProof-AI-main",
       "descriptor": "Environmental dataset integrity checks before anyone trusts them",
@@ -287,12 +308,12 @@
       ],
       "evidence": "Synthetic sample dataset; outliers are exploratory signals, not proof of manipulation",
       "readiness": "Local MVP (FastAPI + Streamlit)",
-      "track": "Climate Data & Environmental Monitoring",
       "stack": ["FastAPI", "Streamlit dashboard", "pandas", "Render config"],
       "tone": "air"
     },
     {
       "id": "flarewatch",
+      "tracks": ["carbon-markets-emissions-transparency", "climate-data-environmental-monitoring"],
       "name": "Flarewatch",
       "folder": "flarewatch-main",
       "descriptor": "Niger Delta gas flares, seen from space, recorded where nobody can edit them",
@@ -307,13 +328,13 @@
       "readiness": "Live web app and Solana devnet program",
       "liveUrl": "https://flarewatch-ng.vercel.app",
       "linkLabel": "Open Flarewatch",
-      "track": "Climate Data & Environmental Monitoring",
       "local": { "root": "web" },
       "stack": ["Node pipeline (NASA FIRMS)", "Solana program (Anchor / Rust)", "Static web (Vercel)"],
       "tone": "methane"
     },
     {
       "id": "gridproof",
+      "tracks": ["carbon-markets-emissions-transparency", "renewable-energy-energy-trading", "climate-data-environmental-monitoring"],
       "name": "GridProof",
       "folder": "gridproof-main",
       "descriptor": "Hour-by-hour clean energy certificates, checked and recorded on-chain",
@@ -326,12 +347,12 @@
       ],
       "evidence": "Sepolia deployment recorded in deployments/sepolia.json",
       "readiness": "Testnet deployment and web app",
-      "track": "Renewable Energy & Energy Trading",
       "stack": ["Vite + React web", "Hardhat (TypeScript) contracts on Sepolia", "Python FastAPI oracle + scikit-learn"],
       "tone": "energy"
     },
     {
       "id": "hourmatch",
+      "tracks": ["carbon-markets-emissions-transparency", "renewable-energy-energy-trading", "climate-data-environmental-monitoring"],
       "name": "HourMatch",
       "folder": "hourmatch-master",
       "descriptor": "Renewable certificates per plant per hour, and a checker for green-power claims",
@@ -346,13 +367,13 @@
       "readiness": "Live demo and on-chain registry",
       "liveUrl": "https://hourmatch.vercel.app",
       "linkLabel": "Open HourMatch",
-      "track": "Renewable Energy & Energy Trading",
       "local": { "root": "public" },
       "stack": ["Hardhat + Solidity registry on Sepolia", "Node ES modules pipeline", "Static web (Vercel)"],
       "tone": "energy"
     },
     {
       "id": "plotlock",
+      "tracks": ["climate-data-environmental-monitoring"],
       "name": "PlotLock",
       "folder": "plotlock-main",
       "descriptor": "One on-chain attestation per plot per season, bound to satellite evidence",
@@ -365,7 +386,6 @@
       ],
       "evidence": "Four demo plots with fixture evidence; Sentinel-2 items are real Planetary Computer measurements",
       "readiness": "Demo map and Polygon Amoy testnet contract",
-      "track": "Climate Data & Environmental Monitoring",
       "local": { "root": "web" },
       "stack": ["Solidity registry (Polygon Amoy)", "FastAPI oracle", "Static Leaflet map"],
       "tone": "carbon"

@@ -7,9 +7,10 @@
 //   /api/vayu/*              -> Vayu API              (air)
 //   /api/unified/overview    normalized fan-out + cross-project feed
 //   /api/v1/projects         registry of every merged project + app availability
+//   /api/v1/knowledge/*      read-only workspace search: ranked, redacted excerpts with sources
 //   /apps/<id>/...           standalone project apps from ../projects (same origin)
 // It also serves the built frontend from ../frontend/dist.
-// Zero dependencies: node >= 20 (uses global fetch and AbortController).
+// Zero dependencies: a supported Node release with global fetch, AbortController, and system CA support.
 
 import http from 'node:http';
 import { randomUUID } from 'node:crypto';
@@ -40,7 +41,18 @@ import { createMissionEngine, MissionEngineError } from './mission-engine.mjs';
 import { attachFreshMissionMemory, MissionMemoryReadinessError } from './mission-readiness.mjs';
 import { readWorkerStatus } from './worker-status.mjs';
 import { createConnectorRegistry, ConnectorError, VAYU_CITY_PRESETS } from './connectors/registry.mjs';
-import { appContentType, listProjectApps, loadRegistry, resolveAppFile } from './project-registry.mjs';
+import { appContentType, listProjectApps, loadRegistry, loadTracks, resolveAppFile } from './project-registry.mjs';
+import { createPlaceService, PlaceServiceError, validatePlaceCoordinates } from './place-environment.mjs';
+import { createFacilityService } from './place-facilities.mjs';
+import { createKnowledgeService, KnowledgeError } from './knowledge-index.mjs';
+import { createEvidenceAnchorService, EvidenceAnchorError, isValidEvidenceDigest } from './evidence-anchor.mjs';
+import { createIntegrityService } from './integrity-service.mjs';
+import {
+  getDatasetsCatalog,
+  getTimelineObservations,
+  generateObservationEvidenceManifest,
+  POLICY_EVENTS
+} from './historical-service.mjs';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const DIST_DIR = join(__dirname, '..', 'frontend', 'dist');
@@ -100,6 +112,49 @@ async function handleServices(registry) {
     return { ...health, ...registry.getStatus(name), status: health.status, checkedAt: health.checkedAt, http: health.http ?? 0 };
   }));
   return { services: entries, asOf: new Date().toISOString() };
+}
+
+function handleIntegrationEvidence(registry) {
+  const upstreams = registry.listConfig().map((item) => ({
+    name: item.name,
+    label: item.label,
+    domain: item.domain,
+    configured: item.configured,
+    endpoint: item.endpoint,
+    healthPath: item.healthPath,
+    operations: item.operations,
+    apiKeyRequired: false,
+    authentication: item.auth,
+    evidence: 'The shared Climate Chain adapter uses read-only GET requests. Connector health and per-request source evidence are reported separately.',
+  }));
+  const openAqConfigured = Boolean(String(process.env.OPENAQ_API_KEY || '').trim());
+  return {
+    schemaVersion: 1,
+    checkedAt: new Date().toISOString(),
+    upstreams,
+    credentials: [{
+      provider: 'OpenAQ v3',
+      variable: 'OPENAQ_API_KEY',
+      required: false,
+      configured: openAqConfigured,
+      state: openAqConfigured ? 'configured_not_connected' : 'not_configured_not_connected',
+      validated: false,
+      usedByGateway: false,
+      evidence: 'The central gateway has no OpenAQ adapter. A present value is not used or validated by this application.',
+      secretValueReturned: false,
+    }],
+    mcp: {
+      name: 'climate_chain_live_data',
+      transport: 'stdio',
+      available: true,
+      configuration: 'Included in the generated MCP setup alongside the engineering-memory server.',
+      gateway: `http://127.0.0.1:${Number(process.env.PORT || 8080)}`,
+      tools: ['climate_chain_get_live_overview', 'climate_chain_check_public_sources', 'climate_chain_fetch_cascade_evidence'],
+      sourceApiKeysRequired: false,
+      access: 'Local read-only MCP process; it calls the loopback gateway and does not expose a public network listener.',
+    },
+    scope: 'This inventory covers Climate Chain shared connectors and its optional OpenAQ key only. Specialist projects keep their own credentials; the shared gateway does not read or forward them.',
+  };
 }
 
 async function handleProxy(req, res, name, subPath) {
@@ -293,6 +348,172 @@ async function handleCascade(url, res) {
   return sendJson(res, 200, { ...result, sources: { junksnap: 'live', vayu: 'live' } });
 }
 
+async function handleEvidenceAnchors(req, res, url, service) {
+  const base = '/api/v1/evidence-anchors';
+  if (url.pathname === `${base}/status` && req.method === 'GET') {
+    return sendLocalJson(res, 200, await service.status());
+  }
+  if (url.pathname === base && req.method === 'GET') {
+    try {
+      return sendLocalJson(res, 200, await service.list(url.searchParams.get('limit')));
+    } catch (error) {
+      const status = error instanceof EvidenceAnchorError ? error.status : 502;
+      return sendLocalJson(res, status, { error: { code: error?.code || 'anchor_list_failed', message: error instanceof Error ? error.message : 'On-chain evidence could not be loaded.' } });
+    }
+  }
+  if (url.pathname === base && req.method === 'POST') {
+    if (!isLoopbackAddress(req.socket.remoteAddress) || !isLocalOrigin(req.headers.origin)) {
+      req.resume();
+      return sendLocalJson(res, 403, { error: { code: 'local_access_required', message: 'Evidence anchoring is available only from the local Climate Chain app.' } });
+    }
+    try {
+      const body = await readJsonBody(req, 150_000);
+      const result = await service.anchor(body.manifest);
+      return sendLocalJson(res, result.alreadyAnchored ? 200 : 201, result);
+    } catch (error) {
+      const status = error instanceof EvidenceAnchorError ? error.status
+        : error?.code === 'REQUEST_TOO_LARGE' ? 413
+          : error?.code === 'INVALID_JSON' ? 400 : 502;
+      return sendLocalJson(res, status, {
+        error: {
+          code: error?.code || 'anchor_failed',
+          message: error instanceof Error ? error.message : 'Evidence could not be anchored.',
+        },
+      });
+    }
+  }
+  const digestPath = url.pathname.startsWith(`${base}/`) ? url.pathname.slice(base.length + 1) : '';
+  if (digestPath && req.method === 'GET') {
+    if (!isValidEvidenceDigest(digestPath)) return sendLocalJson(res, 400, { error: { code: 'invalid_digest', message: 'Digest must be 64 hexadecimal SHA-256 characters.' } });
+    try {
+      return sendLocalJson(res, 200, await service.verify(digestPath));
+    } catch (error) {
+      const status = error instanceof EvidenceAnchorError ? error.status : 502;
+      return sendLocalJson(res, status, { error: { code: error?.code || 'proof_lookup_failed', message: error instanceof Error ? error.message : 'On-chain proof could not be checked.' } });
+    }
+  }
+  req.resume();
+  return sendLocalJson(res, 405, { error: { code: 'method_not_allowed', message: 'Evidence anchor records are read-only; POST a Cascade Review manifest to create a digest commitment.' } });
+}
+
+// Climate Integrity Lab: evidence bundles, local-chain anchoring, claims, challenges and
+// corrections. Reads are open to local clients; every write must come from loopback with a
+// local origin, like evidence anchoring above.
+const INTEGRITY_BASE = '/api/v1/integrity';
+
+async function readOptionalJsonBody(req, maxBytes) {
+  const chunks = [];
+  let size = 0;
+  for await (const chunk of req) {
+    size += chunk.byteLength;
+    if (size > maxBytes) throw Object.assign(new Error(`Request body exceeds ${maxBytes} bytes.`), { code: 'REQUEST_TOO_LARGE', status: 413 });
+    chunks.push(chunk);
+  }
+  if (size === 0) return {};
+  try {
+    const value = JSON.parse(Buffer.concat(chunks).toString('utf8'));
+    if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error('expected object');
+    return value;
+  } catch {
+    throw Object.assign(new Error('Request body must be a JSON object.'), { code: 'INVALID_JSON', status: 400 });
+  }
+}
+
+async function routeIntegrity(service, method, parts, body) {
+  const [resource, id, action] = parts;
+  if (parts.length === 1) {
+    if (method === 'GET' && resource === 'status') return service.status();
+    if (method === 'GET' && resource === 'sites') return service.sites();
+    if (method === 'GET' && resource === 'history') return service.history();
+    if (method === 'POST' && resource === 'reset') return service.reset();
+    if (method === 'POST' && resource === 'evidence') return service.buildEvidence({ siteId: body.siteId, analyte: body.analyte, mode: body.mode });
+    if (method === 'POST' && resource === 'claims') return service.submitClaim({ evidenceId: body.evidenceId });
+  }
+  if (parts.length === 2 && method === 'GET') {
+    if (resource === 'evidence') return service.getEvidence(id);
+    if (resource === 'claims') return service.getClaim(id);
+  }
+  if (parts.length === 3 && resource === 'evidence') {
+    if (method === 'GET' && action === 'verify') return service.verify(id);
+    if (method === 'POST' && action === 'anchor') return service.anchor(id);
+    if (method === 'POST' && action === 'tamper') return service.tamper(id);
+    if (method === 'POST' && action === 'replay') return service.replay(id);
+  }
+  if (parts.length === 3 && resource === 'claims' && method === 'POST') {
+    if (action === 'duplicate') return service.duplicateClaim(id);
+    if (action === 'challenge') return service.challenge(id, { reasonCode: body.reasonCode, detail: body.detail });
+    if (action === 'correct') return service.correct(id, { note: body.note });
+    if (action === 'resolve') return service.resolve(id, { upheld: body.upheld });
+    if (action === 'firewall') return service.evaluateClaimFirewall(id, body);
+  }
+  if (parts.length === 2 && resource === 'firewall') {
+    if (method === 'POST' && id === 'evaluate') return service.evaluateFirewall(body);
+    if (method === 'GET' && id === 'benchmark') return service.benchmarkFirewall();
+  }
+  return undefined;
+}
+
+async function handleIntegrity(req, res, url, service) {
+  const parts = url.pathname.slice(INTEGRITY_BASE.length).split('/').filter(Boolean);
+  const isWrite = req.method === 'POST';
+  if (req.method !== 'GET' && !isWrite) {
+    req.resume();
+    return sendLocalJson(res, 405, { error: { code: 'method_not_allowed', message: 'The integrity lab accepts GET for reads and POST for local writes.' } });
+  }
+  if (isWrite && (!isLoopbackAddress(req.socket.remoteAddress) || !isLocalOrigin(req.headers.origin))) {
+    req.resume();
+    return sendLocalJson(res, 403, { error: { code: 'local_access_required', message: 'Integrity lab writes are available only from the local Climate Chain app.' } });
+  }
+  try {
+    const body = isWrite ? await readOptionalJsonBody(req, 20_000) : {};
+    if (!isWrite) req.resume();
+    const result = await routeIntegrity(service, req.method, parts, body);
+    if (result === undefined) return sendLocalJson(res, 404, { error: { code: 'not_found', message: `No integrity lab route for ${req.method} ${url.pathname}.` } });
+    const created = isWrite && ((parts.length === 1 && ['evidence', 'claims'].includes(parts[0])) || (parts[2] === 'anchor' && !result.alreadyAnchored));
+    return sendLocalJson(res, created ? 201 : 200, result);
+  } catch (error) {
+    const status = Number.isInteger(error?.status) && error.status >= 400 && error.status < 600 ? error.status : 500;
+    return sendLocalJson(res, status, {
+      error: {
+        code: error?.code || 'integrity_failed',
+        message: error instanceof Error ? error.message : 'The integrity lab request failed.',
+        ...(error?.errorName ? { errorName: error.errorName, errorArgs: error.errorArgs } : {}),
+        ...(error?.retryAfterSeconds != null ? { retryAfterSeconds: error.retryAfterSeconds } : {}),
+        ...(Array.isArray(error?.fields) ? { fields: error.fields } : {}),
+      },
+    });
+  }
+}
+
+function handleHistory(req, res, url) {
+  if (req.method !== 'GET') {
+    return sendJson(res, 405, { error: { code: 'method_not_allowed', message: 'Historical climate endpoints are read-only.' } });
+  }
+  const subpath = url.pathname.slice('/api/v1/history/'.length);
+  if (subpath === 'datasets') {
+    return sendJson(res, 200, getDatasetsCatalog());
+  }
+  if (subpath === 'timeline') {
+    const indicator = url.searchParams.get('indicator') || 'temperature_anomaly';
+    const startYear = parseInt(url.searchParams.get('startYear') || '1826', 10);
+    const endYear = parseInt(url.searchParams.get('endYear') || '2026', 10);
+    return sendJson(res, 200, getTimelineObservations(indicator, startYear, endYear));
+  }
+  if (subpath === 'events') {
+    return sendJson(res, 200, { events: POLICY_EVENTS });
+  }
+  if (subpath === 'observation-evidence') {
+    const indicator = url.searchParams.get('indicator') || 'temperature_anomaly';
+    const year = parseInt(url.searchParams.get('year') || '2024', 10);
+    const manifest = generateObservationEvidenceManifest(indicator, year);
+    if (manifest.error) {
+      return sendJson(res, 400, { error: { code: 'invalid_observation_request', message: manifest.error } });
+    }
+    return sendJson(res, 200, manifest);
+  }
+  return sendJson(res, 404, { error: { code: 'not_found', message: `Unknown historical route: ${url.pathname}` } });
+}
+
 // ---------------------------------------------------------------------------
 // Static serving
 // ---------------------------------------------------------------------------
@@ -436,10 +657,16 @@ async function handleMissions(req, res, url, engine) {
   }
 }
 
-export function createGatewayServer({ missionEngine, connectorRegistry, missionStorePath, projectRegistry } = {}) {
+export function createGatewayServer({ missionEngine, connectorRegistry, missionStorePath, projectRegistry, trackRegistry, placeService, facilitiesService, knowledgeService, evidenceAnchorService, integrityService } = {}) {
   const missions = missionEngine || createMissionEngine({ storePath: missionStorePath });
   const connectors = connectorRegistry || createConnectorRegistry({ env: process.env });
   const projects = projectRegistry || loadRegistry();
+  const tracks = trackRegistry || loadTracks();
+  const places = placeService || createPlaceService();
+  const facilities = facilitiesService || createFacilityService();
+  const knowledge = knowledgeService || createKnowledgeService({ root: join(__dirname, '..') });
+  const evidenceAnchors = evidenceAnchorService || createEvidenceAnchorService();
+  const integrity = integrityService || createIntegrityService();
   return http.createServer(async (req, res) => {
   const suppliedCorrelationId = req.headers['x-correlation-id'];
   const correlationId = typeof suppliedCorrelationId === 'string' && /^[A-Za-z0-9._:-]{1,100}$/.test(suppliedCorrelationId) ? suppliedCorrelationId : randomUUID();
@@ -472,7 +699,10 @@ export function createGatewayServer({ missionEngine, connectorRegistry, missionS
   }
 
   try {
-    if (p === '/api/health' && req.method === 'GET') {
+    // /api/health is the readiness probe: 503 while degraded. /api/status returns the same body
+    // with 200, so the app can poll it without the browser logging every degraded poll as a
+    // failed request.
+    if ((p === '/api/health' || p === '/api/status') && req.method === 'GET') {
       let memory;
       try {
         const verified = await verifyMemoryIntegrity();
@@ -491,7 +721,7 @@ export function createGatewayServer({ missionEngine, connectorRegistry, missionS
         lastCheckAt: item.lastCheckAt, lastSuccessAt: item.lastSuccessAt, errorCode: item.lastError?.code || null,
       }));
       const ready = memory.status === 'ready' && missionStore.valid && worker.available;
-      return sendJson(res, ready ? 200 : 503, {
+      return sendJson(res, ready || p === '/api/status' ? 200 : 503, {
         status: ready ? 'ready' : 'degraded', correlationId, uptimeSeconds: Math.floor(process.uptime()),
         memory, missions: { status: missionStore.valid ? 'ready' : 'unavailable', count: missionStore.missions ?? null, events: missionStore.events ?? null, errorCode: missionStore.code || null },
         worker, connectors: connectorStatuses, checkedAt: new Date().toISOString(),
@@ -499,15 +729,52 @@ export function createGatewayServer({ missionEngine, connectorRegistry, missionS
     }
     if (p === '/api/services') return sendJson(res, 200, await handleServices(connectors));
     if (p === '/api/connectors' && req.method === 'GET') return sendJson(res, 200, { connectors: connectors.listConfig(), status: connectors.listStatus(), asOf: new Date().toISOString() });
+    if (p === '/api/v1/evidence/integrations' && req.method === 'GET') return sendJson(res, 200, handleIntegrationEvidence(connectors));
     if (p === '/api/unified/overview') return sendJson(res, 200, await handleOverview(url, connectors));
+    if (p === '/api/v1/place' || p === '/api/v1/places/search' || p === '/api/v1/place/facilities') {
+      if (req.method !== 'GET') { req.resume(); return sendJson(res, 405, { error: { code: 'method_not_allowed', message: 'Place environment and geographic discovery are read-only.' } }); }
+      try {
+        if (p === '/api/v1/places/search') return sendJson(res, 200, await places.searchPlaces(url.searchParams.get('q')));
+        const point = validatePlaceCoordinates({ lat: url.searchParams.get('lat'), lng: url.searchParams.get('lng') });
+        if (p === '/api/v1/place/facilities') {
+          const radius = url.searchParams.has('radiusKm') ? url.searchParams.get('radiusKm') : 15;
+          if (String(radius).trim() === '' || !Number.isFinite(Number(radius)) || Number(radius) <= 0 || Number(radius) > 25) throw new PlaceServiceError('invalid_radius', 'radiusKm must be greater than zero and no more than 25 km.', 400);
+          return sendJson(res, 200, await facilities.nearby(point.lat, point.lng, Number(radius)));
+        }
+        return sendJson(res, 200, await places.inspectPlace(point));
+      } catch (error) {
+        const status = error instanceof PlaceServiceError ? error.status : error instanceof TypeError || error instanceof RangeError ? 400 : 502;
+        return sendJson(res, status, { error: { code: error instanceof PlaceServiceError ? error.code : status === 400 ? 'invalid_place_query' : 'place_source_unavailable', message: error instanceof PlaceServiceError || status === 400 ? error.message : 'The geographic source could not be reached. Retry shortly.' } });
+      }
+    }
     if (p === '/api/v1/cascade') {
       if (req.method !== 'GET') return sendJson(res, 405, { error: { code: 'method_not_allowed', message: 'Cascade review is read-only.' } });
       return handleCascade(url, res);
     }
+    if (p === '/api/v1/evidence-anchors' || p.startsWith('/api/v1/evidence-anchors/')) {
+      return handleEvidenceAnchors(req, res, url, evidenceAnchors);
+    }
+    if (p === INTEGRITY_BASE || p.startsWith(`${INTEGRITY_BASE}/`)) {
+      return handleIntegrity(req, res, url, integrity);
+    }
+    if (p.startsWith('/api/v1/history/')) {
+      return handleHistory(req, res, url);
+    }
 
     if (p === '/api/v1/projects') {
       if (req.method !== 'GET') return sendJson(res, 405, { error: { code: 'method_not_allowed', message: 'The project registry is read-only.' } });
-      return sendJson(res, 200, { projects, apps: listProjectApps(projects), asOf: new Date().toISOString() });
+      return sendJson(res, 200, { tracks, projects, apps: listProjectApps(projects), asOf: new Date().toISOString() });
+    }
+    if (p === '/api/v1/knowledge/search' || p === '/api/v1/knowledge/sources') {
+      if (req.method !== 'GET') return sendJson(res, 405, { error: { code: 'method_not_allowed', message: 'Workspace search is read-only.' } });
+      try {
+        if (p === '/api/v1/knowledge/sources') return sendJson(res, 200, await knowledge.sources());
+        return sendJson(res, 200, await knowledge.search(url.searchParams.get('q'), url.searchParams.get('limit') ?? undefined));
+      } catch (error) {
+        if (error instanceof KnowledgeError) return sendJson(res, error.status, { error: { code: error.code, message: error.message } });
+        console.error('[gateway] workspace search failed', { code: error?.code || 'unexpected_error' });
+        return sendJson(res, 503, { error: { code: 'knowledge_unavailable', message: 'Workspace search is unavailable right now. Try again shortly.' } });
+      }
     }
     if (p === '/apps' || p.startsWith('/apps/')) {
       if (req.method !== 'GET' && req.method !== 'HEAD') return sendJson(res, 405, { error: { code: 'method_not_allowed', message: 'Project apps are read-only.' } });

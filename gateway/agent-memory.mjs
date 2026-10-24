@@ -16,6 +16,7 @@ import {
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const MCP_SERVER = join(__dirname, 'memory-mcp.mjs');
+const LIVE_DATA_MCP_SERVER = join(__dirname, 'live-data-mcp.mjs');
 const MAX_ENTRIES = 500;
 const MAX_BODY_BYTES = 4 * 1024 * 1024;
 const MAX_VAULT_BYTES = 32 * 1024 * 1024;
@@ -1178,7 +1179,7 @@ export async function readMemoryExports(project) {
     ]) : ['No active judgments are available in this namespace.', '']),
     '## MCP setup',
     '',
-    'Install the generated MCP configuration in each supported agent and restart the agent session. The bridge is local stdio and read-only.',
+    'Install the generated MCP configuration in each supported agent and restart the agent session. It registers the local read-only engineering-memory MCP and the live-data MCP, which calls only the loopback gateway and its public read endpoints.',
     '',
   ].join('\n');
   const mcpConfig = {
@@ -1188,6 +1189,12 @@ export async function readMemoryExports(project) {
         args: [MCP_SERVER],
         cwd: __dirname,
         env: { CLIMATE_CHAIN_MEMORY_DIR: getMemoryDirectory() },
+      },
+      climate_chain_live_data: {
+        command: process.execPath,
+        args: [LIVE_DATA_MCP_SERVER],
+        cwd: __dirname,
+        env: { CLIMATE_CHAIN_GATEWAY_URL: `http://127.0.0.1:${Number(process.env.PORT || 8080)}` },
       },
     },
   };

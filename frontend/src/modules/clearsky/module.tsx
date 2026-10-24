@@ -1,9 +1,8 @@
-import { useEffect, useMemo, useState } from 'react';
-import { fetchOverview } from '../../api';
+import { useMemo, useState } from 'react';
+import { useSignals } from '../../core/signals';
 import { Card, Stat } from '../../components/Ui';
 import { appendLedger, createEvidence } from '../../core/evidence';
 import type { ClimateModule } from '../../core/module';
-import type { Overview } from '../../types';
 import { ALERT_BOOK_BUTTON, farmersToNotify, villageAlertText } from './domain/alerts';
 import { scoreField, type FieldState, type FieldStatus, type RiskLevel } from './domain/risk';
 import { routeToBaler, type Baler, type ClusterDays, type FieldSite, type Ledger, type Route } from './domain/routing';
@@ -62,20 +61,9 @@ function bandClass(level: RiskLevel): string {
 }
 
 function ClearskyPage() {
-  const [overview, setOverview] = useState<Overview | null>(null);
-  const [feedError, setFeedError] = useState<string | null>(null);
+  const { data: overview, error: feedError } = useSignals();
   const [villageId, setVillageId] = useState<string>(SEED.villages[0].villageId);
   const [recorded, setRecorded] = useState<{ fieldId: string; sha256: string; saved: boolean } | null>(null);
-
-  useEffect(() => {
-    const controller = new AbortController();
-    fetchOverview('delhi', controller.signal)
-      .then(setOverview)
-      .catch((error: unknown) => {
-        if (!controller.signal.aborted) setFeedError(error instanceof Error ? error.message : 'Overview unavailable');
-      });
-    return () => controller.abort();
-  }, []);
 
   const scored = useMemo(() => scoreSeed(), []);
   const village = SEED.villages.find((row) => row.villageId === villageId) ?? SEED.villages[0];
@@ -111,8 +99,8 @@ function ClearskyPage() {
         <Card className="m-clearsky-card">
           <h3>Burn Risk Radar</h3>
           <div className="m-clearsky-stats">
-            <Stat label="RED fields (live)" value={fire ? fire.redFields : 'n/a'} hint={feedError ? `Overview not reachable: ${feedError}` : 'From fetchOverview().fire'} />
-            <Stat label="YELLOW fields (live)" value={fire ? fire.yellowFields : 'n/a'} />
+            <Stat label={`RED fields (${overview?.sources.clearsky.mode === 'live' ? 'connected' : 'simulated'})`} value={fire ? fire.redFields : 'n/a'} hint={feedError ? `Overview not reachable: ${feedError}` : 'From the shared, refreshed clearsky feed'} />
+            <Stat label={`YELLOW fields (${overview?.sources.clearsky.mode === 'live' ? 'connected' : 'simulated'})`} value={fire ? fire.yellowFields : 'n/a'} />
           </div>
           <table className="m-clearsky-table">
             <thead>

@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { fetchOverview } from '../../api';
+import { useState } from 'react';
+import { useSignals } from '../../core/signals';
 import { Card, Stat } from '../../components/Ui';
 import { appendLedger, createEvidence } from '../../core/evidence';
 import type { ClimateModule } from '../../core/module';
@@ -85,18 +85,9 @@ type LiveState = { status: 'loading' } | { status: 'error' } | { status: 'ready'
 function VayuPage() {
   const [placeId, setPlaceId] = useState(DATA.places[0].id);
   const [checkId, setCheckId] = useState<string>(CHECKS[0].id);
-  const [live, setLive] = useState<LiveState>({ status: 'loading' });
+  const signals = useSignals();
+  const live: LiveState = signals.data ? { status: 'ready', air: signals.data.air } : signals.error ? { status: 'error' } : { status: 'loading' };
   const [recorded, setRecorded] = useState('');
-
-  useEffect(() => {
-    const controller = new AbortController();
-    fetchOverview('delhi', controller.signal)
-      .then((overview) => setLive({ status: 'ready', air: overview.air }))
-      .catch(() => {
-        if (!controller.signal.aborted) setLive({ status: 'error' });
-      });
-    return () => controller.abort();
-  }, []);
 
   const place = DATA.places.find((candidate) => candidate.id === placeId) ?? DATA.places[0];
   const check = CHECKS.find((candidate) => candidate.id === checkId) ?? CHECKS[0];

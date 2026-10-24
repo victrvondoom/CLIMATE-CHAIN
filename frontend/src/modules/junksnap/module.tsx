@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from 'react';
-import { fetchOverview } from '../../api';
+import { useMemo, useState } from 'react';
+import { useSignals } from '../../core/signals';
 import { Card, Stat } from '../../components/Ui';
 import { appendLedger, createEvidence } from '../../core/evidence';
 import type { ClimateModule } from '../../core/module';
@@ -57,20 +57,9 @@ function draftFor(site: SiteRow): Draft {
 }
 
 function JunkSnapPage() {
-  const [overview, setOverview] = useState<Overview | null>(null);
-  const [feedError, setFeedError] = useState<string | null>(null);
+  const { data: overview, error: feedError } = useSignals();
   const [selectedId, setSelectedId] = useState<string>(FIXTURE_SITES[0].id);
   const [recorded, setRecorded] = useState<{ sha256: string; saved: boolean } | null>(null);
-
-  useEffect(() => {
-    const controller = new AbortController();
-    fetchOverview('delhi', controller.signal)
-      .then(setOverview)
-      .catch((error: unknown) => {
-        if (!controller.signal.aborted) setFeedError(error instanceof Error ? error.message : 'Overview unavailable');
-      });
-    return () => controller.abort();
-  }, []);
 
   const rows = useMemo(() => rowsFrom(overview), [overview]);
   const live = overview?.sources.junksnap.mode === 'live';

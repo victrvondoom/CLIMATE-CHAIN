@@ -1,7 +1,9 @@
-import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
-import { fetchCascade } from '../api';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from 'react';
+import { anchorCascadeManifest, fetchCascade, fetchEvidenceAnchorStatus, type EvidenceAnchorProof, type EvidenceAnchorStatus } from '../api';
 import { Card, ExternalLink } from '../components/Ui';
 import type { CascadeResponse, Overview } from '../types';
+import { useLiveQuery } from '../hooks/useLiveQuery';
+import './signals.css';
 
 const Globe3D = lazy(() => import('../components/Globe3D').then((module) => ({ default: module.Globe3D })));
 
@@ -47,37 +49,46 @@ export function CascadeReview({ data, siteId, onBack }: { data: Overview; siteId
   const [selectedSiteId, setSelectedSiteId] = useState(siteId ?? '');
   const [radiusKm, setRadiusKm] = useState(5);
   const [timeWindowHours, setTimeWindowHours] = useState(24);
-  const [reload, setReload] = useState(0);
   const [demoMode, setDemoMode] = useState(false);
-  const [result, setResult] = useState<CascadeResponse | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [chainStatus, setChainStatus] = useState<EvidenceAnchorStatus | null>(null);
+  const [anchorProof, setAnchorProof] = useState<EvidenceAnchorProof | null>(null);
+  const [anchoring, setAnchoring] = useState(false);
+  const [anchorError, setAnchorError] = useState('');
   const activeSiteId = selectedSiteId || availableSites[0]?.id || '';
 
   useEffect(() => setSelectedSiteId(siteId ?? ''), [siteId]);
 
+  const query = useCallback((signal: AbortSignal) => activeSiteId
+    ? fetchCascade(activeSiteId, radiusKm, timeWindowHours, signal, demoMode)
+    : Promise.resolve(null), [activeSiteId, radiusKm, timeWindowHours, demoMode]);
+  const { data: result, error, loading, refreshing, updatedAt, refresh } = useLiveQuery(query, {
+    key: `${activeSiteId}:${radiusKm}:${timeWindowHours}:${demoMode}`, intervalMs: demoMode ? 0 : 30_000,
+  });
+
   useEffect(() => {
     const controller = new AbortController();
-    if (!activeSiteId) {
-      setLoading(false);
-      setError(null);
-      setResult(null);
-      return () => controller.abort();
-    }
-    setLoading(true);
-    setError(null);
-    setResult(null);
-    fetchCascade(activeSiteId, radiusKm, timeWindowHours, controller.signal, demoMode)
-      .then(setResult)
-      .catch((cause: unknown) => {
-        if (cause instanceof Error && cause.name === 'AbortError') return;
-        setError(cause instanceof Error ? cause.message : 'Unable to load source evidence.');
-      })
-      .finally(() => {
-        if (!controller.signal.aborted) setLoading(false);
-      });
+    void fetchEvidenceAnchorStatus(controller.signal).then(setChainStatus).catch(() => setChainStatus(null));
     return () => controller.abort();
-  }, [activeSiteId, radiusKm, timeWindowHours, reload, demoMode]);
+  }, []);
+
+  useEffect(() => {
+    setAnchorProof(null);
+    setAnchorError('');
+  }, [result?.manifest.integrity.digest]);
+
+  async function anchorCurrentManifest() {
+    if (!result || !chainStatus?.available || refreshing || error) return;
+    setAnchoring(true);
+    setAnchorError('');
+    try {
+      setAnchorProof(await anchorCascadeManifest(result.manifest));
+      setChainStatus(await fetchEvidenceAnchorStatus());
+    } catch (cause) {
+      setAnchorError(cause instanceof Error ? cause.message : 'The manifest could not be anchored.');
+    } finally {
+      setAnchoring(false);
+    }
+  }
 
   const lensData = useMemo(() => {
     if (!result) return data;
@@ -95,7 +106,7 @@ export function CascadeReview({ data, siteId, onBack }: { data: Overview; siteId
   }, [data, result]);
 
   return (
-    <div className="stack cascade-page">
+    <div className="stack cascade-page signal-page">
       <div className="cascade-heading">
         <button className="text-action" onClick={onBack}>← Waste sites</button>
         <div>
@@ -107,8 +118,9 @@ export function CascadeReview({ data, siteId, onBack }: { data: Overview; siteId
 
       <div className="cascade-controls">
         <label>Open waste site
-          <select value={activeSiteId} onChange={(event) => setSelectedSiteId(event.target.value)}>
-            {siteId && !availableSites.some((site) => site.id === siteId) && <option value={siteId}>Selected site · {siteId}</option>}
+          <select value={activeSiteId} onChange={(event) => { setSelectedSiteId(event.target.value); setDemoMode(event.target.value === 'site_mock_1'); }}>
+            {!activeSiteId && <option value="">No available site</option>}
+            {selectedSiteId && selectedSiteId !== 'site_mock_1' && !availableSites.some((site) => site.id === selectedSiteId) && <option value={selectedSiteId}>Selected site · {selectedSiteId}</option>}
             {demoMode && <option value="site_mock_1">Simulated walkthrough site</option>}
             {availableSites.map((site) => <option value={site.id} key={site.id}>{site.id} · {site.reportCount} report{site.reportCount === 1 ? '' : 's'}</option>)}
           </select>
@@ -123,17 +135,29 @@ export function CascadeReview({ data, siteId, onBack }: { data: Overview; siteId
             {WINDOWS.map((hours) => <option value={hours} key={hours}>{hours} hours</option>)}
           </select>
         </label>
+        <button className="text-action" disabled={!activeSiteId || refreshing} onClick={() => void refresh()}>{refreshing && activeSiteId ? 'Refreshing evidence…' : 'Refresh evidence'}</button>
+        <button className="text-action" onClick={() => {
+          if (demoMode) {
+            setDemoMode(false);
+            setSelectedSiteId(availableSites[0]?.id ?? '');
+          } else {
+            setSelectedSiteId('site_mock_1');
+            setDemoMode(true);
+          }
+        }}>{demoMode ? 'Return to source-backed review' : 'Load simulated walkthrough'}</button>
       </div>
 
+      {updatedAt && activeSiteId && <p className="muted small" role="status">Review fetched {new Date(updatedAt).toLocaleTimeString()}{demoMode ? ' · simulated walkthrough' : ' · automatically refreshed every 30 seconds while visible'}.{error && result ? ' Refresh failed; the last successful evidence remains visible and cannot be exported until refreshed.' : ''}</p>}
+
       {!activeSiteId && <Card><h3>No open, located sites are available</h3><p className="muted">Open the Waste view when JunkSnap returns a public site with a location, or use the local walkthrough to explore the review steps.</p><button className="text-action" onClick={() => { setSelectedSiteId('site_mock_1'); setDemoMode(true); }}>Load simulated walkthrough</button></Card>}
-      {loading && <Card><p role="status">Loading the selected site and querying Vayu near its public location…</p></Card>}
+      {loading && activeSiteId && <Card><p role="status">Loading the selected site and querying Vayu near its public location…</p></Card>}
       {error && (
         <Card className="cascade-error">
           <h3>Evidence could not be loaded</h3>
           <p>{error}</p>
           <p className="muted">No simulated readings are substituted into a live review. You can retry the live sources or open a clearly labeled local walkthrough.</p>
           <div className="cascade-error-actions">
-            <button className="text-action" onClick={() => { setDemoMode(false); setSelectedSiteId(availableSites[0]?.id ?? ''); setReload((value) => value + 1); }}>Try live sources again</button>
+            <button className="text-action" disabled={refreshing} onClick={() => { if (demoMode) { setDemoMode(false); setSelectedSiteId(availableSites[0]?.id ?? ''); } else { void refresh(); } }}>Try live sources again</button>
             <button className="text-action" onClick={() => { setSelectedSiteId('site_mock_1'); setDemoMode(true); }}>Load simulated walkthrough</button>
           </div>
         </Card>
@@ -152,6 +176,14 @@ export function CascadeReview({ data, siteId, onBack }: { data: Overview; siteId
               <span>JunkSnap <b>{result.demo ? 'SIMULATED' : result.sources.junksnap.toUpperCase()}</b></span>
               <span>Vayu <b>{result.demo ? 'SIMULATED' : result.sources.vayu.toUpperCase()}</b></span>
             </div>
+            <div className="cascade-coverage" aria-label={`Evidence coverage ${result.assessment.coverage.score} percent`}>
+              <div className="cascade-coverage-topline">
+                <span>Evidence coverage</span>
+                <strong>{result.assessment.coverage.score}%</strong>
+              </div>
+              <progress max={result.assessment.coverage.totalDimensions} value={result.assessment.coverage.availableDimensions} aria-label="Evidence dimensions available" />
+              <span className="muted small">{result.assessment.coverage.availableDimensions} of {result.assessment.coverage.totalDimensions} evidence dimensions available · coverage only, not a pass score</span>
+            </div>
           </div>
 
           <div className="cascade-grid">
@@ -168,11 +200,45 @@ export function CascadeReview({ data, siteId, onBack }: { data: Overview; siteId
                 <Check label={'Nearest monitor within ' + radiusKm + ' km'} value={result.assessment.checks.nearestMonitorWithinRadius} />
                 <Check label={'Report and reading within ' + timeWindowHours + ' h'} value={result.assessment.checks.observationsWithinTimeWindow} />
               </div>
+              <p className="muted small">{result.assessment.coverage.meaning}</p>
               <p className="cascade-caution">Passing these checks creates a proximity lead. Geographic and temporal overlap does not show that one condition caused the other.</p>
-              <button className="primary-action" onClick={() => saveManifest(result)}>Download evidence manifest</button>
+              <button className="primary-action" disabled={refreshing || !!error} onClick={() => saveManifest(result)}>Download evidence manifest</button>
               <p className="muted small">The SHA-256 digest covers the exported JSON. It detects later changes relative to this digest, but is not an independent audit log or immutable storage.</p>
             </Card>
           </div>
+
+          <Card className="cascade-chain-card">
+            <div className="cascade-chain-heading">
+              <div>
+                <span className="eyebrow">BLOCKCHAIN PROOF · EVIDENCE INTEGRITY</span>
+                <h3>Anchor this review manifest</h3>
+              </div>
+              <span className={`chain-state ${chainStatus?.available ? 'chain-state-ready' : 'chain-state-offline'}`} role="status">
+                {chainStatus?.available ? 'LOCAL CHAIN CONNECTED' : 'LOCAL CHAIN OFFLINE'}
+              </span>
+            </div>
+            <p className="muted">Commit the manifest SHA-256 digest to the local EVM chain. The contract stores the digest, hashed identifiers, and minimal receipt metadata; the source payload stays in your downloaded manifest. This proves that the same bytes match a recorded block, not that the sources are accurate or causally related.</p>
+            <div className="cascade-chain-meta">
+              <span>{chainStatus?.network ?? 'Hardhat local development chain'} · chain ID {chainStatus?.chainId ?? 31337}</span>
+              {chainStatus?.contractAddress && <code title={chainStatus.contractAddress}>Contract {chainStatus.contractAddress}</code>}
+              {result.demo && <span className="mode-pill mode-simulated">SIMULATED INPUT</span>}
+            </div>
+            {!chainStatus?.available && <p className="cascade-chain-note">{chainStatus?.message ?? 'Start Climate Chain with .\\start.ps1 to run and deploy the local proof chain.'}</p>}
+            <button className="primary-action" disabled={!chainStatus?.available || anchoring || refreshing || !!error} onClick={() => void anchorCurrentManifest()}>
+              {anchoring ? 'Writing and confirming transaction…' : 'Anchor manifest on local chain'}
+            </button>
+            {anchorError && <p className="cascade-chain-error" role="alert">{anchorError}</p>}
+            {anchorProof?.anchored && (
+              <div className={`cascade-chain-proof ${anchorProof.proofVerified ? 'cascade-chain-proof-ok' : 'cascade-chain-proof-error'}`} role={anchorProof.proofVerified ? 'status' : 'alert'}>
+                <strong>{anchorProof.proofVerified ? (anchorProof.alreadyAnchored ? 'Existing on-chain proof verified' : 'On-chain proof verified') : 'Transaction found, but proof verification needs review'}</strong>
+                <span>Block {anchorProof.blockNumber} · {anchorProof.anchoredAt ? new Date(anchorProof.anchoredAt).toLocaleString() : 'time unavailable'} · chain {anchorProof.chainId}</span>
+                <code className="cascade-chain-digest">SHA-256 {anchorProof.digest.replace(/^0x/, '')}</code>
+                {anchorProof.transactionHash && <code className="cascade-chain-digest">Transaction {anchorProof.transactionHash}</code>}
+                {anchorProof.contractAddress && <code className="cascade-chain-digest">Contract {anchorProof.contractAddress}</code>}
+                <span className="muted small">Digest, hashed identifiers, and receipt metadata are on-chain; source readings and site details stay in the manifest. This local chain resets when restarted.</span>
+              </div>
+            )}
+          </Card>
 
           <div className="grid-2">
             <Card accent="waste">

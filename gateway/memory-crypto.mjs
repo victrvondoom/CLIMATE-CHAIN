@@ -20,7 +20,7 @@ const DPAPI_SCRIPT = [
   '} elseif ($request.operation -eq \'unprotect\') {',
   '  $result = [Security.Cryptography.ProtectedData]::Unprotect($bytes, $null, [Security.Cryptography.DataProtectionScope]::CurrentUser)',
   '} else { throw \'Unsupported DPAPI operation\' }',
-  '[Console]::Out.WriteLine([Convert]::ToBase64String($result))',
+  '[Console]::Out.WriteLine(\'CLIMATE_CHAIN_DPAPI_RESULT:\' + [Convert]::ToBase64String($result))',
 ].join('; ');
 const DPAPI_COMMAND = Buffer.from(DPAPI_SCRIPT, 'utf16le').toString('base64');
 
@@ -38,6 +38,18 @@ function validBase64(value, expectedLength) {
   return decoded.toString('base64') === value && (expectedLength === undefined || decoded.length === expectedLength);
 }
 
+export function parseDpapiOutput(stdout) {
+  const marker = 'CLIMATE_CHAIN_DPAPI_RESULT:';
+  const results = String(stdout ?? '').split(/\r?\n/u)
+    .map((line) => line.trim())
+    .filter((line) => line.startsWith(marker))
+    .map((line) => line.slice(marker.length));
+  if (results.length !== 1 || !validBase64(results[0])) {
+    throw new Error('Windows DPAPI returned an invalid key envelope. The vault was not changed.');
+  }
+  return Buffer.from(results[0], 'base64');
+}
+
 export function memoryEncryptionEnabled(env = process.env, platform = process.platform) {
   if (env.CLIMATE_CHAIN_MEMORY_KEY) return true;
   const setting = env.CLIMATE_CHAIN_MEMORY_ENCRYPTION || 'auto';
@@ -53,22 +65,28 @@ export function memoryEncryptionProvider(env = process.env, platform = process.p
   return 'unavailable';
 }
 
-function runDpapi(operation, payload) {
-  const child = spawnSync('powershell.exe', [
-    '-NoLogo', '-NoProfile', '-NonInteractive', '-OutputFormat', 'Text', '-EncodedCommand', DPAPI_COMMAND,
-  ], {
-    input: JSON.stringify({ operation, payload }),
-    encoding: 'utf8',
-    windowsHide: true,
-    timeout: 10000,
-    maxBuffer: 8192,
-  });
-  if (child.error || child.status !== 0) {
-    throw new Error('Windows DPAPI could not protect or unlock the local memory key. The vault was not changed.');
+export function runDpapi(operation, payload, runProcess = spawnSync) {
+  let parseError;
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    const child = runProcess('powershell.exe', [
+      '-NoLogo', '-NoProfile', '-NonInteractive', '-OutputFormat', 'Text', '-EncodedCommand', DPAPI_COMMAND,
+    ], {
+      input: JSON.stringify({ operation, payload }),
+      encoding: 'utf8',
+      windowsHide: true,
+      timeout: 10000,
+      maxBuffer: 8192,
+    });
+    if (child.error || child.status !== 0) {
+      throw new Error('Windows DPAPI could not protect or unlock the local memory key. The vault was not changed.');
+    }
+    try {
+      return parseDpapiOutput(child.stdout);
+    } catch (error) {
+      parseError = error;
+    }
   }
-  const output = child.stdout.trim().split(/\r?\n/u).filter(Boolean).at(-1);
-  if (!validBase64(output)) throw new Error('Windows DPAPI returned an invalid key envelope. The vault was not changed.');
-  return Buffer.from(output, 'base64');
+  throw parseError;
 }
 
 function parseExternalKey(env) {

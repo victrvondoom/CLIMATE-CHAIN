@@ -28,11 +28,14 @@ export function CommandPalette({ open, onClose, onNavigate, memories = [] }: { o
   const inputRef = useRef<HTMLInputElement>(null);
   const returnFocusRef = useRef<HTMLElement | null>(null);
   const commands = useMemo<Command[]>(() => [
+    { id: 'earth', label: 'Satellite climate globe', detail: 'Cesium · weather · air quality · carbon · supply chains', view: 'earth' },
     { id: 'overview', label: 'Command center', detail: 'Workspace', view: 'overview' },
     { id: 'studio', label: 'Mission Studio', detail: 'Create and review missions', view: 'studio' },
     { id: 'memory', label: 'Engineering Memory', detail: 'Recall gate and judgment vault', view: 'memory' },
     ...CAPABILITIES.map((item) => ({ id: item.id, label: item.name, detail: `${item.domain} · ${item.readiness}`, view: (item.module ?? 'capabilities') as WorkspaceView })),
     { id: 'ledger', label: 'Evidence ledger', detail: 'Every recorded outcome, with a digest check', view: 'ledger' },
+    { id: 'timeline', label: 'Climate Intelligence Timeline', detail: '200 years of environmental evidence (1826-2026) · NOAA, NASA, Law Dome, Mauna Loa', view: 'timeline' },
+    { id: 'integrity', label: 'Climate Integrity Lab', detail: 'Signal to on-chain proof · tamper, replay, duplicate claim, challenge, correction', view: 'integrity' },
     ...CLIMATE_MODULES.map((item) => ({ id: `module-${item.id}`, label: item.name, detail: `Native module · ${item.stages.join(' · ')} · ${item.mode}`, view: `module:${item.id}` as WorkspaceView })),
     ...memories.filter((entry) => entry.status === 'active').map((entry) => ({ id: `memory-${entry.id}`, label: entry.title, detail: `Memory · ${entry.scope} · ${entry.rule.slice(0, 110)}`, view: 'memory' as WorkspaceView, memoryId: entry.id })),
     ...savedMissions.map((mission) => ({ id: `mission-${mission.id}`, label: mission.title, detail: `Saved mission · ${mission.status} · local browser history`, view: 'studio' as WorkspaceView, missionId: mission.id })),

@@ -131,6 +131,30 @@
 .ledger-bad { color: var(--bad); font-size: 12px; }
 .ledger-empty { color: var(--muted); }
 
+.chain-ledger { display: grid; gap: 12px; padding: 16px; border: 1px solid var(--rule); border-radius: 14px; background: var(--paper-raised); }
+.chain-ledger-head { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.chain-ledger-head h3 { margin: 4px 0 0; }
+.chain-ledger-contract { display: block; overflow-wrap: anywhere; font: 11px/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; color: var(--ink-3); }
+.chain-state { display: inline-flex; align-items: center; gap: 7px; padding: 5px 9px; border-radius: 999px; font-size: 10px; font-weight: 800; letter-spacing: .08em; }
+.chain-state::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.chain-state-ready { color: var(--good); background: color-mix(in srgb, var(--good) 12%, transparent); }
+.chain-state-offline { color: var(--muted); background: color-mix(in srgb, var(--muted) 12%, transparent); }
+.chain-verify-row { display: grid; gap: 6px; color: var(--ink); font-size: 12px; }
+.chain-verify-row > div { display: flex; flex-wrap: wrap; gap: 8px; }
+.chain-verify-row input { flex: 1 1 280px; min-width: 0; border: 1px solid var(--rule); border-radius: 8px; padding: 8px 10px; background: var(--paper); color: var(--ink); font: 12px ui-monospace, SFMono-Regular, Consolas, monospace; }
+.chain-verify-row button { border: 1px solid var(--rule); border-radius: 8px; padding: 8px 10px; background: var(--paper-raised); color: var(--ink); font: inherit; font-size: 12px; cursor: pointer; }
+.chain-verify-row button:disabled { opacity: .5; cursor: not-allowed; }
+.chain-check-result { display: grid; gap: 5px; padding: 10px 12px; border: 1px solid var(--rule); border-radius: 9px; font-size: 12px; }
+.chain-check-result code { overflow-wrap: anywhere; color: var(--ink-3); font: 11px/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; }
+.chain-check-result span { color: var(--muted); }
+.chain-check-ok { border-color: color-mix(in srgb, var(--good) 55%, var(--rule)); }
+.chain-check-missing { border-color: color-mix(in srgb, var(--bad) 45%, var(--rule)); }
+.chain-proof-list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.chain-proof-list li { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding: 10px; border: 1px solid var(--rule); border-radius: 9px; }
+.chain-proof-list li > div { display: grid; gap: 4px; min-width: 0; }
+.chain-proof-list li span { color: var(--muted); font-size: 11px; }
+.chain-proof-list li code { max-width: 100%; overflow-wrap: anywhere; color: var(--ink-3); font: 10px/1.45 ui-monospace, SFMono-Regular, Consolas, monospace; }
+
 .nav-stage-label {
   padding: 10px 0 4px 2px;
   color: var(--ink-3);

@@ -30,6 +30,14 @@ test('creates a human-review proximity lead only when both sources, space and ti
   assert.equal(result.assessment.relationship, 'spatiotemporal_proximity_lead');
   assert.equal(result.assessment.causality, 'not_assessed');
   assert.equal(result.assessment.proximity.temporalGapHours, 1);
+  assert.deepEqual(result.assessment.coverage, {
+    score: 100,
+    availableDimensions: 3,
+    totalDimensions: 3,
+    dimensions: { observedSources: true, monitorDistance: true, reportAndReadingTimes: true },
+    meaning: 'Evidence availability only; it does not score threshold success, accuracy, causality, emissions or climate impact.',
+  });
+  assert.equal(result.manifest.evidence.assessment.coverage.score, 100);
 });
 
 test('keeps simulated or estimated source data out of review candidates', () => {
@@ -41,6 +49,8 @@ test('keeps simulated or estimated source data out of review candidates', () => 
   });
   assert.equal(result.assessment.status, 'source_not_observed');
   assert.equal(result.assessment.candidate, false);
+  assert.equal(result.assessment.coverage.score, 67);
+  assert.equal(result.assessment.coverage.dimensions.observedSources, false);
 });
 
 test('keeps distance and stale-time threshold failures explicit', () => {
@@ -48,6 +58,16 @@ test('keeps distance and stale-time threshold failures explicit', () => {
   assert.equal(distant.assessment.status, 'outside_radius');
   const stale = assessCascade({ site, air: { ...air, provenance: { ...air.provenance, observedAt: '2026-10-18T09:00:00.000Z' } }, wasteMode: 'live', airUpstreamMode: 'live' });
   assert.equal(stale.assessment.status, 'outside_time_window');
+  assert.equal(stale.assessment.coverage.score, 100, 'known stale timestamps remain covered even when the timing threshold fails');
+});
+
+test('coverage falls when spatial or temporal evidence is missing, not merely when a threshold fails', () => {
+  const missingDistance = assessCascade({ site, air: { ...air, provenance: { ...air.provenance, distanceKm: null } }, wasteMode: 'live', airUpstreamMode: 'live' });
+  assert.equal(missingDistance.assessment.coverage.score, 67);
+  assert.equal(missingDistance.assessment.coverage.dimensions.monitorDistance, false);
+  const missingTime = assessCascade({ site: { ...site, lastReportedAt: null }, air, wasteMode: 'live', airUpstreamMode: 'live' });
+  assert.equal(missingTime.assessment.coverage.score, 67);
+  assert.equal(missingTime.assessment.coverage.dimensions.reportAndReadingTimes, false);
 });
 
 test('marks missing source timestamps and closed sites without manufacturing a join', () => {

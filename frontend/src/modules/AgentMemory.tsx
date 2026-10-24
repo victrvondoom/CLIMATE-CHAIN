@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useLiveQuery } from '../hooks/useLiveQuery';
 import {
   createAgentMemory,
   deleteAgentMemory,
@@ -17,15 +18,10 @@ import {
   updateAgentMemory,
   type AgentMemoryDraft,
   type AgentMemoryEntry,
-  type AgentMemoryExports,
   type AgentMemorySnapshot,
   type MemoryBackupEnvelope,
-  type MemoryBackupStatus,
   type EncryptedPortableMemoryBackup,
-  type MemoryConflictResult,
   type MemoryCategory,
-  type MemoryIntegrity,
-  type MemoryRetrievalTrace,
   type MemorySearchResult,
 } from '../api';
 
@@ -107,12 +103,6 @@ function backupCount(backup: MemoryBackupEnvelope) {
 }
 
 export function AgentMemory({ onSnapshot, focusMemoryId }: { onSnapshot: (snapshot: AgentMemorySnapshot | null) => void; focusMemoryId?: string | null }) {
-  const [snapshot, setSnapshot] = useState<AgentMemorySnapshot | null>(null);
-  const [exports, setExports] = useState<AgentMemoryExports | null>(null);
-  const [integrity, setIntegrity] = useState<MemoryIntegrity | null>(null);
-  const [conflictState, setConflictState] = useState<MemoryConflictResult | null>(null);
-  const [retrievalTrace, setRetrievalTrace] = useState<MemoryRetrievalTrace | null>(null);
-  const [backupState, setBackupState] = useState<MemoryBackupStatus | null>(null);
   const [searchResult, setSearchResult] = useState<MemorySearchResult | null>(null);
   const [searchError, setSearchError] = useState('');
   const [searchBusy, setSearchBusy] = useState(false);
@@ -120,7 +110,6 @@ export function AgentMemory({ onSnapshot, focusMemoryId }: { onSnapshot: (snapsh
   const [backupCandidate, setBackupCandidate] = useState<MemoryBackupEnvelope | null>(null);
   const [backupCandidateName, setBackupCandidateName] = useState('');
   const [inspectionId, setInspectionId] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
   const [busy, setBusy] = useState(false);
@@ -134,50 +123,52 @@ export function AgentMemory({ onSnapshot, focusMemoryId }: { onSnapshot: (snapsh
   const [interimTranscript, setInterimTranscript] = useState('');
   const [listening, setListening] = useState(false);
   const recognitionRef = useRef<VoiceRecognition | null>(null);
+  const editingDigest = useRef<string | null>(null);
+  const draftRevision = useRef(0);
+  const handledFocus = useRef<string | null>(null);
+  const onSnapshotRef = useRef(onSnapshot);
+  useEffect(() => { onSnapshotRef.current = onSnapshot; }, [onSnapshot]);
   const recognitionAvailable = typeof window !== 'undefined' && Boolean((window as VoiceWindow).SpeechRecognition || (window as VoiceWindow).webkitSpeechRecognition);
 
-  const load = useCallback(async (signal?: AbortSignal) => {
-    setLoading(true);
-    try {
-      const [nextSnapshot, nextExports] = await Promise.all([fetchAgentMemory(signal), fetchAgentMemoryExports(projectId, signal)]);
-      setSnapshot(nextSnapshot);
-      setExports(nextExports);
-      setError('');
-      setLoading(false);
-      onSnapshot(nextSnapshot);
-      const [nextIntegrity, nextConflicts, nextTrace, nextBackups] = await Promise.allSettled([
-        fetchAgentMemoryIntegrity(signal), fetchAgentMemoryConflicts(signal), fetchAgentMemoryRetrievals(signal), fetchAgentMemoryBackups(signal),
-      ]);
-      if (nextIntegrity.status === 'fulfilled' && nextIntegrity.value.valid && nextIntegrity.value.complete) setIntegrity(nextIntegrity.value);
-      else setIntegrity(null);
-      if (nextConflicts.status === 'fulfilled' && nextConflicts.value.complete) setConflictState(nextConflicts.value);
-      else setConflictState(null);
-      if (nextTrace.status === 'fulfilled' && nextTrace.value.complete) setRetrievalTrace(nextTrace.value);
-      else setRetrievalTrace(null);
-      if (nextBackups.status === 'fulfilled' && nextBackups.value.complete) setBackupState(nextBackups.value);
-      else setBackupState(null);
-    } catch (cause) {
-      if (cause instanceof DOMException && cause.name === 'AbortError') return;
-      setSnapshot(null);
-      setExports(null);
-      setError(cause instanceof Error ? cause.message : 'Local memory recall failed.');
-      setLoading(false);
-      onSnapshot(null);
-    }
-  }, [onSnapshot, projectId]);
-
-  useEffect(() => {
-    const controller = new AbortController();
-    void load(controller.signal);
-    return () => {
-      controller.abort();
-      recognitionRef.current?.stop();
+  const queryVault = useCallback(async (signal: AbortSignal) => {
+    const [nextSnapshot, nextExports, nextIntegrity, nextConflicts, nextTrace, nextBackups] = await Promise.allSettled([
+      fetchAgentMemory(signal), fetchAgentMemoryExports(projectId, signal), fetchAgentMemoryIntegrity(signal),
+      fetchAgentMemoryConflicts(signal), fetchAgentMemoryRetrievals(signal), fetchAgentMemoryBackups(signal),
+    ]);
+    if (nextSnapshot.status === 'rejected') throw nextSnapshot.reason;
+    if (!nextSnapshot.value.complete) throw new Error('The local vault scan is incomplete. Retry before saving or exporting memory.');
+    return {
+      snapshot: nextSnapshot.value,
+      exports: nextExports.status === 'fulfilled' ? nextExports.value : null,
+      integrity: nextIntegrity.status === 'fulfilled' && nextIntegrity.value.valid && nextIntegrity.value.complete ? nextIntegrity.value : null,
+      conflicts: nextConflicts.status === 'fulfilled' && nextConflicts.value.complete ? nextConflicts.value : null,
+      trace: nextTrace.status === 'fulfilled' && nextTrace.value.complete ? nextTrace.value : null,
+      backups: nextBackups.status === 'fulfilled' && nextBackups.value.complete ? nextBackups.value : null,
+      incomplete: [nextExports, nextIntegrity, nextConflicts, nextTrace, nextBackups].some((result) => result.status === 'rejected')
+        || (nextIntegrity.status === 'fulfilled' && (!nextIntegrity.value.valid || !nextIntegrity.value.complete))
+        || (nextConflicts.status === 'fulfilled' && !nextConflicts.value.complete)
+        || (nextTrace.status === 'fulfilled' && !nextTrace.value.complete)
+        || (nextBackups.status === 'fulfilled' && !nextBackups.value.complete),
     };
-  }, [load]);
+  }, [projectId]);
+  const vaultQuery = useLiveQuery(queryVault, { intervalMs: 15_000, key: projectId, allowOffline: true });
+  const { refresh: load, loading, refreshing, updatedAt } = vaultQuery;
+  const snapshot = vaultQuery.error || !vaultQuery.online ? null : vaultQuery.data?.snapshot ?? null;
+  const vaultAvailable = Boolean(snapshot);
+  const vaultError = vaultQuery.error || (!vaultQuery.online ? 'You are offline. Reconnect before using local recall.' : '');
+  const exports = snapshot ? vaultQuery.data?.exports ?? null : null;
+  const integrity = snapshot ? vaultQuery.data?.integrity ?? null : null;
+  const conflictState = snapshot ? vaultQuery.data?.conflicts ?? null : null;
+  const retrievalTrace = snapshot ? vaultQuery.data?.trace ?? null : null;
+  const backupState = snapshot ? vaultQuery.data?.backups ?? null : null;
+  useEffect(() => { onSnapshotRef.current(snapshot); }, [snapshot]);
+
+  useEffect(() => () => { recognitionRef.current?.stop(); }, []);
 
   useEffect(() => {
     const query = search.trim();
-    if (!query || showArchive) { setSearchResult(null); setSearchError(''); setSearchBusy(false); return; }
+    setSearchResult(null);
+    if (!query || showArchive || !vaultAvailable) { setSearchResult(null); setSearchError(''); setSearchBusy(false); return; }
     const controller = new AbortController();
     let current = true;
     setSearchBusy(true);
@@ -192,12 +183,14 @@ export function AgentMemory({ onSnapshot, focusMemoryId }: { onSnapshot: (snapsh
         .finally(() => { if (current) setSearchBusy(false); });
     }, 220);
     return () => { current = false; window.clearTimeout(timer); controller.abort(); };
-  }, [search, projectId, showArchive]);
+  }, [search, projectId, showArchive, snapshot?.vaultSha256, vaultAvailable]);
 
   useEffect(() => {
-    if (!focusMemoryId) return;
+    if (!focusMemoryId) { handledFocus.current = null; return; }
+    if (handledFocus.current === focusMemoryId) return;
     const entry = snapshot?.entries.find((item) => item.id === focusMemoryId);
     if (!entry) return;
+    handledFocus.current = focusMemoryId;
     setSearch('');
     setShowArchive(entry.status === 'archived');
     setInspectionId(entry.id);
@@ -206,11 +199,11 @@ export function AgentMemory({ onSnapshot, focusMemoryId }: { onSnapshot: (snapsh
   }, [focusMemoryId, snapshot]);
 
   const records = useMemo(() => {
-    const entries = search.trim() && !showArchive ? (searchResult?.entries ?? []) : snapshot?.entries ?? [];
+    const entries = !snapshot ? [] : search.trim() && !showArchive ? (searchResult?.entries ?? []) : snapshot.entries;
     const query = search.trim().toLocaleLowerCase();
     return entries
       .filter((entry) => showArchive ? entry.status === 'archived' : entry.status === 'active')
-      .filter((entry) => !query || showArchive || !searchResult || [entry.title, entry.rule, entry.why, entry.scope, ...entry.tags].join(' ').toLocaleLowerCase().includes(query))
+      .filter((entry) => !query || !showArchive || [entry.title, entry.rule, entry.why, entry.scope, ...entry.tags].join(' ').toLocaleLowerCase().includes(query))
       .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
   }, [search, searchResult, showArchive, snapshot]);
 
@@ -220,6 +213,7 @@ export function AgentMemory({ onSnapshot, focusMemoryId }: { onSnapshot: (snapsh
   });
 
   function setDraftField<K extends keyof AgentMemoryDraft>(field: K, value: AgentMemoryDraft[K]) {
+    draftRevision.current += 1;
     setSensitiveReviewed(false);
     setDraft((current) => ({ ...current, [field]: value }));
   }
@@ -279,6 +273,7 @@ export function AgentMemory({ onSnapshot, focusMemoryId }: { onSnapshot: (snapsh
   function promoteTranscript() {
     const words = transcript.trim();
     if (!words) return;
+    draftRevision.current += 1;
     setDraft((current) => ({
       ...current,
       title: current.title || words.split(/[.!?\n]/, 1)[0].slice(0, 100) || 'Voice-captured judgment',
@@ -291,9 +286,11 @@ export function AgentMemory({ onSnapshot, focusMemoryId }: { onSnapshot: (snapsh
   }
 
   function resetDraft() {
+    draftRevision.current += 1;
     setDraft(EMPTY_DRAFT);
     setEditingId(null);
     setSensitiveReviewed(false);
+    editingDigest.current = null;
   }
 
   async function saveDraft() {
@@ -304,17 +301,19 @@ export function AgentMemory({ onSnapshot, focusMemoryId }: { onSnapshot: (snapsh
     setBusy(true);
     setError('');
     setNotice('');
+    const savedRevision = draftRevision.current;
     try {
       if (editingId) {
         const current = snapshot?.entries.find((entry) => entry.id === editingId);
         if (!current) throw new Error('This memory was removed. Reload the vault before saving.');
+        if (current.digest !== editingDigest.current) throw new Error('This memory changed after you began editing. Your draft is preserved. Review the latest ledger record and choose Edit again before saving an update.');
         await updateAgentMemory(current, draft);
         setNotice('Reviewed memory updated in the local sandbox.');
       } else {
         await createAgentMemory(draft);
         setNotice('Reviewed memory saved in the local sandbox and added to MCP recall.');
       }
-      resetDraft();
+      if (draftRevision.current === savedRevision) resetDraft();
       await load();
     } catch (cause) {
       const message = cause instanceof Error ? cause.message : 'Could not save the reviewed memory.';
@@ -326,7 +325,9 @@ export function AgentMemory({ onSnapshot, focusMemoryId }: { onSnapshot: (snapsh
   }
 
   function editRecord(entry: AgentMemoryEntry) {
+    draftRevision.current += 1;
     setEditingId(entry.id);
+    editingDigest.current = entry.digest;
     setSensitiveReviewed(false);
     setDraft({
       ...EMPTY_DRAFT, title: entry.title, rule: entry.rule, why: entry.why, scope: entry.scope,
@@ -411,7 +412,7 @@ export function AgentMemory({ onSnapshot, focusMemoryId }: { onSnapshot: (snapsh
       const encrypted = await encryptPortableMemoryBackup(backup, passphrase);
       saveDownload(`climate-chain-memory-backup-${new Date().toISOString().slice(0, 10)}.encrypted.json`, JSON.stringify(encrypted, null, 2), 'application/json');
       setNotice(`Encrypted schema v${backup.formatVersion} backup downloaded with ${backup.store && typeof backup.store === 'object' && 'entries' in backup.store && Array.isArray(backup.store.entries) ? backup.store.entries.length : 0} records. Keep its passphrase separately.`);
-      const nextBackups = await fetchAgentMemoryBackups(); setBackupState(nextBackups);
+      await load();
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : 'Could not create a memory backup.');
     } finally { setBusy(false); }
@@ -511,8 +512,10 @@ export function AgentMemory({ onSnapshot, focusMemoryId }: { onSnapshot: (snapsh
         </div>
       </section>
 
-      {error && <div className="memory-error" role="alert"><strong>Recall gate is closed.</strong><span>{error}</span><span>Agent work must stop until the local memory vault is available and complete.</span><button type="button" className="memory-button" onClick={() => void load()}>Retry vault</button></div>}
+      {(error || vaultError) && <div className="memory-error" role="alert"><strong>{snapshot ? 'Memory action needs attention.' : 'Recall gate is closed.'}</strong><span>{error || vaultError}</span>{!snapshot && <span>Agent work must stop until the local memory vault is available and complete.</span>}<button type="button" className="memory-button" onClick={() => { setError(''); void load(); }}>Retry vault</button></div>}
       {notice && <div className="memory-notice" role="status">{notice}</div>}
+      {vaultQuery.data?.incomplete && snapshot && <p className="memory-search-error" role="status">Some memory health or export reads are unavailable. Refresh recall to retry those reads.</p>}
+      <div className="memory-search-status" role="status">{refreshing ? 'Refreshing local recall…' : updatedAt ? `Last checked ${new Date(updatedAt).toLocaleTimeString()} · refreshes every 15 seconds while visible` : 'Checking local memory…'} <button type="button" className="memory-text-button" disabled={refreshing} onClick={() => void load()}>Refresh now</button></div>
 
       <section className="memory-stat-row" aria-label="Memory system status">
         <div className="memory-stat"><span className="memory-stat-icon">{snapshot?.complete ? '✓' : '!'}</span><div><small>RECALL GATE</small><strong>{snapshot?.complete ? 'Complete' : loading ? 'Checking' : 'Closed'}</strong></div></div>
@@ -576,6 +579,7 @@ export function AgentMemory({ onSnapshot, focusMemoryId }: { onSnapshot: (snapsh
 
           <div className="memory-form-divider"><span>TURN IT INTO REUSABLE JUDGMENT</span><i /></div>
           <label className="memory-field"><span>SHORT TITLE</span><input value={draft.title} maxLength={120} onChange={(event) => setDraftField('title', event.target.value)} placeholder="e.g. Preserve the source project boundary" /></label>
+          {editingId && snapshot && snapshot.entries.find((entry) => entry.id === editingId)?.digest !== editingDigest.current && <p className="memory-search-error" role="alert">This record changed or was removed after you started editing. Your draft is preserved. Review the latest ledger entry and choose Edit again to use that version.</p>}
           <div className="memory-field-row">
             <label className="memory-field"><span>MEMORY KIND</span><select value={draft.category} onChange={(event) => setDraftField('category', event.target.value as MemoryCategory)}>{CATEGORIES.map((item) => <option key={item.id} value={item.id}>{item.label} — {item.help}</option>)}</select></label>
             <label className="memory-field"><span>NAMESPACE <small>global or a project ID</small></span><input value={draft.scope} maxLength={100} onChange={(event) => setDraftField('scope', event.target.value)} placeholder="global or climate-chain" /></label>
@@ -637,9 +641,9 @@ export function AgentMemory({ onSnapshot, focusMemoryId }: { onSnapshot: (snapsh
         <div className="memory-export-actions">
           <button type="button" className="memory-button memory-button-primary" disabled={!exports || !snapshot?.complete} onClick={() => exports && saveDownload('AGENTS.md', exports.markdown, 'text/markdown')}>↓ &nbsp; Download AGENTS.md · Codex</button>
           <button type="button" className="memory-button memory-button-quiet" disabled={!exports || !snapshot?.complete} onClick={() => exports && saveDownload('CLAUDE.md', exports.claudeMarkdown, 'text/markdown')}>↓ &nbsp; Download CLAUDE.md</button>
-          <button type="button" className="memory-button memory-button-quiet" disabled={!exports || !snapshot?.complete} onClick={() => exports && saveDownload('climate-chain-memory.mcp.json', exports.mcpConfigJson, 'application/json')}>↓ &nbsp; Download MCP setup</button>
+          <button type="button" className="memory-button memory-button-quiet" disabled={!exports || !snapshot?.complete} onClick={() => exports && saveDownload('climate-chain.mcp.json', exports.mcpConfigJson, 'application/json')}>↓ &nbsp; Download MCP setup</button>
           <button type="button" className="memory-button memory-button-quiet" disabled={!exports || !snapshot?.complete} onClick={() => void copyMcpConfig()}>Copy MCP JSON</button>
-          <button type="button" className="memory-button memory-button-quiet" onClick={() => void load()}>Refresh recall</button>
+          <button type="button" className="memory-button memory-button-quiet" disabled={refreshing} onClick={() => void load()}>{refreshing ? 'Refreshing recall…' : 'Refresh recall'}</button>
         </div>
         <section className="memory-backup-controls" aria-label="Memory backup and restore">
           <div className="memory-backup-head"><div><strong>Portable vault backup</strong><p>Portable backups use browser-local AES-256-GCM with a separate passphrase. The passphrase is never sent to this gateway and cannot be recovered; keep it separately from the file. Legacy plaintext backups can still be imported.</p></div><button type="button" className="memory-button memory-button-primary" disabled={!snapshot?.complete || busy} onClick={() => void downloadBackup()}>{busy ? 'Working…' : 'Download encrypted backup'}</button></div>

@@ -41,6 +41,17 @@ export const APP_MIME = {
 // message that names the broken entry, so a bad edit fails at startup.
 export function parseRegistry(raw) {
   if (!raw || !Array.isArray(raw.projects)) throw new Error('registry: "projects" must be an array');
+  const trackIds = new Set();
+  if (raw.tracks !== undefined) {
+    if (!Array.isArray(raw.tracks) || raw.tracks.length === 0) throw new Error('registry: "tracks" must be a non-empty array');
+    for (const track of raw.tracks) {
+      if (!track || typeof track.id !== 'string' || !APP_ID.test(track.id) || typeof track.label !== 'string' || !track.label.trim()) {
+        throw new Error(`registry: invalid track ${JSON.stringify(track?.id)}`);
+      }
+      if (trackIds.has(track.id)) throw new Error(`registry: duplicate track id ${track.id}`);
+      trackIds.add(track.id);
+    }
+  }
   const seen = new Set();
   for (const project of raw.projects) {
     if (!project || typeof project.id !== 'string' || !APP_ID.test(project.id)) {
@@ -57,12 +68,20 @@ export function parseRegistry(raw) {
     if (project.local && (typeof project.local.root !== 'string' || !project.folder)) {
       throw new Error(`registry: ${project.id} local app needs a folder and a root`);
     }
+    if (raw.tracks && (!Array.isArray(project.tracks) || project.tracks.length === 0 || project.tracks.some((track) => !trackIds.has(track)))) {
+      throw new Error(`registry: ${project.id} has an unknown or missing track`);
+    }
   }
   return raw.projects;
 }
 
 export function loadRegistry(path = REGISTRY_PATH) {
   return parseRegistry(JSON.parse(readFileSync(path, 'utf8')));
+}
+
+export function loadTracks(path = REGISTRY_PATH) {
+  const raw = JSON.parse(readFileSync(path, 'utf8'));
+  return Array.isArray(raw.tracks) ? raw.tracks : [];
 }
 
 // Absolute directory that serves a project's standalone app, or null.

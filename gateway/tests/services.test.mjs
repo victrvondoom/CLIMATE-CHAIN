@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { normalizeFire, normalizeWater } from '../services.mjs';
+import { SOURCE_CONNECTORS } from '../connectors/registry.mjs';
 
 test('Teesri normalization preserves aggregate phone-wall counts without household records', () => {
   const raw = {
@@ -39,4 +40,17 @@ test('missing Clearsky prevented-field outcome stays unknown instead of becoming
   };
   assert.equal(normalizeFire(stats).fieldsSavedAfterAlert, null);
   assert.equal(normalizeFire({ ...stats, fields_saved_after_alert: 0 }).fieldsSavedAfterAlert, 0);
+  assert.equal(normalizeFire({ ...stats, demo_prices: true }).demoPrices, true);
+  assert.equal(normalizeFire(stats).demoPrices, null);
+});
+
+test('Clearsky validates the optional demo-price marker', () => {
+  const contract = SOURCE_CONNECTORS.clearsky.endpoints.stats.validate;
+  const valid = {
+    farmers: 1, fields: 1, acres_registered: 1, acres_booked: 0, acres_cleared: 0,
+    tonnes_booked: 0, tonnes_delivered: 0, payouts_estimated_inr: 0,
+    red_fields: 0, yellow_fields: 0, alerts_sent: 0, bookings: 0, bookings_done: 0,
+  };
+  assert.deepEqual(contract({ ...valid, demo_prices: 'unknown' }).map((item) => item.path), ['$.demo_prices']);
+  assert.deepEqual(contract({ ...valid, demo_prices: true }), []);
 });

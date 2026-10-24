@@ -1,6 +1,11 @@
 # Dependencies and build output
 node_modules/
 frontend/dist/
+blockchain/artifacts/
+blockchain/cache/
+blockchain/deployments/localhost.json
+blockchain/deployments/integrity-localhost.json
+gateway/.integrity-data/
 .venv/
 __pycache__/
 .pytest_cache/
@@ -23,3 +28,5 @@ projects/
 
 # Agent worktrees and local tool state. Never versioned.
 .claude/
+output/
+

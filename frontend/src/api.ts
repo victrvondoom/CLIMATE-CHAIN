@@ -66,6 +66,35 @@ export interface AgentMemoryExports {
   manifestSha256: string;
   count: number;
 }
+export interface IntegrationEvidence {
+  schemaVersion: number;
+  checkedAt: string;
+  upstreams: {
+    name: string;
+    label: string;
+    domain: string;
+    configured: boolean;
+    endpoint: string;
+    healthPath: string;
+    operations: { operation: string; path: string; schema: string }[];
+    apiKeyRequired: boolean;
+    authentication: string;
+    evidence: string;
+  }[];
+  credentials: {
+    provider: string;
+    variable: string;
+    required: boolean;
+    configured: boolean;
+    state: string;
+    validated: boolean;
+    usedByGateway: boolean;
+    evidence: string;
+    secretValueReturned: false;
+  }[];
+  mcp: { name: string; transport: string; available: boolean; configuration: string; gateway: string; tools: string[]; sourceApiKeysRequired: boolean; access: string };
+  scope: string;
+}
 export interface AgentMemoryDraft {
   title: string;
   rule: string;
@@ -157,7 +186,7 @@ export const CITIES = {
 export type CityKey = keyof typeof CITIES;
 
 async function getJson<T>(path: string, signal?: AbortSignal, allowDegradedHealth = false): Promise<T> {
-  const res = await fetch(path, { headers: { accept: 'application/json' }, signal });
+  const res = await fetch(path, { headers: { accept: 'application/json' }, cache: 'no-store', signal });
   if (allowDegradedHealth && res.status === 503) return res.json() as Promise<T>;
   if (!res.ok) {
     let message = `${res.status} ${res.statusText} from ${path}`;
@@ -214,8 +243,14 @@ export function fetchDurableMissions(signal?: AbortSignal): Promise<DurableMissi
   return getJson('/api/missions', signal);
 }
 
+// Polls the status view, which reports a degraded gateway with HTTP 200. /api/health is the
+// readiness probe and answers 503 while degraded; a 503 is still accepted here.
 export function fetchGatewayHealth(signal?: AbortSignal): Promise<GatewayHealth> {
-  return getJson('/api/health', signal, true);
+  return getJson('/api/status', signal, true);
+}
+
+export function fetchIntegrationEvidence(signal?: AbortSignal): Promise<IntegrationEvidence> {
+  return getJson('/api/v1/evidence/integrations', signal);
 }
 
 export function createDurableMission(definition: DurableMissionDefinition, idempotencyKey: string): Promise<{ mission: DurableMission }> {
@@ -224,6 +259,10 @@ export function createDurableMission(definition: DurableMissionDefinition, idemp
 
 export function durableMissionAction(missionId: string, action: 'validate' | 'queue' | 'run' | 'pause' | 'resume' | 'cancel'): Promise<{ mission?: DurableMission; status?: string }> {
   return sendMissionJson(`/api/missions/${encodeURIComponent(missionId)}/${action}`, 'POST');
+}
+
+export function durableMissionTaskAction(missionId: string, taskId: string, action: 'approve' | 'retry', decision?: { approvedBy: string; decision: 'approve' | 'reject'; comment?: string } | { actor: string; reason?: string }): Promise<{ mission: DurableMission }> {
+  return sendMissionJson(`/api/missions/${encodeURIComponent(missionId)}/${action}/${encodeURIComponent(taskId)}`, 'POST', decision);
 }
 
 export function fetchDurableMission(missionId: string, signal?: AbortSignal): Promise<{ mission: DurableMission; events: DurableMissionEvent[] }> {
@@ -352,9 +391,26 @@ export function deleteAgentMemory(id: string): Promise<{ deleted: true }> {
   return sendMemoryJson(`/api/agent-memory/${encodeURIComponent(id)}`, 'DELETE');
 }
 
-export function fetchOverview(city: CityKey = 'delhi', signal?: AbortSignal): Promise<Overview> {
+export function getCachedOverview(city: CityKey = 'delhi'): Overview | null {
+  try {
+    const raw = typeof sessionStorage !== 'undefined' ? sessionStorage.getItem(`cc_overview_${city}`) : null;
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+
+export async function fetchOverview(city: CityKey = 'delhi', signal?: AbortSignal): Promise<Overview> {
   const qs = city === 'delhi' ? '' : `?city=${city}`;
-  return getJson<Overview>(`/api/unified/overview${qs}`, signal);
+  const data = await getJson<Overview>(`/api/unified/overview${qs}`, signal);
+  try {
+    if (typeof sessionStorage !== 'undefined') {
+      sessionStorage.setItem(`cc_overview_${city}`, JSON.stringify(data));
+    }
+  } catch {
+    // Ignore storage quota
+  }
+  return data;
 }
 
 export function fetchServices(signal?: AbortSignal): Promise<{ services: SourceStatus[] }> {
@@ -385,6 +441,98 @@ export function fetchCascade(
   return getJson<CascadeResponse>(`/api/v1/cascade?${qs}`, signal);
 }
 
+export interface EvidenceAnchorStatus {
+  network: string;
+  localOnly: true;
+  chainId: number;
+  rpcUrl: string;
+  contractAddress: string | null;
+  deployBlock: number | null;
+  anchorCount: number | null;
+  latestBlock: number | null;
+  available: boolean;
+  state: string;
+  message?: string;
+}
+
+export interface EvidenceAnchorProof {
+  digest: string;
+  anchored: boolean;
+  proofVerified: boolean;
+  evidenceType?: string;
+  manifestIdHash?: string;
+  evidenceTypeHash?: string;
+  anchorer?: string;
+  blockNumber?: number;
+  anchoredAt?: string;
+  blockHash?: string | null;
+  transactionHash?: string | null;
+  transactionStatus?: 'success' | 'failed' | 'missing';
+  alreadyAnchored?: boolean;
+  network?: string;
+  chainId?: number;
+  contractAddress?: string;
+}
+
+export function fetchEvidenceAnchorStatus(signal?: AbortSignal): Promise<EvidenceAnchorStatus> {
+  return getJson<EvidenceAnchorStatus>('/api/v1/evidence-anchors/status', signal);
+}
+
+export function fetchEvidenceAnchors(signal?: AbortSignal): Promise<{ network: string; chainId: number; contractAddress: string; anchors: EvidenceAnchorProof[] }> {
+  return getJson<{ network: string; chainId: number; contractAddress: string; anchors: EvidenceAnchorProof[] }>('/api/v1/evidence-anchors?limit=50', signal);
+}
+
+export function verifyEvidenceAnchor(digest: string, signal?: AbortSignal): Promise<EvidenceAnchorProof> {
+  return getJson<EvidenceAnchorProof>(`/api/v1/evidence-anchors/${encodeURIComponent(digest)}`, signal);
+}
+
+export async function anchorCascadeManifest(manifest: CascadeResponse['manifest']): Promise<EvidenceAnchorProof> {
+  const path = '/api/v1/evidence-anchors';
+  const response = await fetch(path, {
+    method: 'POST',
+    headers: { accept: 'application/json', 'content-type': 'application/json' },
+    cache: 'no-store',
+    body: JSON.stringify({ manifest }),
+  });
+  if (!response.ok) {
+    let message = `${response.status} ${response.statusText} from ${path}`;
+    try {
+      const payload = await response.json();
+      if (payload?.error?.code) message = `${payload.error.code}: ${payload.error.message || message}`;
+    } catch {
+      // Keep the HTTP status when the gateway returns a non-JSON error.
+    }
+    throw new Error(message);
+  }
+  return response.json() as Promise<EvidenceAnchorProof>;
+}
+
+export interface KnowledgeHit {
+  id: string;
+  source: string;
+  title: string;
+  heading: string;
+  startLine: number | null;
+  score: number;
+  snippet: string;
+}
+
+export interface KnowledgeSearchResponse {
+  query: string;
+  mode: 'lexical-bm25';
+  answered: false;
+  note: string;
+  results: KnowledgeHit[];
+  index: { documents: number; chunks: number; builtAt: string };
+  asOf: string;
+}
+
+// Ranked, redacted excerpts from the workspace files. The gateway generates no answer.
+export function searchKnowledge(query: string, limit = 8, signal?: AbortSignal): Promise<KnowledgeSearchResponse> {
+  const qs = new URLSearchParams({ q: query, limit: String(limit) });
+  return getJson<KnowledgeSearchResponse>(`/api/v1/knowledge/search?${qs}`, signal);
+}
+
 export function inr(n: number): string {
   return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
 }
@@ -392,3 +540,117 @@ export function inr(n: number): string {
 export function num(n: number): string {
   return new Intl.NumberFormat('en-IN').format(n);
 }
+
+// ---------------------------------------------------------------------------
+// Historical Climate Intelligence (200-Year Evidence Ledger)
+// ---------------------------------------------------------------------------
+
+export interface HistoricalDatasetMeta {
+  dataset_id: string;
+  official_title: string;
+  source_agency: string;
+  source_country: string;
+  source_url: string;
+  original_dataset_identifier: string;
+  data_license: string;
+  variable: string;
+  measurement_unit: string;
+  geographic_coverage: string;
+  temporal_resolution: string;
+  first_observation_date: string;
+  last_observation_date: string;
+  number_of_records: number;
+  checksum_sha256: string;
+  quality_flags: string;
+  uncertainty_method: string;
+  data_classification: string;
+  citation: string;
+}
+
+export interface HistoricalCatalogResponse {
+  title: string;
+  total_cataloged_datasets: number;
+  temporal_span: string;
+  datasets: HistoricalDatasetMeta[];
+}
+
+export interface HistoricalObservation {
+  year: number;
+  value: number | null;
+  uncertainty: number | null;
+  unit: string;
+  source: string;
+  dataset_id: string;
+  classification: string;
+  is_gap: boolean;
+  gap_reason?: string;
+}
+
+export interface HistoricalTimelineResponse {
+  indicator: string;
+  temporal_span: string;
+  observation_count: number;
+  gap_count: number;
+  observations: HistoricalObservation[];
+}
+
+export interface PolicyEvent {
+  event_id: string;
+  year: number;
+  date: string;
+  title: string;
+  geography: string;
+  type: string;
+  description: string;
+  citation: string;
+  evidence_status: string;
+}
+
+export interface ObservationEvidenceManifest {
+  evidence_id: string;
+  sha256_digest: string;
+  payload: {
+    schema_version: string;
+    evidence_type: string;
+    indicator: string;
+    observation_year: number;
+    observed_value: number;
+    measurement_unit: string;
+    uncertainty: number | null;
+    data_classification: string;
+    source_attribution: {
+      dataset_id: string;
+      official_title: string;
+      source_agency: string;
+      source_url: string;
+      data_license: string;
+      citation: string;
+    };
+    verification: {
+      is_modeled_estimate: boolean;
+      is_direct_measurement: boolean;
+      is_interpolated: boolean;
+      firewall_claim_tier: string;
+    };
+    generated_at: string;
+  };
+}
+
+export function fetchHistoricalDatasets(signal?: AbortSignal): Promise<HistoricalCatalogResponse> {
+  return getJson<HistoricalCatalogResponse>('/api/v1/history/datasets', signal);
+}
+
+export function fetchHistoricalTimeline(indicator = 'temperature_anomaly', startYear = 1826, endYear = 2026, signal?: AbortSignal): Promise<HistoricalTimelineResponse> {
+  const qs = new URLSearchParams({ indicator, startYear: String(startYear), endYear: String(endYear) });
+  return getJson<HistoricalTimelineResponse>(`/api/v1/history/timeline?${qs}`, signal);
+}
+
+export function fetchHistoricalEvents(signal?: AbortSignal): Promise<{ events: PolicyEvent[] }> {
+  return getJson<{ events: PolicyEvent[] }>('/api/v1/history/events', signal);
+}
+
+export function fetchObservationEvidence(indicator: string, year: number, signal?: AbortSignal): Promise<ObservationEvidenceManifest> {
+  const qs = new URLSearchParams({ indicator, year: String(year) });
+  return getJson<ObservationEvidenceManifest>(`/api/v1/history/observation-evidence?${qs}`, signal);
+}
+

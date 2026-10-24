@@ -1,0 +1,28 @@
+{
+  "scheme": "climate-chain-canonical-json/v1",
+  "note": "Shared test vector. The gateway and the browser verifier must both produce this exact canonical text and SHA-256.",
+  "input": {
+    "z": [
+      3,
+      {
+        "b": null,
+        "a": true
+      }
+    ],
+    "unit": "μg/m³",
+    "value": 41.7,
+    "tiny": 1e-7,
+    "negative": -0.25,
+    "nested": {
+      "9": "nine",
+      "10": "ten",
+      "Ω": "omega",
+      "A": "upper",
+      "a": "lower"
+    },
+    "empty": {},
+    "list": []
+  },
+  "canonical": "{\"empty\":{},\"list\":[],\"negative\":-0.25,\"nested\":{\"10\":\"ten\",\"9\":\"nine\",\"A\":\"upper\",\"a\":\"lower\",\"Ω\":\"omega\"},\"tiny\":1e-7,\"unit\":\"μg/m³\",\"value\":41.7,\"z\":[3,{\"a\":true,\"b\":null}]}",
+  "sha256": "fdfdb90621e0aa635e675ffd7642a3bcd2b27cee71e39eba04492f7eafa4452e"
+}

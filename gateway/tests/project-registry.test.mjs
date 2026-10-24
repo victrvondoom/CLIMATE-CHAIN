@@ -10,6 +10,7 @@ import {
   PROJECTS_DIR,
   listProjectApps,
   loadRegistry,
+  loadTracks,
   parseRegistry,
   resolveAppFile,
 } from '../project-registry.mjs';
@@ -64,6 +65,32 @@ test('registry rejects duplicate ids, unknown stages and nested folders', () => 
   assert.throws(() => parseRegistry({ projects: [{ ...valid, folder: '../escape' }] }), /single folder name/);
   assert.throws(() => parseRegistry({ projects: [{ ...valid, id: 'Bad Id' }] }), /invalid project id/);
   assert.throws(() => parseRegistry({ projects: [{ id: 'x', folder: null, stages: [], local: { root: '.' } }] }), /needs a folder and a root/);
+});
+
+test('registry track assignments use the four declared IEEE tracks', () => {
+  const tracks = loadTracks();
+  const trackIds = new Set(tracks.map((track) => track.id));
+  assert.deepEqual(tracks.map((track) => track.label), [
+    'Carbon Markets & Emissions Transparency',
+    'Renewable Energy & Energy Trading',
+    'Sustainable Supply Chains',
+    'Climate Data & Environmental Monitoring',
+  ]);
+  for (const project of projects) {
+    assert.ok(project.tracks.length > 0, `${project.id} has at least one track`);
+    assert.equal(new Set(project.tracks).size, project.tracks.length, `${project.id} has no repeated track assignment`);
+    assert.ok(project.tracks.every((track) => trackIds.has(track)), `${project.id} only uses declared tracks`);
+  }
+  for (const track of tracks) assert.ok(projects.some((project) => project.tracks.includes(track.id)), `${track.id} has mapped projects`);
+  assert.throws(() => parseRegistry({ tracks: [{ id: 'valid-track', label: 'Track' }], projects: [{ id: 'demo', stages: ['sense'], tracks: ['missing-track'] }] }), /unknown or missing track/);
+});
+
+test('Clearsky maps estimated farmer payouts into the sustainable supply chain finance stage', () => {
+  const clearsky = byId.clearsky;
+  assert.ok(clearsky.stages.includes('finance'));
+  assert.ok(clearsky.tracks.includes('sustainable-supply-chains'));
+  assert.ok(clearsky.features.some((feature) => feature.toLowerCase().includes('estimated farmer payouts')));
+  assert.match(clearsky.evidence, /estimates from demo prices/i);
 });
 
 test('standalone apps are available only when their entry page exists', () => {
@@ -125,6 +152,8 @@ test('/api/v1/projects returns the registry and app availability', async () => {
   assert.equal(response.status, 200);
   const body = JSON.parse(response.body);
   assert.equal(body.projects.length, 19);
+  assert.equal(body.tracks.length, 4);
+  assert.ok(body.projects.some((project) => project.id === 'gridproof' && project.tracks.includes('renewable-energy-energy-trading')));
   assert.ok(body.projects.some((project) => project.id === 'gridproof' && project.stages.includes('finance')));
   const aquaquest = body.apps.find((app) => app.id === 'aquaquest');
   assert.deepEqual(aquaquest, { id: 'aquaquest', path: '/apps/aquaquest/', available: true, build: null });

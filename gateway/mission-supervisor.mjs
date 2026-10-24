@@ -53,7 +53,8 @@ export function createMissionSupervisor({
   if (maxRestartDelayMs < minRestartDelayMs) throw new TypeError('maxRestartDelayMs must not be less than minRestartDelayMs.');
   if ((spawnWorker !== undefined && typeof spawnWorker !== 'function') || typeof log !== 'function' || typeof now !== 'function') throw new TypeError('spawnWorker, log, and now must be functions.');
 
-  const startWorker = spawnWorker || (() => spawn(process.execPath, [fileURLToPath(new URL('./mission-worker.mjs', import.meta.url))], {
+  const runtimeOptions = process.execArgv.includes('--use-system-ca') ? ['--use-system-ca'] : [];
+  const startWorker = spawnWorker || (() => spawn(process.execPath, [...runtimeOptions, fileURLToPath(new URL('./mission-worker.mjs', import.meta.url))], {
     cwd: fileURLToPath(new URL('.', import.meta.url)),
     env,
     stdio: ['ignore', 'inherit', 'inherit', 'ipc'],
@@ -160,7 +161,8 @@ async function runLocalApplication() {
   const supervisor = createMissionSupervisor();
   const workerRun = supervisor.run({ signal: controller.signal });
   try {
-    gateway = spawn(process.execPath, [fileURLToPath(new URL('./gateway.mjs', import.meta.url))], {
+    const runtimeOptions = process.execArgv.includes('--use-system-ca') ? ['--use-system-ca'] : [];
+    gateway = spawn(process.execPath, [...runtimeOptions, fileURLToPath(new URL('./gateway.mjs', import.meta.url))], {
       cwd: fileURLToPath(new URL('.', import.meta.url)),
       env: process.env,
       stdio: 'inherit',

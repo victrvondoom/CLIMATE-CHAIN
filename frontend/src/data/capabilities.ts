@@ -5,7 +5,14 @@ import type { ModuleId } from '../types';
 // gateway serves at /api/v1/projects. Add or edit a project there, not here.
 
 export type StageId = 'sense' | 'verify' | 'act' | 'finance' | 'prove';
-export type WorkspaceView = 'session' | 'overview' | 'mission' | 'studio' | 'capabilities' | 'cascade' | 'memory' | 'ledger' | `module:${string}` | ModuleId;
+export type TrackId = 'carbon-markets-emissions-transparency' | 'renewable-energy-energy-trading' | 'sustainable-supply-chains' | 'climate-data-environmental-monitoring';
+export type WorkspaceView = 'earth' | 'session' | 'overview' | 'mission' | 'studio' | 'capabilities' | 'cascade' | 'memory' | 'ledger' | 'integrity' | 'connections' | 'timeline' | `module:${string}` | ModuleId;
+
+interface RegistryTrack {
+  id: TrackId;
+  label: string;
+  detail: string;
+}
 
 interface RegistryProject {
   id: string;
@@ -14,6 +21,7 @@ interface RegistryProject {
   descriptor: string;
   domain: string;
   stages: StageId[];
+  tracks: TrackId[];
   features: string[];
   evidence: string;
   readiness: string;
@@ -23,7 +31,6 @@ interface RegistryProject {
   central?: boolean;
   tone: string;
   stack: string[];
-  track?: string;
   local?: { root: string; build?: string };
 }
 
@@ -33,6 +40,7 @@ export interface Capability {
   descriptor: string;
   domain: string;
   stages: StageId[];
+  tracks: TrackId[];
   features: string[];
   evidence: string;
   readiness: string;
@@ -43,7 +51,6 @@ export interface Capability {
   tone: string;
   folder: string | null;
   stack: string[];
-  track?: string;
   local?: { root: string; build?: string };
 }
 
@@ -63,6 +70,15 @@ export type FocusId = string;
 export const CAPABILITIES: Capability[] = (registry.projects as RegistryProject[]).map(({ liveUrl, ...project }) => ({
   ...project,
   href: liveUrl,
+}));
+
+export interface ClimateTrack extends RegistryTrack {
+  projects: string[];
+}
+
+export const TRACKS: ClimateTrack[] = (registry.tracks as RegistryTrack[]).map((track) => ({
+  ...track,
+  projects: CAPABILITIES.filter((project) => project.tracks.includes(track.id)).map((project) => project.id),
 }));
 
 // Projects that have their own folder under climate-chain/projects/.

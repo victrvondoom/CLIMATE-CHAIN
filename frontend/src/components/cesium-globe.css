@@ -1,0 +1,174 @@
+.cesium-earth {
+  position: relative;
+  width: 100%;
+  min-height: 580px;
+  height: min(72vh, 780px);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 18px;
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--ink);
+  color-scheme: light;
+  box-shadow: 0 12px 32px rgba(27, 25, 22, .08), 0 2px 5px rgba(27, 25, 22, .05), inset 0 1px 0 var(--paper-raised);
+}
+.cesium-earth-canvas { position: absolute; inset: 0; }
+.cesium-earth:fullscreen { width: 100vw; height: 100vh; border: 0; border-radius: 0; }
+.cesium-earth .cesium-viewer, .cesium-earth .cesium-widget { width: 100%; height: 100%; }
+.cesium-earth .cesium-widget-credits {
+  max-width: 100%;
+  padding: 3px 7px;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  color: var(--ink-2);
+  font-size: 10px;
+  text-shadow: none;
+}
+.cesium-earth .cesium-credit-textContainer,
+.cesium-earth .cesium-credit-text,
+.cesium-earth .cesium-credit-expand-link,
+.cesium-earth .cesium-widget-credits a { color: var(--ink-2); text-shadow: none; }
+.cesium-earth .cesium-widget-credits a,
+.cesium-earth .cesium-credit-expand-link { text-decoration: underline; text-underline-offset: 2px; }
+.cesium-earth .cesium-credit-lightbox-overlay { background: rgba(27, 25, 22, .25); }
+.cesium-earth .cesium-credit-lightbox {
+  background: var(--paper-raised);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  box-shadow: 0 14px 40px rgba(27, 25, 22, .15);
+}
+.cesium-earth .cesium-credit-lightbox-title { color: var(--ink); border-bottom-color: var(--rule); }
+.cesium-earth .cesium-credit-lightbox a,
+.cesium-earth .cesium-credit-lightbox-close { color: var(--ink-2); }
+.earth-map-controls {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  pointer-events: none;
+}
+.earth-map-controls label {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 9px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: linear-gradient(180deg, var(--paper-raised), var(--paper));
+  box-shadow: 0 3px 9px rgba(27, 25, 22, .08), inset 0 1px 0 var(--paper-raised);
+  font-size: 11px;
+  color: var(--ink-2);
+}
+.earth-map-controls select,
+.earth-map-controls input[type=date] {
+  min-width: 0;
+  max-width: 190px;
+  padding: 5px 6px;
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: 5px;
+  box-shadow: inset 0 1px 3px rgba(27, 25, 22, .04);
+  color-scheme: light;
+}
+.earth-camera-controls { position: absolute; right: 14px; top: 112px; display: flex; flex-direction: column; gap: 6px; }
+.earth-camera-controls button,
+.earth-map-error button {
+  min-width: 40px;
+  min-height: 40px;
+  cursor: pointer;
+  border: 1px solid var(--rule);
+  background: linear-gradient(180deg, var(--paper-raised), var(--paper));
+  border-radius: 8px;
+  color: var(--ink);
+  padding: 10px 12px;
+  box-shadow: 0 3px 8px rgba(27, 25, 22, .09), inset 0 1px 0 var(--paper-raised);
+  font-size: 12px;
+  transition: background .16s ease, box-shadow .16s ease, transform .16s ease;
+}
+.earth-camera-controls button:not(:disabled):hover,
+.earth-map-error button:not(:disabled):hover { background: var(--paper-raised); box-shadow: 0 5px 12px rgba(27, 25, 22, .13); transform: translateY(-1px); }
+.earth-camera-controls button:not(:disabled):active,
+.earth-map-error button:not(:disabled):active { background: var(--paper-sunk); box-shadow: inset 0 2px 4px rgba(27, 25, 22, .08); transform: translateY(0); }
+.earth-camera-controls button:first-child { font-size: 12px; }
+.earth-camera-controls button:disabled { cursor: default; color: var(--ink-3); background: var(--paper-sunk); box-shadow: none; }
+.earth-imagery-note {
+  position: absolute;
+  bottom: 35px;
+  left: 14px;
+  max-width: calc(100% - 28px);
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 8px 10px;
+  box-shadow: 0 3px 10px rgba(27, 25, 22, .09);
+  color: var(--ink-2);
+  font-size: 11px;
+  pointer-events: none;
+}
+.earth-imagery-note span { display: block; font-size: 10px; color: var(--ink-2); margin-top: 3px; }
+.earth-solar-panel {
+  position: absolute;
+  z-index: 1;
+  left: 14px;
+  bottom: 105px;
+  width: min(360px, calc(100% - 28px));
+  padding: 11px 12px;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: linear-gradient(180deg, var(--paper-raised), var(--paper));
+  box-shadow: 0 5px 16px rgba(27, 25, 22, .1), inset 0 1px 0 var(--paper-raised);
+  color: var(--ink);
+  font-size: 11px;
+  pointer-events: auto;
+}
+.earth-solar-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: var(--ink-2); font-size: 9px; font-weight: 700; letter-spacing: .09em; }
+.earth-solar-heading span:last-child { letter-spacing: 0; font-weight: 500; }
+.earth-speed-control { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 7px 0; color: var(--ink-2); font-size: 10px; }
+.earth-speed-control select { max-width: 180px; padding: 4px 6px; border: 1px solid var(--rule); border-radius: 5px; background: var(--paper-raised); color: var(--ink); font: inherit; color-scheme: light; }
+.earth-solar-panel > strong { display: block; margin: 4px 0 7px; font-size: 12px; }
+.earth-solar-panel dl { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 12px; margin: 0; }
+.earth-solar-panel dl div { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.earth-solar-panel dt { color: var(--ink-2); font-size: 9px; }
+.earth-solar-panel dd { margin: 0; font-size: 10px; font-variant-numeric: tabular-nums; }
+.earth-solar-panel small { display: block; margin-top: 8px; color: var(--ink-2); font-size: 9px; line-height: 1.4; }
+.earth-solar-panel-compact { width: min(330px, calc(100% - 28px)); }
+.earth-map-error {
+  position: absolute;
+  z-index: 2;
+  bottom: 100px;
+  left: 20px;
+  right: 100px;
+  background: var(--paper-raised);
+  border: 1px solid var(--ink-3);
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 6px 20px rgba(27, 25, 22, .12), inset 0 1px 0 var(--paper-raised);
+  color: var(--ink);
+  font-size: 12px;
+}
+.earth-map-error button { display: block; margin-top: 10px; }
+.cesium-earth-compact { min-height: 400px; height: 100%; border: 0; border-radius: 0; }
+.cesium-earth-compact .earth-camera-controls { top: 90px; }
+.cesium-earth-compact .earth-imagery-note { bottom: 32px; }
+.cesium-earth :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+@media (max-width: 600px) {
+  .cesium-earth { min-height: 560px; height: 68vh; }
+  .earth-map-controls { top: 9px; left: 9px; right: 9px; gap: 5px; }
+  .earth-map-controls label { font-size: 10px; padding: 5px; }
+  .earth-camera-controls { right: 9px; top: 145px; }
+  .earth-imagery-note { font-size: 10px; left: 9px; bottom: 38px; max-width: calc(100% - 18px); }
+  .earth-solar-panel, .earth-solar-panel-compact { left: 9px; bottom: 112px; width: calc(100% - 76px); padding: 9px; }
+  .earth-solar-panel dl { gap: 4px 7px; }
+  .earth-solar-panel small { font-size: 8px; }
+  .earth-map-error { left: 9px; right: 63px; bottom: 125px; }
+  .cesium-earth-compact { min-height: 400px; }
+}
+@media (prefers-reduced-motion: reduce) { .earth-camera-controls button, .earth-map-error button { transition: none; } }

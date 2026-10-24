@@ -11,6 +11,21 @@ import path from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
 import { VAYU_CITY_PRESETS } from './connectors/registry.mjs';
 
+// Windows can refuse to replace the store for a few milliseconds while a reader
+// or a scanner holds it. Retry only those transient codes, and only on win32.
+const TRANSIENT_REPLACE_CODES = new Set(['EPERM', 'EACCES', 'EBUSY']);
+async function replaceFile(fromPath, toPath) {
+  for (let attempt = 1; ; attempt += 1) {
+    try {
+      await rename(fromPath, toPath);
+      return;
+    } catch (error) {
+      if (process.platform !== 'win32' || !TRANSIENT_REPLACE_CODES.has(error?.code) || attempt >= 8) throw error;
+      await delay(15 * attempt);
+    }
+  }
+}
+
 export const MISSION_STATES = Object.freeze([
   'CREATED', 'VALIDATED', 'QUEUED', 'RUNNING', 'WAITING_APPROVAL',
   'PAUSED', 'RETRYING', 'FAILED', 'CANCELLED', 'BLOCKED', 'COMPLETED',
@@ -505,7 +520,7 @@ export function createMissionEngine({
       await handle.sync();
       await handle.close();
       handle = undefined;
-      await rename(tempPath, resolvedStorePath);
+      await replaceFile(tempPath, resolvedStorePath);
       // Directory fsync is supported on POSIX. Windows filesystem semantics
       // still get the atomic rename and file fsync above.
       if (process.platform !== 'win32') {

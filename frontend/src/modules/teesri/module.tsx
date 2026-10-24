@@ -1,9 +1,8 @@
-import { useEffect, useMemo, useState } from 'react';
-import { fetchOverview } from '../../api';
+import { useMemo, useState } from 'react';
+import { useSignals } from '../../core/signals';
 import { Card, Stat } from '../../components/Ui';
 import { appendLedger, createEvidence } from '../../core/evidence';
 import type { ClimateModule } from '../../core/module';
-import type { Overview } from '../../types';
 import { addHours, BUILDING_M, decide, haversineM, MIN_HOMES, offsetPoint, RING_M, WINDOW_H, type Decision, type Report, type Verdict, type WaterFields } from './domain/ring';
 import scenariosJson from './fixtures/scenarios.json';
 import './module.css';
@@ -62,20 +61,9 @@ function verdictFor(scenario: Scenario): { reports: Report[]; trigger: Report; v
 }
 
 function TeesriPage() {
-  const [overview, setOverview] = useState<Overview | null>(null);
-  const [feedError, setFeedError] = useState<string | null>(null);
+  const { data: overview, error: feedError } = useSignals();
   const [scenarioId, setScenarioId] = useState<string>(FILE.scenarios[0].id);
   const [recorded, setRecorded] = useState<{ sha256: string; saved: boolean } | null>(null);
-
-  useEffect(() => {
-    const controller = new AbortController();
-    fetchOverview('delhi', controller.signal)
-      .then(setOverview)
-      .catch((error: unknown) => {
-        if (!controller.signal.aborted) setFeedError(error instanceof Error ? error.message : 'Overview unavailable');
-      });
-    return () => controller.abort();
-  }, []);
 
   const scenario = FILE.scenarios.find((row) => row.id === scenarioId) ?? FILE.scenarios[0];
   const { reports, trigger, verdict } = useMemo(() => verdictFor(scenario), [scenario]);
