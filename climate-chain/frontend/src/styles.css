@@ -42,7 +42,7 @@ body::before {
 
 .app {
   display: grid;
-  grid-template-columns: 248px 1fr;
+  grid-template-columns: 304px 1fr;
   min-height: 100vh;
   position: relative;
   z-index: 1;
@@ -2741,3 +2741,23 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   }
 }
 
+
+/* Sidebar display type: bold Fraunces so the navigation stands out from the page. */
+.sidebar-modern,
+.sidebar-modern button {
+  font-family: "Fraunces Variable", "Fraunces", Georgia, serif;
+}
+.sidebar-modern { font-size-adjust: none; }
+.sidebar-modern .brand-title { font-size: 28px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.05; }
+.sidebar-modern .brand-tagline { font-size: 14px; font-weight: 700; letter-spacing: 0.04em; }
+.sidebar-modern .brand-badge { width: 46px; height: 46px; font-size: 18px; font-weight: 900; }
+.sidebar-modern .nav-button,
+.sidebar-modern .nav-search-button { font-size: 17px; font-weight: 700; letter-spacing: -0.005em; padding: 11px 12px; gap: 12px; }
+.sidebar-modern .nav-button.active { font-weight: 900; box-shadow: inset 4px 0 0 var(--ink); }
+.sidebar-modern .nav-icon { font-size: 20px; }
+.sidebar-modern .nav-kbd { font-size: 12px; font-weight: 700; }
+.sidebar-modern .nav-section-title { font-size: 13px; font-weight: 900; letter-spacing: 0.16em; padding: 18px 10px 6px; color: var(--ink); }
+.sidebar-modern .upstreams-header { font-size: 13px; font-weight: 900; letter-spacing: 0.1em; }
+.sidebar-modern .upstream-item { font-size: 15px; }
+.sidebar-modern .upstream-name { font-weight: 700; }
+.sidebar-modern .upstream-mode { font-size: 12px; font-weight: 900; }
