@@ -7,8 +7,8 @@
   --m-plume-text: var(--text, var(--ink));
   --m-plume-muted: var(--muted, var(--ink-3));
   display: grid;
-  gap: 16px;
-  padding: 16px;
+  gap: 20px;
+  padding: 20px;
   color: var(--m-plume-text);
   font-family: var(--font, system-ui, sans-serif);
   max-width: 1100px;
@@ -17,31 +17,31 @@
 }
 
 .m-plume-head h2 {
-  margin: 4px 0 8px;
+  margin: 5px 0 10px;
   font-size: clamp(20px, 3vw, 28px);
 }
 
 .m-plume-kicker {
   margin: 0;
   color: var(--m-plume-tone);
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .m-plume-lede,
 .m-plume-note {
-  margin: 6px 0;
+  margin: 8px 0;
   color: var(--m-plume-muted);
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.5;
 }
 
 .m-plume-card {
-  padding: 16px;
+  padding: 20px;
   border: 1px solid var(--m-plume-line);
   border-top: 2px solid var(--m-plume-tone);
-  border-radius: 12px;
+  border-radius: 14px;
   background: var(--m-plume-panel);
   min-width: 0;
 }
@@ -50,18 +50,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 16px;
 }
 
 .m-plume-card h3 {
   margin: 0;
-  font-size: 17px;
+  font-size: 18px;
 }
 
 .m-plume-mode {
-  padding: 3px 8px;
+  padding: 4px 10px;
   border-radius: 999px;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.06em;
   border: 1px solid currentColor;
@@ -79,21 +79,21 @@
 .m-plume-controls {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin: 10px 0;
+  gap: 16px;
+  margin: 14px 0;
 }
 
 .m-plume-controls label {
   display: grid;
-  gap: 4px;
-  font-size: 13px;
+  gap: 5px;
+  font-size: 15px;
   color: var(--m-plume-muted);
 }
 
 .m-plume-controls select {
   min-width: 160px;
-  padding: 6px 8px;
-  border-radius: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
   border: 1px solid var(--m-plume-line);
   background: var(--paper-raised);
   color: var(--m-plume-text);
@@ -103,25 +103,25 @@
 .m-plume-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 10px;
-  margin: 10px 0;
+  gap: 14px;
+  margin: 14px 0;
 }
 
 .m-plume-stats > div {
   display: grid;
-  gap: 4px;
-  padding: 10px;
-  border-radius: 10px;
+  gap: 5px;
+  padding: 14px;
+  border-radius: 12px;
   background: var(--paper-raised);
 }
 
 .m-plume-stat-label {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--m-plume-muted);
 }
 
 .m-plume-stat-value {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
 }
 
@@ -132,12 +132,12 @@
 .m-plume-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .m-plume-table th,
 .m-plume-table td {
-  padding: 8px 6px;
+  padding: 10px 8px;
   border-bottom: 1px solid var(--m-plume-line);
   text-align: left;
   vertical-align: top;
@@ -163,7 +163,7 @@
 
 .m-plume-source {
   font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-  font-size: 12px;
+  font-size: 14px;
   word-break: break-all;
 }
 
@@ -172,15 +172,15 @@
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 8px;
+  gap: 10px;
 }
 
 .m-plume-factors li {
   display: grid;
   grid-template-columns: minmax(150px, 200px) minmax(150px, 220px) 1fr;
-  gap: 8px;
+  gap: 10px;
   align-items: baseline;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .m-plume-factor-name {
@@ -198,13 +198,13 @@
 .m-plume-status {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin: 10px 0;
+  gap: 16px;
+  margin: 14px 0;
 }
 
 .m-plume-status-label {
   color: var(--m-plume-muted);
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .m-plume-status-value {
@@ -215,18 +215,18 @@
 .m-plume-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
 }
 
 .m-plume-action,
 .m-plume-reset {
-  padding: 7px 12px;
-  border-radius: 8px;
+  padding: 9px 16px;
+  border-radius: 10px;
   border: 1px solid var(--m-plume-tone);
   background: transparent;
   color: var(--m-plume-text);
   font: inherit;
-  font-size: 13px;
+  font-size: 15px;
   cursor: pointer;
   text-transform: capitalize;
 }
@@ -243,24 +243,24 @@
 }
 
 .m-plume-message {
-  margin: 10px 0 0;
-  font-size: 13px;
+  margin: 14px 0 0;
+  font-size: 15px;
 }
 
 .m-plume-receipts {
   list-style: none;
-  margin: 8px 0 0;
+  margin: 10px 0 0;
   padding: 0;
   display: grid;
-  gap: 8px;
+  gap: 10px;
 }
 
 .m-plume-receipts li {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
-  font-size: 13px;
+  gap: 14px;
+  font-size: 15px;
 }
 
 .m-plume-receipt-summary {
@@ -283,16 +283,16 @@
 }
 
 .m-plume-not-ported ul {
-  margin: 8px 0 0;
-  padding-left: 18px;
+  margin: 10px 0 0;
+  padding-left: 24px;
   color: var(--m-plume-muted);
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.6;
 }
 
 @media (max-width: 640px) {
   .m-plume {
-    padding: 16px;
+    padding: 20px;
   }
 
   .m-plume-factors li {

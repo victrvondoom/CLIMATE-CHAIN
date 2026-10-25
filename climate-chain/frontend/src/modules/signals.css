@@ -2,57 +2,57 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
   color: var(--ink);
-  font-size: 12px;
+  font-size: 14px;
 }
 .signal-page .library-controls > label.library-track-field {
   align-items: stretch;
   min-width: min(260px, 100%);
 }
-.signal-page .library-track-field > span { color: var(--ink-3); font-size: 10px; }
+.signal-page .library-track-field > span { color: var(--ink-3); font-size: 12px; }
 .signal-page .library-track-field select { width: 100%; }
 .signal-page .library-controls select,
 .signal-page .stack > label > select {
   max-width: 100%;
   min-width: 0;
   border: 1px solid var(--rule);
-  border-radius: 8px;
-  padding: 8px 10px;
+  border-radius: 10px;
+  padding: 10px 14px;
   background: var(--paper-raised);
   color: var(--ink);
   font: inherit;
-  font-size: 12px;
+  font-size: 14px;
 }
 .signal-page .search-field input { min-width: 0; }
 .signal-page .boundary-note summary { cursor: pointer; overflow-wrap: anywhere; }
 .signal-page .phase-checklist label { cursor: pointer; line-height: 1.6; }
-.signal-page .phase-checklist input { accent-color: var(--ink); vertical-align: middle; margin-right: 5px; }
-.signal-page progress { width: 100%; height: 8px; accent-color: var(--ink); margin-bottom: 12px; }
-.signal-page .library-resultline { flex-wrap: wrap; gap: 8px; }
+.signal-page .phase-checklist input { accent-color: var(--ink); vertical-align: middle; margin-right: 7px; }
+.signal-page progress { width: 100%; height: 8px; accent-color: var(--ink); margin-bottom: 16px; }
+.signal-page .library-resultline { flex-wrap: wrap; gap: 10px; }
 .signal-page .launch-actions { flex-wrap: wrap; }
 .signal-page .radar-row { flex-wrap: wrap; }
-.cascade-chain-card { display: grid; gap: 12px; }
-.cascade-chain-heading { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-.cascade-chain-heading h3 { margin: 4px 0 0; }
-.cascade-chain-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; color: var(--muted); font-size: 12px; }
+.cascade-chain-card { display: grid; gap: 16px; }
+.cascade-chain-heading { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.cascade-chain-heading h3 { margin: 5px 0 0; }
+.cascade-chain-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; color: var(--muted); font-size: 14px; }
 .cascade-chain-meta code,
 .cascade-chain-digest,
 .chain-ledger-contract { overflow-wrap: anywhere; font: 11px/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; color: var(--ink-3); }
-.cascade-chain-note { margin: 0; color: var(--muted); font-size: 12px; }
-.cascade-chain-error { margin: 0; color: var(--bad); font-size: 12px; }
-.cascade-chain-proof { display: grid; gap: 5px; padding: 12px; border: 1px solid var(--rule); border-radius: 10px; font-size: 12px; }
+.cascade-chain-note { margin: 0; color: var(--muted); font-size: 14px; }
+.cascade-chain-error { margin: 0; color: var(--bad); font-size: 14px; }
+.cascade-chain-proof { display: grid; gap: 7px; padding: 16px; border: 1px solid var(--rule); border-radius: 12px; font-size: 14px; }
 .cascade-chain-proof-ok { border-color: color-mix(in srgb, var(--good) 55%, var(--rule)); }
 .cascade-chain-proof-error { border-color: color-mix(in srgb, var(--bad) 55%, var(--rule)); }
 .cascade-chain-proof span { color: var(--muted); }
 .cascade-chain-proof code { display: block; }
-.cascade-coverage { display: grid; gap: 5px; align-self: end; min-width: min(260px, 100%); }
-.cascade-coverage-topline { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; font-size: 12px; }
-.cascade-coverage-topline strong { font-size: 20px; font-variant-numeric: tabular-nums; }
+.cascade-coverage { display: grid; gap: 7px; align-self: end; min-width: min(260px, 100%); }
+.cascade-coverage-topline { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; font-size: 14px; }
+.cascade-coverage-topline strong { font-size: 22px; font-variant-numeric: tabular-nums; }
 .cascade-coverage progress { display: block; width: 100%; height: 8px; accent-color: var(--good); }
 @media (max-width: 640px) {
   .signal-page .library-controls > label { width: 100%; }
   .signal-page .library-controls select { flex: 1; }
-  .signal-page .stack > label > select { width: 100%; margin-top: 6px; }
-  .signal-page .boundary-note { margin-block: 8px; }
+  .signal-page .stack > label > select { width: 100%; margin-top: 8px; }
+  .signal-page .boundary-note { margin-block: 10px; }
 }

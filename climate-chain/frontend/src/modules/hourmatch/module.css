@@ -1,6 +1,6 @@
 .m-hourmatch {
   display: grid;
-  gap: 16px;
+  gap: 20px;
 }
 
 .m-hourmatch-head {
@@ -8,7 +8,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  gap: 10px;
 }
 
 .m-hourmatch-title {
@@ -17,15 +17,15 @@
 }
 
 .m-hourmatch-tagline {
-  margin: 4px 0 0;
+  margin: 5px 0 0;
   color: var(--ink-3);
 }
 
 .m-hourmatch-mode {
-  font-size: 0.72rem;
+  font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.06em;
-  padding: 3px 9px;
+  padding: 4px 12px;
   border-radius: 999px;
   border: 1px solid currentColor;
   white-space: nowrap;
@@ -44,7 +44,7 @@
 .m-hourmatch-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-  gap: 16px;
+  gap: 20px;
 }
 
 .m-hourmatch-wide {
@@ -52,12 +52,12 @@
 }
 
 .m-hourmatch-card-title {
-  margin: 0 0 4px;
+  margin: 0 0 5px;
   font-size: 1.05rem;
 }
 
 .m-hourmatch-card-sub {
-  margin: 0 0 12px;
+  margin: 0 0 16px;
   font-size: 0.85rem;
   color: var(--ink-3);
 }
@@ -75,7 +75,7 @@
 .m-hourmatch-table th,
 .m-hourmatch-table td {
   text-align: left;
-  padding: 6px 8px;
+  padding: 8px 10px;
   border-bottom: 1px solid var(--rule);
   vertical-align: top;
 }
@@ -88,16 +88,16 @@
 .m-hourmatch-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 10px;
-  margin-top: 12px;
+  gap: 14px;
+  margin-top: 16px;
 }
 
 .m-hourmatch-input {
   width: 100%;
   min-height: 84px;
-  padding: 10px;
+  padding: 14px;
   font: inherit;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid var(--rule);
   box-sizing: border-box;
 }
@@ -105,14 +105,14 @@
 .m-hourmatch-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin: 10px 0;
+  gap: 8px;
+  margin: 14px 0;
 }
 
 .m-hourmatch-chip {
   font: inherit;
   font-size: 0.8rem;
-  padding: 4px 10px;
+  padding: 5px 14px;
   border-radius: 999px;
   border: 1px solid var(--rule);
   background: transparent;
@@ -123,9 +123,9 @@
 
 .m-hourmatch-button {
   font: inherit;
-  padding: 8px 14px;
+  padding: 10px 18px;
   border: 0;
-  border-radius: 8px;
+  border-radius: 10px;
   background: var(--paper-raised);
   color: var(--ink);
   cursor: pointer;
@@ -134,8 +134,8 @@
 .m-hourmatch-verdict {
   display: inline-block;
   font-weight: 800;
-  padding: 4px 10px;
-  border-radius: 6px;
+  padding: 5px 14px;
+  border-radius: 7px;
 }
 
 .m-hourmatch-verdict-supported {
@@ -149,8 +149,8 @@
 }
 
 .m-hourmatch-list {
-  margin: 8px 0 0;
-  padding-left: 18px;
+  margin: 10px 0 0;
+  padding-left: 24px;
   font-size: 0.9rem;
 }
 

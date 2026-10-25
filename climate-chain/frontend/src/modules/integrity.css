@@ -2,15 +2,15 @@
    solid versus dashed borders rather than colour. Container queries keep the layout right when
    the lab is a half-width panel in the pinned grid. */
 
-.il { display: flex; flex-direction: column; gap: 16px; min-width: 0; container-type: inline-size; }
-.il-panel { min-width: 0; padding: 28px; background: var(--paper-raised); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow-1); }
-.il-panel h2 { margin: 6px 0 8px; font-size: 22px; }
-.il-panel h3 { margin: 0 0 8px; font-size: 17px; }
-.il-head { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 18px; }
-.il-ledger { display: flex; flex-direction: column; gap: 8px; min-width: 0; padding: 12px; background: var(--paper-sunk); border: 1px solid var(--rule); border-radius: 12px; }
+.il { display: flex; flex-direction: column; gap: 20px; min-width: 0; container-type: inline-size; }
+.il-panel { min-width: 0; padding: 36px; background: var(--paper-raised); border: 1px solid var(--line); border-radius: 19px; box-shadow: var(--shadow-1); }
+.il-panel h2 { margin: 8px 0 10px; font-size: 25px; }
+.il-panel h3 { margin: 0 0 10px; font-size: 18px; }
+.il-head { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 24px; }
+.il-ledger { display: flex; flex-direction: column; gap: 10px; min-width: 0; padding: 16px; background: var(--paper-sunk); border: 1px solid var(--rule); border-radius: 14px; }
 
-.il-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
-.il-badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px; border: 1px solid var(--rule-strong); border-radius: 999px; font-size: 10px; font-weight: 800; letter-spacing: 0.08em; }
+.il-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.il-badge { display: inline-flex; align-items: center; gap: 5px; padding: 4px 12px; border: 1px solid var(--rule-strong); border-radius: 999px; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; }
 .il-badge-model { background: var(--cream-vanilla); }
 .il-badge-live { background: var(--ink); border-color: var(--ink); color: var(--paper-raised); }
 .il-badge-cached { background: var(--cream-oat); }
@@ -22,72 +22,72 @@
 .il-badge-offline { border: 2px dashed var(--ink); }
 .il-badge-test { background: var(--paper-sunk); }
 
-.il-facts { display: grid; grid-template-columns: minmax(130px, 200px) minmax(0, 1fr); gap: 6px 14px; margin: 8px 0; }
+.il-facts { display: grid; grid-template-columns: minmax(130px, 200px) minmax(0, 1fr); gap: 8px 18px; margin: 10px 0; }
 .il-facts > div { display: contents; }
-.il-facts dt { color: var(--ink-3); font-size: 12px; }
-.il-facts dd { min-width: 0; margin: 0; font-size: 13px; overflow-wrap: anywhere; }
-.il-code { padding: 1px 4px; border-radius: 4px; background: var(--paper-sunk); font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace; font-size: 12px; overflow-wrap: anywhere; word-break: break-all; }
+.il-facts dt { color: var(--ink-3); font-size: 14px; }
+.il-facts dd { min-width: 0; margin: 0; font-size: 15px; overflow-wrap: anywhere; }
+.il-code { padding: 1px 5px; border-radius: 4px; background: var(--paper-sunk); font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace; font-size: 14px; overflow-wrap: anywhere; word-break: break-all; }
 
-.il-steps { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; }
-.il-step { display: flex; align-items: center; gap: 8px; min-width: 0; padding: 8px 10px; border-radius: 12px; text-align: left; }
-.il-step strong { display: block; font-size: 13px; }
-.il-step small { display: block; color: var(--ink-3); font-size: 11px; }
-.il-step-number { display: inline-grid; flex: none; place-items: center; width: 24px; height: 24px; border: 1px solid var(--rule-strong); border-radius: 50%; font-size: 12px; font-weight: 700; }
+.il-steps { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; }
+.il-step { display: flex; align-items: center; gap: 10px; min-width: 0; padding: 10px 14px; border-radius: 14px; text-align: left; }
+.il-step strong { display: block; font-size: 15px; }
+.il-step small { display: block; color: var(--ink-3); font-size: 13px; }
+.il-step-number { display: inline-grid; flex: none; place-items: center; width: 24px; height: 24px; border: 1px solid var(--rule-strong); border-radius: 50%; font-size: 14px; font-weight: 700; }
 .il-step.active { background: var(--ink); color: var(--paper-raised); }
 .il-step.active small { color: var(--cream-oat); }
 .il-step.done .il-step-number { background: var(--ink); color: var(--paper-raised); }
 .il-step:disabled { opacity: 0.45; cursor: not-allowed; }
 
-.il-form { display: flex; flex-wrap: wrap; gap: 12px; margin: 10px 0; }
-.il-form label { display: flex; flex-direction: column; gap: 4px; min-width: 180px; color: var(--ink-3); font-size: 12px; }
+.il-form { display: flex; flex-wrap: wrap; gap: 16px; margin: 14px 0; }
+.il-form label { display: flex; flex-direction: column; gap: 5px; min-width: 180px; color: var(--ink-3); font-size: 14px; }
 .il-form-wide label { flex: 1 1 100%; }
 .il-form textarea { box-sizing: border-box; width: 100%; font: inherit; }
-.il-modes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 0 0 12px; padding: 10px; border: 1px solid var(--rule); border-radius: 12px; }
-.il-modes legend { padding: 0 4px; color: var(--ink-3); font-size: 12px; }
-.il-modes label { display: flex; align-items: flex-start; gap: 8px; padding: 8px; border: 1px solid transparent; border-radius: 10px; cursor: pointer; }
+.il-modes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 0 0 16px; padding: 14px; border: 1px solid var(--rule); border-radius: 14px; }
+.il-modes legend { padding: 0 5px; color: var(--ink-3); font-size: 14px; }
+.il-modes label { display: flex; align-items: flex-start; gap: 10px; padding: 10px; border: 1px solid transparent; border-radius: 12px; cursor: pointer; }
 .il-modes label.active { background: var(--paper-sunk); border-color: var(--rule-strong); }
-.il-modes small { display: block; color: var(--ink-3); font-size: 11px; }
+.il-modes small { display: block; color: var(--ink-3); font-size: 13px; }
 
-.il-result { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--rule); }
-.il-note { margin: 10px 0; padding: 10px 12px; background: var(--paper-sunk); border: 1px solid var(--rule); border-radius: 12px; }
-.il-note p { margin: 6px 0 0; }
-.il-note ul, .il-note ol { margin: 6px 0 0; padding-left: 18px; }
-.il-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.il-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 10px 0; }
-.il-link { color: var(--ink); font-size: 12px; text-decoration: underline; }
-.il-warning { padding: 8px 12px; background: var(--paper-sunk); border-left: 3px solid var(--ink); font-size: 13px; }
-.il-error { padding: 10px 12px; background: var(--paper-raised); border: 2px dashed var(--ink); border-radius: 12px; }
-.il-ok, .il-bad { font-size: 13px; overflow-wrap: anywhere; }
-.il-verify { margin-top: 6px; padding: 11px 18px; font-size: 14px; }
-.il-verdict { margin: 12px 0; padding: 10px 12px; border-radius: 12px; font-weight: 800; letter-spacing: 0.02em; }
+.il-result { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--rule); }
+.il-note { margin: 14px 0; padding: 14px 16px; background: var(--paper-sunk); border: 1px solid var(--rule); border-radius: 14px; }
+.il-note p { margin: 8px 0 0; }
+.il-note ul, .il-note ol { margin: 8px 0 0; padding-left: 24px; }
+.il-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.il-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 14px 0; }
+.il-link { color: var(--ink); font-size: 14px; text-decoration: underline; }
+.il-warning { padding: 10px 16px; background: var(--paper-sunk); border-left: 3px solid var(--ink); font-size: 15px; }
+.il-error { padding: 14px 16px; background: var(--paper-raised); border: 2px dashed var(--ink); border-radius: 14px; }
+.il-ok, .il-bad { font-size: 15px; overflow-wrap: anywhere; }
+.il-verify { margin-top: 8px; padding: 14px 24px; font-size: 15px; }
+.il-verdict { margin: 16px 0; padding: 14px 16px; border-radius: 14px; font-weight: 800; letter-spacing: 0.02em; }
 .il-verdict.ok { background: var(--ink); color: var(--paper-raised); }
 .il-verdict.bad { border: 2px dashed var(--ink); }
 
-.il-checks h4 { margin: 4px 0 6px; font-size: 13px; }
-.il-checks ul { display: flex; flex-direction: column; gap: 6px; margin: 0; padding: 0; list-style: none; }
-.il-checks li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 6px; font-size: 12px; }
+.il-checks h4 { margin: 5px 0 8px; font-size: 15px; }
+.il-checks ul { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.il-checks li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 8px; font-size: 14px; }
 .il-checks li strong { display: block; font-weight: 600; }
 .il-checks li.bad strong { text-decoration: underline wavy; }
 .il-mark { font-weight: 800; }
 
-.il-details summary { margin-top: 8px; font-size: 13px; cursor: pointer; }
-.il-details pre { max-height: 320px; padding: 10px; overflow: auto; background: var(--paper-sunk); border-radius: 8px; font-size: 11px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.il-details summary { margin-top: 10px; font-size: 15px; cursor: pointer; }
+.il-details pre { max-height: 320px; padding: 14px; overflow: auto; background: var(--paper-sunk); border-radius: 10px; font-size: 13px; white-space: pre-wrap; overflow-wrap: anywhere; }
 
-.il-lineage { display: flex; flex-direction: column; gap: 10px; margin: 8px 0; }
-.il-lineage-row { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 8px; }
-.il-node { display: flex; flex-direction: column; gap: 4px; min-width: 0; padding: 10px; background: var(--paper-raised); border: 1px solid var(--rule-strong); border-radius: 12px; }
+.il-lineage { display: flex; flex-direction: column; gap: 14px; margin: 10px 0; }
+.il-lineage-row { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 10px; }
+.il-node { display: flex; flex-direction: column; gap: 5px; min-width: 0; padding: 14px; background: var(--paper-raised); border: 1px solid var(--rule-strong); border-radius: 14px; }
 .il-node.old { background: var(--paper-sunk); border-style: dashed; }
-.il-node small { color: var(--ink-3); font-size: 11px; }
-.il-arrow { font-size: 18px; }
+.il-node small { color: var(--ink-3); font-size: 13px; }
+.il-arrow { font-size: 20px; }
 
 .il-table-wrap { overflow-x: auto; }
-.il-table { width: 100%; border-collapse: collapse; font-size: 12px; }
-.il-table caption { padding-bottom: 6px; color: var(--ink-3); font-size: 11px; text-align: left; }
-.il-table th, .il-table td { padding: 6px 8px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; }
-.il-table td small { display: block; color: var(--ink-3); font-size: 10px; }
+.il-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.il-table caption { padding-bottom: 8px; color: var(--ink-3); font-size: 13px; text-align: left; }
+.il-table th, .il-table td { padding: 8px 10px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; }
+.il-table td small { display: block; color: var(--ink-3); font-size: 12px; }
 .il-row-rejected td { background: var(--paper-sunk); }
 
-.il-steps-list { display: flex; flex-direction: column; gap: 10px; padding-left: 20px; }
+.il-steps-list { display: flex; flex-direction: column; gap: 14px; padding-left: 26px; }
 .il-steps-list li span, .il-steps-list li small { display: block; }
 .il-steps-list li small { color: var(--ink-3); }
 
@@ -97,11 +97,11 @@
 }
 
 @container (max-width: 640px) {
-  .il-panel { padding: 20px; }
+  .il-panel { padding: 26px; }
   .il-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .il-modes, .il-columns { grid-template-columns: minmax(0, 1fr); }
   .il-facts { grid-template-columns: minmax(0, 1fr); }
-  .il-facts dt { margin-top: 6px; }
+  .il-facts dt { margin-top: 8px; }
   .il-lineage-row { grid-template-columns: minmax(0, 1fr); }
   .il-arrow { justify-self: center; transform: rotate(90deg); }
 }

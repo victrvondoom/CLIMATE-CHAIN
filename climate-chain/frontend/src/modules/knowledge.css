@@ -1,26 +1,26 @@
-.knowledge { display: grid; gap: 14px; padding: 20px 22px; }
-.knowledge .knowledge-head { display: grid; gap: 6px; }
+.knowledge { display: grid; gap: 18px; padding: 26px 28px; }
+.knowledge .knowledge-head { display: grid; gap: 8px; }
 .knowledge .knowledge-head h2 { margin: 2px 0 0; font-size: clamp(24px, 3vw, 28px); line-height: 1.15; }
 .knowledge .knowledge-head p { margin: 0; max-width: 62ch; }
 .knowledge .knowledge-field { width: min(720px, 100%); }
 .knowledge .knowledge-status { margin: 0; min-height: 1.4em; }
-.knowledge .knowledge-results { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.knowledge .knowledge-results { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
 .knowledge .knowledge-hit {
   display: grid;
-  gap: 6px;
-  padding: 14px 16px;
+  gap: 8px;
+  padding: 18px 20px;
   border: 1px solid var(--rule);
-  border-radius: 12px;
+  border-radius: 14px;
   background: var(--paper-raised);
 }
-.knowledge .knowledge-hit strong { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--ink); line-height: 1.25; }
+.knowledge .knowledge-hit strong { font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--ink); line-height: 1.25; }
 .knowledge .knowledge-hit p { margin: 0; color: var(--ink-2); line-height: 1.55; overflow-wrap: anywhere; }
-.knowledge .knowledge-source { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: baseline; font-size: 12px; color: var(--ink-3); }
+.knowledge .knowledge-source { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: baseline; font-size: 14px; color: var(--ink-3); }
 .knowledge .knowledge-source code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; color: var(--ink-2); overflow-wrap: anywhere; }
 .knowledge .knowledge-foot { margin: 0; }
 @media (max-width: 640px) {
-  .knowledge { padding: 16px; }
-  .knowledge .knowledge-hit { padding: 12px; }
+  .knowledge { padding: 20px; }
+  .knowledge .knowledge-hit { padding: 16px; }
 }
 /* The shared .card::after sheen covers the whole card; lift the panel's content above it. */
 .knowledge { position: relative; isolation: isolate; }

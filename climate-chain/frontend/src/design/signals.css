@@ -1,0 +1,128 @@
+/* signals: the shared building blocks of the Waste / Fire / Water / Air views and most other pages:
+   page header, filter bar, lists, progress, stats, chips, notes. Layered on src/design.css. */
+
+/* Legacy 3D-card resets. The old cards painted a translucent white gradient over their own
+   content (which made text look washed out) and tilted on hover. Cards are flat and crisp now. */
+.app .card::after, .app .chip3d::after, .app .capability-card::after { content: none; display: none; }
+.app .card, .app .chip3d { backdrop-filter: none; -webkit-backdrop-filter: none; transform-style: flat; background-image: none; }
+.app .card:hover { transform: none; }
+.app .stack, .app .grid-2, .app .kpis { perspective: none; transform-style: flat; }
+.app .stat { transform: none; }
+.app .card > h2 { font-family: var(--font-sans); font-size: 18px; font-weight: 600; letter-spacing: -0.012em; line-height: 1.35; margin: 0 0 24px; }
+.app .card h3 { font-size: 16px; margin: 0; }
+.app .card header { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-bottom: 24px; }
+.app .card.accent-waste { border-top: 3px solid var(--waste); }
+.app .card.accent-fire { border-top: 3px solid var(--fire); }
+.app .card.accent-water { border-top: 3px solid var(--water); }
+.app .card.accent-air { border-top: 3px solid var(--air); }
+
+/* Page header ------------------------------------------------------------ */
+.app .module-head { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px; }
+.app .module-head > div:first-child { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; max-width: 760px; }
+.app .module-head h1 { margin: 0; font-size: clamp(40px, 4.4vw, 60px); line-height: 1.04; }
+.app .module-head h1 .by { font-style: italic; color: var(--accent); }
+.app .module-head p { margin: 0; font-size: 17px; line-height: 1.65; color: var(--text-secondary); max-width: 66ch; }
+
+/* Grids ------------------------------------------------------------------- */
+.app .grid-2 { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.app .kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.app .stack.tight { gap: 24px; }
+@media (max-width: 1100px) { .app .grid-2 { grid-template-columns: minmax(0, 1fr); } .app .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .app .kpis { grid-template-columns: minmax(0, 1fr); } }
+
+/* Filter bar -------------------------------------------------------------- */
+.app .library-controls {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px 20px; align-items: end;
+  padding: 22px 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+}
+.app .signal-page .library-controls > label:not(.search-field),
+.app .library-controls > label { display: flex; flex-direction: column; align-items: stretch; flex-wrap: nowrap; gap: 8px; font-size: 12.5px; font-weight: 600; color: var(--text-secondary); }
+.app .library-controls > .search-field { grid-column: span 2; border: 0; padding: 0; background: transparent; box-shadow: none; border-radius: 0; }
+.app .library-controls > button.text-action, .app .library-controls > .text-action { grid-column: 1 / -1; }
+.app .module-head h1 .by { font-size: 0.6em; margin-left: 0.12em; }
+.app progress { width: 100%; height: 8px; border: 0; border-radius: 999px; accent-color: var(--accent); background: var(--surface-secondary); }
+.app .kpis > .chip3d { align-content: start; }
+.app .library-controls input, .app .library-controls select { width: 100%; max-width: none; background: var(--surface-tint); font-weight: 400; color: var(--text-primary); }
+.app .library-controls > button.text-action, .app .library-controls > .text-action { justify-self: start; align-self: center; }
+.app .library-resultline { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 14px; color: var(--text-secondary); }
+@media (max-width: 900px) { .app .library-controls > .search-field { grid-column: auto; } }
+
+/* Notes (details) -------------------------------------------------------- */
+.app .boundary-note { margin: 0; padding: 18px 22px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface-tint); font-size: 14px; line-height: 1.6; color: var(--text-secondary); }
+.app .boundary-note summary { cursor: pointer; font-weight: 500; color: var(--ink-2); }
+.app .boundary-note summary:hover { color: var(--text-primary); }
+.app .boundary-note[open] summary { margin-bottom: 12px; }
+
+/* Lists --------------------------------------------------------------------- */
+.app .site-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0; }
+.app .site { display: flex; gap: 20px; justify-content: space-between; align-items: flex-start; padding: 24px 0; border-top: 1px solid var(--border); }
+.app .site:first-child { border-top: 0; padding-top: 0; }
+.app .site:last-child { padding-bottom: 0; }
+.app .site-title { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.4; color: var(--text-primary); }
+.app .site-context { font-weight: 400; color: var(--text-secondary); margin-left: 6px; }
+.app .site-coords { margin-top: 6px; font-size: 13.5px; line-height: 1.5; color: var(--text-secondary); }
+.app .site-review { margin-top: 14px; }
+.app .site > .chip { margin-top: 2px; }
+
+/* Progress -------------------------------------------------------------- */
+.app .progress { position: relative; height: 8px; margin: 18px 0 38px; overflow: visible; background: var(--surface-secondary); border: 0; border-radius: 999px; box-shadow: none; }
+.app .progress-fill { height: 100%; opacity: 1; border-radius: 999px; box-shadow: none; }
+.app .progress-text { position: absolute; inset: auto; left: 0; top: calc(100% + 9px); display: block; font-size: 12.5px; font-variant-numeric: tabular-nums; color: var(--text-secondary); text-shadow: none; }
+
+/* Stats ----------------------------------------------------------------- */
+.app .stat { display: flex; flex-direction: column; gap: 6px; }
+.app .stat-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); }
+.app .stat-value { font-size: 34px; font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; color: var(--text-primary); }
+.app .stat-value.c-waste { color: var(--waste); }
+.app .stat-value.c-fire { color: var(--fire); }
+.app .stat-value.c-water { color: var(--water); }
+.app .stat-value.c-air { color: var(--air); }
+.app .stat-unit { font-size: 15px; font-weight: 500; letter-spacing: 0; color: var(--text-secondary); }
+.app .stat-hint { font-size: 13.5px; color: var(--text-secondary); }
+
+.app .ledger { display: flex; flex-direction: column; gap: 40px; }
+.app .card .ledger { gap: 0; }
+.app .card .ledger > div { display: flex; align-items: baseline; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--border); font-size: 14.5px; color: var(--text-secondary); }
+.app .card .ledger > div:first-child { padding-top: 0; }
+.app .card .ledger .stat-value { font-size: 30px; min-width: 2ch; }
+
+/* Water: ring stats + the household status wall */
+.app .ring-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-bottom: 24px; }
+.app .ring-stats > div { display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; border-radius: var(--radius); background: var(--surface-tint); border: 1px solid var(--border); font-size: 13px; line-height: 1.4; color: var(--text-secondary); }
+.app .ring-stats .stat-value { font-size: 30px; }
+.app .filter-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 24px; }
+.app .filter-pill { height: 34px; min-height: 0; padding: 0 14px; border-radius: 999px; font-size: 13px; box-shadow: none; }
+.app .filter-pill.active, .app .filter-pill[aria-pressed="true"] { background: var(--text-primary); color: var(--background); border-color: var(--text-primary); }
+.app .wall { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; }
+.app .wall .home { display: flex; flex-direction: column; gap: 6px; padding: 18px 18px 16px; border-radius: var(--radius); background: var(--surface-tint); border: 1px solid var(--border); text-align: left; aspect-ratio: auto; min-height: 0; box-shadow: none; }
+.app .wall .home-id { font-size: 30px; font-weight: 600; line-height: 1; letter-spacing: -0.03em; color: var(--text-primary); font-variant-numeric: tabular-nums; }
+.app .wall .home-state { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-secondary); line-height: 1.4; }
+.app .wall .home.reported { border-top: 3px solid var(--bad); }
+.app .wall .home.warned { border-top: 3px solid var(--water); }
+.app .wall .home.ring, .app .wall .home.silent, .app .wall .home.in-ring { border-top: 3px solid var(--warn); }
+.app .wall-legend { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 20px; font-size: 13.5px; color: var(--text-secondary); }
+.app .wall-legend .dot { display: inline-block; width: 9px; height: 9px; margin-right: 6px; border-radius: 50%; background: var(--text-faint); }
+.app .wall-legend .dot-reported { background: var(--bad); }
+.app .wall-legend .dot-warned { background: var(--water); }
+.app .wall-legend .dot-ring { background: var(--warn); }
+.app .card > p.muted { margin-top: 20px; font-size: 13.5px; line-height: 1.6; }
+
+/* Feature tiles (chip3d) ------------------------------------------------ */
+.app .chip3d { display: flex; flex-direction: column; gap: 10px; padding: 24px 26px; text-align: left; cursor: pointer; }
+.app .chip3d-top { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); }
+.app .chip3d-value { font-size: 40px; font-weight: 600; line-height: 1; letter-spacing: -0.035em; font-variant-numeric: tabular-nums; color: var(--text-primary); }
+.app .chip3d-hint { font-size: 13.5px; line-height: 1.55; color: var(--text-secondary); }
+
+/* Chips ----------------------------------------------------------------- */
+.app .chip { display: inline-flex; align-items: center; height: 26px; padding: 0 12px; border-radius: 999px; font-size: 12.5px; font-weight: 600; white-space: nowrap; background: var(--surface-secondary); color: var(--text-secondary); border: 0; }
+.app .chip-ok { background: var(--good-soft); color: var(--good); }
+
+/* Ordered steps ------------------------------------------------------------ */
+.app .steps { margin: 0 0 24px; padding-left: 22px; display: grid; gap: 14px; font-size: 15px; line-height: 1.6; color: var(--text-secondary); }
+.app .steps li::marker { color: var(--text-faint); font-family: var(--font-mono); font-size: 13px; }
+.app .steps strong { color: var(--text-primary); }
+
+/* In-app link buttons (formerly "external") ---------------------------- */
+.app .ext-inapp { display: inline-flex; align-items: center; gap: 12px; height: 42px; padding: 0 16px; border-radius: 10px; }
+.app .ext-label { font-weight: 600; }
+.app .ext-tag { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-secondary); }

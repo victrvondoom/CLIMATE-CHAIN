@@ -153,7 +153,7 @@ export function CausalLab({ onNavigate }: { onNavigate: (view: WorkspaceView) =>
         </div>
         <div className="lab-controls" style={{ minWidth: 260 }}>
           <button type="button" className={`lab-btn ${voice.state === 'listening' ? 'voice-on' : 'primary'}`} onClick={toggleVoice} disabled={!voiceSupported()} aria-pressed={voice.state === 'listening'}>
-            {voice.state === 'listening' ? '■ Stop listening' : '🎙 Speak to the platform'}
+            {voice.state === 'listening' ? 'Stop listening' : 'Speak to the platform'}
           </button>
           {!voiceSupported() ? <p className="lab-note">Voice needs Chrome or Edge. Every control also works by mouse and keyboard.</p> : <p className="lab-caption">Try: “cut fossil emissions by 40 percent”, “run the El Niño scenario”, “show the blockchain ledger”, “read the summary”.</p>}
           {voice.detail ? <p className="lab-note error" role="alert">{voice.detail}</p> : null}

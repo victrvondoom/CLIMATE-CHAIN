@@ -3,6 +3,7 @@ import type { Overview } from '../types';
 import { CesiumGlobe, type GlobeMarker } from './CesiumGlobe';
 import { DynamicClimateRadar } from './DynamicClimateRadar';
 import type { CityKey } from '../api';
+import { Icon } from './Icon';
 
 export function Globe3D({
   data,
@@ -60,14 +61,14 @@ export function Globe3D({
           className={`mode-toggle-btn ${viewMode === 'radar' ? 'active' : ''}`}
           onClick={() => setViewMode('radar')}
         >
-          <span className="mode-icon">📡</span> Dynamic Signal Radar
+          <Icon name="activity" size={15} /> Signal radar
         </button>
         <button
           type="button"
           className={`mode-toggle-btn ${viewMode === 'satellite' ? 'active' : ''}`}
           onClick={() => setViewMode('satellite')}
         >
-          <span className="mode-icon">🛰️</span> Cesium 3D Satellite
+          <Icon name="globe" size={15} /> 3D satellite
         </button>
       </div>
 

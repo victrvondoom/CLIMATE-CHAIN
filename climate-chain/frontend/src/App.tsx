@@ -19,6 +19,35 @@ import { Dashboard } from './dashboard/Dashboard';
 import { DEFAULT_VIEW, destinationFor, resolveView } from './dashboard/library';
 import { placeForCity } from './core/places';
 import { DEFAULT_OVERVIEW } from './data/defaultOverview';
+import { Icon, type IconName } from './components/Icon';
+
+const NAV_GROUPS: { title: string; items: { view: WorkspaceView; label: string; icon: IconName }[] }[] = [
+  {
+    title: 'Climate signals',
+    items: [
+      { view: 'waste', label: 'Waste · JunkSnap', icon: 'waste' },
+      { view: 'fire', label: 'Fire · ClearSky', icon: 'fire' },
+      { view: 'water', label: 'Water · Teesri Shikayat', icon: 'water' },
+      { view: 'air', label: 'Air · Vayu Project', icon: 'air' },
+      { view: 'pollution', label: 'Global Pollution Atlas', icon: 'cloud' },
+    ],
+  },
+  {
+    title: 'Missions & integrity',
+    items: [
+      { view: 'mission', label: '5-Step Mission Flow', icon: 'target' },
+      { view: 'timeline', label: '200-Year Timeline', icon: 'hourglass' },
+      { view: 'lab', label: 'Causal Lab', icon: 'flask' },
+      { view: 'earth', label: 'Earth & Satellite', icon: 'globe' },
+      { view: 'integrity', label: 'Climate Integrity Lab', icon: 'shield' },
+      { view: 'ledger', label: 'Evidence Ledger', icon: 'ledger' },
+    ],
+  },
+  {
+    title: 'Research tools',
+    items: [{ view: 'refinery', label: 'Data Refinery', icon: 'filter' }],
+  },
+];
 
 const MissionPath = lazy(() => import('./modules/Workspace').then((module) => ({ default: module.MissionPath })));
 const MissionStudio = lazy(() => import('./modules/MissionStudio').then((module) => ({ default: module.MissionStudio })));
@@ -142,10 +171,17 @@ export default function App() {
       {/* Sleek, Unified Modern Sidebar */}
       <aside className={`sidebar-modern${navigationOpen ? ' navigation-open' : ''}`}>
         <div className="sidebar-brand">
-          <div className="brand-badge">CC</div>
+          <div className="brand-badge" aria-hidden="true">C</div>
           <div className="brand-info">
-            <span className="brand-title">Climate Chain</span>
-            <span className="brand-tagline">One Mission</span>
+            <span className="brand-title">
+              <span className="brand-title-classic">Climate</span>{' '}
+              <em className="brand-title-cursive">Chain</em>
+            </span>
+            <span className="brand-tagline">
+              <span className="brand-tagline-mono">SIGNAL</span>
+              <span className="brand-tagline-arrow">/</span>
+              <span className="brand-tagline-mono">PROOF</span>
+            </span>
           </div>
           <button
             type="button"
@@ -154,7 +190,7 @@ export default function App() {
             aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
             title={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
           >
-            {theme === 'dark' ? '☀' : '☾'}
+            <Icon name={theme === 'dark' ? 'sun' : 'moon'} size={17} />
           </button>
           <button
             type="button"
@@ -162,142 +198,49 @@ export default function App() {
             onClick={() => setNavigationOpen(false)}
             aria-label="Close menu"
           >
-            ✕
+            <Icon name="close" size={17} />
           </button>
         </div>
 
         <nav id="climate-navigation" className="nav-menu" aria-label="Main navigation">
-          {/* Main Dashboard */}
           <button
             type="button"
             className={`nav-button ${view === DEFAULT_VIEW ? 'active' : ''}`}
             onClick={() => navigate(DEFAULT_VIEW)}
           >
-            <span className="nav-icon">🏠</span>
+            <span className="nav-icon"><Icon name="dashboard" /></span>
             <span className="nav-text">Command Center</span>
           </button>
 
-          {/* Quick Search */}
-          <button
-            type="button"
-            className="nav-search-button"
-            onClick={() => setCommandOpen(true)}
-          >
-            <span className="nav-icon">🔍</span>
-            <span className="nav-text">Search Everything</span>
+          <button type="button" className="nav-search-button" onClick={() => setCommandOpen(true)}>
+            <span className="nav-icon"><Icon name="search" /></span>
+            <span className="nav-text">Search everything</span>
             <kbd className="nav-kbd">⌘K</kbd>
           </button>
 
-          {/* Climate Signals Section */}
-          <div className="nav-section-title">CLIMATE SIGNALS</div>
-          <button
-            type="button"
-            className={`nav-button ${view === 'waste' ? 'active' : ''}`}
-            onClick={() => navigate('waste')}
-          >
-            <span className="nav-icon">🗑️</span>
-            <span className="nav-text">Waste · JunkSnap</span>
-          </button>
-          <button
-            type="button"
-            className={`nav-button ${view === 'fire' ? 'active' : ''}`}
-            onClick={() => navigate('fire')}
-          >
-            <span className="nav-icon">🔥</span>
-            <span className="nav-text">Fire · ClearSky</span>
-          </button>
-          <button
-            type="button"
-            className={`nav-button ${view === 'water' ? 'active' : ''}`}
-            onClick={() => navigate('water')}
-          >
-            <span className="nav-icon">💧</span>
-            <span className="nav-text">Water · Teesri Shikayat</span>
-          </button>
-          <button
-            type="button"
-            className={`nav-button ${view === 'air' ? 'active' : ''}`}
-            onClick={() => navigate('air')}
-          >
-            <span className="nav-icon">💨</span>
-            <span className="nav-text">Air · Vayu Project</span>
-          </button>
-          <button
-            type="button"
-            className={`nav-button ${view === 'pollution' ? 'active' : ''}`}
-            onClick={() => navigate('pollution')}
-          >
-            <span className="nav-icon">🌫️</span>
-            <span className="nav-text">Global Pollution Atlas</span>
-          </button>
-
-          {/* Mission & Verification Section */}
-          <div className="nav-section-title">MISSIONS & INTEGRITY</div>
-          <button
-            type="button"
-            className={`nav-button ${view === 'mission' ? 'active' : ''}`}
-            onClick={() => navigate('mission')}
-          >
-            <span className="nav-icon">🎯</span>
-            <span className="nav-text">5-Step Mission Flow</span>
-          </button>
-          <button
-            type="button"
-            className={`nav-button ${view === 'timeline' ? 'active' : ''}`}
-            onClick={() => navigate('timeline')}
-          >
-            <span className="nav-icon">⏳</span>
-            <span className="nav-text">200-Year Timeline</span>
-          </button>
-          <button
-            type="button"
-            className={`nav-button ${view === 'lab' ? 'active' : ''}`}
-            onClick={() => navigate('lab')}
-          >
-            <span className="nav-icon">🧪</span>
-            <span className="nav-text">Causal Lab</span>
-          </button>
-          <button
-            type="button"
-            className={`nav-button ${view === 'earth' ? 'active' : ''}`}
-            onClick={() => navigate('earth')}
-          >
-            <span className="nav-icon">🛰️</span>
-            <span className="nav-text">Earth & Satellite</span>
-          </button>
-          <button
-            type="button"
-            className={`nav-button ${view === 'integrity' ? 'active' : ''}`}
-            onClick={() => navigate('integrity')}
-          >
-            <span className="nav-icon">🛡️</span>
-            <span className="nav-text">Climate Integrity Lab</span>
-          </button>
-          <button
-            type="button"
-            className={`nav-button ${view === 'ledger' ? 'active' : ''}`}
-            onClick={() => navigate('ledger')}
-          >
-            <span className="nav-icon">📜</span>
-            <span className="nav-text">Evidence Ledger</span>
-          </button>
-
-          {/* Research Tools Section */}
-          <div className="nav-section-title">RESEARCH TOOLS</div>
-          <button
-            type="button"
-            className={`nav-button ${view === 'refinery' ? 'active' : ''}`}
-            onClick={() => navigate('refinery')}
-          >
-            <span className="nav-icon">🧹</span>
-            <span className="nav-text">Data Refinery</span>
-          </button>
+          {NAV_GROUPS.map((group) => (
+            <div key={group.title} className="nav-group" role="group" aria-label={group.title}>
+              <div className="nav-section-title">{group.title}</div>
+              {group.items.map((item) => (
+                <button
+                  key={item.view}
+                  type="button"
+                  className={`nav-button ${view === item.view ? 'active' : ''}`}
+                  aria-current={view === item.view ? 'page' : undefined}
+                  onClick={() => navigate(item.view)}
+                >
+                  <span className="nav-icon"><Icon name={item.icon} /></span>
+                  <span className="nav-text">{item.label}</span>
+                </button>
+              ))}
+            </div>
+          ))}
         </nav>
 
         {/* Upstreams Live Connection Status */}
         <div className="sidebar-upstreams-box">
           <div className="upstreams-header">
-            <span>LIVE UPSTREAMS</span>
+            <span>Live upstreams</span>
             <button
               type="button"
               className="refresh-mini-btn"
@@ -305,7 +248,7 @@ export default function App() {
               disabled={servicesQuery.refreshing}
               title="Refresh source connections"
             >
-              ↻
+              <Icon name="refresh" size={14} />
             </button>
           </div>
           <div className="upstreams-list">
@@ -331,10 +274,10 @@ export default function App() {
               onClick={() => setNavigationOpen((o) => !o)}
               aria-label="Open navigation menu"
             >
-              ☰
+              <Icon name="menu" size={18} />
             </button>
             <div className="page-breadcrumb">
-              <span className="breadcrumb-root">Climate Chain</span>
+              <span className="breadcrumb-root">Climate <em className="breadcrumb-cursive">Chain</em></span>
               <span className="breadcrumb-separator">/</span>
               <span className="breadcrumb-current">{title}</span>
             </div>
@@ -344,7 +287,7 @@ export default function App() {
             {/* Dynamic City Switcher */}
             {view !== 'earth' && (
               <div className="city-selector-pill">
-                <span className="city-icon">📍</span>
+                <Icon name="pointer" size={16} />
                 <select
                   value={city}
                   onChange={(e) => setCity(e.target.value as CityKey)}
@@ -389,7 +332,7 @@ export default function App() {
               title="Refresh all climate feeds"
               aria-label="Refresh feeds"
             >
-              ↻
+              <Icon name="refresh" size={17} />
             </button>
           </div>
         </header>

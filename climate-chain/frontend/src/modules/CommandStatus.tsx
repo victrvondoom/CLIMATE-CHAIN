@@ -5,6 +5,7 @@ import type { WorkspaceView } from '../data/capabilities';
 import { requestPinnedGrid } from '../dashboard/prefs';
 import { useLiveQuery } from '../hooks/useLiveQuery';
 import { integrityApi } from '../integrity/api';
+import { Icon } from '../components/Icon';
 import type { Overview, SourceStatus } from '../types';
 import { CLIMATE_MODULES } from './index';
 import './command.css';
@@ -44,16 +45,16 @@ export function CommandStatus({
       {/* 4 End-to-End Workflows */}
       <div className="workflows-container">
         <div className="section-head-clean">
-          <span className="section-badge">INTERACTIVE WORKFLOWS</span>
-          <h2>Four Guided Workflows That Run End-to-End</h2>
-          <p className="muted">Launch full cross-project missions directly with pre-configured parameters.</p>
+          <span className="section-badge">Guided workflows</span>
+          <h2>Four workflows that run <em>end to end</em></h2>
+          <p className="muted">Launch a full cross-project mission with its parameters already set.</p>
         </div>
 
         <div className="workflow-cards-grid">
           {/* Workflow 1 */}
           <div className="workflow-box">
             <div className="workflow-box-top">
-              <span className="workflow-icon">🛰️</span>
+              <span className="workflow-icon"><Icon name="globe" size={20} /></span>
               <span className="workflow-num">01</span>
             </div>
             <h4>Investigate a Place</h4>
@@ -66,14 +67,14 @@ export function CommandStatus({
                 className="clean-primary-btn"
                 onClick={() => onOpen('earth')}
               >
-                Open Earth Intelligence →
+                Open Earth intelligence
               </button>
               <button
                 type="button"
                 className="clean-secondary-btn"
                 onClick={() => onOpen('air')}
               >
-                Ground Monitors
+                Ground monitors
               </button>
             </div>
           </div>
@@ -81,10 +82,10 @@ export function CommandStatus({
           {/* Workflow 2 */}
           <div className="workflow-box">
             <div className="workflow-box-top">
-              <span className="workflow-icon">🛡️</span>
+              <span className="workflow-icon"><Icon name="shield" size={20} /></span>
               <span className="workflow-num">02</span>
             </div>
-            <h4>Prove an Environmental Record</h4>
+            <h4>Prove an environmental record</h4>
             <p>
               Generate a cryptographic SHA-256 digest of sensor readings and detect changes by re-hashing in the browser.
             </p>
@@ -94,7 +95,7 @@ export function CommandStatus({
                 className="clean-primary-btn"
                 onClick={() => onOpen('integrity')}
               >
-                Launch Integrity Lab →
+                Launch integrity lab
               </button>
             </div>
           </div>
@@ -102,7 +103,7 @@ export function CommandStatus({
           {/* Workflow 3 */}
           <div className="workflow-box">
             <div className="workflow-box-top">
-              <span className="workflow-icon">🗑️</span>
+              <span className="workflow-icon"><Icon name="waste" size={20} /></span>
               <span className="workflow-num">03</span>
             </div>
             <h4>Waste-to-Air Review</h4>
@@ -115,14 +116,14 @@ export function CommandStatus({
                 className="clean-primary-btn"
                 onClick={() => onOpen('waste')}
               >
-                Open Waste Tracking →
+                Open waste tracking
               </button>
               <button
                 type="button"
                 className="clean-secondary-btn"
                 onClick={() => onOpen('ledger')}
               >
-                Evidence Ledger
+                Evidence ledger
               </button>
             </div>
           </div>
@@ -130,10 +131,10 @@ export function CommandStatus({
           {/* Workflow 4 */}
           <div className="workflow-box">
             <div className="workflow-box-top">
-              <span className="workflow-icon">📊</span>
+              <span className="workflow-icon"><Icon name="grid" size={20} /></span>
               <span className="workflow-num">04</span>
             </div>
-            <h4>Compare Domains Side-by-Side</h4>
+            <h4>Compare domains side by side</h4>
             <p>
               Pin Waste, Fire, Water, and Air into a synchronized dashboard grid to analyze cross-domain climate impacts.
             </p>
@@ -143,7 +144,7 @@ export function CommandStatus({
                 className="clean-primary-btn"
                 onClick={() => requestPinnedGrid(SIDE_BY_SIDE)}
               >
-                Launch 4-Domain Grid →
+                Launch 4-domain grid
               </button>
             </div>
           </div>
@@ -153,27 +154,27 @@ export function CommandStatus({
       {/* Clean System Status Card */}
       <div className="system-health-card">
         <div className="health-card-header">
-          <span className="status-pill-green">● READY & CONNECTED</span>
-          <h3>Connected Services</h3>
+          <span className="status-pill-green"><span className="pill-dot" />Ready and connected</span>
+          <h3>Connected services</h3>
         </div>
 
         <div className="health-block">
-          <div className="health-label">Verification Chain</div>
+          <div className="health-label">Verification chain</div>
           {contracts && status ? (
             <div className="chain-info-clean">
-              <span className="chain-badge">LOCAL EVM ACTIVE</span>
+              <span className="chain-badge">Local EVM active</span>
               <span className="muted small">Chain {status.chainId} · Block {status.latestBlock} · {status.evidenceCount ?? 0} anchored records</span>
             </div>
           ) : (
             <div className="chain-info-clean">
-              <span className="chain-badge standby">BROWSER VERIFIER ACTIVE</span>
+              <span className="chain-badge standby">Browser verifier active</span>
               <span className="muted small">Local SHA-256 cryptographic verification ready for all claims</span>
             </div>
           )}
         </div>
 
         <div className="health-block">
-          <div className="health-label">Live Data Streams ({connected} of {services.length || 4} Active)</div>
+          <div className="health-label">Live data streams · {connected} of {services.length || 4} active</div>
           <ul className="service-list-clean">
             {services.map((item) => {
               const mode = data.sources[item.name as keyof Overview['sources']]?.mode;
@@ -182,7 +183,7 @@ export function CommandStatus({
                 <li key={item.name} className="service-item-row">
                   <span className={`live-dot ${isLive ? 'live' : 'standby'}`} />
                   <span className="service-name">{item.label}</span>
-                  <span className="service-mode-tag">{mode === 'live' ? 'LIVE' : 'ACTIVE'}</span>
+                  <span className="service-mode-tag">{mode === 'live' ? 'Live' : 'Active'}</span>
                 </li>
               );
             })}
@@ -193,7 +194,7 @@ export function CommandStatus({
         </div>
 
         <div className="health-block">
-          <div className="health-label">Current Air Sensor</div>
+          <div className="health-label">Current air sensor</div>
           <p className="sensor-summary">
             {observed && station
               ? `Vayu Station "${station.stationName ?? 'Delhi Center'}", ${station.distanceKm == null ? 'nearby' : `${station.distanceKm.toFixed(1)} km`} from ${placeName}.`
@@ -202,7 +203,7 @@ export function CommandStatus({
         </div>
 
         <div className="health-block">
-          <div className="health-label">Registered Modules ({CLIMATE_MODULES.length})</div>
+          <div className="health-label">Registered modules · {CLIMATE_MODULES.length}</div>
           <p className="sensor-summary">{moduleModes}</p>
         </div>
 
@@ -211,7 +212,7 @@ export function CommandStatus({
           className="audit-link-btn"
           onClick={() => onOpen('connections')}
         >
-          View Evidence & Verification Keys →
+          View evidence and verification keys
         </button>
       </div>
     </section>

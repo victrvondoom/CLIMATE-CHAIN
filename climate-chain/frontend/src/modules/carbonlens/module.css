@@ -1,7 +1,7 @@
 .m-carbonlens-page {
   display: grid;
-  gap: 16px;
-  padding: 16px;
+  gap: 20px;
+  padding: 20px;
   max-width: 1100px;
   margin: 0 auto;
   box-sizing: border-box;
@@ -11,12 +11,12 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 12px;
+  gap: 16px;
   flex-wrap: wrap;
 }
 
 .m-carbonlens-head h2 {
-  margin: 2px 0 4px;
+  margin: 2px 0 5px;
 }
 
 .m-carbonlens-head p {
@@ -24,27 +24,27 @@
 }
 
 .m-carbonlens-kicker {
-  font-size: 12px;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   opacity: 0.7;
 }
 
 .m-carbonlens-mode {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.08em;
   border: 1px solid currentColor;
   border-radius: 999px;
-  padding: 3px 10px;
+  padding: 4px 14px;
   white-space: nowrap;
 }
 
 .m-carbonlens-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 12px;
-  margin: 12px 0;
+  gap: 16px;
+  margin: 16px 0;
 }
 
 .m-carbonlens-scroll {
@@ -55,39 +55,39 @@
 .m-carbonlens-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
-  margin-top: 8px;
+  font-size: 15px;
+  margin-top: 10px;
 }
 
 .m-carbonlens-table caption {
   text-align: left;
-  font-size: 12px;
+  font-size: 14px;
   opacity: 0.75;
-  padding-bottom: 6px;
+  padding-bottom: 8px;
 }
 
 .m-carbonlens-table th,
 .m-carbonlens-table td {
   text-align: left;
-  padding: 6px 8px;
+  padding: 8px 10px;
   border-bottom: 1px solid var(--rule);
   vertical-align: top;
 }
 
 .m-carbonlens-hash {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .m-carbonlens-note {
-  font-size: 12px;
+  font-size: 14px;
   opacity: 0.8;
-  margin: 6px 0 0;
+  margin: 8px 0 0;
 }
 
 .m-carbonlens-muted {
   opacity: 0.72;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .m-carbonlens-ok {
@@ -102,16 +102,16 @@
 
 .m-carbonlens-actions {
   display: grid;
-  gap: 6px;
-  margin-top: 12px;
+  gap: 8px;
+  margin-top: 16px;
 }
 
 .m-carbonlens-button {
   justify-self: start;
   font: inherit;
-  font-size: 14px;
-  padding: 8px 14px;
-  border-radius: 8px;
+  font-size: 15px;
+  padding: 10px 18px;
+  border-radius: 10px;
   border: 1px solid currentColor;
   background: transparent;
   color: inherit;
@@ -125,6 +125,6 @@
 
 @media (max-width: 480px) {
   .m-carbonlens-page {
-    padding: 16px;
+    padding: 20px;
   }
 }

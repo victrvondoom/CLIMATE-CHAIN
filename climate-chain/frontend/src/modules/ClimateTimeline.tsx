@@ -408,13 +408,13 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
               onClick={() => setViewMode('live-stream')}
             >
               <span className="ctl-live-pulse-dot" />
-              ⚡ SIMULATED TICK STREAM (random walk, illustrative)
+              Simulated tick stream (random walk, illustrative)
             </button>
             <button
               className={`ctl-mode-pill ${viewMode === 'macro-history' ? 'active' : ''}`}
               onClick={() => setViewMode('macro-history')}
             >
-              🏛 200-YEAR HISTORICAL LEDGER
+              200-year historical ledger
             </button>
           </div>
         </div>
@@ -430,7 +430,7 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
             </span>
           ) : (
             <span className="ctl-badge" style={{ background: 'var(--t-fee2e2)', color: 'var(--t-991b1b)' }}>
-              ⏸ STREAM PAUSED
+              Stream paused
             </span>
           )}
           {loading && <span className="ctl-badge" style={{ opacity: 0.7 }}>SYNCING OBSERVATIONS…</span>}
@@ -507,7 +507,7 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
               onClick={() => setIsStreaming(!isStreaming)}
               title={isStreaming ? 'Pause Real-Time Stream' : 'Resume Real-Time Stream'}
             >
-              {isStreaming ? '⏸ Pause' : '▶ Stream'}
+              {isStreaming ? 'Pause' : 'Stream'}
             </button>
             <div className="ctl-speed-toggle">
               <button className={`ctl-speed-btn ${tickSpeed === 2500 ? 'active' : ''}`} onClick={() => setTickSpeed(2500)}>0.5x</button>
@@ -519,7 +519,7 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
               onClick={handleInjectSurge}
               title="Inject a simulated +2.5% step into the random walk (illustrative only)"
             >
-              ⚡ Anomaly Surge
+              Anomaly surge
             </button>
           </div>
         </div>

@@ -7,8 +7,8 @@
   --m-gridproof-text: var(--text, var(--ink));
   --m-gridproof-muted: var(--muted, var(--ink-3));
   display: grid;
-  gap: 16px;
-  padding: 16px;
+  gap: 20px;
+  padding: 20px;
   max-width: 1100px;
   margin: 0 auto;
   box-sizing: border-box;
@@ -17,31 +17,31 @@
 }
 
 .m-gridproof-head h2 {
-  margin: 4px 0 8px;
+  margin: 5px 0 10px;
   font-size: clamp(20px, 3vw, 28px);
 }
 
 .m-gridproof-kicker {
   margin: 0;
   color: var(--m-gridproof-tone);
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .m-gridproof-lede,
 .m-gridproof-note {
-  margin: 6px 0;
+  margin: 8px 0;
   color: var(--m-gridproof-muted);
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.5;
 }
 
 .m-gridproof-card {
-  padding: 16px;
+  padding: 20px;
   border: 1px solid var(--m-gridproof-line);
   border-top: 2px solid var(--m-gridproof-tone);
-  border-radius: 12px;
+  border-radius: 14px;
   background: var(--m-gridproof-panel);
   min-width: 0;
 }
@@ -50,20 +50,20 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 16px;
 }
 
 .m-gridproof-card h3 {
   margin: 0;
-  font-size: 17px;
+  font-size: 18px;
 }
 
 .m-gridproof-mode {
-  padding: 3px 8px;
+  padding: 4px 10px;
   border: 1px solid currentColor;
   border-radius: 999px;
   color: var(--ink);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.06em;
   white-space: nowrap;
@@ -72,21 +72,21 @@
 .m-gridproof-controls {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin: 10px 0;
+  gap: 16px;
+  margin: 14px 0;
 }
 
 .m-gridproof-controls label {
   display: grid;
-  gap: 4px;
-  font-size: 13px;
+  gap: 5px;
+  font-size: 15px;
   color: var(--m-gridproof-muted);
 }
 
 .m-gridproof-controls select {
   min-width: 220px;
-  padding: 6px 8px;
-  border-radius: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
   border: 1px solid var(--m-gridproof-line);
   background: var(--paper-raised);
   color: var(--m-gridproof-text);
@@ -102,12 +102,12 @@
 .m-gridproof-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .m-gridproof-table th,
 .m-gridproof-table td {
-  padding: 7px 6px;
+  padding: 9px 8px;
   border-bottom: 1px solid var(--m-gridproof-line);
   text-align: left;
   vertical-align: top;
@@ -134,18 +134,18 @@
 .m-gridproof-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin: 10px 0;
+  gap: 10px;
+  margin: 14px 0;
 }
 
 .m-gridproof-btn {
-  padding: 7px 12px;
-  border-radius: 8px;
+  padding: 9px 16px;
+  border-radius: 10px;
   border: 1px solid var(--m-gridproof-line);
   background: transparent;
   color: var(--m-gridproof-text);
   font: inherit;
-  font-size: 13px;
+  font-size: 15px;
   cursor: pointer;
 }
 
@@ -161,9 +161,9 @@
 .m-gridproof-stats {
   display: flex;
   flex-wrap: wrap;
-  gap: 18px;
-  margin: 8px 0;
-  font-size: 14px;
+  gap: 24px;
+  margin: 10px 0;
+  font-size: 15px;
   color: var(--m-gridproof-muted);
 }
 
@@ -172,24 +172,24 @@
 }
 
 .m-gridproof-message {
-  margin: 8px 0 0;
-  font-size: 13px;
+  margin: 10px 0 0;
+  font-size: 15px;
 }
 
 .m-gridproof-records {
   list-style: none;
-  margin: 8px 0 0;
+  margin: 10px 0 0;
   padding: 0;
   display: grid;
-  gap: 8px;
-  font-size: 13px;
+  gap: 10px;
+  font-size: 15px;
 }
 
 .m-gridproof-records li {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 8px;
+  gap: 10px;
 }
 
 .m-gridproof-hash {
@@ -198,16 +198,16 @@
 }
 
 .m-gridproof-not-ported ul {
-  margin: 8px 0 0;
-  padding-left: 18px;
+  margin: 10px 0 0;
+  padding-left: 24px;
   color: var(--m-gridproof-muted);
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.6;
 }
 
 @media (max-width: 640px) {
   .m-gridproof {
-    padding: 16px;
+    padding: 20px;
   }
 
   .m-gridproof-controls select {

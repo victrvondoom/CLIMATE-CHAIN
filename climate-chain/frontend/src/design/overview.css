@@ -1,0 +1,268 @@
+/* overview: the Command Center. Numbers first, then map, pipeline, signals, workflows and the module hub. */
+
+.app .ov { gap: var(--section-gap); }
+
+/* Headline -------------------------------------------------------------- */
+.app .ov-header { display: flex; flex-direction: column; align-items: flex-start; gap: 0; padding: 8px 0 0; }
+.app .hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px; margin-bottom: 24px;
+  font-family: var(--font-mono); font-size: 11.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary);
+}
+.app .hero-eyebrow .eyebrow-network { color: var(--text-primary); font-weight: 600; }
+.app .hero-eyebrow .eyebrow-divider { color: var(--text-faint); }
+.app .ov-title { max-width: 920px; font-size: clamp(44px, 5.2vw, 72px); line-height: 1.06; letter-spacing: 0; }
+.app .ov-title em { white-space: nowrap; }
+.app .ov-lede { max-width: 640px; margin-top: 24px; font-size: 17px; line-height: 1.65; color: var(--text-secondary); }
+.app .ov-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+.app .ov-actions button { display: inline-flex; align-items: center; gap: 9px; height: 44px; padding: 0 20px; border-radius: 12px; font-size: 14.5px; }
+.app .ov-actions .primary-hero-btn { padding: 0 24px; }
+
+/* KPI cards ------------------------------------------------------------- */
+.app .kpi-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.app .kpi-card {
+  --tone: var(--accent); --tone-soft: var(--accent-soft);
+  position: relative; display: flex; flex-direction: column; padding: 28px; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-1);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+.app .kpi-card::before { content: ""; position: absolute; left: 28px; right: 28px; top: -1px; height: 3px; border-radius: 0 0 3px 3px; background: var(--tone); }
+.app .kpi-card.tone-waste { --tone: var(--waste); --tone-soft: var(--waste-soft); }
+.app .kpi-card.tone-fire { --tone: var(--fire); --tone-soft: var(--fire-soft); }
+.app .kpi-card.tone-water { --tone: var(--water); --tone-soft: var(--water-soft); }
+.app .kpi-card.tone-air { --tone: var(--air); --tone-soft: var(--air-soft); }
+.app .kpi-card:hover { border-color: var(--rule-strong); box-shadow: var(--shadow-2); transform: translateY(-2px); }
+.app .kpi-card:focus-visible { box-shadow: var(--focus-ring); }
+.app .kpi-top { display: flex; align-items: center; gap: 12px; }
+.app .kpi-icon { width: 40px; height: 40px; flex: none; display: grid; place-items: center; border-radius: 11px; background: var(--tone-soft); color: var(--tone); }
+.app .kpi-names { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+.app .kpi-label { font-size: 14.5px; font-weight: 600; color: var(--text-primary); letter-spacing: -0.008em; }
+.app .kpi-source { font-size: 12.5px; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.app .kpi-facts dd .mode-badge { vertical-align: middle; }
+.app .kpi-figure { display: flex; align-items: baseline; gap: 8px; margin-top: 32px; }
+.app .kpi-number {
+  font-family: var(--font-sans); font-weight: 600; font-size: clamp(52px, 4.6vw, 68px); line-height: 1; letter-spacing: -0.04em;
+  color: var(--text-primary); font-variant-numeric: tabular-nums lining-nums;
+}
+.app .kpi-unit { font-size: 15px; font-weight: 500; color: var(--text-secondary); letter-spacing: 0; }
+.app .kpi-caption { margin-top: 10px; font-size: 14.5px; font-weight: 500; color: var(--ink-2); }
+.app .kpi-facts { margin: 24px 0 0; padding: 18px 0 0; border-top: 1px solid var(--border); display: grid; gap: 10px; }
+.app .kpi-facts div { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.app .kpi-facts dt { font-size: 13px; color: var(--text-secondary); }
+.app .kpi-facts dd { margin: 0; font-size: 14px; font-weight: 600; color: var(--text-primary); text-align: right; font-variant-numeric: tabular-nums; }
+.app .kpi-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 24px; font-size: 13.5px; font-weight: 600; color: var(--tone); }
+.app .kpi-link .icon { transition: transform 0.15s ease; }
+.app .kpi-card:hover .kpi-link .icon { transform: translateX(3px); }
+
+/* Sections -------------------------------------------------------------- */
+.app .ov-section { display: flex; flex-direction: column; gap: 32px; }
+.app .ov-section-head { display: flex; flex-direction: column; gap: 12px; max-width: 680px; }
+.app .ov-section-head p, .app .section-head-clean p { font-size: 16px; color: var(--text-secondary); line-height: 1.6; }
+.app .section-head-clean h2 { font-size: clamp(28px, 2.6vw, 38px); line-height: 1.12; }
+.app .section-head-clean { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; max-width: 680px; text-align: left; margin: 0; }
+.app .section-badge { display: inline-block; margin: 0; font-family: var(--font-mono); font-size: 11.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+
+/* Map frame ------------------------------------------------------------- */
+.app .hero-visual-frame { position: relative; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-1); overflow: hidden; }
+.app .climate-globe-frame { position: relative; display: block; padding: 0; background: transparent; border: 0; box-shadow: none; min-height: 520px; }
+.app .globe-mode-switch { display: inline-flex; gap: 2px; padding: 3px; position: absolute; top: 24px; left: 24px; z-index: 5; border-radius: 11px; background: var(--surface-secondary); border: 1px solid var(--border); }
+.app .globe-wrap { position: absolute; inset: 0; }
+
+/* Radar view */
+.app .dynamic-radar-container { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr); gap: 0; padding: 0; background: transparent; border: 0; border-radius: 0; align-items: stretch; min-height: 520px; }
+.app .radar-visual-pane { position: relative; height: auto; min-height: 520px; display: grid; place-items: center; padding: 72px 32px 72px; overflow: hidden; border: 0; border-radius: 0; border-right: 1px solid var(--border); background: radial-gradient(circle at 50% 52%, var(--surface) 0%, var(--surface-tint) 60%, var(--surface-secondary) 100%); }
+.app .radar-canvas { width: 100%; max-width: 560px; height: auto; aspect-ratio: 500 / 380; }
+.app .radar-markers-overlay { position: absolute; inset: 72px 32px; pointer-events: none; }
+.app .radar-pin-btn { position: absolute; min-height: 0; height: auto; padding: 0; gap: 8px; border: 0; background: none; box-shadow: none; color: inherit; }
+.app .radar-pin-btn:hover { background: none; border: 0; transform: translate(-50%, -50%) scale(1.06); }
+.app .radar-pin-core { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--surface); }
+.app .pin-waste .radar-pin-core { background: var(--waste); box-shadow: 0 0 0 4px var(--waste-soft); }
+.app .pin-fire .radar-pin-core { background: var(--fire); box-shadow: 0 0 0 4px var(--fire-soft); }
+.app .pin-water .radar-pin-core { background: var(--water); box-shadow: 0 0 0 4px var(--water-soft); }
+.app .pin-air .radar-pin-core { background: var(--air); box-shadow: 0 0 0 4px var(--air-soft); }
+.app .radar-pin-label { padding: 5px 11px; border-radius: 8px; font-size: 12.5px; font-weight: 600; white-space: nowrap; color: var(--text-primary); background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-1); }
+.app .radar-pin-btn.selected .radar-pin-label { background: var(--text-primary); color: var(--background); border-color: var(--text-primary); }
+.app .radar-status-badge { position: absolute; left: 24px; bottom: 24px; display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 999px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--text-secondary); background: var(--surface); border: 1px solid var(--border); }
+.app .pulse-dot-green { width: 7px; height: 7px; border-radius: 50%; background: var(--warn); }
+
+.app .radar-details-card { display: flex; flex-direction: column; padding: 72px 40px 40px; background: var(--surface); border: 0; border-radius: 0; box-shadow: none; }
+.app .radar-card-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 24px; }
+.app .radar-category-pill { display: inline-flex; align-items: center; height: 26px; padding: 0 11px; border-radius: 999px; font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; border: 1px solid; }
+.app .radar-live-indicator { display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 600; color: var(--text-secondary); text-transform: capitalize; }
+.app .radar-live-indicator .live-dot { width: 8px; height: 8px; border-radius: 50%; }
+.app .radar-spot-title { font-family: var(--font-display); font-weight: 400; font-size: 40px; line-height: 1.08; letter-spacing: 0; }
+.app .radar-spot-subtitle { margin-top: 10px; font-size: 15px; color: var(--text-secondary); }
+.app .radar-metric-callout { margin-top: 28px; padding: 22px 24px; border-radius: var(--radius); border: 1px solid var(--border); border-left: 3px solid var(--accent); background: var(--surface-tint); }
+.app .radar-metric-val { font-size: 32px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; color: var(--text-primary); font-variant-numeric: tabular-nums; }
+.app .radar-metric-desc { margin-top: 10px; font-size: 14px; line-height: 1.55; color: var(--text-secondary); }
+.app .radar-spot-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.app .radar-primary-btn { height: 42px; padding: 0 20px; border: 0; border-radius: 10px; color: #fff; font-weight: 600; box-shadow: none; }
+.app .radar-primary-btn:hover { color: #fff; filter: brightness(1.08); border: 0; }
+.app .radar-secondary-btn { height: 42px; padding: 0 18px; }
+.app .radar-spot-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); }
+.app .chips-label { width: 100%; margin-bottom: 4px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); }
+.app .spot-chip { height: 32px; min-height: 0; padding: 0 12px; border-radius: 8px; font-size: 13px; box-shadow: none; }
+.app .spot-chip.active { background: var(--text-primary); color: var(--background); border-color: var(--text-primary); }
+@media (max-width: 1000px) {
+  .app .dynamic-radar-container { grid-template-columns: minmax(0, 1fr); }
+  .app .radar-visual-pane { border-right: 0; border-bottom: 1px solid var(--border); min-height: 420px; }
+  .app .radar-details-card { padding: 32px 24px; }
+}
+.app .mode-toggle-btn { height: 32px; min-height: 0; padding: 0 14px; display: inline-flex; align-items: center; gap: 8px; border: 0; border-radius: 8px; background: transparent; box-shadow: none; font-size: 13px; font-weight: 500; color: var(--text-secondary); }
+.app .mode-toggle-btn:hover { background: transparent; color: var(--text-primary); }
+.app .mode-toggle-btn.active { background: var(--surface); color: var(--text-primary); box-shadow: var(--shadow-1), 0 0 0 1px var(--border); }
+
+/* Panels (shared) ------------------------------------------------------- */
+.app .panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-1); padding: clamp(24px, 2.6vw, 36px); }
+.app .panel-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 28px; }
+.app .panel-head h3 { font-size: 20px; letter-spacing: -0.016em; }
+.app .panel-head p { margin-top: 6px; font-size: 14px; max-width: 46ch; }
+.app .seg { display: inline-flex; padding: 3px; gap: 2px; border-radius: 11px; background: var(--surface-secondary); border: 1px solid var(--border); }
+.app .seg button { height: 30px; min-height: 0; padding: 0 12px; border: 0; border-radius: 8px; background: transparent; box-shadow: none; font-size: 13px; font-weight: 500; color: var(--text-secondary); }
+.app .seg button:hover { background: transparent; color: var(--text-primary); }
+.app .seg button.active { background: var(--surface); color: var(--text-primary); box-shadow: var(--shadow-1), 0 0 0 1px var(--border); }
+
+/* Pipeline -------------------------------------------------------------- */
+.app .pipeline { padding: 0; overflow: hidden; }
+.app .pipeline-track { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-bottom: 1px solid var(--border); }
+.app .pipeline-track li + li { border-left: 1px solid var(--border); }
+.app .pipeline-step {
+  position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 24px 24px 22px;
+  border: 0; border-radius: 0; background: transparent; box-shadow: none; text-align: left;
+}
+.app .pipeline-step:hover { background: var(--surface-tint); }
+.app .pipeline-step.active { background: var(--accent-soft); }
+.app .pipeline-step.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--accent); }
+.app .pipeline-num { font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--text-faint); letter-spacing: 0.06em; }
+.app .pipeline-step.active .pipeline-num { color: var(--accent); }
+.app .pipeline-name { margin-top: 10px; font-size: 16px; font-weight: 600; letter-spacing: -0.012em; color: var(--text-primary); }
+.app .pipeline-short { font-size: 13px; line-height: 1.45; color: var(--text-secondary); font-weight: 400; }
+.app .pipeline-detail { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 36px 36px 40px; }
+.app .pipeline-copy { display: flex; flex-direction: column; gap: 12px; max-width: 700px; }
+.app .pipeline-copy h3 { font-family: var(--font-display); font-weight: 400; font-size: 32px; line-height: 1.12; letter-spacing: 0; }
+.app .pipeline-copy p { font-size: 15.5px; color: var(--ink-2); }
+.app .pipeline-projects { font-size: 13.5px !important; color: var(--text-secondary) !important; }
+.app .pipeline-projects strong { margin-right: 8px; font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); }
+.app .start-stage-btn { flex: none; display: inline-flex; align-items: center; gap: 9px; height: 46px; padding: 0 22px; border-radius: 12px; }
+
+/* Signals + ledger ------------------------------------------------------ */
+.app .ov-two-col { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.app .feed-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.app .feed-item { position: relative; padding: 24px 0 24px 20px; border-top: 1px solid var(--border); }
+.app .feed-item:first-child { border-top: 0; padding-top: 4px; }
+.app .feed-item::before { content: ""; position: absolute; left: 0; top: 28px; bottom: 28px; width: 3px; border-radius: 3px; background: var(--rule-strong); }
+.app .feed-item:first-child::before { top: 8px; }
+.app .feed-item.sev-high::before { background: var(--bad); }
+.app .feed-item.sev-medium::before { background: var(--warn); }
+.app .feed-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+.app .sev-chip { display: inline-flex; align-items: center; height: 22px; padding: 0 9px; border-radius: 999px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.02em; background: var(--surface-secondary); color: var(--text-secondary); }
+.app .sev-chip.sev-high { background: var(--bad-soft); color: var(--bad); }
+.app .sev-chip.sev-medium { background: var(--warn-soft); color: var(--warn); }
+.app .module-tags { display: inline-flex; gap: 6px; }
+.app .module-tags .tag { padding: 3px 8px; border-radius: 6px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; background: var(--surface-secondary); color: var(--text-secondary); border: 0; }
+.app .feed-item h4 { font-size: 16px; line-height: 1.4; letter-spacing: -0.01em; }
+.app .feed-item p { margin-top: 8px; font-size: 14.5px; line-height: 1.6; color: var(--text-secondary); }
+.app .feed-actions { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 14px; }
+.app .feed-actions .clean-text-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; }
+.app .feed-empty { padding: 32px 0; text-align: center; color: var(--text-secondary); }
+
+.app .ledger-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.app .ledger-tile { display: flex; flex-direction: column; padding: 22px; border-radius: var(--radius); background: var(--surface-tint); border: 1px solid var(--border); }
+.app .ledger-tile-icon { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; margin-bottom: 20px; background: var(--accent-soft); color: var(--accent); }
+.app .ledger-tile-icon.tone-fire { background: var(--fire-soft); color: var(--fire); }
+.app .ledger-tile-icon.tone-waste { background: var(--waste-soft); color: var(--waste); }
+.app .ledger-tile-icon.tone-water { background: var(--water-soft); color: var(--water); }
+.app .ledger-tile-icon.tone-air { background: var(--air-soft); color: var(--air); }
+.app .ledger-tile-val { font-size: 34px; font-weight: 600; line-height: 1; letter-spacing: -0.03em; color: var(--text-primary); font-variant-numeric: tabular-nums; }
+.app .ledger-tile-val .unit { font-size: 16px; font-weight: 500; letter-spacing: 0; color: var(--text-secondary); }
+.app .ledger-tile-label { margin-top: 12px; font-size: 14px; font-weight: 600; color: var(--text-primary); line-height: 1.35; }
+.app .ledger-tile-hint { margin-top: 6px; font-size: 13px; line-height: 1.5; color: var(--text-secondary); }
+
+.app .trend { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border); }
+.app .trend-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.app .trend-title { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+.app .trend-note { font-size: 12.5px; color: var(--text-secondary); }
+.app .sparkline { display: block; width: 100%; height: 120px; overflow: visible; }
+.app .spark-line { fill: none; stroke: var(--air); stroke-width: 2.25; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.app .spark-fill { fill: color-mix(in srgb, var(--air) 12%, transparent); stroke: none; }
+.app .who-line { stroke: var(--text-faint); stroke-width: 1; stroke-dasharray: 4 4; vector-effect: non-scaling-stroke; }
+
+/* Workflows + connected services ---------------------------------------- */
+.app .command-status-modern { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 40px; align-items: start; }
+.app .command-status-modern { background: transparent; border: 0; box-shadow: none; padding: 0; }
+.app .workflows-container { display: flex; flex-direction: column; gap: 32px; background: transparent; border: 0; box-shadow: none; padding: 0; border-radius: 0; }
+.app .workflows-container::after { content: none; }
+.app .workflow-cards-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.app .workflow-box { display: flex; flex-direction: column; gap: 0; padding: 28px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-1); }
+.app .workflow-box-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+.app .workflow-icon { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 11px; background: var(--accent-soft); color: var(--accent); }
+.app .workflow-num { font-family: var(--font-mono) !important; font-size: 12px !important; font-weight: 500 !important; letter-spacing: 0.06em; color: var(--text-faint) !important; }
+.app .workflow-box h4 { font-size: 17px; letter-spacing: -0.012em; }
+.app .workflow-box p { margin-top: 10px; font-size: 14.5px; line-height: 1.6; color: var(--text-secondary); flex: 1; }
+.app .workflow-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.app .workflow-actions button { height: 38px; min-height: 0; padding: 0 14px; font-size: 13.5px; }
+
+.app .system-health-card { position: sticky; top: 92px; padding: 28px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-1); display: flex; flex-direction: column; gap: 0; }
+.app .health-card-header { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; padding-bottom: 22px; border-bottom: 1px solid var(--border); }
+.app .health-card-header h3 { font-size: 20px; }
+.app .status-pill-green { display: inline-flex; align-items: center; gap: 8px; height: 26px; padding: 0 11px; border-radius: 999px; font-size: 12px; font-weight: 600; color: var(--good); background: var(--good-soft); border: 0; }
+.app .status-pill-green .pill-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--good); }
+.app .health-block { padding: 20px 0; border-top: 0; border-bottom: 1px solid var(--border); }
+.app .health-block:last-of-type { border-bottom: 0; }
+.app .health-label { margin-bottom: 12px; font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); }
+.app .chain-info-clean { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.app .chain-badge { display: inline-flex; align-items: center; height: 24px; padding: 0 10px; border-radius: 6px; font-size: 12px; font-weight: 600; background: var(--accent-soft); color: var(--accent-strong); border: 0; }
+.app .chain-badge.standby { background: var(--surface-secondary); color: var(--ink-2); }
+.app .service-list-clean { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.app .service-item-row { display: flex; align-items: center; gap: 12px; font-size: 14px; }
+.app .service-name { flex: 1; color: var(--text-primary); font-weight: 500; }
+.app .service-mode-tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; color: var(--text-secondary); text-transform: uppercase; }
+.app .sensor-summary { font-size: 14px; line-height: 1.6; color: var(--text-secondary); }
+.app .audit-link-btn { margin-top: 24px; width: 100%; height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+
+/* Module hub (launchpad) ------------------------------------------------ */
+.app .launchpad { display: flex; flex-direction: column; gap: 32px; padding: 0; background: transparent; border: 0; box-shadow: none; }
+.app .launchpad-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+.app .launchpad-head > div:first-child { display: flex; flex-direction: column; gap: 12px; max-width: 680px; }
+.app .launchpad-head .eyebrow { color: var(--accent); }
+.app .launchpad-head p { font-size: 16px; color: var(--text-secondary); }
+.app .launchpad-counts { display: flex; gap: 12px; }
+.app .launchpad-counts span { display: flex; flex-direction: column; gap: 2px; min-width: 130px; padding: 16px 20px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--border); box-shadow: none; font-size: 12.5px; color: var(--text-secondary); }
+.app .launchpad-counts strong { font-size: 30px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; color: var(--text-primary); }
+.app .library-controls { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr); gap: 16px; padding: 20px; border-radius: var(--radius-lg); background: var(--surface); border: 1px solid var(--border); }
+.app .library-controls label { display: flex; flex-direction: column; gap: 8px; font-size: 12.5px; font-weight: 600; color: var(--text-secondary); }
+.app .library-controls input, .app .library-controls select { width: 100%; background: var(--surface-tint); }
+.app .launchpad-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 24px; }
+.app .launch-card { display: flex; flex-direction: column; padding: 28px; gap: 0; }
+.app .launch-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 20px; }
+.app .launch-domain { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); }
+.app .launch-status { display: inline-flex; align-items: center; height: 22px; padding: 0 9px; border-radius: 999px; font-size: 11.5px; font-weight: 600; background: var(--accent-soft); color: var(--accent-strong); }
+.app .launch-card h3 { margin-top: 16px; font-size: 20px; letter-spacing: -0.016em; }
+.app .launch-descriptor { margin-top: 8px; font-size: 14.5px; line-height: 1.6; color: var(--text-secondary); }
+.app .launch-stages { display: flex; gap: 6px; margin: 20px 0 0; }
+.app .stage-chip { width: 28px; height: 24px; display: grid; place-items: center; border-radius: 6px; font-family: var(--font-mono); font-size: 11px; color: var(--text-faint); background: var(--surface-secondary); }
+.app .stage-chip.is-on { background: var(--accent-soft); color: var(--accent-strong); font-weight: 600; }
+.app .launch-readiness { margin-top: 20px; font-size: 13.5px; line-height: 1.55; color: var(--text-secondary); flex: 1; }
+.app .launch-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.app .launch-actions button { height: 38px; min-height: 0; padding: 0 14px; font-size: 13.5px; }
+.app .boundary-note { margin-top: 20px; padding: 18px 20px; border-radius: var(--radius); background: var(--surface-tint); border: 1px solid var(--border); font-size: 13.5px; }
+.app .boundary-note ul { margin: 10px 0 0; padding-left: 18px; display: grid; gap: 4px; }
+
+@media (max-width: 1280px) {
+  .app .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .app .command-status-modern { grid-template-columns: minmax(0, 1fr); }
+  .app .system-health-card { position: static; }
+}
+@media (max-width: 1000px) {
+  .app .ov-two-col { grid-template-columns: minmax(0, 1fr); }
+  .app .pipeline-track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .app .pipeline-track li { border-bottom: 1px solid var(--border); }
+  .app .pipeline-track li:nth-child(even) { border-left: 1px solid var(--border); }
+  .app .pipeline-track li:nth-child(odd) { border-left: 0; }
+  .app .pipeline-detail { flex-direction: column; align-items: flex-start; }
+  .app .library-controls { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 720px) {
+  .app .kpi-grid, .app .workflow-cards-grid, .app .ledger-tiles { grid-template-columns: minmax(0, 1fr); }
+  .app .ov { --section-gap: 48px; }
+  .app .pipeline-detail { padding: 28px 24px; }
+}

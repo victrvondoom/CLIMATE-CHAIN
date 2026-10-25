@@ -7,8 +7,8 @@
   --m-aquaquest-warn: var(--paper-raised);
   color: var(--m-aquaquest-ink);
   display: grid;
-  gap: 16px;
-  padding: 0 16px 24px;
+  gap: 20px;
+  padding: 0 20px 32px;
   max-width: 1040px;
   margin: 0 auto;
 }
@@ -29,7 +29,7 @@
 
 .m-aquaquest-head {
   display: grid;
-  gap: 6px;
+  gap: 8px;
 }
 
 .m-aquaquest-kicker {
@@ -53,9 +53,9 @@
 
 .m-aquaquest-mode {
   display: inline-block;
-  padding: 2px 8px;
+  padding: 2px 10px;
   border-radius: 999px;
-  font-size: 0.72rem;
+  font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   color: var(--m-aquaquest-warn);
@@ -64,13 +64,13 @@
 
 .m-aquaquest-grid {
   display: grid;
-  gap: 16px;
+  gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .m-aquaquest-card {
   display: grid;
-  gap: 12px;
+  gap: 16px;
   align-content: start;
   min-width: 0;
 }
@@ -82,7 +82,7 @@
 
 .m-aquaquest-steps {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -121,14 +121,14 @@
 .m-aquaquest-choices {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
 }
 
 .m-aquaquest-choice {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
+  gap: 8px;
+  padding: 8px 14px;
   border-radius: 999px;
   border: 1px solid var(--m-aquaquest-line);
   font-size: 0.9rem;
@@ -143,12 +143,12 @@
 
 .m-aquaquest-fields {
   display: grid;
-  gap: 12px;
+  gap: 16px;
 }
 
 .m-aquaquest-field {
   display: grid;
-  gap: 4px;
+  gap: 5px;
   font-size: 0.85rem;
   color: var(--m-aquaquest-muted);
 }
@@ -157,8 +157,8 @@
 .m-aquaquest-field select,
 .m-aquaquest-field textarea {
   font: inherit;
-  padding: 8px;
-  border-radius: 8px;
+  padding: 10px;
+  border-radius: 10px;
   border: 1px solid var(--m-aquaquest-line);
   background: transparent;
   color: var(--m-aquaquest-ink);
@@ -167,22 +167,22 @@
 
 .m-aquaquest-fieldset {
   border: 1px solid var(--m-aquaquest-line);
-  border-radius: 10px;
-  padding: 10px;
+  border-radius: 12px;
+  padding: 14px;
   margin: 0;
 }
 
 .m-aquaquest-fieldset legend {
   font-size: 0.85rem;
   color: var(--m-aquaquest-muted);
-  padding: 0 4px;
+  padding: 0 5px;
 }
 
 .m-aquaquest-review dl {
   display: grid;
   grid-template-columns: max-content 1fr;
-  gap: 6px 14px;
-  margin: 0 0 12px;
+  gap: 8px 18px;
+  margin: 0 0 16px;
   font-size: 0.9rem;
 }
 
@@ -197,7 +197,7 @@
 
 .m-aquaquest-problems {
   margin: 0;
-  padding-left: 18px;
+  padding-left: 24px;
   color: var(--m-aquaquest-warn);
   font-size: 0.9rem;
   line-height: 1.5;
@@ -206,13 +206,13 @@
 .m-aquaquest-nav {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
+  gap: 16px;
 }
 
 .m-aquaquest-btn {
   font: inherit;
-  padding: 8px 14px;
-  border-radius: 8px;
+  padding: 10px 18px;
+  border-radius: 10px;
   border: 1px solid var(--m-aquaquest-accent);
   background: var(--m-aquaquest-accent);
   color: var(--ink);
@@ -241,19 +241,19 @@
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 14px;
+  gap: 18px;
 }
 
 .m-aquaquest-challenge-head {
   display: flex;
   justify-content: space-between;
-  gap: 8px;
+  gap: 10px;
   align-items: baseline;
   flex-wrap: wrap;
 }
 
 .m-aquaquest-joined {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 700;
   color: var(--m-aquaquest-good);
 }
@@ -263,7 +263,7 @@
   border-radius: 999px;
   background: var(--m-aquaquest-line);
   overflow: hidden;
-  margin: 6px 0;
+  margin: 8px 0;
 }
 
 .m-aquaquest-bar-fill {
@@ -278,7 +278,7 @@
   color: var(--m-aquaquest-muted);
   line-height: 1.5;
   border-top: 1px solid var(--m-aquaquest-line);
-  padding-top: 12px;
+  padding-top: 16px;
 }
 
 .m-aquaquest-foot p {

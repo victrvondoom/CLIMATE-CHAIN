@@ -120,16 +120,16 @@ export function DynamicClimateRadar({
 
     // Outer glow
     const grad = ctx.createRadialGradient(centerX, centerY, radius * 0.4, centerX, centerY, radius);
-    grad.addColorStop(0, 'rgba(212, 175, 125, 0.12)');
-    grad.addColorStop(0.7, 'rgba(180, 140, 95, 0.05)');
-    grad.addColorStop(1, 'rgba(50, 40, 30, 0.01)');
+    grad.addColorStop(0, 'rgba(14, 107, 85, 0.07)');
+    grad.addColorStop(0.7, 'rgba(14, 107, 85, 0.03)');
+    grad.addColorStop(1, 'rgba(14, 107, 85, 0)');
     ctx.fillStyle = grad;
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
     ctx.fill();
 
     // Concentric orbital rings
-    ctx.strokeStyle = 'rgba(180, 150, 110, 0.22)';
+    ctx.strokeStyle = 'rgba(120, 130, 138, 0.30)';
     ctx.lineWidth = 1;
     [0.35, 0.65, 0.95].forEach(scale => {
       ctx.beginPath();
@@ -138,7 +138,7 @@ export function DynamicClimateRadar({
     });
 
     // Crosshairs
-    ctx.strokeStyle = 'rgba(180, 150, 110, 0.15)';
+    ctx.strokeStyle = 'rgba(120, 130, 138, 0.22)';
     ctx.beginPath();
     ctx.moveTo(centerX - radius, centerY);
     ctx.lineTo(centerX + radius, centerY);
@@ -146,13 +146,13 @@ export function DynamicClimateRadar({
     ctx.lineTo(centerX, centerY + radius);
     ctx.stroke();
 
-    // Rotating Radar Sweep - warm creamy amber
+    // Rotating radar sweep
     const angle = (pulseTick * 3.6 * Math.PI) / 180;
     const sweepGrad = ctx.createConicGradient(angle, centerX, centerY);
-    sweepGrad.addColorStop(0, 'rgba(180, 135, 80, 0.32)');
-    sweepGrad.addColorStop(0.12, 'rgba(180, 135, 80, 0.08)');
-    sweepGrad.addColorStop(0.25, 'rgba(180, 135, 80, 0.0)');
-    sweepGrad.addColorStop(1, 'rgba(180, 135, 80, 0.0)');
+    sweepGrad.addColorStop(0, 'rgba(14, 107, 85, 0.30)');
+    sweepGrad.addColorStop(0.12, 'rgba(14, 107, 85, 0.08)');
+    sweepGrad.addColorStop(0.25, 'rgba(14, 107, 85, 0)');
+    sweepGrad.addColorStop(1, 'rgba(14, 107, 85, 0)');
 
     ctx.save();
     ctx.beginPath();
@@ -163,7 +163,7 @@ export function DynamicClimateRadar({
     ctx.restore();
 
     // Subtle latitude and longitude curves
-    ctx.strokeStyle = 'rgba(180, 150, 110, 0.15)';
+    ctx.strokeStyle = 'rgba(120, 130, 138, 0.18)';
     ctx.lineWidth = 1;
     [-0.5, 0, 0.5].forEach(latOffset => {
       ctx.beginPath();
@@ -174,10 +174,10 @@ export function DynamicClimateRadar({
   }, [pulseTick]);
 
   const categoryColor = {
-    waste: '#b86b24',
-    fire: '#c45124',
-    water: '#27627e',
-    air: '#526e51'
+    waste: '#B4730E',
+    fire: '#D1431F',
+    water: '#1F6FB2',
+    air: '#6A58CF'
   }[activeSpot.category];
 
   return (
@@ -260,7 +260,7 @@ export function DynamicClimateRadar({
               }
             }}
           >
-            Explore {activeSpot.name} Signals →
+            Explore {activeSpot.name}
           </button>
           
           <button
@@ -272,7 +272,7 @@ export function DynamicClimateRadar({
               }
             }}
           >
-            Satellite View 🛰️
+            Satellite view
           </button>
         </div>
 

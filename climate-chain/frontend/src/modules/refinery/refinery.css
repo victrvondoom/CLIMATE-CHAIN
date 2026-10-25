@@ -3,14 +3,14 @@
 .refinery {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 24px;
   max-width: 1080px;
   margin: 0 auto;
-  padding: 26px 22px 60px;
+  padding: 34px 28px 78px;
 }
 
 .refinery-header h1 {
-  margin: 0 0 6px;
+  margin: 0 0 8px;
 }
 
 .refinery-header p {
@@ -20,15 +20,15 @@
 }
 
 .refinery-input {
-  padding: 16px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .refinery-input-actions {
   display: flex;
-  gap: 10px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
@@ -43,11 +43,11 @@
   min-height: 160px;
   resize: vertical;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
-  padding: 12px;
+  padding: 16px;
   border: 1px solid var(--rule);
-  border-radius: 10px;
+  border-radius: 12px;
   background: var(--paper-sunk);
   color: var(--ink);
 }
@@ -55,34 +55,34 @@
 .refinery-summary {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 
 .refinery-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 14px;
 }
 
 .refinery-chip {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  padding: 10px 14px;
+  padding: 14px 18px;
   border: 1px solid var(--rule);
-  border-radius: 10px;
+  border-radius: 12px;
   background: var(--paper-raised);
   box-shadow: var(--shadow-1);
   min-width: 108px;
 }
 
 .refinery-chip strong {
-  font-size: 19px;
+  font-size: 21px;
   font-variant-numeric: lining-nums;
 }
 
 .refinery-chip span {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-3);
@@ -92,14 +92,14 @@
   width: 100%;
   border-collapse: collapse;
   border: 1px solid var(--rule);
-  border-radius: 10px;
+  border-radius: 12px;
   background: var(--paper-raised);
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .refinery-table th,
 .refinery-table td {
-  padding: 8px 10px;
+  padding: 10px 14px;
   border-bottom: 1px solid var(--rule);
   text-align: right;
   font-variant-numeric: lining-nums;
@@ -111,7 +111,7 @@
 }
 
 .refinery-table thead th {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-3);
@@ -120,7 +120,7 @@
 .refinery-preview td {
   text-align: left;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .refinery-issues {
@@ -129,16 +129,16 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .refinery-issue {
-  padding: 8px 12px;
+  padding: 10px 16px;
   border: 1px solid var(--rule);
   border-left-width: 3px;
-  border-radius: 8px;
+  border-radius: 10px;
   background: var(--paper-raised);
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .refinery-issue-unit { border-left-color: var(--water); }
@@ -152,21 +152,21 @@
 .refinery-output {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .refinery-output-actions {
   display: flex;
-  gap: 10px;
+  gap: 14px;
   align-items: center;
   flex-wrap: wrap;
 }
 
 .refinery-digest {
-  font-size: 12px;
-  padding: 6px 10px;
+  font-size: 14px;
+  padding: 8px 14px;
   border: 1px solid var(--rule);
-  border-radius: 8px;
+  border-radius: 10px;
   background: var(--paper-sunk);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -175,5 +175,5 @@
 .refinery-more {
   margin: 0;
   color: var(--ink-3);
-  font-size: 12px;
+  font-size: 14px;
 }

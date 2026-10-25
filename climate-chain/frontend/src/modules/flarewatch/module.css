@@ -7,8 +7,8 @@
   --m-flarewatch-text: var(--text, var(--ink));
   --m-flarewatch-muted: var(--muted, var(--ink-3));
   display: grid;
-  gap: 16px;
-  padding: 16px;
+  gap: 20px;
+  padding: 20px;
   max-width: 1100px;
   margin: 0 auto;
   box-sizing: border-box;
@@ -17,31 +17,31 @@
 }
 
 .m-flarewatch-head h2 {
-  margin: 4px 0 8px;
+  margin: 5px 0 10px;
   font-size: clamp(20px, 3vw, 28px);
 }
 
 .m-flarewatch-kicker {
   margin: 0;
   color: var(--m-flarewatch-tone);
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .m-flarewatch-lede,
 .m-flarewatch-note {
-  margin: 6px 0;
+  margin: 8px 0;
   color: var(--m-flarewatch-muted);
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.5;
 }
 
 .m-flarewatch-card {
-  padding: 16px;
+  padding: 20px;
   border: 1px solid var(--m-flarewatch-line);
   border-top: 2px solid var(--m-flarewatch-tone);
-  border-radius: 12px;
+  border-radius: 14px;
   background: var(--m-flarewatch-panel);
   min-width: 0;
 }
@@ -50,20 +50,20 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 16px;
 }
 
 .m-flarewatch-card h3 {
   margin: 0;
-  font-size: 17px;
+  font-size: 18px;
 }
 
 .m-flarewatch-mode {
-  padding: 3px 8px;
+  padding: 4px 10px;
   border: 1px solid currentColor;
   border-radius: 999px;
   color: var(--ink);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.06em;
   white-space: nowrap;
@@ -72,25 +72,25 @@
 .m-flarewatch-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 10px;
-  margin: 10px 0;
+  gap: 14px;
+  margin: 14px 0;
 }
 
 .m-flarewatch-stats > div {
   display: grid;
-  gap: 4px;
-  padding: 10px;
-  border-radius: 10px;
+  gap: 5px;
+  padding: 14px;
+  border-radius: 12px;
   background: var(--paper-raised);
 }
 
 .m-flarewatch-stat-label {
   color: var(--m-flarewatch-muted);
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .m-flarewatch-stat-value {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
 }
 
@@ -101,12 +101,12 @@
 .m-flarewatch-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .m-flarewatch-table th,
 .m-flarewatch-table td {
-  padding: 8px 6px;
+  padding: 10px 8px;
   border-bottom: 1px solid var(--m-flarewatch-line);
   text-align: left;
   vertical-align: top;
@@ -131,15 +131,15 @@
 .m-flarewatch-nights {
   color: var(--m-flarewatch-muted);
   font-family: var(--font, system-ui, sans-serif);
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .m-flarewatch-class {
-  padding: 2px 8px;
+  padding: 2px 10px;
   border-radius: 999px;
   border: 1px solid var(--m-flarewatch-line);
   color: var(--m-flarewatch-muted);
-  font-size: 12px;
+  font-size: 14px;
   white-space: nowrap;
 }
 
@@ -162,25 +162,25 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
-  margin-top: 10px;
+  gap: 16px;
+  margin-top: 14px;
 }
 
 .m-flarewatch-controls {
   display: flex;
-  gap: 8px;
-  margin: 10px 0;
+  gap: 10px;
+  margin: 14px 0;
 }
 
 .m-flarewatch-btn,
 .m-flarewatch-tab {
-  padding: 7px 12px;
-  border-radius: 8px;
+  padding: 9px 16px;
+  border-radius: 10px;
   border: 1px solid var(--m-flarewatch-line);
   background: transparent;
   color: var(--m-flarewatch-text);
   font: inherit;
-  font-size: 13px;
+  font-size: 15px;
   cursor: pointer;
 }
 
@@ -197,30 +197,30 @@
 
 .m-flarewatch-records {
   list-style: none;
-  margin: 8px 0 0;
+  margin: 10px 0 0;
   padding: 0;
   display: grid;
-  gap: 8px;
-  font-size: 13px;
+  gap: 10px;
+  font-size: 15px;
 }
 
 .m-flarewatch-records li {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 8px;
+  gap: 10px;
 }
 
 .m-flarewatch-not-ported ul {
-  margin: 8px 0 0;
-  padding-left: 18px;
+  margin: 10px 0 0;
+  padding-left: 24px;
   color: var(--m-flarewatch-muted);
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.6;
 }
 
 @media (max-width: 640px) {
   .m-flarewatch {
-    padding: 16px;
+    padding: 20px;
   }
 }

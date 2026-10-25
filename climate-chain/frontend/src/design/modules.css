@@ -1,0 +1,88 @@
+/* modules: the frame around every native module, plus the per-feature headings that use the display serif.
+   Layered on src/design.css. */
+
+/* Typeface roles. Feature stylesheets reference --serif for both titles and small data values.
+   Values must be Inter (tabular, never wrapping mid-word), so the legacy token now points at the
+   sans; the real page titles below opt in to the display serif explicitly. */
+:root { --serif: var(--font-sans); --font-classic: var(--font-sans); }
+
+.app .earth-heading h2, .app .lab-head h1, .app .pa-head h1, .app .pa-empty h2, .app .pa-detail-head h2, .app .pa-rank-head h2,
+.app .lab-card > summary h2, .app .ctl-title, .app .hero-title h1, .app .il-panel h2.il-title, .app .knowledge h2,
+.app .memory-hero h1, .app .memory-hero h2, .app .launchpad-head h2 {
+  font-family: var(--font-display); font-weight: 400; letter-spacing: 0;
+}
+.app .earth-heading h2, .app .lab-head h1, .app .pa-head h1 { font-size: clamp(36px, 4vw, 54px); line-height: 1.06; margin: 0; }
+.app .pa-empty h2, .app .pa-detail-head h2, .app .pa-rank-head h2, .app .lab-card > summary h2 { font-size: 28px; line-height: 1.15; }
+.app .earth-aqi strong, .app .earth-mini-grid strong, .app .earth-carbon-values strong, .app .earth-corridor-values strong,
+.app .pa-stat b, .app .pa-aqi b, .app .pa-area-line b, .app .lab-metric b, .app .ctl-hud-value, .app .chip3d-value {
+  font-family: var(--font-sans); font-weight: 600; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; overflow-wrap: normal; word-break: normal;
+}
+.app .earth-mini-grid strong { font-size: 18px; }
+.app .earth-aqi strong { font-size: 44px; }
+.app .pa-aqi b { font-size: 2.8rem; }
+
+/* Module frame ----------------------------------------------------------- */
+.app .module-screen { --tone: var(--accent); display: flex; flex-direction: column; gap: 40px; padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; }
+.app .module-screen.tone-waste { --tone: var(--waste); }
+.app .module-screen.tone-fire { --tone: var(--fire); }
+.app .module-screen.tone-water { --tone: var(--water); }
+.app .module-screen.tone-air { --tone: var(--air); }
+.app .module-screen > .module-head { display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 0; max-width: 780px; }
+.app .module-screen > .module-head .eyebrow { color: var(--tone); margin-bottom: 20px; }
+.app .module-screen > .module-head h2 { margin: 0; font-size: clamp(40px, 4.4vw, 60px); line-height: 1.04; letter-spacing: 0; }
+.app .module-tagline { margin: 20px 0 0; max-width: 62ch; font-size: 17px; line-height: 1.65; color: var(--text-secondary); }
+.app .module-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 24px; }
+.app .module-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin: 0; padding: 0; list-style: none; }
+.app .module-features li { padding: 22px 24px; border-radius: var(--radius); border: 1px solid var(--border); border-top: 3px solid var(--tone); background: var(--surface); box-shadow: none; font-size: 14.5px; line-height: 1.6; color: var(--ink-2); }
+.app .module-body { min-width: 0; }
+
+.app .mode-pill { display: inline-flex; align-items: center; height: 26px; padding: 0 12px; border-radius: 999px; font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; border: 1px solid transparent; }
+.app .mode-live { background: var(--good-soft); color: var(--good); border-color: color-mix(in srgb, var(--good) 28%, transparent); }
+.app .mode-simulated { background: var(--warn-soft); color: var(--warn); border-color: color-mix(in srgb, var(--warn) 28%, transparent); }
+.app .mode-research { background: var(--water-soft); color: var(--water); border-color: color-mix(in srgb, var(--water) 28%, transparent); }
+.app .mode-demo { background: var(--air-soft); color: var(--air); border-color: color-mix(in srgb, var(--air) 28%, transparent); }
+
+/* Recorded-outcomes desk + ledger rows */
+.app .desk-panel { padding: 32px; }
+.app .desk-panel h3 { font-size: 20px; margin-bottom: 8px; }
+.app .verdict-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 24px 0; }
+.app .verdict-row label { display: inline-flex; align-items: center; gap: 12px; }
+.app .ledger-list { display: flex; flex-direction: column; gap: 16px; margin: 24px 0 0; padding: 0; list-style: none; }
+.app .ledger-item { display: grid; gap: 12px; padding: 22px 24px; }
+.app .ledger-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.app .packet-payload, .app pre { padding: 18px 20px; border-radius: var(--radius); background: var(--surface-secondary); border: 1px solid var(--border); font-size: 12.5px; line-height: 1.6; overflow: auto; }
+
+/* Mission flow ------------------------------------------------------------ */
+.app .journey-intro { padding: 40px; }
+.app .journey-intro h1, .app .journey-intro h2 { max-width: 20ch; }
+.app .focus-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.app .focus-grid > button { display: flex; align-items: flex-start; gap: 14px; height: auto; min-height: 76px; padding: 18px 20px; text-align: left; border-radius: var(--radius); line-height: 1.45; }
+.app .focus-grid > button strong { display: block; font-size: 15px; margin-bottom: 4px; }
+.app .focus-grid > button span { color: var(--text-secondary); font-size: 13.5px; font-weight: 400; }
+.app .focus-grid > button[aria-pressed="true"], .app .focus-grid > button.active { border-color: var(--accent); background: var(--accent-soft); }
+.app .focus-check { width: 22px; height: 22px; flex: none; display: grid; place-items: center; border-radius: 50%; background: var(--surface-secondary); color: var(--accent); font-size: 12px; }
+.app .signal-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; }
+.app .section-heading { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px 32px; margin-bottom: 12px; text-align: left; }
+.app .section-heading > div { display: flex; flex-direction: column; gap: 12px; max-width: 680px; align-items: flex-start; }
+.app .section-heading h2 { font-size: clamp(28px, 2.6vw, 38px); }
+.app .section-heading p { font-size: 15.5px; color: var(--text-secondary); }
+
+/* Mission stage rail */
+.app .stage-track { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+.app .stage-step { gap: 16px; min-height: 84px; padding: 20px 22px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--border); box-shadow: none; transform: none; }
+.app .stage-step:hover { transform: none; border-color: var(--rule-strong); background: var(--surface); }
+.app .stage-step.active { background: var(--accent-soft); border-color: var(--accent); box-shadow: none; }
+.app .stage-step .stage-number { width: 32px; height: 32px; flex: none; display: grid; place-items: center; border-radius: 50%; font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--text-secondary); background: var(--surface-secondary); border: 0; }
+.app .stage-step.active .stage-number { background: var(--accent); color: var(--on-accent); }
+.app .stage-step.passed .stage-number { background: var(--text-primary); color: var(--background); }
+.app .stage-step-copy strong { font-size: 15.5px; font-weight: 600; }
+.app .stage-step-copy small { margin-top: 3px; font-size: 13px; white-space: normal; }
+.app .stage-connector { display: none; }
+@media (max-width: 1100px) { .app .stage-track { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .app .stage-track { grid-template-columns: minmax(0, 1fr); } }
+
+.app .journey-intro-aside { display: flex; align-items: center; gap: 20px; max-width: 320px; font-size: 14.5px; line-height: 1.55; color: var(--text-secondary); }
+.app .intro-orbit { width: 72px; height: 72px; flex: none; display: grid; place-items: center; border-radius: 50%; background: var(--accent-soft); border: 1px solid var(--accent-line); color: var(--accent-strong); font-family: var(--font-display); font-size: 26px; box-shadow: none; }
+.app .phase-checklist { display: grid; gap: 14px; margin: 24px 0; }
+.app .recommended-list { display: flex; flex-direction: column; gap: 0; }
+.app .recommended-item { padding: 20px 0; border-bottom: 1px solid var(--border); }

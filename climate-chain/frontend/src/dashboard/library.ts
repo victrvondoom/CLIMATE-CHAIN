@@ -28,7 +28,7 @@ export interface Destination {
 }
 
 const CORE_DESTINATIONS: Destination[] = [
-  { id: 'overview', label: 'Command center', title: 'Climate Chain', group: 'overview' },
+  { id: 'overview', label: 'Command center', title: 'Command Center', group: 'overview' },
   { id: 'earth', label: 'Satellite climate globe', title: 'Earth intelligence', group: 'overview' },
   { id: 'pollution', label: 'Global Pollution Atlas · 195 countries', title: 'Global Pollution Atlas', group: 'signals' },
   { id: 'waste', label: 'Waste · JunkSnap', title: 'Waste · JunkSnap', group: 'signals' },

@@ -1,9 +1,10 @@
-// Command center: intuitive, dynamic, and user-friendly overview of real-time climate signals and verifiable proof.
+// Command center: the live numbers first, then the map, the mission pipeline, signals awaiting action and the season ledger.
 
 import { lazy, Suspense, useState } from 'react';
-import { Card, ModuleTag, ModeBadge, Sparkline } from '../components/Ui';
+import { ModuleTag, ModeBadge, Sparkline } from '../components/Ui';
+import { Icon, type IconName } from '../components/Icon';
 import { inr, num, type ProjectAppStatus } from '../api';
-import type { Overview, ModuleId } from '../types';
+import type { Overview, ModuleId, SourceMode } from '../types';
 import { PROJECT_FOLDER_COUNT, STAGES, type StageId, type WorkspaceView } from '../data/capabilities';
 import { Launchpad } from './Launchpad';
 import { CommandStatus } from './CommandStatus';
@@ -11,7 +12,21 @@ import type { SourceStatus } from '../types';
 
 const Globe3D = lazy(() => import('../components/Globe3D').then((module) => ({ default: module.Globe3D })));
 
-const SEVERITY_LABEL: Record<string, string> = { high: 'CRITICAL', medium: 'ATTENTION', low: 'MONITORED' };
+const SEVERITY_LABEL: Record<string, string> = { high: 'Critical', medium: 'Attention', low: 'Monitored' };
+
+interface Kpi {
+  id: ModuleId;
+  tone: 'waste' | 'fire' | 'water' | 'air';
+  icon: IconName;
+  label: string;
+  source: string;
+  mode: SourceMode;
+  value: string;
+  unit?: string;
+  caption: string;
+  facts: { label: string; value: string }[];
+  action: string;
+}
 
 export function Overview({
   data,
@@ -41,258 +56,292 @@ export function Overview({
   const { waste, fire, water, air, sources, feed } = data;
   const [severity, setSeverity] = useState('all');
   const [activeStepIndex, setActiveStepIndex] = useState<number>(0);
-  const [livePulseActive, setLivePulseActive] = useState<boolean>(false);
 
-  const visibleFeed = feed.filter(
-    (item) => severity === 'all' || item.severity === severity
-  );
-
-  const triggerLiveSim = () => {
-    setLivePulseActive(true);
-    setTimeout(() => setLivePulseActive(false), 2400);
-  };
-
+  const visibleFeed = feed.filter((item) => severity === 'all' || item.severity === severity);
   const activeStage = STAGES[activeStepIndex] ?? STAGES[0];
+
+  const kpis: Kpi[] = [
+    {
+      id: 'waste', tone: 'waste', icon: 'waste', label: 'Waste tracking', source: 'JunkSnap', mode: sources.junksnap.mode,
+      value: num(waste.open), caption: 'Open dump sites',
+      facts: [{ label: 'Community-verified', value: num(waste.verified) }],
+      action: 'Review waste sites'
+    },
+    {
+      id: 'fire', tone: 'fire', icon: 'fire', label: 'Fire prevention', source: 'ClearSky', mode: sources.clearsky.mode,
+      value: num(fire.redFields), caption: 'Fields at burn risk',
+      facts: [{ label: 'Acres cleared', value: num(fire.acresCleared) }],
+      action: 'Open baler dispatch'
+    },
+    {
+      id: 'water', tone: 'water', icon: 'water', label: 'Safe water', source: 'Teesri Shikayat', mode: sources.teesri.mode,
+      value: num(water.warned), caption: 'Households warned',
+      facts: [{ label: 'Alerts joined', value: num(water.reported) }],
+      action: 'Open water tripwire'
+    },
+    {
+      id: 'air', tone: 'air', icon: 'air', label: 'Clean air', source: 'Vayu Project', mode: sources.vayu.mode,
+      value: air.pm25Now == null ? '—' : String(air.pm25Now), unit: 'µg/m³', caption: `PM2.5 · ${air.severity.label}`,
+      facts: [{ label: 'Location', value: air.place?.name ?? data.city.name }],
+      action: 'Open air sensors'
+    }
+  ];
 
   const stageDescriptions = [
     {
-      title: 'Sense Climate Signals',
-      desc: 'Detect environmental anomalies across satellite feeds, IoT ground sensors, and resident reports in real time.',
-      projects: 'JunkSnap · clearsky · Teesri Shikayat · The Vayu Project · Flarewatch',
+      title: 'Sense climate signals',
+      desc: 'Detect environmental anomalies across satellite feeds, ground sensors and resident reports.',
+      projects: 'JunkSnap · ClearSky · Teesri Shikayat · The Vayu Project · Flarewatch',
       action: () => onMission('sense')
     },
     {
-      title: 'Cryptographic Verification',
+      title: 'Verify the evidence',
       desc: 'Apply specialist multi-source rules and generate SHA-256 evidence digests before any claim is accepted.',
       projects: 'CarbonLens · ClimateProof AI · CarbonTrace · PlotLock',
       action: () => onMission('verify')
     },
     {
-      title: 'Accountable Action Dispatch',
-      desc: 'Route verified environmental crises directly to baler operators, municipal offices, and clean-up crews.',
-      projects: 'clearsky Baler Hub · JunkSnap Municipal Letters · Teesri Water Rings',
+      title: 'Dispatch accountable action',
+      desc: 'Route verified environmental problems to baler operators, municipal offices and clean-up crews.',
+      projects: 'ClearSky Baler Hub · JunkSnap Municipal Letters · Teesri Water Rings',
       action: () => onMission('act')
     },
     {
-      title: 'Transparent Climate Finance',
-      desc: 'Review specialist funding mechanisms (escrow, registries) and their status.',
+      title: 'Finance the work transparently',
+      desc: 'Review funding mechanisms (escrow, registries) and their status.',
       projects: 'PLUME Methane Escrow · Rantai 3C · GridProof Certificates',
       action: () => onMission('finance')
     },
     {
-      title: 'Proof & Zero Double-Counting',
+      title: 'Prove it and count it once',
       desc: 'Anchor completion receipts on a local demo chain (not public or immutable) and flag duplicate claims within the local demo registry.',
       projects: 'CarbonTwin Guard · EcoGraph Ledger · HourMatch Claims',
       action: () => onMission('prove')
     }
   ];
 
+  const cleared = waste.sites.filter((s) => s.status === 'cleared' || s.status === 'resolved').length;
+
   return (
-    <div className="stack signal-page clean-overview">
-      {/* Dynamic Hero Section */}
-      <section className="hero-modern">
-        <div className="hero-header-bar">
-          <div className="hero-eyebrow">
-            <span className="live-status-dot" />
-            <span>GLOBAL CLIMATE ACTION NETWORK · {PROJECT_FOLDER_COUNT} SPECIALIZED MODULES</span>
-          </div>
-          <div className="hero-controls">
-            <button
-              type="button"
-              className={`live-pulse-btn ${livePulseActive ? 'pulsing' : ''}`}
-              onClick={triggerLiveSim}
-              title="Toggles a short visual pulse animation only"
-            >
-              <span className="icon">⚡</span>
-              {livePulseActive ? 'Pulse animation on…' : 'Pulse animation'}
-            </button>
-          </div>
+    <div className="stack signal-page clean-overview ov">
+      {/* Headline */}
+      <header className="ov-header">
+        <div className="hero-eyebrow">
+          <span className="live-status-dot" />
+          <span className="eyebrow-network">Global network</span>
+          <span className="eyebrow-divider">/</span>
+          <span className="eyebrow-count">{PROJECT_FOLDER_COUNT} specialised modules</span>
         </div>
-
-        <div className="hero-intro">
-          <h1>Track & Verify Real-World Climate Action</h1>
-          <p>
-            One unified mission connecting 18 specialized climate initiatives: sense a place-based signal,
-            check evidence integrity with SHA-256 digests, dispatch field teams, and prove what changed.
-          </p>
-
-          <div className="hero-quick-actions">
-            <button className="primary-hero-btn" onClick={() => onMission('sense')}>
-              Start 5-Step Guided Mission <span aria-hidden="true">→</span>
+        <h1 className="ov-title">
+          Track and verify <em>real-world</em> climate action
+        </h1>
+        <p className="ov-lede">
+          One mission across {PROJECT_FOLDER_COUNT} climate initiatives: sense a place-based signal, check the evidence with SHA-256 digests,
+          dispatch field teams, and prove what changed.
+        </p>
+        <div className="ov-actions">
+          <button type="button" className="primary-hero-btn" onClick={() => onMission('sense')}>
+            Start the 5-step mission <Icon name="arrow" size={16} />
+          </button>
+          <button type="button" className="secondary-hero-btn" onClick={onEarth}>
+            <Icon name="globe" size={16} /> Satellite globe
+          </button>
+          <button type="button" className="secondary-hero-btn" onClick={() => onOpen('pollution')}>
+            <Icon name="cloud" size={16} /> Pollution atlas
+          </button>
+          {onIntegrity && (
+            <button type="button" className="secondary-hero-btn" onClick={onIntegrity}>
+              <Icon name="shield" size={16} /> Integrity lab
             </button>
-            <button className="secondary-hero-btn" onClick={onEarth}>
-              Inspect Satellite Globe 🛰️
-            </button>
-            <button className="secondary-hero-btn" onClick={() => onOpen('pollution')}>
-              Pollution Atlas 🌫️
-            </button>
-            {onIntegrity && (
-              <button className="secondary-hero-btn" onClick={onIntegrity}>
-                Climate Integrity Lab 🛡️
-              </button>
-            )}
-            <button className="secondary-hero-btn" onClick={onStudio}>
-              Mission Studio 🛠️
-            </button>
-          </div>
+          )}
+          <button type="button" className="secondary-hero-btn" onClick={onStudio}>
+            <Icon name="tool" size={16} /> Mission studio
+          </button>
         </div>
+      </header>
 
-        {/* Dynamic Interactive Radar / Globe */}
+      {/* The numbers */}
+      <section className="kpi-grid" aria-label="Active climate domains">
+        {kpis.map((kpi) => (
+          <article
+            key={kpi.id}
+            className={`kpi-card tone-${kpi.tone}`}
+            onClick={() => onNavigate(kpi.id)}
+            onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); onNavigate(kpi.id); } }}
+            role="button"
+            tabIndex={0}
+          >
+            <div className="kpi-top">
+              <span className="kpi-icon"><Icon name={kpi.icon} size={20} /></span>
+              <div className="kpi-names">
+                <span className="kpi-label">{kpi.label}</span>
+                <span className="kpi-source">{kpi.source}</span>
+              </div>
+            </div>
+            <div className="kpi-figure">
+              <span className="kpi-number">{kpi.value}</span>
+              {kpi.unit && <span className="kpi-unit">{kpi.unit}</span>}
+            </div>
+            <div className="kpi-caption">{kpi.caption}</div>
+            <dl className="kpi-facts">
+              {kpi.facts.map((fact) => (
+                <div key={fact.label}>
+                  <dt>{fact.label}</dt>
+                  <dd>{fact.value}</dd>
+                </div>
+              ))}
+              <div>
+                <dt>Data mode</dt>
+                <dd><ModeBadge mode={kpi.mode} /></dd>
+              </div>
+            </dl>
+            <span className="kpi-link">{kpi.action} <Icon name="arrow" size={14} /></span>
+          </article>
+        ))}
+      </section>
+
+      {/* Map */}
+      <section className="ov-section">
+        <div className="ov-section-head">
+          <span className="section-badge">Signal map</span>
+          <h2>Where the signals are</h2>
+          <p>Switch between the radar and the 3D satellite view; select a marker to open its evidence.</p>
+        </div>
         <div className="hero-visual-frame">
-          <Suspense fallback={<div className="globe-loading">Loading interactive climate visualizer…</div>}>
+          <Suspense fallback={<div className="globe-loading">Loading the climate map…</div>}>
             <Globe3D data={data} onNavigate={(target) => target === 'earth' ? onEarth() : onOpen(target as WorkspaceView)} />
           </Suspense>
         </div>
-
-        {/* 4 Interactive Dynamic Signal Cards */}
-        <div className="signal-cards-grid" aria-label="Active Climate Domains">
-          {/* Card 1: Waste */}
-          <div
-            className={`signal-card card-waste ${livePulseActive ? 'live-ticked' : ''}`}
-            onClick={() => onNavigate('waste')}
-            role="button"
-            tabIndex={0}
-          >
-            <div className="signal-card-header">
-              <span className="signal-icon">🗑️</span>
-              <div className="signal-titles">
-                <span className="signal-category">Waste Tracking</span>
-                <span className="signal-source">JunkSnap <ModeBadge mode={sources.junksnap.mode} /></span>
-              </div>
-            </div>
-            <div className="signal-metric-val">{num(waste.open)}</div>
-            <div className="signal-metric-sub">
-              Open dump sites · <strong>{num(waste.verified)}</strong> community-verified
-            </div>
-            <div className="signal-card-footer">
-              <span className="card-action-link">Review Waste Sites →</span>
-            </div>
-          </div>
-
-          {/* Card 2: Fire */}
-          <div
-            className={`signal-card card-fire ${livePulseActive ? 'live-ticked' : ''}`}
-            onClick={() => onNavigate('fire')}
-            role="button"
-            tabIndex={0}
-          >
-            <div className="signal-card-header">
-              <span className="signal-icon">🔥</span>
-              <div className="signal-titles">
-                <span className="signal-category">Fire Prevention</span>
-                <span className="signal-source">ClearSky <ModeBadge mode={sources.clearsky.mode} /></span>
-              </div>
-            </div>
-            <div className="signal-metric-val">{num(fire.redFields)}</div>
-            <div className="signal-metric-sub">
-              Fields at burn risk · <strong>{num(fire.acresCleared)}</strong> acres cleared
-            </div>
-            <div className="signal-card-footer">
-              <span className="card-action-link">Baler Dispatch Radar →</span>
-            </div>
-          </div>
-
-          {/* Card 3: Water */}
-          <div
-            className={`signal-card card-water ${livePulseActive ? 'live-ticked' : ''}`}
-            onClick={() => onNavigate('water')}
-            role="button"
-            tabIndex={0}
-          >
-            <div className="signal-card-header">
-              <span className="signal-icon">💧</span>
-              <div className="signal-titles">
-                <span className="signal-category">Safe Water</span>
-                <span className="signal-source">Teesri Shikayat <ModeBadge mode={sources.teesri.mode} /></span>
-              </div>
-            </div>
-            <div className="signal-metric-val">{num(water.warned)}</div>
-            <div className="signal-metric-sub">
-              Households warned · <strong>{num(water.reported)}</strong> alerts joined
-            </div>
-            <div className="signal-card-footer">
-              <span className="card-action-link">Water Tripwire Ring →</span>
-            </div>
-          </div>
-
-          {/* Card 4: Air */}
-          <div
-            className={`signal-card card-air ${livePulseActive ? 'live-ticked' : ''}`}
-            onClick={() => onNavigate('air')}
-            role="button"
-            tabIndex={0}
-          >
-            <div className="signal-card-header">
-              <span className="signal-icon">💨</span>
-              <div className="signal-titles">
-                <span className="signal-category">Clean Air</span>
-                <span className="signal-source">Vayu Project <ModeBadge mode={sources.vayu.mode} /></span>
-              </div>
-            </div>
-            <div className="signal-metric-val">{air.pm25Now ?? '—'} <span className="unit">µg/m³</span></div>
-            <div className="signal-metric-sub">
-              PM2.5 {air.severity.label} in <strong>{air.place?.name ?? data.city.name}</strong>
-            </div>
-            <div className="signal-card-footer">
-              <span className="card-action-link">Air Sensor Network →</span>
-            </div>
-          </div>
-        </div>
       </section>
 
-      {/* Interactive 5-Step Mission Journey */}
-      <section className="mission-stepper-section">
-        <div className="section-head-clean">
-          <div>
-            <span className="section-badge">INTERACTIVE WORKFLOW</span>
-            <h2>The 5-Step Climate Mission Pipeline</h2>
-            <p>Click any stage to see how specialized projects collaborate from sensing to proof.</p>
-          </div>
+      {/* Pipeline */}
+      <section className="ov-section">
+        <div className="ov-section-head">
+          <span className="section-badge">Workflow</span>
+          <h2>The five-step <em>mission pipeline</em></h2>
+          <p>Select a stage to see how the specialised projects hand off from sensing to proof.</p>
         </div>
 
-        <div className="stepper-track">
-          {STAGES.map((stage, index) => {
-            const isActive = index === activeStepIndex;
-            return (
-              <button
-                key={stage.id}
-                type="button"
-                className={`step-btn ${isActive ? 'active' : ''}`}
-                onClick={() => setActiveStepIndex(index)}
-              >
-                <div className="step-circle">{stage.number}</div>
-                <div className="step-label">
-                  <strong>{stage.title}</strong>
-                  <span>{stage.short}</span>
-                </div>
-              </button>
-            );
-          })}
-        </div>
+        <div className="pipeline panel">
+          <ol className="pipeline-track">
+            {STAGES.map((stage, index) => {
+              const isActive = index === activeStepIndex;
+              return (
+                <li key={stage.id}>
+                  <button
+                    type="button"
+                    className={`pipeline-step ${isActive ? 'active' : ''}`}
+                    aria-current={isActive ? 'step' : undefined}
+                    onClick={() => setActiveStepIndex(index)}
+                  >
+                    <span className="pipeline-num">{stage.number}</span>
+                    <span className="pipeline-name">{stage.title}</span>
+                    <span className="pipeline-short">{stage.short}</span>
+                  </button>
+                </li>
+              );
+            })}
+          </ol>
 
-        {/* Dynamic active step drawer */}
-        <div className="active-step-preview">
-          <div className="step-preview-content">
-            <div className="step-preview-badge">STEP {activeStage.number} OF 5</div>
-            <h3>{stageDescriptions[activeStepIndex]?.title}</h3>
-            <p>{stageDescriptions[activeStepIndex]?.desc}</p>
-            <div className="step-projects">
-              <strong>Integrated Projects:</strong> <span>{stageDescriptions[activeStepIndex]?.projects}</span>
+          <div className="pipeline-detail">
+            <div className="pipeline-copy">
+              <span className="section-badge">Step {activeStage.number} of {STAGES.length}</span>
+              <h3>{stageDescriptions[activeStepIndex]?.title}</h3>
+              <p>{stageDescriptions[activeStepIndex]?.desc}</p>
+              <p className="pipeline-projects"><strong>Projects</strong> {stageDescriptions[activeStepIndex]?.projects}</p>
             </div>
-          </div>
-          <div className="step-preview-action">
-            <button
-              type="button"
-              className="start-stage-btn"
-              onClick={stageDescriptions[activeStepIndex]?.action}
-            >
-              Launch {activeStage.title} Mission →
+            <button type="button" className="start-stage-btn" onClick={stageDescriptions[activeStepIndex]?.action}>
+              Open {activeStage.title} <Icon name="arrow" size={16} />
             </button>
           </div>
         </div>
       </section>
 
-      {/* Quick Action Workflows & Connected Status */}
+      {/* Signals + ledger */}
+      <section className="ov-two-col">
+        <div className="panel">
+          <div className="panel-head">
+            <div>
+              <h3>Signals awaiting action</h3>
+              <p className="muted">Alerts detected across the monitored regions</p>
+            </div>
+            <div className="seg" role="group" aria-label="Filter by severity">
+              {[['all', 'All'], ['high', 'Critical'], ['medium', 'Attention']].map(([id, label]) => (
+                <button key={id} type="button" className={severity === id ? 'active' : ''} aria-pressed={severity === id} onClick={() => setSeverity(id)}>
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <ul className="feed-list">
+            {visibleFeed.length === 0 && <li className="feed-empty">No signals match this filter.</li>}
+            {visibleFeed.map((f) => (
+              <li key={f.title} className={`feed-item sev-${f.severity}`}>
+                <div className="feed-meta">
+                  <span className={`sev-chip sev-${f.severity}`}>{SEVERITY_LABEL[f.severity] || 'Info'}</span>
+                  <ModuleTag modules={f.modules} />
+                </div>
+                <h4>{f.title}</h4>
+                <p>{f.detail}</p>
+                <div className="feed-actions">
+                  {f.modules.map((m) => (
+                    <button key={m} type="button" className="clean-text-btn" onClick={() => onNavigate(m)}>
+                      Review {m} evidence <Icon name="arrow" size={14} />
+                    </button>
+                  ))}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="panel">
+          <div className="panel-head">
+            <div>
+              <h3>Season ledger</h3>
+              <p className="muted">Source-reported counters, labelled live or simulated. Not independently audited.</p>
+            </div>
+          </div>
+
+          <div className="ledger-tiles">
+            <div className="ledger-tile">
+              <span className="ledger-tile-icon tone-fire"><Icon name="leaf" size={18} /></span>
+              <div className="ledger-tile-val">{num(fire.tonnesDelivered)}<span className="unit"> t</span></div>
+              <div className="ledger-tile-label">Straw diverted from burning</div>
+              <div className="ledger-tile-hint">{num(fire.bookings)} baler bookings · {inr(fire.payoutsEstimatedInr)} payouts</div>
+            </div>
+            <div className="ledger-tile">
+              <span className="ledger-tile-icon tone-waste"><Icon name="waste" size={18} /></span>
+              <div className="ledger-tile-val">{num(cleared)}</div>
+              <div className="ledger-tile-label">Waste dumps cleared</div>
+              <div className="ledger-tile-hint">Sites marked cleared or resolved in the source feed</div>
+            </div>
+            <div className="ledger-tile">
+              <span className="ledger-tile-icon tone-water"><Icon name="water" size={18} /></span>
+              <div className="ledger-tile-val">{num(water.warned)}<span className="unit"> / {num(water.inRing)}</span></div>
+              <div className="ledger-tile-label">Households warned of bad water</div>
+              <div className="ledger-tile-hint">Early tripwire warning, households in ring</div>
+            </div>
+            <div className="ledger-tile">
+              <span className="ledger-tile-icon tone-air"><Icon name="shield" size={18} /></span>
+              <div className="ledger-tile-val">{fire.fieldsSavedAfterAlert == null ? '—' : num(fire.fieldsSavedAfterAlert)}</div>
+              <div className="ledger-tile-label">Fields saved after alerts</div>
+              <div className="ledger-tile-hint">Fields that were alerted and not burned</div>
+            </div>
+          </div>
+
+          <div className="trend">
+            <div className="trend-head">
+              <span className="trend-title">PM2.5, last 24 hours · {air.place?.name ?? data.city.name}</span>
+              <span className="trend-note">Dashed line: 115 µg/m³ reference level</span>
+            </div>
+            <Sparkline hours={air.hours.slice(-24)} />
+          </div>
+        </div>
+      </section>
+
+      {/* Workflows + status */}
       <CommandStatus
         data={data}
         services={services}
@@ -301,128 +350,7 @@ export function Overview({
         onOpen={onOpen}
       />
 
-      {/* Live Signals Feed & Season Impact Ledger */}
-      <div className="dashboard-two-col">
-        {/* Signals to Review Card */}
-        <Card className="modern-card">
-          <div className="card-header-clean">
-            <div>
-              <h3>Signals Awaiting Action</h3>
-              <p className="muted small">Real-time alerts detected across active monitored regions</p>
-            </div>
-            <div className="filter-chips-row">
-              <button
-                type="button"
-                className={`chip-filter ${severity === 'all' ? 'active' : ''}`}
-                onClick={() => setSeverity('all')}
-              >
-                All
-              </button>
-              <button
-                type="button"
-                className={`chip-filter ${severity === 'high' ? 'active' : ''}`}
-                onClick={() => setSeverity('high')}
-              >
-                Critical
-              </button>
-              <button
-                type="button"
-                className={`chip-filter ${severity === 'medium' ? 'active' : ''}`}
-                onClick={() => setSeverity('medium')}
-              >
-                Attention
-              </button>
-            </div>
-          </div>
-
-          <ul className="feed-clean">
-            {visibleFeed.length === 0 && (
-              <li className="feed-empty">
-                <em>No threshold signals match these filters.</em>
-              </li>
-            )}
-            {visibleFeed.map((f) => (
-              <li key={f.title} className={`feed-clean-item sev-${f.severity}`}>
-                <div className="feed-clean-header">
-                  <span className={`clean-badge sev-${f.severity}`}>
-                    {SEVERITY_LABEL[f.severity] || 'INFO'}
-                  </span>
-                  <ModuleTag modules={f.modules} />
-                </div>
-                <div className="feed-clean-title">{f.title}</div>
-                <div className="feed-clean-desc">{f.detail}</div>
-                <div className="feed-clean-actions">
-                  {f.modules.map((m) => (
-                    <button
-                      key={m}
-                      type="button"
-                      className="clean-text-btn"
-                      onClick={() => onNavigate(m)}
-                    >
-                      Review {m} Evidence →
-                    </button>
-                  ))}
-                </div>
-              </li>
-            ))}
-          </ul>
-        </Card>
-
-        {/* Season Impact Ledger */}
-        <Card className="modern-card">
-          <div className="card-header-clean">
-            <div>
-              <h3>Season Ledger</h3>
-              <p className="muted small">Source-reported counters (labelled LIVE/SIMULATED); not independently audited</p>
-            </div>
-          </div>
-
-          <div className="ledger-metrics-grid">
-            <div className="metric-box">
-              <span className="metric-box-icon">🌾</span>
-              <div className="metric-box-val">{num(fire.tonnesDelivered)} <span className="unit">t</span></div>
-              <div className="metric-box-label">Straw Diverted from Burning</div>
-              <div className="metric-box-hint">{num(fire.bookings)} baler bookings · {inr(fire.payoutsEstimatedInr)} payouts</div>
-            </div>
-
-            <div className="metric-box">
-              <span className="metric-box-icon">🧹</span>
-              <div className="metric-box-val">
-                {num(waste.sites.filter((s) => s.status === 'cleared' || s.status === 'resolved').length)}
-              </div>
-              <div className="metric-box-label">Waste Dumps Cleared</div>
-              <div className="metric-box-hint">Sites marked cleared or resolved in the source feed</div>
-            </div>
-
-            <div className="metric-box">
-              <span className="metric-box-icon">💧</span>
-              <div className="metric-box-val">{num(water.warned)} / {num(water.inRing)}</div>
-              <div className="metric-box-label">Households Warned of Bad Water</div>
-              <div className="metric-box-hint">Early tripwire automated warning system</div>
-            </div>
-
-            <div className="metric-box">
-              <span className="metric-box-icon">🚜</span>
-              <div className="metric-box-val">
-                {fire.fieldsSavedAfterAlert == null ? '—' : num(fire.fieldsSavedAfterAlert)}
-              </div>
-              <div className="metric-box-label">Fields Saved After Alerts</div>
-              <div className="metric-box-hint">Fields alerted</div>
-            </div>
-          </div>
-
-          {/* 24-Hour PM2.5 Sparkline */}
-          <div className="sparkline-section">
-            <div className="sparkline-title">
-              <span>24-Hour PM2.5 Air Exposure Trend ({air.place?.name ?? data.city.name})</span>
-              <span className="sparkline-tag">Vayu feed (monitor or model; see badge)</span>
-            </div>
-            <Sparkline hours={air.hours.slice(-24)} />
-          </div>
-        </Card>
-      </div>
-
-      {/* Connected Projects Launchpad */}
+      {/* Connected projects */}
       <div id="launchpad">
         <Launchpad apps={apps} onOpenModule={onModule} />
       </div>

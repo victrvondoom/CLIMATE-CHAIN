@@ -9,8 +9,8 @@
   --m-climateproof-sim: var(--paper-raised);
   color: var(--m-climateproof-ink);
   display: grid;
-  gap: 16px;
-  padding: 0 16px 24px;
+  gap: 20px;
+  padding: 0 20px 32px;
   max-width: 1040px;
   margin: 0 auto;
 }
@@ -39,7 +39,7 @@
 
 .m-climateproof-head {
   display: grid;
-  gap: 6px;
+  gap: 8px;
 }
 
 .m-climateproof-kicker {
@@ -63,14 +63,14 @@
 
 .m-climateproof-mode {
   display: inline-block;
-  padding: 2px 8px;
+  padding: 2px 10px;
   border-radius: 999px;
-  font-size: 0.72rem;
+  font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   border: 1px solid currentColor;
   vertical-align: middle;
-  margin-left: 6px;
+  margin-left: 8px;
 }
 
 .m-climateproof-mode-simulated {
@@ -83,13 +83,13 @@
 
 .m-climateproof-grid {
   display: grid;
-  gap: 16px;
+  gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .m-climateproof-card {
   display: grid;
-  gap: 12px;
+  gap: 16px;
   align-content: start;
   min-width: 0;
 }
@@ -101,12 +101,12 @@
 
 .m-climateproof-dataset {
   display: grid;
-  gap: 6px;
+  gap: 8px;
   font-size: 0.9rem;
 }
 
 .m-climateproof-hash {
-  font-size: 0.78rem;
+  font-size: 0.8125rem;
   overflow-wrap: anywhere;
   color: var(--m-climateproof-muted);
 }
@@ -114,15 +114,15 @@
 .m-climateproof-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 14px;
   align-items: center;
 }
 
 .m-climateproof-btn {
   display: inline-block;
   font: inherit;
-  padding: 8px 14px;
-  border-radius: 8px;
+  padding: 10px 18px;
+  border-radius: 10px;
   border: 1px solid var(--m-climateproof-accent);
   background: var(--m-climateproof-accent);
   color: var(--ink);
@@ -160,7 +160,7 @@
 
 .m-climateproof-field {
   display: grid;
-  gap: 4px;
+  gap: 5px;
   font-size: 0.85rem;
   color: var(--m-climateproof-muted);
 }
@@ -169,8 +169,8 @@
   font: inherit;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 0.82rem;
-  padding: 8px;
-  border-radius: 8px;
+  padding: 10px;
+  border-radius: 10px;
   border: 1px solid var(--m-climateproof-line);
   background: var(--m-climateproof-paper);
   color: var(--m-climateproof-ink);
@@ -182,7 +182,7 @@
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 4px;
+  gap: 5px;
   font-size: 0.9rem;
 }
 
@@ -197,7 +197,7 @@
 
 .m-climateproof-stats {
   display: grid;
-  gap: 10px;
+  gap: 14px;
   grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
 }
 
@@ -210,14 +210,14 @@
 .m-climateproof-table th,
 .m-climateproof-table td {
   text-align: left;
-  padding: 6px 4px;
+  padding: 8px 5px;
   border-bottom: 1px solid var(--m-climateproof-line);
   vertical-align: top;
 }
 
 .m-climateproof-warnings {
   margin: 0;
-  padding-left: 18px;
+  padding-left: 24px;
   font-size: 0.85rem;
   line-height: 1.5;
   color: var(--m-climateproof-muted);
@@ -228,7 +228,7 @@
   color: var(--m-climateproof-muted);
   line-height: 1.5;
   border-top: 1px solid var(--m-climateproof-line);
-  padding-top: 12px;
+  padding-top: 16px;
 }
 
 .m-climateproof-foot p {

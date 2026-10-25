@@ -1,0 +1,20 @@
+/* data: tables, charts, the timeline, the pollution atlas and the data refinery. Layered on src/design.css. */
+
+/* Timeline ------------------------------------------------------------- */
+.app .ctl-hud-value { letter-spacing: -0.03em; }
+.app .ctl-title { font-size: clamp(30px, 3vw, 40px); line-height: 1.1; }
+
+/* Pollution atlas -------------------------------------------------------- */
+.app .pa-head { gap: 20px; margin-bottom: 8px; }
+.app .pa-head p { font-size: 16px; line-height: 1.65; color: var(--text-secondary); max-width: 64ch; }
+.app .pa-stat { padding: 24px 26px; }
+.app .pa-banner, .app .pa-error { padding: 16px 22px; border-radius: var(--radius); background: var(--bad-soft); color: var(--text-primary); border: 1px solid color-mix(in srgb, var(--bad) 30%, transparent); }
+.app .pa-rank-head { gap: 16px; margin-bottom: 20px; }
+
+/* Data refinery ---------------------------------------------------------- */
+.app .rf textarea, .app textarea.rf-input { min-height: 160px; font-family: var(--font-mono); font-size: 13px; line-height: 1.65; }
+
+/* Generic data tables */
+.app table { font-variant-numeric: tabular-nums; }
+.app td { color: var(--text-primary); }
+.app tbody tr:hover td { background: var(--surface-tint); }

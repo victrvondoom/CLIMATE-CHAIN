@@ -2,6 +2,7 @@
 
 import { Suspense, useEffect, useState, type ReactNode } from 'react';
 import { WorkspaceErrorBoundary } from '../components/WorkspaceErrorBoundary';
+import { Icon } from '../components/Icon';
 import { STAGES, type WorkspaceView } from '../data/capabilities';
 import { DESTINATIONS, LIBRARY_GROUPS, destinationFor, isDestination, type Destination } from './library';
 import { MAX_PINNED, PIN_REQUEST_EVENT, canPin, pinnedGridPrefs, readPrefs, togglePinned, writePrefs, type DashboardLayout, type DashboardPrefs } from './prefs';
@@ -116,7 +117,8 @@ export function Dashboard({ active, onOpen, renderView }: DashboardProps) {
             onClick={() => setLibraryOpen((v) => !v)}
             aria-expanded={libraryOpen}
           >
-            <span>📁 View Explorer</span>
+            <Icon name="layers" size={16} />
+            <span>All views</span>
             <span className="badge-count">{DESTINATIONS.length}</span>
           </button>
 
@@ -126,14 +128,16 @@ export function Dashboard({ active, onOpen, renderView }: DashboardProps) {
               className={prefs.layout === 'focus' ? 'active' : ''}
               onClick={() => setLayout('focus')}
             >
-              Single View
+              <Icon name="dashboard" size={15} />
+              Single view
             </button>
             <button
               type="button"
               className={prefs.layout === 'grid' ? 'active' : ''}
               onClick={() => setLayout('grid')}
             >
-              Side-by-Side Grid ({prefs.pinned.length})
+              <Icon name="grid" size={15} />
+              Side-by-side <span className="seg-count">{prefs.pinned.length}</span>
             </button>
           </div>
         </div>
@@ -147,7 +151,8 @@ export function Dashboard({ active, onOpen, renderView }: DashboardProps) {
               disabled={!prefs.pinned.includes(active) && !canPin(prefs.pinned, active)}
               onClick={() => pin(active)}
             >
-              {prefs.pinned.includes(active) ? '★ Pinned to Grid' : '☆ Pin View'}
+              <Icon name="pin" size={15} />
+              {prefs.pinned.includes(active) ? 'Pinned to grid' : 'Pin to grid'}
             </button>
           )}
         </div>
@@ -158,13 +163,13 @@ export function Dashboard({ active, onOpen, renderView }: DashboardProps) {
         <div className="view-drawer-backdrop" onClick={() => setLibraryOpen(false)}>
           <div className="view-drawer-modal" onClick={(e) => e.stopPropagation()}>
             <div className="drawer-header">
-              <h3>All Climate Chain Views</h3>
+              <h3>All Climate Chain views</h3>
               <button
                 type="button"
                 className="drawer-close"
                 onClick={() => setLibraryOpen(false)}
               >
-                ✕
+                <Icon name="close" size={16} />
               </button>
             </div>
 
@@ -220,7 +225,7 @@ export function Dashboard({ active, onOpen, renderView }: DashboardProps) {
       <div className="dash-stage-full">
         {prefs.layout === 'grid' && !showGrid && (
           <div className="grid-empty-hint">
-            <p>Pin up to {MAX_PINNED} views using the "☆ Pin View" button to compare them side by side.</p>
+            <p>Pin up to {MAX_PINNED} views with “Pin to grid” to compare them side by side.</p>
           </div>
         )}
 
