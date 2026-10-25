@@ -141,7 +141,7 @@ export default function App() {
           <div className="brand-badge">CC</div>
           <div className="brand-info">
             <span className="brand-title">Climate Chain</span>
-            <span className="brand-tagline">18 Projects · One Mission</span>
+            <span className="brand-tagline">One Mission</span>
           </div>
           <button
             type="button"

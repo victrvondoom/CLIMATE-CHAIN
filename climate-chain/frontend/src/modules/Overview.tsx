@@ -422,7 +422,7 @@ export function Overview({
         </Card>
       </div>
 
-      {/* Connected 18 Projects Launchpad */}
+      {/* Connected Projects Launchpad */}
       <div id="launchpad">
         <Launchpad apps={apps} onOpenModule={onModule} />
       </div>

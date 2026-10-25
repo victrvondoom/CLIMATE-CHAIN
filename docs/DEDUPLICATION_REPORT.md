@@ -10,7 +10,7 @@
 This report establishes the mathematical and structural deduplication audit of the `IEEE CLIMATE CHAIN` workspace. It documents the exact relationship between the 18 specialist project folders found at the workspace root and the consolidated canonical module directory inside `climate-chain/projects/`.
 
 ### Core Mathematical Audit Findings
-1. **Total Extracted Folders Audited**: 18 projects across all 4 IEEE Climate Tracks.
+1. **Total Extracted Folders Audited**: all projects across the 4 IEEE Climate Tracks.
 2. **Tracked Source & Dataset Comparison**: 
    - Every active tracked source file, test fixture, smart contract, and dataset in `climate-chain/projects/` is an **exact 1:1 SHA-256 hash match** with its counterpart in the root workspace folder.
    - **0 modified source code files** exist between `climate-chain/projects/` and the root copies.
@@ -57,7 +57,7 @@ This report establishes the mathematical and structural deduplication audit of t
 ## 3. Four-Tier Classification Assessment
 
 ### A. Exact Duplicates (Preserved 1 Active Copy)
-All 18 projects have identical source, test, configuration, and documentation content in `climate-chain/projects/`. We preserve `climate-chain/projects/<name>` as the single canonical registration and execution path.
+All projects have identical source, test, configuration, and documentation content in `climate-chain/projects/`. We preserve `climate-chain/projects/<name>` as the single canonical registration and execution path.
 
 ### B. Similar but Modified Implementations (Merged with Zero Loss)
 - `carbonlens-main`: The version inside `climate-chain/projects/carbonlens-main` includes an essential web preview entrypoint (`index.html`) linking the Python Random Forest model and Sentinel-2 forest cover analysis to the browser, which was missing from the raw root clone. The authoritative version in `climate-chain/projects/carbonlens-main` was preserved intact.

@@ -18,7 +18,7 @@ This inventory documents every directory, file type, dependency manifest, smart 
    - **Frontend**: React 19 + TypeScript + Vite (`climate-chain/frontend`), 510 passing Vitest tests, 32 distinct views, Cesium 3D Earth, Climate Integrity Lab.
    - **Backend Gateway**: Zero-dependency Node.js (`climate-chain/gateway`), 173 passing unit tests, Windows DPAPI / AES-256-GCM memory vault, Trust Firewall policy engine.
    - **Blockchain**: Local Hardhat EVM (`climate-chain/blockchain`), 19 unit tests, `EvidenceAnchor.sol`, `EnvironmentalEvidenceRegistry.sol`, `ClimateClaimRegistry.sol`.
-   - **Registry**: `projects.json` (18 projects across 4 IEEE tracks), `features.json` (canonical cross-cutting capability map).
+   - **Registry**: `projects.json` (all projects across 4 IEEE tracks), `features.json` (canonical cross-cutting capability map).
 
 ---
 
