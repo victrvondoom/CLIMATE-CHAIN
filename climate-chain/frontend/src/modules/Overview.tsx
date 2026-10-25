@@ -21,7 +21,6 @@ export function Overview({
   onOpen,
   onNavigate,
   onMission,
-  onCapabilities,
   onStudio,
   onModule,
   onEarth,
@@ -34,7 +33,6 @@ export function Overview({
   onOpen: (view: WorkspaceView) => void;
   onNavigate: (m: ModuleId) => void;
   onMission: (stage: StageId) => void;
-  onCapabilities: () => void;
   onStudio: () => void;
   onModule: (id: string) => void;
   onEarth: () => void;
@@ -124,6 +122,9 @@ export function Overview({
             </button>
             <button className="secondary-hero-btn" onClick={onEarth}>
               Inspect Satellite Globe 🛰️
+            </button>
+            <button className="secondary-hero-btn" onClick={() => onOpen('pollution')}>
+              Pollution Atlas 🌫️
             </button>
             {onIntegrity && (
               <button className="secondary-hero-btn" onClick={onIntegrity}>
@@ -423,7 +424,7 @@ export function Overview({
 
       {/* Connected 18 Projects Launchpad */}
       <div id="launchpad">
-        <Launchpad apps={apps} onDetails={onCapabilities} onOpenModule={onModule} />
+        <Launchpad apps={apps} onOpenModule={onModule} />
       </div>
     </div>
   );

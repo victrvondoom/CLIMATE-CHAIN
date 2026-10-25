@@ -125,7 +125,7 @@ export async function verifyIndependently({ rpcUrl, contractAddress, evidenceId,
   const call = <T>(method: string, params: unknown[]) => rpcCall<T>(rpcUrl, method, params, fetchImpl);
   try {
     const chainId = Number(BigInt(await call<string>('eth_chainId', [])));
-    checks.push({ id: 'chain-id', label: `Chain id is ${LOCAL_CHAIN_ID}, the local Hardhat chain`, ok: chainId === LOCAL_CHAIN_ID, detail: String(chainId) });
+    checks.push({ id: 'chain-id', label: `Chain id is ${LOCAL_CHAIN_ID}, the development chain`, ok: chainId === LOCAL_CHAIN_ID, detail: String(chainId) });
     const code = await call<string>('eth_getCode', [contractAddress, 'latest']);
     checks.push({ id: 'contract-code', label: 'Contract code exists at the registry address', ok: typeof code === 'string' && code !== '0x', detail: `${Math.max(0, (code.length - 2) / 2)} bytes` });
     const key = evidenceKeyOf(evidenceId);

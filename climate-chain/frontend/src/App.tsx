@@ -20,12 +20,12 @@ import { placeForCity } from './core/places';
 import { DEFAULT_OVERVIEW } from './data/defaultOverview';
 
 const MissionPath = lazy(() => import('./modules/Workspace').then((module) => ({ default: module.MissionPath })));
-const CapabilityLibrary = lazy(() => import('./modules/Workspace').then((module) => ({ default: module.CapabilityLibrary })));
 const MissionStudio = lazy(() => import('./modules/MissionStudio').then((module) => ({ default: module.MissionStudio })));
 const CascadeReview = lazy(() => import('./modules/CascadeReview').then((module) => ({ default: module.CascadeReview })));
 const EarthWorkspace = lazy(() => import('./modules/earth/EarthWorkspace').then((module) => ({ default: module.EarthWorkspace })));
 const IntegrityLab = lazy(() => import('./modules/IntegrityLab').then((module) => ({ default: module.IntegrityLab })));
 const CausalLab = lazy(() => import('./modules/lab/CausalLab').then((module) => ({ default: module.CausalLab })));
+const PollutionAtlas = lazy(() => import('./modules/pollution/PollutionAtlas').then((module) => ({ default: module.PollutionAtlas })));
 const ClimateTimeline = lazy(() => import('./modules/ClimateTimeline').then((module) => ({ default: module.ClimateTimeline })));
 
 export default function App() {
@@ -103,7 +103,7 @@ export default function App() {
     switch (id) {
       case 'overview':
         return data ? (
-          <OverviewView data={data} apps={projectApps} services={services} servicesError={servicesError} onOpen={navigate} onNavigate={navigate} onMission={(stage) => { setActiveStage(stage); navigate('mission'); }} onCapabilities={() => navigate('capabilities')} onStudio={() => navigate('studio')} onModule={(moduleId) => navigate(`module:${moduleId}`)} onEarth={() => navigate('earth')} onIntegrity={() => navigate('integrity')} />
+          <OverviewView data={data} apps={projectApps} services={services} servicesError={servicesError} onOpen={navigate} onNavigate={navigate} onMission={(stage) => { setActiveStage(stage); navigate('mission'); }} onStudio={() => navigate('studio')} onModule={(moduleId) => navigate(`module:${moduleId}`)} onEarth={() => navigate('earth')} onIntegrity={() => navigate('integrity')} />
         ) : (
           <div className="overview-loading-skeleton">
             <div className="pulse-loader">
@@ -114,9 +114,9 @@ export default function App() {
         );
       case 'connections': return <ConnectionEvidence data={data} services={services} servicesError={servicesError} onRefresh={refreshAll} onOpen={navigate} />;
       case 'earth': return <EarthWorkspace initialPlace={placeForCity(city)} />;
-      case 'mission': return <MissionPath data={data} apps={projectApps} activeStage={activeStage} onStage={setActiveStage} focus={focus} onFocus={setFocus} onNavigate={navigate} />;
+      case 'pollution': return <PollutionAtlas />;
+      case 'mission': return <MissionPath data={data} activeStage={activeStage} onStage={setActiveStage} focus={focus} onFocus={setFocus} onNavigate={navigate} />;
       case 'studio': return <MissionStudio data={data} loading={!data && !error} focus={focus} onFocus={setFocus} selection={studioSelection} onSelection={setStudioSelection} title={studioTitle} onTitle={setStudioTitle} place={studioPlace} onPlace={setStudioPlace} onNavigate={navigate} focusMissionId={focusMissionId} />;
-      case 'capabilities': return <CapabilityLibrary onNavigate={navigate} />;
       case 'cascade': return data && <CascadeReview data={data} siteId={cascadeSiteId} onBack={() => navigate('waste')} />;
       case 'waste': return data && <Waste data={data} onReview={(siteId) => { setCascadeSiteId(siteId); navigate('cascade'); }} />;
       case 'fire': return data && <Fire data={data} />;
@@ -209,6 +209,14 @@ export default function App() {
             <span className="nav-icon">💨</span>
             <span className="nav-text">Air · Vayu Project</span>
           </button>
+          <button
+            type="button"
+            className={`nav-button ${view === 'pollution' ? 'active' : ''}`}
+            onClick={() => navigate('pollution')}
+          >
+            <span className="nav-icon">🌫️</span>
+            <span className="nav-text">Global Pollution Atlas</span>
+          </button>
 
           {/* Mission & Verification Section */}
           <div className="nav-section-title">MISSIONS & INTEGRITY</div>
@@ -259,14 +267,6 @@ export default function App() {
           >
             <span className="nav-icon">📜</span>
             <span className="nav-text">Evidence Ledger</span>
-          </button>
-          <button
-            type="button"
-            className={`nav-button ${view === 'capabilities' ? 'active' : ''}`}
-            onClick={() => navigate('capabilities')}
-          >
-            <span className="nav-icon">🚀</span>
-            <span className="nav-text">All 18 Projects</span>
           </button>
         </nav>
 

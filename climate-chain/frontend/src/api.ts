@@ -443,7 +443,8 @@ export function fetchCascade(
 
 export interface EvidenceAnchorStatus {
   network: string;
-  localOnly: true;
+  localOnly: boolean;
+  chainMode?: 'in-process' | 'external-rpc';
   chainId: number;
   rpcUrl: string;
   contractAddress: string | null;

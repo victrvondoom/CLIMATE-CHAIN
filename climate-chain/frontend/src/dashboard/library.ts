@@ -30,6 +30,7 @@ export interface Destination {
 const CORE_DESTINATIONS: Destination[] = [
   { id: 'overview', label: 'Command center', title: 'Climate Chain', group: 'overview' },
   { id: 'earth', label: 'Satellite climate globe', title: 'Earth intelligence', group: 'overview' },
+  { id: 'pollution', label: 'Global Pollution Atlas · 195 countries', title: 'Global Pollution Atlas', group: 'signals' },
   { id: 'waste', label: 'Waste · JunkSnap', title: 'Waste · JunkSnap', group: 'signals' },
   { id: 'fire', label: 'Fire · clearsky', title: 'Fire · clearsky', group: 'signals' },
   { id: 'water', label: 'Water · Teesri Shikayat', title: 'Water · Teesri Shikayat', group: 'signals' },
@@ -43,7 +44,6 @@ const CORE_DESTINATIONS: Destination[] = [
   { id: 'connections', label: 'Data, keys & MCP evidence', title: 'Data and connection evidence', group: 'evidence' },
   { id: 'session', label: 'Review desk', title: 'Climate Chain', group: 'evidence' },
   { id: 'ledger', label: 'Evidence ledger', title: 'Evidence ledger', group: 'evidence' },
-  { id: 'capabilities', label: 'All capabilities', title: 'Connected climate tools', group: 'tools' },
   { id: 'memory', label: 'AI engineering memory', title: 'Engineering memory', group: 'tools' },
 ];
 

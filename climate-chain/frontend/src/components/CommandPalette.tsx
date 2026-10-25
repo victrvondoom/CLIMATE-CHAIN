@@ -29,10 +29,11 @@ export function CommandPalette({ open, onClose, onNavigate, memories = [] }: { o
   const returnFocusRef = useRef<HTMLElement | null>(null);
   const commands = useMemo<Command[]>(() => [
     { id: 'earth', label: 'Satellite climate globe', detail: 'Cesium · weather · air quality · carbon · supply chains', view: 'earth' },
+    { id: 'pollution', label: 'Global Pollution Atlas', detail: 'Live air quality · 195 countries · click anywhere · polluted area', view: 'pollution' },
     { id: 'overview', label: 'Command center', detail: 'Workspace', view: 'overview' },
     { id: 'studio', label: 'Mission Studio', detail: 'Create and review missions', view: 'studio' },
     { id: 'memory', label: 'Engineering Memory', detail: 'Recall gate and judgment vault', view: 'memory' },
-    ...CAPABILITIES.map((item) => ({ id: item.id, label: item.name, detail: `${item.domain} · ${item.readiness}`, view: (item.module ?? 'capabilities') as WorkspaceView })),
+    ...CAPABILITIES.map((item) => ({ id: item.id, label: item.name, detail: `${item.domain} · ${item.readiness}`, view: (item.module ?? 'overview') as WorkspaceView })),
     { id: 'ledger', label: 'Evidence ledger', detail: 'Every recorded outcome, with a digest check', view: 'ledger' },
     { id: 'timeline', label: 'Climate Intelligence Timeline', detail: '200 years of environmental evidence (1826-2026) · NOAA, NASA, Law Dome, Mauna Loa', view: 'timeline' },
     { id: 'integrity', label: 'Climate Integrity Lab', detail: 'Signal to on-chain proof · tamper, replay, duplicate claim, challenge, correction', view: 'integrity' },

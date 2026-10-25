@@ -37,11 +37,9 @@ export function AnnouncementBand({ onAction }: { onAction: (to: Announcement['ac
 
 export function Launchpad({
   apps: _apps,
-  onDetails,
   onOpenModule
 }: {
   apps: Record<string, ProjectAppStatus>;
-  onDetails: () => void;
   onOpenModule: (id: string) => void;
 }) {
   const projects = CAPABILITIES.filter((item) => !item.central);
@@ -118,7 +116,6 @@ export function Launchpad({
           <LaunchCard
             key={project.id}
             project={project}
-            onDetails={onDetails}
             onOpenModule={onOpenModule}
           />
         ))}
@@ -146,11 +143,9 @@ export function Launchpad({
 
 function LaunchCard({
   project,
-  onDetails,
   onOpenModule
 }: {
   project: Capability;
-  onDetails: () => void;
   onOpenModule: (id: string) => void;
 }) {
   const [details, setDetails] = useState(false);
@@ -216,9 +211,6 @@ function LaunchCard({
           <p className="muted small">
             Fully merged into the central Climate Chain pipeline. Execution and cryptographic verification run in-app.
           </p>
-          <button type="button" className="text-action" onClick={onDetails}>
-            Browse Full Capability Library →
-          </button>
         </div>
       )}
     </article>

@@ -217,7 +217,7 @@ export function CascadeReview({ data, siteId, onBack }: { data: Overview; siteId
                 {chainStatus?.available ? 'LOCAL CHAIN CONNECTED' : 'LOCAL CHAIN OFFLINE'}
               </span>
             </div>
-            <p className="muted">Commit the manifest SHA-256 digest to the local EVM chain. The contract stores the digest, hashed identifiers, and minimal receipt metadata; the source payload stays in your downloaded manifest. This proves that the same bytes match a recorded block, not that the sources are accurate or causally related.</p>
+            <p className="muted">Commit the manifest SHA-256 digest to the EVM chain. The contract stores the digest, hashed identifiers, and minimal receipt metadata; the source payload stays in your downloaded manifest. This proves that the same bytes match a recorded block, not that the sources are accurate or causally related.</p>
             <div className="cascade-chain-meta">
               <span>{chainStatus?.network ?? 'Hardhat local development chain'} · chain ID {chainStatus?.chainId ?? 31337}</span>
               {chainStatus?.contractAddress && <code title={chainStatus.contractAddress}>Contract {chainStatus.contractAddress}</code>}
@@ -225,7 +225,7 @@ export function CascadeReview({ data, siteId, onBack }: { data: Overview; siteId
             </div>
             {!chainStatus?.available && <p className="cascade-chain-note">{chainStatus?.message ?? 'Start Climate Chain with .\\start.ps1 to run and deploy the local proof chain.'}</p>}
             <button className="primary-action" disabled={!chainStatus?.available || anchoring || refreshing || !!error} onClick={() => void anchorCurrentManifest()}>
-              {anchoring ? 'Writing and confirming transaction…' : 'Anchor manifest on local chain'}
+              {anchoring ? 'Writing and confirming transaction…' : 'Anchor manifest on the chain'}
             </button>
             {anchorError && <p className="cascade-chain-error" role="alert">{anchorError}</p>}
             {anchorProof?.anchored && (
@@ -235,7 +235,7 @@ export function CascadeReview({ data, siteId, onBack }: { data: Overview; siteId
                 <code className="cascade-chain-digest">SHA-256 {anchorProof.digest.replace(/^0x/, '')}</code>
                 {anchorProof.transactionHash && <code className="cascade-chain-digest">Transaction {anchorProof.transactionHash}</code>}
                 {anchorProof.contractAddress && <code className="cascade-chain-digest">Contract {anchorProof.contractAddress}</code>}
-                <span className="muted small">Digest, hashed identifiers, and receipt metadata are on-chain; source readings and site details stay in the manifest. This local chain resets when restarted.</span>
+                <span className="muted small">Digest, hashed identifiers, and receipt metadata are on-chain; source readings and site details stay in the manifest. This is a development chain, not a public testnet.</span>
               </div>
             )}
           </Card>

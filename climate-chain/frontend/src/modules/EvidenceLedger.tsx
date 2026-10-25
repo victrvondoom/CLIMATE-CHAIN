@@ -110,7 +110,7 @@ export function EvidenceLedger({ onOpenModule, onOpenReview }: { onOpenModule?: 
             {chainStatus?.available ? `CONNECTED · ${chainStatus.anchorCount ?? 0} anchors` : 'LOCAL CHAIN OFFLINE'}
           </span>
         </div>
-        <p className="muted small">Cascade Review can anchor a SHA-256 digest. The contract holds no source text or measurements; compare an exported manifest’s digest with these records to check integrity. A local chain is not a public testnet and resets on restart.</p>
+        <p className="muted small">Cascade Review can anchor a SHA-256 digest. The contract holds no source text or measurements; compare an exported manifest’s digest with these records to check integrity. This is a development chain, not a public testnet.</p>
         {chainStatus?.contractAddress && <code className="chain-ledger-contract">Contract {chainStatus.contractAddress} · chain ID {chainStatus.chainId} · deploy block {chainStatus.deployBlock}</code>}
         <div className="chain-verify-row">
           <label htmlFor="chain-digest-input">Check a manifest SHA-256 digest</label>

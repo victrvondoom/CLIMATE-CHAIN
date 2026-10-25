@@ -48,6 +48,9 @@ import { createKnowledgeService, KnowledgeError } from './knowledge-index.mjs';
 import { createEvidenceAnchorService, EvidenceAnchorError, isValidEvidenceDigest } from './evidence-anchor.mjs';
 import { createIntegrityService } from './integrity-service.mjs';
 import { createWorldSignalService, WorldSignalError } from './world-signals.mjs';
+import { createRateLimiter } from './rate-limit.mjs';
+import { createChainRuntime } from './chain-runtime.mjs';
+import { createStorage } from './storage.mjs';
 import {
   getDatasetsCatalog,
   getTimelineObservations,
@@ -350,8 +353,18 @@ async function handleCascade(url, res) {
   return sendJson(res, 200, { ...result, sources: { junksnap: 'live', vayu: 'live' } });
 }
 
+// Chain reads on a public deployment share one budget per caller; the local operator is never limited.
+function chainReadDenial(req) {
+  if (!publicChainWrites() || req.method !== 'GET') return null;
+  if (!process.env.VERCEL && isLoopbackAddress(req.socket.remoteAddress)) return null;
+  const verdict = chainReadLimiter.take(clientAddress(req));
+  return verdict.ok ? null : { status: 429, error: { code: 'rate_limited', message: `Too many chain reads from this address. Retry in ${verdict.retryAfterSeconds} s.` }, retryAfter: verdict.retryAfterSeconds };
+}
+
 async function handleEvidenceAnchors(req, res, url, service) {
   const base = '/api/v1/evidence-anchors';
+  const throttled = chainReadDenial(req);
+  if (throttled) return refuseWrite(req, res, throttled);
   if (url.pathname === `${base}/status` && req.method === 'GET') {
     return sendLocalJson(res, 200, await service.status());
   }
@@ -364,10 +377,8 @@ async function handleEvidenceAnchors(req, res, url, service) {
     }
   }
   if (url.pathname === base && req.method === 'POST') {
-    if (!isLoopbackAddress(req.socket.remoteAddress) || !isLocalOrigin(req.headers.origin)) {
-      req.resume();
-      return sendLocalJson(res, 403, { error: { code: 'local_access_required', message: 'Evidence anchoring is available only from the local Climate Chain app.' } });
-    }
+    const denied = chainWriteDenial(req, 'Evidence anchoring is available only from the local Climate Chain app.');
+    if (denied) return refuseWrite(req, res, denied);
     try {
       const body = await readJsonBody(req, 150_000);
       const result = await service.anchor(body.manifest);
@@ -458,14 +469,14 @@ async function routeIntegrity(service, method, parts, body) {
 async function handleIntegrity(req, res, url, service) {
   const parts = url.pathname.slice(INTEGRITY_BASE.length).split('/').filter(Boolean);
   const isWrite = req.method === 'POST';
+  const throttled = chainReadDenial(req);
+  if (throttled) return refuseWrite(req, res, throttled);
   if (req.method !== 'GET' && !isWrite) {
     req.resume();
     return sendLocalJson(res, 405, { error: { code: 'method_not_allowed', message: 'The integrity lab accepts GET for reads and POST for local writes.' } });
   }
-  if (isWrite && (!isLoopbackAddress(req.socket.remoteAddress) || !isLocalOrigin(req.headers.origin))) {
-    req.resume();
-    return sendLocalJson(res, 403, { error: { code: 'local_access_required', message: 'Integrity lab writes are available only from the local Climate Chain app.' } });
-  }
+  const denied = isWrite ? chainWriteDenial(req, 'Integrity lab writes are available only from the local Climate Chain app.') : null;
+  if (denied) return refuseWrite(req, res, denied);
   try {
     const body = isWrite ? await readOptionalJsonBody(req, 20_000) : {};
     if (!isWrite) req.resume();
@@ -579,6 +590,101 @@ function isLoopbackAddress(address = '') {
   return address === '::1' || address === '::ffff:127.0.0.1' || /^127(?:\.\d{1,3}){3}$/.test(address);
 }
 
+// Chain writes are local-only by default. A deployment that runs its own in-process chain (test keys only, no
+// funds) may open them to visitors with CLIMATE_CHAIN_PUBLIC_WRITES=1; Vercel sets it implicitly. Visitors must
+// write from this app's own origin and stay inside a per-address rate limit.
+const publicChainWrites = () => process.env.CLIMATE_CHAIN_PUBLIC_WRITES === '1' || Boolean(process.env.VERCEL);
+const chainWriteLimiter = createRateLimiter({ limit: 40, windowMs: 60_000 });
+
+// IPv6 callers are limited per /64: one subscriber holds a whole /64 and could otherwise rotate through it.
+export function rateKey(address) {
+  const text = String(address || 'unknown').replace(/^::ffff:/i, '');
+  if (!text.includes(':')) return text;
+  const [head, tail = ''] = text.split('::');
+  const first = head ? head.split(':') : [];
+  const last = tail ? tail.split(':') : [];
+  const groups = text.includes('::') ? [...first, ...Array(Math.max(0, 8 - first.length - last.length)).fill('0'), ...last] : first;
+  return `${groups.slice(0, 4).map((group) => (group || '0').toLowerCase()).join(':')}::/64`;
+}
+
+function clientAddress(req) {
+  if (process.env.VERCEL) {
+    // Vercel replaces these headers with the connecting client's address, so they cannot be spoofed there.
+    for (const name of ['x-forwarded-for', 'x-real-ip']) {
+      const value = req.headers[name];
+      if (typeof value === 'string' && value) return rateKey(value.split(',')[0].trim());
+    }
+  }
+  return rateKey(req.socket.remoteAddress);
+}
+
+function isSameOrigin(req) {
+  if (!req.headers.origin) return true;
+  try { return new URL(req.headers.origin).host === (req.headers['x-forwarded-host'] || req.headers.host); } catch { return false; }
+}
+
+/** Null when the write may proceed, otherwise the HTTP refusal to send. */
+function chainWriteDenial(req, localOnlyMessage) {
+  // On Vercel there is no "local" client: a function may be reached through an internal bridge whose address
+  // looks like loopback, so the shortcut for the local operator never applies there.
+  if (!process.env.VERCEL && isLoopbackAddress(req.socket.remoteAddress) && isLocalOrigin(req.headers.origin)) return null;
+  if (!publicChainWrites()) return { status: 403, error: { code: 'local_access_required', message: localOnlyMessage } };
+  if (!isSameOrigin(req)) return { status: 403, error: { code: 'cross_origin_write_refused', message: 'Chain writes are accepted only from this app\'s own pages.' } };
+  const verdict = chainWriteLimiter.take(clientAddress(req));
+  if (!verdict.ok) return { status: 429, error: { code: 'rate_limited', message: `Too many chain writes from this address. Retry in ${verdict.retryAfterSeconds} s.` }, retryAfter: verdict.retryAfterSeconds };
+  return null;
+}
+
+// Hosts that cannot keep a chain node alive (Vercel) run the EVM inside the gateway. Elsewhere the gateway
+// keeps using the Hardhat node the launcher starts, unless CLIMATE_CHAIN_CHAIN=in-process asks otherwise.
+function createDefaultChainRuntime() {
+  if (process.env.CLIMATE_CHAIN_CHAIN !== 'in-process' && !process.env.VERCEL) return null;
+  return createChainRuntime({
+    storage: () => createStorage({ env: process.env, fileRoot: process.env.CLIMATE_CHAIN_INTEGRITY_DATA || join(__dirname, '.integrity-data') }),
+  });
+}
+
+const chainReadLimiter = createRateLimiter({ limit: 240, windowMs: 60_000 });
+
+// Read-only access to the in-process chain, so a visitor's browser can check the chain without trusting
+// the gateway's own summaries: a JSON-RPC allowlist, the chain status, and the verified transaction journal.
+async function handleChain(req, res, pathname, chain) {
+  if (!chain) return sendLocalJson(res, 404, { error: { code: 'in_process_chain_disabled', message: 'This gateway uses an external chain node; read it at that node\'s own RPC URL.' } });
+  const verdict = chainReadLimiter.take(clientAddress(req));
+  if (!verdict.ok) return refuseWrite(req, res, { status: 429, error: { code: 'rate_limited', message: `Too many chain reads from this address. Retry in ${verdict.retryAfterSeconds} s.` }, retryAfter: verdict.retryAfterSeconds });
+  const failure = (error, status = 503) => sendLocalJson(res, error?.status || status, { error: { code: error?.code || 'chain_unavailable', message: error?.message || 'The chain is not available.' } });
+
+  if (pathname === '/api/v1/chain/status' && req.method === 'GET') {
+    await chain.ready().catch(() => {});
+    return sendLocalJson(res, 200, chain.describe());
+  }
+  if (pathname === '/api/v1/chain/journal' && req.method === 'GET') {
+    try { return sendLocalJson(res, 200, await chain.journal()); } catch (error) { return failure(error); }
+  }
+  if (pathname === '/api/v1/chain/rpc' && req.method === 'POST') {
+    let body;
+    try { body = await readJsonBody(req, 20_000); } catch { return sendLocalJson(res, 400, { jsonrpc: '2.0', id: null, error: { code: -32700, message: 'Send one JSON-RPC request object under 20 KB.' } }); }
+    const id = body.id ?? null;
+    if (typeof body.method !== 'string') return sendLocalJson(res, 400, { jsonrpc: '2.0', id, error: { code: -32600, message: 'A JSON-RPC request needs a method.' } });
+    try {
+      return sendLocalJson(res, 200, { jsonrpc: '2.0', id, result: await chain.rpc(body.method, Array.isArray(body.params) ? body.params : []) });
+    } catch (error) {
+      return sendLocalJson(res, 200, { jsonrpc: '2.0', id, error: { code: typeof error?.code === 'number' ? error.code : -32000, message: error?.message || 'The chain rejected the request.' } });
+    }
+  }
+  req.resume();
+  return sendLocalJson(res, 405, { error: { code: 'method_not_allowed', message: 'Read the chain with GET /status, GET /journal or POST /rpc.' } });
+}
+
+function refuseWrite(req, res, denial) {
+  req.resume();
+  res.writeHead(denial.status, {
+    'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store', 'x-content-type-options': 'nosniff',
+    ...(denial.retryAfter ? { 'retry-after': String(denial.retryAfter) } : {}),
+  });
+  res.end(JSON.stringify({ error: denial.error }));
+}
+
 function isLocalOrigin(origin) {
   if (!origin) return true;
   try {
@@ -663,7 +769,7 @@ async function handleMissions(req, res, url, engine) {
   }
 }
 
-export function createGatewayServer({ missionEngine, connectorRegistry, missionStorePath, projectRegistry, trackRegistry, placeService, worldSignalService, facilitiesService, knowledgeService, evidenceAnchorService, integrityService } = {}) {
+export function createGatewayServer({ missionEngine, connectorRegistry, missionStorePath, projectRegistry, trackRegistry, placeService, worldSignalService, facilitiesService, knowledgeService, evidenceAnchorService, integrityService, chainRuntime } = {}) {
   const missions = missionEngine || createMissionEngine({ storePath: missionStorePath });
   const connectors = connectorRegistry || createConnectorRegistry({ env: process.env });
   const projects = projectRegistry || loadRegistry();
@@ -672,8 +778,9 @@ export function createGatewayServer({ missionEngine, connectorRegistry, missionS
   const worldSignals = worldSignalService || createWorldSignalService();
   const facilities = facilitiesService || createFacilityService();
   const knowledge = knowledgeService || createKnowledgeService({ root: join(__dirname, '..') });
-  const evidenceAnchors = evidenceAnchorService || createEvidenceAnchorService();
-  const integrity = integrityService || createIntegrityService();
+  const chain = chainRuntime === undefined ? createDefaultChainRuntime() : chainRuntime;
+  const evidenceAnchors = evidenceAnchorService || createEvidenceAnchorService({ chain });
+  const integrity = integrityService || createIntegrityService({ chain });
   return http.createServer(async (req, res) => {
   const suppliedCorrelationId = req.headers['x-correlation-id'];
   const correlationId = typeof suppliedCorrelationId === 'string' && /^[A-Za-z0-9._:-]{1,100}$/.test(suppliedCorrelationId) ? suppliedCorrelationId : randomUUID();
@@ -761,6 +868,7 @@ export function createGatewayServer({ missionEngine, connectorRegistry, missionS
     if (p === '/api/v1/evidence-anchors' || p.startsWith('/api/v1/evidence-anchors/')) {
       return handleEvidenceAnchors(req, res, url, evidenceAnchors);
     }
+    if (p === '/api/v1/chain/rpc' || p === '/api/v1/chain/journal' || p === '/api/v1/chain/status') return handleChain(req, res, p, chain);
     if (p === INTEGRITY_BASE || p.startsWith(`${INTEGRITY_BASE}/`)) {
       return handleIntegrity(req, res, url, integrity);
     }

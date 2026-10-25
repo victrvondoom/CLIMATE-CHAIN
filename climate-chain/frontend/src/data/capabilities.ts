@@ -6,7 +6,7 @@ import type { ModuleId } from '../types';
 
 export type StageId = 'sense' | 'verify' | 'act' | 'finance' | 'prove';
 export type TrackId = 'carbon-markets-emissions-transparency' | 'renewable-energy-energy-trading' | 'sustainable-supply-chains' | 'climate-data-environmental-monitoring';
-export type WorkspaceView = 'earth' | 'session' | 'overview' | 'mission' | 'studio' | 'capabilities' | 'cascade' | 'memory' | 'ledger' | 'integrity' | 'connections' | 'timeline' | 'lab' | `module:${string}` | ModuleId;
+export type WorkspaceView = 'earth' | 'pollution' | 'session' | 'overview' | 'mission' | 'studio' | 'cascade' | 'memory' | 'ledger' | 'integrity' | 'connections' | 'timeline' | 'lab' | `module:${string}` | ModuleId;
 
 interface RegistryTrack {
   id: TrackId;

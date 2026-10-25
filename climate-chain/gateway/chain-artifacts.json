@@ -1,0 +1,1245 @@
+{
+  "schemaVersion": 1,
+  "solc": "0.8.38",
+  "optimizer": {
+    "enabled": true,
+    "runs": 200
+  },
+  "contracts": {
+    "EvidenceAnchor": {
+      "sourceSha256": "7a66e7eba3d0c446d5a5d1cb44a2f24e6b93e052887af67b17e5c1a67ff73f71",
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "digest",
+              "type": "bytes32"
+            }
+          ],
+          "name": "DigestAlreadyAnchored",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "EmptyDigest",
+          "type": "error"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "digest",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "manifestIdHash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "evidenceTypeHash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "anchorer",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint64",
+              "name": "blockNumber",
+              "type": "uint64"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint64",
+              "name": "anchoredAt",
+              "type": "uint64"
+            }
+          ],
+          "name": "EvidenceAnchored",
+          "type": "event"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "digest",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "manifestIdHash",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "evidenceTypeHash",
+              "type": "bytes32"
+            }
+          ],
+          "name": "anchor",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "anchorCount",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "digest",
+              "type": "bytes32"
+            }
+          ],
+          "name": "anchors",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "manifestIdHash",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "evidenceTypeHash",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "address",
+              "name": "anchorer",
+              "type": "address"
+            },
+            {
+              "internalType": "uint64",
+              "name": "blockNumber",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint64",
+              "name": "anchoredAt",
+              "type": "uint64"
+            },
+            {
+              "internalType": "bool",
+              "name": "exists",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        }
+      ],
+      "bytecode": "0x6080604052348015600f57600080fd5b506103538061001f6000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c806334f96c8c146100465780636ed37a1d14610062578063b01b6d5314610077575b600080fd5b61004f60015481565b6040519081526020015b60405180910390f35b6100756100703660046102b1565b610122565b005b6100d96100853660046102dd565b6000602081905290815260409020805460018201546002830154600390930154919290916001600160a01b03821691600160a01b900467ffffffffffffffff9081169190811690600160401b900460ff1686565b6040805196875260208701959095526001600160a01b039093169385019390935267ffffffffffffffff90811660608501529091166080830152151560a082015260c001610059565b82610140576040516373ca609760e01b815260040160405180910390fd5b600083815260208190526040902060030154600160401b900460ff16156101815760405163f2df97d960e01b81526004810184905260240160405180910390fd5b6040805160c08101825283815260208082018481523383850190815267ffffffffffffffff43818116606087019081524283811660808901908152600160a08a0181815260008f8152998a90529a892099518a55965189880155945160028901805493518616600160a01b026001600160e01b03199094166001600160a01b0392909216919091179290921790915592516003909601805497511515600160401b0268ffffffffffffffffff199098169690921695909517959095179094558054929392909182916102549083906102f6565b90915550506040805133815267ffffffffffffffff848116602083015283168183015290518491869188917fa100cf206e97901ff4d7b3beb0d5b1be58a432ad2c06cb525479b51ee911d798919081900360600190a45050505050565b6000806000606084860312156102c657600080fd5b505081359360208301359350604090920135919050565b6000602082840312156102ef57600080fd5b5035919050565b8082018082111561031757634e487b7160e01b600052601160045260246000fd5b9291505056fea264697066735822122041057325acaa499557c0f46b9664a69260f6d89caaca6247e78a5b0930861b2d64736f6c63430008260033"
+    },
+    "EnvironmentalEvidenceRegistry": {
+      "sourceSha256": "052861950de6a925f4cc36103c4fd1132864cdea962e3d738302fdb8a7443374",
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "digest",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "evidenceId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "DigestAlreadyAnchored",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "EmptyDigest",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "EmptyEvidenceId",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "evidenceId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "EvidenceIdTaken",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "caller",
+              "type": "address"
+            }
+          ],
+          "name": "NotAdmin",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "caller",
+              "type": "address"
+            }
+          ],
+          "name": "NotAttester",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "parentEvidenceId",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "supersededBy",
+              "type": "bytes32"
+            }
+          ],
+          "name": "ParentAlreadySuperseded",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "parentEvidenceId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "UnknownParent",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "ZeroAddress",
+          "type": "error"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "bool",
+              "name": "allowed",
+              "type": "bool"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "updatedBy",
+              "type": "address"
+            }
+          ],
+          "name": "AttesterUpdated",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "evidenceId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "digest",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "parentEvidenceId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "metadataHash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "attester",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint64",
+              "name": "blockNumber",
+              "type": "uint64"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint64",
+              "name": "anchoredAt",
+              "type": "uint64"
+            }
+          ],
+          "name": "EvidenceAnchored",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "parentEvidenceId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "evidenceId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "EvidenceSuperseded",
+          "type": "event"
+        },
+        {
+          "inputs": [],
+          "name": "admin",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "evidenceId",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "digest",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "parentEvidenceId",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "metadataHash",
+              "type": "bytes32"
+            }
+          ],
+          "name": "anchorEvidence",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "evidenceCount",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "digest",
+              "type": "bytes32"
+            }
+          ],
+          "name": "evidenceIdForDigest",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "evidenceId",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "evidenceId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "exists",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "evidenceId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "getEvidence",
+          "outputs": [
+            {
+              "components": [
+                {
+                  "internalType": "bytes32",
+                  "name": "digest",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "parentEvidenceId",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "metadataHash",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "supersededBy",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "address",
+                  "name": "attester",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "blockNumber",
+                  "type": "uint64"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "anchoredAt",
+                  "type": "uint64"
+                }
+              ],
+              "internalType": "struct EnvironmentalEvidenceRegistry.Evidence",
+              "name": "",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "isAttester",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "allowed",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "evidenceId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "isCurrent",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "internalType": "bool",
+              "name": "allowed",
+              "type": "bool"
+            }
+          ],
+          "name": "setAttester",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "evidenceId",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "digest",
+              "type": "bytes32"
+            }
+          ],
+          "name": "verifyDigest",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        }
+      ],
+      "bytecode": "0x60a0604052348015600f57600080fd5b5033608081905260008181526020818152604091829020805460ff19166001908117909155915191825282917f300b2cfe3840e2fd488ae1809dd1b01f2332a04d2a489935c89da7fbca19dc04910160405180910390a3608051610883610088600039600081816102bd015261063701526108836000f3fe608060405234801561001057600080fd5b506004361061009e5760003560e01c8063a2ed5af011610066578063a2ed5af014610266578063b6ebe5391461026f578063bc2258bc14610292578063e359ea82146102a5578063f851a440146102b857600080fd5b806338a699a4146100a35780634a7221a0146100da578063570f7bb7146102105780635c0204d9146102255780639d80629c14610238575b600080fd5b6100c56100b136600461074c565b600090815260036020526040902054151590565b60405190151581526020015b60405180910390f35b61019e6100e836600461074c565b6040805160e081018252600080825260208201819052918101829052606081018290526080810182905260a0810182905260c081019190915250600090815260036020818152604092839020835160e0810185528154815260018201549281019290925260028101549382019390935290820154606082015260048201546001600160a01b038116608083015267ffffffffffffffff600160a01b909104811660a083015260059092015490911660c082015290565b6040516100d19190600060e0820190508251825260208301516020830152604083015160408301526060830151606083015260018060a01b03608084015116608083015267ffffffffffffffff60a08401511660a083015267ffffffffffffffff60c08401511660c083015292915050565b61022361021e366004610765565b6102f7565b005b6102236102333660046107b3565b61062c565b61025861024636600461074c565b60016020526000908152604090205481565b6040519081526020016100d1565b61025860025481565b6100c561027d3660046107ef565b60006020819052908152604090205460ff1681565b6100c56102a036600461080a565b6106fe565b6100c56102b336600461074c565b610725565b6102df7f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b0390911681526020016100d1565b3360009081526020819052604090205460ff1661032e576040516314817f2f60e01b81523360048201526024015b60405180910390fd5b8361034c576040516303a704e760e51b815260040160405180910390fd5b8261036a576040516373ca609760e01b815260040160405180910390fd5b6000848152600360205260409020541561039a5760405163462440df60e11b815260048101859052602401610325565b60008381526001602052604090205480156103d25760405163e0c14d9760e01b81526004810185905260248101829052604401610325565b8215610442576000838152600360205260409020805461040857604051630c45b2fb60e21b815260048101859052602401610325565b60038101541561043b57600381015460405163121c503b60e11b8152610325918691600401918252602082015260400190565b6003018590555b600043905060004290506040518060e001604052808781526020018681526020018581526020016000801b8152602001336001600160a01b031681526020018367ffffffffffffffff1681526020018267ffffffffffffffff16815250600360008981526020019081526020016000206000820151816000015560208201518160010155604082015181600201556060820151816003015560808201518160040160006101000a8154816001600160a01b0302191690836001600160a01b0316021790555060a08201518160040160146101000a81548167ffffffffffffffff021916908367ffffffffffffffff16021790555060c08201518160050160006101000a81548167ffffffffffffffff021916908367ffffffffffffffff160217905550905050866001600088815260200190815260200160002081905550600160026000828254610593919061082c565b90915550506040805185815233602082015267ffffffffffffffff84811682840152831660608201529051869188918a917f2dec7262201bc81850790b3c9faaa89fd774ca6557c4dc2959eb3a7357260842919081900360800190a4841561062357604051879086907fb2571f2dd2430d3f98e3f102c2d7a7c7e5c8adcf329333b72a67e9f3751c7e2490600090a35b50505050505050565b336001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000161461067757604051630bd4212160e11b8152336004820152602401610325565b6001600160a01b03821661069e5760405163d92e233d60e01b815260040160405180910390fd5b6001600160a01b03821660008181526020818152604091829020805460ff191685151590811790915591519182523392917f300b2cfe3840e2fd488ae1809dd1b01f2332a04d2a489935c89da7fbca19dc04910160405180910390a35050565b6000811580159061071c575060008381526003602052604090205482145b90505b92915050565b600081815260036020526040812080541580159061074557506003810154155b9392505050565b60006020828403121561075e57600080fd5b5035919050565b6000806000806080858703121561077b57600080fd5b5050823594602084013594506040840135936060013592509050565b80356001600160a01b03811681146107ae57600080fd5b919050565b600080604083850312156107c657600080fd5b6107cf83610797565b9150602083013580151581146107e457600080fd5b809150509250929050565b60006020828403121561080157600080fd5b61071c82610797565b6000806040838503121561081d57600080fd5b50508035926020909101359150565b8082018082111561071f57634e487b7160e01b600052601160045260246000fdfea264697066735822122095d15b9993867f9dd87b9dcf907f2d943fb338edf87c1c05f89f7aba09d582f764736f6c63430008260033"
+    },
+    "ClimateClaimRegistry": {
+      "sourceSha256": "5bb2f41edfc8c7764be09a01a77030baccfe3444c7ab59271ad45f5ce65c9100",
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "evidenceRegistry_",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "claimId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "ClaimIdTaken",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "reviewer",
+              "type": "address"
+            }
+          ],
+          "name": "ConflictOfInterest",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "exclusivityKey",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "existingClaimId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "DuplicateClaim",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "EmptyClaimHash",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "EmptyClaimId",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "EmptyExclusivityKey",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "EmptyReason",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "evidenceId",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "existingClaimId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "EvidenceAlreadyClaimed",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "evidenceId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "EvidenceNotAnchored",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "evidenceId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "EvidenceNotCurrent",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "claimId",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "enum ClimateClaimRegistry.Status",
+              "name": "current",
+              "type": "uint8"
+            }
+          ],
+          "name": "InvalidStatus",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "caller",
+              "type": "address"
+            }
+          ],
+          "name": "NotAdmin",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "caller",
+              "type": "address"
+            }
+          ],
+          "name": "NotClaimant",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "caller",
+              "type": "address"
+            }
+          ],
+          "name": "NotReviewer",
+          "type": "error"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "claimId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "UnknownClaim",
+          "type": "error"
+        },
+        {
+          "inputs": [],
+          "name": "ZeroAddress",
+          "type": "error"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "claimId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "internalType": "bool",
+              "name": "upheld",
+              "type": "bool"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "reviewer",
+              "type": "address"
+            }
+          ],
+          "name": "ChallengeResolved",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "claimId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "challenger",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "reasonHash",
+              "type": "bytes32"
+            }
+          ],
+          "name": "ClaimChallenged",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "claimId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "exclusivityKey",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "evidenceId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "claimHash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "supersedes",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "claimant",
+              "type": "address"
+            }
+          ],
+          "name": "ClaimSubmitted",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "originalClaimId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "correctedClaimId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "reviewer",
+              "type": "address"
+            }
+          ],
+          "name": "ClaimSuperseded",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "role",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "bool",
+              "name": "allowed",
+              "type": "bool"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "updatedBy",
+              "type": "address"
+            }
+          ],
+          "name": "RoleUpdated",
+          "type": "event"
+        },
+        {
+          "inputs": [],
+          "name": "CLAIMANT_ROLE",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "REVIEWER_ROLE",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "evidenceId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "activeClaimForEvidence",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "claimId",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "exclusivityKey",
+              "type": "bytes32"
+            }
+          ],
+          "name": "activeClaimForKey",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "claimId",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "admin",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "originalClaimId",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "correctedClaimId",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "evidenceId",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "claimHash",
+              "type": "bytes32"
+            }
+          ],
+          "name": "approveCorrection",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "claimId",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "reasonHash",
+              "type": "bytes32"
+            }
+          ],
+          "name": "challengeClaim",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "claimCount",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "evidenceRegistry",
+          "outputs": [
+            {
+              "internalType": "contract IEvidenceRegistry",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "claimId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "getClaim",
+          "outputs": [
+            {
+              "components": [
+                {
+                  "internalType": "bytes32",
+                  "name": "exclusivityKey",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "evidenceId",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "claimHash",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "supersedes",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "supersededBy",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "challengeReasonHash",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "address",
+                  "name": "claimant",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "challenger",
+                  "type": "address"
+                },
+                {
+                  "internalType": "enum ClimateClaimRegistry.Status",
+                  "name": "status",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "submittedBlock",
+                  "type": "uint64"
+                }
+              ],
+              "internalType": "struct ClimateClaimRegistry.Claim",
+              "name": "",
+              "type": "tuple"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "isClaimant",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "allowed",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "isReviewer",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "allowed",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "claimId",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bool",
+              "name": "upheld",
+              "type": "bool"
+            }
+          ],
+          "name": "resolveChallenge",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "internalType": "bool",
+              "name": "allowed",
+              "type": "bool"
+            }
+          ],
+          "name": "setClaimant",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "internalType": "bool",
+              "name": "allowed",
+              "type": "bool"
+            }
+          ],
+          "name": "setReviewer",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes32",
+              "name": "claimId",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "exclusivityKey",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "evidenceId",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "claimHash",
+              "type": "bytes32"
+            }
+          ],
+          "name": "submitClaim",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        }
+      ],
+      "bytecode": "0x60c060405234801561001057600080fd5b5060405161120d38038061120d83398101604081905261002f9161006b565b6001600160a01b0381166100565760405163d92e233d60e01b815260040160405180910390fd5b336080526001600160a01b031660a05261009b565b60006020828403121561007d57600080fd5b81516001600160a01b038116811461009457600080fd5b9392505050565b60805160a0516111316100dc6000396000818161020201528181610abf0152610b680152600081816102ba0152818161030a015261066501526111316000f3fe608060405234801561001057600080fd5b50600436106101005760003560e01c80638da4d3c911610097578063da33281011610066578063da3328101461026f578063e9b9b13214610282578063f851a440146102b5578063fdc6258a146102dc57600080fd5b80638da4d3c9146101f457806395272e6d146101fd578063acee71271461023c578063c9100bcb1461024f57600080fd5b806373b45a27116100d357806373b45a271461019457806377467527146101a75780637d89122d146101ba5780638a867368146101cd57600080fd5b806307851571146101055780631935f7841461011a5780633b129a561461014d5780634dbe830114610174575b600080fd5b610118610113366004610ed2565b6102ff565b005b61013a610128366004610f09565b60026020526000908152604090205481565b6040519081526020015b60405180910390f35b61013a7fc10c77be35aff266144ed64c26a1fa104bae2f284ae99ac4a34203454704a18581565b61013a610182366004610f09565b60036020526000908152604090205481565b6101186101a2366004610f22565b6103f9565b6101186101b5366004610f44565b6104d8565b6101186101c8366004610f76565b61051f565b61013a7fde60452b7e5ef525564a29469a0bce46dbce1bcfb88f883dcbd957a9cb50ddc681565b61013a60045481565b6102247f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b039091168152602001610144565b61011861024a366004610ed2565b61065a565b61026261025d366004610f09565b610749565b6040516101449190610fd3565b61011861027d366004610f44565b61086b565b6102a5610290366004611081565b60006020819052908152604090205460ff1681565b6040519015158152602001610144565b6102247f000000000000000000000000000000000000000000000000000000000000000081565b6102a56102ea366004611081565b60016020526000908152604090205460ff1681565b336001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000161461034f57604051630bd4212160e11b81523360048201526024015b60405180910390fd5b6001600160a01b0382166103765760405163d92e233d60e01b815260040160405180910390fd5b6001600160a01b03821660008181526020818152604091829020805460ff191685151590811790915591519182523392917fde60452b7e5ef525564a29469a0bce46dbce1bcfb88f883dcbd957a9cb50ddc6917fca41de665b27195b6f7fbb2dcf04dbe70c1f78c07c0fb3f46bfc62d15b501cc291015b60405180910390a45050565b806104175760405163db72b02360e01b815260040160405180910390fd5b6000610422836109ac565b905060016007820154600160a01b900460ff16600481111561044657610446610f9b565b1461047957828160070160149054906101000a900460ff16604051632c17540560e11b81526004016103469291906110a3565b6007810180546001600160a81b03191633908117600160a11b179091556005820183905560405183815284907f336baad49ef41ea77eaa1e993257bb4be1a06927d4bdfc4d7245ee5ba578fc12906020015b60405180910390a3505050565b3360009081526020819052604090205460ff1661050a5760405163e4ccc19360e01b8152336004820152602401610346565b61051984848484600033610a01565b50505050565b3360009081526001602052604090205460ff16610551576040516370c46a9960e11b8152336004820152602401610346565b600061055c836109ac565b905060026007820154600160a01b900460ff16600481111561058057610580610f9b565b146105b357828160070160149054906101000a900460ff16604051632c17540560e11b81526004016103469291906110a3565b6006810154336001600160a01b03909116036105e457604051636d5ebfe960e11b8152336004820152602401610346565b811561060e5760078101805460ff60a01b1916600360a01b1790556106098382610e4c565b610624565b60078101805460ff60a01b1916600160a01b1790555b6040518215158152339084907f92380ceb902abc1fa2ff7d6bafebd3e32c266fbfd953d057aad8db65c014a9ef906020016104cb565b336001600160a01b037f000000000000000000000000000000000000000000000000000000000000000016146106a557604051630bd4212160e11b8152336004820152602401610346565b6001600160a01b0382166106cc5760405163d92e233d60e01b815260040160405180910390fd5b6001600160a01b038216600081815260016020908152604091829020805460ff191685151590811790915591519182523392917fc10c77be35aff266144ed64c26a1fa104bae2f284ae99ac4a34203454704a185917fca41de665b27195b6f7fbb2dcf04dbe70c1f78c07c0fb3f46bfc62d15b501cc291016103ed565b6040805161014081018252600080825260208201819052918101829052606081018290526080810182905260a0810182905260c0810182905260e081018290526101008101829052610120810191909152600082815260056020818152604092839020835161014081018552815481526001820154928101929092526002810154938201939093526003830154606082015260048084015460808301529183015460a082015260068301546001600160a01b0390811660c0830152600784015490811660e0830152909291610100840191600160a01b900460ff169081111561083457610834610f9b565b600481111561084557610845610f9b565b815260079190910154600160a81b900467ffffffffffffffff1660209091015292915050565b3360009081526001602052604090205460ff1661089d576040516370c46a9960e11b8152336004820152602401610346565b60006108a8856109ac565b905060026007820154600160a01b900460ff1660048111156108cc576108cc610f9b565b146108ff57848160070160149054906101000a900460ff16604051632c17540560e11b81526004016103469291906110a3565b6006810154336001600160a01b039091160361093057604051636d5ebfe960e11b8152336004820152602401610346565b8054600682015460078301805460ff60a01b1916600160a21b179055600483018690556001600160a01b03166109668784610e4c565b610974868387878b86610a01565b6040513390879089907fc96c8305131c98184a59ca21af1c5ed48fbf42498f846adf9d2822b99cac4a3c90600090a450505050505050565b6000818152600560205260408120906007820154600160a01b900460ff1660048111156109db576109db610f9b565b036109fc57604051635b9264f760e11b815260048101839052602401610346565b919050565b85610a1f57604051636932bcfd60e01b815260040160405180910390fd5b84610a3d57604051634be1079f60e11b815260040160405180910390fd5b82610a5b576040516334acbecd60e01b815260040160405180910390fd5b60008087815260056020526040902060070154600160a01b900460ff166004811115610a8957610a89610f9b565b14610aa95760405162f8154160e01b815260048101879052602401610346565b604051630e29a66960e21b8152600481018590527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316906338a699a490602401602060405180830381865afa158015610b0e573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610b3291906110b7565b610b525760405163104c644760e31b815260048101859052602401610346565b6040516371acf54160e11b8152600481018590527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03169063e359ea8290602401602060405180830381865afa158015610bb7573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610bdb91906110b7565b610bfb57604051630df4045760e31b815260048101859052602401610346565b6000858152600260205260409020548015610c33576040516301a3308960e01b81526004810187905260248101829052604401610346565b6000858152600360205260409020548015610c6b57604051630819d26f60e41b81526004810187905260248101829052604401610346565b6040805161014081018252888152602081018890529081018690526060810185905260006080820181905260a082018190526001600160a01b03851660c083015260e08201526101008101600181524367ffffffffffffffff1660209182015260008a815260058083526040918290208451815592840151600184015590830151600283015560608301516003830155608083015160048084019190915560a08401519183019190915560c08301516006830180546001600160a01b03199081166001600160a01b039384161790915560e0850151600785018054928316919093169081178355610100860151936001600160a81b03199092161790600160a01b908490811115610d7e57610d7e610f9b565b021790555061012091909101516007909101805467ffffffffffffffff909216600160a81b0267ffffffffffffffff60a81b1990921691909117905560008781526002602090815260408083208b9055888352600390915281208990556004805460019290610dee9084906110d4565b909155505060408051868152602081018690526001600160a01b038516818301529051879189918b917ff114222c2f2595f61da3c94b376274c718344b4d378e625c64fe867dea323516919081900360600190a45050505050505050565b8054600090815260026020526040902054829003610e765780546000908152600260205260408120555b6001810154600090815260036020526040902054829003610ea65760018101546000908152600360205260408120555b5050565b80356001600160a01b03811681146109fc57600080fd5b8015158114610ecf57600080fd5b50565b60008060408385031215610ee557600080fd5b610eee83610eaa565b91506020830135610efe81610ec1565b809150509250929050565b600060208284031215610f1b57600080fd5b5035919050565b60008060408385031215610f3557600080fd5b50508035926020909101359150565b60008060008060808587031215610f5a57600080fd5b5050823594602084013594506040840135936060013592509050565b60008060408385031215610f8957600080fd5b823591506020830135610efe81610ec1565b634e487b7160e01b600052602160045260246000fd5b60058110610fcf57634e487b7160e01b600052602160045260246000fd5b9052565b600061014082019050825182526020830151602083015260408301516040830152606083015160608301526080830151608083015260a083015160a083015260c083015161102c60c08401826001600160a01b03169052565b5060e083015161104760e08401826001600160a01b03169052565b5061010083015161105c610100840182610fb1565b5061012083015161107a61012084018267ffffffffffffffff169052565b5092915050565b60006020828403121561109357600080fd5b61109c82610eaa565b9392505050565b8281526040810161109c6020830184610fb1565b6000602082840312156110c957600080fd5b815161109c81610ec1565b808201808211156110f557634e487b7160e01b600052601160045260246000fd5b9291505056fea2646970667358221220cf4aea74f4edf661dd403480dbb687109ef19e650a73a73b6a3eefa919a7340464736f6c63430008260033"
+    }
+  }
+}

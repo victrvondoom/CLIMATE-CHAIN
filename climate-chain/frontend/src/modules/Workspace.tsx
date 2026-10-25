@@ -1,9 +1,8 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { Card, ModeBadge } from '../components/Ui';
 import { TrackBadges } from '../components/TrackBadges';
-import { inr, num, type ProjectAppStatus } from '../api';
-import { KnowledgeSearch } from './KnowledgeSearch';
-import { CAPABILITIES, FOCUSES, PROJECT_FOLDER_COUNT, STAGES, STAGE_PROJECTS, TRACKS, type Capability, type FocusId, type StageId, type TrackId, type WorkspaceView } from '../data/capabilities';
+import { inr, num } from '../api';
+import { CAPABILITIES, FOCUSES, STAGES, STAGE_PROJECTS, TRACKS, type Capability, type FocusId, type StageId, type TrackId, type WorkspaceView } from '../data/capabilities';
 import type { Overview } from '../types';
 import './signals.css';
 
@@ -50,13 +49,12 @@ const STAGE_GUIDANCE: Record<StageId, { eyebrow: string; heading: string; body: 
   },
 };
 
-function CapabilityCard({ project, onNavigate, appStatus }: { project: Capability; onNavigate: (view: WorkspaceView) => void; appStatus?: ProjectAppStatus }) {
+function CapabilityCard({ project, onNavigate }: { project: Capability; onNavigate: (view: WorkspaceView) => void }) {
   return (
     <article className={'capability-card tone-' + project.tone}>
       <div className="capability-topline">
         <span className="capability-domain">{project.domain}</span>
         {project.central && <span className="status-pill status-central">CURRENT WORKSPACE</span>}
-        {appStatus && <span className={`status-pill project-runtime-status ${appStatus.available ? 'ready' : 'external'}`} title={appStatus.build ? `Build ${appStatus.build}` : undefined}>{appStatus.available ? 'LOCAL APP READY' : project.module ? 'NATIVE MODULE' : project.href ? 'EXTERNAL APP' : 'REGISTRY ENTRY'}</span>}
       </div>
       <TrackBadges tracks={project.tracks} owner={project.name} />
       <h3>{project.name}</h3>
@@ -66,13 +64,12 @@ function CapabilityCard({ project, onNavigate, appStatus }: { project: Capabilit
       </ul>
       <div className="capability-proof"><span className="proof-mark" />{project.evidence}</div>
       <div className="capability-footer">
-        <span className="readiness-label">{project.readiness}</span>
         <div className="capability-actions">
           {project.central ? (
             <button className="text-action" onClick={() => onNavigate('overview')}>Open command center <span aria-hidden="true">→</span></button>
           ) : (
             <button className="text-action" onClick={() => onNavigate((project.module ?? `module:${project.id}`) as WorkspaceView)}>
-              Launch in-app workflow <span aria-hidden="true">→</span>
+              Open <span aria-hidden="true">→</span>
             </button>
           )}
         </div>
@@ -125,10 +122,9 @@ function FinanceSnapshot({ data, onNavigate }: { data: Overview | null; onNaviga
 }
 
 export function MissionPath({
-  data, apps, activeStage, onStage, focus, onFocus, onNavigate,
+  data, activeStage, onStage, focus, onFocus, onNavigate,
 }: {
   data: Overview | null;
-  apps?: Record<string, ProjectAppStatus>;
   activeStage: StageId;
   onStage: (stage: StageId) => void;
   focus: FocusId;
@@ -221,7 +217,7 @@ export function MissionPath({
           <div className="phase-heading"><span className="eyebrow">RECOMMENDED FOR {focusItem.label.toUpperCase()}</span><span className="chip">{projects.length} connected tools</span></div>
           <p className="muted">Each specialist capability keeps its own validation and execution rules. Open the one that fits this step.</p>
           <div className="recommended-list">
-            {projects.slice(0, 5).map((project) => (
+            {projects.map((project) => (
               <div className="recommended-item" key={project.id}>
                 <div><strong>{project.name}</strong><span>{project.descriptor}</span></div>
                 {project.central ? (
@@ -231,16 +227,15 @@ export function MissionPath({
                 )}
               </div>
             ))}
-            {projects.length > 5 && <button className="text-action" onClick={() => onNavigate('capabilities')}>See all {projects.length} recommended tools <span aria-hidden="true">→</span></button>}
           </div>
         </Card>}
       </div>
 
       {activeStage === 'finance' && (
         <section className="finance-pathways-section" aria-labelledby="finance-pathways-heading">
-          <div className="section-heading finance-pathways-heading"><div><span className="eyebrow">SOURCE-OWNED FUNDING REFERENCES</span><h2 id="finance-pathways-heading">{financeTrack === 'all' ? 'Funding and evidence pathways' : TRACKS.find((track) => track.id === financeTrack)?.label}</h2><p>Each project keeps its own rules, evidence, approvals and transactions. When a local standalone app is declared, its presence is checked through the live registry API; external site uptime is not implied.</p></div><span className="finance-count-chip">{financeProjects.length} {financeProjects.length === 1 ? 'capability' : 'capabilities'}</span></div>
+          <div className="section-heading finance-pathways-heading"><div><span className="eyebrow">SOURCE-OWNED FUNDING REFERENCES</span><h2 id="finance-pathways-heading">{financeTrack === 'all' ? 'Funding and evidence pathways' : TRACKS.find((track) => track.id === financeTrack)?.label}</h2><p>Each project keeps its own rules, evidence and approvals.</p></div><span className="finance-count-chip">{financeProjects.length} {financeProjects.length === 1 ? 'capability' : 'capabilities'}</span></div>
           {financeProjects.length > 0
-            ? <div className="capability-grid finance-pathway-grid" id="finance-pathways">{financeProjects.map((project) => <CapabilityCard key={project.id} project={project} onNavigate={onNavigate} appStatus={apps?.[project.id]} />)}</div>
+            ? <div className="capability-grid finance-pathway-grid" id="finance-pathways">{financeProjects.map((project) => <CapabilityCard key={project.id} project={project} onNavigate={onNavigate} />)}</div>
             : <div className="empty-search card"><strong>No funding reference is mapped to this pathway yet.</strong><span>Switch track to see the closest source-owned evidence and funding tools.</span></div>}
           <p className="muted small source-footnote">Changing tracks filters the live registry mapping. It does not create, approve, or transfer funding.</p>
         </section>
@@ -256,52 +251,3 @@ export function MissionPath({
     </div>
   );
 }
-
-export function CapabilityLibrary({ onNavigate }: { onNavigate: (view: WorkspaceView) => void }) {
-  const [query, setQuery] = useState('');
-  const [stageFilter, setStageFilter] = useState<StageId | 'all'>('all');
-  const [trackFilter, setTrackFilter] = useState<TrackId | 'all'>('all');
-  const filtered = useMemo(() => CAPABILITIES.filter((item) => {
-    const matchesStage = stageFilter === 'all' || item.stages.includes(stageFilter);
-    const matchesTrack = trackFilter === 'all' || item.tracks.includes(trackFilter);
-    const trackLabels = item.tracks.map((id) => TRACKS.find((track) => track.id === id)?.label ?? id);
-    const haystack = [item.name, item.descriptor, item.domain, ...item.features, ...trackLabels, item.evidence].join(' ').toLowerCase();
-    return matchesStage && matchesTrack && haystack.includes(query.trim().toLowerCase());
-  }), [query, stageFilter, trackFilter]);
-
-  return (
-    <div className="stack signal-page">
-      <section className="journey-intro library-intro card">
-        <div><span className="eyebrow">ONE WORKSPACE · {PROJECT_FOLDER_COUNT} PROJECT FOLDERS</span><h1>Every capability, in its place in the path</h1><p>Browse the combined toolbox by IEEE track or mission step. Each project keeps its own app, evidence limits and specialist workflow.</p></div>
-        <div className="library-count"><strong>{CAPABILITIES.length}</strong><span>connected capabilities</span></div>
-      </section>
-
-      <KnowledgeSearch />
-
-      <section className="ieee-track-grid" aria-label="IEEE Climate Chain hackathon tracks">
-        {TRACKS.map((track, index) => <button type="button" key={track.id} aria-pressed={trackFilter === track.id} className={'ieee-track-card' + (trackFilter === track.id ? ' selected' : '')} onClick={() => setTrackFilter(trackFilter === track.id ? 'all' : track.id)}>
-          <span className="eyebrow">TRACK {String(index + 1).padStart(2, '0')}</span>
-          <strong>{track.label}</strong>
-          <span>{track.detail}</span>
-          <small>{track.projects.length} mapped projects · {trackFilter === track.id ? 'selected' : 'view track'}</small>
-        </button>)}
-      </section>
-
-      <div className="library-controls">
-        <label className="search-field"><span aria-hidden="true">⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Find a project or capability" aria-label="Find a project or capability" /></label>
-        <label className="library-track-field"><span>IEEE track</span><select value={trackFilter} onChange={(event) => setTrackFilter(event.target.value as TrackId | 'all')}><option value="all">All tracks</option>{TRACKS.map((track) => <option key={track.id} value={track.id}>{track.label}</option>)}</select></label>
-        <div className="filter-row" aria-label="Filter capabilities by mission step">
-          <button aria-pressed={stageFilter === 'all'} className={stageFilter === 'all' ? 'filter-pill active' : 'filter-pill'} onClick={() => setStageFilter('all')}>All steps</button>
-          {STAGES.map((stage) => <button key={stage.id} aria-pressed={stageFilter === stage.id} className={stageFilter === stage.id ? 'filter-pill active' : 'filter-pill'} onClick={() => setStageFilter(stage.id)}>{stage.title}</button>)}
-        </div>
-      </div>
-
-      <div className="library-resultline"><span>{filtered.length} of {CAPABILITIES.length} capabilities match {trackFilter === 'all' ? 'all IEEE tracks' : TRACKS.find((item) => item.id === trackFilter)?.label} and the selected step.</span><span>Projects can belong to multiple tracks.</span></div>
-      {filtered.length > 0
-        ? <div className="capability-grid">{filtered.map((project) => <CapabilityCard key={project.id} project={project} onNavigate={onNavigate} />)}</div>
-        : <div className="empty-search card"><strong>No matching capability</strong><span>Try a shorter search or select a different mission step.</span></div>}
-      <p className="muted small source-footnote">This directory is a navigation and evidence map. A project’s inclusion does not mean its backend, storage or account system has been merged into Climate Chain.</p>
-    </div>
-  );
-}
-

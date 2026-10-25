@@ -4,7 +4,7 @@ import { DEFAULT_VIEW, DESTINATIONS, LIBRARY_GROUPS, destinationFor, isDestinati
 
 // Every view the sidebar offered before the dashboard merge. A view missing from the
 // library would strand a page, so this list is the preservation contract.
-const LEGACY_VIEWS = ['earth', 'session', 'overview', 'memory', 'ledger', 'studio', 'mission', 'cascade', 'connections', 'capabilities', 'waste', 'fire', 'water', 'air'];
+const LEGACY_VIEWS = ['earth', 'session', 'overview', 'memory', 'ledger', 'studio', 'mission', 'cascade', 'connections', 'waste', 'fire', 'water', 'air'];
 
 describe('dashboard library', () => {
   it('keeps every legacy view as a destination', () => {
@@ -61,6 +61,10 @@ describe('dashboard library', () => {
     expect(resolveView('#timeline')).toBe('timeline');
     expect(destinationFor('lab')?.group).toBe('evidence');
     expect(resolveView('#lab')).toBe('lab');
-    expect(DESTINATIONS.filter((item) => item.group !== 'modules')).toHaveLength(LEGACY_VIEWS.length + 3);
+    expect(isDestination('capabilities')).toBe(false);
+    expect(resolveView('#capabilities')).toBeNull();
+    expect(destinationFor('pollution')?.group).toBe('signals');
+    expect(resolveView('#pollution')).toBe('pollution');
+    expect(DESTINATIONS.filter((item) => item.group !== 'modules')).toHaveLength(LEGACY_VIEWS.length + 4);
   });
 });

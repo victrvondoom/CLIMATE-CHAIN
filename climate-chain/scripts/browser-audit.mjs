@@ -30,7 +30,7 @@ const CORE = [
   ['fire', 'Fire · clearsky'], ['water', 'Water · Teesri Shikayat'], ['air', 'Air · The Vayu Project'],
   ['mission', 'From signal to proof'], ['studio', 'Unified mission studio'], ['cascade', 'Climate Cascade Review'],
   ['integrity', 'Climate Integrity Lab'], ['session', 'Climate Chain'], ['ledger', 'Evidence ledger'],
-  ['capabilities', 'Connected climate tools'], ['memory', 'Engineering memory'],
+  ['memory', 'Engineering memory'],
 ];
 const MODULES = [
   ['junksnap', 'JunkSnap'], ['clearsky', 'clearsky'], ['teesri', 'Teesri Shikayat'], ['vayu', 'The Vayu Project'],

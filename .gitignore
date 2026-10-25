@@ -39,3 +39,4 @@ output/
 .claude/
 
 .vercel
+.env*.local

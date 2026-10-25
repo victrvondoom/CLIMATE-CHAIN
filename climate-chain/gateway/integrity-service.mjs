@@ -6,8 +6,8 @@
 // hashes, receipts, block numbers, events and revert reasons. When the chain is not
 // reachable the service reports OFFLINE / NOT ANCHORED. It never invents a receipt.
 
-import { mkdir, readFile, readdir, rename, writeFile } from 'node:fs/promises';
-import { dirname, join, resolve } from 'node:path';
+import { readFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Contract, JsonRpcProvider, ZeroHash, id as keccakText, isAddress } from 'ethers';
 import {
@@ -17,6 +17,7 @@ import {
 import { AIR_ANALYTES, SITES, createAirQualitySource } from './integrity-sources.mjs';
 import { evaluateClaimThroughFirewall, VERDICTS } from './trust-firewall.mjs';
 import { runBenchmark } from './benchmark-runner.mjs';
+import { StorageError, createFileStorage } from './storage.mjs';
 
 const ROOT = fileURLToPath(new URL('../', import.meta.url));
 const DEFAULT_DEPLOYMENT = resolve(ROOT, 'blockchain/deployments/integrity-localhost.json');
@@ -97,45 +98,46 @@ function findTxHash(value, depth = 0) {
   return null;
 }
 
-function createStore(dataDir) {
+// Evidence bundles, claim documents and the session live behind the storage interface, so the same service
+// runs on local files or on a store shared by every serverless instance.
+function createStore(storage) {
   const path = {
-    evidence: (id) => join(dataDir, 'evidence', `${id}.json`),
-    raw: (sha) => join(dataDir, 'raw', `${sha}.txt`),
-    claim: (id) => join(dataDir, 'claims', `${id}.json`),
-    challenge: (hash) => join(dataDir, 'challenges', `${hash}.json`),
-    session: (key) => join(dataDir, 'sessions', `${key}.json`),
+    evidence: (id) => `evidence/${id}.json`,
+    raw: (sha) => `raw/${sha}.txt`,
+    claim: (id) => `claims/${id}.json`,
+    challenge: (hash) => `challenges/${hash}.json`,
+    session: (key) => `sessions/${key}.json`,
   };
   const keys = new Map();
-  let indexed = false;
+  let indexedAt = 0;
 
-  async function write(target, text) {
-    await mkdir(dirname(target), { recursive: true });
-    const temporary = `${target}.${process.pid}.${Date.now()}.tmp`;
-    await writeFile(temporary, text, 'utf8');
-    await rename(temporary, target);
-  }
-  async function readText(target) {
-    try { return await readFile(target, 'utf8'); }
+  // A storage failure is reported as a visible 503, never as "not found".
+  async function guarded(task) {
+    try { return await task(); }
     catch (error) {
-      if (error?.code === 'ENOENT') return null;
-      throw fail('store_unreadable', 'The local evidence store could not be read.', 500);
+      if (error instanceof StorageError) throw fail(error.code, error.message, error.status);
+      throw error;
     }
   }
+  const write = (target, text) => guarded(() => storage.put(target, text));
+  const readText = (target) => guarded(() => storage.get(target));
   async function readJson(target) {
     const text = await readText(target);
     if (text === null) return null;
-    try { return JSON.parse(text); } catch { throw fail('store_corrupt', 'A local evidence store file is not valid JSON.', 500); }
+    try { return JSON.parse(text); } catch { throw fail('store_corrupt', 'A stored evidence file is not valid JSON.', 500); }
   }
+  // Another instance may have stored records this one has not seen, so a miss re-reads the listing
+  // (at most once every few seconds).
   async function buildIndex() {
-    if (indexed) return;
+    if (Date.now() - indexedAt < 3000) return;
+    indexedAt = Date.now();
     for (const [folder, toKey] of [['evidence', evidenceKeyOf], ['claims', claimKeyOf]]) {
-      let names = [];
-      try { names = await readdir(join(dataDir, folder)); } catch { /* empty store */ }
+      const names = await guarded(() => storage.list(`${folder}/`)).catch(() => []);
       for (const name of names) {
-        if (name.endsWith('.json')) keys.set(toKey(name.slice(0, -5)), name.slice(0, -5));
+        const file = name.slice(folder.length + 1);
+        if (file.endsWith('.json')) keys.set(toKey(file.slice(0, -5)), file.slice(0, -5));
       }
     }
-    indexed = true;
   }
 
   return {
@@ -148,7 +150,18 @@ function createStore(dataDir) {
     saveChallenge: (entry) => write(path.challenge(entry.reasonHash), JSON.stringify(entry, null, 2)),
     readSession: (key) => readJson(path.session(key)),
     saveSession: (session) => write(path.session(session.sessionKey), JSON.stringify(session, null, 2)),
-    async idForKey(key) { if (!key || key === ZeroHash) return null; await buildIndex(); return keys.get(key) ?? null; },
+    // The demo-run number is its own append-only record (one create-if-absent file per run), so a stale
+    // timeline write from another request or instance can never move it backwards.
+    async runs(sessionKey) {
+      const names = await guarded(() => storage.list(`sessions/${sessionKey}-run-`));
+      return names.map((name) => Number(/-run-(\d{6})\.json$/.exec(name)?.[1] ?? 0)).filter((n) => n > 0);
+    },
+    createRun: (sessionKey, run) => guarded(() => storage.putIfAbsent(`sessions/${sessionKey}-run-${String(run).padStart(6, '0')}.json`, JSON.stringify({ run }))),
+    async idForKey(key) {
+      if (!key || key === ZeroHash) return null;
+      if (!keys.has(key)) await buildIndex();
+      return keys.get(key) ?? null;
+    },
   };
 }
 
@@ -160,21 +173,33 @@ export function createIntegrityService({
   source = createAirQualitySource(),
   now = () => new Date().toISOString(),
   openAqConfigured = Boolean(process.env.OPENAQ_API_KEY),
+  // `chain` is an in-process chain runtime (chain-runtime.mjs). Without it the service talks to the JSON-RPC
+  // node at rpcUrl, exactly as before. `storage` overrides where evidence and claim documents are kept.
+  chain = null,
+  storage = null,
 } = {}) {
-  const store = createStore(dataDir);
-  const localRpc = isLoopbackUrl(rpcUrl);
+  const store = createStore(storage ?? chain?.storage ?? createFileStorage(dataDir));
+  const localRpc = chain ? true : isLoopbackUrl(rpcUrl);
+  const network = chain?.label ?? NETWORK;
+  const shownRpcUrl = chain?.rpcUrl ?? rpcUrl;
   let provider = null;
   let queue = Promise.resolve();
-  // Chain writes run one at a time so dev-account nonces never race.
-  const exclusive = (task) => {
-    const run = queue.then(task, task);
-    queue = run.catch(() => {});
-    return run;
-  };
+  // Chain writes run one at a time so dev-account nonces never race. An in-process chain also serializes
+  // against the shared journal and retries when another instance mined first.
+  const exclusive = chain
+    ? (task) => chain.write(task)
+    : (task) => {
+      const run = queue.then(task, task);
+      queue = run.catch(() => {});
+      return run;
+    };
 
   async function readDeployment() {
     let deployment;
-    try {
+    if (chain) {
+      try { deployment = (await chain.deployments()).integrity; }
+      catch (error) { throw fail(error.code || 'chain_unavailable', error.message || 'The in-process chain could not start.', error.status || 503); }
+    } else try {
       deployment = JSON.parse(await readFile(deploymentPath, 'utf8'));
     } catch (error) {
       if (error?.code === 'ENOENT') throw fail('chain_not_deployed', 'The integrity registries are not deployed. Run start.ps1, or `npm run deploy:local` in blockchain/ with the local node running.', 503);
@@ -190,8 +215,9 @@ export function createIntegrityService({
 
   async function connect() {
     if (!localRpc) throw fail('local_chain_required', 'The integrity lab only writes to the local development chain.', 503);
+    if (chain) await chain.refresh().catch((error) => { throw fail(error.code || 'chain_unavailable', error.message || 'The in-process chain could not sync.', error.status || 503); });
     const deployment = await readDeployment();
-    provider ??= providerFactory(rpcUrl);
+    provider ??= chain ? chain.provider : providerFactory(rpcUrl);
     let chainId;
     let genesis;
     try {
@@ -215,7 +241,7 @@ export function createIntegrityService({
       evidence: new Contract(deployment.evidenceRegistry.address, deployment.evidenceRegistry.abi, provider),
       claims: new Contract(deployment.claimRegistry.address, deployment.claimRegistry.abi, provider),
       sessionKey: `${EXPECTED_CHAIN_ID}-${genesis.hash.slice(2, 14)}-${deployment.evidenceRegistry.address.slice(2, 10).toLowerCase()}`,
-      signer: (role) => provider.getSigner(deployment.accounts[role]),
+      signer: (role) => (chain ? chain.signer(role) : provider.getSigner(deployment.accounts[role])),
     };
   }
 
@@ -223,19 +249,27 @@ export function createIntegrityService({
   // Ask the node directly so confirmation counts are never understated.
   const latestBlock = async (ctx) => Number(await ctx.provider.send('eth_blockNumber', []));
 
-  async function loadSession(ctx) {
-    const existing = await store.readSession(ctx.sessionKey);
-    if (existing) return existing;
-    // A new store on a chain that already holds claims starts numbering after them, so its
-    // first claim scope cannot collide with a run recorded by an earlier store.
-    const claimCount = Number(await ctx.claims.claimCount());
-    return { sessionKey: ctx.sessionKey, createdAt: now(), demoRun: claimCount + 1, timeline: [] };
+  // The current demo run. A store on a chain that already holds claims starts numbering after them, so the
+  // first claim scope cannot collide with a run recorded earlier. Runs are create-if-absent records, so
+  // every instance agrees on the number.
+  async function currentRun(ctx) {
+    let runs = await store.runs(ctx.sessionKey);
+    if (!runs.length) {
+      await store.createRun(ctx.sessionKey, Number(await ctx.claims.claimCount()) + 1);
+      runs = await store.runs(ctx.sessionKey);
+    }
+    return Math.max(...runs);
   }
 
+  async function loadSession(ctx) {
+    const [existing, demoRun] = await Promise.all([store.readSession(ctx.sessionKey), currentRun(ctx)]);
+    return { sessionKey: ctx.sessionKey, createdAt: existing?.createdAt ?? now(), demoRun, timeline: existing?.timeline ?? [] };
+  }
+
+  // The timeline is display history only; it never carries the run number.
   async function note(ctx, entry) {
-    const session = await loadSession(ctx);
-    session.timeline = [...session.timeline, { at: now(), ...entry }].slice(-MAX_TIMELINE);
-    await store.saveSession(session);
+    const existing = (await store.readSession(ctx.sessionKey)) ?? { sessionKey: ctx.sessionKey, createdAt: now(), timeline: [] };
+    await store.saveSession({ sessionKey: existing.sessionKey, createdAt: existing.createdAt, timeline: [...(existing.timeline ?? []), { at: now(), ...entry }].slice(-MAX_TIMELINE) });
   }
 
   async function send(ctx, contract, role, method, args) {
@@ -274,6 +308,9 @@ export function createIntegrityService({
     try {
       transactionHash = (await signer.sendTransaction({ to, data, gasLimit: REJECTION_GAS_LIMIT })).hash;
     } catch (error) {
+      // A ledger conflict is not a rejection by the contract: stop here instead of waiting on a receipt that never comes.
+      const lost = chain?.consumeInfrastructureFailure?.();
+      if (lost) throw lost;
       transactionHash = findTxHash(error);
       submissionError = error?.shortMessage || error?.message || null;
     }
@@ -298,7 +335,7 @@ export function createIntegrityService({
   async function evidenceProof(ctx, evidenceId) {
     const key = evidenceKeyOf(evidenceId);
     const record = await ctx.evidence.getEvidence(key);
-    const base = { evidenceId, evidenceKey: key, chainId: EXPECTED_CHAIN_ID, network: NETWORK, contractAddress: ctx.deployment.evidenceRegistry.address };
+    const base = { evidenceId, evidenceKey: key, chainId: EXPECTED_CHAIN_ID, network, contractAddress: ctx.deployment.evidenceRegistry.address };
     if (record.digest === ZeroHash) return { ...base, anchored: false };
     const events = await ctx.evidence.queryFilter(ctx.evidence.filters.EvidenceAnchored(key), ctx.deployment.evidenceRegistry.deployBlock, 'latest');
     const event = events.at(-1);
@@ -333,7 +370,7 @@ export function createIntegrityService({
     const key = claimKeyOf(claimId);
     const record = await ctx.claims.getClaim(key);
     const status = CLAIM_STATUS[Number(record.status)] ?? 'Unknown';
-    const base = { claimId, claimKey: key, chainId: EXPECTED_CHAIN_ID, network: NETWORK, contractAddress: ctx.deployment.claimRegistry.address };
+    const base = { claimId, claimKey: key, chainId: EXPECTED_CHAIN_ID, network, contractAddress: ctx.deployment.claimRegistry.address };
     if (status === 'None') return { ...base, recorded: false, status };
     const events = await ctx.claims.queryFilter(ctx.claims.filters.ClaimSubmitted(key), ctx.deployment.claimRegistry.deployBlock, 'latest');
     const event = events.at(-1);
@@ -389,7 +426,7 @@ export function createIntegrityService({
   }
 
   async function status() {
-    const base = { ledgerMode: 'OFFLINE', network: NETWORK, chainId: EXPECTED_CHAIN_ID, rpcUrl, localOnly: true, sources: sourceStatus() };
+    const base = { ledgerMode: 'OFFLINE', network, chainId: EXPECTED_CHAIN_ID, rpcUrl: shownRpcUrl, localOnly: !chain, chainMode: chain ? 'in-process' : 'external-rpc', sources: sourceStatus() };
     try {
       const ctx = await connect();
       const [blockNumber, evidenceCount, claimCount, session] = await Promise.all([
@@ -406,7 +443,10 @@ export function createIntegrityService({
           claimRegistry: { name: 'ClimateClaimRegistry', address: ctx.deployment.claimRegistry.address, deployBlock: ctx.deployment.claimRegistry.deployBlock, deployTxHash: ctx.deployment.claimRegistry.deployTxHash ?? null },
         },
         accounts: ctx.deployment.accounts,
-        accountsNote: 'Public Hardhat development accounts. All are internal test actors; none is an independent verifier.',
+        accountsNote: chain
+          ? 'Role accounts derived from a secret seed, so their keys are not public. All are internal test actors; none is an independent verifier.'
+          : 'Public Hardhat development accounts. All are internal test actors; none is an independent verifier.',
+        ...(chain ? { ledger: chain.describe() } : {}),
         evidenceCount: Number(evidenceCount),
         claimCount: Number(claimCount),
         sessionKey: ctx.sessionKey,
@@ -562,8 +602,8 @@ export function createIntegrityService({
     const evidenceId = original.claim.evidence[0].evidenceId;
     const entry = await mustEvidence(evidenceId);
     const ctx = await connect();
+    // The attempt is returned to the caller but never stored: the chain refuses it, so it is not a record.
     const attempt = buildClaim({ bundle: entry.bundle, digest: entry.digest, claimant: ctx.deployment.accounts.claimant, scope: original.claim.scope, createdAt: now() });
-    await store.saveClaim({ claim: attempt.claim, claimHash: attempt.claimHash });
     const rejection = await attemptRejected(ctx, ctx.claims, 'claimant', 'submitClaim', [claimKeyOf(attempt.claim.claimId), hex32(attempt.exclusivityKey), evidenceKeyOf(evidenceId), hex32(attempt.claimHash)]);
     await note(ctx, { kind: 'duplicate-claim-rejected', claimId: attempt.claim.claimId, duplicateOf: claimId, errorName: rejection.errorName, transactionHash: rejection.transactionHash, blockNumber: rejection.blockNumber });
     return { duplicateOf: claimId, attemptedClaim: attempt.claim, sameExclusivityKey: attempt.exclusivityKey === original.claim.exclusivityKey, controlledTest: true, ...rejection };
@@ -646,18 +686,17 @@ export function createIntegrityService({
     for (const log of evidenceLogs) events.push(await describeEvent(log, 'EnvironmentalEvidenceRegistry'));
     for (const log of claimLogs) events.push(await describeEvent(log, 'ClimateClaimRegistry'));
     events.sort((a, b) => a.blockNumber - b.blockNumber || a.logIndex - b.logIndex);
-    return { network: NETWORK, chainId: EXPECTED_CHAIN_ID, sessionKey: ctx.sessionKey, demoRun: session.demoRun, events, timeline: session.timeline };
+    return { network, chainId: EXPECTED_CHAIN_ID, sessionKey: ctx.sessionKey, demoRun: session.demoRun, events, timeline: session.timeline };
   }
 
   // Starts a fresh demo run on the same chain. Nothing on-chain is erased; the run number is
   // part of the claim scope, so a new run can submit its own first claim.
   const reset = () => exclusive(async () => {
     const ctx = await connect();
-    const session = await loadSession(ctx);
-    session.demoRun += 1;
-    session.timeline = [...session.timeline, { at: now(), kind: 'demo-run-started', demoRun: session.demoRun }].slice(-MAX_TIMELINE);
-    await store.saveSession(session);
-    return { demoRun: session.demoRun, sessionKey: ctx.sessionKey, note: 'On-chain records from earlier runs remain readable.' };
+    await store.createRun(ctx.sessionKey, (await currentRun(ctx)) + 1);
+    const demoRun = await currentRun(ctx);
+    await note(ctx, { kind: 'demo-run-started', demoRun });
+    return { demoRun, sessionKey: ctx.sessionKey, note: 'On-chain records from earlier runs remain readable.' };
   });
 
   // Evaluates a custom claim and evidence bundle through the Trust Firewall.

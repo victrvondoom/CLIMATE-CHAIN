@@ -145,6 +145,31 @@ Users interact with Climate Chain through an agent and response layer powered by
 
 ---
 
+## 5b. Global Pollution Atlas (195 countries, no API key)
+
+Sidebar → **Global Pollution Atlas**. A globe with one AQI-coloured marker per country (sampled at its capital), a ranking table, and a click-anywhere inspector.
+
+- **Click a marker or any spot on the globe** to see US AQI, PM2.5 / PM10 / NO₂ / O₃ / SO₂ / CO, how many times PM2.5 exceeds the WHO 24-hour guideline (15 µg/m³), and **how much of the surrounding area is polluted**.
+- **Polluted area** is the share of a 5 × 5 grid of model cells (about 200 × 220 km) around the picked point that is above US AQI 100, with the cell grid drawn as a mini-map.
+- **Data**: Copernicus CAMS atmospheric model via the keyless [Open-Meteo Air Quality API](https://open-meteo.com/en/docs/air-quality-api). Routes: `GET /api/v1/world/air/countries` (195 points, five batched upstream calls, cached 1 h) and `GET /api/v1/world/air/point?lat=&lng=`.
+- **Labelled MODELLED, never observed.** The model is about 40 km resolution outside Europe, so a street-level monitor can differ. A capital stands in for its country. Countries with no model value are left out of rankings instead of being shown as clean. Model values above the top of the AQI scale (500) display as "500+".
+
+---
+
+## 5c. Blockchain features on serverless hosts (Vercel)
+
+A serverless function cannot keep a blockchain node alive, so on Vercel the gateway runs its own **in-process EVM** (Hardhat's EDR engine, chain ID 31337) and rebuilds it on demand. Locally and on Render nothing changes: the launcher's Hardhat node is still used unless `CLIMATE_CHAIN_CHAIN=in-process` is set.
+
+- **Replayable ledger.** Every mined transaction is appended to a hash-linked journal of *signed raw transactions* plus the block timestamp used (`GET /api/v1/chain/journal`). A cold instance replays the journal onto a fresh engine with a fixed genesis and reproduces identical blocks, receipts and contract state. The journal is tamper-evident: each entry commits to the previous one, and each transaction carries its sender's signature.
+- **Shared across instances.** The journal and the off-chain evidence store live in a **private Vercel Blob** store (`BLOB_READ_WRITE_TOKEN`). Each journal slot is created with create-if-absent, so when two instances race, exactly one wins; the other rolls back, replays what it missed and retries, or reports a clear `409` if part of a multi-step operation had already been sent. Without a Blob token it falls back to files (single instance only).
+- **Strong keys.** The attester, claimant, reviewer and challenger accounts are derived from a secret seed (`CLIMATE_CHAIN_SIGNER_SEED`, 32+ characters; HMAC-SHA256 per role), so they are not Hardhat's published development keys. Transactions are signed locally; the engine never exposes unlocked accounts, and `evm_*`, `hardhat_*`, `debug_*`, `personal_*` and unsigned-send methods are blocked. A hosted deployment without a seed refuses to start the chain rather than guess one.
+- **Independent verification.** `POST /api/v1/chain/rpc` is a read-only JSON-RPC allowlist (`eth_call`, `eth_getLogs`, receipts, blocks…), so the browser's "verify independently" step can check the chain without trusting the gateway's own summaries.
+- **Public writes are bounded.** A hosted deployment accepts anchoring from its own pages only (same-origin), rate-limited per address. The local launcher still accepts writes from loopback only.
+- **Limits.** The demo ledger holds up to 600 transactions (`507 ledger_full` after that). The chain is a development chain with valueless test ETH; it is not a public network, and anchoring proves integrity of the recorded bytes, not that a measurement is true.
+- **Contracts.** `blockchain/scripts/export-artifacts.js` writes `gateway/chain-artifacts.json` (ABI, bytecode and a hash of each `.sol`); a gateway test fails if the committed file is stale.
+
+---
+
 ## 6. Climate Datasets & 200-Year Provenance Catalog
 
 Climate Chain indexes **8 distinct, audited scientific datasets** registered in [`climate-chain/registry/datasets.json`](climate-chain/registry/datasets.json):

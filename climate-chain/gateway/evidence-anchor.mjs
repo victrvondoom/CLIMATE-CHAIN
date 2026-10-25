@@ -9,6 +9,7 @@ const DEFAULT_DEPLOYMENT = resolve(ROOT, 'blockchain/deployments/localhost.json'
 const DEFAULT_RPC_URL = 'http://127.0.0.1:18545';
 const EXPECTED_CHAIN_ID = 31337;
 const EVIDENCE_TYPE = 'climate-chain:cascade-review:v1';
+const NETWORK = 'Hardhat local development chain';
 
 export class EvidenceAnchorError extends Error {
   constructor(code, message, status = 400) {
@@ -67,14 +68,19 @@ export function createEvidenceAnchorService({
   rpcUrl = process.env.CLIMATE_CHAIN_RPC_URL || DEFAULT_RPC_URL,
   deploymentPath = process.env.CLIMATE_CHAIN_DEPLOYMENT || DEFAULT_DEPLOYMENT,
   providerFactory = (url) => new JsonRpcProvider(url),
+  // An in-process chain runtime (chain-runtime.mjs). Without it the service uses the JSON-RPC node at rpcUrl.
+  chain = null,
 } = {}) {
-  const localRpc = isLoopbackUrl(rpcUrl);
+  const localRpc = chain ? true : isLoopbackUrl(rpcUrl);
+  const network = chain?.label ?? NETWORK;
+  const shownRpcUrl = chain?.rpcUrl ?? rpcUrl;
 
   async function readDeployment() {
     let deployment;
     try {
-      deployment = JSON.parse(await readFile(deploymentPath, 'utf8'));
+      deployment = chain ? (await chain.deployments()).evidenceAnchor : JSON.parse(await readFile(deploymentPath, 'utf8'));
     } catch (error) {
+      if (chain) throw new EvidenceAnchorError(error.code || 'chain_unavailable', error.message || 'The in-process chain could not start.', error.status || 503);
       if (error?.code === 'ENOENT') throw new EvidenceAnchorError('chain_not_deployed', 'The local evidence contract has not been deployed. Start the full Climate Chain launcher.', 503);
       throw new EvidenceAnchorError('deployment_unavailable', 'The local evidence contract deployment file could not be read.', 503);
     }
@@ -86,8 +92,9 @@ export function createEvidenceAnchorService({
 
   async function connect() {
     if (!localRpc) throw new EvidenceAnchorError('local_chain_required', 'Evidence anchoring is restricted to the local development chain.', 503);
+    if (chain) await chain.refresh().catch((error) => { throw new EvidenceAnchorError(error.code || 'chain_unavailable', error.message || 'The in-process chain could not sync.', error.status || 503); });
     const deployment = await readDeployment();
-    const provider = providerFactory(rpcUrl);
+    const provider = chain ? chain.provider : providerFactory(rpcUrl);
     try {
       const network = await provider.getNetwork();
       if (Number(network.chainId) !== EXPECTED_CHAIN_ID) {
@@ -136,10 +143,11 @@ export function createEvidenceAnchorService({
 
   async function status() {
     const base = {
-      network: 'Hardhat local development chain',
-      localOnly: true,
+      network,
+      localOnly: !chain,
+      chainMode: chain ? 'in-process' : 'external-rpc',
       chainId: EXPECTED_CHAIN_ID,
-      rpcUrl,
+      rpcUrl: shownRpcUrl,
       contractAddress: null,
       deployBlock: null,
       anchorCount: null,
@@ -173,20 +181,19 @@ export function createEvidenceAnchorService({
     const context = await connect();
     return {
       ...await readProof(context, digest),
-      network: 'Hardhat local development chain',
+      network,
       chainId: EXPECTED_CHAIN_ID,
       contractAddress: context.deployment.address,
     };
   }
 
-  async function anchor(manifest) {
-    const proofInput = validateCascadeManifest(manifest);
+  async function anchorOnce(proofInput) {
     const context = await connect();
     const existing = await readProof(context, proofInput.digest);
     if (existing.anchored) return { ...existing, alreadyAnchored: true, chainId: EXPECTED_CHAIN_ID, contractAddress: context.deployment.address };
 
     try {
-      const signer = await context.provider.getSigner(context.deployment.deployer);
+      const signer = chain ? chain.signer('attester') : await context.provider.getSigner(context.deployment.deployer);
       const writer = new Contract(context.deployment.address, context.deployment.abi, signer);
       const tx = await writer.anchor(proofInput.digest, proofInput.manifestIdHash, proofInput.evidenceTypeHash);
       const receipt = await tx.wait();
@@ -203,6 +210,17 @@ export function createEvidenceAnchorService({
     }
   }
 
+  // On an in-process chain a write runs serialized against the shared ledger; see chain-runtime.mjs.
+  async function anchor(manifest) {
+    const proofInput = validateCascadeManifest(manifest);
+    if (!chain) return anchorOnce(proofInput);
+    try { return await chain.write(() => anchorOnce(proofInput)); }
+    catch (error) {
+      if (error instanceof EvidenceAnchorError) throw error;
+      throw new EvidenceAnchorError(error.code || 'anchor_transaction_failed', error.message || 'The evidence transaction failed.', error.status || 502);
+    }
+  }
+
   async function list(value) {
     const context = await connect();
     const limit = normalizeLimit(value);
@@ -214,7 +232,7 @@ export function createEvidenceAnchorService({
     const recent = events.slice(-limit).reverse();
     const anchors = await Promise.all(recent.map((event) => readProof(context, event.args.digest)));
     return {
-      network: 'Hardhat local development chain',
+      network,
       chainId: EXPECTED_CHAIN_ID,
       contractAddress: context.deployment.address,
       anchors,

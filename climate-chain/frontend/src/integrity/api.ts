@@ -196,10 +196,26 @@ export interface CorrectionResponse {
 }
 
 export interface ContractInfo { name: string; address: string; deployBlock: number; deployTxHash: string | null }
+/** Present when the gateway runs its own in-process chain (for example on Vercel). */
+export interface LedgerInfo {
+  mode: 'in-process';
+  booted: boolean;
+  engine?: string;
+  persistence: string;
+  sharedAcrossInstances?: boolean;
+  survivesRestart?: boolean;
+  keySource: string;
+  fingerprint?: string;
+  journal?: { entries: number; head: string; capacity: number };
+  replayedOnBoot?: number;
+  bootMs?: number;
+}
 export interface StatusResponse {
   ledgerMode: LedgerMode;
   network: string;
   chainId: number;
+  chainMode?: 'in-process' | 'external-rpc';
+  ledger?: LedgerInfo;
   rpcUrl: string;
   latestBlock?: number;
   contracts?: { evidenceRegistry: ContractInfo; claimRegistry: ContractInfo };

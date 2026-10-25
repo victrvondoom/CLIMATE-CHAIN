@@ -374,16 +374,17 @@ export function IntegrityLab({ initialSiteId }: { initialSiteId?: string } = {})
         <div className="il-head-copy">
           <span className="eyebrow">CLIMATE INTEGRITY LAB · PROOF OF ENVIRONMENTAL INTEGRITY</span>
           <h2 id="il-title">From a real air-quality signal to a proof you can check yourself</h2>
-          <p className="muted">Each step calls the gateway and the local EVM chain. Hashes, receipts and rejections on this page are read back from the chain, not drawn by the page. A digest proves these bytes have not changed since anchoring; it does not prove the measurement is true.</p>
+          <p className="muted">Each step calls the gateway and its EVM chain. Hashes, receipts and rejections on this page are read back from the chain, not drawn by the page. A digest proves these bytes have not changed since anchoring; it does not prove the measurement is true.</p>
         </div>
         <div className="il-ledger" role="status">
           {ledgerReady && status?.contracts ? (
             <>
-              <Badge tone="chain">LOCAL EVM · CHAIN {status.chainId} · BLOCK {status.latestBlock}</Badge>
+              <Badge tone="chain">{status.chainMode === 'in-process' ? 'IN-PROCESS EVM' : 'LOCAL EVM'} · CHAIN {status.chainId} · BLOCK {status.latestBlock}</Badge>
               <Facts rows={[
                 ['Evidence registry', <Code key="e">{status.contracts.evidenceRegistry.address}</Code>],
                 ['Claim registry', <Code key="c">{status.contracts.claimRegistry.address}</Code>],
                 ['Records', `${status.evidenceCount} evidence · ${status.claimCount} claims · demo run ${status.demoRun}`],
+                ...(status.ledger?.journal ? [['Ledger', `${status.ledger.sharedAcrossInstances ? 'Shared journal (Vercel Blob)' : status.ledger.persistence === 'file' ? 'Journal on this server’s disk' : 'In memory only'} · ${status.ledger.journal.entries} signed transactions · ${status.ledger.replayedOnBoot ?? 0} replayed at start`] as [string, string]] : []),
               ]} />
               <p className="muted small">{status.accountsNote}</p>
             </>
@@ -517,11 +518,11 @@ export function IntegrityLab({ initialSiteId }: { initialSiteId?: string } = {})
 
       {step === 'anchor' && evidence && (
         <section className="il-panel" aria-labelledby="il-anchor">
-          <h3 id="il-anchor">3 · Anchor the digest on the local chain</h3>
+          <h3 id="il-anchor">3 · Anchor the digest on the chain</h3>
           <p className="muted">The registry stores the digest, the evidence id, a parent link and a metadata hash. The raw data stays off-chain.</p>
           {!anchored && (
             <>
-              <button type="button" className="primary-action" onClick={anchor} disabled={busy !== null || !ledgerReady}>{busy === 'Anchor evidence' ? 'Sending the transaction…' : 'Anchor evidence on the local chain'}</button>
+              <button type="button" className="primary-action" onClick={anchor} disabled={busy !== null || !ledgerReady}>{busy === 'Anchor evidence' ? 'Sending the transaction…' : 'Anchor evidence on the chain'}</button>
               {!ledgerReady && <p className="il-warning">OFFLINE · NOT ANCHORED. The chain is not reachable, so nothing can be anchored. No receipt is shown until a real transaction succeeds.</p>}
             </>
           )}
@@ -534,7 +535,7 @@ export function IntegrityLab({ initialSiteId }: { initialSiteId?: string } = {})
                 ['Transaction', <Code key="t">{proof.transactionHash ?? '—'}</Code>],
                 ['Block', `${proof.blockNumber} · ${short(proof.blockHash)}`],
                 ['Receipt', `status ${proof.receiptStatus} · ${proof.confirmations} confirmation(s) · gas used ${proof.gasUsed}`],
-                ['Attester', `${proof.attester} (Hardhat dev account, internal test actor)`],
+                ['Attester', `${proof.attester} (internal test actor)`],
                 ['On-chain digest', <Code key="d">{proof.onChainDigest}</Code>],
                 ['Anchored at', formatUtc(proof.anchoredAt)],
               ]} />
@@ -553,7 +554,7 @@ export function IntegrityLab({ initialSiteId }: { initialSiteId?: string } = {})
                 <details className="il-details">
                   <summary>Reproduce from a terminal</summary>
                   <p className="small">Read the record straight from the chain. The first 32-byte word of the result is the anchored digest.</p>
-                  <pre>{curlEvidenceCall(status.rpcUrl, status.contracts.evidenceRegistry.address, evidence.evidenceId)}</pre>
+                  <pre>{curlEvidenceCall(new URL(status.rpcUrl, window.location.origin).href, status.contracts.evidenceRegistry.address, evidence.evidenceId)}</pre>
                   <p className="small">Ask the gateway to recompute and compare:</p>
                   <pre>{`curl -s ${window.location.origin}/api/v1/integrity/evidence/${evidence.evidenceId}/verify`}</pre>
                 </details>
@@ -776,7 +777,7 @@ export function IntegrityLab({ initialSiteId }: { initialSiteId?: string } = {})
                   <span className="il-node"><small>Corrected claim · {correction.correctedClaim.proof.status}, supersedes the original</small><Code>{correction.correctedClaim.claim.claimId}</Code><small>tx {short(correction.correctedClaim.approvalTransactionHash)}</small></span>
                 </div>
               </div>
-              <p className="muted small">The revised evidence came from a {correction.revisedEvidence.bundle.sources[0]?.retrievalMode === 'LIVE_FETCH' ? 'live' : 'cached'} retrieval. The reviewer is a Hardhat dev account: an internal review, not an independent verification.</p>
+              <p className="muted small">The revised evidence came from a {correction.revisedEvidence.bundle.sources[0]?.retrievalMode === 'LIVE_FETCH' ? 'live' : 'cached'} retrieval. The reviewer is an internal test account: an internal review, not an independent verification.</p>
             </div>
           )}
           <div className="il-actions">
@@ -819,7 +820,7 @@ export function IntegrityLab({ initialSiteId }: { initialSiteId?: string } = {})
                 <li><Badge tone="derived">DERIVED ESTIMATE</Badge> The 24-hour mean computed from model hours.</li>
                 <li><Badge tone="cached">CACHED HISTORICAL EXAMPLE</Badge> A stored real response, never shown as live.</li>
                 <li><Badge tone="demo">DEMO / NOT A CERTIFIED CREDIT</Badge> An unverified information claim.</li>
-                <li><Badge tone="chain">ON-CHAIN ANCHORED PROOF</Badge> The digest is on the local chain. It proves integrity, not truth.</li>
+                <li><Badge tone="chain">ON-CHAIN ANCHORED PROOF</Badge> The digest is on the chain. It proves integrity, not truth.</li>
               </ul>
             </div>
             <div className="il-note">
