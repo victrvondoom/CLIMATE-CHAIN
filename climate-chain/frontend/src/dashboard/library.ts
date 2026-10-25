@@ -38,6 +38,7 @@ const CORE_DESTINATIONS: Destination[] = [
   { id: 'studio', label: 'Unified mission studio', title: 'Unified mission studio', group: 'mission' },
   { id: 'cascade', label: 'Place-based review', title: 'Climate Cascade Review', group: 'mission' },
   { id: 'timeline', label: '200-Year Climate Intelligence', title: 'Climate Intelligence Timeline', group: 'evidence' },
+  { id: 'lab', label: 'Causal Lab · scenarios, El Niño, molecules', title: 'Causal Lab', group: 'evidence' },
   { id: 'integrity', label: 'Climate Integrity Lab', title: 'Climate Integrity Lab', group: 'evidence' },
   { id: 'connections', label: 'Data, keys & MCP evidence', title: 'Data and connection evidence', group: 'evidence' },
   { id: 'session', label: 'Review desk', title: 'Climate Chain', group: 'evidence' },

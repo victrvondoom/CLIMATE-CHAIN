@@ -1,0 +1,13 @@
+.archive
+.git
+.claude
+output
+climate-chain/projects
+climate-chain/output
+climate-chain/blockchain
+climate-chain/frontend/dist
+climate-chain/gateway/.integrity-data
+node_modules
+*.log
+.env
+.env.*

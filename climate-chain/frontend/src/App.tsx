@@ -25,6 +25,7 @@ const MissionStudio = lazy(() => import('./modules/MissionStudio').then((module)
 const CascadeReview = lazy(() => import('./modules/CascadeReview').then((module) => ({ default: module.CascadeReview })));
 const EarthWorkspace = lazy(() => import('./modules/earth/EarthWorkspace').then((module) => ({ default: module.EarthWorkspace })));
 const IntegrityLab = lazy(() => import('./modules/IntegrityLab').then((module) => ({ default: module.IntegrityLab })));
+const CausalLab = lazy(() => import('./modules/lab/CausalLab').then((module) => ({ default: module.CausalLab })));
 const ClimateTimeline = lazy(() => import('./modules/ClimateTimeline').then((module) => ({ default: module.ClimateTimeline })));
 
 export default function App() {
@@ -125,6 +126,7 @@ export default function App() {
       case 'ledger': return <EvidenceLedger onOpenModule={(moduleId) => navigate(moduleId === 'earth' ? 'earth' : `module:${moduleId}`)} onOpenReview={() => navigate('session')} />;
       case 'integrity': return <IntegrityLab />;
       case 'timeline': return <ClimateTimeline onSendToFirewall={() => navigate('integrity')} />;
+      case 'lab': return <CausalLab onNavigate={navigate} />;
       case 'memory': return <AgentMemory onSnapshot={updateMemoryGate} focusMemoryId={focusMemoryId} />;
       default: return null;
     }
@@ -225,6 +227,14 @@ export default function App() {
           >
             <span className="nav-icon">⏳</span>
             <span className="nav-text">200-Year Timeline</span>
+          </button>
+          <button
+            type="button"
+            className={`nav-button ${view === 'lab' ? 'active' : ''}`}
+            onClick={() => navigate('lab')}
+          >
+            <span className="nav-icon">🧪</span>
+            <span className="nav-text">Causal Lab</span>
           </button>
           <button
             type="button"

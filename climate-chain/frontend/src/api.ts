@@ -645,6 +645,35 @@ export function fetchHistoricalTimeline(indicator = 'temperature_anomaly', start
   return getJson<HistoricalTimelineResponse>(`/api/v1/history/timeline?${qs}`, signal);
 }
 
+export type WorldSignalStatus = 'live' | 'stale';
+interface WorldEnvelope { status: WorldSignalStatus; source: string; sourceUrl: string; fetchedAt: string; staleReason?: string }
+export interface EnsoSignal extends WorldEnvelope { series: { year: number; month: number; season: string; oni: number; phase: 'El Nino' | 'La Nina' | 'Neutral' }[] }
+export interface NewsSignal extends WorldEnvelope { topic: string; outlets: string[]; failedOutlets: string[]; articles: { title: string; url: string; domain: string; outlet: string; seenAt: string | null }[] }
+export interface InflationSignal extends WorldEnvelope { country: string; series: { year: number; inflationPct: number }[] }
+
+export const fetchEnso = (signal?: AbortSignal) => getJson<EnsoSignal>('/api/v1/world/enso', signal);
+export const fetchClimateNews = (topic: 'climate' | 'india' | 'enso', signal?: AbortSignal) => getJson<NewsSignal>(`/api/v1/world/news?topic=${topic}`, signal);
+export const fetchIndiaInflation = (signal?: AbortSignal) => getJson<InflationSignal>('/api/v1/world/india-inflation', signal);
+
+export type AirCategoryId = 'good' | 'moderate' | 'sensitive' | 'unhealthy' | 'very-unhealthy' | 'hazardous' | 'unknown';
+export interface AirCategory { id: AirCategoryId; label: string }
+export interface AirReading { time: string | null; usAqi: number | null; pm25: number | null; pm10: number | null; no2: number | null; o3: number | null; so2: number | null; co: number | null }
+export interface AirCountry { iso2: string; name: string; capital: string; region: string; lat: number; lng: number; reading: AirReading; category: AirCategory }
+export interface AirCountriesSignal extends WorldEnvelope { count: number; withData: number; failed: number; countries: AirCountry[] }
+export interface AirAreaCell { row: number; col: number; usAqi: number | null; category: AirCategoryId }
+export interface AirArea {
+  gridCells: number; cellsWithData: number; cellKm: { height: number; width: number }; windowKm: { height: number; width: number };
+  threshold: string; pollutedCells: number; pollutedSharePct: number | null; pollutedAreaKm2: number | null; sampledAreaKm2: number;
+  byCategory: Partial<Record<AirCategoryId, number>>; cells: AirAreaCell[];
+}
+export interface AirPointSignal extends WorldEnvelope {
+  place: { lat: number; lng: number; nearest: { iso2: string; name: string; capital: string; distanceKm: number } | null };
+  reading: AirReading; category: AirCategory; whoPm25Guideline: number; pm25VsWho: number | null; area: AirArea; resolutionNote: string;
+}
+
+export const fetchAirCountries = (signal?: AbortSignal) => getJson<AirCountriesSignal>('/api/v1/world/air/countries', signal);
+export const fetchAirPoint = (lat: number, lng: number, signal?: AbortSignal) => getJson<AirPointSignal>(`/api/v1/world/air/point?${new URLSearchParams({ lat: String(lat), lng: String(lng) })}`, signal);
+
 export function fetchHistoricalEvents(signal?: AbortSignal): Promise<{ events: PolicyEvent[] }> {
   return getJson<{ events: PolicyEvent[] }>('/api/v1/history/events', signal);
 }

@@ -47,6 +47,7 @@ import { createFacilityService } from './place-facilities.mjs';
 import { createKnowledgeService, KnowledgeError } from './knowledge-index.mjs';
 import { createEvidenceAnchorService, EvidenceAnchorError, isValidEvidenceDigest } from './evidence-anchor.mjs';
 import { createIntegrityService } from './integrity-service.mjs';
+import { createWorldSignalService, WorldSignalError } from './world-signals.mjs';
 import {
   getDatasetsCatalog,
   getTimelineObservations,
@@ -662,12 +663,13 @@ async function handleMissions(req, res, url, engine) {
   }
 }
 
-export function createGatewayServer({ missionEngine, connectorRegistry, missionStorePath, projectRegistry, trackRegistry, placeService, facilitiesService, knowledgeService, evidenceAnchorService, integrityService } = {}) {
+export function createGatewayServer({ missionEngine, connectorRegistry, missionStorePath, projectRegistry, trackRegistry, placeService, worldSignalService, facilitiesService, knowledgeService, evidenceAnchorService, integrityService } = {}) {
   const missions = missionEngine || createMissionEngine({ storePath: missionStorePath });
   const connectors = connectorRegistry || createConnectorRegistry({ env: process.env });
   const projects = projectRegistry || loadRegistry();
   const tracks = trackRegistry || loadTracks();
   const places = placeService || createPlaceService();
+  const worldSignals = worldSignalService || createWorldSignalService();
   const facilities = facilitiesService || createFacilityService();
   const knowledge = knowledgeService || createKnowledgeService({ root: join(__dirname, '..') });
   const evidenceAnchors = evidenceAnchorService || createEvidenceAnchorService();
@@ -762,6 +764,20 @@ export function createGatewayServer({ missionEngine, connectorRegistry, missionS
     if (p === INTEGRITY_BASE || p.startsWith(`${INTEGRITY_BASE}/`)) {
       return handleIntegrity(req, res, url, integrity);
     }
+    if (p.startsWith('/api/v1/world/')) {
+      if (req.method !== 'GET') { req.resume(); return sendJson(res, 405, { error: { code: 'method_not_allowed', message: 'World signal endpoints are read-only.' } }); }
+      try {
+        if (p === '/api/v1/world/enso') return sendJson(res, 200, await worldSignals.enso());
+        if (p === '/api/v1/world/news') return sendJson(res, 200, await worldSignals.news(url.searchParams.get('topic') || 'climate'));
+        if (p === '/api/v1/world/india-inflation') return sendJson(res, 200, await worldSignals.indiaInflation());
+        if (p === '/api/v1/world/air/countries') return sendJson(res, 200, await worldSignals.airCountries());
+        if (p === '/api/v1/world/air/point') return sendJson(res, 200, await worldSignals.airPoint(url.searchParams.get('lat'), url.searchParams.get('lng')));
+        return sendJson(res, 404, { error: { code: 'not_found', message: `Unknown world signal route: ${p}` } });
+      } catch (error) {
+        const known = error instanceof WorldSignalError;
+        return sendJson(res, known ? error.status : 502, { error: { code: known ? error.code : 'world_source_unavailable', message: known ? error.message : 'The public data source could not be reached. Retry shortly.' } });
+      }
+    }
     if (p.startsWith('/api/v1/history/')) {
       return handleHistory(req, res, url);
     }
@@ -803,7 +819,7 @@ export function createGatewayServer({ missionEngine, connectorRegistry, missionS
 
 const server = createGatewayServer();
 if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) {
-  server.listen(PORT, '127.0.0.1', () => {
+  server.listen(PORT, process.env.HOST || '127.0.0.1', () => {
     console.log(`Climate Chain gateway on http://localhost:${PORT}`);
     console.log(`Upstreams: ${Object.values(SERVICES).map((s) => s.label).join(', ')}`);
     console.log(`Frontend dist: ${DIST_DIR}`);

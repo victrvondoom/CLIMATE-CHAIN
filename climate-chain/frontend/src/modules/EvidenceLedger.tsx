@@ -1,10 +1,12 @@
-import { useCallback, useEffect, useState } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useState } from 'react';
 import { fetchEvidenceAnchorStatus, fetchEvidenceAnchors, verifyEvidenceAnchor, type EvidenceAnchorProof, type EvidenceAnchorStatus } from '../api';
 import { canonicalJson, readLedger, subscribeLedger, verifyEvidence, type EvidenceRecord } from '../core/evidence';
 import { CLIMATE_MODULES } from './index';
 import './shell.css';
 
-type CheckState = 'checking' | 'matches' | 'changed' | 'error';
+const LedgerChain3D = lazy(() => import('./lab/LedgerChain3D').then((m) => ({ default: m.LedgerChain3D })));
+
+type CheckState ='checking' | 'matches' | 'changed' | 'error';
 interface CheckResult { state: CheckState; fingerprint: string; error?: string }
 const fingerprint = (record: EvidenceRecord) => `${record.sha256}:${canonicalJson(record.payload)}`;
 
@@ -94,6 +96,10 @@ export function EvidenceLedger({ onOpenModule, onOpenReview }: { onOpenModule?: 
         <h2 id="ledger-title">Evidence ledger</h2>
         <p className="muted">Every outcome a module records lands here with its SHA-256 digest. Verify re-hashes the payload in your browser. Records stay in this browser only and update as modules or other tabs save work.</p>
       </header>
+      <details className="ledger-3d">
+        <summary>View the ledger as a 3D chain</summary>
+        <Suspense fallback={<p>Loading 3D ledger…</p>}><LedgerChain3D /></Suspense>
+      </details>
       <section className="chain-ledger" aria-labelledby="chain-ledger-title">
         <div className="chain-ledger-head">
           <div>

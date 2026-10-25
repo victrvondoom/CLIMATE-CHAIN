@@ -1,0 +1,15 @@
+{
+  "installCommand": "npm --prefix climate-chain/gateway ci",
+  "buildCommand": "npm --prefix climate-chain/frontend ci && npm --prefix climate-chain/frontend run build",
+  "outputDirectory": "climate-chain/frontend/dist",
+  "functions": {
+    "api/index.mjs": {
+      "maxDuration": 60,
+      "includeFiles": "{climate-chain/registry/**,climate-chain/data/**,data/**,climate-chain/docs/**}"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "/api/index" },
+    { "source": "/((?!assets/|cesium/|favicon).*)", "destination": "/index.html" }
+  ]
+}

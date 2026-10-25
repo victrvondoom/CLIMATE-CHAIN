@@ -100,6 +100,10 @@ CLIMATE_CHAIN_RPC_URL=http://127.0.0.1:18545
 EVM_RPC_URL=http://127.0.0.1:18545
 CHAIN_ID=31337
 
+# Agent & Response Layer (Claude Opus 5.5, Anthropic API)
+ANTHROPIC_API_KEY=
+CLIMATE_CHAIN_AGENT_MODEL=claude-opus-5-5
+
 # Frontend Configuration
 VITE_API_BASE=http://127.0.0.1:8080
 VITE_CESIUM_ION_TOKEN=
@@ -126,6 +130,18 @@ Once running, access the platform at:
 👉 **`http://127.0.0.1:8080`**
 
 To stop, simply press `Ctrl + C` in the PowerShell terminal; child EVM processes and workers terminate cleanly.
+
+---
+
+## 5a. Agent & Response Layer (Claude Opus 5.5)
+
+Users interact with Climate Chain through an agent and response layer powered by **Claude Opus 5.5** (`claude-opus-5-5`) via the Anthropic API. It is enabled by setting `ANTHROPIC_API_KEY` in the root `.env`; the key is read server-side by the gateway and is never sent to the browser.
+
+- **Live data retrieval**: Live data is fetched through Claude Opus 5.5. The agent issues tool calls against the gateway's live connectors (Delhi air, Punjab fire, Mumbai water, Jodhpur waste, Permian methane, grid power) and the 200-year dataset catalog, then composes the answer the user sees.
+- **Agent actions**: From the Command Center, users ask questions in plain language and trigger agent actions such as running a mission (`Sense → Verify → Act → Finance → Prove`), pulling a dataset, or preparing an evidence receipt.
+- **Provenance is preserved**: Every value the agent returns keeps its `LIVE` or `SIMULATED` label and its source. The agent never relabels modelled data as observed.
+- **The model does not verify claims**: Acceptance of an environmental claim is decided only by the deterministic Evidence-to-Claim Trust Firewall (Section 7). Claude Opus 5.5 can explain a verdict and its audit trace, but it cannot override one.
+- **Agent memory**: Agent context is stored in the encrypted local memory store (Windows DPAPI / AES-256-GCM).
 
 ---
 

@@ -59,6 +59,8 @@ describe('dashboard library', () => {
     expect(resolveView('#integrity')).toBe('integrity');
     expect(destinationFor('timeline')?.group).toBe('evidence');
     expect(resolveView('#timeline')).toBe('timeline');
-    expect(DESTINATIONS.filter((item) => item.group !== 'modules')).toHaveLength(LEGACY_VIEWS.length + 2);
+    expect(destinationFor('lab')?.group).toBe('evidence');
+    expect(resolveView('#lab')).toBe('lab');
+    expect(DESTINATIONS.filter((item) => item.group !== 'modules')).toHaveLength(LEGACY_VIEWS.length + 3);
   });
 });

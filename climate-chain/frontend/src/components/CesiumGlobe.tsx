@@ -12,19 +12,27 @@ import { compassPoint, formatSolarTime, solarPosition } from '../modules/earth/s
 
 export interface GlobeMarker extends Place {
   id: string;
-  kind: 'facility' | 'production' | 'sample' | 'waste' | 'pilot';
+  kind: 'facility' | 'production' | 'sample' | 'waste' | 'pilot' | 'air';
   valueLabel?: string;
+  /** Overrides the colour for the marker's kind, e.g. an AQI colour. */
+  color?: string;
+  /** Overrides the point size in pixels. */
+  size?: number;
 }
 export interface GlobeRoute { id: string; from: Place; to: Place; label: string; uncertain?: boolean }
 const SATELLITE_URL = 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer';
 const LABEL_URL = 'https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}';
-const colors = { facility: '#f1eadb', production: '#fffef9', sample: '#e6dcc7', waste: '#f8f4e9', pilot: '#fdfbf4' };
+const colors = { facility: '#f1eadb', production: '#fffef9', sample: '#e6dcc7', waste: '#f8f4e9', pilot: '#fdfbf4', air: '#e6dcc7' };
 const SIDEREAL_DAY_SECONDS = 86_164.0905;
 const ROTATION_SPEEDS = [0, 1, 60, 3600] as const;
 
-export function CesiumGlobe({ place, markers = [], routes = [], radiusKm = 0, onSelectPlace, compact = false }: {
+export function CesiumGlobe({ place, markers = [], routes = [], radiusKm = 0, onSelectPlace, compact = false, focusHeightM, hideSolar = false }: {
   place: Place | null; markers?: GlobeMarker[]; routes?: GlobeRoute[]; radiusKm?: number;
   onSelectPlace?: (place: Place) => void; compact?: boolean;
+  /** Camera height in metres when a place is selected. Defaults to a close-in view (compact: regional view). */
+  focusHeightM?: number;
+  /** Hides the live solar geometry panel when the globe carries another data layer. */
+  hideSolar?: boolean;
 }) {
   const mountRef = useRef<HTMLDivElement>(null);
   const viewerRef = useRef<Viewer | null>(null);
@@ -213,14 +221,14 @@ export function CesiumGlobe({ place, markers = [], routes = [], radiusKm = 0, on
     const viewer = viewerRef.current;
     if (!ready || !viewer) return;
     viewer.entities.removeAll();
-    const addMarker = (marker: Place, id: string, color: string, text: string, selected = false) => {
+    const addMarker = (marker: Place, id: string, color: string, text: string, selected = false, size = 9) => {
       viewer.entities.add({ id, position: Cartesian3.fromDegrees(marker.lng, marker.lat, 50),
-        point: { color: Color.fromCssColorString(color), pixelSize: selected ? 15 : 9, outlineColor: Color.fromCssColorString('#464137'), outlineWidth: 2 },
+        point: { color: Color.fromCssColorString(color), pixelSize: selected ? 15 : size, outlineColor: Color.fromCssColorString('#464137'), outlineWidth: 2 },
         label: { text, font: selected ? 'bold 13px sans-serif' : '12px sans-serif', fillColor: Color.fromCssColorString('#2e2b25'), style: LabelStyle.FILL_AND_OUTLINE, outlineColor: Color.fromCssColorString('#fffef9'), outlineWidth: 2, showBackground: true, backgroundColor: Color.fromCssColorString('#fdfbf4f0'), pixelOffset: new Cartesian2(0, -24), distanceDisplayCondition: new DistanceDisplayCondition(0, selected ? Number.POSITIVE_INFINITY : 2_000_000) },
         properties: { place: marker },
       });
     };
-    markers.slice(0, 500).forEach((marker) => addMarker(marker, `point:${marker.id}`, colors[marker.kind], marker.valueLabel ? `${marker.name} · ${marker.valueLabel}` : marker.name));
+    markers.slice(0, 500).forEach((marker) => addMarker(marker, `point:${marker.id}`, marker.color ?? colors[marker.kind], marker.valueLabel ? `${marker.name} · ${marker.valueLabel}` : marker.name, false, marker.size));
     if (place) {
       addMarker(place, 'selected-place', '#fffef9', place.name, true);
       if (radiusKm > 0) viewer.entities.add({ id: 'inspection-radius', position: Cartesian3.fromDegrees(place.lng, place.lat), ellipse: { semiMajorAxis: radiusKm * 1000, semiMinorAxis: radiusKm * 1000, material: Color.fromCssColorString('#fffef9').withAlpha(0.13), outline: true, outlineColor: Color.fromCssColorString('#f1eadb'), height: 0 } });
@@ -234,8 +242,8 @@ export function CesiumGlobe({ place, markers = [], routes = [], radiusKm = 0, on
     const viewer = viewerRef.current;
     if (!ready || !viewer || lat === undefined || lng === undefined) return;
     // Selection updates never recreate the viewer or reset its imagery.
-    viewer.camera.flyTo({ destination: Cartesian3.fromDegrees(lng, lat, compact ? 6_000_000 : 160_000), orientation: { heading: 0, pitch: -Math.PI / 2, roll: 0 }, duration: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 1.1 });
-  }, [lat, lng, ready, compact, revision]);
+    viewer.camera.flyTo({ destination: Cartesian3.fromDegrees(lng, lat, focusHeightM ?? (compact ? 6_000_000 : 160_000)), orientation: { heading: 0, pitch: -Math.PI / 2, roll: 0 }, duration: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 1.1 });
+  }, [lat, lng, ready, compact, focusHeightM, revision]);
 
   const camera = (action: 'home' | 'in' | 'out' | 'tilt' | 'expand') => {
     const viewer = viewerRef.current; if (!viewer || viewer.isDestroyed()) return;
@@ -266,7 +274,7 @@ export function CesiumGlobe({ place, markers = [], routes = [], radiusKm = 0, on
     </div>
     <div className="earth-camera-controls" aria-label="Camera controls"><button type="button" onClick={() => camera('home')} disabled={!ready} aria-label="View whole Earth">Home</button><button type="button" onClick={() => camera('in')} disabled={!ready} aria-label="Zoom in">+</button><button type="button" onClick={() => camera('out')} disabled={!ready} aria-label="Zoom out">-</button><button type="button" onClick={() => camera('tilt')} disabled={!ready}>{cameraMode === 'orbit' ? 'Overhead' : 'Tilt 3D'}</button>{!compact && <button type="button" onClick={() => camera('expand')} disabled={!ready} aria-label="Expand satellite globe">Full</button>}</div>
     <div className="earth-imagery-note" role="status">{error ? 'Globe unavailable' : !ready ? 'Starting CesiumJS...' : !imageryReady ? 'Connecting satellite imagery...' : imagery === 'daily' ? `NASA VIIRS / ${date} / daily composite` : 'Esri World Imagery / satellite and aerial mosaic'}<span>{pendingTiles > 0 ? `Loading ${pendingTiles} map tiles / ` : ''}{terrain ? 'World terrain' : 'WGS84 ellipsoid'} / imagery capture dates vary / {onSelectPlace ? 'click a point to inspect sunlight and climate' : 'click a point to inspect sunlight'}</span></div>
-    <aside className={`earth-solar-panel ${compact ? 'earth-solar-panel-compact' : ''}`} aria-label="Live solar position">
+    {!hideSolar && <aside className={`earth-solar-panel ${compact ? 'earth-solar-panel-compact' : ''}`} aria-label="Live solar position">
       <div className="earth-solar-heading"><span>LIVE SOLAR GEOMETRY</span></div>
       <label className="earth-speed-control">Earth spin <select value={rotationSpeed} onChange={(event) => setRotationSpeed(Number(event.target.value))} aria-label="Earth rotation speed">
         {ROTATION_SPEEDS.map((speed) => <option key={speed} value={speed}>{speed === 0 ? 'Paused' : speed === 1 ? 'Real time / 1x' : speed === 60 ? '1 min per sec / 60x' : '1 hour per sec / 3600x'}</option>)}
@@ -282,7 +290,7 @@ export function CesiumGlobe({ place, markers = [], routes = [], radiusKm = 0, on
         </>
       </dl>
       <small>{solarPlace?.name ?? 'Equator'} | {simulationDate.toISOString().replace('T', ' ').slice(0, 19)} UTC | 23.44 deg axial tilt model</small>
-    </aside>
+    </aside>}
     {(error || imageryWarning) && <div className="earth-map-error" role="alert">{error || imageryWarning}<button type="button" onClick={() => { setRevision((value) => value + 1); setImagery('satellite'); }}>Retry satellite view</button></div>}
   </div>;
 }

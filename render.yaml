@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: climate-chain
+    runtime: node
+    plan: starter
+    buildCommand: >-
+      npm --prefix climate-chain/frontend ci &&
+      npm --prefix climate-chain/frontend run build &&
+      npm --prefix climate-chain/gateway ci &&
+      npm --prefix climate-chain/blockchain ci &&
+      npm --prefix climate-chain/blockchain run compile
+    startCommand: node climate-chain/scripts/render-start.mjs
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: 24.14.0
+      - key: HOST
+        value: 0.0.0.0
+      - key: JUNKSNAP_API_URL
+        value: https://junksnap.coehemang.dev
+      - key: CLEARSKY_API_URL
+        value: https://clearsky.akkki.tech
+      - key: TEESRI_SHIKAYAT_API_URL
+        value: https://eirioqqhvtvve3aw5xhpje2wju0jztrl.lambda-url.ap-south-1.on.aws
+      - key: VAYU_API_URL
+        value: https://vayu.thevayuproject.org
+      - key: PLUME_API_URL
+        value: https://plume.kaavin.dev
+      - key: CLIMATE_CHAIN_MEMORY_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: VITE_CESIUM_ION_TOKEN
+        sync: false
