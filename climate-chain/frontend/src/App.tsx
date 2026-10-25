@@ -290,7 +290,7 @@ export default function App() {
             onClick={() => navigate('refinery')}
           >
             <span className="nav-icon">🧹</span>
-            <span className="nav-text">Data Refinery · Clean & Reformat</span>
+            <span className="nav-text">Data Refinery</span>
           </button>
         </nav>
 
