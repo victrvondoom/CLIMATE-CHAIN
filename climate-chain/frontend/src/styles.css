@@ -19,7 +19,7 @@
   --air: #526e51;
   --good: #3a684b;
   --bad: #b3392f;
-  --font: 'Figtree Variable', 'Figtree', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font: 'EB Garamond', Georgia, 'Times New Roman', serif;
 }
 
 * { box-sizing: border-box; }
@@ -73,7 +73,7 @@ body::before {
   font-weight: 800; color: var(--ink); font-size: 14px;
   box-shadow: 0 6px 18px rgba(23,21,19,0.16), inset 0 1px 2px rgba(255,253,247,0.9);
 }
-.brand-name { font-weight: 700; font-size: 16px; letter-spacing: 0.01em; }
+.brand-name { font-weight: 600; font-size: 16px; letter-spacing: 0.01em; }
 .brand-sub { color: var(--muted); font-size: 11px; }
 
 nav { display: flex; flex-direction: column; gap: 4px; transform-style: preserve-3d; }
@@ -1192,8 +1192,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .brand-title {
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 17px;
+  font-weight: 600;
   color: #241e17;
   letter-spacing: -0.01em;
 }
