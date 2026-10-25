@@ -1,10 +1,10 @@
 :root {
-  --background: #F5F3EE;
-  --surface: #FFFEFA;
-  --surface-secondary: #F0EDE6;
-  --text-primary: #171717;
-  --text-secondary: #64615C;
-  --border: #DDD8CF;
+  --background: var(--t-f5f3ee);
+  --surface: var(--t-fffefa);
+  --surface-secondary: var(--t-f0ede6);
+  --text-primary: var(--t-171717);
+  --text-secondary: var(--t-64615c);
+  --border: var(--t-ddd8cf);
 
   --bg: var(--background);
   --bg-2: var(--surface-secondary);
@@ -1144,8 +1144,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   display: grid;
   grid-template-columns: 260px minmax(0, 1fr);
   min-height: 100vh;
-  background: #f8f4ea;
-  color: #241e17;
+  background: var(--t-f8f4ea);
+  color: var(--t-241e17);
 }
 
 /* Sidebar */
@@ -1154,8 +1154,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   top: 0;
   height: 100vh;
   overflow-y: auto;
-  background: #fffdf9;
-  border-right: 1px solid #e7ddca;
+  background: var(--t-fffdf9);
+  border-right: 1px solid var(--t-e7ddca);
   display: flex;
   flex-direction: column;
   padding: 22px 14px;
@@ -1168,16 +1168,16 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   align-items: center;
   gap: 12px;
   padding: 0 8px 14px;
-  border-bottom: 1px solid #eee4d1;
+  border-bottom: 1px solid var(--t-eee4d1);
 }
 
 .brand-badge {
   width: 38px;
   height: 38px;
   border-radius: 10px;
-  background: #241c15;
-  color: #fcf9f2;
-  border: 1px solid #483827;
+  background: var(--t-241c15);
+  color: var(--t-fcf9f2);
+  border: 1px solid var(--t-483827);
   font-weight: 800;
   font-size: 15px;
   display: flex;
@@ -1194,13 +1194,35 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .brand-title {
   font-size: 17px;
   font-weight: 600;
-  color: #241e17;
+  color: var(--t-241e17);
   letter-spacing: -0.01em;
 }
 
 .brand-tagline {
   font-size: 11px;
-  color: #756654;
+  color: var(--t-756654);
+}
+
+.theme-toggle-btn {
+  margin-left: auto;
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--t-e7ddca);
+  background: var(--t-f2eadb);
+  color: var(--t-5c4e3e);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--t-efe5d2);
+  color: var(--t-241e17);
 }
 
 .mobile-close-btn {
@@ -1210,7 +1232,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   border: none;
   font-size: 16px;
   cursor: pointer;
-  color: #756654;
+  color: var(--t-756654);
 }
 
 /* Navigation Menu */
@@ -1230,7 +1252,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   border-radius: 9px;
   border: 0;
   background: transparent;
-  color: #5c4e3e;
+  color: var(--t-5c4e3e);
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
@@ -1241,13 +1263,13 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 
 .nav-button:hover,
 .nav-search-button:hover {
-  background: #f2eadb;
-  color: #241e17;
+  background: var(--t-f2eadb);
+  color: var(--t-241e17);
 }
 
 .nav-button.active {
-  background: #efe5d2;
-  color: #241e17;
+  background: var(--t-efe5d2);
+  color: var(--t-241e17);
   font-weight: 700;
 }
 
@@ -1264,33 +1286,33 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 
 .nav-search-button {
   margin-bottom: 6px;
-  background: #f8f4ea;
-  border: 1px solid #e5dac6;
+  background: var(--t-f8f4ea);
+  border: 1px solid var(--t-e5dac6);
 }
 
 .nav-kbd {
   margin-left: auto;
   font-size: 10px;
   padding: 2px 6px;
-  background: #fffdf9;
-  border: 1px solid #decbb4;
+  background: var(--t-fffdf9);
+  border: 1px solid var(--t-decbb4);
   border-radius: 4px;
-  color: #756654;
+  color: var(--t-756654);
 }
 
 .nav-section-title {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: #8c7b68;
+  color: var(--t-8c7b68);
   padding: 12px 10px 4px;
   text-transform: uppercase;
 }
 
 /* Upstreams Box in Sidebar */
 .sidebar-upstreams-box {
-  background: #f8f4ea;
-  border: 1px solid #e5dac6;
+  background: var(--t-f8f4ea);
+  border: 1px solid var(--t-e5dac6);
   border-radius: 12px;
   padding: 12px;
   display: flex;
@@ -1305,7 +1327,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: #756654;
+  color: var(--t-756654);
 }
 
 .refresh-mini-btn {
@@ -1313,12 +1335,12 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   border: none;
   cursor: pointer;
   font-size: 12px;
-  color: #756654;
+  color: var(--t-756654);
   padding: 2px 4px;
 }
 
 .refresh-mini-btn:hover {
-  color: #8c683b;
+  color: var(--t-8c683b);
 }
 
 .upstreams-list {
@@ -1335,14 +1357,14 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .upstream-name {
-  color: #383027;
+  color: var(--t-383027);
   font-weight: 500;
   flex: 1;
 }
 
 .upstream-mode {
   font-size: 9px;
-  color: #8c683b;
+  color: var(--t-8c683b);
   font-weight: 700;
 }
 
@@ -1353,12 +1375,12 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .live-dot.live {
-  background: #c48d3f;
+  background: var(--t-c48d3f);
   box-shadow: 0 0 6px rgba(196, 141, 63, 0.6);
 }
 
 .live-dot.standby {
-  background: #decbb4;
+  background: var(--t-decbb4);
 }
 
 /* Main Content Area */
@@ -1379,7 +1401,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   padding: 10px 0;
   position: sticky;
   top: 0;
-  background: #f8f4ea;
+  background: var(--t-f8f4ea);
   border-bottom: 1px solid rgba(229, 218, 198, 0.6);
   z-index: 10;
 }
@@ -1393,7 +1415,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .mobile-nav-toggle {
   display: none;
   background: none;
-  border: 1px solid #decbb4;
+  border: 1px solid var(--t-decbb4);
   border-radius: 8px;
   padding: 6px 10px;
   font-size: 16px;
@@ -1408,16 +1430,16 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .breadcrumb-root {
-  color: #756654;
+  color: var(--t-756654);
   font-weight: 500;
 }
 
 .breadcrumb-separator {
-  color: #d8c7ad;
+  color: var(--t-d8c7ad);
 }
 
 .breadcrumb-current {
-  color: #241e17;
+  color: var(--t-241e17);
   font-weight: 700;
   font-size: 17px;
 }
@@ -1432,8 +1454,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   display: flex;
   align-items: center;
   gap: 6px;
-  background: #fffdf9;
-  border: 1px solid #decbb4;
+  background: var(--t-fffdf9);
+  border: 1px solid var(--t-decbb4);
   padding: 5px 10px;
   border-radius: 20px;
   box-shadow: 0 1px 2px rgba(48, 36, 20, 0.04);
@@ -1444,7 +1466,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   background: transparent;
   font-size: 13px;
   font-weight: 600;
-  color: #241e17;
+  color: var(--t-241e17);
   outline: none;
   cursor: pointer;
 }
@@ -1453,19 +1475,19 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #fffdf9;
-  border: 1px solid #decbb4;
+  background: var(--t-fffdf9);
+  border: 1px solid var(--t-decbb4);
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 13px;
-  color: #756654;
+  color: var(--t-756654);
   cursor: pointer;
   box-shadow: 0 1px 2px rgba(48, 36, 20, 0.04);
 }
 
 .topbar-search-btn kbd {
   font-size: 10px;
-  background: #f5eedf;
+  background: var(--t-f5eedf);
   padding: 2px 5px;
   border-radius: 4px;
 }
@@ -1474,9 +1496,9 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   display: flex;
   align-items: center;
   gap: 6px;
-  background: #f5eedf;
-  border: 1px solid #decbb4;
-  color: #5c442a;
+  background: var(--t-f5eedf);
+  border: 1px solid var(--t-decbb4);
+  color: var(--t-5c442a);
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 12px;
@@ -1488,16 +1510,16 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #c48d3f;
+  background: var(--t-c48d3f);
 }
 
 .refresh-round-btn {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: 1px solid #decbb4;
-  background: #fffdf9;
-  color: #5c442a;
+  border: 1px solid var(--t-decbb4);
+  background: var(--t-fffdf9);
+  color: var(--t-5c442a);
   font-size: 14px;
   display: flex;
   align-items: center;
@@ -1507,8 +1529,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .refresh-round-btn:hover {
-  background: #f5eedf;
-  color: #241e17;
+  background: var(--t-f5eedf);
+  color: var(--t-241e17);
 }
 
 .refresh-round-btn.rotating {
@@ -1524,8 +1546,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
    HERO MODERN & INTERACTIVE CLIMATE RADAR
    ========================================================================== */
 .hero-modern {
-  background: #fffdf9;
-  border: 1px solid #e7ddca;
+  background: var(--t-fffdf9);
+  border: 1px solid var(--t-e7ddca);
   border-radius: 20px;
   padding: 28px;
   box-shadow: 0 4px 20px -2px rgba(48, 36, 20, 0.04);
@@ -1550,15 +1572,15 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: #8c683b;
+  color: var(--t-8c683b);
 }
 
 .live-status-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #c48d3f;
-  box-shadow: 0 0 8px #c48d3f;
+  background: var(--t-c48d3f);
+  box-shadow: 0 0 8px var(--t-c48d3f);
   animation: pulse-ring 2s infinite;
 }
 
@@ -1572,27 +1594,27 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   display: flex;
   align-items: center;
   gap: 6px;
-  background: #f8f4ea;
-  border: 1px solid #decbb4;
+  background: var(--t-f8f4ea);
+  border: 1px solid var(--t-decbb4);
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 12px;
   font-weight: 600;
-  color: #5c442a;
+  color: var(--t-5c442a);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .live-pulse-btn:hover {
-  background: #f0e6d2;
-  border-color: #cbb89e;
-  color: #241e17;
+  background: var(--t-f0e6d2);
+  border-color: var(--t-cbb89e);
+  color: var(--t-241e17);
 }
 
 .live-pulse-btn.pulsing {
-  background: #272018;
-  color: #fcf9f2;
-  border-color: #272018;
+  background: var(--t-272018);
+  color: var(--t-fcf9f2);
+  border-color: var(--t-272018);
   box-shadow: 0 0 14px rgba(48, 36, 20, 0.3);
 }
 
@@ -1600,14 +1622,14 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   margin: 0 0 8px;
   font-size: clamp(26px, 3.2vw, 36px);
   font-weight: 800;
-  color: #241e17;
+  color: var(--t-241e17);
   letter-spacing: -0.02em;
 }
 
 .hero-intro p {
   margin: 0 0 20px;
   font-size: 15px;
-  color: #5c5043;
+  color: var(--t-5c5043);
   max-width: 800px;
   line-height: 1.55;
 }
@@ -1619,9 +1641,9 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .primary-hero-btn {
-  background: #241c15;
-  color: #fcf9f2;
-  border: 1px solid #483827;
+  background: var(--t-241c15);
+  color: var(--t-fcf9f2);
+  border: 1px solid var(--t-483827);
   padding: 10px 20px;
   border-radius: 10px;
   font-size: 14px;
@@ -1633,15 +1655,15 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 
 .primary-hero-btn:hover {
   transform: translateY(-1px);
-  background: #382c20;
+  background: var(--t-382c20);
   color: #ffffff;
   box-shadow: 0 6px 16px rgba(48, 36, 20, 0.25);
 }
 
 .secondary-hero-btn {
-  background: #f8f4ea;
-  color: #4f4233;
-  border: 1px solid #decbb4;
+  background: var(--t-f8f4ea);
+  color: var(--t-4f4233);
+  border: 1px solid var(--t-decbb4);
   padding: 9px 16px;
   border-radius: 10px;
   font-size: 13px;
@@ -1651,9 +1673,9 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .secondary-hero-btn:hover {
-  background: #f0e6d2;
-  color: #241e17;
-  border-color: #cbb89e;
+  background: var(--t-f0e6d2);
+  color: var(--t-241e17);
+  border-color: var(--t-cbb89e);
 }
 
 /* Dual Mode Globe & Radar Frame */
@@ -1666,11 +1688,11 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 
 .globe-mode-switch {
   display: inline-flex;
-  background: #f5eedf;
+  background: var(--t-f5eedf);
   padding: 3px;
   border-radius: 10px;
   align-self: flex-start;
-  border: 1px solid #decbb4;
+  border: 1px solid var(--t-decbb4);
 }
 
 .mode-toggle-btn {
@@ -1681,7 +1703,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   border-radius: 8px;
   border: 0;
   background: transparent;
-  color: #756654;
+  color: var(--t-756654);
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
@@ -1689,8 +1711,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .mode-toggle-btn.active {
-  background: #fffdf9;
-  color: #241e17;
+  background: var(--t-fffdf9);
+  color: var(--t-241e17);
   box-shadow: 0 1px 3px rgba(48, 36, 20, 0.08);
 }
 
@@ -1699,8 +1721,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(280px, 1fr);
   gap: 24px;
-  background: #f8f4ea;
-  border: 1px solid #e5dac6;
+  background: var(--t-f8f4ea);
+  border: 1px solid var(--t-e5dac6);
   border-radius: 16px;
   padding: 20px;
   align-items: center;
@@ -1714,8 +1736,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   justify-content: center;
   overflow: hidden;
   border-radius: 12px;
-  background: radial-gradient(circle at center, #fffdf9 0%, #f5eedf 100%);
-  border: 1px solid #e5dac6;
+  background: radial-gradient(circle at center, var(--t-fffdf9) 0%, var(--t-f5eedf) 100%);
+  border: 1px solid var(--t-e5dac6);
 }
 
 .radar-canvas {
@@ -1754,8 +1776,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #8c683b;
-  border: 2px solid #fffdf9;
+  background: var(--t-8c683b);
+  border: 2px solid var(--t-fffdf9);
   box-shadow: 0 0 10px rgba(140, 104, 59, 0.6);
 }
 
@@ -1784,19 +1806,19 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .radar-pin-label {
   font-size: 11px;
   font-weight: 700;
-  color: #241e17;
-  background: #fffdf9;
+  color: var(--t-241e17);
+  background: var(--t-fffdf9);
   padding: 2px 7px;
   border-radius: 12px;
-  border: 1px solid #decbb4;
+  border: 1px solid var(--t-decbb4);
   box-shadow: 0 2px 5px rgba(48, 36, 20, 0.08);
   white-space: nowrap;
 }
 
 .radar-pin-btn.selected .radar-pin-label {
-  background: #241c15;
+  background: var(--t-241c15);
   color: #ffffff;
-  border-color: #241c15;
+  border-color: var(--t-241c15);
 }
 
 .radar-status-badge {
@@ -1806,26 +1828,26 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   display: flex;
   align-items: center;
   gap: 6px;
-  background: #fffdf9;
+  background: var(--t-fffdf9);
   padding: 4px 10px;
   border-radius: 12px;
   font-size: 10px;
   font-weight: 700;
-  color: #8c683b;
-  border: 1px solid #decbb4;
+  color: var(--t-8c683b);
+  border: 1px solid var(--t-decbb4);
 }
 
 .pulse-dot-green {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #c48d3f;
+  background: var(--t-c48d3f);
 }
 
 /* Radar Detail Card */
 .radar-details-card {
-  background: #fffdf9;
-  border: 1px solid #e7ddca;
+  background: var(--t-fffdf9);
+  border: 1px solid var(--t-e7ddca);
   border-radius: 14px;
   padding: 24px;
   display: flex;
@@ -1855,26 +1877,26 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   gap: 6px;
   font-size: 11px;
   font-weight: 700;
-  color: #8c683b;
+  color: var(--t-8c683b);
 }
 
 .radar-spot-title {
   margin: 0;
   font-size: 20px;
   font-weight: 800;
-  color: #241e17;
+  color: var(--t-241e17);
 }
 
 .radar-spot-subtitle {
   font-size: 13px;
-  color: #756654;
+  color: var(--t-756654);
   margin-top: -4px;
 }
 
 .radar-metric-callout {
   border-left: 3px solid;
   padding: 8px 12px;
-  background: #f8f4ea;
+  background: var(--t-f8f4ea);
   border-radius: 0 8px 8px 0;
   display: flex;
   flex-direction: column;
@@ -1884,12 +1906,12 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .radar-metric-val {
   font-size: 20px;
   font-weight: 800;
-  color: #241e17;
+  color: var(--t-241e17);
 }
 
 .radar-metric-desc {
   font-size: 12px;
-  color: #5c5043;
+  color: var(--t-5c5043);
   line-height: 1.45;
 }
 
@@ -1901,9 +1923,9 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 
 .radar-primary-btn {
   flex: 1;
-  background: #241c15;
+  background: var(--t-241c15);
   color: #ffffff;
-  border: 1px solid #483827;
+  border: 1px solid var(--t-483827);
   padding: 9px 14px;
   border-radius: 8px;
   font-size: 13px;
@@ -1917,9 +1939,9 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .radar-secondary-btn {
-  background: #f8f4ea;
-  color: #4f4233;
-  border: 1px solid #decbb4;
+  background: var(--t-f8f4ea);
+  color: var(--t-4f4233);
+  border: 1px solid var(--t-decbb4);
   padding: 9px 12px;
   border-radius: 8px;
   font-size: 12px;
@@ -1933,31 +1955,31 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   flex-wrap: wrap;
   gap: 6px;
   padding-top: 10px;
-  border-top: 1px solid #eee4d1;
+  border-top: 1px solid var(--t-eee4d1);
 }
 
 .chips-label {
   font-size: 11px;
-  color: #8c7b68;
+  color: var(--t-8c7b68);
   font-weight: 600;
 }
 
 .spot-chip {
-  background: #f8f4ea;
-  border: 1px solid #decbb4;
+  background: var(--t-f8f4ea);
+  border: 1px solid var(--t-decbb4);
   padding: 3px 8px;
   border-radius: 6px;
   font-size: 11px;
-  color: #5c442a;
+  color: var(--t-5c442a);
   cursor: pointer;
   transition: all 0.15s ease;
 }
 
 .spot-chip:hover,
 .spot-chip.active {
-  background: #241c15;
+  background: var(--t-241c15);
   color: #ffffff;
-  border-color: #241c15;
+  border-color: var(--t-241c15);
 }
 
 /* ==========================================================================
@@ -1970,8 +1992,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .signal-card {
-  background: #fffdf9;
-  border: 1px solid #e7ddca;
+  background: var(--t-fffdf9);
+  border: 1px solid var(--t-e7ddca);
   border-radius: 16px;
   padding: 20px;
   display: flex;
@@ -2020,12 +2042,12 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .signal-category {
   font-size: 13px;
   font-weight: 700;
-  color: #241e17;
+  color: var(--t-241e17);
 }
 
 .signal-source {
   font-size: 11px;
-  color: #756654;
+  color: var(--t-756654);
   display: flex;
   align-items: center;
   gap: 4px;
@@ -2034,7 +2056,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .signal-metric-val {
   font-size: 32px;
   font-weight: 800;
-  color: #241e17;
+  color: var(--t-241e17);
   line-height: 1.1;
   margin-top: 4px;
 }
@@ -2042,12 +2064,12 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .signal-metric-val .unit {
   font-size: 16px;
   font-weight: 600;
-  color: #756654;
+  color: var(--t-756654);
 }
 
 .signal-metric-sub {
   font-size: 12px;
-  color: #5c5043;
+  color: var(--t-5c5043);
   line-height: 1.4;
 }
 
@@ -2059,7 +2081,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .card-action-link {
   font-size: 12px;
   font-weight: 600;
-  color: #7c5835;
+  color: var(--t-7c5835);
 }
 
 .signal-card:hover .card-action-link {
@@ -2070,8 +2092,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
    INTERACTIVE 5-STEP MISSION PIPELINE
    ========================================================================== */
 .mission-stepper-section {
-  background: #fffdf9;
-  border: 1px solid #e7ddca;
+  background: var(--t-fffdf9);
+  border: 1px solid var(--t-e7ddca);
   border-radius: 20px;
   padding: 28px;
   display: flex;
@@ -2091,7 +2113,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.1em;
-  color: #8c683b;
+  color: var(--t-8c683b);
   text-transform: uppercase;
 }
 
@@ -2099,13 +2121,13 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   margin: 4px 0 2px;
   font-size: 22px;
   font-weight: 800;
-  color: #241e17;
+  color: var(--t-241e17);
 }
 
 .section-head-clean p {
   margin: 0;
   font-size: 13px;
-  color: #756654;
+  color: var(--t-756654);
 }
 
 .stepper-track {
@@ -2119,8 +2141,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   align-items: center;
   gap: 12px;
   padding: 14px;
-  background: #f8f4ea;
-  border: 1px solid #e5dac6;
+  background: var(--t-f8f4ea);
+  border: 1px solid var(--t-e5dac6);
   border-radius: 12px;
   cursor: pointer;
   text-align: left;
@@ -2128,13 +2150,13 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .step-btn:hover {
-  background: #f0e6d2;
-  border-color: #cbb89e;
+  background: var(--t-f0e6d2);
+  border-color: var(--t-cbb89e);
 }
 
 .step-btn.active {
-  background: #efe5d2;
-  border-color: #b89d78;
+  background: var(--t-efe5d2);
+  border-color: var(--t-b89d78);
   box-shadow: 0 4px 12px rgba(48, 36, 20, 0.08);
 }
 
@@ -2142,9 +2164,9 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #fffdf9;
-  border: 2px solid #decbb4;
-  color: #756654;
+  background: var(--t-fffdf9);
+  border: 2px solid var(--t-decbb4);
+  color: var(--t-756654);
   font-weight: 800;
   font-size: 13px;
   display: flex;
@@ -2153,26 +2175,26 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .step-btn.active .step-circle {
-  background: #241c15;
-  color: #fcf9f2;
-  border-color: #241c15;
+  background: var(--t-241c15);
+  color: var(--t-fcf9f2);
+  border-color: var(--t-241c15);
 }
 
 .step-label strong {
   display: block;
   font-size: 14px;
-  color: #241e17;
+  color: var(--t-241e17);
 }
 
 .step-label span {
   display: block;
   font-size: 11px;
-  color: #756654;
+  color: var(--t-756654);
 }
 
 .active-step-preview {
-  background: #f8f4ea;
-  border: 1px solid #e5dac6;
+  background: var(--t-f8f4ea);
+  border: 1px solid var(--t-e5dac6);
   border-radius: 14px;
   padding: 20px 24px;
   display: flex;
@@ -2185,7 +2207,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.08em;
-  color: #8c683b;
+  color: var(--t-8c683b);
   margin-bottom: 4px;
 }
 
@@ -2193,29 +2215,29 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   margin: 0 0 6px;
   font-size: 18px;
   font-weight: 700;
-  color: #241e17;
+  color: var(--t-241e17);
 }
 
 .step-preview-content p {
   margin: 0 0 10px;
   font-size: 13px;
-  color: #5c5043;
+  color: var(--t-5c5043);
   max-width: 720px;
 }
 
 .step-projects {
   font-size: 12px;
-  color: #756654;
+  color: var(--t-756654);
 }
 
 .step-projects strong {
-  color: #241e17;
+  color: var(--t-241e17);
 }
 
 .start-stage-btn {
-  background: #241c15;
-  color: #fcf9f2;
-  border: 1px solid #483827;
+  background: var(--t-241c15);
+  color: var(--t-fcf9f2);
+  border: 1px solid var(--t-483827);
   padding: 10px 18px;
   border-radius: 10px;
   font-size: 13px;
@@ -2227,7 +2249,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .start-stage-btn:hover {
-  background: #382c20;
+  background: var(--t-382c20);
 }
 
 /* ==========================================================================
@@ -2242,8 +2264,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 
 .workflows-container,
 .system-health-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
+  background: var(--t-ffffff);
+  border: 1px solid var(--t-e2e8f0);
   border-radius: 20px;
   padding: 24px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
@@ -2257,8 +2279,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .workflow-box {
-  background: #f7f1e4;
-  border: 1px solid #e5d9c5;
+  background: var(--t-f7f1e4);
+  border: 1px solid var(--t-e5d9c5);
   border-radius: 14px;
   padding: 16px;
   display: flex;
@@ -2268,8 +2290,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .workflow-box:hover {
-  border-color: #d8c7ad;
-  background: #fffdf9;
+  border-color: var(--t-d8c7ad);
+  background: var(--t-fffdf9);
   box-shadow: 0 4px 12px rgba(48, 36, 20, 0.04);
 }
 
@@ -2286,20 +2308,20 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .workflow-num {
   font-size: 12px;
   font-weight: 800;
-  color: #9c8b78;
+  color: var(--t-9c8b78);
 }
 
 .workflow-box h4 {
   margin: 0;
   font-size: 14px;
   font-weight: 700;
-  color: #241e17;
+  color: var(--t-241e17);
 }
 
 .workflow-box p {
   margin: 0 0 10px;
   font-size: 12px;
-  color: #756654;
+  color: var(--t-756654);
   line-height: 1.45;
 }
 
@@ -2311,9 +2333,9 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .clean-primary-btn {
-  background: #272018;
-  color: #fcf9f2;
-  border: 1px solid #3d3227;
+  background: var(--t-272018);
+  color: var(--t-fcf9f2);
+  border: 1px solid var(--t-3d3227);
   padding: 6px 12px;
   border-radius: 6px;
   font-size: 12px;
@@ -2323,14 +2345,14 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .clean-primary-btn:hover {
-  background: #3a3024;
+  background: var(--t-3a3024);
   color: #ffffff;
 }
 
 .clean-secondary-btn {
-  background: #fbf7ee;
-  color: #4f4233;
-  border: 1px solid #decbb4;
+  background: var(--t-fbf7ee);
+  color: var(--t-4f4233);
+  border: 1px solid var(--t-decbb4);
   padding: 5px 10px;
   border-radius: 6px;
   font-size: 11px;
@@ -2340,9 +2362,9 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .clean-secondary-btn:hover {
-  background: #f0e6d2;
-  border-color: #cbb89e;
-  color: #241e17;
+  background: var(--t-f0e6d2);
+  border-color: var(--t-cbb89e);
+  color: var(--t-241e17);
 }
 
 /* System Health Card */
@@ -2357,23 +2379,23 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   margin: 0;
   font-size: 16px;
   font-weight: 700;
-  color: #241e17;
+  color: var(--t-241e17);
 }
 
 .status-pill-green {
   font-size: 10px;
   font-weight: 800;
-  color: #5c442a;
-  background: #f5eedf;
+  color: var(--t-5c442a);
+  background: var(--t-f5eedf);
   padding: 3px 8px;
   border-radius: 6px;
-  border: 1px solid #decbb4;
+  border: 1px solid var(--t-decbb4);
   letter-spacing: 0.05em;
 }
 
 .health-block {
   padding: 12px 0;
-  border-top: 1px solid #eee4d1;
+  border-top: 1px solid var(--t-eee4d1);
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -2384,7 +2406,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #8c7b68;
+  color: var(--t-8c7b68);
 }
 
 .chain-info-clean {
@@ -2399,15 +2421,15 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   font-weight: 700;
   padding: 2px 7px;
   border-radius: 5px;
-  background: #f5eedf;
-  color: #5c442a;
-  border: 1px solid #decbb4;
+  background: var(--t-f5eedf);
+  color: var(--t-5c442a);
+  border: 1px solid var(--t-decbb4);
 }
 
 .chain-badge.standby {
-  background: #f2eadb;
-  color: #5c442a;
-  border-color: #decbb4;
+  background: var(--t-f2eadb);
+  color: var(--t-5c442a);
+  border-color: var(--t-decbb4);
 }
 
 .service-list-clean {
@@ -2426,7 +2448,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .service-name {
-  color: #383027;
+  color: var(--t-383027);
   flex: 1;
 }
 
@@ -2434,16 +2456,16 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   font-size: 9px;
   font-weight: 700;
   padding: 1px 6px;
-  background: #f5eedf;
-  color: #5c442a;
+  background: var(--t-f5eedf);
+  color: var(--t-5c442a);
   border-radius: 4px;
-  border: 1px solid #decbb4;
+  border: 1px solid var(--t-decbb4);
 }
 
 .sensor-summary {
   margin: 0;
   font-size: 12px;
-  color: #5c5043;
+  color: var(--t-5c5043);
   line-height: 1.45;
 }
 
@@ -2451,19 +2473,19 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   width: 100%;
   margin-top: 14px;
   padding: 9px;
-  background: #f7f1e4;
-  border: 1px solid #e5d9c5;
+  background: var(--t-f7f1e4);
+  border: 1px solid var(--t-e5d9c5);
   border-radius: 8px;
   font-size: 12px;
   font-weight: 600;
-  color: #241e17;
+  color: var(--t-241e17);
   cursor: pointer;
   transition: all 0.15s ease;
 }
 
 .audit-link-btn:hover {
-  background: #f0e6d2;
-  border-color: #d8c7ad;
+  background: var(--t-f0e6d2);
+  border-color: var(--t-d8c7ad);
 }
 
 /* ==========================================================================
@@ -2477,8 +2499,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .modern-card {
-  background: #fffdf9;
-  border: 1px solid #e7ddca;
+  background: var(--t-fffdf9);
+  border: 1px solid var(--t-e7ddca);
   border-radius: 20px;
   padding: 24px;
   box-shadow: 0 2px 8px rgba(48, 36, 20, 0.03);
@@ -2495,7 +2517,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   margin: 0;
   font-size: 18px;
   font-weight: 700;
-  color: #241e17;
+  color: var(--t-241e17);
 }
 
 .filter-chips-row {
@@ -2504,22 +2526,22 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .chip-filter {
-  background: #f5eedf;
-  border: 1px solid #decbb4;
+  background: var(--t-f5eedf);
+  border: 1px solid var(--t-decbb4);
   padding: 4px 10px;
   border-radius: 12px;
   font-size: 11px;
   font-weight: 600;
-  color: #756654;
+  color: var(--t-756654);
   cursor: pointer;
   transition: all 0.15s ease;
 }
 
 .chip-filter.active,
 .chip-filter:hover {
-  background: #241e17;
+  background: var(--t-241e17);
   color: #ffffff;
-  border-color: #241e17;
+  border-color: var(--t-241e17);
 }
 
 /* Clean Feed */
@@ -2533,8 +2555,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .feed-clean-item {
-  background: #f8f4ea;
-  border: 1px solid #e5dac6;
+  background: var(--t-f8f4ea);
+  border: 1px solid var(--t-e5dac6);
   border-radius: 12px;
   padding: 14px;
   display: flex;
@@ -2551,7 +2573,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .feed-clean-item.sev-low {
-  border-left: 4px solid #8c683b;
+  border-left: 4px solid var(--t-8c683b);
 }
 
 .feed-clean-header {
@@ -2567,19 +2589,19 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   border-radius: 4px;
 }
 
-.clean-badge.sev-high { background: #fae8e6; color: #b3392f; }
-.clean-badge.sev-medium { background: #fbf0dc; color: #b86b24; }
-.clean-badge.sev-low { background: #f0e9dc; color: #574635; }
+.clean-badge.sev-high { background: var(--t-fae8e6); color: #b3392f; }
+.clean-badge.sev-medium { background: var(--t-fbf0dc); color: #b86b24; }
+.clean-badge.sev-low { background: var(--t-f0e9dc); color: var(--t-574635); }
 
 .feed-clean-title {
   font-size: 14px;
   font-weight: 700;
-  color: #241e17;
+  color: var(--t-241e17);
 }
 
 .feed-clean-desc {
   font-size: 12px;
-  color: #5c5043;
+  color: var(--t-5c5043);
   line-height: 1.45;
 }
 
@@ -2592,7 +2614,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .clean-text-btn {
   background: none;
   border: none;
-  color: #7c5835;
+  color: var(--t-7c5835);
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
@@ -2612,8 +2634,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 .metric-box {
-  background: #f8f4ea;
-  border: 1px solid #e5dac6;
+  background: var(--t-f8f4ea);
+  border: 1px solid var(--t-e5dac6);
   border-radius: 12px;
   padding: 14px;
   display: flex;
@@ -2628,29 +2650,29 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .metric-box-val {
   font-size: 22px;
   font-weight: 800;
-  color: #241e17;
+  color: var(--t-241e17);
 }
 
 .metric-box-val .unit {
   font-size: 13px;
   font-weight: 600;
-  color: #756654;
+  color: var(--t-756654);
 }
 
 .metric-box-label {
   font-size: 12px;
   font-weight: 600;
-  color: #383027;
+  color: var(--t-383027);
 }
 
 .metric-box-hint {
   font-size: 11px;
-  color: #8c7b68;
+  color: var(--t-8c7b68);
 }
 
 .sparkline-section {
   padding-top: 14px;
-  border-top: 1px solid #eee4d1;
+  border-top: 1px solid var(--t-eee4d1);
 }
 
 .sparkline-title {
@@ -2660,12 +2682,12 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   margin-bottom: 8px;
   font-size: 12px;
   font-weight: 600;
-  color: #383027;
+  color: var(--t-383027);
 }
 
 .sparkline-tag {
   font-size: 10px;
-  color: #8c683b;
+  color: var(--t-8c683b);
   font-weight: 700;
 }
 

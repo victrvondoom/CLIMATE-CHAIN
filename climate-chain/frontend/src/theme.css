@@ -641,3 +641,193 @@ input[type=checkbox], input[type=radio], input[type=range], progress { accent-co
   .app .launch-card:hover, .app .announce-item:hover, .app .flow-preview-step:hover,
   .app .chip3d:hover { transform: none; }
 }
+
+/* ==========================================================================
+   THEME SWITCHING
+   Hardcoded warm-neutral colors across the app were migrated to --t-<hex>
+   variables. Light values reproduce the original palette exactly; the
+   [data-theme="dark"] block below re-maps every one of them to a warm
+   charcoal scheme. Saturated status accents are left untouched so they stay
+   legible on both surfaces.
+   ========================================================================== */
+
+:root {
+  /* bright near-white surfaces */
+  --t-ffffff: #ffffff;
+  --t-fffefc: #fffefc;
+  --t-fffefa: #fffefa;
+  --t-fffdf9: #fffdf9;
+  --t-fdfbf7: #fdfbf7;
+  --t-fcf9f2: #fcf9f2;
+  --t-fbf7ee: #fbf7ee;
+  --t-faf7f2: #faf7f2;
+  --t-f8f4ea: #f8f4ea;
+  --t-f7f1e4: #f7f1e4;
+  --t-f5f3ee: #f5f3ee;
+  --t-f5eedf: #f5eedf;
+  --t-f5ecd8: #f5ecd8;
+  --t-f0e9dc: #f0e9dc;
+  --t-f0ede6: #f0ede6;
+  --t-f0e6d2: #f0e6d2;
+  --t-efe5d2: #efe5d2;
+  --t-f2eadb: #f2eadb;
+  --t-fbf0dc: #fbf0dc;
+  /* mid cream surfaces and edges */
+  --t-eee4d1: #eee4d1;
+  --t-e5dac6: #e5dac6;
+  --t-e5d9c5: #e5d9c5;
+  --t-e7ddca: #e7ddca;
+  --t-decbb4: #decbb4;
+  --t-d8c7ad: #d8c7ad;
+  --t-cbb89e: #cbb89e;
+  --t-e2e8f0: #e2e8f0;
+  --t-f1f5f9: #f1f5f9;
+  --t-ddd8cf: #ddd8cf;
+  /* pastel status tints */
+  --t-fef3c7: #fef3c7;
+  --t-fffbeb: #fffbeb;
+  --t-fff7ed: #fff7ed;
+  --t-fee2e2: #fee2e2;
+  --t-fae8e6: #fae8e6;
+  --t-a7f3d0: #a7f3d0;
+  --t-bbf7d0: #bbf7d0;
+  --t-d1fae5: #d1fae5;
+  --t-ecfdf5: #ecfdf5;
+  --t-f0fdf4: #f0fdf4;
+  /* warm tan accents and edges */
+  --t-b89d78: #b89d78;
+  --t-bca88a: #bca88a;
+  --t-caa888: #caa888;
+  --t-c48d3f: #c48d3f;
+  --t-8c683b: #8c683b;
+  --t-7c5835: #7c5835;
+  --t-805719: #805719;
+  /* muted grays and browns */
+  --t-bbb4a8: #bbb4a8;
+  --t-9c8b78: #9c8b78;
+  --t-8c7b68: #8c7b68;
+  --t-756654: #756654;
+  --t-64615c: #64615c;
+  /* warm inks */
+  --t-5c5043: #5c5043;
+  --t-5c4e3e: #5c4e3e;
+  --t-5c442a: #5c442a;
+  --t-4f4233: #4f4233;
+  --t-483827: #483827;
+  --t-574635: #574635;
+  --t-3d3227: #3d3227;
+  --t-3a3024: #3a3024;
+  --t-383027: #383027;
+  --t-382e24: #382e24;
+  --t-382c20: #382c20;
+  --t-272018: #272018;
+  --t-241e17: #241e17;
+  --t-241c15: #241c15;
+  --t-171717: #171717;
+  --t-0f172a: #0f172a;
+  --t-991b1b: #991b1b;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* core paper/ink tokens */
+  --background: #16130f;
+  --surface: #1e1a15;
+  --surface-secondary: #262019;
+  --text-primary: #f2ebdf;
+  --text-secondary: #a89c86;
+  --border: #3a322a;
+  --cream-porcelain: #221c15;
+  --cream-oat: #2c251d;
+  --cream-inset: #14110d;
+  --rule-strong: #4a4036;
+  --ink-2: #d5c9b8;
+  --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.35), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
+  --shadow-2: 0 6px 20px -3px rgba(0, 0, 0, 0.45), 0 2px 6px -2px rgba(0, 0, 0, 0.35);
+  --cream-shadow-inset: inset 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+  --cream-shadow-frame: 0 12px 32px -6px rgba(0, 0, 0, 0.5), 0 4px 12px -2px rgba(0, 0, 0, 0.4);
+
+  /* climate domain accents brightened for dark surfaces */
+  --waste: #d97706;
+  --fire: #e05a2b;
+  --water: #5b9cbd;
+  --air: #7fa07e;
+  --good: #6fa87f;
+  --bad: #e0574c;
+
+  /* bright near-white surfaces */
+  --t-ffffff: #262019;
+  --t-fffefc: #251f18;
+  --t-fffefa: #251f18;
+  --t-fffdf9: #241e17;
+  --t-fdfbf7: #231d16;
+  --t-fcf9f2: #221c15;
+  --t-fbf7ee: #211b14;
+  --t-faf7f2: #201a13;
+  --t-f8f4ea: #1e1913;
+  --t-f7f1e4: #1e1913;
+  --t-f5f3ee: #1d1812;
+  --t-f5eedf: #1e1913;
+  --t-f5ecd8: #1f1a14;
+  --t-f0e9dc: #1d1812;
+  --t-f0ede6: #1d1812;
+  --t-f0e6d2: #201b15;
+  --t-efe5d2: #211c15;
+  --t-f2eadb: #211c15;
+  --t-fbf0dc: #211c15;
+  /* mid cream surfaces and edges */
+  --t-eee4d1: #29221a;
+  --t-e5dac6: #2b241c;
+  --t-e5d9c5: #2b241c;
+  --t-e7ddca: #2c251d;
+  --t-decbb4: #2e261d;
+  --t-d8c7ad: #302820;
+  --t-cbb89e: #382f25;
+  --t-e2e8f0: #342c23;
+  --t-f1f5f9: #2a231b;
+  --t-ddd8cf: #2b241b;
+  /* pastel status tints */
+  --t-fef3c7: #33270f;
+  --t-fffbeb: #2e2410;
+  --t-fff7ed: #2d2013;
+  --t-fee2e2: #331715;
+  --t-fae8e6: #321a18;
+  --t-a7f3d0: #1c3a2a;
+  --t-bbf7d0: #1f3d2c;
+  --t-d1fae5: #1c3a2a;
+  --t-ecfdf5: #1a3526;
+  --t-f0fdf4: #1a3526;
+  /* warm tan accents and edges */
+  --t-b89d78: #c4ae8a;
+  --t-bca88a: #c0aa87;
+  --t-caa888: #cbb48e;
+  --t-c48d3f: #d9a55c;
+  --t-8c683b: #c99a55;
+  --t-7c5835: #bd8f52;
+  --t-805719: #c6934d;
+  /* muted grays and browns */
+  --t-bbb4a8: #857a68;
+  --t-9c8b78: #948871;
+  --t-8c7b68: #9a8d76;
+  --t-756654: #a89c86;
+  --t-64615c: #a49c8f;
+  /* warm inks */
+  --t-5c5043: #c7baa5;
+  --t-5c4e3e: #c9bca6;
+  --t-5c442a: #cdbfa8;
+  --t-4f4233: #bfb29c;
+  --t-483827: #b3a68f;
+  --t-574635: #b8ab94;
+  --t-3d3227: #a89b85;
+  --t-3a3024: #a3967f;
+  --t-383027: #a3967f;
+  --t-382e24: #9c8f79;
+  --t-382c20: #968a74;
+  --t-272018: #e0d8c9;
+  --t-241e17: #eee6d9;
+  --t-241c15: #e8e0d2;
+  --t-171717: #f2ebdf;
+  --t-0f172a: #e8edf5;
+  --t-991b1b: #f87171;
+}

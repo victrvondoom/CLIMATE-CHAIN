@@ -9,6 +9,18 @@
     <title>Climate Chain — from signal to proof</title>
   </head>
   <body>
+    <script>
+      // Apply the persisted or preferred color scheme before first paint.
+      (function () {
+        try {
+          var stored = localStorage.getItem('climate-chain-theme');
+          var theme = stored === 'light' || stored === 'dark'
+            ? stored
+            : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          document.documentElement.dataset.theme = theme;
+        } catch (error) { /* storage unavailable: default light */ }
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

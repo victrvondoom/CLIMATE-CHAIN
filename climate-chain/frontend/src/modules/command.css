@@ -10,8 +10,8 @@
 
 .workflows-container,
 .system-health-card {
-  background: #fffdf9;
-  border: 1px solid #e7ddca;
+  background: var(--t-fffdf9);
+  border: 1px solid var(--t-e7ddca);
   border-radius: 20px;
   padding: 24px;
   box-shadow: 0 2px 10px rgba(48, 36, 20, 0.03);
@@ -30,7 +30,7 @@
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.1em;
-  color: #8c683b;
+  color: var(--t-8c683b);
   text-transform: uppercase;
   margin-bottom: 2px;
 }
@@ -39,14 +39,14 @@
   margin: 0;
   font-size: 20px;
   font-weight: 800;
-  color: #241e17;
+  color: var(--t-241e17);
   line-height: 1.25;
 }
 
 .section-head-clean p {
   margin: 4px 0 0;
   font-size: 13px;
-  color: #756654;
+  color: var(--t-756654);
 }
 
 .workflow-cards-grid {
@@ -57,8 +57,8 @@
 }
 
 .workflow-box {
-  background: #f7f1e4;
-  border: 1px solid #e5d9c5;
+  background: var(--t-f7f1e4);
+  border: 1px solid var(--t-e5d9c5);
   border-radius: 14px;
   padding: 16px;
   display: flex;
@@ -68,8 +68,8 @@
 }
 
 .workflow-box:hover {
-  border-color: #d8c7ad;
-  background: #fffdf9;
+  border-color: var(--t-d8c7ad);
+  background: var(--t-fffdf9);
   box-shadow: 0 4px 12px rgba(48, 36, 20, 0.04);
 }
 
@@ -86,20 +86,20 @@
 .workflow-num {
   font-size: 12px;
   font-weight: 800;
-  color: #9c8b78;
+  color: var(--t-9c8b78);
 }
 
 .workflow-box h4 {
   margin: 0;
   font-size: 14px;
   font-weight: 700;
-  color: #241e17;
+  color: var(--t-241e17);
 }
 
 .workflow-box p {
   margin: 0 0 10px;
   font-size: 12px;
-  color: #756654;
+  color: var(--t-756654);
   line-height: 1.45;
   flex: 1;
 }
@@ -112,9 +112,9 @@
 }
 
 .clean-primary-btn {
-  background: #272018;
-  color: #fcf9f2;
-  border: 1px solid #3d3227;
+  background: var(--t-272018);
+  color: var(--t-fcf9f2);
+  border: 1px solid var(--t-3d3227);
   padding: 7px 12px;
   border-radius: 6px;
   font-size: 12px;
@@ -124,14 +124,14 @@
 }
 
 .clean-primary-btn:hover {
-  background: #3a3024;
+  background: var(--t-3a3024);
   color: #ffffff;
 }
 
 .clean-secondary-btn {
-  background: #fbf7ee;
-  color: #4f4233;
-  border: 1px solid #decbb4;
+  background: var(--t-fbf7ee);
+  color: var(--t-4f4233);
+  border: 1px solid var(--t-decbb4);
   padding: 6px 10px;
   border-radius: 6px;
   font-size: 11px;
@@ -141,9 +141,9 @@
 }
 
 .clean-secondary-btn:hover {
-  background: #f0e6d2;
-  border-color: #cbb89e;
-  color: #241e17;
+  background: var(--t-f0e6d2);
+  border-color: var(--t-cbb89e);
+  color: var(--t-241e17);
 }
 
 /* System Health Card */
@@ -158,23 +158,23 @@
   margin: 0;
   font-size: 16px;
   font-weight: 700;
-  color: #241e17;
+  color: var(--t-241e17);
 }
 
 .status-pill-green {
   font-size: 10px;
   font-weight: 800;
-  color: #5c442a;
-  background: #f5eedf;
+  color: var(--t-5c442a);
+  background: var(--t-f5eedf);
   padding: 3px 8px;
   border-radius: 6px;
-  border: 1px solid #decbb4;
+  border: 1px solid var(--t-decbb4);
   letter-spacing: 0.05em;
 }
 
 .health-block {
   padding: 12px 0;
-  border-top: 1px solid #eee4d1;
+  border-top: 1px solid var(--t-eee4d1);
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -185,7 +185,7 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #8c7b68;
+  color: var(--t-8c7b68);
 }
 
 .chain-info-clean {
@@ -200,15 +200,15 @@
   font-weight: 700;
   padding: 2px 7px;
   border-radius: 5px;
-  background: #f5eedf;
-  color: #5c442a;
-  border: 1px solid #decbb4;
+  background: var(--t-f5eedf);
+  color: var(--t-5c442a);
+  border: 1px solid var(--t-decbb4);
 }
 
 .chain-badge.standby {
-  background: #f2eadb;
-  color: #5c442a;
-  border-color: #decbb4;
+  background: var(--t-f2eadb);
+  color: var(--t-5c442a);
+  border-color: var(--t-decbb4);
 }
 
 .service-list-clean {
@@ -227,7 +227,7 @@
 }
 
 .service-name {
-  color: #383027;
+  color: var(--t-383027);
   flex: 1;
 }
 
@@ -235,16 +235,16 @@
   font-size: 9px;
   font-weight: 700;
   padding: 1px 6px;
-  background: #f5eedf;
-  color: #5c442a;
+  background: var(--t-f5eedf);
+  color: var(--t-5c442a);
   border-radius: 4px;
-  border: 1px solid #decbb4;
+  border: 1px solid var(--t-decbb4);
 }
 
 .sensor-summary {
   margin: 0;
   font-size: 12px;
-  color: #5c5043;
+  color: var(--t-5c5043);
   line-height: 1.45;
 }
 
@@ -252,19 +252,19 @@
   width: 100%;
   margin-top: auto;
   padding: 10px;
-  background: #f7f1e4;
-  border: 1px solid #e5d9c5;
+  background: var(--t-f7f1e4);
+  border: 1px solid var(--t-e5d9c5);
   border-radius: 8px;
   font-size: 12px;
   font-weight: 600;
-  color: #241e17;
+  color: var(--t-241e17);
   cursor: pointer;
   transition: all 0.15s ease;
 }
 
 .audit-link-btn:hover {
-  background: #f0e6d2;
-  border-color: #d8c7ad;
+  background: var(--t-f0e6d2);
+  border-color: var(--t-d8c7ad);
 }
 
 @media (max-width: 960px) {

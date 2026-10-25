@@ -426,7 +426,7 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
               LIVE TICK CADENCE ({tickSpeed}ms)
             </span>
           ) : (
-            <span className="ctl-badge" style={{ background: '#FEE2E2', color: '#991B1B' }}>
+            <span className="ctl-badge" style={{ background: 'var(--t-fee2e2)', color: 'var(--t-991b1b)' }}>
               ⏸ STREAM PAUSED
             </span>
           )}
@@ -795,7 +795,7 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
 
         {/* Scrubbing Range Slider (Present in both modes for seamless historical navigation) */}
         <div className="ctl-slider-row">
-          <span style={{ fontSize: '12px', fontWeight: 600, color: '#64615C' }}>1826</span>
+          <span style={{ fontSize: '12px', fontWeight: 600, color: 'var(--t-64615c)' }}>1826</span>
           <input
             type="range"
             min="1826"
@@ -807,7 +807,7 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
             }}
             className="ctl-slider"
           />
-          <span style={{ fontSize: '12px', fontWeight: 600, color: '#64615C' }}>2026</span>
+          <span style={{ fontSize: '12px', fontWeight: 600, color: 'var(--t-64615c)' }}>2026</span>
         </div>
 
         {/* Quick Year Jumps */}
@@ -824,11 +824,11 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
         {/* Real-time Order Book / Telemetry Stream Tape */}
         <div className="ctl-telemetry-tape-section">
           <div className="ctl-tape-header">
-            <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 600, fontSize: '12px', color: '#171717' }}>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 600, fontSize: '12px', color: 'var(--t-171717)' }}>
               <span className="ctl-live-pulse-dot" />
               LIVE TELEMETRY STREAM TAPE (EIP-712 EVIDENCE FEED)
             </span>
-            <span style={{ fontSize: '11px', color: '#64615C' }}>
+            <span style={{ fontSize: '11px', color: 'var(--t-64615c)' }}>
               Station: {activeIndConfig.agency}
             </span>
           </div>
@@ -861,7 +861,7 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
         {activeEvidence && (
           <div className="ctl-evidence-card">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-              <h3 style={{ margin: 0, fontSize: '16px', color: '#171717', fontFamily: 'var(--serif)' }}>
+              <h3 style={{ margin: 0, fontSize: '16px', color: 'var(--t-171717)', fontFamily: 'var(--serif)' }}>
                 Evidence Manifest: {activeEvidence.evidence_id}
               </h3>
               <span className="ctl-badge ctl-badge-green">
@@ -899,7 +899,7 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
               </div>
             </div>
 
-            <div style={{ fontSize: '12px', color: '#64615C', marginTop: '8px' }}>
+            <div style={{ fontSize: '12px', color: 'var(--t-64615c)', marginTop: '8px' }}>
               <strong>Citation:</strong> {activeEvidence.payload.source_attribution.citation}
             </div>
 
@@ -924,10 +924,10 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
       <div className="ctl-catalog-panel">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
-            <h3 style={{ margin: '0 0 4px 0', fontSize: '17px', color: '#171717' }}>
+            <h3 style={{ margin: '0 0 4px 0', fontSize: '17px', color: 'var(--t-171717)' }}>
               Official Dataset Registry (IEEE Integrity Catalog)
             </h3>
-            <p style={{ margin: 0, fontSize: '13px', color: '#64615C' }}>
+            <p style={{ margin: 0, fontSize: '13px', color: 'var(--t-64615c)' }}>
               {datasets.length} distinct public scientific datasets with immutable SHA-256 reference digests.
             </p>
           </div>
@@ -954,15 +954,15 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
                     <td className="ctl-mono"><strong>{d.dataset_id}</strong></td>
                     <td>
                       <div><strong>{d.official_title}</strong></div>
-                      <div style={{ fontSize: '11px', color: '#64615C' }}>{d.source_agency}</div>
+                      <div style={{ fontSize: '11px', color: 'var(--t-64615c)' }}>{d.source_agency}</div>
                     </td>
                     <td>
                       <div>{d.geographic_coverage}</div>
-                      <div style={{ fontSize: '11px', color: '#64615C' }}>{d.first_observation_date.slice(0, 4)} to {d.last_observation_date.slice(0, 4)}</div>
+                      <div style={{ fontSize: '11px', color: 'var(--t-64615c)' }}>{d.first_observation_date.slice(0, 4)} to {d.last_observation_date.slice(0, 4)}</div>
                     </td>
                     <td>{d.data_license}</td>
                     <td className="ctl-mono" style={{ fontSize: '10px' }}>
-                      <a href={d.source_url} target="_blank" rel="noopener noreferrer" style={{ color: '#171717', textDecoration: 'underline' }}>
+                      <a href={d.source_url} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--t-171717)', textDecoration: 'underline' }}>
                         {d.checksum_sha256.slice(0, 16)}...
                       </a>
                     </td>

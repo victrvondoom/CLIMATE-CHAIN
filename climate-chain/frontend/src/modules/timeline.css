@@ -125,21 +125,21 @@
 }
 
 .ctl-badge-gold {
-  background: #FFF7ED;
+  background: var(--t-fff7ed);
   color: #9A3412;
   border-color: #FDBA74;
 }
 
 .ctl-badge-green {
-  background: #F0FDF4;
+  background: var(--t-f0fdf4);
   color: #166534;
-  border-color: #BBF7D0;
+  border-color: var(--t-bbf7d0);
 }
 
 .ctl-badge-live {
-  background: #ECFDF5;
+  background: var(--t-ecfdf5);
   color: #065F46;
-  border-color: #A7F3D0;
+  border-color: var(--t-a7f3d0);
 }
 
 .ctl-indicator-nav {
@@ -176,20 +176,20 @@
 
 .ctl-indicator-btn:hover {
   background: var(--surface);
-  border-color: #BBB4A8;
+  border-color: var(--t-bbb4a8);
 }
 
 .ctl-indicator-btn.active {
-  background: #171717;
-  border-color: #171717;
+  background: var(--t-171717);
+  border-color: var(--t-171717);
 }
 
 .ctl-indicator-btn.active .ctl-ind-btn-title {
-  color: #FFFEFA;
+  color: var(--t-fffefa);
 }
 
 .ctl-indicator-btn.active .ctl-ind-btn-unit {
-  color: #DDD8CF;
+  color: var(--t-ddd8cf);
 }
 
 /* Visualization Canvas */
@@ -240,12 +240,12 @@
 }
 
 .ctl-hud-status-badge.streaming {
-  background: #D1FAE5;
+  background: var(--t-d1fae5);
   color: #065F46;
 }
 
 .ctl-hud-status-badge.paused {
-  background: #FEE2E2;
+  background: var(--t-fee2e2);
   color: #991B1B;
 }
 
@@ -409,7 +409,7 @@
 }
 
 .ctl-surge-btn {
-  background: #FFFBEB;
+  background: var(--t-fffbeb);
   border: 1px solid #F59E0B;
   color: #B45309;
   border-radius: 8px;
@@ -421,7 +421,7 @@
 }
 
 .ctl-surge-btn:hover {
-  background: #FEF3C7;
+  background: var(--t-fef3c7);
   transform: translateY(-1px);
 }
 
@@ -568,13 +568,13 @@
 }
 
 .ctl-tape-row:hover {
-  border-color: #BBB4A8;
-  background: #FFFEFC;
+  border-color: var(--t-bbb4a8);
+  background: var(--t-fffefc);
 }
 
 .ctl-tape-latest {
-  border-color: #A7F3D0;
-  background: #F0FDF4;
+  border-color: var(--t-a7f3d0);
+  background: var(--t-f0fdf4);
   box-shadow: 0 1px 4px rgba(5, 150, 105, 0.08);
 }
 
@@ -677,7 +677,7 @@
 }
 
 .ctl-btn-secondary:hover {
-  border-color: #BBB4A8;
+  border-color: var(--t-bbb4a8);
 }
 
 /* Catalog Table */
@@ -716,7 +716,7 @@
 }
 
 .ctl-table tr:hover td {
-  background: #FAF7F2;
+  background: var(--t-faf7f2);
 }
 
 .ctl-mono {

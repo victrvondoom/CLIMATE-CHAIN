@@ -13,6 +13,7 @@ import { EvidenceLedger } from './modules/EvidenceLedger';
 import { SessionDesk } from './modules/SessionDesk';
 import { CommandPalette } from './components/CommandPalette';
 import { useLiveQuery } from './hooks/useLiveQuery';
+import { useTheme } from './hooks/useTheme';
 import { SignalContext } from './core/signals';
 import { Dashboard } from './dashboard/Dashboard';
 import { DEFAULT_VIEW, destinationFor, resolveView } from './dashboard/library';
@@ -41,6 +42,7 @@ export default function App() {
   const [navigationOpen, setNavigationOpen] = useState(false);
   const [focusMemoryId, setFocusMemoryId] = useState<string | null>(null);
   const [focusMissionId, setFocusMissionId] = useState<string | null>(null);
+  const { theme, toggleTheme } = useTheme();
 
   const loadOverview = useCallback((signal: AbortSignal) => fetchOverview(city, signal), [city]);
   const overviewQuery = useLiveQuery(loadOverview, { key: city, allowOffline: true });
@@ -143,6 +145,15 @@ export default function App() {
             <span className="brand-title">Climate Chain</span>
             <span className="brand-tagline">One Mission</span>
           </div>
+          <button
+            type="button"
+            className="theme-toggle-btn"
+            onClick={toggleTheme}
+            aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+            title={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+          >
+            {theme === 'dark' ? '☀' : '☾'}
+          </button>
           <button
             type="button"
             className="mobile-close-btn"
