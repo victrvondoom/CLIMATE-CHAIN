@@ -2781,3 +2781,15 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .sidebar-modern .upstream-item { font-size: clamp(12px, 1.8vh, 15px); line-height: 1.2; }
 }
 .sidebar-modern .nav-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+@media (min-width: 761px) and (max-height: 760px) {
+  .sidebar-modern { padding-top: 6px; padding-bottom: 6px; gap: 3px; }
+  .sidebar-modern .brand-tagline { display: none; }
+  .sidebar-modern .nav-button,
+  .sidebar-modern .nav-search-button { font-size: 15px; padding: 2px 10px; }
+  .sidebar-modern .nav-section-title { padding: 4px 10px 1px; font-size: 13px; }
+  .sidebar-modern .sidebar-upstreams-box { padding: 5px 10px; }
+  .sidebar-modern .upstream-item { font-size: 12px; line-height: 1.1; }
+}
+@media (min-width: 761px) and (max-height: 600px) {
+  .sidebar-modern .sidebar-upstreams-box { display: none; }
+}
