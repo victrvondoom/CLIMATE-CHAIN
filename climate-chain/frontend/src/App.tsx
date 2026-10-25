@@ -28,6 +28,7 @@ const IntegrityLab = lazy(() => import('./modules/IntegrityLab').then((module) =
 const CausalLab = lazy(() => import('./modules/lab/CausalLab').then((module) => ({ default: module.CausalLab })));
 const PollutionAtlas = lazy(() => import('./modules/pollution/PollutionAtlas').then((module) => ({ default: module.PollutionAtlas })));
 const ClimateTimeline = lazy(() => import('./modules/ClimateTimeline').then((module) => ({ default: module.ClimateTimeline })));
+const DataRefinery = lazy(() => import('./modules/refinery/DataRefinery').then((module) => ({ default: module.DataRefinery })));
 
 export default function App() {
   const [view, setView] = useState<WorkspaceView>(() => resolveView(window.location.hash) ?? DEFAULT_VIEW);
@@ -117,6 +118,7 @@ export default function App() {
       case 'connections': return <ConnectionEvidence data={data} services={services} servicesError={servicesError} onRefresh={refreshAll} onOpen={navigate} />;
       case 'earth': return <EarthWorkspace initialPlace={placeForCity(city)} />;
       case 'pollution': return <PollutionAtlas />;
+      case 'refinery': return <DataRefinery />;
       case 'mission': return <MissionPath data={data} activeStage={activeStage} onStage={setActiveStage} focus={focus} onFocus={setFocus} onNavigate={navigate} />;
       case 'studio': return <MissionStudio data={data} loading={!data && !error} focus={focus} onFocus={setFocus} selection={studioSelection} onSelection={setStudioSelection} title={studioTitle} onTitle={setStudioTitle} place={studioPlace} onPlace={setStudioPlace} onNavigate={navigate} focusMissionId={focusMissionId} />;
       case 'cascade': return data && <CascadeReview data={data} siteId={cascadeSiteId} onBack={() => navigate('waste')} />;
@@ -278,6 +280,17 @@ export default function App() {
           >
             <span className="nav-icon">📜</span>
             <span className="nav-text">Evidence Ledger</span>
+          </button>
+
+          {/* Research Tools Section */}
+          <div className="nav-section-title">RESEARCH TOOLS</div>
+          <button
+            type="button"
+            className={`nav-button ${view === 'refinery' ? 'active' : ''}`}
+            onClick={() => navigate('refinery')}
+          >
+            <span className="nav-icon">🧹</span>
+            <span className="nav-text">Data Refinery · Clean & Reformat</span>
           </button>
         </nav>
 

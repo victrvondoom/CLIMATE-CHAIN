@@ -14,7 +14,7 @@ Climate Chain is an end-to-end, multi-track climate platform unifying 18 special
 4. **Climate Data & Environmental Monitoring**
 
 ### What is Original to Climate Chain (No Conflation, No False Claims)
-We do not claim to have trained 18 separate domain models from scratch or invented new climate laws. Rather, Climate Chain introduces five foundational engineering breakthroughs:
+We do not claim to have trained 18 separate domain models from scratch or invented new climate laws. Rather, Climate Chain introduces six foundational engineering breakthroughs:
 
 1. **The Evidence-to-Claim Trust Firewall**: A deterministic, rule-based verification policy engine that mathematically evaluates environmental claims against four strict evidence tiers. It strictly enforces:
    - *Model-to-Observation Prohibition*: Modelled forecasts and simulated estimates are barred from masquerading as verified real-world observations.
@@ -24,7 +24,8 @@ We do not claim to have trained 18 separate domain models from scratch or invent
 2. **The 5-Step Mission Architecture (`Sense → Verify → Act → Finance → Prove`)**: Unifying heterogeneous environmental signals (waste, stubble fire, water contamination, air pollution, methane leaks, grid power) without fabricating combined totals.
 3. **Local EVM Environmental Evidence Ledger**: Three audited Solidity smart contracts (`EvidenceAnchor.sol`, `EnvironmentalEvidenceRegistry.sol`, `ClimateClaimRegistry.sol`) deployed and tested on a local Hardhat EVM (Chain ID 31337) with zero speculative tokenomics.
 4. **Climate Intelligence Timeline (200 Years of Environmental Evidence)**: A research-grade historical explorer synthesizing validated observational records from 1826 to 2026 (NOAA NCEI, NASA GISS, CSIRO/AAD Law Dome ice cores, Mauna Loa Keeling Curve, IRENA, CPCB). Data gaps (e.g., pre-1880 global surface temperatures) are preserved explicitly, refusing fictional interpolation.
-5. **Zero-Dependency Production Gateway & Creamy-White Workspace**: A resilient Node.js gateway managing live civic adapters with automatic fallback labeling (`LIVE` vs `SIMULATED`), authenticated Windows DPAPI / AES-256-GCM memory encryption, and a modern, high-contrast creamy-white user interface (`#F5F3EE` / `#FFFEFA` / `#F0EDE6`).
+5. **Zero-Dependency Production Gateway & Creamy-White Workspace**: A resilient Node.js gateway managing live civic adapters with automatic fallback labeling (`LIVE` vs `SIMULATED`), authenticated Windows DPAPI / AES-256-GCM memory encryption, and a modern, high-contrast creamy-white user interface (`#F5F3EE` / `#FFFEFA` / `#F0EDE6`) with full light and dark themes.
+6. **The Data Refinery — a tool that makes scientific research faster**: Research is full of avoidable delays — cleaning and reformatting data, digging through papers by hand, re-running the same analysis over and over, or waiting on a workflow that should be automated. Climate Chain picks one bottleneck and removes it: the Data Refinery turns messy agency CSV/JSON exports into analysis-ready data in seconds, entirely in the browser (see Section 5d).
 
 ---
 
@@ -167,6 +168,24 @@ A serverless function cannot keep a blockchain node alive, so on Vercel the gate
 - **Public writes are bounded.** A hosted deployment accepts anchoring from its own pages only (same-origin), rate-limited per address. The local launcher still accepts writes from loopback only.
 - **Limits.** The demo ledger holds up to 600 transactions (`507 ledger_full` after that). The chain is a development chain with valueless test ETH; it is not a public network, and anchoring proves integrity of the recorded bytes, not that a measurement is true.
 - **Contracts.** `blockchain/scripts/export-artifacts.js` writes `gateway/chain-artifacts.json` (ABI, bytecode and a hash of each `.sol`); a gateway test fails if the committed file is stale.
+
+---
+
+## 5d. Data Refinery — a tool that makes scientific research faster
+
+Research is full of avoidable delays: cleaning and reformatting data, digging through papers by hand, re-running the same analysis over and over, or waiting on a workflow that should be automated. **The Data Refinery removes the first and most common of these bottlenecks** — the hours researchers lose normalizing heterogeneous climate exports (NOAA, OpenAQ, CPCB, field sensors) before any analysis can start.
+
+Paste any CSV (comma, semicolon or tab) or JSON array into the Refinery (sidebar → *Research Tools → Data Refinery*) and it deterministically produces an analysis-ready dataset:
+
+- **Timestamp normalization to ISO 8601**, including `MM/DD/YYYY` vs `DD/MM/YYYY` detection, two-digit years, and merging separate date + time columns.
+- **Unit harmonization** for common climate parameters: temperature (°F/K → °C), pressure (kPa/atm/inHg/mmHg → hPa), gases (ppb/ppt → µg/m³ at 25 °C, WHO factors), particulates (ng/m³ or mg/m³ → µg/m³), wind (km/h/mph/knots → m/s), precipitation (inches → mm).
+- **Canonical column names** (`timestamp`, `temperature_c`, `pm25_ugm3`, `no2_ugm3`, `wind_ms`, …) while leaving unrecognized columns untouched.
+- **Duplicate removal** for identical rows; conflicting rows that share a timestamp are *flagged*, never silently dropped.
+- **Missing-value handling**: `NA`/`null`/blank tokens are normalized and counted; interior numeric gaps are linearly interpolated and reported — edge gaps stay missing because inventing data there would be speculation.
+- **Outlier flagging with IQR (1.5×)**: suspicious values (e.g. a PM2.5 sensor fault of 9999) are flagged for review, not deleted.
+- **Per-column summary statistics** (count, missing, outliers, mean, min, max) and a downloadable cleaned CSV with a **SHA-256 digest** for provenance.
+
+Everything runs locally in the browser — no data leaves the machine, no API key required. The cleaning engine is a pure TypeScript module (`climate-chain/frontend/src/modules/refinery/refinery.ts`) covered by 12 unit tests, so the same transformations can be reused headlessly in scripts.
 
 ---
 

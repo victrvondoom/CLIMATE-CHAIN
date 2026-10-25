@@ -45,6 +45,7 @@ const CORE_DESTINATIONS: Destination[] = [
   { id: 'session', label: 'Review desk', title: 'Climate Chain', group: 'evidence' },
   { id: 'ledger', label: 'Evidence ledger', title: 'Evidence ledger', group: 'evidence' },
   { id: 'memory', label: 'AI engineering memory', title: 'Engineering memory', group: 'tools' },
+  { id: 'refinery', label: 'Data Refinery · clean & reformat CSV/JSON', title: 'Data Refinery', group: 'tools' },
 ];
 
 const MODULE_DESTINATIONS: Destination[] = CLIMATE_MODULES.map((item) => ({

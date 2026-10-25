@@ -65,6 +65,8 @@ describe('dashboard library', () => {
     expect(resolveView('#capabilities')).toBeNull();
     expect(destinationFor('pollution')?.group).toBe('signals');
     expect(resolveView('#pollution')).toBe('pollution');
-    expect(DESTINATIONS.filter((item) => item.group !== 'modules')).toHaveLength(LEGACY_VIEWS.length + 4);
+    expect(destinationFor('refinery')?.group).toBe('tools');
+    expect(resolveView('#refinery')).toBe('refinery');
+    expect(DESTINATIONS.filter((item) => item.group !== 'modules')).toHaveLength(LEGACY_VIEWS.length + 5);
   });
 });

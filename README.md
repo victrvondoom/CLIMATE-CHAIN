@@ -14,7 +14,7 @@ Climate Chain is an end-to-end, multi-track climate platform unifying 18 special
 4. **Climate Data & Environmental Monitoring**
 
 ### What is Original to Climate Chain (No Conflation, No False Claims)
-We do not claim to have trained 18 separate domain models from scratch or invented new climate laws. Rather, Climate Chain introduces five foundational engineering breakthroughs:
+We do not claim to have trained 18 separate domain models from scratch or invented new climate laws. Rather, Climate Chain introduces six foundational engineering breakthroughs:
 
 1. **The Evidence-to-Claim Trust Firewall**: A deterministic, rule-based verification policy engine that mathematically evaluates environmental claims against four strict evidence tiers. It strictly enforces:
    - *Model-to-Observation Prohibition*: Modelled forecasts and simulated estimates are barred from masquerading as verified real-world observations.
@@ -24,7 +24,8 @@ We do not claim to have trained 18 separate domain models from scratch or invent
 2. **The 5-Step Mission Architecture (`Sense → Verify → Act → Finance → Prove`)**: Unifying heterogeneous environmental signals (waste, stubble fire, water contamination, air pollution, methane leaks, grid power) without fabricating combined totals.
 3. **Local EVM Environmental Evidence Ledger**: Three audited Solidity smart contracts (`EvidenceAnchor.sol`, `EnvironmentalEvidenceRegistry.sol`, `ClimateClaimRegistry.sol`) deployed and tested on a local Hardhat EVM (Chain ID 31337) with zero speculative tokenomics.
 4. **Climate Intelligence Timeline (200 Years of Environmental Evidence)**: A research-grade historical explorer synthesizing validated observational records from 1826 to 2026 (NOAA NCEI, NASA GISS, CSIRO/AAD Law Dome ice cores, Mauna Loa Keeling Curve, IRENA, CPCB). Data gaps (e.g., pre-1880 global surface temperatures) are preserved explicitly, refusing fictional interpolation.
-5. **Zero-Dependency Production Gateway & Creamy-White Workspace**: A resilient Node.js gateway managing live civic adapters with automatic fallback labeling (`LIVE` vs `SIMULATED`), authenticated Windows DPAPI / AES-256-GCM memory encryption, and a modern, high-contrast creamy-white user interface (`#F5F3EE` / `#FFFEFA` / `#F0EDE6`).
+5. **Zero-Dependency Production Gateway & Creamy-White Workspace**: A resilient Node.js gateway managing live civic adapters with automatic fallback labeling (`LIVE` vs `SIMULATED`), authenticated Windows DPAPI / AES-256-GCM memory encryption, and a modern, high-contrast creamy-white user interface (`#F5F3EE` / `#FFFEFA` / `#F0EDE6`) with full light and dark themes.
+6. **The Data Refinery — a tool that makes scientific research faster**: Research is full of avoidable delays — cleaning and reformatting data, digging through papers by hand, re-running the same analysis over and over, or waiting on a workflow that should be automated. Climate Chain picks one bottleneck and removes it: the Data Refinery turns messy agency CSV/JSON exports into analysis-ready data in seconds, entirely in the browser — normalizing timestamps to ISO 8601, harmonizing units (°F→°C, ppb→µg/m³, km/h→m/s), removing duplicates, interpolating interior gaps, and flagging outliers with IQR instead of deleting them. See `climate-chain/README.md` Section 5d.
 
 ---
 

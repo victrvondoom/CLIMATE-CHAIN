@@ -1,0 +1,179 @@
+/* Data Refinery — themed with the shared paper/ink tokens from theme.css. */
+
+.refinery {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 26px 22px 60px;
+}
+
+.refinery-header h1 {
+  margin: 0 0 6px;
+}
+
+.refinery-header p {
+  margin: 0;
+  color: var(--ink-3);
+  max-width: 70ch;
+}
+
+.refinery-input {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.refinery-input-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.refinery-run {
+  background: var(--t-241e17);
+  color: var(--t-fcf9f2);
+  border-color: var(--t-241e17);
+}
+
+.refinery-textarea {
+  width: 100%;
+  min-height: 160px;
+  resize: vertical;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 12px;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--paper-sunk);
+  color: var(--ink);
+}
+
+.refinery-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.refinery-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.refinery-chip {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 14px;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--paper-raised);
+  box-shadow: var(--shadow-1);
+  min-width: 108px;
+}
+
+.refinery-chip strong {
+  font-size: 19px;
+  font-variant-numeric: lining-nums;
+}
+
+.refinery-chip span {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.refinery-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--paper-raised);
+  font-size: 13px;
+}
+
+.refinery-table th,
+.refinery-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--rule);
+  text-align: right;
+  font-variant-numeric: lining-nums;
+}
+
+.refinery-table th:first-child,
+.refinery-table td:first-child {
+  text-align: left;
+}
+
+.refinery-table thead th {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.refinery-preview td {
+  text-align: left;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+}
+
+.refinery-issues {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.refinery-issue {
+  padding: 8px 12px;
+  border: 1px solid var(--rule);
+  border-left-width: 3px;
+  border-radius: 8px;
+  background: var(--paper-raised);
+  font-size: 13px;
+}
+
+.refinery-issue-unit { border-left-color: var(--water); }
+.refinery-issue-timestamp { border-left-color: var(--waste); }
+.refinery-issue-duplicate { border-left-color: var(--air); }
+.refinery-issue-missing { border-left-color: var(--waste); }
+.refinery-issue-outlier { border-left-color: var(--bad); }
+.refinery-issue-parse,
+.refinery-issue-header { border-left-color: var(--ink-3); }
+
+.refinery-output {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.refinery-output-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.refinery-digest {
+  font-size: 12px;
+  padding: 6px 10px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--paper-sunk);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.refinery-more {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 12px;
+}
