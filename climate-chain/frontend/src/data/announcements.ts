@@ -26,7 +26,7 @@ export const ANNOUNCEMENTS: Announcement[] = [
     tag: 'PREVIEW',
     date: '22 Oct 2026',
     title: 'Standalone apps (local only)',
-    body: 'AquaQuest, Flarewatch, PlotLock, HourMatch, CarbonTwin, CarbonLens and the EcoGraph story page are served under /apps by a local gateway only when climate-chain/projects/ is present; they are not available on the hosted deployment. Apps that need a backend or a build step say so.',
+    body: 'BlueTrail, TorchSight, ParcelSeal, HourSync, UniqueCredit, CarbonScope and the ImpactGraph story page are served under /apps by a local gateway only when climate-chain/projects/ is present; they are not available on the hosted deployment. Apps that need a backend or a build step say so.',
     action: { label: 'Browse the projects', to: 'launchpad' },
   },
   {
@@ -34,7 +34,7 @@ export const ANNOUNCEMENTS: Announcement[] = [
     tag: 'NEW',
     date: '22 Oct 2026',
     title: 'Six more projects join the workflow',
-    body: 'CarbonTrace, ClimateProof AI, Flarewatch, GridProof, HourMatch and PlotLock now have stage mapping, readiness notes and evidence statements in the mission studio.',
+    body: 'TonneTrail, ClaimGuard AI, TorchSight, WattCert, HourSync and ParcelSeal now have stage mapping, readiness notes and evidence statements in the mission studio.',
     action: { label: 'Build a mission', to: 'studio' },
   },
   {

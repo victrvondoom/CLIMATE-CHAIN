@@ -58,7 +58,7 @@ test('worker refreshes stale retrieval traces before claiming and validates proc
   assert.throws(() => createMissionWorker({ pollIntervalMs: 10 }), /pollIntervalMs/u);
 });
 
-test('Vayu mission read uses a configured city center and persists only bounded privacy-limited samples', async (t) => {
+test('AirPulse mission read uses a configured city center and persists only bounded privacy-limited samples', async (t) => {
   const directory = await mkdtemp(path.join(os.tmpdir(), 'climate-chain-worker-vayu-'));
   t.after(() => rm(directory, { recursive: true, force: true }));
   const measurements = Array.from({ length: 30 }, (_, index) => ({
@@ -85,8 +85,8 @@ test('Vayu mission read uses a configured city center and persists only bounded 
     taskExecutor: (type, input, options) => executeMissionTask(type, input, { ...options, connectorRegistry }),
   });
   await engine.initialize();
-  const mission = await engine.createMission({ title: 'Vayu city air sample', tasks: [{
-    id: 'vayu', type: 'climate.connector_snapshot', title: 'Read Vayu city sample', input: { connector: 'vayu', city: 'jodhpur' },
+  const mission = await engine.createMission({ title: 'AirPulse city air sample', tasks: [{
+    id: 'vayu', type: 'climate.connector_snapshot', title: 'Read AirPulse city sample', input: { connector: 'vayu', city: 'jodhpur' },
   }] });
   await engine.validateMission(mission.id);
   await engine.queueMission(mission.id);

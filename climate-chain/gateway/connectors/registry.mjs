@@ -139,25 +139,25 @@ function validateVayu(value) {
 /** Source-shaped contracts used by the current central read adapters. */
 export const SOURCE_CONNECTORS = Object.freeze({
   junksnap: Object.freeze({
-    name: 'junksnap', label: 'JunkSnap', domain: 'Waste', env: 'JUNKSNAP_API_URL',
+    name: 'junksnap', label: 'DumpWatch', domain: 'Waste', env: 'JUNKSNAP_API_URL',
     defaultUrl: 'https://d2s7tf4ua41hzf.cloudfront.net', healthPath: '/healthz',
     endpoints: Object.freeze({ sites: Object.freeze({ path: '/sites', schema: 'junksnap-feature-collection', validate: validateJunkSnap }) }),
     auth: 'optional upstream auth may be forwarded by the existing proxy; registry reads are unauthenticated GETs',
   }),
   clearsky: Object.freeze({
-    name: 'clearsky', label: 'clearsky', domain: 'Fire', env: 'CLEARSKY_API_URL',
+    name: 'clearsky', label: 'AshAlert', domain: 'Fire', env: 'CLEARSKY_API_URL',
     defaultUrl: 'https://h5n589so32.execute-api.ap-south-1.amazonaws.com', healthPath: '/api/stats',
     endpoints: Object.freeze({ stats: Object.freeze({ path: '/api/stats', schema: 'clearsky-public-stats', validate: validateClearSky }) }),
     auth: 'public read endpoint',
   }),
   teesri: Object.freeze({
-    name: 'teesri', label: 'Teesri Shikayat', domain: 'Water', env: 'TEESRI_API_URL',
+    name: 'teesri', label: 'TapAlert', domain: 'Water', env: 'TEESRI_API_URL',
     defaultUrl: 'https://eirioqqhvtvve3aw5xhpje2wju0jztrl.lambda-url.ap-south-1.on.aws', healthPath: '/api/state',
     endpoints: Object.freeze({ state: Object.freeze({ path: '/api/state', schema: 'teesri-public-state', validate: validateTeesri }) }),
     auth: 'public state endpoint masks/rounds resident data; console POST actions require a token and are out of scope',
   }),
   vayu: Object.freeze({
-    name: 'vayu', label: 'The Vayu Project', domain: 'Air', env: 'VAYU_API_URL',
+    name: 'vayu', label: 'AirPulse', domain: 'Air', env: 'VAYU_API_URL',
     defaultUrl: 'https://niu33luxo8.execute-api.ap-south-1.amazonaws.com', healthPath: '/v1/health',
     endpoints: Object.freeze({ today: Object.freeze({ path: '/v1/today', schema: 'vayu-today', validate: validateVayu }) }),
     auth: 'public read endpoint',
@@ -453,7 +453,7 @@ export function createConnectorRegistry({
             operation,
             schema: endpoint.schema,
             // Transport success describes only reachability. Preserve a source
-            // mode such as Vayu's "model" instead of implying measured/live data.
+            // mode such as AirPulse's "model" instead of implying measured/live data.
             mode: isString(data?.mode) ? data.mode : 'source_snapshot',
             connection: 'connected',
             transport: 'http',

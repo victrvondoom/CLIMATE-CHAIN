@@ -1,5 +1,5 @@
 {
-  "_note": "Copied from clearsky data/seed (villages.json, fields.json, balers.json), keeping only the fields the port reads. Farmer phone numbers are left out. Scored as of 2026-10-20, the source test date.",
+  "_note": "Copied from AshAlert data/seed (villages.json, fields.json, balers.json), keeping only the fields the port reads. Farmer phone numbers are left out. Scored as of 2026-10-20, the source test date.",
   "asOf": "2026-10-20",
   "villages": [
     { "villageId": "V025", "name": "Chhajli", "fireHistoryScore": 0.9157 },

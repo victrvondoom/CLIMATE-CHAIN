@@ -15,7 +15,7 @@ describe('shared place context', () => {
     expect(integritySiteForCity('chandigarh')).toBeNull();
   });
 
-  it('offers a Vayu city or an integrity site only within reach of the point', () => {
+  it('offers a AirPulse city or an integrity site only within reach of the point', () => {
     expect(nearestCity({ lat: 28.65, lng: 77.1 })?.key).toBe('delhi');
     expect(nearestCity({ lat: 51.9225, lng: 4.4792 })).toBeNull();
     expect(nearestIntegritySite({ lat: 13.05, lng: 80.25 })?.id).toBe('chennai');
@@ -26,7 +26,7 @@ describe('shared place context', () => {
     expect(placeForCity('jodhpur')).toEqual({ name: 'Jodhpur, India', lat: 26.29, lng: 73.02 });
   });
 
-  it('replaces the generic Vayu label with the selected city, and keeps real names', () => {
+  it('replaces the generic AirPulse label with the selected city, and keeps real names', () => {
     expect(airPlaceName('Your location', 'Delhi')).toBe('Delhi');
     expect(airPlaceName(null, 'Delhi')).toBe('Delhi');
     expect(airPlaceName('Anand Vihar', 'Delhi')).toBe('Anand Vihar');

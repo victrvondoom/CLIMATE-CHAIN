@@ -1,4 +1,4 @@
-// Carbon Mapper record normalization, ported from PLUME backend/app/providers/carbonmapper.py
+// Carbon Mapper record normalization, ported from MethaneMend backend/app/providers/carbonmapper.py
 // (normalize_carbonmapper_with_reason) and backend/app/ingestion/pipeline.py (normalize_batch).
 // A provider-hidden or non-positive emission is kept as unavailable and never estimated.
 

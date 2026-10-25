@@ -1,4 +1,4 @@
-// Fire module: clearsky's features — Burn Risk Radar, baler logistics,
+// Fire module: AshAlert's features — Burn Risk Radar, baler logistics,
 // buyer supply and impact — surfaced in the unified shell.
 
 import { useState } from 'react';
@@ -13,8 +13,8 @@ export function Fire({ data }: { data: Overview }) {
   const [risk, setRisk] = useState('all');
   const [ledgerView, setLedgerView] = useState('operations');
   const risks = [
-    { id: 'red', label: 'RED', count: fire.redFields, action: 'Prioritize a baler review in clearsky' },
-    { id: 'yellow', label: 'YELLOW', count: fire.yellowFields, action: 'Review the watch list in clearsky' },
+    { id: 'red', label: 'RED', count: fire.redFields, action: 'Prioritize a baler review in AshAlert' },
+    { id: 'yellow', label: 'YELLOW', count: fire.yellowFields, action: 'Review the watch list in AshAlert' },
     { id: 'green', label: 'Other fields', count: Math.max(0, fire.fields - fire.redFields - fire.yellowFields), action: 'Classification detail is not returned in this summary' },
   ];
   const metrics = ledgerView === 'operations' ? [
@@ -30,7 +30,7 @@ export function Fire({ data }: { data: Overview }) {
     <div className="stack signal-page">
       <div className="module-head">
         <div>
-          <h1>Fire <span className="by">· clearsky</span></h1>
+          <h1>Fire <span className="by">· AshAlert</span></h1>
           <ModeBadge mode={data.sources.clearsky.mode} />
           <p>Stop stubble fires before they start. A farmer sends one WhatsApp message or voice note in Hindi,
              Punjabi, Hinglish or English; an AI agent registers the field, books the nearest baler that can clear
@@ -57,8 +57,8 @@ export function Fire({ data }: { data: Overview }) {
           <div className="radar">
             {risks.filter((row) => risk === 'all' || risk === row.id).map((row) => <div key={row.id} className="radar-row"><span className={`radar-dot ${row.id}`} /><strong>{num(row.count)} {row.label}</strong> fields · {row.action}</div>)}
           </div>
-          <p className="muted">These are source-level totals. Field identities, village locations and individual booking actions remain in clearsky; this summary cannot establish a relationship with a Vayu reading.</p>
-          <ExternalLink href="https://clearsky.akkki.tech/admin">Officer radar (clearsky dashboard)</ExternalLink>
+          <p className="muted">These are source-level totals. Field identities, village locations and individual booking actions remain in AshAlert; this summary cannot establish a relationship with a AirPulse reading.</p>
+          <ExternalLink href="https://clearsky.akkki.tech/admin">Officer radar (AshAlert dashboard)</ExternalLink>
         </Card>
 
         <div className="stack tight">
@@ -75,7 +75,7 @@ export function Fire({ data }: { data: Overview }) {
           </Card>
           <Card>
             <h2>Why it matters here</h2>
-            <p className="muted">Clearsky reports field and alert activity in its own season context. Climate Chain does not join those field outcomes to Vayu readings or estimate avoided air pollution.</p>
+            <p className="muted">AshAlert reports field and alert activity in its own season context. Climate Chain does not join those field outcomes to AirPulse readings or estimate avoided air pollution.</p>
             <ExternalLink href="https://clearsky.akkki.tech/impact">Public impact page</ExternalLink>
           </Card>
         </div>

@@ -125,7 +125,7 @@ function PlotLockPage() {
     <div className="m-plotlock">
       <header className="m-plotlock-head">
         <div>
-          <h2 className="m-plotlock-title">PlotLock</h2>
+          <h2 className="m-plotlock-title">ParcelSeal</h2>
           <p className="m-plotlock-tagline">Simulated: one attestation per plot per season on a local demo chain, bound to satellite evidence.</p>
         </div>
         <ModeTag mode="SIMULATED" />
@@ -277,7 +277,7 @@ function PlotLockPage() {
 
 const climateModule: ClimateModule = {
   id: 'plotlock',
-  name: 'PlotLock',
+  name: 'ParcelSeal',
   tagline: 'Simulated: one attestation per plot per season on a local demo chain, bound to satellite evidence.',
   stages: ['verify', 'finance', 'prove'],
   tone: 'carbon',

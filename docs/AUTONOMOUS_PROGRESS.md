@@ -21,7 +21,7 @@
 - Expanded the memory studio with explicit sensitive-content review, health, conflict/retrieval inspection, interactive decision graph, backup/restore preview, and AGENTS.md, CLAUDE.md, MCP JSON and portable backup exports.
 - Added persistent browser-local mission history, simulated five-stage runs, pause/resume, local human checkpoint, timeline and report export. Mission state survived reload; the smoke mission was removed afterward.
 - Added command-palette search across routes, saved memories and missions, visible upstream failures, an error boundary, responsive graph, and reduced-motion handling.
-- Corrected the CarbonShield inventory: local research UI and read-only API exist, but there is no central adapter.
+- Corrected the SinkGuard inventory: local research UI and read-only API exist, but there is no central adapter.
 - Central evidence: frontend TypeScript/production build passes (553.53 kB Three.js chunk warning remains); gateway `npm test` passes 27/27; Node syntax checks pass. Playwright smoke covered memory save/search/MCP/export/restore/restart, mission dry run/reload/report, palette, fail-closed UI and 390/768/1440 px layouts.
 - Independent project results/blockers are in `TEST_RESULTS.md`; all 13 sets are in `INTEGRATION_MATRIX.md`.
 

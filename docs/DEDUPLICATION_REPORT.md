@@ -61,26 +61,26 @@ All projects have identical source, test, configuration, and documentation conte
 
 ### B. Similar but Modified Implementations (Merged with Zero Loss)
 - `carbonlens-main`: The version inside `climate-chain/projects/carbonlens-main` includes an essential web preview entrypoint (`index.html`) linking the Python Random Forest model and Sentinel-2 forest cover analysis to the browser, which was missing from the raw root clone. The authoritative version in `climate-chain/projects/carbonlens-main` was preserved intact.
-- Civic Connectors (`JunkSnap`, `ClearSky`, `Teesri Shikayat`, `The Vayu Project`): In the root, these projects are standalone monoliths. In Climate Chain, they retain their complete raw repositories inside `climate-chain/projects/` while their live data feeds, coordinate queries, and status endpoints are cleanly adapted into `climate-chain/gateway/gateway.mjs` with graceful fallback labeling (`LIVE` vs `SIMULATED`). Both the original standalone code and the unified adapter are fully preserved.
+- Civic Connectors (`DumpWatch`, `AshAlert`, `TapAlert`, `AirPulse`): In the root, these projects are standalone monoliths. In Climate Chain, they retain their complete raw repositories inside `climate-chain/projects/` while their live data feeds, coordinate queries, and status endpoints are cleanly adapted into `climate-chain/gateway/gateway.mjs` with graceful fallback labeling (`LIVE` vs `SIMULATED`). Both the original standalone code and the unified adapter are fully preserved.
 
 ### C. Distinct Implementations with the Same Name
 - There are no namespace collisions between the 18 modules. Each has a distinct functional domain:
   - Satellite flaring: `flarewatch`
-  - Methane plumes: `PLUME`
+  - Methane plumes: `MethaneMend`
   - Forest cover: `carbonlens`
   - REDD+ baseline red-teaming: `carbonshield`
   - Double issuance: `carbontwin`
   - FalkorDB graph reasoning: `ecograph`
   - Farm logistics: `clearsky`
-  - Waste reporting: `JunkSnap`
+  - Waste reporting: `DumpWatch`
   - Air monitoring: `the-vayu-project`
   - Water monitoring: `teesri-shikayat`
   - Microgrid resilience: `grounded`
   - 24/7 matching: `hourmatch` & `gridproof`
   - Stubble attestation: `plotlock`
-  - Spatial land-cell retirement: `CarbonTrace`
-  - CSV outlier verification: `ClimateProof-AI`
-  - Citizen freshwater science: `AquaQuest`
+  - Spatial land-cell retirement: `TonneTrail`
+  - CSV outlier verification: `ClaimGuard-AI`
+  - Citizen freshwater science: `BlueTrail`
   - Supply chain carbon management: `rantai-3c`
 
 ### D. Generated Files and Ephemeral Build Caches

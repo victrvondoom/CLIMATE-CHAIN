@@ -78,7 +78,7 @@ function GroundedPage() {
     <div className="m-grounded-root">
       <Card className="m-grounded-head">
         <div className="m-grounded-title-row">
-          <h2>grounded</h2>
+          <h2>Resilia</h2>
           <span className="m-grounded-mode">SIMULATED</span>
           <span className="m-grounded-chip">synthetic profiles, 72 h, 15-minute steps</span>
         </div>
@@ -175,7 +175,7 @@ function GroundedPage() {
 
 const climateModule: ClimateModule = {
   id: 'grounded',
-  name: 'grounded',
+  name: 'Resilia',
   tagline: 'Hour-by-hour microgrid dispatch: solar, battery and grid through a 72-hour outage.',
   stages: ['sense', 'act', 'prove'],
   tone: 'energy',

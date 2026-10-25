@@ -64,7 +64,7 @@ const tools = [
   },
   {
     name: TOOL_NAMES[2],
-    description: 'Fetch a read-only JunkSnap-to-Vayu Cascade Review for one real public site. The gateway rejects simulated data for this route and returns a SHA-256 manifest. A candidate is only a proximity review lead, never causation.',
+    description: 'Fetch a read-only DumpWatch-to-AirPulse Cascade Review for one real public site. The gateway rejects simulated data for this route and returns a SHA-256 manifest. A candidate is only a proximity review lead, never causation.',
     inputSchema: {
       type: 'object',
       properties: {

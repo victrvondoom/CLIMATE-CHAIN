@@ -38,9 +38,9 @@ The active memory vault reports AES-256-GCM with a Windows DPAPI-protected key. 
 
 ## Live-source snapshot and Cascade result
 
-At 2026-10-23 14:37 UTC, the shared overview reported JunkSnap, clearsky, Teesri Shikayat and Vayu as live. This is a time-bounded observation, not a source uptime guarantee.
+At 2026-10-23 14:37 UTC, the shared overview reported DumpWatch, AshAlert, TapAlert and AirPulse as live. This is a time-bounded observation, not a source uptime guarantee.
 
-The subsequent Cascade request for public JunkSnap site `site_01m4nvbn53xk778xb83n75szdx` also returned HTTP 200 from both adapters. Vayu returned PM2.5 23.5 µg/m³ with **model** provenance; the site’s last report was more than 11 days old. The review correctly returned `source_not_observed`, `candidate: false`, and evidence coverage 0/3. It did not invent a monitor distance, classify a lead, or claim causality.
+The subsequent Cascade request for public DumpWatch site `site_01m4nvbn53xk778xb83n75szdx` also returned HTTP 200 from both adapters. AirPulse returned PM2.5 23.5 µg/m³ with **model** provenance; the site’s last report was more than 11 days old. The review correctly returned `source_not_observed`, `candidate: false`, and evidence coverage 0/3. It did not invent a monitor distance, classify a lead, or claim causality.
 
 ## Blockchain evidence visible in the app
 
@@ -132,7 +132,7 @@ This pass changed the Command center, carried the air location into Earth and th
 
 These showed up in some runs and not in clean reruns. They are recorded here rather than explained away.
 
-- **`GET /api/agent-memory` returned 503 once** during an audit run, on Flarewatch at 390 px. The route answers 503 with a stop message when the local vault's sandbox fails. The launcher's logs from earlier runs show two DPAPI failures: "Windows DPAPI could not protect or unlock the local memory key" and "Windows DPAPI returned an invalid key envelope". The DPAPI helper starts a fresh `powershell.exe` for each unlock and has no cache. A cold start on this machine takes about 0.3 s, so a plain 10-second timeout is unlikely to be the cause. The helper's error does not record the child's exit code or stderr, so the cause is not confirmed. Thirty consecutive requests afterwards returned 200. The next step is to log the child's exit status and a short stderr excerpt, without any key material, in `gateway/memory-crypto.mjs`. That file belongs to the vault's owner, so this pass made no change to it.
+- **`GET /api/agent-memory` returned 503 once** during an audit run, on TorchSight at 390 px. The route answers 503 with a stop message when the local vault's sandbox fails. The launcher's logs from earlier runs show two DPAPI failures: "Windows DPAPI could not protect or unlock the local memory key" and "Windows DPAPI returned an invalid key envelope". The DPAPI helper starts a fresh `powershell.exe` for each unlock and has no cache. A cold start on this machine takes about 0.3 s, so a plain 10-second timeout is unlikely to be the cause. The helper's error does not record the child's exit code or stderr, so the cause is not confirmed. Thirty consecutive requests afterwards returned 200. The next step is to log the child's exit status and a short stderr excerpt, without any key material, in `gateway/memory-crypto.mjs`. That file belongs to the vault's owner, so this pass made no change to it.
 - **Earth intelligence at 390 px** logged six `ERR_FAILED` requests for Esri satellite tiles, and clean reruns did not. This is third-party tile traffic.
 - **Guided mission path at 390 px** stayed on its lazy-load fallback for 34 seconds once. Two reruns loaded in about 4 seconds.
 - **`GET /` returned 404 once** while a second `start.ps1` rebuilt `frontend/dist`. The build empties the folder before it writes the new files. Running two launchers at once causes this.

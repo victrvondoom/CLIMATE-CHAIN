@@ -67,7 +67,7 @@ function CarbonShieldPage() {
       <header className="m-carbonshield-head">
         <div>
           <p className="m-carbonshield-kicker">Carbon integrity · Research</p>
-          <h2>CarbonShield</h2>
+          <h2>SinkGuard</h2>
           <p>
             Audit view for REDD+ claims. The rules come from the leakage and missing-data reports and run over the
             benchmark outputs of the Swinfield et al. (2026) dataset.
@@ -186,7 +186,7 @@ function CarbonShieldPage() {
       <p className="m-carbonshield-note">
         Not ported: the stress tests for baselines and leakage, the ML pipeline in outputs/phase2, the measurement and
         carbon-stock challenges, the audit API and React auditor, and the contract anchor. The source also hardcodes
-        private keys in scripts/verify_contract.py and src/carbonshield/blockchain/contract.py. Neither file is read
+        private keys in scripts/verify_contract.py and the original project's blockchain/contract.py. Neither file is read
         or copied here.
       </p>
     </div>
@@ -195,7 +195,7 @@ function CarbonShieldPage() {
 
 const climateModule: ClimateModule = {
   id: 'carbonshield',
-  name: 'CarbonShield',
+  name: 'SinkGuard',
   tagline: 'REDD+ claims under red-team review, with leakage and missing-data audit rules on the benchmark outputs.',
   stages: ['verify', 'prove'],
   tone: 'carbon',

@@ -6,7 +6,7 @@ const NOW = 1_000; // the current hour: only hours before it may be certified
 
 const reading = (hour: number, wh = 5_000, anomalyBps = 0) => ({ deviceId: 1, hour, wh, anomalyBps });
 
-// Rules from GridProof contracts/contracts/GranularCertificate.sol (tokenIdFor, _checkReading,
+// Rules from WattCert contracts/contracts/GranularCertificate.sol (tokenIdFor, _checkReading,
 // submitReadings, _retire, hourlyMatchBps, periodMatch).
 describe('token id: one token per device-hour', () => {
   it('is deviceId shifted left 32 bits, OR the hour, as in the contract', () => {

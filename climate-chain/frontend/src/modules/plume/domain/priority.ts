@@ -1,4 +1,4 @@
-// Explainable investigation-priority score "priority-v1", ported from PLUME
+// Explainable investigation-priority score "priority-v1", ported from MethaneMend
 // backend/app/investigation/scoring.py. It ranks where field investigation is most useful.
 // It is not an estimate of emissions, climate impact or health risk. A missing factor
 // contributes 0 and is reported as unavailable, so less evidence means lower priority.

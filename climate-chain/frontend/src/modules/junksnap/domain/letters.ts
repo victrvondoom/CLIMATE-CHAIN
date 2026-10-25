@@ -1,5 +1,5 @@
 // Ports of backend/server/src/domain/letters/BackingStatement.ts, SitePlace.ts, Rule.ts,
-// services/letters/QuoteVerifier.ts and LetterService.ts (JunkSnap). Pure: no React, no DOM.
+// services/letters/QuoteVerifier.ts and LetterService.ts (DumpWatch). Pure: no React, no DOM.
 // Not ported: the clause picker's scoring, channel routing, prose drafting, rate limits and letter IDs.
 
 import { BACKERS_NEEDED } from './backers';
@@ -220,7 +220,7 @@ export function draftCitedLetter(input: LetterInput): CitedLetter {
     closing,
   ].filter((line) => line !== '').join('\n');
   return {
-    subject: `Request for action on ${WHAT[input.context] ?? 'waste'} in ${place} (JunkSnap site ${input.siteId})`,
+    subject: `Request for action on ${WHAT[input.context] ?? 'waste'} in ${place} (DumpWatch site ${input.siteId})`,
     body,
     citations: checked.citations,
     verifier: { verified: checked.verified, total: checked.total },

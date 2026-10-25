@@ -89,7 +89,7 @@ function ClearskyPage() {
       <header className="m-clearsky-head">
         <div>
           <p className="m-clearsky-kicker">Fire · Punjab</p>
-          <h2>clearsky</h2>
+          <h2>AshAlert</h2>
           <p>Stubble fires are prevented before ignition: score the fields, warn the village, route the straw to a baler with room.</p>
         </div>
         <span className="m-clearsky-mode">Mode: SIMULATED</span>
@@ -188,7 +188,7 @@ function ClearskyPage() {
         <ul className="m-clearsky-sub">
           <li>WhatsApp and voice intake (Hindi and Punjabi), the farmer agent, and the booking messages: they need the channel APIs.</li>
           <li>Buyer routing and net price: the port routes straw to a baler only; buyer prices are demo parameters in the source.</li>
-          <li>Pollution impact: clearsky ships no emission factor, so no PM2.5 figure is shown.</li>
+          <li>Pollution impact: AshAlert ships no emission factor, so no PM2.5 figure is shown.</li>
           <li>FIRMS fire history: the fixture uses the seed fire-history scores; live counts come from the overview only.</li>
         </ul>
       </Card>
@@ -198,7 +198,7 @@ function ClearskyPage() {
 
 const climateModule: ClimateModule = {
   id: 'clearsky',
-  name: 'clearsky',
+  name: 'AshAlert',
   tagline: 'Burn Risk Radar scores fields, village alerts ask for bookings, and straw is routed to a baler with room.',
   stages: ['sense', 'act', 'prove'],
   tone: 'fire',

@@ -197,7 +197,7 @@ export function CommandStatus({
           <div className="health-label">Current air sensor</div>
           <p className="sensor-summary">
             {observed && station
-              ? `Vayu Station "${station.stationName ?? 'Delhi Center'}", ${station.distanceKm == null ? 'nearby' : `${station.distanceKm.toFixed(1)} km`} from ${placeName}.`
+              ? `AirPulse Station "${station.stationName ?? 'Delhi Center'}", ${station.distanceKm == null ? 'nearby' : `${station.distanceKm.toFixed(1)} km`} from ${placeName}.`
               : `Selected place: ${placeName} · Air quality sensor feed active.`}
           </p>
         </div>

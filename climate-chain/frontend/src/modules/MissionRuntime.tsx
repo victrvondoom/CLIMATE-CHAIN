@@ -142,8 +142,8 @@ export function buildDurableMissionDefinition(title: string, place: string, data
   };
   const observations = [
     { metric: 'open_waste_sites', value: data.waste.open, unit: 'sites', observedAt, sourceId: 'overview:junksnap', sourceStatus: sourceStatus('junksnap'), geography: place.trim() || data.city.name },
-    { metric: 'cleared_land', value: data.fire.acresCleared, unit: 'acres', observedAt, sourceId: 'overview:clearsky', sourceStatus: sourceStatus('clearsky'), geography: 'ClearSky service scope' },
-    { metric: 'households_warned', value: data.water.warned, unit: 'households', observedAt, sourceId: 'overview:teesri', sourceStatus: sourceStatus('teesri'), geography: 'Teesri service scope' },
+    { metric: 'cleared_land', value: data.fire.acresCleared, unit: 'acres', observedAt, sourceId: 'overview:clearsky', sourceStatus: sourceStatus('clearsky'), geography: 'AshAlert service scope' },
+    { metric: 'households_warned', value: data.water.warned, unit: 'households', observedAt, sourceId: 'overview:teesri', sourceStatus: sourceStatus('teesri'), geography: 'TapAlert service scope' },
     ...(data.air.pm25Now === null ? [] : [{ metric: 'pm25', value: data.air.pm25Now, unit: 'ug/m3', observedAt: data.air.provenance?.asOf ?? observedAt, sourceId: 'overview:vayu', sourceStatus: sourceStatus('vayu'), geography: data.city.name }]),
   ];
   const hasLiveAggregateConnector = data.sources.clearsky.mode === 'live' && data.sources.clearsky.connection === 'connected';
@@ -151,8 +151,8 @@ export function buildDurableMissionDefinition(title: string, place: string, data
   const hasLiveVayuConnector = ['delhi', 'jodhpur', 'chandigarh'].includes(cityKey)
     && data.sources.vayu.mode === 'live' && data.sources.vayu.connection === 'connected';
   const tasks: DurableMissionDefinition['tasks'] = [
-    ...(hasLiveAggregateConnector ? [{ id: 'clearsky', type: 'climate.connector_snapshot', title: 'Refresh ClearSky aggregate statistics', input: { connector: 'clearsky' }, timeoutMs: 8_000, retry: { maxAttempts: 1, delayMs: 500 } }] : []),
-    ...(hasLiveVayuConnector ? [{ id: 'vayu', type: 'climate.connector_snapshot', title: 'Refresh Vayu city air-quality sample', input: { connector: 'vayu', city: cityKey }, timeoutMs: 8_000, retry: { maxAttempts: 1, delayMs: 500 } }] : []),
+    ...(hasLiveAggregateConnector ? [{ id: 'clearsky', type: 'climate.connector_snapshot', title: 'Refresh AshAlert aggregate statistics', input: { connector: 'clearsky' }, timeoutMs: 8_000, retry: { maxAttempts: 1, delayMs: 500 } }] : []),
+    ...(hasLiveVayuConnector ? [{ id: 'vayu', type: 'climate.connector_snapshot', title: 'Refresh AirPulse city air-quality sample', input: { connector: 'vayu', city: cityKey }, timeoutMs: 8_000, retry: { maxAttempts: 1, delayMs: 500 } }] : []),
     { id: 'observations', type: 'climate.observation_summary', title: 'Summarize scoped source observations', input: { observations } },
     {
       id: 'report', type: 'report.render', title: 'Render evidence-bound report',
@@ -162,15 +162,15 @@ export function buildDurableMissionDefinition(title: string, place: string, data
         sections: [
           { heading: 'Typed summaries', body: { $ref: { taskId: 'observations', path: '/summaries' } } },
           { heading: 'Source provenance', body: { $ref: { taskId: 'observations', path: '/provenance' } } },
-          ...(hasLiveAggregateConnector ? [{ heading: 'Fresh ClearSky aggregate snapshot and provenance', body: { $ref: { taskId: 'clearsky', path: '' } } }] : []),
-          ...(hasLiveVayuConnector ? [{ heading: 'Fresh Vayu city PM2.5 samples with reported data kind', body: { $ref: { taskId: 'vayu', path: '' } } }] : []),
+          ...(hasLiveAggregateConnector ? [{ heading: 'Fresh AshAlert aggregate snapshot and provenance', body: { $ref: { taskId: 'clearsky', path: '' } } }] : []),
+          ...(hasLiveVayuConnector ? [{ heading: 'Fresh AirPulse city PM2.5 samples with reported data kind', body: { $ref: { taskId: 'vayu', path: '' } } }] : []),
         ],
       },
     },
   ];
   return {
     title: `${title.trim() || 'Climate intelligence'} — source review`,
-    description: `Durable local execution over the latest normalized source snapshot for ${place.trim() || data.city.name}.${hasLiveAggregateConnector ? ' The worker also refreshes public ClearSky aggregate statistics.' : ''}${hasLiveVayuConnector ? ' The worker also refreshes Vayu at the configured city center and stores a privacy-limited sample.' : ''} Source modes remain attached to each row.`,
+    description: `Durable local execution over the latest normalized source snapshot for ${place.trim() || data.city.name}.${hasLiveAggregateConnector ? ' The worker also refreshes public AshAlert aggregate statistics.' : ''}${hasLiveVayuConnector ? ' The worker also refreshes AirPulse at the configured city center and stores a privacy-limited sample.' : ''} Source modes remain attached to each row.`,
     tasks,
   };
 }
@@ -303,7 +303,7 @@ function DurableMissionPanel({ title, place, data, loading }: { title: string; p
     </div>}
     {loadingList && <p role="status">Loading persistent mission history…</p>}
     {!loadingList && !listQuery.error && missions.length === 0 && <div className="mission-empty-state"><strong>No gateway missions yet</strong><span>Create a source review mission after the unified snapshot is loaded. The browser-only plans below remain separate and preserved.</span></div>}
-    <p className="durable-mission-disclosure">A separate local worker process claims queued tasks only after memory readiness passes; retrieval traces older than five minutes are not claimable. Three task types perform bounded local transformations; the connector task reads only reviewed ClearSky aggregates or Vayu samples at configured city centers. Vayu output is capped at 24 timestamped PM2.5 samples and omits place/station identifiers, coordinates, and free-text rationale. Tasks cannot run shell commands or access general filesystems, databases, arbitrary network destinations, or specialist write actions. Memory IDs are recorded for traceability; handlers do not interpret memory instructions. The launcher supervises the worker; manual development can run `npm run worker` separately.</p>
+    <p className="durable-mission-disclosure">A separate local worker process claims queued tasks only after memory readiness passes; retrieval traces older than five minutes are not claimable. Three task types perform bounded local transformations; the connector task reads only reviewed AshAlert aggregates or AirPulse samples at configured city centers. AirPulse output is capped at 24 timestamped PM2.5 samples and omits place/station identifiers, coordinates, and free-text rationale. Tasks cannot run shell commands or access general filesystems, databases, arbitrary network destinations, or specialist write actions. Memory IDs are recorded for traceability; handlers do not interpret memory instructions. The launcher supervises the worker; manual development can run `npm run worker` separately.</p>
   </section>;
 }
 

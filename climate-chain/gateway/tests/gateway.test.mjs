@@ -168,7 +168,7 @@ test('live source failure returns an error instead of a simulated review result'
   }
 });
 
-test('Teesri snapshot is aggregated while shared source proxy remains read-only', async () => {
+test('TapAlert snapshot is aggregated while shared source proxy remains read-only', async () => {
   const address = gateway.address();
   const localOrigin = 'http://127.0.0.1:5173';
   const response = await fetch(`http://127.0.0.1:${address.port}/api/teesri/api/state`, { headers: { origin: localOrigin } });
@@ -277,7 +277,7 @@ test('gateway mission API executes behind its local boundary and survives gatewa
       method: 'POST', headers: { 'content-type': 'application/json', 'idempotency-key': 'genesis-e2e-1' },
       body: JSON.stringify({ title: 'Gateway durable proof', tasks: [
         { id: 'clearsky', type: 'climate.connector_snapshot', title: 'Refresh aggregate source', input: { connector: 'clearsky' }, timeoutMs: 8_000 },
-        { id: 'vayu', type: 'climate.connector_snapshot', title: 'Refresh Vayu city sample', input: { connector: 'vayu', city: 'jodhpur' }, timeoutMs: 8_000 },
+        { id: 'vayu', type: 'climate.connector_snapshot', title: 'Refresh AirPulse city sample', input: { connector: 'vayu', city: 'jodhpur' }, timeoutMs: 8_000 },
         { id: 'scenario', type: 'climate.emissions_scenario', title: 'Run bounded scenario', input: { baselineTco2e: 25, reductionPercent: 20, years: 3 } },
         { id: 'report', type: 'report.render', title: 'Render evidence report', dependsOn: ['clearsky', 'vayu', 'scenario'], input: { title: 'Connector-backed proof', sections: [
           { heading: 'Source', body: { $ref: { taskId: 'clearsky', path: '' } } },

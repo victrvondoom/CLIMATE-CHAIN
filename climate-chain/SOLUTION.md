@@ -12,7 +12,7 @@ The shared unit is a **place-based climate mission**. A person begins with a loc
 
 The home screen pairs a four-source overview with a 3D globe. It shows source-level signals, the season ledger, original signal views, and two clear next choices: start the guided path or browse all capabilities. Schematic globe arcs are decorative and are not measured relationships.
 
-The overview globe contains schematic pilot beacons. Where current data includes coordinates, it also plots JunkSnap site locations and the selected Vayu query place. Household coordinates are excluded. Offline fallback data is labeled **SIMULATED** in the surrounding interface.
+The overview globe contains schematic pilot beacons. Where current data includes coordinates, it also plots DumpWatch site locations and the selected AirPulse query place. Household coordinates are excluded. Offline fallback data is labeled **SIMULATED** in the surrounding interface.
 
 ### Guided mission path
 
@@ -26,11 +26,11 @@ The focus choices are healthy neighbourhoods, cleaner harvests, trusted forest c
 
 ### Unified mission studio
 
-The studio starts with the full set of 18 project capabilities and groups them under Sense, Verify, Act, Finance and Prove. People can select a narrower toolset, add a focus bundle, review each project's feature and evidence notes, open its source tool, and export a Markdown mission brief. The mission scope and selection stay in the current browser session. Only JunkSnap, clearsky, Teesri Shikayat and Vayu have normalized live feeds; all other modules are native re-implementations that run on bundled fixtures (8 SIMULATED, 6 RESEARCH, 4 DEMO); the original project folders are not included in this repository.
+The studio starts with the full set of 18 project capabilities and groups them under Sense, Verify, Act, Finance and Prove. People can select a narrower toolset, add a focus bundle, review each project's feature and evidence notes, open its source tool, and export a Markdown mission brief. The mission scope and selection stay in the current browser session. Only DumpWatch, AshAlert, TapAlert and AirPulse have normalized live feeds; all other modules are native re-implementations that run on bundled fixtures (8 SIMULATED, 6 RESEARCH, 4 DEMO); the original project folders are not included in this repository.
 
 ### Place-based Waste-to-Air review
 
-From an open JunkSnap site, choose **Review nearby air context**. Climate Chain queries Vayu at that public site point and shows monitor provenance, data age, observation times and configurable distance/time checks. A match is only a proximity lead for a person to review; it does not show that the waste site caused the air reading. The user can download a SHA-256 evidence manifest and continue in JunkSnap for its verification and clearance workflow. This central review is read-only.
+From an open DumpWatch site, choose **Review nearby air context**. Climate Chain queries AirPulse at that public site point and shows monitor provenance, data age, observation times and configurable distance/time checks. A match is only a proximity lead for a person to review; it does not show that the waste site caused the air reading. The user can download a SHA-256 evidence manifest and continue in DumpWatch for its verification and clearance workflow. This central review is read-only.
 
 ### Capability library
 
@@ -47,7 +47,7 @@ The searchable library lists all 18 projects, including Climate Chain itself. Ca
                climate-chain zero-dependency gateway
               ┌────────┬─────────┬────────┬────────┐
               │        │         │        │        │
-           JunkSnap  clearsky  Teesri     Vayu   normalized
+           DumpWatch  AshAlert  TapAlert     AirPulse   normalized
              API      API      API       API     overview
               │        │         │        │
              Waste    Fire     Water     Air
@@ -56,7 +56,7 @@ The searchable library lists all 18 projects, including Climate Chain itself. Ca
              own app, storage, identity and approval flow
 ```
 
-The overview gateway fans out to the four existing APIs in parallel and applies per-project normalizers. It presents source-level alerts, not a geographic or causal cross-project join. The separate versioned Cascade endpoint reads one public JunkSnap site and one Vayu response, then applies explicit time and distance checks. All other projects are connected through mission placement and capability entry points, not new API adapters.
+The overview gateway fans out to the four existing APIs in parallel and applies per-project normalizers. It presents source-level alerts, not a geographic or causal cross-project join. The separate versioned Cascade endpoint reads one public DumpWatch site and one AirPulse response, then applies explicit time and distance checks. All other projects are connected through mission placement and capability entry points, not new API adapters.
 
 ## Shared data and provenance
 
@@ -70,7 +70,7 @@ The shared model in `frontend/src/types.ts` has project-specific fields for Wast
 
 ## Why the handoffs stay with specialist tools
 
-Each source project has its own data, identities, consent, approvals and risk rules. For example, JunkSnap photo privacy and resident backing, Teesri resident-only case closure, clearsky farmer bookings, PLUME verifier signatures, and carbon-ledger freeze decisions must remain visible in the system that owns them. The central workspace does not issue credentials or silently submit writes on a user's behalf.
+Each source project has its own data, identities, consent, approvals and risk rules. For example, DumpWatch photo privacy and resident backing, TapAlert resident-only case closure, AshAlert farmer bookings, MethaneMend verifier signatures, and carbon-ledger freeze decisions must remain visible in the system that owns them. The central workspace does not issue credentials or silently submit writes on a user's behalf.
 
 ## Frontend structure
 
@@ -105,7 +105,7 @@ Open <http://localhost:8080>. In frontend dev mode, run `npm run dev` from `fron
 
 ## Current integration limits
 
-- The gateway connects only JunkSnap, clearsky, Teesri Shikayat and Vayu. The rest are not presented as gateway-live sources.
+- The gateway connects only DumpWatch, AshAlert, TapAlert and AirPulse. The rest are not presented as gateway-live sources.
 - Project app links may have their own authentication, uptime, or demo constraints. A link in the directory does not guarantee its current availability.
-- The gateway does not provide unified identity, a shared database, or cross-project write-back. Mission records persist on the local host in a checksummed JSON store, not a shared database. Persisted tasks can refresh ClearSky aggregate statistics and privacy-limited Vayu city-center air samples; other connectors remain dashboard reads.
-- Current verification is recorded in `docs/workspace/GENESIS_FINAL_REPORT.md`: gateway and frontend tests (run npm test for current counts), frontend lint/type-check/build, encrypted retrieval-audit migration and corruption checks, worker-side ClearSky and Vayu fixture integrations, and isolated launcher health/encrypted-audit/shutdown smokes. Public upstreams were disconnected during the browser smoke; no production availability or specialist write workflow is claimed.
+- The gateway does not provide unified identity, a shared database, or cross-project write-back. Mission records persist on the local host in a checksummed JSON store, not a shared database. Persisted tasks can refresh AshAlert aggregate statistics and privacy-limited AirPulse city-center air samples; other connectors remain dashboard reads.
+- Current verification is recorded in `docs/workspace/GENESIS_FINAL_REPORT.md`: gateway and frontend tests (run npm test for current counts), frontend lint/type-check/build, encrypted retrieval-audit migration and corruption checks, worker-side AshAlert and AirPulse fixture integrations, and isolated launcher health/encrypted-audit/shutdown smokes. Public upstreams were disconnected during the browser smoke; no production availability or specialist write workflow is claimed.

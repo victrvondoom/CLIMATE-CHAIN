@@ -18,7 +18,7 @@ The workspace contains 13 capability sets implemented in different stacks. Clima
 - Searchable command palette across routes/capabilities, saved memories and browser-local missions, with Ctrl/Cmd+K, keyboard navigation, focus return and focus trapping.
 - Browser-local Mission Studio history with explicit simulated stages, pause/resume, a local human checkpoint, event timeline and Markdown/JSON export.
 - Visible source-status failures, a workspace error boundary, favicon, keyboard focus styles, responsive graph layout and reduced-motion handling.
-- Corrected CarbonShield inventory to reflect its local research UI and read-only API.
+- Corrected SinkGuard inventory to reflect its local research UI and read-only API.
 
 ## Defects fixed and checks
 

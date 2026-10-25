@@ -15,7 +15,7 @@ const facts = (n: number, rate: number | null = 1000, unc: number | null = 200, 
 
 const factor = (f: ReturnType<typeof scoreIncident>['factors'], name: string) => f.find((x) => x.name === name);
 
-// Rules from PLUME backend/tests/test_investigation_units.py and SCIENTIFIC_METHODOLOGY.md section 5.
+// Rules from MethaneMend backend/tests/test_investigation_units.py and SCIENTIFIC_METHODOLOGY.md section 5.
 describe('priority-v1 score', () => {
   it('has weights that sum to 100', () => {
     expect(Object.values(WEIGHTS).reduce((a, b) => a + b, 0)).toBe(100);

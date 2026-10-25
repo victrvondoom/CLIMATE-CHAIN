@@ -6,10 +6,10 @@ const overview = {
   asOf: '2026-10-22T04:00:00.000Z',
   city: { name: 'Jodhpur', lat: 26.29, lng: 73.02 },
   sources: {
-    junksnap: { mode: 'live', label: 'JunkSnap', provenance: { source: 'junksnap', operation: 'sites', schema: 'sites', mode: 'source_snapshot', connection: 'connected', transport: 'http', url: 'https://example.test/sites', fetchedAt: '2026-10-22T04:00:00.000Z', elapsedMs: 10, attempts: 1, requestId: null } },
-    clearsky: { mode: 'mock', label: 'ClearSky', provenance: null },
-    teesri: { mode: 'live', label: 'Teesri Shikayat', provenance: { source: 'teesri', operation: 'state', schema: 'state', mode: 'source_snapshot', connection: 'connected', transport: 'http', url: 'https://example.test/api/state', fetchedAt: '2026-10-22T04:00:00.000Z', elapsedMs: 10, attempts: 1, requestId: null } },
-    vayu: { mode: 'live', label: 'The Vayu Project', provenance: { source: 'vayu', operation: 'today', schema: 'today', mode: 'model', connection: 'connected', transport: 'http', url: 'https://example.test/v1/today', fetchedAt: '2026-10-22T04:00:00.000Z', elapsedMs: 10, attempts: 1, requestId: null } },
+    junksnap: { mode: 'live', label: 'DumpWatch', provenance: { source: 'junksnap', operation: 'sites', schema: 'sites', mode: 'source_snapshot', connection: 'connected', transport: 'http', url: 'https://example.test/sites', fetchedAt: '2026-10-22T04:00:00.000Z', elapsedMs: 10, attempts: 1, requestId: null } },
+    clearsky: { mode: 'mock', label: 'AshAlert', provenance: null },
+    teesri: { mode: 'live', label: 'TapAlert', provenance: { source: 'teesri', operation: 'state', schema: 'state', mode: 'source_snapshot', connection: 'connected', transport: 'http', url: 'https://example.test/api/state', fetchedAt: '2026-10-22T04:00:00.000Z', elapsedMs: 10, attempts: 1, requestId: null } },
+    vayu: { mode: 'live', label: 'AirPulse', provenance: { source: 'vayu', operation: 'today', schema: 'today', mode: 'model', connection: 'connected', transport: 'http', url: 'https://example.test/v1/today', fetchedAt: '2026-10-22T04:00:00.000Z', elapsedMs: 10, attempts: 1, requestId: null } },
   },
   waste: { open: 3, verified: 1, sites: [] },
   fire: { farmers: 0, fields: 0, acresRegistered: 0, acresBooked: 0, acresCleared: 10, tonnesBooked: 0, tonnesDelivered: 0, payoutsEstimatedInr: 0, redFields: 0, yellowFields: 0, alertsSent: 0, fieldsSavedAfterAlert: null, bookings: 0, bookingsDone: 0, today: '2026-10-22', source: 'clearsky' },
@@ -47,7 +47,7 @@ describe('buildDurableMissionDefinition', () => {
     expect(definition.title).toBe('Climate intelligence — source review');
   });
 
-  it('adds a worker-side ClearSky refresh only when the aggregate feed is connected', () => {
+  it('adds a worker-side AshAlert refresh only when the aggregate feed is connected', () => {
     const liveOverview = {
       ...overview,
       sources: { ...overview.sources, clearsky: { ...overview.sources.clearsky, mode: 'live' as const, connection: 'connected' as const } },
@@ -61,11 +61,11 @@ describe('buildDurableMissionDefinition', () => {
     expect(definition.tasks[0].input).toEqual({ connector: 'clearsky' });
     expect(definition.tasks[2].dependsOn).toEqual(['observations', 'clearsky']);
     expect(definition.tasks[2].input.sections).toEqual(expect.arrayContaining([
-      expect.objectContaining({ heading: 'Fresh ClearSky aggregate snapshot and provenance' }),
+      expect.objectContaining({ heading: 'Fresh AshAlert aggregate snapshot and provenance' }),
     ]));
   });
 
-  it('adds a Vayu city refresh only when connected and keeps it scoped to the configured city', () => {
+  it('adds a AirPulse city refresh only when connected and keeps it scoped to the configured city', () => {
     const liveOverview = {
       ...overview,
       sources: { ...overview.sources, vayu: { ...overview.sources.vayu, mode: 'live' as const, connection: 'connected' as const } },
@@ -79,7 +79,7 @@ describe('buildDurableMissionDefinition', () => {
     expect(definition.tasks[0].input).toEqual({ connector: 'vayu', city: 'jodhpur' });
     expect(definition.tasks[2].dependsOn).toEqual(['observations', 'vayu']);
     expect(definition.tasks[2].input.sections).toEqual(expect.arrayContaining([
-      expect.objectContaining({ heading: 'Fresh Vayu city PM2.5 samples with reported data kind' }),
+      expect.objectContaining({ heading: 'Fresh AirPulse city PM2.5 samples with reported data kind' }),
     ]));
   });
 });

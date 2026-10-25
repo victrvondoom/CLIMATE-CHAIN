@@ -769,7 +769,7 @@
                   {
                       "id":  "061",
                       "phase":  "phase-4",
-                      "title":  "Integrate JunkSnap reporting through an adapter.",
+                      "title":  "Integrate DumpWatch reporting through an adapter.",
                       "status":  "not_started"
                   },
                   {
@@ -805,7 +805,7 @@
                   {
                       "id":  "067",
                       "phase":  "phase-4",
-                      "title":  "Integrate clearsky fire and field-data services.",
+                      "title":  "Integrate AshAlert fire and field-data services.",
                       "status":  "not_started"
                   },
                   {
@@ -859,7 +859,7 @@
                   {
                       "id":  "076",
                       "phase":  "phase-4",
-                      "title":  "Integrate Vayu air-quality observations.",
+                      "title":  "Integrate AirPulse air-quality observations.",
                       "status":  "not_started"
                   },
                   {
@@ -919,7 +919,7 @@
                   {
                       "id":  "086",
                       "phase":  "phase-5",
-                      "title":  "Preserve carbonlens land-cover and reversal-detection logic where executable.",
+                      "title":  "Preserve CarbonScope land-cover and reversal-detection logic where executable.",
                       "status":  "not_started"
                   },
                   {
@@ -931,7 +931,7 @@
                   {
                       "id":  "088",
                       "phase":  "phase-5",
-                      "title":  "Integrate carbonshield methodology stress-test inputs.",
+                      "title":  "Integrate SinkGuard methodology stress-test inputs.",
                       "status":  "not_started"
                   },
                   {
@@ -943,7 +943,7 @@
                   {
                       "id":  "090",
                       "phase":  "phase-5",
-                      "title":  "Integrate carbontwin candidate duplicate matching.",
+                      "title":  "Integrate UniqueCredit candidate duplicate matching.",
                       "status":  "not_started"
                   },
                   {
@@ -955,7 +955,7 @@
                   {
                       "id":  "092",
                       "phase":  "phase-5",
-                      "title":  "Integrate ecograph fraud graph inputs.",
+                      "title":  "Integrate ImpactGraph fraud graph inputs.",
                       "status":  "not_started"
                   },
                   {
@@ -1009,7 +1009,7 @@
                   {
                       "id":  "101",
                       "phase":  "phase-6",
-                      "title":  "Audit the PLUME data and processing architecture.",
+                      "title":  "Audit the MethaneMend data and processing architecture.",
                       "status":  "not_started"
                   },
                   {
@@ -1147,7 +1147,7 @@
                   {
                       "id":  "124",
                       "phase":  "phase-8",
-                      "title":  "Audit AquaQuest and rantai-3c implementations.",
+                      "title":  "Audit BlueTrail and SupplyTrail implementations.",
                       "status":  "not_started"
                   },
                   {
@@ -1195,7 +1195,7 @@
                   {
                       "id":  "132",
                       "phase":  "phase-8",
-                      "title":  "Integrate useful carbon record visualization from rantai-3c.",
+                      "title":  "Integrate useful carbon record visualization from SupplyTrail.",
                       "status":  "not_started"
                   },
                   {

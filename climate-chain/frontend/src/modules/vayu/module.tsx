@@ -140,7 +140,7 @@ function VayuPage() {
   return (
     <div className="m-vayu-root">
       <header className="m-vayu-head">
-        <div className="m-vayu-kicker">The Vayu Project · Air</div>
+        <div className="m-vayu-kicker">AirPulse · Air</div>
         <h2 className="m-vayu-title">Nearest monitor, reading age and a 24-hour dial</h2>
         <p className="m-vayu-lede">
           Monitor readings for four Delhi places, from a recorded week (14 Dec 2025). Readings older than six hours are
@@ -297,7 +297,7 @@ function VayuPage() {
 
       <footer className="m-vayu-foot">
         <p>
-          Source: the Vayu replay of 14 Dec 2025 (four monitors, measured hours), the ESP32-S3 sample reading and the
+          Source: the AirPulse replay of 14 Dec 2025 (four monitors, measured hours), the ESP32-S3 sample reading and the
           gateway's live answer. The recorded hours are a fixture, so they are not live.
         </p>
         <p>
@@ -312,7 +312,7 @@ function VayuPage() {
 
 const climateModule: ClimateModule = {
   id: 'vayu',
-  name: 'The Vayu Project',
+  name: 'AirPulse',
   tagline: 'Nearest monitor with its distance and reading age, a 24-hour CPCB dial, and an honest staleness rule.',
   stages: ['sense', 'verify', 'act', 'prove'],
   tone: 'air',

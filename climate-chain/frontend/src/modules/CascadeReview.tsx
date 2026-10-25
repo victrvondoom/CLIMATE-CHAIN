@@ -112,7 +112,7 @@ export function CascadeReview({ data, siteId, onBack }: { data: Overview; siteId
         <div>
           <p className="eyebrow">One place · two evidence sources · human review</p>
           <h2>Climate Cascade Review</h2>
-          <p className="muted">Check whether an open JunkSnap site and a nearby Vayu monitor have recent observations in common.</p>
+          <p className="muted">Check whether an open DumpWatch site and a nearby AirPulse monitor have recent observations in common.</p>
         </div>
       </div>
 
@@ -149,8 +149,8 @@ export function CascadeReview({ data, siteId, onBack }: { data: Overview; siteId
 
       {updatedAt && activeSiteId && <p className="muted small" role="status">Review fetched {new Date(updatedAt).toLocaleTimeString()}{demoMode ? ' · simulated walkthrough' : ' · automatically refreshed every 30 seconds while visible'}.{error && result ? ' Refresh failed; the last successful evidence remains visible and cannot be exported until refreshed.' : ''}</p>}
 
-      {!activeSiteId && <Card><h3>No open, located sites are available</h3><p className="muted">Open the Waste view when JunkSnap returns a public site with a location, or use the local walkthrough to explore the review steps.</p><button className="text-action" onClick={() => { setSelectedSiteId('site_mock_1'); setDemoMode(true); }}>Load simulated walkthrough</button></Card>}
-      {loading && activeSiteId && <Card><p role="status">Loading the selected site and querying Vayu near its public location…</p></Card>}
+      {!activeSiteId && <Card><h3>No open, located sites are available</h3><p className="muted">Open the Waste view when DumpWatch returns a public site with a location, or use the local walkthrough to explore the review steps.</p><button className="text-action" onClick={() => { setSelectedSiteId('site_mock_1'); setDemoMode(true); }}>Load simulated walkthrough</button></Card>}
+      {loading && activeSiteId && <Card><p role="status">Loading the selected site and querying AirPulse near its public location…</p></Card>}
       {error && (
         <Card className="cascade-error">
           <h3>Evidence could not be loaded</h3>
@@ -173,8 +173,8 @@ export function CascadeReview({ data, siteId, onBack }: { data: Overview; siteId
               <p>{result.assessment.explanation}</p>
             </div>
             <div className="cascade-source-modes">
-              <span>JunkSnap <b>{result.demo ? 'SIMULATED' : result.sources.junksnap.toUpperCase()}</b></span>
-              <span>Vayu <b>{result.demo ? 'SIMULATED' : result.sources.vayu.toUpperCase()}</b></span>
+              <span>DumpWatch <b>{result.demo ? 'SIMULATED' : result.sources.junksnap.toUpperCase()}</b></span>
+              <span>AirPulse <b>{result.demo ? 'SIMULATED' : result.sources.vayu.toUpperCase()}</b></span>
             </div>
             <div className="cascade-coverage" aria-label={`Evidence coverage ${result.assessment.coverage.score} percent`}>
               <div className="cascade-coverage-topline">
@@ -190,7 +190,7 @@ export function CascadeReview({ data, siteId, onBack }: { data: Overview; siteId
             <Card className="cascade-globe-card">
               <h3>3D place lens</h3>
               <div className="cascade-globe"><Suspense fallback={<div className="globe-loading">Rendering the 3D place view…</div>}><Globe3D data={lensData} showPilotBeacons={false} showSchematicLinks={false} showWasteSites={false} reviewSite={result.evidence.site.location} /></Suspense></div>
-              <p className="muted small">Gold marks the selected public JunkSnap site. Violet marks the Vayu query location; the monitor itself is not plotted because its exact coordinates are not returned by this API.</p>
+              <p className="muted small">Gold marks the selected public DumpWatch site. Violet marks the AirPulse query location; the monitor itself is not plotted because its exact coordinates are not returned by this API.</p>
             </Card>
 
             <Card>
@@ -249,8 +249,8 @@ export function CascadeReview({ data, siteId, onBack }: { data: Overview; siteId
                 <div><dt>Last report</dt><dd>{result.evidence.site.lastReportedAt ? new Date(result.evidence.site.lastReportedAt).toLocaleString() : 'Timestamp unavailable'}</dd></div>
                 <div><dt>Public point</dt><dd>{result.evidence.site.location ? result.evidence.site.location.lat.toFixed(4) + '°N, ' + result.evidence.site.location.lng.toFixed(4) + '°E' : 'Location unavailable'}</dd></div>
               </dl>
-              {result.evidence.site.sourceUrl && <ExternalLink href={result.evidence.site.sourceUrl}>Open JunkSnap source response</ExternalLink>}
-              <ExternalLink href="https://junksnap.coehemang.dev">Continue the site workflow in JunkSnap</ExternalLink>
+              {result.evidence.site.sourceUrl && <ExternalLink href={result.evidence.site.sourceUrl}>Open DumpWatch source response</ExternalLink>}
+              <ExternalLink href="https://junksnap.coehemang.dev">Continue the site workflow in DumpWatch</ExternalLink>
             </Card>
 
             <Card accent="air">
@@ -261,13 +261,13 @@ export function CascadeReview({ data, siteId, onBack }: { data: Overview; siteId
                 <div><dt>Monitor distance</dt><dd>{result.evidence.air.provenance?.distanceKm == null ? 'Unknown' : result.evidence.air.provenance.distanceKm.toFixed(1) + ' km from rounded query point'}</dd></div>
                 <div><dt>Reading age</dt><dd>{result.evidence.air.provenance?.ageMinutes == null ? 'Unknown' : Math.round(result.evidence.air.provenance.ageMinutes) + ' minutes'}</dd></div>
               </dl>
-              {result.evidence.air.sourceUrl && <ExternalLink href={result.evidence.air.sourceUrl}>Open Vayu source response</ExternalLink>}
+              {result.evidence.air.sourceUrl && <ExternalLink href={result.evidence.air.sourceUrl}>Open AirPulse source response</ExternalLink>}
             </Card>
           </div>
 
           <Card className="cascade-next">
             <h3>Next step: a person reviews the source evidence</h3>
-            <p className="muted">Climate Chain does not approve municipal action or mark the site resolved. Continue in JunkSnap, which owns report verification and clearance. This central review is read-only.</p>
+            <p className="muted">Climate Chain does not approve municipal action or mark the site resolved. Continue in DumpWatch, which owns report verification and clearance. This central review is read-only.</p>
             <button className="text-action" onClick={onBack}>Return to the waste site list</button>
           </Card>
         </>

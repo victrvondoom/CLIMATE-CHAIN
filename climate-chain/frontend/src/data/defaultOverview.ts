@@ -7,10 +7,10 @@ export const DEFAULT_OVERVIEW: Overview = {
   asOf: new Date().toISOString(),
   city: { lat: 28.6139, lng: 77.2090, name: 'Delhi' },
   sources: {
-    junksnap: { mode: 'mock', label: 'JunkSnap API' },
-    clearsky: { mode: 'mock', label: 'ClearSky Hub' },
-    teesri: { mode: 'mock', label: 'Teesri Shikayat Bot' },
-    vayu: { mode: 'mock', label: 'The Vayu Project' }
+    junksnap: { mode: 'mock', label: 'DumpWatch API' },
+    clearsky: { mode: 'mock', label: 'AshAlert Hub' },
+    teesri: { mode: 'mock', label: 'TapAlert Bot' },
+    vayu: { mode: 'mock', label: 'AirPulse' }
   },
   waste: {
     sites: [
@@ -106,19 +106,19 @@ export const DEFAULT_OVERVIEW: Overview = {
       severity: 'high',
       modules: ['waste'],
       title: '4 open waste dumps awaiting clearance',
-      detail: 'JunkSnap pilot sites identified in active urban corridor. Requires community backers before municipal notice.'
+      detail: 'DumpWatch pilot sites identified in active urban corridor. Requires community backers before municipal notice.'
     },
     {
       severity: 'high',
       modules: ['water'],
       title: 'Water tripwire armed: 6 homes reported dirty water',
-      detail: 'Teesri Shikayat warning broadcast to 23 enrolled households within 250m of contamination report.'
+      detail: 'TapAlert warning broadcast to 23 enrolled households within 250m of contamination report.'
     },
     {
       severity: 'medium',
       modules: ['fire'],
       title: '10 fields marked at burn risk',
-      detail: 'ClearSky satellite radar flagged stubble burning risk in Punjab corridor. Straw baler teams queued.'
+      detail: 'AshAlert satellite radar flagged stubble burning risk in Punjab corridor. Straw baler teams queued.'
     },
     {
       severity: 'low',

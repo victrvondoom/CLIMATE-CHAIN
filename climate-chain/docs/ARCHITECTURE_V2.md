@@ -62,11 +62,11 @@ A module is done when all three pass, its `features` list matches what its Page 
 
 | Agent group | Modules |
 |---|---|
-| A | junksnap, clearsky, teesri |
-| B | vayu, aquaquest, climateproof |
-| C | plume, flarewatch, gridproof |
-| D | carbonlens, carbonshield, carbontwin |
-| E | ecograph, grounded, carbontrace |
-| F | hourmatch, plotlock, rantai |
+| A | DumpWatch, AshAlert, TapAlert |
+| B | AirPulse, BlueTrail, ClaimGuard |
+| C | MethaneMend, TorchSight, WattCert |
+| D | CarbonScope, SinkGuard, UniqueCredit |
+| E | ImpactGraph, Resilia, TonneTrail |
+| F | HourSync, ParcelSeal, SupplyTrail |
 
-The registry id is the module id. For example, `rantai` is the id for `rantai-3c-master`, and `vayu` is the id for `the-vayu-project-main`.
+The registry id is the module id: a short lowercase key that is separate from the module display name.

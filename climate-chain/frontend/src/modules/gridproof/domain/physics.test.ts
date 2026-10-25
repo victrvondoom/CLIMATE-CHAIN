@@ -5,7 +5,7 @@ import { expectedWh, maxPlausibleWh, type Weather } from './physics';
 const W = (ghi: number, temp: number, wind100: number): Weather => ({ ghi, temp, wind100 });
 const quiet = W(0, 0, 0);
 
-// Rules from GridProof oracle/gridproof/physics.py: performance ratio 0.82, cell temperature derate,
+// Rules from WattCert oracle/gridproof/physics.py: performance ratio 0.82, cell temperature derate,
 // 3 / 12 / 25 m/s wind curve at hub height, and the weather-error allowance for the upper bound.
 describe('solar output bound', () => {
   it('scales irradiance by the 0.82 performance ratio and derates for cell temperature', () => {
@@ -45,7 +45,7 @@ describe('wind output bound', () => {
   });
 });
 
-// Values from running GridProof's own physics.py on the same DEMO weather (scratch reference run).
+// Values from running WattCert's own physics.py on the same DEMO weather (scratch reference run).
 describe('against the source physics on the DEMO series', () => {
   const wx = series.weather as Weather[];
 

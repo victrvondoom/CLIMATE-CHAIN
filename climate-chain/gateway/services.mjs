@@ -5,28 +5,28 @@
 
 export const SERVICES = {
   junksnap: {
-    label: 'JunkSnap',
+    label: 'DumpWatch',
     domain: 'Waste',
     env: 'JUNKSNAP_API_URL',
     url: 'https://d2s7tf4ua41hzf.cloudfront.net',
     health: '/healthz',
   },
   clearsky: {
-    label: 'clearsky',
+    label: 'AshAlert',
     domain: 'Fire',
     env: 'CLEARSKY_API_URL',
     url: 'https://h5n589so32.execute-api.ap-south-1.amazonaws.com',
     health: '/api/stats',
   },
   teesri: {
-    label: 'Teesri Shikayat',
+    label: 'TapAlert',
     domain: 'Water',
     env: 'TEESRI_API_URL',
     url: 'https://eirioqqhvtvve3aw5xhpje2wju0jztrl.lambda-url.ap-south-1.on.aws',
     health: '/api/state',
   },
   vayu: {
-    label: 'The Vayu Project',
+    label: 'AirPulse',
     domain: 'Air',
     env: 'VAYU_API_URL',
     url: 'https://niu33luxo8.execute-api.ap-south-1.amazonaws.com',
@@ -116,9 +116,9 @@ export function normalizeFire(stats) {
 
 export function normalizeWater(state) {
   const homes = (state && state.homes) || [];
-  if (!Array.isArray(homes)) throw new TypeError('Teesri state homes must be an array');
+  if (!Array.isArray(homes)) throw new TypeError('TapAlert state homes must be an array');
   if (homes.some((home) => !home || typeof home !== 'object' || Array.isArray(home))) {
-    throw new TypeError('Teesri state home records must be objects');
+    throw new TypeError('TapAlert state home records must be objects');
   }
   const statusCounts = homes.reduce((counts, home) => {
     if (home.reported) counts.reported += 1;
@@ -139,11 +139,11 @@ export function normalizeWater(state) {
 }
 
 export function normalizeAir(today) {
-  if (!today || typeof today !== 'object') throw new TypeError('Vayu response must be an object');
+  if (!today || typeof today !== 'object') throw new TypeError('AirPulse response must be an object');
   const hours = (today && today.hours) || [];
   // Only hours with a real value count. Prefer the newest observed monitor
   // hour; if none has arrived yet, the newest valued hour of any kind
-  // (still Vayu's own real data, never invented).
+  // (still AirPulse's own real data, never invented).
   const valued = hours.filter((h) => typeof h.pm25 === 'number');
   const observed = valued.filter((h) => h.kind === 'observed');
   const latest = observed.length ? observed[observed.length - 1] : valued.length ? valued[valued.length - 1] : null;
@@ -195,14 +195,14 @@ export function buildCrossFeed({ waste, fire, water, air }, opts = {}) {
       openWaste.length >= 3 ? 'high' : 'medium',
       ['waste'],
       `${openWaste.length} open waste dumps awaiting clearance`,
-      'JunkSnap sites in the Jodhpur pilot. Each needs 10 resident backers to become verified evidence for a cited letter.',
+      'DumpWatch sites in the Jodhpur pilot. Each needs 10 resident backers to become verified evidence for a cited letter.',
     );
   }
 
-  // Regional Clearsky totals and a selected Vayu place have no shared location
+  // Regional AshAlert totals and a selected AirPulse place have no shared location
   // or time key. Keep them as separate signals until a source-backed join exists.
   if (fire && fire.redFields > 0) {
-    push('medium', ['fire'], `${fire.redFields} fields are marked at burn risk`, 'Regional Clearsky count. Field locations and per-field timestamps are not part of this connected aggregate.');
+    push('medium', ['fire'], `${fire.redFields} fields are marked at burn risk`, 'Regional AshAlert count. Field locations and per-field timestamps are not part of this connected aggregate.');
   }
 
   if (water && water.reported >= 3) {
@@ -210,16 +210,16 @@ export function buildCrossFeed({ waste, fire, water, air }, opts = {}) {
       'high',
       ['water'],
       `Water tripwire armed: ${water.reported} homes reported dirty water`,
-      'Teesri Shikayat warns every enrolled home within 250 m of the third complaint; the case closes only when residents confirm clean taps.',
+      'TapAlert warns every enrolled home within 250 m of the third complaint; the case closes only when residents confirm clean taps.',
     );
   }
 
   if (fire && fire.acresCleared > 0) {
-    push('low', ['fire'], `${fire.acresCleared} acres reported cleared`, 'Clearsky season aggregate; this gateway does not independently verify avoided burning or resulting air-quality changes.');
+    push('low', ['fire'], `${fire.acresCleared} acres reported cleared`, 'AshAlert season aggregate; this gateway does not independently verify avoided burning or resulting air-quality changes.');
   }
 
   if (air && air.pm25Now != null && air.pm25Now > 115) {
-    push('high', ['air'], `PM2.5 reading is ${air.pm25Now} µg/m³`, 'Vayu reading at the selected place. Use its monitor name, distance, age and mode before interpreting exposure.');
+    push('high', ['air'], `PM2.5 reading is ${air.pm25Now} µg/m³`, 'AirPulse reading at the selected place. Use its monitor name, distance, age and mode before interpreting exposure.');
   }
 
   return feed;

@@ -65,7 +65,7 @@ function CarbonTwinPage() {
       <header className="m-carbontwin-head">
         <div>
           <p className="m-carbontwin-kicker">Carbon integrity · Verify, finance, prove</p>
-          <h2>CarbonTwin</h2>
+          <h2>UniqueCredit</h2>
           <p>
             Cross-registry double-issuance screening. Name matching is ported and checked against the pipeline output.
             The verdicts are the local model's recorded answers.
@@ -222,7 +222,7 @@ function CarbonTwinPage() {
 
 const climateModule: ClimateModule = {
   id: 'carbontwin',
-  name: 'CarbonTwin',
+  name: 'UniqueCredit',
   tagline: 'Cross-registry double-issuance screening: name matching, recorded verdicts and Merkle-anchored findings.',
   stages: ['verify', 'finance', 'prove'],
   tone: 'carbon',

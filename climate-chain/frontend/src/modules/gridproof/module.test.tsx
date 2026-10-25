@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { renderToStaticMarkup } from 'react-dom/server';
 import climateModule from './module';
 
-describe('GridProof module', () => {
+describe('WattCert module', () => {
   it('declares its id, DEMO mode, and the project folder it was ported from', () => {
     expect(climateModule.id).toBe('gridproof');
     expect(climateModule.mode).toBe('DEMO');

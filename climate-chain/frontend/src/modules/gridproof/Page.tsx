@@ -161,7 +161,7 @@ export default function GridProofPage() {
     <main className="m-gridproof">
       <header className="m-gridproof-head">
         <p className="m-gridproof-kicker">Renewable energy · Certificates</p>
-        <h2>GridProof: a certificate per device-hour, only for output the weather allows</h2>
+        <h2>WattCert: a certificate per device-hour, only for output the weather allows</h2>
         <p className="m-gridproof-lede">
           Each meter reading is checked against the weather and the device's rating before a certificate is minted. A device-hour gets
           one certificate, and a certificate covers only the hour it was produced in. The series is synthetic DEMO data.

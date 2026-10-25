@@ -1,10 +1,10 @@
 // Climate Chain unified gateway.
 // One entry point for the merged product:
 //   /api/services            health of the four upstreams
-//   /api/junksnap/*          -> JunkSnap API          (waste)
+//   /api/junksnap/*          -> DumpWatch API          (waste)
 //   /api/clearsky/*          -> clearsky API          (stubble fire)
-//   /api/teesri/*            -> Teesri Shikayat API   (water)
-//   /api/vayu/*              -> Vayu API              (air)
+//   /api/teesri/*            -> TapAlert API   (water)
+//   /api/vayu/*              -> AirPulse API              (air)
 //   /api/unified/overview    normalized fan-out + cross-project feed
 //   /api/v1/projects         registry of every merged project + app availability
 //   /api/v1/knowledge/*      read-only workspace search: ranked, redacted excerpts with sources
@@ -176,13 +176,13 @@ async function handleProxy(req, res, name, subPath) {
   try {
     const r = await fetchUpstream(name, '/' + subPath, init);
     if (name === 'teesri' && subPath.split('?')[0] === 'api/state') {
-      if (!r.ok) return sendJson(res, r.status, { error: { code: 'source_request_failed', source: 'Teesri Shikayat', http: r.status } });
+      if (!r.ok) return sendJson(res, r.status, { error: { code: 'source_request_failed', source: 'TapAlert', http: r.status } });
       if (!r.body || typeof r.body !== 'object' || !Array.isArray(r.body.homes)) {
-        return sendJson(res, 502, { error: { code: 'source_contract_invalid', source: 'Teesri Shikayat' } });
+        return sendJson(res, 502, { error: { code: 'source_contract_invalid', source: 'TapAlert' } });
       }
       const summary = normalizeWater(r.body);
       return sendJson(res, r.status, {
-        source: 'Teesri Shikayat',
+        source: 'TapAlert',
         mode: 'source_snapshot',
         capturedAt: new Date().toISOString(),
         reported: summary.reported,
@@ -252,7 +252,7 @@ async function handleOverview(url, registry) {
 async function handleCascade(url, res) {
   const siteId = url.searchParams.get('site');
   if (!siteId || !/^[A-Za-z0-9_-]{1,80}$/.test(siteId)) {
-    return sendJson(res, 400, { error: { code: 'invalid_site', message: 'Provide a valid JunkSnap site id.' } });
+    return sendJson(res, 400, { error: { code: 'invalid_site', message: 'Provide a valid DumpWatch site id.' } });
   }
   const radiusKm = parseThreshold(url.searchParams.get('radiusKm'), DEFAULT_CASCADE_THRESHOLDS.radiusKm, 50);
   const timeWindowHours = parseThreshold(url.searchParams.get('timeWindowHours'), DEFAULT_CASCADE_THRESHOLDS.timeWindowHours, 168);
@@ -299,18 +299,18 @@ async function handleCascade(url, res) {
   try {
     wasteResponse = await fetchUpstream('junksnap', `/sites?bbox=${JODHPUR_BBOX}`);
   } catch {
-    return sendJson(res, 502, { error: { code: 'source_unavailable', source: 'JunkSnap' } });
+    return sendJson(res, 502, { error: { code: 'source_unavailable', source: 'DumpWatch' } });
   }
-  if (!wasteResponse.ok) return sendJson(res, 502, { error: { code: 'source_unavailable', source: 'JunkSnap', http: wasteResponse.status } });
+  if (!wasteResponse.ok) return sendJson(res, 502, { error: { code: 'source_unavailable', source: 'DumpWatch', http: wasteResponse.status } });
 
   let sites;
   try {
     sites = normalizeWaste(wasteResponse.body);
   } catch {
-    return sendJson(res, 502, { error: { code: 'source_contract_invalid', source: 'JunkSnap' } });
+    return sendJson(res, 502, { error: { code: 'source_contract_invalid', source: 'DumpWatch' } });
   }
   const site = sites.find((candidate) => candidate.id === siteId);
-  if (!site) return sendJson(res, 404, { error: { code: 'site_not_found', source: 'JunkSnap' } });
+  if (!site) return sendJson(res, 404, { error: { code: 'site_not_found', source: 'DumpWatch' } });
 
   const thresholds = { radiusKm, timeWindowHours };
   const capturedAt = new Date().toISOString();
@@ -332,15 +332,15 @@ async function handleCascade(url, res) {
   try {
     airResponse = await fetchUpstream('vayu', airPath);
   } catch {
-    return sendJson(res, 502, { error: { code: 'source_unavailable', source: 'The Vayu Project' } });
+    return sendJson(res, 502, { error: { code: 'source_unavailable', source: 'AirPulse' } });
   }
-  if (!airResponse.ok) return sendJson(res, 502, { error: { code: 'source_unavailable', source: 'The Vayu Project', http: airResponse.status } });
+  if (!airResponse.ok) return sendJson(res, 502, { error: { code: 'source_unavailable', source: 'AirPulse', http: airResponse.status } });
 
   let air;
   try {
     air = normalizeAir(airResponse.body);
   } catch {
-    return sendJson(res, 502, { error: { code: 'source_contract_invalid', source: 'The Vayu Project' } });
+    return sendJson(res, 502, { error: { code: 'source_contract_invalid', source: 'AirPulse' } });
   }
   const result = assessCascade({
     site,

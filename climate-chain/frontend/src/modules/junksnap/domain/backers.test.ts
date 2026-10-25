@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { BACKERS_NEEDED, backerOutcome, backersView, countBackers, verifiedAt } from './backers';
 
-// Vectors from backend/server/tests/sites/backers.test.ts (JunkSnap).
+// Vectors from backend/server/tests/sites/backers.test.ts (DumpWatch).
 describe('site backers: the 10-person verification rule', () => {
   it('needs 10 people', () => {
     expect(BACKERS_NEEDED).toBe(10);

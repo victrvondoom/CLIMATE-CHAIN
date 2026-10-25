@@ -1,4 +1,4 @@
-// Waste module: JunkSnap's features — site map list, 10-backer verification,
+// Waste module: DumpWatch's features — site map list, 10-backer verification,
 // ward/MLA/MP accountability and the cited letter — surfaced in the unified shell.
 
 import { useMemo, useState } from 'react';
@@ -33,7 +33,7 @@ export function Waste({ data, onReview }: { data: Overview; onReview: (siteId: s
     <div className="stack signal-page">
       <div className="module-head">
         <div>
-          <h1>Waste <span className="by">· JunkSnap</span></h1>
+          <h1>Waste <span className="by">· DumpWatch</span></h1>
           <ModeBadge mode={data.sources.junksnap.mode} />
           <p>Snap the junk, prove it, get it cleared. Residents photograph waste; the photo is blurred,
              checked by stacked models, mapped to the ward, MLA and MP seat, and becomes a cited letter
@@ -90,7 +90,7 @@ export function Waste({ data, onReview }: { data: Overview; onReview: (siteId: s
               <li><strong>Map</strong> — ward, assembly seat (MLA) and Lok Sabha seat (MP) attached.</li>
               <li><strong>File</strong> — a drafted letter quotes only rules checked word for word against official text.</li>
             </ol>
-            <ExternalLink href="https://junksnap.coehemang.dev">Report a site in the JunkSnap app</ExternalLink>
+            <ExternalLink href="https://junksnap.coehemang.dev">Report a site in the DumpWatch app</ExternalLink>
           </Card>
 
           <Card>

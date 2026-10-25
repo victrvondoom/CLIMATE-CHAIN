@@ -1,5 +1,5 @@
 {
-  "note": "Five community challenges copied from js/data/challenges.js (AquaQuest). Only id, title, type, goal, points and status are kept. These are the project's demo data, not live community records.",
+  "note": "Five community challenges copied from js/data/challenges.js (BlueTrail). Only id, title, type, goal, points and status are kept. These are the project's demo data, not live community records.",
   "challenges": [
     {
       "id": "chal_cleanup_bakkhali",

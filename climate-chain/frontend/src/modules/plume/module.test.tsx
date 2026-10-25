@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { renderToStaticMarkup } from 'react-dom/server';
 import climateModule from './module';
 
-describe('PLUME module', () => {
+describe('MethaneMend module', () => {
   it('declares its id, default mode, and the project folder it was ported from', () => {
     expect(climateModule.id).toBe('plume');
     expect(climateModule.mode).toBe('RESEARCH');

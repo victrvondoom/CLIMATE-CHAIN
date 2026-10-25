@@ -1,4 +1,4 @@
-// Port of the validation in AquaQuest js/pages/observe.js (validateCurrentStep, submitObservation,
+// Port of the validation in BlueTrail js/pages/observe.js (validateCurrentStep, submitObservation,
 // captureStep4Inputs) and the input limits declared in the same file (pH 0 to 14, turbidity min 0,
 // note maxlength 300). Pure TypeScript.
 

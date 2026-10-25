@@ -6,7 +6,7 @@ const rules = lettersFixture.rules as LetterRule[];
 const pages = lettersFixture.pages as Record<string, string>;
 const place = lettersFixture.place as PlaceFacts;
 
-// Vectors from backend/server/tests/letters/countWording.test.ts (JunkSnap).
+// Vectors from backend/server/tests/letters/countWording.test.ts (DumpWatch).
 describe('backing statement in letters', () => {
   it('says 1 person or several, in English', () => {
     expect(backingStatement('en', { verified: false, backers: 1, reporters: 1 })).toBe(
@@ -70,7 +70,7 @@ describe('cited letter draft', () => {
     expect(letter.verifier).toEqual({ verified: 3, total: 3 });
     expect(letter.citations.map((citation) => citation.ruleId)).toEqual(['fx-dumpsites', 'fx-hot-spots', 'fx-vacant-plots']);
     expect(letter.citations[0]).toMatchObject({ clause: '15(1)', document: 'Sample Waste Rules (test fixture)', verified: true });
-    expect(letter.subject).toContain('(JunkSnap site fixture-site-b)');
+    expect(letter.subject).toContain('(DumpWatch site fixture-site-b)');
     expect(letter.body).toContain('Reported by 3 residents');
   });
 

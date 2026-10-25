@@ -72,7 +72,7 @@ export default function FlarewatchPage() {
     <main className="m-flarewatch">
       <header className="m-flarewatch-head">
         <p className="m-flarewatch-kicker">Gas flaring · Niger Delta</p>
-        <h2>Flarewatch: flares seen from space, each night fixed by a digest</h2>
+        <h2>TorchSight: flares seen from space, each night fixed by a digest</h2>
         <p className="m-flarewatch-lede">
           NASA FIRMS VIIRS night detections are grouped into sites within 1 km. A site detected on 3 or more nights within 7 days is a
           persistent flare. Each night's file is hashed, and the hash is checked against the digest the project anchored.

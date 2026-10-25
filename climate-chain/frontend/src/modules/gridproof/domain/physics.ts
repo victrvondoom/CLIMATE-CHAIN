@@ -1,5 +1,5 @@
 // What a device could physically have produced in an hour, given the weather. Ported from
-// GridProof oracle/gridproof/physics.py. Weather is read on the grid cell; each reading hour
+// WattCert oracle/gridproof/physics.py. Weather is read on the grid cell; each reading hour
 // uses the weather stamped at the next hour (the source shifts the series by one hour).
 
 export type Kind = 'solar' | 'wind';

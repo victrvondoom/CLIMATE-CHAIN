@@ -1,4 +1,4 @@
-// Port of backend/server/src/domain/sites/Backers.ts (JunkSnap). Pure: no React, no DOM.
+// Port of backend/server/src/domain/sites/Backers.ts (DumpWatch). Pure: no React, no DOM.
 
 // Fixed by the site contract (backers.needed is const 10), so it is not a setting.
 export const BACKERS_NEEDED = 10;

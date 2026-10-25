@@ -24,7 +24,7 @@ export function ModuleScreen({ climateModule, onOpenReview, onOpenLedger }: { cl
         <p className="module-tagline">{climateModule.tagline}</p>
         <div className="module-meta">
           <span className={`mode-pill mode-${climateModule.mode.toLowerCase()}`}>{climateModule.mode}</span>
-          <span className="muted small">{climateModule.source.folder ? `Ported from projects/${climateModule.source.folder}` : 'Climate Chain core'}</span>
+          <span className="muted small">{climateModule.source.folder ? 'Re-implemented in-app from the original project' : 'Climate Chain core'}</span>
         </div>
       </header>
       <ul className="module-features" aria-label={`${climateModule.name} features`}>

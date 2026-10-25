@@ -10,13 +10,13 @@ Audited on 2026-10-23 against the running local app at `http://127.0.0.1:8080`. 
 |---|---|---|---|---|
 | Command center | **VERIFIED WORKING** | Live status cards, workspace navigation, refresh/retry, and dashboard layout rendered. The four shared upstreams reported `LIVE` at 2026-10-23 14:37 UTC. | Upstream status is a point-in-time snapshot. Unavailable sources use visibly labeled fallback data. | `/#overview` |
 | Satellite climate globe | **WORKING WITH LIMITATIONS** | Cesium Earth rendered with imagery, place selection, sunlight and camera controls. Pause held the simulation time; 3600× advanced the model clock about an hour per second; 1× returned to real-time progression. Clicking the globe changed the selected coordinate and solar readout. | Solar geometry uses NOAA’s approximate equations for the Sun’s centre and UTC time; it does not model local terrain or atmospheric refraction. Air/weather values are model products, mapped infrastructure is not measured production or emissions, and imagery dates vary. | `/#earth` |
-| Waste · JunkSnap | **WORKING WITH LIMITATIONS** | Live source snapshot loaded from JunkSnap, with public site coordinates and status. | Read-only shared adapter; no household data and no specialist-project clearance action is performed here. | `/#waste` |
-| Fire · clearsky | **WORKING WITH LIMITATIONS** | Live aggregate source snapshot loaded. | Aggregate counters are not a geospatial fire observation; the module’s risk/action walkthrough remains simulated. | `/#fire` |
-| Water · Teesri Shikayat | **WORKING WITH LIMITATIONS** | Live, anonymized aggregate source state loaded. | No household records are exposed; the module’s incident workflow is simulated and does not submit to the specialist service. | `/#water` |
-| Air · The Vayu Project | **WORKING WITH LIMITATIONS** | Live Vayu response loaded for the shared overview. | Response provenance can be model rather than monitor-observed; OpenAQ is not configured, so a station comparison is unavailable. | `/#air` |
+| Waste · DumpWatch | **WORKING WITH LIMITATIONS** | Live source snapshot loaded from DumpWatch, with public site coordinates and status. | Read-only shared adapter; no household data and no specialist-project clearance action is performed here. | `/#waste` |
+| Fire · AshAlert | **WORKING WITH LIMITATIONS** | Live aggregate source snapshot loaded. | Aggregate counters are not a geospatial fire observation; the module’s risk/action walkthrough remains simulated. | `/#fire` |
+| Water · TapAlert | **WORKING WITH LIMITATIONS** | Live, anonymized aggregate source state loaded. | No household records are exposed; the module’s incident workflow is simulated and does not submit to the specialist service. | `/#water` |
+| Air · AirPulse | **WORKING WITH LIMITATIONS** | Live AirPulse response loaded for the shared overview. | Response provenance can be model rather than monitor-observed; OpenAQ is not configured, so a station comparison is unavailable. | `/#air` |
 | Guided mission path | **WORKING WITH LIMITATIONS** | Focus and mission-stage navigation rendered with project handoffs. | Recommendations guide a person to the project that owns an action; they do not execute that action or assign causality. | `/#mission` |
 | Unified mission studio | **WORKING WITH LIMITATIONS** | Mission composition and local durable mission controls rendered in the four-panel check. | Planning/dry-run output is simulated. Bounded worker tasks use local state, readiness gates and human approvals; they do not operate specialist systems. | `/#studio` |
-| Place-based review · Climate Cascade | **WORKING WITH LIMITATIONS** | Live JunkSnap and Vayu requests returned HTTP 200. The actual result was `source_not_observed`, `candidate: false`, and evidence coverage `0/3`; missing observed-monitor evidence remained explicit. | The current Vayu value was model provenance; the older JunkSnap report was outside the selected time window. No candidate or causal finding was created. | `/#cascade` |
+| Place-based review · Climate Cascade | **WORKING WITH LIMITATIONS** | Live DumpWatch and AirPulse requests returned HTTP 200. The actual result was `source_not_observed`, `candidate: false`, and evidence coverage `0/3`; missing observed-monitor evidence remained explicit. | The current AirPulse value was model provenance; the older DumpWatch report was outside the selected time window. No candidate or causal finding was created. | `/#cascade` |
 | Climate Integrity Lab | **VERIFIED WORKING · LOCAL EVM** | Live-only Chennai PM10 CAMS fetch, browser and gateway digest checks, chain read-back, tamper rejection, replay rejection, duplicate claim rejection, challenge and correction all completed through the UI. | CAMS is a model forecast for an approximately 45 km grid, not a monitor reading. Claims are demonstration records, not certified credits. | `/#integrity` |
 | Review desk | **WORKING WITH LIMITATIONS** | Review queue and local review controls rendered and remained usable. | Review decisions are local to this workspace; they do not approve or close records in a source project. | `/#session` |
 | Evidence ledger | **VERIFIED WORKING · LOCAL EVM** | Cascade manifest transaction was written and read back as verified on chain 31337. Integrity Lab independently verified its evidence digest directly against the local RPC. | The local Hardhat chain resets on launcher restart; these records are not public or durable across restarts. | `/#ledger` |
@@ -29,24 +29,24 @@ Each module route was included in the 32-route browser sweep. “Open” here co
 
 | Native module | Status | What the module currently does | Route |
 |---|---|---|---|
-| JunkSnap | **WORKING WITH LIMITATIONS** | Presents the shared live waste snapshot and local evidence affordances. | `/#module:junksnap` |
-| clearsky | **WORKING WITH LIMITATIONS** | Reads shared live aggregate inputs; its risk/action scenario is explicitly simulated. | `/#module:clearsky` |
-| Teesri Shikayat | **WORKING WITH LIMITATIONS** | Uses shared aggregate water state; household incident handling remains a simulated walkthrough. | `/#module:teesri` |
-| The Vayu Project | **WORKING WITH LIMITATIONS** | Reads the shared live air response with source mode/provenance labels. | `/#module:vayu` |
-| AquaQuest | **SIMULATED / DEMONSTRATION ONLY** | Uses the project’s walkthrough/sample content. | `/#module:aquaquest` |
-| ClimateProof AI | **WORKING WITH LIMITATIONS** | Accepts a user-provided local dataset; the included sample is marked simulated. | `/#module:climateproof` |
-| CarbonLens | **SIMULATED / DEMONSTRATION ONLY** | Presents a local research/demo dashboard; no production credit registry is connected. | `/#module:carbonlens` |
-| CarbonShield | **WORKING WITH LIMITATIONS** | Runs a local research audit on bundled or user-imported tabular data. | `/#module:carbonshield` |
-| CarbonTwin | **SIMULATED / DEMONSTRATION ONLY** | Demonstrates a Merkle inclusion check against bundled research records; it is not externally anchored. | `/#module:carbontwin` |
-| HourMatch | **SIMULATED / DEMONSTRATION ONLY** | Demonstrates hourly matching using demo records; no certificate registry is connected here. | `/#module:hourmatch` |
-| PlotLock | **SIMULATED / DEMONSTRATION ONLY** | Displays the research/demo land-claim flow; this route does not make a live testnet transaction. | `/#module:plotlock` |
+| DumpWatch | **WORKING WITH LIMITATIONS** | Presents the shared live waste snapshot and local evidence affordances. | `/#module:junksnap` |
+| AshAlert | **WORKING WITH LIMITATIONS** | Reads shared live aggregate inputs; its risk/action scenario is explicitly simulated. | `/#module:clearsky` |
+| TapAlert | **WORKING WITH LIMITATIONS** | Uses shared aggregate water state; household incident handling remains a simulated walkthrough. | `/#module:teesri` |
+| AirPulse | **WORKING WITH LIMITATIONS** | Reads the shared live air response with source mode/provenance labels. | `/#module:vayu` |
+| BlueTrail | **SIMULATED / DEMONSTRATION ONLY** | Uses the project’s walkthrough/sample content. | `/#module:aquaquest` |
+| ClaimGuard AI | **WORKING WITH LIMITATIONS** | Accepts a user-provided local dataset; the included sample is marked simulated. | `/#module:climateproof` |
+| CarbonScope | **SIMULATED / DEMONSTRATION ONLY** | Presents a local research/demo dashboard; no production credit registry is connected. | `/#module:carbonlens` |
+| SinkGuard | **WORKING WITH LIMITATIONS** | Runs a local research audit on bundled or user-imported tabular data. | `/#module:carbonshield` |
+| UniqueCredit | **SIMULATED / DEMONSTRATION ONLY** | Demonstrates a Merkle inclusion check against bundled research records; it is not externally anchored. | `/#module:carbontwin` |
+| HourSync | **SIMULATED / DEMONSTRATION ONLY** | Demonstrates hourly matching using demo records; no certificate registry is connected here. | `/#module:hourmatch` |
+| ParcelSeal | **SIMULATED / DEMONSTRATION ONLY** | Displays the research/demo land-claim flow; this route does not make a live testnet transaction. | `/#module:plotlock` |
 | rantai 3C | **SIMULATED / DEMONSTRATION ONLY** | Shows simulated energy, NFT and payment examples; it does not call a wallet, chain, or PayPal. | `/#module:rantai` |
-| EcoGraph | **SIMULATED / DEMONSTRATION ONLY** | Uses bundled demo ledger content. | `/#module:ecograph` |
+| ImpactGraph | **SIMULATED / DEMONSTRATION ONLY** | Uses bundled demo ledger content. | `/#module:ecograph` |
 | grounded | **SIMULATED / DEMONSTRATION ONLY** | Runs a local dispatch simulation with stated assumptions. | `/#module:grounded` |
-| CarbonTrace | **SIMULATED / DEMONSTRATION ONLY** | Uses bundled scenario and evidence fixtures. | `/#module:carbontrace` |
-| PLUME | **WORKING WITH LIMITATIONS** | Presents a research workflow with historical detections and a simulated repair/funding path. | `/#module:plume` |
-| Flarewatch | **WORKING WITH LIMITATIONS** | Presents a research interface; it is not a live hotspot response service in this workspace. | `/#module:flarewatch` |
-| GridProof | **SIMULATED / DEMONSTRATION ONLY** | Uses synthetic hourly meter series for its demo checks. | `/#module:gridproof` |
+| TonneTrail | **SIMULATED / DEMONSTRATION ONLY** | Uses bundled scenario and evidence fixtures. | `/#module:carbontrace` |
+| MethaneMend | **WORKING WITH LIMITATIONS** | Presents a research workflow with historical detections and a simulated repair/funding path. | `/#module:plume` |
+| TorchSight | **WORKING WITH LIMITATIONS** | Presents a research interface; it is not a live hotspot response service in this workspace. | `/#module:flarewatch` |
+| WattCert | **SIMULATED / DEMONSTRATION ONLY** | Uses synthetic hourly meter series for its demo checks. | `/#module:gridproof` |
 
 ## On-chain proof from this run
 
@@ -78,10 +78,10 @@ Totals over the 96 page loads (32 destinations at 390, 768 and 1440 px): titles 
 |---|---|---|---|
 | Command center | ok | ok | ok |
 | Earth intelligence | console 6; failed request 6 | ok | ok |
-| Waste · JunkSnap | ok | ok | ok |
-| Fire · clearsky | ok | ok | ok |
-| Water · Teesri Shikayat | ok | ok | ok |
-| Air · The Vayu Project | ok | ok | ok |
+| Waste · DumpWatch | ok | ok | ok |
+| Fire · AshAlert | ok | ok | ok |
+| Water · TapAlert | ok | ok | ok |
+| Air · AirPulse | ok | ok | ok |
 | From signal to proof | still loading | ok | ok |
 | Unified mission studio | ok | ok | ok |
 | Climate Cascade Review | ok | ok | ok |
@@ -90,29 +90,29 @@ Totals over the 96 page loads (32 destinations at 390, 768 and 1440 px): titles 
 | Evidence ledger | ok | ok | ok |
 | Connected climate tools | ok | ok | ok |
 | Engineering memory | ok | ok | ok |
-| JunkSnap | ok | ok | ok |
-| clearsky | ok | ok | ok |
-| Teesri Shikayat | ok | ok | ok |
-| The Vayu Project | ok | ok | ok |
-| AquaQuest | ok | ok | ok |
-| ClimateProof AI | ok | ok | ok |
-| CarbonLens | ok | ok | ok |
-| CarbonShield | ok | ok | ok |
-| CarbonTwin | ok | ok | ok |
-| HourMatch | ok | ok | ok |
-| PlotLock | ok | ok | ok |
-| rantai-3c | ok | ok | ok |
-| EcoGraph | ok | ok | ok |
+| DumpWatch | ok | ok | ok |
+| AshAlert | ok | ok | ok |
+| TapAlert | ok | ok | ok |
+| AirPulse | ok | ok | ok |
+| BlueTrail | ok | ok | ok |
+| ClaimGuard AI | ok | ok | ok |
+| CarbonScope | ok | ok | ok |
+| SinkGuard | ok | ok | ok |
+| UniqueCredit | ok | ok | ok |
+| HourSync | ok | ok | ok |
+| ParcelSeal | ok | ok | ok |
+| SupplyTrail | ok | ok | ok |
+| ImpactGraph | ok | ok | ok |
 | grounded | ok | ok | ok |
-| CarbonTrace | ok | ok | ok |
-| PLUME | ok | ok | ok |
-| Flarewatch | ok | ok | ok |
-| GridProof | ok | ok | ok |
+| TonneTrail | ok | ok | ok |
+| MethaneMend | ok | ok | ok |
+| TorchSight | ok | ok | ok |
+| WattCert | ok | ok | ok |
 
 Transient results, not reproduced on clean reruns:
 
 - Earth intelligence at 390 px: six `ERR_FAILED` requests for Esri satellite tiles and one console error. Clean reruns at 390 px had none. The app already shows its imagery warning when tiles fail.
 - Guided mission path at 390 px: still on its lazy-load fallback after the settle window once (34 s). Reruns loaded in about 4 s.
-- `GET /api/agent-memory` returned 503 once during a run on Flarewatch at 390 px. The gateway returns 503 with a stop message when the local sandbox fails, and the launcher logs show Windows DPAPI helper failures from earlier runs. The route then returned 200 for 30 consecutive requests. The cause is not identified; see the verification record.
+- `GET /api/agent-memory` returned 503 once during a run on TorchSight at 390 px. The gateway returns 503 with a stop message when the local sandbox fails, and the launcher logs show Windows DPAPI helper failures from earlier runs. The route then returned 200 for 30 consecutive requests. The cause is not identified; see the verification record.
 - `GET /` returned 404 once while a second launcher rebuilt `frontend/dist`. The build empties the folder before writing it.
 

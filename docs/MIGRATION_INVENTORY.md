@@ -54,17 +54,17 @@ This inventory documents every directory, file type, dependency manifest, smart 
 
 ## 3. Dataset & Empirical Evidence Inventory
 
-Every dataset in the original workspace was inventoried by the authors (the original project folders, `.archive/` and `climate-chain/projects/` are not committed to this repository; this repo ships a 60-plume sample and 675 Flarewatch detections):
+Every dataset in the original workspace was inventoried by the authors (the original project folders, `.archive/` and `climate-chain/projects/` are not committed to this repository; this repo ships a 60-plume sample and 675 TorchSight detections):
 
 1. **Carbon Mapper Methane Plumes** (`PLUME-main/data/snapshots/carbonmapper_permian_ch4.json.gz`):
    - 10,098 real historical plume records over the Permian Basin (TX/NM). Size: 3.18 MB compressed.
-2. **CarbonTwin Candidate Pairs** (`carbontwin-main/data/candidates.json`):
+2. **UniqueCredit Candidate Pairs** (`carbontwin-main/data/candidates.json`):
    - ACR, CAR, and VCS duplicate credit screening candidates. Size: ~31 MB.
-3. **Flarewatch Satellite Detections** (`frontend/src/modules/flarewatch/fixtures/`):
+3. **TorchSight Satellite Detections** (`frontend/src/modules/flarewatch/fixtures/`):
    - Daily VIIRS nightfire gas flaring observations over the Niger Delta (Oct 15–20, 2026 in the repo fixtures).
-4. **Vayu Air Quality Readings** (`the-vayu-project-main/data/`):
+4. **AirPulse Air Quality Readings** (`the-vayu-project-main/data/`):
    - Delhi & NCR ground monitor records and coordinate models.
-5. **JunkSnap Civic Waste Reports** (`JunkSnap-main/backend/data/`):
+5. **DumpWatch Civic Waste Reports** (`JunkSnap-main/backend/data/`):
    - 121 verified reports across 44 waste locations in Jodhpur/Rajasthan.
-6. **CarbonShield Nature Communications (2026) Benchmarks** (`carbonshield-main/data/`):
+6. **SinkGuard Nature Communications (2026) Benchmarks** (`carbonshield-main/data/`):
    - REDD+ baseline and counterfactual over-crediting tables (Zenodo 15745712).

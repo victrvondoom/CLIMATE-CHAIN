@@ -26,18 +26,18 @@ const SETTLE_MS = Number(option('settle', '4000'));
 
 // The 32 destinations, in library order. Titles are the topbar titles from dashboard/library.ts.
 const CORE = [
-  ['overview', 'Climate Chain'], ['earth', 'Earth intelligence'], ['waste', 'Waste · JunkSnap'],
-  ['fire', 'Fire · clearsky'], ['water', 'Water · Teesri Shikayat'], ['air', 'Air · The Vayu Project'],
+  ['overview', 'Climate Chain'], ['earth', 'Earth intelligence'], ['waste', 'Waste · DumpWatch'],
+  ['fire', 'Fire · clearsky'], ['water', 'Water · TapAlert'], ['air', 'Air · AirPulse'],
   ['mission', 'From signal to proof'], ['studio', 'Unified mission studio'], ['cascade', 'Climate Cascade Review'],
   ['integrity', 'Climate Integrity Lab'], ['session', 'Climate Chain'], ['ledger', 'Evidence ledger'],
   ['memory', 'Engineering memory'],
 ];
 const MODULES = [
-  ['junksnap', 'JunkSnap'], ['clearsky', 'clearsky'], ['teesri', 'Teesri Shikayat'], ['vayu', 'The Vayu Project'],
-  ['aquaquest', 'AquaQuest'], ['climateproof', 'ClimateProof AI'], ['carbonlens', 'CarbonLens'],
-  ['carbonshield', 'CarbonShield'], ['carbontwin', 'CarbonTwin'], ['hourmatch', 'HourMatch'], ['plotlock', 'PlotLock'],
-  ['rantai', 'rantai-3c'], ['ecograph', 'EcoGraph'], ['grounded', 'grounded'], ['carbontrace', 'CarbonTrace'],
-  ['plume', 'PLUME'], ['flarewatch', 'Flarewatch'], ['gridproof', 'GridProof'],
+  ['junksnap', 'DumpWatch'], ['clearsky', 'clearsky'], ['teesri', 'TapAlert'], ['vayu', 'AirPulse'],
+  ['aquaquest', 'BlueTrail'], ['climateproof', 'ClaimGuard AI'], ['carbonlens', 'CarbonScope'],
+  ['carbonshield', 'SinkGuard'], ['carbontwin', 'UniqueCredit'], ['hourmatch', 'HourSync'], ['plotlock', 'ParcelSeal'],
+  ['rantai', 'rantai-3c'], ['ecograph', 'ImpactGraph'], ['grounded', 'grounded'], ['carbontrace', 'TonneTrail'],
+  ['plume', 'MethaneMend'], ['flarewatch', 'TorchSight'], ['gridproof', 'WattCert'],
 ].map(([id, title]) => [`module:${id}`, title]);
 const DESTINATIONS = [...CORE, ...MODULES].filter(([id]) => !ONLY || ONLY.split(',').includes(id));
 

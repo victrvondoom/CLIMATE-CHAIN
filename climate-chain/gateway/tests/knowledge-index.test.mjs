@@ -89,15 +89,15 @@ test('excerpt centers on the first matching term and marks truncation', () => {
 test('registry and feature catalogue chunks carry their project label and evidence', () => {
   const registryChunks = chunkRegistry('registry/projects.json', {
     tracks: [{ id: 'carbon', label: 'Carbon Markets & Emissions Transparency' }],
-    projects: [{ id: 'plume', name: 'PLUME', descriptor: 'Methane detection', domain: 'Methane', stages: ['sense'], tracks: ['carbon'], features: ['Repair priority'], evidence: 'Field run', readiness: 'Ready', stack: ['Next.js'] }],
+    projects: [{ id: 'plume', name: 'MethaneMend', descriptor: 'Methane detection', domain: 'Methane', stages: ['sense'], tracks: ['carbon'], features: ['Repair priority'], evidence: 'Field run', readiness: 'Ready', stack: ['Next.js'] }],
   });
   assert.equal(registryChunks.length, 1);
-  assert.equal(registryChunks[0].heading, 'PLUME');
+  assert.equal(registryChunks[0].heading, 'MethaneMend');
   assert.match(registryChunks[0].text, /Repair priority/);
   assert.match(registryChunks[0].text, /Carbon Markets & Emissions Transparency/);
 
   const catalogueChunks = chunkFeatureCatalogue('registry/features.json', {
-    features: [{ name: 'Plume mapping', implementations: [{ projectName: 'PLUME', projectId: 'plume', kind: 'ml', status: 'implemented', summary: 'Maps plumes.', evidence: ['src/map.py:10'] }] }],
+    features: [{ name: 'Plume mapping', implementations: [{ projectName: 'MethaneMend', projectId: 'plume', kind: 'ml', status: 'implemented', summary: 'Maps plumes.', evidence: ['src/map.py:10'] }] }],
   });
   assert.equal(catalogueChunks[0].heading, 'Plume mapping (1 projects)');
   assert.match(catalogueChunks[0].text, /src\/map\.py:10/);

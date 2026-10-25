@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { normalizeFire, normalizeWater } from '../services.mjs';
 import { SOURCE_CONNECTORS } from '../connectors/registry.mjs';
 
-test('Teesri normalization preserves aggregate phone-wall counts without household records', () => {
+test('TapAlert normalization preserves aggregate phone-wall counts without household records', () => {
   const raw = {
     homes: [
       { id: 'resident-secret-1', label: 'private label', lat: 19.1, lon: 72.8, reported: true, warned: true, in_ring: true, checkin: 'private note', messages: ['private message'] },
@@ -27,12 +27,12 @@ test('Teesri normalization preserves aggregate phone-wall counts without househo
   }
 });
 
-test('Teesri normalization rejects malformed household collections', () => {
+test('TapAlert normalization rejects malformed household collections', () => {
   assert.throws(() => normalizeWater({ homes: 'not-a-list' }), /must be an array/);
   assert.throws(() => normalizeWater({ homes: [null] }), /records must be objects/);
 });
 
-test('missing Clearsky prevented-field outcome stays unknown instead of becoming zero', () => {
+test('missing AshAlert prevented-field outcome stays unknown instead of becoming zero', () => {
   const stats = {
     farmers: 1, fields: 1, acres_registered: 1, acres_booked: 0, acres_cleared: 0,
     tonnes_booked: 0, tonnes_delivered: 0, payouts_estimated_inr: 0,
@@ -44,7 +44,7 @@ test('missing Clearsky prevented-field outcome stays unknown instead of becoming
   assert.equal(normalizeFire(stats).demoPrices, null);
 });
 
-test('Clearsky validates the optional demo-price marker', () => {
+test('AshAlert validates the optional demo-price marker', () => {
   const contract = SOURCE_CONNECTORS.clearsky.endpoints.stats.validate;
   const valid = {
     farmers: 1, fields: 1, acres_registered: 1, acres_booked: 0, acres_cleared: 0,

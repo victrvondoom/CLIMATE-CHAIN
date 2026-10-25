@@ -96,7 +96,7 @@ function TeesriPage() {
       <header className="m-teesri-head">
         <div>
           <p className="m-teesri-kicker">Water · Mumbai (Dongri)</p>
-          <h2>Teesri Shikayat</h2>
+          <h2>TapAlert</h2>
           <p>Neighbourhood water safety: three dirty-water reports from nearby homes trip a warning to every home around them.</p>
         </div>
         <span className="m-teesri-mode">Mode: SIMULATED</span>
@@ -193,7 +193,7 @@ function TeesriPage() {
 
 const climateModule: ClimateModule = {
   id: 'teesri',
-  name: 'Teesri Shikayat',
+  name: 'TapAlert',
   tagline: 'Three dirty-water reports from nearby homes within 72 hours raise a warning ring.',
   stages: ['sense', 'verify', 'act', 'prove'],
   tone: 'water',

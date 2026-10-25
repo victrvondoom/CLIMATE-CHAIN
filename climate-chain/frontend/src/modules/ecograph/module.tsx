@@ -98,7 +98,7 @@ function EcographPage() {
     <div className="m-ecograph-root">
       <Card className="m-ecograph-head">
         <div className="m-ecograph-title-row">
-          <h2>EcoGraph</h2>
+          <h2>ImpactGraph</h2>
           <span className="m-ecograph-mode">SIMULATED</span>
           <span className="m-ecograph-chip">DEMO ledger, seed {ledger.seed}</span>
         </div>
@@ -238,7 +238,7 @@ function EcographPage() {
 
 const climateModule: ClimateModule = {
   id: 'ecograph',
-  name: 'EcoGraph',
+  name: 'ImpactGraph',
   tagline:
     'Finds double retirements and trading loops in a carbon ledger, then waits for a person to freeze or dismiss each case.',
   stages: ['verify', 'prove'],

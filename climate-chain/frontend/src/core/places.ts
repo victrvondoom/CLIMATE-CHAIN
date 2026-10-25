@@ -1,9 +1,9 @@
 import { CITIES, type CityKey } from '../api';
 import type { Place } from '../modules/earth/environment';
 
-// Shared place context. The topbar air location, the Earth globe, Air · Vayu and the Climate
+// Shared place context. The topbar air location, the Earth globe, Air · AirPulse and the Climate
 // Integrity Lab start from one selected place. A view offers another view for that place only
-// when a real match exists: a Vayu city or an Integrity Lab site within NEAR_KM of the point.
+// when a real match exists: a AirPulse city or an Integrity Lab site within NEAR_KM of the point.
 
 export const NEAR_KM = 50;
 
@@ -53,7 +53,7 @@ export function integritySiteForCity(city: CityKey): IntegritySiteId | null {
   return nearestIntegritySite(CITIES[city])?.id ?? null;
 }
 
-// Vayu answers a coordinate query with the generic name "Your location". When the query was a
+// AirPulse answers a coordinate query with the generic name "Your location". When the query was a
 // selected city, the city name is the accurate label for that point.
 export function airPlaceName(sourceName: string | null | undefined, cityName: string): string {
   return !sourceName || sourceName.trim().toLowerCase() === 'your location' ? cityName : sourceName;

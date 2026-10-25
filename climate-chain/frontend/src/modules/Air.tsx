@@ -1,4 +1,4 @@
-// Air module: The Vayu Project's features — the 24-hour exposure dial,
+// Air module: AirPulse's features — the 24-hour exposure dial,
 // every reading's provenance, and the north-India air map — surfaced in
 // the unified shell, cross-linked to the Fire module.
 
@@ -23,9 +23,9 @@ export function Air({ data, onCity, city }: { data: Overview; onCity: (c: CityKe
     <div className="stack signal-page">
       <div className="module-head">
         <div>
-          <h1>Air <span className="by">· The Vayu Project</span></h1>
+          <h1>Air <span className="by">· AirPulse</span></h1>
           <ModeBadge mode={data.sources.vayu.mode} />
-          <p>Explore the Vayu series for the selected city. Source observations, forecasts and simulated values keep their own labels. A regional monitor reading does not establish personal exposure.</p>
+          <p>Explore the AirPulse series for the selected city. Source observations, forecasts and simulated values keep their own labels. A regional monitor reading does not establish personal exposure.</p>
         </div>
         <div className="city-picker">
           {(Object.keys(CITIES) as CityKey[]).map((c) => (
@@ -68,8 +68,8 @@ export function Air({ data, onCity, city }: { data: Overview; onCity: (c: CityKe
         <Card>
           <h2>Where this module meets the others</h2>
           <ul className="cross">
-            <li><strong>Fire context.</strong> clearsky reports {num(data.fire.redFields)} RED fields in its own scope. Their locations and times are not joined to this air series.</li>
-            <li><strong>Waste context.</strong> JunkSnap reports {num(data.waste.open)} open sites. Open a site in Waste to check a nearby monitor and its timestamps in Cascade Review.</li>
+            <li><strong>Fire context.</strong> AshAlert reports {num(data.fire.redFields)} RED fields in its own scope. Their locations and times are not joined to this air series.</li>
+            <li><strong>Waste context.</strong> DumpWatch reports {num(data.waste.open)} open sites. Open a site in Waste to check a nearby monitor and its timestamps in Cascade Review.</li>
             <li><strong>Monitor provenance.</strong> {air.provenance?.stationName ?? 'No monitor name returned'} · {air.provenance?.distanceKm == null ? 'distance unavailable' : `${air.provenance.distanceKm.toFixed(1)} km from the query point`} · {air.provenance?.observedAt ? `observed ${new Date(air.provenance.observedAt).toLocaleString()}` : 'observation time unavailable'}.</li>
           </ul>
         </Card>

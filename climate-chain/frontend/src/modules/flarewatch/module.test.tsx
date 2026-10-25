@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { renderToStaticMarkup } from 'react-dom/server';
 import climateModule from './module';
 
-describe('Flarewatch module', () => {
+describe('TorchSight module', () => {
   it('declares its id, measured-data mode, and the project folder it was ported from', () => {
     expect(climateModule.id).toBe('flarewatch');
     expect(climateModule.mode).toBe('RESEARCH');

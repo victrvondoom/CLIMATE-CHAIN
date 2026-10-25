@@ -37,7 +37,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "env-file-loader",
           "name": ".env loader",
           "kind": "other",
@@ -58,7 +58,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "fixcheck-did-it-work",
           "name": "\"Did it work?\" fix-check workflow",
           "kind": "worker",
@@ -80,7 +80,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "rooms-api-store",
           "name": "/v1/rooms unit readings store",
           "kind": "api",
@@ -102,7 +102,7 @@
       "implementations": [
         {
           "projectId": "flarewatch",
-          "projectName": "Flarewatch",
+          "projectName": "TorchSight",
           "localId": "cluster-and-persistent-flare-rule",
           "name": "1 km clustering and persistent-flare classification",
           "kind": "ml",
@@ -125,7 +125,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "harvest-scheduled-job",
           "name": "15-minute harvest job and 30-minute stations job",
           "kind": "worker",
@@ -190,7 +190,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "guided-observation-flow",
           "name": "5-step guided water observation",
           "kind": "ui",
@@ -281,7 +281,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "add-site-map-picker",
           "name": "Add a new waterbody with map picker",
           "kind": "ui",
@@ -302,7 +302,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "places-pins-search-gps",
           "name": "Add place by search, Detect my location, live location",
           "kind": "ui",
@@ -347,7 +347,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "agent-propose-action-note",
           "name": "Agent propose_action (the only write tool)",
           "kind": "api",
@@ -368,7 +368,7 @@
       "implementations": [
         {
           "projectId": "flarewatch",
-          "projectName": "Flarewatch",
+          "projectName": "TorchSight",
           "localId": "ai-brief",
           "name": "AI brief with number-checking and template fallback",
           "kind": "ml",
@@ -392,7 +392,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "ai-integrity-model",
           "name": "AI integrity check (physics bound + IsolationForest anomaly score)",
           "kind": "ml",
@@ -415,7 +415,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "air-lens-camera",
           "name": "AIR Lens camera haze overlay",
           "kind": "page",
@@ -433,13 +433,13 @@
     },
     {
       "id": "air-view-vayu-signal",
-      "name": "Air view (Vayu signal)",
+      "name": "Air view (AirPulse signal)",
       "implementations": [
         {
           "projectId": "climate-chain",
           "projectName": "Climate Chain",
           "localId": "ui-air-view",
-          "name": "Air view (Vayu signal)",
+          "name": "Air view (AirPulse signal)",
           "kind": "page",
           "status": "implemented",
           "summary": "City picker, PM2.5 KPIs, windowed series explorer with sparkline, provenance and export.",
@@ -457,7 +457,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "ops-alarms-quotas",
           "name": "Alarms, dashboard, tracing, daily quotas and per-caller limits",
           "kind": "other",
@@ -479,7 +479,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "alert-loop-step-functions",
           "name": "Alert loop (Step Functions, Telegram send step, Hindi voice)",
           "kind": "worker",
@@ -501,7 +501,7 @@
       "implementations": [
         {
           "projectId": "plotlock",
-          "projectName": "PlotLock",
+          "projectName": "ParcelSeal",
           "localId": "plotlock-deployment-record",
           "name": "Amoy deployment and replay record (README-documented)",
           "kind": "data",
@@ -523,7 +523,7 @@
       "implementations": [
         {
           "projectId": "flarewatch",
-          "projectName": "Flarewatch",
+          "projectName": "TorchSight",
           "localId": "idl-and-anchor-config",
           "name": "Anchor IDL, Anchor.toml (devnet), vercel static config",
           "kind": "other",
@@ -545,7 +545,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "native-mobile-scaffolds",
           "name": "Android and iOS Flutter scaffolds",
           "kind": "other",
@@ -567,7 +567,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "android-tauri-shell",
           "name": "Android Tauri shell and signed APK release workflow",
           "kind": "other",
@@ -611,7 +611,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "annual-vs-hourly-and-emissions",
           "name": "Annual-style (volumetric) claim vs true hourly match, and hourly emissions accounting",
           "kind": "data",
@@ -633,7 +633,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "ward-office-email",
           "name": "Anonymised ward-office email (SES / test inbox)",
           "kind": "integration",
@@ -656,7 +656,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "docs-api-contract-deploy-submission",
           "name": "API contract, deploy guide, blog, demo script and submission docs",
           "kind": "doc",
@@ -680,7 +680,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "static-web-app-hosting",
           "name": "API serves the built Flutter web app",
           "kind": "api",
@@ -724,7 +724,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "docs-and-decisions",
           "name": "Architecture, Android, config docs and decision log",
           "kind": "doc",
@@ -747,7 +747,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "docs-methodology-security",
           "name": "Architecture, scientific methodology, security, evaluation and demo docs",
           "kind": "doc",
@@ -795,7 +795,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "area-scores-api",
           "name": "Area scores and city ranking API",
           "kind": "api",
@@ -818,7 +818,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "assistant-english-hindi",
           "name": "Ask assistant (English and Hindi, rules first)",
           "kind": "ui",
@@ -840,7 +840,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "auditor-console",
           "name": "Auditor console page",
           "kind": "page",
@@ -862,7 +862,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "llm-explanation",
           "name": "Auditor-style explanation (rules, with optional Claude rewrite)",
           "kind": "integration",
@@ -927,7 +927,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "backend-launch-and-e2e-scripts",
           "name": "Backend launch scripts and Playwright frontend check",
           "kind": "cli",
@@ -949,7 +949,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "backend-frontend-tests",
           "name": "Backend pytest and frontend vitest suites",
           "kind": "other",
@@ -972,7 +972,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "pytest-suite",
           "name": "Backend test suite",
           "kind": "other",
@@ -1040,7 +1040,7 @@
       "implementations": [
         {
           "projectId": "plotlock",
-          "projectName": "PlotLock",
+          "projectName": "ParcelSeal",
           "localId": "plotlock-fixtures",
           "name": "Baked-in evidence fixtures (4 demo plots) and generator",
           "kind": "data",
@@ -1157,7 +1157,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "stress-model-form",
           "name": "Baseline model-form sensitivity",
           "kind": "ml",
@@ -1178,7 +1178,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "stress-temporal",
           "name": "Baseline temporal elasticity (+/-1 year horizon)",
           "kind": "ml",
@@ -1198,7 +1198,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "assistant-bedrock-number-guard",
           "name": "Bedrock Nova Micro wording with number check, guardrail and kill switch",
           "kind": "integration",
@@ -1220,7 +1220,7 @@
       "implementations": [
         {
           "projectId": "carbontwin",
-          "projectName": "CarbonTwin",
+          "projectName": "UniqueCredit",
           "localId": "fetch-berkeley-database",
           "name": "Berkeley registry database download",
           "kind": "cli",
@@ -1241,7 +1241,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "brand-labels",
           "name": "Brand label reading from photos",
           "kind": "worker",
@@ -1263,7 +1263,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "browser-evidence-rehash",
           "name": "Browser re-hash integrity check on project page",
           "kind": "ui",
@@ -1285,7 +1285,7 @@
       "implementations": [
         {
           "projectId": "plotlock",
-          "projectName": "PlotLock",
+          "projectName": "ParcelSeal",
           "localId": "plotlock-tamper-demo",
           "name": "Browser tamper-evidence demo",
           "kind": "ui",
@@ -1328,7 +1328,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "web-build-script",
           "name": "build_web.mjs static bundle builder",
           "kind": "cli",
@@ -1442,7 +1442,7 @@
       "implementations": [
         {
           "projectId": "flarewatch",
-          "projectName": "Flarewatch",
+          "projectName": "TorchSight",
           "localId": "day-file-sha256",
           "name": "Canonical day file and SHA-256 digest",
           "kind": "data",
@@ -1465,7 +1465,7 @@
       "implementations": [
         {
           "projectId": "plotlock",
-          "projectName": "PlotLock",
+          "projectName": "ParcelSeal",
           "localId": "plotlock-evidence-hash",
           "name": "Canonical evidence bundle keccak-256 hash (tamper-evidence)",
           "kind": "other",
@@ -1487,7 +1487,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "canonical-hash-integrity",
           "name": "Canonical JSON SHA-256 audit integrity",
           "kind": "data",
@@ -1508,7 +1508,7 @@
       "implementations": [
         {
           "projectId": "carbonlens",
-          "projectName": "CarbonLens",
+          "projectName": "CarbonScope",
           "localId": "report-sha256-hash",
           "name": "Canonical SHA-256 report hash",
           "kind": "data",
@@ -1620,7 +1620,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "carbonmapper-ingestion",
           "name": "Carbon Mapper snapshot and live ingestion pipeline",
           "kind": "worker",
@@ -1667,7 +1667,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "stress-carbon-stock",
           "name": "Carbon-stock uncertainty dimension",
           "kind": "ml",
@@ -1806,7 +1806,7 @@
       "implementations": [
         {
           "projectId": "carbonlens",
-          "projectName": "CarbonLens",
+          "projectName": "CarbonScope",
           "localId": "carbonregistry-contract",
           "name": "CarbonRegistry Solidity contract",
           "kind": "contract",
@@ -1828,7 +1828,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "anchor-contract",
           "name": "CarbonShieldAnchor Solidity contract",
           "kind": "contract",
@@ -1870,7 +1870,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "flutter-case-screen-decisions",
           "name": "Case screen, decision recorded screen and audit log screen",
           "kind": "ui",
@@ -1894,7 +1894,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "cdk-stack",
           "name": "CDK stack: DynamoDB, S3, Lambdas, Function URL, SQS, EC2",
           "kind": "other",
@@ -1919,7 +1919,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "cedar-policies",
           "name": "Cedar policy gate on every side effect",
           "kind": "other",
@@ -1942,7 +1942,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "contribution-flows",
           "name": "Challenge contribution flows (cleanup, observation, wildlife)",
           "kind": "ui",
@@ -1964,7 +1964,7 @@
       "implementations": [
         {
           "projectId": "carbonlens",
-          "projectName": "CarbonLens",
+          "projectName": "CarbonScope",
           "localId": "change-detection-reversal",
           "name": "Change detection and reversal deduction",
           "kind": "ml",
@@ -1985,7 +1985,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "channel-adapter",
           "name": "Channel adapter (Telegram and simulated phone wall)",
           "kind": "other",
@@ -2008,7 +2008,7 @@
       "implementations": [
         {
           "projectId": "carbontwin",
-          "projectName": "CarbonTwin",
+          "projectName": "UniqueCredit",
           "localId": "ci-pages-deploy",
           "name": "CI test and GitHub Pages deploy",
           "kind": "other",
@@ -2029,7 +2029,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "ci-pipeline",
           "name": "CI workflow",
           "kind": "other",
@@ -2074,7 +2074,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "letters-area",
           "name": "Cited area letters (ward/assembly/Lok Sabha/district)",
           "kind": "api",
@@ -2096,7 +2096,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "letters-site",
           "name": "Cited site letters with rule-quote verification",
           "kind": "api",
@@ -2142,7 +2142,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "claim-checker-ui",
           "name": "Claim checker web page (claim, fields, verdict, stacked-bar SVG chart, daily table)",
           "kind": "page",
@@ -2164,7 +2164,7 @@
       "implementations": [
         {
           "projectId": "carbonlens",
-          "projectName": "CarbonLens",
+          "projectName": "CarbonScope",
           "localId": "claimed-vs-verified-dashboard",
           "name": "Claimed vs verified credits dashboard",
           "kind": "ui",
@@ -2186,7 +2186,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "cleanup-after-photo",
           "name": "Cleanup claims with after-photo and 3-person quorum",
           "kind": "api",
@@ -2231,7 +2231,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "cli-commands",
           "name": "CLI: ingest-snapshot, ingest-live, build-snapshot, seed-demo, reset-demo",
           "kind": "cli",
@@ -2275,7 +2275,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "aws-eks-infrastructure",
           "name": "CloudFormation, eksctl and Kustomize infrastructure",
           "kind": "other",
@@ -2300,7 +2300,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "cdn-site-hosting",
           "name": "CloudFront + S3 site with /v1 passthrough",
           "kind": "other",
@@ -2322,7 +2322,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "cognito-auth",
           "name": "Cognito email sign-in and JWT verification",
           "kind": "integration",
@@ -2460,7 +2460,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "challenges-actions",
           "name": "Community challenges and actions",
           "kind": "page",
@@ -2482,7 +2482,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "community-feed-comments",
           "name": "Community feed with threaded comments, saved stories",
           "kind": "page",
@@ -2504,7 +2504,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "community-votes",
           "name": "Community votes (confirm/reject/cleaned) with distance gate",
           "kind": "api",
@@ -2568,7 +2568,7 @@
       "implementations": [
         {
           "projectId": "carbonlens",
-          "projectName": "CarbonLens",
+          "projectName": "CarbonScope",
           "localId": "conservative-crediting-status",
           "name": "Conservative crediting and verdict status",
           "kind": "ml",
@@ -2589,7 +2589,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "console-api",
           "name": "Console state/audio/action API with privacy masking",
           "kind": "api",
@@ -2612,7 +2612,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "evidence-store-and-endpoint",
           "name": "Content-addressed evidence store and GET /api/evidence/{hash}",
           "kind": "api",
@@ -2634,7 +2634,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "contract-compile-scripts",
           "name": "Contract compile and verify helper scripts",
           "kind": "cli",
@@ -2677,7 +2677,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "cost-measurement",
           "name": "Cost-per-incident measurement script",
           "kind": "cli",
@@ -2698,7 +2698,7 @@
       "implementations": [
         {
           "projectId": "carbonlens",
-          "projectName": "CarbonLens",
+          "projectName": "CarbonScope",
           "localId": "transfer-retire",
           "name": "Credit transfer and permanent retirement",
           "kind": "contract",
@@ -2719,7 +2719,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "trace-credit-upstream",
           "name": "Credit upstream trace",
           "kind": "worker",
@@ -2741,7 +2741,7 @@
       "implementations": [
         {
           "projectId": "carbontwin",
-          "projectName": "CarbonTwin",
+          "projectName": "UniqueCredit",
           "localId": "creditclaimregistry-contract",
           "name": "CreditClaimRegistry Solidity contract",
           "kind": "contract",
@@ -2786,7 +2786,7 @@
       "implementations": [
         {
           "projectId": "flarewatch",
-          "projectName": "Flarewatch",
+          "projectName": "TorchSight",
           "localId": "daily-github-action",
           "name": "Daily GitHub Actions pipeline",
           "kind": "worker",
@@ -2857,7 +2857,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "web-integrity-tab",
           "name": "Dashboard tab: AI integrity check (metrics, per-fraud-type table, device risk, auditor queue)",
           "kind": "ui",
@@ -2879,7 +2879,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "web-buyers-tab",
           "name": "Dashboard tab: Buyers, claim vs reality (match heatmap, intensity chart, hourly bars, GSHIFT tiles)",
           "kind": "ui",
@@ -2902,12 +2902,12 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "web-forecast-tab",
           "name": "Dashboard tab: Clean-hour forecast",
           "kind": "ui",
           "status": "implemented",
-          "summary": "Plots the GridProof model against the NESO forecast for the next 24h, lists recommended clean hours for flexible load shifting, and shows MAE versus baselines.",
+          "summary": "Plots the WattCert model against the NESO forecast for the next 24h, lists recommended clean hours for flexible load shifting, and shows MAE versus baselines.",
           "evidence": [
             "gridproof-main/web/src/App.tsx:368"
           ],
@@ -2922,7 +2922,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "web-verify-tab",
           "name": "Dashboard tab: Verify on-chain (browser reads contract via ethers)",
           "kind": "ui",
@@ -2967,7 +2967,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "data-ingestion-validation",
           "name": "Data loaders, schema validators and provenance tracking",
           "kind": "data",
@@ -3011,7 +3011,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "carbon-intensity-forecaster",
           "name": "Day-ahead GB carbon-intensity forecaster and surplus-hour picker",
           "kind": "ml",
@@ -3033,7 +3033,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "dbscan-grouping",
           "name": "DBSCAN incident grouping with provider comparison",
           "kind": "ml",
@@ -3098,7 +3098,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "demo-mode-seed-data",
           "name": "Demo mode with seeded users, stories and comments",
           "kind": "data",
@@ -3145,7 +3145,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "demo-scenario-builder",
           "name": "Demo scenario builder (fictional parties, real Taipower curves)",
           "kind": "data",
@@ -3167,7 +3167,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "demo-seed-and-simulated-evidence",
           "name": "Demo seeding, simulated repair evidence and local-chain fast-forward",
           "kind": "worker",
@@ -3189,7 +3189,7 @@
       "implementations": [
         {
           "projectId": "carbontwin",
-          "projectName": "CarbonTwin",
+          "projectName": "UniqueCredit",
           "localId": "demo-video-asset",
           "name": "Demo video",
           "kind": "doc",
@@ -3209,7 +3209,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "video-production-tools",
           "name": "Demo video build tooling and assets",
           "kind": "other",
@@ -3233,7 +3233,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "deploy-and-config-scripts",
           "name": "Deploy, smoke and config-check scripts",
           "kind": "cli",
@@ -3259,7 +3259,7 @@
       "implementations": [
         {
           "projectId": "flarewatch",
-          "projectName": "Flarewatch",
+          "projectName": "TorchSight",
           "localId": "derive-sites-index",
           "name": "derive.mjs site and index builder",
           "kind": "worker",
@@ -3281,7 +3281,7 @@
       "implementations": [
         {
           "projectId": "climateproof",
-          "projectName": "ClimateProof AI",
+          "projectName": "ClaimGuard AI",
           "localId": "iqr-outliers-summary-stats",
           "name": "Descriptive stats and IQR outlier counts",
           "kind": "ml",
@@ -3326,7 +3326,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "land-map-dashboard",
           "name": "Desktop land map dashboard (/dashboard)",
           "kind": "page",
@@ -3352,7 +3352,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "ml-training-pipeline",
           "name": "Detector, heads and meta-learner training CLI",
           "kind": "ml",
@@ -3376,7 +3376,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "claim-checker",
           "name": "Deterministic claim checker (hourly vs volume basis, verdict, rewrite)",
           "kind": "api",
@@ -3398,7 +3398,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "ndvi-scoring-model",
           "name": "Deterministic NDVI plausibility scoring",
           "kind": "ml",
@@ -3492,7 +3492,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "device-risk-score",
           "name": "Device-level risk (near-top-of-band share)",
           "kind": "ml",
@@ -3513,7 +3513,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "device-signed-readings",
           "name": "Device-signed hourly meter readings (ECDSA)",
           "kind": "contract",
@@ -3536,7 +3536,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "device-registry-contract",
           "name": "DeviceRegistry contract (device keys, capacity, status, signer rotation)",
           "kind": "contract",
@@ -3558,7 +3558,7 @@
       "implementations": [
         {
           "projectId": "carbonlens",
-          "projectName": "CarbonLens",
+          "projectName": "CarbonScope",
           "localId": "devpost-and-video-docs",
           "name": "Devpost write-up and demo scripts",
           "kind": "doc",
@@ -3600,7 +3600,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "android-app-links",
           "name": "Digital Asset Links endpoint",
           "kind": "api",
@@ -3622,7 +3622,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "crawl-status-api",
           "name": "District crawl status API and banner",
           "kind": "api",
@@ -3644,7 +3644,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "diy-air-cleaner-prototype",
           "name": "DIY air cleaner prototype and CADR calculator",
           "kind": "doc",
@@ -3666,7 +3666,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "docker-compose-stack",
           "name": "Docker Compose stack and nginx proxy",
           "kind": "other",
@@ -3688,7 +3688,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "deployment-docker-render",
           "name": "Docker, Compose and Render deployment",
           "kind": "other",
@@ -3710,7 +3710,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "docs-threat-model-architecture",
           "name": "Docs: architecture, threat model, deploy, demo script, Devpost",
           "kind": "doc",
@@ -3734,7 +3734,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "gridproof-docs",
           "name": "Docs: README, DEVPOST write-up, RUNNING guide",
           "kind": "doc",
@@ -3756,7 +3756,7 @@
       "implementations": [
         {
           "projectId": "carbontwin",
-          "projectName": "CarbonTwin",
+          "projectName": "UniqueCredit",
           "localId": "doc-drift-parquet",
           "name": "Docstring drift in screen.py",
           "kind": "doc",
@@ -3777,7 +3777,7 @@
       "implementations": [
         {
           "projectId": "carbonlens",
-          "projectName": "CarbonLens",
+          "projectName": "CarbonScope",
           "localId": "readme-stated-limitations",
           "name": "Documented limitations and roadmap",
           "kind": "doc",
@@ -3798,7 +3798,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "detector-double-retirement",
           "name": "Double retirement detector",
           "kind": "worker",
@@ -3819,7 +3819,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "duplicate-blockchain-modules",
           "name": "Duplicate and stray blockchain modules",
           "kind": "other",
@@ -3840,7 +3840,7 @@
       "implementations": [
         {
           "projectId": "plotlock",
-          "projectName": "PlotLock",
+          "projectName": "ParcelSeal",
           "localId": "plotlock-duplicate-rejection-panel",
           "name": "Duplicate-registration (CellAlreadyTaken) explanation panel",
           "kind": "ui",
@@ -3907,7 +3907,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "stream-pipe-trigger",
           "name": "DynamoDB Streams to EventBridge Pipes to Tripwire",
           "kind": "integration",
@@ -4018,7 +4018,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "eip712-attestation-signer",
           "name": "EIP-712 attestation signer",
           "kind": "api",
@@ -4040,7 +4040,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "e2e-demo-script",
           "name": "End-to-end demo/smoke script and make e2e",
           "kind": "cli",
@@ -4058,13 +4058,13 @@
     },
     {
       "id": "end-to-end-oracle-pipeline-python-m-gridproof-pipeline",
-      "name": "End-to-end oracle pipeline (python -m gridproof.pipeline)",
+      "name": "End-to-end oracle pipeline (python -m WattCert.pipeline)",
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "oracle-pipeline",
-          "name": "End-to-end oracle pipeline (python -m gridproof.pipeline)",
+          "name": "End-to-end oracle pipeline (python -m WattCert.pipeline)",
           "kind": "cli",
           "status": "implemented",
           "summary": "Six steps: simulate readings, train and score the integrity model, register devices and submit batches on-chain, set surplus hours, report loads and retire proportionally per hour, then compute accounting and the forecast. Writes state JSON for the API.",
@@ -4086,7 +4086,7 @@
       "implementations": [
         {
           "projectId": "carbonlens",
-          "projectName": "CarbonLens",
+          "projectName": "CarbonScope",
           "localId": "demo-pipeline-runner",
           "name": "End-to-end pipeline over 5 fictional projects",
           "kind": "cli",
@@ -4130,7 +4130,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "esp32-sps30-firmware",
           "name": "ESP32-S3 + SPS30 room sensor firmware (BLE)",
           "kind": "other",
@@ -4193,12 +4193,12 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "eval-page-section",
           "name": "Evaluation and hand-calculation section on the page",
           "kind": "ui",
           "status": "implemented",
-          "summary": "Renders the correct-verdict counts for HourMatch, the LLM alone and the spreadsheet on both weeks, with explicit statements of what the evaluation does not show.",
+          "summary": "Renders the correct-verdict counts for HourSync, the LLM alone and the spreadsheet on both weeks, with explicit statements of what the evaluation does not show.",
           "evidence": [
             "hourmatch-master/public/app.js:424"
           ],
@@ -4213,7 +4213,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "evaluation-harness",
           "name": "Planted-fraud evaluation (7/7, 0 false alarms)",
           "kind": "cli",
@@ -4229,9 +4229,9 @@
         },
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "evaluation-harness",
-          "name": "Evaluation: HourMatch vs LLM-alone vs spreadsheet, dev and holdout weeks",
+          "name": "Evaluation: HourSync vs LLM-alone vs spreadsheet, dev and holdout weeks",
           "kind": "ml",
           "status": "implemented",
           "summary": "run_eval.mjs instantiates 18 dev and 8 holdout claims and scores the system, the pure-LLM and the spreadsheet baseline. There is also an independent Python hand calculation, an xlsx generator, a summarizer, stored results, and RESULTS/SPEND/SPREADSHEET/HANDCALC docs.",
@@ -4251,7 +4251,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "evidence-bundles-hashing",
           "name": "Evidence bundle storage and keccak/SHA-256 commitments",
           "kind": "data",
@@ -4318,7 +4318,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "flutter-evidence-graph-widget",
           "name": "Evidence graph widget",
           "kind": "ui",
@@ -4384,7 +4384,7 @@
       "implementations": [
         {
           "projectId": "carbontwin",
-          "projectName": "CarbonTwin",
+          "projectName": "UniqueCredit",
           "localId": "grounded-second-pass",
           "name": "Evidence-bound second-pass verification",
           "kind": "ml",
@@ -4406,7 +4406,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "flutter-evidence-why-query-ask-panels",
           "name": "Evidence, Why, Query and Ask panels",
           "kind": "ui",
@@ -4454,7 +4454,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "ex-ante-feature-whitelist",
           "name": "Ex-ante/ex-post leakage guard",
           "kind": "ml",
@@ -4501,7 +4501,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "noisy-or-case-scoring",
           "name": "Explainable case scoring and scan",
           "kind": "worker",
@@ -4524,7 +4524,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "exposure-24h-dial",
           "name": "Exposure dial (24-hour, family members, outings)",
           "kind": "page",
@@ -4546,7 +4546,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "privacy-blur",
           "name": "Face and number-plate blurring before any public copy",
           "kind": "worker",
@@ -4592,7 +4592,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "falkordb-graph-store",
           "name": "FalkorDB graph store (embedded or server)",
           "kind": "data",
@@ -4640,7 +4640,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "fastapi-dashboard-api",
           "name": "FastAPI oracle API (/api/summary, buyers, readings, forecast, deployment, certificates, quarantine resolve)",
           "kind": "api",
@@ -4667,7 +4667,7 @@
       "implementations": [
         {
           "projectId": "plotlock",
-          "projectName": "PlotLock",
+          "projectName": "ParcelSeal",
           "localId": "plotlock-oracle-api",
           "name": "FastAPI oracle service (/health, /fixtures, /evaluate, /sign, /verify)",
           "kind": "api",
@@ -4689,7 +4689,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "contract-find-conflict-view",
           "name": "findConflict view",
           "kind": "contract",
@@ -4710,7 +4710,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "wcc-clustering",
           "name": "Finding clustering with algo.WCC",
           "kind": "worker",
@@ -4731,7 +4731,7 @@
       "implementations": [
         {
           "projectId": "carbontwin",
-          "projectName": "CarbonTwin",
+          "projectName": "UniqueCredit",
           "localId": "findings-dashboard",
           "name": "Findings dashboard (stats, filters, table, detail)",
           "kind": "ui",
@@ -4753,7 +4753,7 @@
       "implementations": [
         {
           "projectId": "carbontwin",
-          "projectName": "CarbonTwin",
+          "projectName": "UniqueCredit",
           "localId": "report-builder-guards",
           "name": "Findings report with name-conflict and number checks",
           "kind": "worker",
@@ -4771,13 +4771,13 @@
     },
     {
       "id": "fire-view-clearsky-signal",
-      "name": "Fire view (clearsky signal)",
+      "name": "Fire view (AshAlert signal)",
       "implementations": [
         {
           "projectId": "climate-chain",
           "projectName": "Climate Chain",
           "localId": "ui-fire-view",
-          "name": "Fire view (clearsky signal)",
+          "name": "Fire view (AshAlert signal)",
           "kind": "page",
           "status": "implemented",
           "summary": "Burn-risk RED/YELLOW totals, delivery and coverage season ledger, payouts and snapshot export.",
@@ -4818,7 +4818,7 @@
       "implementations": [
         {
           "projectId": "carbontwin",
-          "projectName": "CarbonTwin",
+          "projectName": "UniqueCredit",
           "localId": "contract-walkthrough-demo",
           "name": "Five-step in-browser contract demo",
           "kind": "ui",
@@ -4840,7 +4840,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "flutter-api-client",
           "name": "Flutter API client with auto base-URL discovery",
           "kind": "integration",
@@ -4863,7 +4863,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "flutter-app-shell-tabs",
           "name": "Flutter app shell with Home, Cases, Ask, Trace and History tabs",
           "kind": "ui",
@@ -4889,7 +4889,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "contract-tests-invariants",
           "name": "Foundry unit, fuzz and invariant tests",
           "kind": "contract",
@@ -4916,7 +4916,7 @@
           "name": "Four source connector contracts",
           "kind": "integration",
           "status": "implemented",
-          "summary": "JunkSnap, clearsky, Teesri Shikayat and Vayu descriptors (env-overridable URLs, health paths, schema validators) plus Delhi/Jodhpur/Chandigarh Vayu city presets.",
+          "summary": "DumpWatch, AshAlert, TapAlert and AirPulse descriptors (env-overridable URLs, health paths, schema validators) plus Delhi/Jodhpur/Chandigarh AirPulse city presets.",
           "evidence": [
             "gateway/connectors/registry.mjs:139",
             "gateway/connectors/registry.mjs:16",
@@ -4933,7 +4933,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "ui-fraud-lab-page",
           "name": "Fraud lab page (run all cases)",
           "kind": "page",
@@ -4955,7 +4955,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "scenarios-endpoint",
           "name": "Fraud-lab scenario presets (GET /api/scenarios)",
           "kind": "api",
@@ -4976,7 +4976,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "function-url-router",
           "name": "Function URL routes: health, console, state, audio, action",
           "kind": "api",
@@ -5001,7 +5001,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "anchor-deploy-844",
           "name": "Ganache deploy-and-anchor of project 844",
           "kind": "cli",
@@ -5367,7 +5367,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "api-projects-list",
           "name": "GET /api/projects",
           "kind": "api",
@@ -5388,7 +5388,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "api-project-detail",
           "name": "GET /api/projects/{id}",
           "kind": "api",
@@ -5408,7 +5408,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "api-audit-record",
           "name": "GET /api/projects/{id}/audit",
           "kind": "api",
@@ -5428,7 +5428,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "api-blockchain-evidence",
           "name": "GET /api/projects/{id}/blockchain",
           "kind": "api",
@@ -5449,7 +5449,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "api-evidence",
           "name": "GET /api/projects/{id}/evidence",
           "kind": "api",
@@ -5469,7 +5469,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "api-integrity",
           "name": "GET /api/projects/{id}/integrity",
           "kind": "api",
@@ -5490,7 +5490,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "api-sensitivity",
           "name": "GET /api/projects/{id}/sensitivity",
           "kind": "api",
@@ -5531,7 +5531,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "api-summary",
           "name": "GET /api/summary",
           "kind": "api",
@@ -5578,7 +5578,7 @@
           "name": "GET /api/v1/cascade",
           "kind": "api",
           "status": "implemented",
-          "summary": "Assesses one open JunkSnap site against the nearest Vayu monitor with radiusKm/timeWindowHours thresholds, returns an assessment plus SHA-256 evidence manifest; demo=1 serves a simulated walkthrough.",
+          "summary": "Assesses one open DumpWatch site against the nearest AirPulse monitor with radiusKm/timeWindowHours thresholds, returns an assessment plus SHA-256 evidence manifest; demo=1 serves a simulated walkthrough.",
           "evidence": [
             "gateway/gateway.mjs:195",
             "gateway/gateway.mjs:526",
@@ -5731,7 +5731,7 @@
           "name": "GET/HEAD /api/{junksnap,clearsky,teesri,vayu}/*",
           "kind": "api",
           "status": "implemented",
-          "summary": "Read-only passthrough proxy to the four upstream APIs (non-GET returns 405); Teesri /api/state is reduced to anonymised aggregate counts.",
+          "summary": "Read-only passthrough proxy to the four upstream APIs (non-GET returns 405); TapAlert /api/state is reduced to anonymised aggregate counts.",
           "evidence": [
             "gateway/gateway.mjs:109",
             "gateway/gateway.mjs:550",
@@ -5792,7 +5792,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "ring-population",
           "name": "GHS-POP ring population estimate",
           "kind": "data",
@@ -5815,7 +5815,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "ci-workflow",
           "name": "GitHub Actions CI",
           "kind": "other",
@@ -5855,7 +5855,7 @@
       "implementations": [
         {
           "projectId": "carbonlens",
-          "projectName": "CarbonLens",
+          "projectName": "CarbonScope",
           "localId": "unique-serial-ranges",
           "name": "Globally unique credit serial ranges and one verification per period",
           "kind": "contract",
@@ -5899,7 +5899,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "stale-flutter-build-script",
           "name": "go_job.sh.old build-and-restart script",
           "kind": "cli",
@@ -5920,7 +5920,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "google-sign-in-script",
           "name": "Google Identity script include",
           "kind": "integration",
@@ -5940,7 +5940,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "granular-certificate-erc1155",
           "name": "GranularCertificate ERC-1155, one token per device-hour",
           "kind": "contract",
@@ -5963,7 +5963,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "guided-demo-and-persona-switcher",
           "name": "Guided demo checklist and Acting-as persona switch",
           "kind": "ui",
@@ -6026,7 +6026,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "hardcoded-secrets",
           "name": "Hardcoded dev private keys in source",
           "kind": "other",
@@ -6069,7 +6069,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "hardcoded-dev-keys",
           "name": "Hardcoded well-known Hardhat dev private keys",
           "kind": "other",
@@ -6096,7 +6096,7 @@
       "implementations": [
         {
           "projectId": "carbonlens",
-          "projectName": "CarbonLens",
+          "projectName": "CarbonScope",
           "localId": "hardhat-contract-tests",
           "name": "Hardhat contract test suite",
           "kind": "other",
@@ -6117,7 +6117,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "contract-test-suite",
           "name": "Hardhat contract test suite (19 tests)",
           "kind": "other",
@@ -6137,7 +6137,7 @@
       "implementations": [
         {
           "projectId": "plotlock",
-          "projectName": "PlotLock",
+          "projectName": "ParcelSeal",
           "localId": "plotlock-contract-tests",
           "name": "Hardhat contract tests and Python-oracle round-trip test",
           "kind": "other",
@@ -6158,7 +6158,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "contract-tests-deploy",
           "name": "Hardhat contract tests, deploy script and network config",
           "kind": "cli",
@@ -6180,7 +6180,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "hardhat-deploy-script",
           "name": "Hardhat deploy script (3 contracts, roles, ABI export)",
           "kind": "cli",
@@ -6202,12 +6202,12 @@
       "implementations": [
         {
           "projectId": "plotlock",
-          "projectName": "PlotLock",
+          "projectName": "ParcelSeal",
           "localId": "plotlock-deploy-script",
           "name": "Hardhat deploy script and Amoy network config",
           "kind": "cli",
           "status": "implemented",
-          "summary": "Deploys PlotLock with an oracle address to Polygon Amoy (chainId 80002), checks the balance, and prints the explorer and verify commands. The hardhat config uses environment keys and a custom Polygonscan chain.",
+          "summary": "Deploys ParcelSeal with an oracle address to Polygon Amoy (chainId 80002), checks the balance, and prints the explorer and verify commands. The hardhat config uses environment keys and a custom Polygonscan chain.",
           "evidence": [
             "plotlock-main/scripts/deploy.js:8",
             "plotlock-main/hardhat.config.js:12"
@@ -6223,7 +6223,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "hash-routed-tabs",
           "name": "Hash-routed tab navigation",
           "kind": "ui",
@@ -6244,7 +6244,7 @@
       "implementations": [
         {
           "projectId": "carbonlens",
-          "projectName": "CarbonLens",
+          "projectName": "CarbonScope",
           "localId": "heldout-model-evaluation",
           "name": "Held-out accuracy, F1, confusion matrix and false-loss rate",
           "kind": "ml",
@@ -6287,7 +6287,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "ring-warning-polly",
           "name": "Hindi ring warning with Polly voice",
           "kind": "bot",
@@ -6312,7 +6312,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "voice-note-intake",
           "name": "Hindi voice-note intake via Amazon Transcribe",
           "kind": "bot",
@@ -6405,7 +6405,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "hour-matched-retirement",
           "name": "Hour-matched retirement and hourly match ledger",
           "kind": "contract",
@@ -6430,7 +6430,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "hourly-certificate-registry",
           "name": "HourlyCertificateRegistry contract (multi-issuer hourly certificates)",
           "kind": "contract",
@@ -6452,7 +6452,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "api-lambda-router",
           "name": "HTTP API router (health, places, today, timeline, history, fires, stations, wind, airgrid, replay)",
           "kind": "api",
@@ -6474,7 +6474,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "http-json-api-read",
           "name": "HTTP JSON API read endpoints",
           "kind": "api",
@@ -6500,7 +6500,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "human-decision-and-audit-log",
           "name": "Human freeze/refer/dismiss decision with audit log",
           "kind": "api",
@@ -6522,7 +6522,7 @@
       "implementations": [
         {
           "projectId": "climateproof",
-          "projectName": "ClimateProof AI",
+          "projectName": "ClaimGuard AI",
           "localId": "domain-range-checks",
           "name": "Humidity (0-100) and PM2.5 (>=0) range checks",
           "kind": "api",
@@ -6543,7 +6543,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "impact-calculator",
           "name": "Impact calculator (CH4 avoided, CO2e via IPCC AR6 GWP)",
           "kind": "ml",
@@ -6564,7 +6564,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "public-impact-receipts",
           "name": "Impact Receipt linking detection to settlement tx",
           "kind": "api",
@@ -6586,7 +6586,7 @@
       "implementations": [
         {
           "projectId": "plotlock",
-          "projectName": "PlotLock",
+          "projectName": "ParcelSeal",
           "localId": "plotlock-impact-explainer",
           "name": "Impact-accounting explainer (CH4+N2O as CO2e, no biogenic CO2, PM2.5)",
           "kind": "doc",
@@ -6606,7 +6606,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "notifications",
           "name": "In-app notifications modal",
           "kind": "ui",
@@ -6627,7 +6627,7 @@
       "implementations": [
         {
           "projectId": "carbontwin",
-          "projectName": "CarbonTwin",
+          "projectName": "UniqueCredit",
           "localId": "finding-inclusion-check",
           "name": "In-browser finding-vs-root inclusion check",
           "kind": "ui",
@@ -6671,7 +6671,7 @@
       "implementations": [
         {
           "projectId": "carbontwin",
-          "projectName": "CarbonTwin",
+          "projectName": "UniqueCredit",
           "localId": "in-memory-evm",
           "name": "In-memory ethereumjs EVM harness",
           "kind": "other",
@@ -6692,7 +6692,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "js-ledger-mirror",
           "name": "In-memory JavaScript ledger mirroring the contract",
           "kind": "worker",
@@ -6713,7 +6713,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "incident-and-investigation-pages",
           "name": "Incident list/detail and investigation report pages",
           "kind": "page",
@@ -6758,7 +6758,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "pwa-service-worker",
           "name": "Installable PWA with offline fallback",
           "kind": "other",
@@ -6803,7 +6803,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "leaflet-map",
           "name": "Interactive Leaflet map with site markers, locate-me",
           "kind": "page",
@@ -6825,7 +6825,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "betweenness-intermediaries",
           "name": "Intermediary ranking with algo.betweenness",
           "kind": "worker",
@@ -6846,7 +6846,7 @@
       "implementations": [
         {
           "projectId": "climateproof",
-          "projectName": "ClimateProof AI",
+          "projectName": "ClaimGuard AI",
           "localId": "timestamp-and-numeric-validity",
           "name": "Invalid timestamp and unparseable numeric detection",
           "kind": "api",
@@ -6868,7 +6868,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "investigation-engine",
           "name": "Investigation engine with validation checks and structured report",
           "kind": "ml",
@@ -6890,7 +6890,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "iot-ingest-firehose-athena",
           "name": "IoT Core rule, Firehose and Athena analytics",
           "kind": "worker",
@@ -6957,7 +6957,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "contracts-source-of-truth",
           "name": "JSON-schema contracts, fixtures and route/limits spec",
           "kind": "doc",
@@ -6979,7 +6979,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "llm-provider-router",
           "name": "Judge provider fallback chain (Bedrock Nova, OpenAI-compatible)",
           "kind": "integration",
@@ -7002,7 +7002,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "keyword-rule-parser",
           "name": "Keyword rule parser for typed claim sentences (no AI at runtime)",
           "kind": "other",
@@ -7023,7 +7023,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "security-and-alerting",
           "name": "KMS, CloudTrail, GuardDuty, Access Analyzer and CloudWatch alarms",
           "kind": "other",
@@ -7158,7 +7158,7 @@
       "implementations": [
         {
           "projectId": "plotlock",
-          "projectName": "PlotLock",
+          "projectName": "ParcelSeal",
           "localId": "plotlock-map-ui",
           "name": "Leaflet map UI with plot polygons, FIRMS markers and plot cards",
           "kind": "ui",
@@ -7180,7 +7180,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "stress-leakage",
           "name": "Leakage-rate uncertainty dimension",
           "kind": "ml",
@@ -7201,7 +7201,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "learning-library",
           "name": "Learn topics library",
           "kind": "page",
@@ -7222,7 +7222,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "refused-actions-panel",
           "name": "Ledger refusals panel (double-sale attempts)",
           "kind": "ui",
@@ -7243,7 +7243,7 @@
       "implementations": [
         {
           "projectId": "flarewatch",
-          "projectName": "Flarewatch",
+          "projectName": "TorchSight",
           "localId": "web-ledger-in-browser-verify",
           "name": "Ledger section with in-browser verification against Solana",
           "kind": "page",
@@ -7267,7 +7267,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "letter-ui",
           "name": "Letter preview, print/share and filing steps",
           "kind": "ui",
@@ -7289,7 +7289,7 @@
       "implementations": [
         {
           "projectId": "flarewatch",
-          "projectName": "Flarewatch",
+          "projectName": "TorchSight",
           "localId": "anchor-program-tests",
           "name": "LiteSVM program tests",
           "kind": "other",
@@ -7312,7 +7312,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "console-ui",
           "name": "Live console (map, phone wall, case, safety, inbox, Indore replay)",
           "kind": "ui",
@@ -7336,7 +7336,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "sentinel2-live-provider",
           "name": "Live Sentinel-2 NDVI provider",
           "kind": "integration",
@@ -7359,7 +7359,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "llm-claim-parser-eval-only",
           "name": "LLM claim parser (evaluation-only, off unless dedicated key and live flag)",
           "kind": "ml",
@@ -7381,7 +7381,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "llm-provider-presets",
           "name": "LLM provider selection (Anthropic, Gemini, Groq, OpenRouter, custom)",
           "kind": "integration",
@@ -7404,7 +7404,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "llm-agent-ask-loop",
           "name": "LLM tool-use agent over an in-process MCP client",
           "kind": "integration",
@@ -7453,7 +7453,7 @@
       "implementations": [
         {
           "projectId": "carbontwin",
-          "projectName": "CarbonTwin",
+          "projectName": "UniqueCredit",
           "localId": "llm-adjudication",
           "name": "Local LLM same-asset adjudication (Gemma via llama.cpp)",
           "kind": "ml",
@@ -7475,7 +7475,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "meta-learner-combiner",
           "name": "Logistic meta-learner and fixed-weight combiners",
           "kind": "ml",
@@ -7497,7 +7497,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "long-range-target",
           "name": "Long-range target marking (up to 500 m)",
           "kind": "ui",
@@ -7519,7 +7519,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "phase2-validation",
           "name": "LOPO/LOCO validation, bootstrap CIs, permutation importance",
           "kind": "ml",
@@ -7541,7 +7541,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "no-made-up-data-guard",
           "name": "make prove bundle check and smoke/live checks",
           "kind": "cli",
@@ -7563,7 +7563,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "map-screen",
           "name": "Map of monitors, wind, fires and modelled air",
           "kind": "page",
@@ -7627,7 +7627,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "mcp-server-11-tools",
           "name": "MCP server exposing 11 tools",
           "kind": "api",
@@ -7649,7 +7649,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "mcp-stdio-entrypoint",
           "name": "MCP stdio entry point for external clients",
           "kind": "cli",
@@ -7692,7 +7692,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "stress-measurement",
           "name": "Measurement uncertainty (+/-1 SE of independent estimate)",
           "kind": "ml",
@@ -7872,7 +7872,7 @@
       "implementations": [
         {
           "projectId": "carbontwin",
-          "projectName": "CarbonTwin",
+          "projectName": "UniqueCredit",
           "localId": "merkle-report-tree",
           "name": "Merkle tree over findings with per-finding proofs",
           "kind": "data",
@@ -7919,7 +7919,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "simulated-meters-and-fraud",
           "name": "Meter and fraud simulator (4 demo devices, 3 demo buyers)",
           "kind": "data",
@@ -7943,7 +7943,7 @@
       "implementations": [
         {
           "projectId": "carbonlens",
-          "projectName": "CarbonLens",
+          "projectName": "CarbonScope",
           "localId": "model-method-panel",
           "name": "Method and model metrics panel",
           "kind": "ui",
@@ -7964,7 +7964,7 @@
       "implementations": [
         {
           "projectId": "flarewatch",
-          "projectName": "Flarewatch",
+          "projectName": "TorchSight",
           "localId": "method-hash-on-chain",
           "name": "Method document hash fixed in registry",
           "kind": "contract",
@@ -7987,7 +7987,7 @@
       "implementations": [
         {
           "projectId": "flarewatch",
-          "projectName": "Flarewatch",
+          "projectName": "TorchSight",
           "localId": "method-and-devpost-docs",
           "name": "METHOD.md and DEVPOST docs",
           "kind": "doc",
@@ -8010,7 +8010,7 @@
       "implementations": [
         {
           "projectId": "climateproof",
-          "projectName": "ClimateProof AI",
+          "projectName": "ClaimGuard AI",
           "localId": "missing-and-duplicate-detection",
           "name": "Missing-value and duplicate-row detection",
           "kind": "api",
@@ -8032,7 +8032,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "mission-control-map",
           "name": "Mission Control map of detections",
           "kind": "page",
@@ -8118,7 +8118,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "ml-verify-service",
           "name": "ML stacked verification service (POST /internal/verify)",
           "kind": "ml",
@@ -8143,7 +8143,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "mock-api-mode",
           "name": "Mock API mode on contract fixtures",
           "kind": "other",
@@ -8164,7 +8164,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "mock-api-auth",
           "name": "Mock API service layer with local login/signup",
           "kind": "api",
@@ -8186,7 +8186,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "authenticity-gates",
           "name": "Moderation, India geofence, freshness, duplicate and rate-limit gates",
           "kind": "worker",
@@ -8210,7 +8210,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "monitor-my-waters",
           "name": "Monitor a waterbody (My Waters)",
           "kind": "ui",
@@ -8231,7 +8231,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "provenance-labelled-readings",
           "name": "Monitor name, distance and reading age on every number",
           "kind": "data",
@@ -8253,7 +8253,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "tests-ci",
           "name": "moto test suite and GitHub Actions",
           "kind": "other",
@@ -8277,7 +8277,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "my-air-home-screen",
           "name": "My Air home screen (place cards, alerts, tasks)",
           "kind": "page",
@@ -8365,13 +8365,13 @@
     },
     {
       "id": "native-module-aquaquest",
-      "name": "Native module: AquaQuest",
+      "name": "Native module: BlueTrail",
       "implementations": [
         {
           "projectId": "climate-chain",
           "projectName": "Climate Chain",
           "localId": "module-aquaquest",
-          "name": "Native module: AquaQuest",
+          "name": "Native module: BlueTrail",
           "kind": "page",
           "status": "demo",
           "summary": "Water observation validation (pH, turbidity, note) and challenge progress from fixture contributions (DEMO).",
@@ -8386,13 +8386,13 @@
     },
     {
       "id": "native-module-carbonlens",
-      "name": "Native module: CarbonLens",
+      "name": "Native module: CarbonScope",
       "implementations": [
         {
           "projectId": "climate-chain",
           "projectName": "Climate Chain",
           "localId": "module-carbonlens",
-          "name": "Native module: CarbonLens",
+          "name": "Native module: CarbonScope",
           "kind": "page",
           "status": "partial",
           "summary": "Displays pipeline metrics (no retraining) and recomputes serial-range uniqueness and report hashes over ledger fixtures (RESEARCH).",
@@ -8407,13 +8407,13 @@
     },
     {
       "id": "native-module-carbonshield",
-      "name": "Native module: CarbonShield",
+      "name": "Native module: SinkGuard",
       "implementations": [
         {
           "projectId": "climate-chain",
           "projectName": "Climate Chain",
           "localId": "module-carbonshield",
-          "name": "Native module: CarbonShield",
+          "name": "Native module: SinkGuard",
           "kind": "page",
           "status": "partial",
           "summary": "Leakage and missing-data audit rules over benchmark fixtures with a dataset import helper (RESEARCH).",
@@ -8428,13 +8428,13 @@
     },
     {
       "id": "native-module-carbontrace",
-      "name": "Native module: CarbonTrace",
+      "name": "Native module: TonneTrail",
       "implementations": [
         {
           "projectId": "climate-chain",
           "projectName": "Climate Chain",
           "localId": "module-carbontrace",
-          "name": "Native module: CarbonTrace",
+          "name": "Native module: TonneTrail",
           "kind": "page",
           "status": "demo",
           "summary": "Verifier scoring with caps, claim trimming, cell-lock reverts and evidence re-hash over demo scenarios (DEMO).",
@@ -8448,13 +8448,13 @@
     },
     {
       "id": "native-module-carbontwin",
-      "name": "Native module: CarbonTwin",
+      "name": "Native module: UniqueCredit",
       "implementations": [
         {
           "projectId": "climate-chain",
           "projectName": "Climate Chain",
           "localId": "module-carbontwin",
-          "name": "Native module: CarbonTwin",
+          "name": "Native module: UniqueCredit",
           "kind": "page",
           "status": "partial",
           "summary": "TF-IDF name screening, recorded (not executed) LLM verdicts and Merkle proof checks over bundled candidates (RESEARCH).",
@@ -8490,13 +8490,13 @@
     },
     {
       "id": "native-module-climateproof-ai",
-      "name": "Native module: ClimateProof AI",
+      "name": "Native module: ClaimGuard AI",
       "implementations": [
         {
           "projectId": "climate-chain",
           "projectName": "Climate Chain",
           "localId": "module-climateproof",
-          "name": "Native module: ClimateProof AI",
+          "name": "Native module: ClaimGuard AI",
           "kind": "page",
           "status": "demo",
           "summary": "In-browser CSV schema, missing, duplicate, range and IQR outlier checks with SHA-256 fingerprint and report download (SIMULATED).",
@@ -8511,13 +8511,13 @@
     },
     {
       "id": "native-module-ecograph",
-      "name": "Native module: EcoGraph",
+      "name": "Native module: ImpactGraph",
       "implementations": [
         {
           "projectId": "climate-chain",
           "projectName": "Climate Chain",
           "localId": "module-ecograph",
-          "name": "Native module: EcoGraph",
+          "name": "Native module: ImpactGraph",
           "kind": "page",
           "status": "demo",
           "summary": "Double-retirement, trading-loop and overlap detection with noisy-OR scoring, planted-case check and human-reviewed freeze over a demo ledger (SIMULATED).",
@@ -8532,13 +8532,13 @@
     },
     {
       "id": "native-module-flarewatch",
-      "name": "Native module: Flarewatch",
+      "name": "Native module: TorchSight",
       "implementations": [
         {
           "projectId": "climate-chain",
           "projectName": "Climate Chain",
           "localId": "module-flarewatch",
-          "name": "Native module: Flarewatch",
+          "name": "Native module: TorchSight",
           "kind": "page",
           "status": "partial",
           "summary": "Six nights of bundled FIRMS VIIRS data with persistent-flare rule and in-browser SHA-256 check against anchored digests (RESEARCH); no live Solana read.",
@@ -8553,13 +8553,13 @@
     },
     {
       "id": "native-module-gridproof",
-      "name": "Native module: GridProof",
+      "name": "Native module: WattCert",
       "implementations": [
         {
           "projectId": "climate-chain",
           "projectName": "Climate Chain",
           "localId": "module-gridproof",
-          "name": "Native module: GridProof",
+          "name": "Native module: WattCert",
           "kind": "page",
           "status": "demo",
           "summary": "Plausibility checks, one-certificate-per-device-hour minting and hourly retirement over a synthetic 48 h series (DEMO).",
@@ -8595,13 +8595,13 @@
     },
     {
       "id": "native-module-hourmatch",
-      "name": "Native module: HourMatch",
+      "name": "Native module: HourSync",
       "implementations": [
         {
           "projectId": "climate-chain",
           "projectName": "Climate Chain",
           "localId": "module-hourmatch",
-          "name": "Native module: HourMatch",
+          "name": "Native module: HourSync",
           "kind": "page",
           "status": "demo",
           "summary": "Hourly certificate ledger, green-claim checker and rule parser over fictional companies and Taipower week data (DEMO).",
@@ -8616,13 +8616,13 @@
     },
     {
       "id": "native-module-junksnap",
-      "name": "Native module: JunkSnap",
+      "name": "Native module: DumpWatch",
       "implementations": [
         {
           "projectId": "climate-chain",
           "projectName": "Climate Chain",
           "localId": "module-junksnap",
-          "name": "Native module: JunkSnap",
+          "name": "Native module: DumpWatch",
           "kind": "page",
           "status": "demo",
           "summary": "10-backer verification and cited-letter checks over bundled site and letter-rule fixtures (SIMULATED), recorded to the ledger.",
@@ -8637,13 +8637,13 @@
     },
     {
       "id": "native-module-plotlock",
-      "name": "Native module: PlotLock",
+      "name": "Native module: ParcelSeal",
       "implementations": [
         {
           "projectId": "climate-chain",
           "projectName": "Climate Chain",
           "localId": "module-plotlock",
-          "name": "Native module: PlotLock",
+          "name": "Native module: ParcelSeal",
           "kind": "page",
           "status": "demo",
           "summary": "Overlap-reverting plot registry and NoBurn/Burned/Uncertain verdicts from four fixture plots (SIMULATED, no contract call).",
@@ -8658,13 +8658,13 @@
     },
     {
       "id": "native-module-plume",
-      "name": "Native module: PLUME",
+      "name": "Native module: MethaneMend",
       "implementations": [
         {
           "projectId": "climate-chain",
           "projectName": "Climate Chain",
           "localId": "module-plume",
-          "name": "Native module: PLUME",
+          "name": "Native module: MethaneMend",
           "kind": "page",
           "status": "partial",
           "summary": "DBSCAN clustering of Carbon Mapper detections, explainable priority ranking and a simulated repair workflow with SHA-256 receipts (RESEARCH).",
@@ -8700,13 +8700,13 @@
     },
     {
       "id": "native-module-teesri-shikayat",
-      "name": "Native module: Teesri Shikayat",
+      "name": "Native module: TapAlert",
       "implementations": [
         {
           "projectId": "climate-chain",
           "projectName": "Climate Chain",
           "localId": "module-teesri",
-          "name": "Native module: Teesri Shikayat",
+          "name": "Native module: TapAlert",
           "kind": "page",
           "status": "demo",
           "summary": "250 m / 72 h warning-ring and 30 m building rule scenarios (SIMULATED) with live counts from the water feed.",
@@ -8721,13 +8721,13 @@
     },
     {
       "id": "native-module-the-vayu-project",
-      "name": "Native module: The Vayu Project",
+      "name": "Native module: AirPulse",
       "implementations": [
         {
           "projectId": "climate-chain",
           "projectName": "Climate Chain",
           "localId": "module-vayu",
-          "name": "Native module: The Vayu Project",
+          "name": "Native module: AirPulse",
           "kind": "page",
           "status": "partial",
           "summary": "Nearest-monitor selection, staleness rule, 24 h CPCB dial over bundled monitor and room-reading fixtures (RESEARCH) plus the live gateway reading.",
@@ -8977,7 +8977,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "nearby-places-and-bins",
           "name": "Nearby places and nearest-bin evidence",
           "kind": "data",
@@ -9000,7 +9000,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "nearest-clinic",
           "name": "Nearest public hospital in warnings",
           "kind": "data",
@@ -9023,7 +9023,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "funding-project-pages",
           "name": "New project (sponsor) and project view pages",
           "kind": "page",
@@ -9065,7 +9065,7 @@
       "implementations": [
         {
           "projectId": "flarewatch",
-          "projectName": "Flarewatch",
+          "projectName": "TorchSight",
           "localId": "firms-fetch-pipeline",
           "name": "Nightly NASA FIRMS VIIRS fetch (3 satellites)",
           "kind": "worker",
@@ -9088,7 +9088,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "no-bin-zones",
           "name": "No-bin community zones",
           "kind": "ui",
@@ -9110,7 +9110,7 @@
       "implementations": [
         {
           "projectId": "carbontwin",
-          "projectName": "CarbonTwin",
+          "projectName": "UniqueCredit",
           "localId": "contract-and-report-tests",
           "name": "Node contract and report tests",
           "kind": "other",
@@ -9154,7 +9154,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "offline-upload-queue",
           "name": "Offline report and scan queue",
           "kind": "ui",
@@ -9177,7 +9177,7 @@
       "implementations": [
         {
           "projectId": "carbonlens",
-          "projectName": "CarbonLens",
+          "projectName": "CarbonScope",
           "localId": "olofsson-bias-corrected-area",
           "name": "Olofsson-style bias-corrected area with 95% CI",
           "kind": "ml",
@@ -9197,7 +9197,7 @@
       "implementations": [
         {
           "projectId": "carbonlens",
-          "projectName": "CarbonLens",
+          "projectName": "CarbonScope",
           "localId": "anchor-script",
           "name": "Deploy and anchor script",
           "kind": "cli",
@@ -9213,7 +9213,7 @@
         },
         {
           "projectId": "flarewatch",
-          "projectName": "Flarewatch",
+          "projectName": "TorchSight",
           "localId": "anchor-script",
           "name": "anchor.mjs on-chain recorder and tamper check",
           "kind": "worker",
@@ -9260,7 +9260,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "chain-reader-endpoints",
           "name": "On-chain read endpoints (projects, stats, activity, config, health)",
           "kind": "api",
@@ -9284,7 +9284,7 @@
       "implementations": [
         {
           "projectId": "carbonlens",
-          "projectName": "CarbonLens",
+          "projectName": "CarbonScope",
           "localId": "report-hash-check",
           "name": "On-chain report hash check (checkReport)",
           "kind": "contract",
@@ -9304,7 +9304,7 @@
       "implementations": [
         {
           "projectId": "carbontwin",
-          "projectName": "CarbonTwin",
+          "projectName": "UniqueCredit",
           "localId": "report-anchor-verify-onchain",
           "name": "On-chain report root anchoring and Merkle verification",
           "kind": "contract",
@@ -9326,7 +9326,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "in-browser-yolo",
           "name": "On-phone YOLO detector in a WASM worker",
           "kind": "ml",
@@ -9349,7 +9349,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "onboarding-i18n-theme",
           "name": "Onboarding cards, Hindi/English, light/dark themes",
           "kind": "ui",
@@ -9372,7 +9372,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "onboarding-drawer",
           "name": "Onboarding screens and side drawer",
           "kind": "ui",
@@ -9394,7 +9394,7 @@
       "implementations": [
         {
           "projectId": "plotlock",
-          "projectName": "PlotLock",
+          "projectName": "ParcelSeal",
           "localId": "plotlock-one-claim-per-plot-season",
           "name": "One claim per (plot, season)",
           "kind": "contract",
@@ -9434,7 +9434,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "one-health-insight-card",
           "name": "One Health Insight card",
           "kind": "ml",
@@ -9456,7 +9456,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "incident-transaction",
           "name": "One incident per report via DynamoDB transaction",
           "kind": "data",
@@ -9501,7 +9501,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "household-enrolment",
           "name": "One-tap join: /start, location, consent, delete on decline",
           "kind": "bot",
@@ -9525,7 +9525,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "onnx-model-store",
           "name": "ONNX model loading with pinned SHA-256",
           "kind": "ml",
@@ -9548,7 +9548,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "external-data-fetchers",
           "name": "Open-Meteo and UK Carbon Intensity API fetchers with disk cache",
           "kind": "integration",
@@ -9572,7 +9572,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "data-provider-clients",
           "name": "OpenAQ, Open-Meteo, MET Norway and NASA FIRMS clients",
           "kind": "integration",
@@ -9594,7 +9594,7 @@
       "implementations": [
         {
           "projectId": "flarewatch",
-          "projectName": "Flarewatch",
+          "projectName": "TorchSight",
           "localId": "places-reverse-geocode",
           "name": "OpenStreetMap Nominatim place naming",
           "kind": "integration",
@@ -9616,7 +9616,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "metered-consumption-record",
           "name": "Operator-written metered consumption with no-regression correction",
           "kind": "contract",
@@ -9636,7 +9636,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "accounts-cognito-sync",
           "name": "Optional accounts with Cognito and saved-profile sync",
           "kind": "integration",
@@ -9658,7 +9658,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "llm-narrative-grounding",
           "name": "Optional Anthropic narrative with grounding check",
           "kind": "ml",
@@ -9680,7 +9680,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "api-bearer-token-auth",
           "name": "Optional bearer-token auth and CORS",
           "kind": "api",
@@ -9702,7 +9702,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "ipfs-pinning-optional",
           "name": "Optional Pinata IPFS pinning",
           "kind": "integration",
@@ -9723,7 +9723,7 @@
       "implementations": [
         {
           "projectId": "carbonlens",
-          "projectName": "CarbonLens",
+          "projectName": "CarbonScope",
           "localId": "polygon-amoy-config",
           "name": "Optional Polygon Amoy testnet deployment config",
           "kind": "integration",
@@ -9770,7 +9770,7 @@
       "implementations": [
         {
           "projectId": "plotlock",
-          "projectName": "PlotLock",
+          "projectName": "ParcelSeal",
           "localId": "plotlock-oracle-signing",
           "name": "Oracle signing module (struct hash, digest, sign, recover)",
           "kind": "integration",
@@ -9792,7 +9792,7 @@
       "implementations": [
         {
           "projectId": "plotlock",
-          "projectName": "PlotLock",
+          "projectName": "ParcelSeal",
           "localId": "plotlock-oracle-signature-verification",
           "name": "Oracle-signed verdict verification on-chain (EIP-191, nonce, deadline, chain and contract binding)",
           "kind": "contract",
@@ -9814,7 +9814,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "detector-overlapping-claims",
           "name": "Overlapping land claims detector",
           "kind": "worker",
@@ -9835,7 +9835,7 @@
       "implementations": [
         {
           "projectId": "plotlock",
-          "projectName": "PlotLock",
+          "projectName": "ParcelSeal",
           "localId": "plotlock-oracle-rotation",
           "name": "Owner-only oracle key rotation",
           "kind": "contract",
@@ -9943,7 +9943,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "jspdf-export",
           "name": "PDF data export",
           "kind": "other",
@@ -10005,7 +10005,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "persona-jwt-auth",
           "name": "Persona-based demo authentication with roles",
           "kind": "api",
@@ -10027,7 +10027,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "profile-and-public-profiles",
           "name": "Personal impact profile, edit, avatar/cover upload, user profiles",
           "kind": "page",
@@ -10048,7 +10048,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "phase2-discrepancy-models",
           "name": "Phase 2 ElasticNet and shallow gradient-boosting models",
           "kind": "ml",
@@ -10069,7 +10069,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "phase3-artifact-generator",
           "name": "Phase 3 artifact generator",
           "kind": "cli",
@@ -10091,7 +10091,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "stress-engine",
           "name": "Phase 3 red-team stress engine",
           "kind": "ml",
@@ -10139,7 +10139,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "photo-evidence-upload",
           "name": "Photo attachment on observations, reports, sites and proof",
           "kind": "ui",
@@ -10161,7 +10161,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "photo-flags",
           "name": "Photo reports (flags) with warn/hide thresholds",
           "kind": "api",
@@ -10208,7 +10208,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "physics-expected-output",
           "name": "Physics model of plausible output (solar PR/temperature derate, wind power curve)",
           "kind": "ml",
@@ -10230,7 +10230,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "place-today-detail",
           "name": "Place detail (Today) screen",
           "kind": "page",
@@ -10274,7 +10274,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "keyword-reader",
           "name": "Plain-code Hindi/Hinglish keyword reader",
           "kind": "ml",
@@ -10297,7 +10297,7 @@
       "implementations": [
         {
           "projectId": "plotlock",
-          "projectName": "PlotLock",
+          "projectName": "ParcelSeal",
           "localId": "plotlock-onchain-record-panel",
           "name": "Plot 1 on-chain record panel with explorer links",
           "kind": "ui",
@@ -10314,13 +10314,13 @@
     },
     {
       "id": "plotlock-registerplot-h3-cell-registry-that-reverts-on-overlap",
-      "name": "PlotLock.registerPlot: H3 cell registry that reverts on overlap",
+      "name": "ParcelSeal.registerPlot: H3 cell registry that reverts on overlap",
       "implementations": [
         {
           "projectId": "plotlock",
-          "projectName": "PlotLock",
+          "projectName": "ParcelSeal",
           "localId": "plotlock-contract-h3-registry",
-          "name": "PlotLock.registerPlot: H3 cell registry that reverts on overlap",
+          "name": "ParcelSeal.registerPlot: H3 cell registry that reverts on overlap",
           "kind": "contract",
           "status": "implemented",
           "summary": "Registers a plot for a season as an array of uint64 H3 cell ids. It marks (season,cell) keys as taken, reverts CellAlreadyTaken on any overlap, stores cellsHash and cellCount, and assigns an incrementing plotId. The contract does not itself compute H3 and trusts the caller-supplied cell ids.",
@@ -10361,7 +10361,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "gamification",
           "name": "Points, levels, 12 badges and streaks",
           "kind": "ui",
@@ -10404,7 +10404,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "geometry-grid-rasterisation",
           "name": "Polygon validation and grid-cell rasterisation",
           "kind": "api",
@@ -10426,7 +10426,7 @@
       "implementations": [
         {
           "projectId": "climateproof",
-          "projectName": "ClimateProof AI",
+          "projectName": "ClaimGuard AI",
           "localId": "analyze-csv-endpoint",
           "name": "POST /analyze-csv",
           "kind": "api",
@@ -10512,7 +10512,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "http-api-ask-ratelimited",
           "name": "POST /api/ask with per-IP and daily rate limit",
           "kind": "api",
@@ -10533,7 +10533,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "http-api-decision-post",
           "name": "POST /api/cases/{id}/decision",
           "kind": "api",
@@ -10639,7 +10639,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "http-api-reset-demo",
           "name": "POST /api/reset demo reset",
           "kind": "api",
@@ -10679,7 +10679,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "verify-api",
           "name": "POST /api/verify verifier pipeline",
           "kind": "api",
@@ -10701,7 +10701,7 @@
       "implementations": [
         {
           "projectId": "climateproof",
-          "projectName": "ClimateProof AI",
+          "projectName": "ClaimGuard AI",
           "localId": "integrity-report-endpoints",
           "name": "POST /integrity-report and /integrity-report/download",
           "kind": "api",
@@ -10723,7 +10723,7 @@
       "implementations": [
         {
           "projectId": "climateproof",
-          "projectName": "ClimateProof AI",
+          "projectName": "ClaimGuard AI",
           "localId": "verify-csv-endpoint",
           "name": "POST /verify-csv (hash match)",
           "kind": "api",
@@ -10744,7 +10744,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "alembic-postgis-schema",
           "name": "PostgreSQL/PostGIS schema and migrations",
           "kind": "data",
@@ -10766,7 +10766,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "bundled-web-build",
           "name": "Prebuilt Flutter web bundle (web_app)",
           "kind": "other",
@@ -10807,7 +10807,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "report-submit-api",
           "name": "Presigned upload and report submission API",
           "kind": "api",
@@ -10830,7 +10830,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "printable-report",
           "name": "Printable one-page report (browser print to PDF)",
           "kind": "ui",
@@ -10916,7 +10916,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "ui-project-page-retire-transfer",
           "name": "Project page retire and transfer actions",
           "kind": "page",
@@ -10984,7 +10984,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "matched-bps-and-claim-anchor",
           "name": "Public matchedBps read and anchorClaim",
           "kind": "contract",
@@ -11026,7 +11026,7 @@
       "implementations": [
         {
           "projectId": "climateproof",
-          "projectName": "ClimateProof AI",
+          "projectName": "ClaimGuard AI",
           "localId": "api-tests",
           "name": "pytest API test suite",
           "kind": "other",
@@ -11048,7 +11048,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "test-suite",
           "name": "Pytest suite (about 256 test functions)",
           "kind": "other",
@@ -11070,7 +11070,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "tests-eval-ci",
           "name": "Pytest, Playwright e2e, API journey script, benchmark and CI",
           "kind": "other",
@@ -11093,7 +11093,7 @@
       "implementations": [
         {
           "projectId": "plotlock",
-          "projectName": "PlotLock",
+          "projectName": "ParcelSeal",
           "localId": "plotlock-oracle-tests",
           "name": "Python oracle pytest suite",
           "kind": "other",
@@ -11114,7 +11114,7 @@
       "implementations": [
         {
           "projectId": "carbontwin",
-          "projectName": "CarbonTwin",
+          "projectName": "UniqueCredit",
           "localId": "python-pipeline-tests",
           "name": "Python pipeline unit tests",
           "kind": "other",
@@ -11135,7 +11135,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "quarantine-and-auditor-resolution",
           "name": "Quarantine of flagged readings and auditor release/reject",
           "kind": "contract",
@@ -11158,7 +11158,7 @@
       "implementations": [
         {
           "projectId": "carbonlens",
-          "projectName": "CarbonLens",
+          "projectName": "CarbonScope",
           "localId": "random-forest-forest-classifier",
           "name": "Random-forest forest/non-forest classifier with 3x3 majority filter",
           "kind": "ml",
@@ -11179,7 +11179,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "re100-plant-age-rule",
           "name": "RE100 15-year plant-age rule with 15% allowance",
           "kind": "other",
@@ -11201,7 +11201,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "react-router-app",
           "name": "React app shell with two routes and 404",
           "kind": "ui",
@@ -11222,7 +11222,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "api-readonly-cors-traversal-guard",
           "name": "Read-only API with GET-only dev CORS and index-allow-list path safety",
           "kind": "api",
@@ -11244,7 +11244,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "run-cypher-readonly",
           "name": "Read-only Cypher escape hatch",
           "kind": "api",
@@ -11265,7 +11265,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "static-snapshot-pages-build",
           "name": "Read-only GitHub Pages snapshot build",
           "kind": "other",
@@ -11287,7 +11287,7 @@
       "implementations": [
         {
           "projectId": "plotlock",
-          "projectName": "PlotLock",
+          "projectName": "ParcelSeal",
           "localId": "plotlock-docs",
           "name": "README and oracle README with provenance, honesty notes and limitations",
           "kind": "doc",
@@ -11308,7 +11308,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "hourmatch-readme-docs",
           "name": "README documentation of problem, trust model, gas measurements and Taiwan context",
           "kind": "doc",
@@ -11328,7 +11328,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "recorded-days-week",
           "name": "Recorded days (/#/week, seven real past days)",
           "kind": "page",
@@ -11351,7 +11351,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "stress-reference-area",
           "name": "Reference-area selection sensitivity",
           "kind": "ml",
@@ -11371,7 +11371,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "registry-contract-mint-verified",
           "name": "Registry contract mintVerified with per-cell, per-vintage double-claim guard",
           "kind": "contract",
@@ -11393,7 +11393,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "detector-registry-duplicates",
           "name": "Registry duplicate detector",
           "kind": "worker",
@@ -11413,7 +11413,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "ui-registry-page",
           "name": "Registry page (map, ledger totals, projects table, activity feed)",
           "kind": "page",
@@ -11497,7 +11497,7 @@
       "implementations": [
         {
           "projectId": "climateproof",
-          "projectName": "ClimateProof AI",
+          "projectName": "ClaimGuard AI",
           "localId": "render-deploy-config",
           "name": "Render deployment config",
           "kind": "other",
@@ -11517,7 +11517,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "repair-workflow-service",
           "name": "Repair project service and state machine",
           "kind": "api",
@@ -11539,7 +11539,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "repair-escrow-contract",
           "name": "RepairEscrow Solidity contract (EIP-712 verifier decisions)",
           "kind": "contract",
@@ -11562,7 +11562,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "fire-report",
           "name": "Report a fire from the map",
           "kind": "api",
@@ -11584,7 +11584,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "pollution-concern-report",
           "name": "Report an environmental concern (3-step) and reports list",
           "kind": "ui",
@@ -11630,7 +11630,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "report-status-and-my-reports",
           "name": "Report status and own-report listing",
           "kind": "api",
@@ -11652,7 +11652,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "reporter-confirmation",
           "name": "Reporter confirmation when the judge is unsure",
           "kind": "api",
@@ -11674,7 +11674,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "request-form",
           "name": "Request a demo or monitors form",
           "kind": "api",
@@ -11722,7 +11722,7 @@
       "implementations": [
         {
           "projectId": "climateproof",
-          "projectName": "ClimateProof AI",
+          "projectName": "ClaimGuard AI",
           "localId": "schema-validation",
           "name": "Required-column schema validation",
           "kind": "api",
@@ -11744,7 +11744,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "research-docs",
           "name": "Research design, phase report, API and audit docs",
           "kind": "doc",
@@ -11766,7 +11766,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "resident-controlled-closure",
           "name": "Resident quorum closure and reopen",
           "kind": "worker",
@@ -11794,7 +11794,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "site-notes",
           "name": "Residents' notes with Bedrock moderation and summary",
           "kind": "api",
@@ -11817,7 +11817,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "fastapi-data-routes",
           "name": "REST API: health, meta, personas, observations, incidents, investigations",
           "kind": "api",
@@ -11839,7 +11839,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "fastapi-repair-routes",
           "name": "REST API: repair-projects lifecycle, verification context, ledger/impact, demo tools",
           "kind": "api",
@@ -11861,7 +11861,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "contract-retire-burn",
           "name": "Retire (burn) credits with beneficiary and reason",
           "kind": "contract",
@@ -11881,7 +11881,7 @@
       "implementations": [
         {
           "projectId": "carbontwin",
-          "projectName": "CarbonTwin",
+          "projectName": "UniqueCredit",
           "localId": "over-retirement-guard",
           "name": "Retirement cap",
           "kind": "contract",
@@ -11902,7 +11902,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "location-ward-mla-mp",
           "name": "Reverse geocode and ward/MLA/MP seat lookup",
           "kind": "worker",
@@ -11948,7 +11948,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "contract-revoke-pause-roles",
           "name": "Revoke, pause and role governance",
           "kind": "contract",
@@ -11970,7 +11970,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "verdict-and-walk-advice-rules",
           "name": "Rule-based verdicts, walk advice, US AQI and WHO comparison",
           "kind": "ml",
@@ -11993,7 +11993,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "docs-safety-claims",
           "name": "Safety, claims, cost, as-built and boundary docs",
           "kind": "doc",
@@ -12040,7 +12040,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "scan-frame-worker",
           "name": "Scan frame extraction and GPS interpolation",
           "kind": "worker",
@@ -12063,7 +12063,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "model-extraction-validation",
           "name": "Schema extraction with code validation and grounding",
           "kind": "ml",
@@ -12086,7 +12086,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "school-assembly-tasks",
           "name": "School assembly advice and daily tasks",
           "kind": "ui",
@@ -12133,7 +12133,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "scores-cronjob",
           "name": "Scores CronJob (every 15 minutes)",
           "kind": "worker",
@@ -12156,7 +12156,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "scratch-utility-scripts",
           "name": "Scratch utility files",
           "kind": "other",
@@ -12178,7 +12178,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "global-search",
           "name": "Search sites, stories, users and tags",
           "kind": "ui",
@@ -12221,7 +12221,7 @@
       "implementations": [
         {
           "projectId": "carbonlens",
-          "projectName": "CarbonLens",
+          "projectName": "CarbonScope",
           "localId": "dashboard-builder",
           "name": "Self-contained dashboard build script",
           "kind": "cli",
@@ -12242,7 +12242,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "selfhosted-gemma",
           "name": "Self-hosted Gemma 4 on EC2 via SQS/DynamoDB",
           "kind": "ml",
@@ -12268,7 +12268,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "sepolia-deploy-script",
           "name": "Sepolia deploy and demo-day script with six separate wallets",
           "kind": "cli",
@@ -12290,7 +12290,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "sepolia-deployment-record",
           "name": "Sepolia deployment record",
           "kind": "data",
@@ -12311,7 +12311,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "deployment-records",
           "name": "Sepolia deployment records (current and archived v1)",
           "kind": "data",
@@ -12332,7 +12332,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "sepolia-chain-panel-and-live-read",
           "name": "Sepolia panel with a live matchedBps read compared against the browser ledger",
           "kind": "ui",
@@ -12354,7 +12354,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "verification-policy-checks",
           "name": "Server-side verification policy checks",
           "kind": "ml",
@@ -12376,7 +12376,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "api-health",
           "name": "GET /api/health",
           "kind": "api",
@@ -12404,7 +12404,7 @@
         },
         {
           "projectId": "climateproof",
-          "projectName": "ClimateProof AI",
+          "projectName": "ClaimGuard AI",
           "localId": "health-endpoint",
           "name": "GET /health",
           "kind": "api",
@@ -12419,7 +12419,7 @@
         },
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "health-endpoint",
           "name": "Health probe",
           "kind": "api",
@@ -12454,7 +12454,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "explainable-priority-score",
           "name": "Seven-factor explainable priority scoring",
           "kind": "ml",
@@ -12496,7 +12496,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "share-previews",
           "name": "Share link previews (Open Graph HTML)",
           "kind": "api",
@@ -12518,7 +12518,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "native-share",
           "name": "Share via Web Share API",
           "kind": "ui",
@@ -12563,7 +12563,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "shared-retirement-state",
           "name": "Shared retirement state across issuers",
           "kind": "contract",
@@ -12585,7 +12585,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "operator-scripts",
           "name": "Shell and Python ops scripts (demo.sh, deploy-sepolia.sh, serve-sepolia.sh, verify-sepolia.sh, new-wallet.py)",
           "kind": "cli",
@@ -12609,7 +12609,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "shiftreward-gshift-token",
           "name": "ShiftReward (GSHIFT) ERC-20 incentive and surplus-hour bonus",
           "kind": "contract",
@@ -12633,7 +12633,7 @@
       "implementations": [
         {
           "projectId": "carbontwin",
-          "projectName": "CarbonTwin",
+          "projectName": "UniqueCredit",
           "localId": "shipped-data-artifacts",
           "name": "Shipped screening and model output data",
           "kind": "data",
@@ -12655,7 +12655,7 @@
       "implementations": [
         {
           "projectId": "plotlock",
-          "projectName": "PlotLock",
+          "projectName": "ParcelSeal",
           "localId": "plotlock-sign-claim-cli",
           "name": "sign_claim.py CLI",
           "kind": "cli",
@@ -12675,7 +12675,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "demo-scenario",
           "name": "Simulated homes and demo scenario CLI",
           "kind": "cli",
@@ -12700,7 +12700,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "simulated-satellite-provider",
           "name": "Simulated satellite provider (default)",
           "kind": "data",
@@ -12722,7 +12722,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "building-tank-advice",
           "name": "Single-building case: tank advice, no area alarm",
           "kind": "worker",
@@ -12789,7 +12789,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "observation-health-stats-charts",
           "name": "Site health scoring and Chart.js trends",
           "kind": "ui",
@@ -12811,7 +12811,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "ten-person-site-verification",
           "name": "Site merge and verification by 10 people",
           "kind": "worker",
@@ -12834,7 +12834,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "site-and-area-pages",
           "name": "Site panel, area pages, places, activity and account sheets",
           "kind": "page",
@@ -12858,7 +12858,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "sites-read-api",
           "name": "Sites map and detail API",
           "kind": "api",
@@ -12905,7 +12905,7 @@
       "implementations": [
         {
           "projectId": "carbontwin",
-          "projectName": "CarbonTwin",
+          "projectName": "UniqueCredit",
           "localId": "double-issuance-guard",
           "name": "Smart-contract double-issuance guard",
           "kind": "contract",
@@ -12927,7 +12927,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "snap-and-scan-capture",
           "name": "Snap photo and Scan video capture",
           "kind": "ui",
@@ -12949,7 +12949,7 @@
       "implementations": [
         {
           "projectId": "flarewatch",
-          "projectName": "Flarewatch",
+          "projectName": "TorchSight",
           "localId": "solana-anchor-program",
           "name": "Solana Anchor program (initialize, record_day)",
           "kind": "contract",
@@ -12973,7 +12973,7 @@
       "implementations": [
         {
           "projectId": "carbontwin",
-          "projectName": "CarbonTwin",
+          "projectName": "UniqueCredit",
           "localId": "contract-compile",
           "name": "solc-js compile pipeline",
           "kind": "cli",
@@ -13038,7 +13038,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "spa-router-bootstrap",
           "name": "SPA router, global state and init",
           "kind": "other",
@@ -13061,7 +13061,7 @@
       "implementations": [
         {
           "projectId": "carbonlens",
-          "projectName": "CarbonLens",
+          "projectName": "CarbonScope",
           "localId": "spectral-features",
           "name": "Spectral index feature extraction (NDVI, NDWI, NBR, EVI)",
           "kind": "ml",
@@ -13082,7 +13082,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "flutter-splash-welcome",
           "name": "Splash and welcome screens",
           "kind": "ui",
@@ -13104,7 +13104,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "speech-polly-and-browser",
           "name": "Spoken answers (Polly Kajal, browser TTS, speech recognition)",
           "kind": "api",
@@ -13173,7 +13173,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "worker-pipeline",
           "name": "SQS-driven report worker pipeline",
           "kind": "worker",
@@ -13244,7 +13244,7 @@
       "implementations": [
         {
           "projectId": "flarewatch",
-          "projectName": "Flarewatch",
+          "projectName": "TorchSight",
           "localId": "web-map-and-tables",
           "name": "Static web app: Leaflet map, stats, flare table, state filter, nightly bars",
           "kind": "page",
@@ -13269,7 +13269,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "step-functions-case",
           "name": "Step Functions case workflow with task tokens",
           "kind": "worker",
@@ -13294,7 +13294,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "homepage-story",
           "name": "Story homepage with live summary",
           "kind": "page",
@@ -13316,7 +13316,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "strands-case-agent",
           "name": "Strands case agent with 6-call budget and template fallback",
           "kind": "ml",
@@ -13414,7 +13414,7 @@
       "implementations": [
         {
           "projectId": "climateproof",
-          "projectName": "ClimateProof AI",
+          "projectName": "ClaimGuard AI",
           "localId": "streamlit-dashboard",
           "name": "Streamlit dashboard",
           "kind": "ui",
@@ -13438,7 +13438,7 @@
       "implementations": [
         {
           "projectId": "climateproof",
-          "projectName": "ClimateProof AI",
+          "projectName": "ClaimGuard AI",
           "localId": "streamlit-default-url-mismatch",
           "name": "Streamlit default backend URL points at a hosted Render URL",
           "kind": "other",
@@ -13459,7 +13459,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "suggest-challenge",
           "name": "Suggest a challenge",
           "kind": "ui",
@@ -13524,7 +13524,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "synthetic-ledger-generator",
           "name": "Synthetic carbon ledger with planted frauds and decoys",
           "kind": "data",
@@ -13545,7 +13545,7 @@
       "implementations": [
         {
           "projectId": "climateproof",
-          "projectName": "ClimateProof AI",
+          "projectName": "ClaimGuard AI",
           "localId": "sample-dataset",
           "name": "Synthetic sample CSV",
           "kind": "data",
@@ -13589,7 +13589,7 @@
       "implementations": [
         {
           "projectId": "carbonlens",
-          "projectName": "CarbonLens",
+          "projectName": "CarbonScope",
           "localId": "scene-simulator",
           "name": "Synthetic Sentinel-2-style scene generator",
           "kind": "ml",
@@ -13610,7 +13610,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "taipower-fetcher",
           "name": "Taipower open-data fetcher (10-minute snapshots to hourly MWh by fuel)",
           "kind": "integration",
@@ -13631,12 +13631,12 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "taiwan-context-and-trust-model",
           "name": "Taiwan T-REC glossary, comparison table and trust-model section",
           "kind": "page",
           "status": "implemented",
-          "summary": "A bilingual glossary, a T-REC vs HourMatch comparison, an RE100 rule explanation and a 'why a blockchain' panel.",
+          "summary": "A bilingual glossary, a T-REC vs HourSync comparison, an RE100 rule explanation and a 'why a blockchain' panel.",
           "evidence": [
             "hourmatch-master/public/app.js:451",
             "hourmatch-master/public/index.html:207"
@@ -13657,7 +13657,7 @@
           "name": "Task climate.connector_snapshot",
           "kind": "worker",
           "status": "implemented",
-          "summary": "Worker-only read of ClearSky aggregate stats or a capped Vayu city PM2.5 sample through the connector registry with privacy-limited output.",
+          "summary": "Worker-only read of AshAlert aggregate stats or a capped AirPulse city PM2.5 sample through the connector registry with privacy-limited output.",
           "evidence": [
             "gateway/mission-task-executor.mjs:7",
             "gateway/mission-engine.mjs:49",
@@ -13736,7 +13736,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "telegram-webhook",
           "name": "Telegram bot webhook with secret-token check",
           "kind": "bot",
@@ -13753,7 +13753,7 @@
         },
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "telegram-webhook",
           "name": "Telegram bot webhook and chat linking",
           "kind": "bot",
@@ -13775,7 +13775,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "assistant-outing-logging",
           "name": "Tell assistant about an outing (e.g. walked 40 minutes)",
           "kind": "ui",
@@ -13796,7 +13796,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "hourmatch-tests",
           "name": "Test suites (node:test and Hardhat)",
           "kind": "other",
@@ -13817,7 +13817,7 @@
       "implementations": [
         {
           "projectId": "carbontwin",
-          "projectName": "CarbonTwin",
+          "projectName": "UniqueCredit",
           "localId": "tfidf-cross-registry-screen",
           "name": "TF-IDF cross-registry candidate screening",
           "kind": "ml",
@@ -13839,7 +13839,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "tfidf-knowledge-retrieval",
           "name": "TF-IDF retrieval over curated remediation knowledge base",
           "kind": "ml",
@@ -13860,7 +13860,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "theme-toast-skeleton",
           "name": "Theme toggle, toasts, skeleton loaders",
           "kind": "ui",
@@ -13882,7 +13882,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "button-fallback",
           "name": "Three-button fallback questions",
           "kind": "bot",
@@ -13904,7 +13904,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "alerts-grap-stubble-weather",
           "name": "Three-day alerts (GRAP band, smog, stubble fires, rain, wind)",
           "kind": "ml",
@@ -13926,7 +13926,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "flutter-review-console-wide",
           "name": "Three-pane review console for wide windows",
           "kind": "ui",
@@ -13949,7 +13949,7 @@
       "implementations": [
         {
           "projectId": "ecograph",
-          "projectName": "EcoGraph",
+          "projectName": "ImpactGraph",
           "localId": "detector-trading-loops",
           "name": "Trading loop (wash trade) detector",
           "kind": "worker",
@@ -13970,7 +13970,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "transfer-once-rule",
           "name": "Transfer-once rule",
           "kind": "contract",
@@ -13991,7 +13991,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "ledger-page",
           "name": "Transparency ledger (real vs workflow vs simulated totals)",
           "kind": "page",
@@ -14012,7 +14012,7 @@
       "implementations": [
         {
           "projectId": "carbontwin",
-          "projectName": "CarbonTwin",
+          "projectName": "UniqueCredit",
           "localId": "screen-prescore",
           "name": "Transparent pre-score and capacity conflict check",
           "kind": "ml",
@@ -14033,7 +14033,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "tripwire-rule",
           "name": "Tripwire: 3 homes within 250 m in 72 h",
           "kind": "worker",
@@ -14080,7 +14080,7 @@
       "implementations": [
         {
           "projectId": "plotlock",
-          "projectName": "PlotLock",
+          "projectName": "ParcelSeal",
           "localId": "plotlock-verdict-rule",
           "name": "Two-signal verdict rule (FIRMS + Sentinel-2 dNBR)",
           "kind": "ml",
@@ -14102,7 +14102,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "frontend-api-client",
           "name": "Typed axios API client",
           "kind": "integration",
@@ -14164,7 +14164,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "air-unit-switch-cigarettes",
           "name": "Unit display options incl. cigarette equivalent",
           "kind": "ui",
@@ -14207,7 +14207,7 @@
       "implementations": [
         {
           "projectId": "carbonlens",
-          "projectName": "CarbonLens",
+          "projectName": "CarbonScope",
           "localId": "offline-solc-override",
           "name": "USE_LOCAL_SOLC offline compiler override",
           "kind": "other",
@@ -14268,7 +14268,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "ui-report-components",
           "name": "Verification report, evidence ribbon, checks and map components",
           "kind": "ui",
@@ -14291,7 +14291,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "verifier-key-generator",
           "name": "Verifier key generator script",
           "kind": "cli",
@@ -14311,7 +14311,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "verification-workbench",
           "name": "Verifier workbench",
           "kind": "page",
@@ -14332,7 +14332,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "verify-chain-script",
           "name": "verify_chain.mjs receipt and matchedBps verifier",
           "kind": "cli",
@@ -14353,7 +14353,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "ui-verify-page",
           "name": "Verify-a-project page with map polygon drawing and mint",
           "kind": "page",
@@ -14375,7 +14375,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "scan-video-api",
           "name": "Video Scan upload and status API",
           "kind": "api",
@@ -14448,7 +14448,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "volunteer-approval",
           "name": "Volunteer brief and approval card",
           "kind": "bot",
@@ -14470,7 +14470,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "walk-window-timeline",
           "name": "Walk window finder and 3-day timeline",
           "kind": "api",
@@ -14492,7 +14492,7 @@
       "implementations": [
         {
           "projectId": "carbontrace",
-          "projectName": "CarbonTrace",
+          "projectName": "TonneTrail",
           "localId": "wallet-modes-and-error-mapping",
           "name": "Wallet picker (demo wallets and browser wallet) with friendly revert messages",
           "kind": "ui",
@@ -14515,7 +14515,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "wallet-bound-company-retirement",
           "name": "Wallet-bound company retirement, same-hour only",
           "kind": "contract",
@@ -14536,7 +14536,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "ward-crawler",
           "name": "Ward data crawler (Bedrock extraction, hourly CronJob)",
           "kind": "worker",
@@ -14556,13 +14556,13 @@
     },
     {
       "id": "waste-view-junksnap-signal",
-      "name": "Waste view (JunkSnap signal)",
+      "name": "Waste view (DumpWatch signal)",
       "implementations": [
         {
           "projectId": "climate-chain",
           "projectName": "Climate Chain",
           "localId": "ui-waste-view",
-          "name": "Waste view (JunkSnap signal)",
+          "name": "Waste view (DumpWatch signal)",
           "kind": "page",
           "status": "implemented",
           "summary": "Filterable/sortable waste site list with backer progress, scorecard, export and per-site link into Cascade Review.",
@@ -14576,13 +14576,13 @@
     },
     {
       "id": "water-view-teesri-signal",
-      "name": "Water view (Teesri signal)",
+      "name": "Water view (TapAlert signal)",
       "implementations": [
         {
           "projectId": "climate-chain",
           "projectName": "Climate Chain",
           "localId": "ui-water-view",
-          "name": "Water view (Teesri signal)",
+          "name": "Water view (TapAlert signal)",
           "kind": "page",
           "status": "implemented",
           "summary": "Aggregate ring counts, three-report threshold state, status filter wall and export.",
@@ -14600,7 +14600,7 @@
       "implementations": [
         {
           "projectId": "aquaquest",
-          "projectName": "AquaQuest",
+          "projectName": "BlueTrail",
           "localId": "sites-directory-detail",
           "name": "Waterbody directory and site detail tabs",
           "kind": "page",
@@ -14622,12 +14622,12 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "web-bluetooth-unit-connection",
           "name": "Web Bluetooth connection and packet protocol",
           "kind": "integration",
           "status": "implemented",
-          "summary": "Browser connects to the Vayu- unit, parses packets and feeds readings and measured hours into the app.",
+          "summary": "Browser connects to the AirPulse- unit, parses packets and feeds readings and measured hours into the app.",
           "evidence": [
             "apps/web/src/devices/ble.ts:67",
             "apps/web/src/devices/unitProtocol.ts:58",
@@ -14644,7 +14644,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "web-map-app",
           "name": "Web map app (React + MapLibre)",
           "kind": "ui",
@@ -14667,7 +14667,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "blockchain-client-and-devchain",
           "name": "web3 anchor client, deterministic eth_tester dev chain and verifier service",
           "kind": "integration",
@@ -14689,7 +14689,7 @@
       "implementations": [
         {
           "projectId": "gridproof",
-          "projectName": "GridProof",
+          "projectName": "WattCert",
           "localId": "chain-client",
           "name": "Web3 chain client (any EVM, local Hardhat or Sepolia)",
           "kind": "integration",
@@ -14712,7 +14712,7 @@
       "implementations": [
         {
           "projectId": "plume",
-          "projectName": "PLUME",
+          "projectName": "MethaneMend",
           "localId": "chain-client-eip712-signing",
           "name": "web3.py chain client and persona EIP-712 signing",
           "kind": "integration",
@@ -14827,7 +14827,7 @@
       "implementations": [
         {
           "projectId": "junksnap",
-          "projectName": "JunkSnap",
+          "projectName": "DumpWatch",
           "localId": "report-withdrawal",
           "name": "Withdraw own reports from an unverified site",
           "kind": "api",
@@ -14870,7 +14870,7 @@
       "implementations": [
         {
           "projectId": "teesri",
-          "projectName": "Teesri Shikayat",
+          "projectName": "TapAlert",
           "localId": "docs-writeup-blog",
           "name": "Writeup, blog and state log",
           "kind": "doc",
@@ -14892,7 +14892,7 @@
       "implementations": [
         {
           "projectId": "hourmatch",
-          "projectName": "HourMatch",
+          "projectName": "HourSync",
           "localId": "csv-upload-checker",
           "name": "Your own data: CSV upload to the same ledger and checker (browser-only)",
           "kind": "ui",
@@ -14913,7 +14913,7 @@
       "implementations": [
         {
           "projectId": "vayu",
-          "projectName": "The Vayu Project",
+          "projectName": "AirPulse",
           "localId": "your-room-screen",
           "name": "Your room screen (indoor vs outdoor, purifier/window test)",
           "kind": "page",
@@ -14935,7 +14935,7 @@
       "implementations": [
         {
           "projectId": "carbonshield",
-          "projectName": "CarbonShield",
+          "projectName": "SinkGuard",
           "localId": "benchmark-and-data-scripts",
           "name": "Zenodo download, 44-project benchmark generation, project-area derivation",
           "kind": "cli",
@@ -15149,7 +15149,7 @@
         "teesri: Telegram and voice-note intake is described only (frontend/src/modules/teesri/module.tsx:184)",
         "vayu: ESP32-S3 sensor is a bundled fixture view, not a device integration",
         "grounded: 245-policy search, holdout validation and investment search are not implemented, only noted at frontend/src/modules/grounded/module.tsx:166",
-        "carbonlens, carbontrace, gridproof, hourmatch, plotlock, carbontwin: on-chain contract writes and EIP-712 attestations are not performed centrally",
+        "carbonlens, TonneTrail, WattCert, HourSync, ParcelSeal, UniqueCredit: on-chain contract writes and EIP-712 attestations are not performed centrally",
         "registry/features.json (referenced by gateway/knowledge-index.mjs:208) does not exist"
       ],
       "limits": [
@@ -15165,7 +15165,7 @@
     },
     {
       "id": "junksnap",
-      "name": "JunkSnap",
+      "name": "DumpWatch",
       "folder": "JunkSnap-main",
       "tracks": [
         "sustainable-supply-chains",
@@ -15257,7 +15257,7 @@
     },
     {
       "id": "clearsky",
-      "name": "clearsky",
+      "name": "AshAlert",
       "folder": "clearsky-main",
       "tracks": [
         "sustainable-supply-chains",
@@ -15340,7 +15340,7 @@
     },
     {
       "id": "teesri",
-      "name": "Teesri Shikayat",
+      "name": "TapAlert",
       "folder": "teesri-shikayat-main",
       "tracks": [
         "climate-data-environmental-monitoring"
@@ -15411,7 +15411,7 @@
     },
     {
       "id": "vayu",
-      "name": "The Vayu Project",
+      "name": "AirPulse",
       "folder": "the-vayu-project-main",
       "tracks": [
         "climate-data-environmental-monitoring"
@@ -15485,7 +15485,7 @@
     },
     {
       "id": "aquaquest",
-      "name": "AquaQuest",
+      "name": "BlueTrail",
       "folder": "AquaQuest-main",
       "tracks": [
         "climate-data-environmental-monitoring"
@@ -15550,7 +15550,7 @@
     },
     {
       "id": "plume",
-      "name": "PLUME",
+      "name": "MethaneMend",
       "folder": "PLUME-main",
       "tracks": [
         "carbon-markets-emissions-transparency",
@@ -15619,7 +15619,7 @@
     },
     {
       "id": "carbonlens",
-      "name": "CarbonLens",
+      "name": "CarbonScope",
       "folder": "carbonlens-main",
       "tracks": [
         "carbon-markets-emissions-transparency",
@@ -15679,7 +15679,7 @@
     },
     {
       "id": "carbonshield",
-      "name": "CarbonShield",
+      "name": "SinkGuard",
       "folder": "carbonshield-main",
       "tracks": [
         "carbon-markets-emissions-transparency",
@@ -15758,7 +15758,7 @@
     },
     {
       "id": "carbontwin",
-      "name": "CarbonTwin",
+      "name": "UniqueCredit",
       "folder": "carbontwin-main",
       "tracks": [
         "carbon-markets-emissions-transparency"
@@ -15817,7 +15817,7 @@
     },
     {
       "id": "ecograph",
-      "name": "EcoGraph",
+      "name": "ImpactGraph",
       "folder": "ecograph-main",
       "tracks": [
         "carbon-markets-emissions-transparency"
@@ -15894,7 +15894,7 @@
     },
     {
       "id": "grounded",
-      "name": "grounded",
+      "name": "Resilia",
       "folder": "grounded-main",
       "tracks": [
         "renewable-energy-energy-trading"
@@ -15980,7 +15980,7 @@
     },
     {
       "id": "rantai",
-      "name": "rantai-3c",
+      "name": "SupplyTrail",
       "folder": "rantai-3c-master",
       "tracks": [
         "carbon-markets-emissions-transparency"
@@ -16063,7 +16063,7 @@
     },
     {
       "id": "carbontrace",
-      "name": "CarbonTrace",
+      "name": "TonneTrail",
       "folder": "CarbonTrace-main",
       "tracks": [
         "carbon-markets-emissions-transparency",
@@ -16132,7 +16132,7 @@
     },
     {
       "id": "climateproof",
-      "name": "ClimateProof AI",
+      "name": "ClaimGuard AI",
       "folder": "ClimateProof-AI-main",
       "tracks": [
         "climate-data-environmental-monitoring"
@@ -16182,7 +16182,7 @@
     },
     {
       "id": "flarewatch",
-      "name": "Flarewatch",
+      "name": "TorchSight",
       "folder": "flarewatch-main",
       "tracks": [
         "carbon-markets-emissions-transparency",
@@ -16236,7 +16236,7 @@
     },
     {
       "id": "gridproof",
-      "name": "GridProof",
+      "name": "WattCert",
       "folder": "gridproof-main",
       "tracks": [
         "carbon-markets-emissions-transparency",
@@ -16302,7 +16302,7 @@
     },
     {
       "id": "hourmatch",
-      "name": "HourMatch",
+      "name": "HourSync",
       "folder": "hourmatch-master",
       "tracks": [
         "carbon-markets-emissions-transparency",
@@ -16368,7 +16368,7 @@
     },
     {
       "id": "plotlock",
-      "name": "PlotLock",
+      "name": "ParcelSeal",
       "folder": "plotlock-main",
       "tracks": [
         "climate-data-environmental-monitoring"

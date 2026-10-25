@@ -216,10 +216,10 @@ Deployed on local Hardhat EVM (RPC: `http://127.0.0.1:18545`, Chain ID: `31337`)
 ## 9. Specialist Modules Across the 4 IEEE Tracks
 
 18 native modules are re-implemented in climate-chain/frontend/src/modules from the source projects and run on bundled fixtures (8 SIMULATED, 6 RESEARCH, 4 DEMO). The original project folders are not included in this repository. Source projects:
-- **Carbon Markets**: `carbonshield` (REDD+ additionality), `carbonlens` (Sentinel-2 biomass), `carbontwin` (double-issuance Merkle screening), `ecograph` (FalkorDB credit loops), `CarbonTrace` (spatial parcel retirements).
+- **Carbon Markets**: `carbonshield` (REDD+ additionality), `carbonlens` (Sentinel-2 biomass), `carbontwin` (double-issuance Merkle screening), `ecograph` (FalkorDB credit loops), `TonneTrail` (spatial parcel retirements).
 - **Renewable Energy**: `hourmatch` (24/7 clean power matching), `gridproof` (device-hour certificates), `grounded` (72-hour microgrid resilience lab).
-- **Sustainable Supply Chains**: `clearsky` (Punjab stubble fire prevention & baler routing), `JunkSnap` (civic waste-to-action), `rantai-3c` (corporate Scope 3 ledger).
-- **Environmental Monitoring**: `the-vayu-project` (Delhi continuous air quality), `teesri-shikayat` (water contamination tripwires), `PLUME` (Permian Basin CH₄ plumes), `flarewatch` (VIIRS satellite gas flaring), `AquaQuest` (citizen freshwater science), `ClimateProof-AI` (dataset schema anomaly validator), `plotlock` (stubble plot attestations).
+- **Sustainable Supply Chains**: `clearsky` (Punjab stubble fire prevention & baler routing), `DumpWatch` (civic waste-to-action), `rantai-3c` (corporate Scope 3 ledger).
+- **Environmental Monitoring**: `the-vayu-project` (Delhi continuous air quality), `teesri-shikayat` (water contamination tripwires), `MethaneMend` (Permian Basin CH₄ plumes), `flarewatch` (VIIRS satellite gas flaring), `BlueTrail` (citizen freshwater science), `ClaimGuard-AI` (dataset schema anomaly validator), `plotlock` (stubble plot attestations).
 
 ---
 

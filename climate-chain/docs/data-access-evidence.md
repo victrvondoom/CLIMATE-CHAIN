@@ -10,10 +10,10 @@ The download includes the source health result, overview snapshot, credential st
 
 | Provider or route | Credential required by the shared GET adapter | Evidence and limit |
 |---|---|---|
-| JunkSnap | No | The central adapter makes a public GET for site records. Its legacy passthrough can forward a caller's Authorization header, but the normalized shared read does not require one. |
-| clearsky | No | Public stats GET; source response and health probe are shown separately. |
-| Teesri Shikayat | No for the aggregate read | Public aggregate GET is privacy-filtered. Source write actions that require a token remain outside the central adapter. |
-| The Vayu Project | No | Public read GET; the response provenance distinguishes station, model and simulated data. |
+| DumpWatch | No | The central adapter makes a public GET for site records. Its legacy passthrough can forward a caller's Authorization header, but the normalized shared read does not require one. |
+| AshAlert | No | Public stats GET; source response and health probe are shown separately. |
+| TapAlert | No for the aggregate read | Public aggregate GET is privacy-filtered. Source write actions that require a token remain outside the central adapter. |
+| AirPulse | No | Public read GET; the response provenance distinguishes station, model and simulated data. |
 | OpenAQ v3 | Optional `OPENAQ_API_KEY` | No OpenAQ adapter ships in the gateway. The evidence route reports only whether the variable is present; a present value is unused and unvalidated. |
 | Cesium ion | Optional `VITE_CESIUM_ION_TOKEN` | A browser-visible client token for optional World Terrain only. The UI reports build-time presence, never the token value, and does not claim provider validation. |
 

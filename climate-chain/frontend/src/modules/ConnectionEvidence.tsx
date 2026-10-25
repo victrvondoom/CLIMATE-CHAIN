@@ -8,10 +8,10 @@ import type { WorkspaceView } from '../data/capabilities';
 import './connections.css';
 
 const SOURCE_LABELS: Record<keyof Overview['sources'], string> = {
-  junksnap: 'JunkSnap · Waste',
-  clearsky: 'clearsky · Fire',
-  teesri: 'Teesri Shikayat · Water',
-  vayu: 'The Vayu Project · Air',
+  junksnap: 'DumpWatch · Waste',
+  clearsky: 'AshAlert · Fire',
+  teesri: 'TapAlert · Water',
+  vayu: 'AirPulse · Air',
 };
 
 function formatTime(value?: string | null) {
@@ -105,7 +105,7 @@ export function ConnectionEvidence({ data, services, servicesError, onRefresh, o
             return (
               <article className="connection-source-card" key={name}>
                 <div className="connection-card-heading">
-                  <div><span className="eyebrow">{config?.domain ?? name.toUpperCase()}</span><h4>{SOURCE_LABELS[name]}</h4></div>
+                  <div><span className="eyebrow">{config?.domain ?? (SOURCE_LABELS[name]?.split(' · ')[1] ?? 'Source').toUpperCase()}</span><h4>{SOURCE_LABELS[name]}</h4></div>
                   <span className={`connection-mode ${mode === 'live' ? 'is-live' : mode === 'mock' ? 'is-simulated' : ''}`}>{mode === 'live' ? 'LIVE' : mode === 'mock' ? 'SIMULATED' : 'WAITING'}</span>
                 </div>
                 <p className="connection-auth">{config?.apiKeyRequired ? 'API key required' : 'Shared GET: no API key required'}</p>
@@ -132,7 +132,7 @@ export function ConnectionEvidence({ data, services, servicesError, onRefresh, o
         </div>
         <div className="connection-key-grid">
           <article className="connection-key-card">
-            <div className="connection-card-heading"><div><h4>Shared project APIs</h4><p>JunkSnap, clearsky, Teesri Shikayat, and Vayu</p></div><span className="connection-mode is-live">NO KEY REQUIRED</span></div>
+            <div className="connection-card-heading"><div><h4>Shared project APIs</h4><p>DumpWatch, AshAlert, TapAlert, and AirPulse</p></div><span className="connection-mode is-live">NO KEY REQUIRED</span></div>
             <p>The central gateway uses public read-only GET operations. It does not need or issue credentials for these four reads. Source health and response provenance above are the evidence of each fetch.</p>
           </article>
           {inventory?.credentials.map((credential) => (

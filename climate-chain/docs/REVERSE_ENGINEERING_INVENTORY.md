@@ -13,32 +13,32 @@ Written for: the team and reviewers who need to know what each folder does, how 
 
 | # | Folder (in `projects/`) | Project | Domain | Stack (from manifests) | Mission stages | Runs here as | Live link |
 |---|---|---|---|---|---|---|---|
-| 1 | `JunkSnap-main` | JunkSnap | Waste · Jodhpur | React/Vite, FastAPI + scikit-learn, AWS (boto3), Tauri Android | sense, verify, act, prove | gateway-live waste source | junksnap.coehemang.dev |
-| 2 | `clearsky-main` | clearsky | Fire · Punjab | React/Vite/Tailwind, AWS Lambda backend | sense, act, prove | gateway-live fire source | clearsky.akkki.tech |
-| 3 | `teesri-shikayat-main` | Teesri Shikayat | Water · Mumbai | Python, AWS CDK, Lambda, Telegram | sense, verify, act, prove | gateway-live water source | Lambda console URL |
-| 4 | `the-vayu-project-main` | The Vayu Project | Air · Delhi | TS monorepo (api, web, packages), React/Vite, AWS CDK, ESP32 firmware | sense, verify, act, prove | gateway-live air source | cloudfront URL |
-| 5 | `AquaQuest-main` | AquaQuest | Water · Bangladesh | Static PWA (HTML/CSS/JS) | sense, act, prove | **`/apps/aquaquest/`** | GitHub Pages |
-| 6 | `PLUME-main` | PLUME | Methane · Permian | Next.js/React/Tailwind, FastAPI + SQLAlchemy, scikit-learn, Foundry | sense, verify, act, finance, prove | launch point (needs `npm install` + backend) | GitHub Pages snapshot |
-| 7 | `carbonlens-main` | CarbonLens | Carbon integrity | Python ML (scikit-learn), Hardhat + Solidity, self-contained HTML | verify, finance, prove | **`/apps/carbonlens/`** (after `build_dashboard.py`) | Claude artifact demo |
-| 8 | `carbonshield-main` | CarbonShield | REDD+ research | React/Vite/Tailwind, FastAPI + pandas + scikit-learn, web3 | verify, prove | launch point (needs Python env + build) | GitHub repo |
-| 9 | `carbontwin-main` | CarbonTwin | Carbon integrity | Vite build, Python pipeline (pandas, scikit-learn), Node contracts | verify, finance, prove | **`/apps/carbontwin/`** (prebuilt `dist/`) | GitHub Pages |
-| 10 | `ecograph-main` | EcoGraph | Carbon integrity | Python agent + FalkorDB, 11 MCP tools, Flutter app, Render/Docker | verify, prove | **`/apps/ecograph/`** (story page only) | ecograph-790j.onrender.com |
+| 1 | `JunkSnap-main` | DumpWatch | Waste · Jodhpur | React/Vite, FastAPI + scikit-learn, AWS (boto3), Tauri Android | sense, verify, act, prove | gateway-live waste source | junksnap.coehemang.dev |
+| 2 | `clearsky-main` | AshAlert | Fire · Punjab | React/Vite/Tailwind, AWS Lambda backend | sense, act, prove | gateway-live fire source | clearsky.akkki.tech |
+| 3 | `teesri-shikayat-main` | TapAlert | Water · Mumbai | Python, AWS CDK, Lambda, Telegram | sense, verify, act, prove | gateway-live water source | Lambda console URL |
+| 4 | `the-vayu-project-main` | AirPulse | Air · Delhi | TS monorepo (api, web, packages), React/Vite, AWS CDK, ESP32 firmware | sense, verify, act, prove | gateway-live air source | cloudfront URL |
+| 5 | `AquaQuest-main` | BlueTrail | Water · Bangladesh | Static PWA (HTML/CSS/JS) | sense, act, prove | **`/apps/aquaquest/`** | GitHub Pages |
+| 6 | `PLUME-main` | MethaneMend | Methane · Permian | Next.js/React/Tailwind, FastAPI + SQLAlchemy, scikit-learn, Foundry | sense, verify, act, finance, prove | launch point (needs `npm install` + backend) | GitHub Pages snapshot |
+| 7 | `carbonlens-main` | CarbonScope | Carbon integrity | Python ML (scikit-learn), Hardhat + Solidity, self-contained HTML | verify, finance, prove | **`/apps/carbonlens/`** (after `build_dashboard.py`) | Claude artifact demo |
+| 8 | `carbonshield-main` | SinkGuard | REDD+ research | React/Vite/Tailwind, FastAPI + pandas + scikit-learn, web3 | verify, prove | launch point (needs Python env + build) | GitHub repo |
+| 9 | `carbontwin-main` | UniqueCredit | Carbon integrity | Vite build, Python pipeline (pandas, scikit-learn), Node contracts | verify, finance, prove | **`/apps/carbontwin/`** (prebuilt `dist/`) | GitHub Pages |
+| 10 | `ecograph-main` | ImpactGraph | Carbon integrity | Python agent + FalkorDB, 11 MCP tools, Flutter app, Render/Docker | verify, prove | **`/apps/ecograph/`** (story page only) | ecograph-790j.onrender.com |
 | 11 | `grounded-main` | grounded | Energy · NSW | Monorepo: React/Vite web, Node server, CLI, sim packages, Docker | sense, act, prove | launch point (needs build) | grounded-peach.vercel.app |
-| 12 | `rantai-3c-master` | rantai-3c | Carbon finance · Indonesia | Next.js/React/Tailwind, ethers.js, Sepolia contracts | finance, prove | launch point (needs `npm install`) | GitHub repo |
-| 13 | `CarbonTrace-main` | CarbonTrace | Carbon markets | React/Vite/Leaflet, FastAPI + web3 + shapely, Hardhat, Docker Compose | verify, finance, prove | launch point (`make install`, Docker) | none stated |
-| 14 | `ClimateProof-AI-main` | ClimateProof AI | Climate data QA | FastAPI + Streamlit + pandas, Render config | verify, prove | launch point (Python) | none stated |
-| 15 | `flarewatch-main` | Flarewatch | Gas flaring · Niger Delta | Node pipeline (NASA FIRMS), Solana program (Anchor/Rust), static web | sense, verify, prove | **`/apps/flarewatch/`** | flarewatch-ng.vercel.app |
-| 16 | `gridproof-main` | GridProof | Renewable certificates | Vite/React web, Hardhat (TS) on Sepolia, Python FastAPI oracle | verify, finance, prove | launch point (needs build + oracle) | deployment in `deployments/sepolia.json` |
-| 17 | `hourmatch-master` | HourMatch | Renewable certificates · Taiwan | Hardhat/Solidity on Sepolia, Node ES modules, static `public/` | verify, finance, prove | **`/apps/hourmatch/`** | hourmatch.vercel.app |
-| 18 | `plotlock-main` | PlotLock | Land claims · stubble | Solidity on Polygon Amoy, FastAPI oracle, static Leaflet map | verify, finance, prove | **`/apps/plotlock/`** (oracle not served) | none stated |
+| 12 | `rantai-3c-master` | SupplyTrail | Carbon finance · Indonesia | Next.js/React/Tailwind, ethers.js, Sepolia contracts | finance, prove | launch point (needs `npm install`) | GitHub repo |
+| 13 | `CarbonTrace-main` | TonneTrail | Carbon markets | React/Vite/Leaflet, FastAPI + web3 + shapely, Hardhat, Docker Compose | verify, finance, prove | launch point (`make install`, Docker) | none stated |
+| 14 | `ClimateProof-AI-main` | ClaimGuard AI | Climate data QA | FastAPI + Streamlit + pandas, Render config | verify, prove | launch point (Python) | none stated |
+| 15 | `flarewatch-main` | TorchSight | Gas flaring · Niger Delta | Node pipeline (NASA FIRMS), Solana program (Anchor/Rust), static web | sense, verify, prove | **`/apps/flarewatch/`** | flarewatch-ng.vercel.app |
+| 16 | `gridproof-main` | WattCert | Renewable certificates | Vite/React web, Hardhat (TS) on Sepolia, Python FastAPI oracle | verify, finance, prove | launch point (needs build + oracle) | deployment in `deployments/sepolia.json` |
+| 17 | `hourmatch-master` | HourSync | Renewable certificates · Taiwan | Hardhat/Solidity on Sepolia, Node ES modules, static `public/` | verify, finance, prove | **`/apps/hourmatch/`** | hourmatch.vercel.app |
+| 18 | `plotlock-main` | ParcelSeal | Land claims · stubble | Solidity on Polygon Amoy, FastAPI oracle, static Leaflet map | verify, finance, prove | **`/apps/plotlock/`** (oracle not served) | none stated |
 
 Bold entries are served by the gateway today. "Launch point" means the project is merged and linked, but needs its own install or build step (the registry's `readiness` field and the project's README say which).
 
 ## What was verified and what was carried over
 
-- **Verified in this pass:** the folder list and file counts; each manifest (package.json, pyproject, Cargo.toml, pubspec, hardhat/foundry configs, Dockerfile); the README of the six projects that were missing from the earlier map; the static entry pages of the seven apps served at `/apps`; that each app's relative asset paths resolve under `/apps/<id>/`; that AquaQuest's service worker registers with a relative path, so it stays scoped to its app.
-- **Run in this pass:** frontend typecheck, lint, 8 unit tests and production build; gateway test suite, 88 tests (80 existing, 8 new for the registry and `/apps`). Route checks over HTTP: 7 apps return 200; an unknown project returns 404; a traversal attempt returns 403 without file content. Browser check of the command center and AquaQuest app.
-- **Carried over, not re-run:** the feature lists and evidence figures for the 13 projects from the earlier capability map, and test counts quoted from READMEs (for example Teesri's 66 tests and CarbonTrace's 27/50/8). Those are the projects' own claims.
+- **Verified in this pass:** the folder list and file counts; each manifest (package.json, pyproject, Cargo.toml, pubspec, hardhat/foundry configs, Dockerfile); the README of the six projects that were missing from the earlier map; the static entry pages of the seven apps served at `/apps`; that each app's relative asset paths resolve under `/apps/<id>/`; that BlueTrail's service worker registers with a relative path, so it stays scoped to its app.
+- **Run in this pass:** frontend typecheck, lint, 8 unit tests and production build; gateway test suite, 88 tests (80 existing, 8 new for the registry and `/apps`). Route checks over HTTP: 7 apps return 200; an unknown project returns 404; a traversal attempt returns 403 without file content. Browser check of the command center and BlueTrail app.
+- **Carried over, not re-run:** the feature lists and evidence figures for the 13 projects from the earlier capability map, and test counts quoted from READMEs (for example TapAlert's 66 tests and TonneTrail's 27/50/8). Those are the projects' own claims.
 
 ## Security findings — to decide before any public push
 
@@ -60,9 +60,9 @@ Other notes:
 
 ## Known gaps
 
-- Apps that need a backend (ecograph dashboard, plotlock oracle, carbonshield API) are not served. The launchpad says so.
-- PLUME, grounded, rantai-3c, gridproof, carbontwin's source, and CarbonTrace were not built or run here.
-- ClimateProof AI is linked as a launch point only; its FastAPI and Streamlit apps are not wired into the gateway.
+- Apps that need a backend (ImpactGraph dashboard, ParcelSeal oracle, SinkGuard API) are not served. The launchpad says so.
+- MethaneMend, grounded, SupplyTrail, WattCert, UniqueCredit's source, and TonneTrail were not built or run here.
+- ClaimGuard AI is linked as a launch point only; its FastAPI and Streamlit apps are not wired into the gateway.
 - The hackathon test and evidence figures are the projects' own claims and have not been independently checked.
 
 ## Feature catalogue and workspace search

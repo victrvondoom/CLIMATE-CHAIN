@@ -1,4 +1,4 @@
-// Certificates, mint-once and retirement by hour, ported from GridProof
+// Certificates, mint-once and retirement by hour, ported from WattCert
 // contracts/contracts/GranularCertificate.sol and oracle/gridproof/pipeline.py (allocation).
 // Device signatures and the chain are not modelled: this is the rule for what may be minted,
 // retired and matched, and the state a page can show.

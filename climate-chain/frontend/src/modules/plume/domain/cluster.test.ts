@@ -11,7 +11,7 @@ const p = (key: string, lon: number, lat: number, sector: string | null = '1B2',
 
 const keysOf = (groups: PointRecord[][]) => groups.map((g) => g.map((x) => x.key).sort());
 
-// Vectors from PLUME backend/tests/test_investigation_units.py.
+// Vectors from MethaneMend backend/tests/test_investigation_units.py.
 describe('DBSCAN grouping (haversine, per sector)', () => {
   it('groups points within eps and splits the far one', () => {
     const pts = [p('a', -102, 32.0), p('b', -102, 32.0009), p('c', -102, 32.01)];

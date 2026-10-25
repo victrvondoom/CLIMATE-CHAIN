@@ -8,7 +8,7 @@
 
 ## Repository shape
 
-The workspace contains 13 sibling project folders. The central Climate Chain app is a Vite/React/TypeScript frontend plus a dependency-light Node gateway. The gateway owns four normalized upstream adapters (JunkSnap, clearsky, Teesri Shikayat and Vayu) and a local engineering-memory API/MCP bridge. The other project folders retain their own stacks, data and authorization boundaries.
+The workspace contains 13 sibling project folders. The central Climate Chain app is a Vite/React/TypeScript frontend plus a dependency-light Node gateway. The gateway owns four normalized upstream adapters (DumpWatch, AshAlert, TapAlert and AirPulse) and a local engineering-memory API/MCP bridge. The other project folders retain their own stacks, data and authorization boundaries.
 
 There is no Git repository at the workspace root, so Git-based change status and commit provenance are unavailable from this checkout. The central frontend has no declared lint or unit-test script. The gateway declares `node --test`.
 
@@ -41,7 +41,7 @@ The separate project baselines were audited in parallel. Results and missing-dep
 - Added keyboard-focus affordances and reduced-motion overrides for the new interaction surfaces.
 - Added Memory Sandbox v2 migrations, graph-oriented records, scoped recall, versioning, integrity, backups/import, retrieval traces, conflicts and read-only MCP tools.
 - Added memory health/graph/backup UI, privacy review before saving, AGENTS.md and CLAUDE.md exports, loopback/origin security tests, and visible fail-closed behavior.
-- Added a workspace error boundary and visible source-status error state; corrected CarbonShield's inventory to reflect its local research UI/read-only API.
+- Added a workspace error boundary and visible source-status error state; corrected SinkGuard's inventory to reflect its local research UI/read-only API.
 
 ## Important limits
 

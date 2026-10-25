@@ -44,7 +44,7 @@ export const ALLOWED_TASK_TYPES = Object.freeze([
 ]);
 
 // Only explicitly reviewed source contracts may be persisted by mission tasks.
-// ClearSky exposes aggregate statistics. Vayu is queried only at a configured
+// AshAlert exposes aggregate statistics. AirPulse is queried only at a configured
 // city center and its persisted projection omits place/station identifiers.
 export const MISSION_CONNECTOR_OPERATIONS = Object.freeze({ clearsky: 'stats', vayu: 'today' });
 export const MISSION_VAYU_CITY_PRESETS = VAYU_CITY_PRESETS;
@@ -236,7 +236,7 @@ function validateTaskDefinition(task) {
   if (inputBytes > MAX_INPUT_BYTES) throw new MissionEngineError('INPUT_TOO_LARGE', `Task ${task.id} input exceeds the 1 MiB limit.`);
   if (typeof input !== 'object' || input === null || Array.isArray(input)) throw new MissionEngineError('INVALID_MISSION', `Task ${task.id} input must be a JSON object.`);
   if (task.type === 'climate.connector_snapshot' && !isAllowedMissionConnectorInput(input)) {
-    throw new MissionEngineError('INVALID_TASK_INPUT', 'Connector snapshots allow reviewed ClearSky aggregate reads or Vayu reads for a configured city preset only.');
+    throw new MissionEngineError('INVALID_TASK_INPUT', 'Connector snapshots allow reviewed AshAlert aggregate reads or AirPulse reads for a configured city preset only.');
   }
   if (task.requiresApproval !== undefined && typeof task.requiresApproval !== 'boolean') {
     throw new MissionEngineError('INVALID_MISSION', `Task ${task.id} requiresApproval must be boolean.`);

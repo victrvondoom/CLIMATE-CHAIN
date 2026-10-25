@@ -14,19 +14,19 @@ A frequent limitation in hackathon climate submissions is the lack of domain-lev
 
 ### Attribution Statement
 All performance claims, test metrics, and datasets below describe the upstream source projects and were checked against those projects' own documentation by the authors (self-review, not an independent audit). Climate Chain's native modules are re-implemented in climate-chain/frontend/src/modules and run on bundled fixtures (8 SIMULATED, 6 RESEARCH, 4 DEMO); the original project folders are not included in this repository:
-1. **Rastro Metrics Removed from EcoGraph**: An earlier draft conflated 492 test cases and an Isolation Forest detector from the external research project *Rastro* with `ecograph-main`. In this repository, EcoGraph is the FalkorDB OpenCypher property graph engine (WeMakeDevs x FalkorDB Graph Hacks, MIT License) with 11 MCP tools.
-2. **OnceSealed Benchmark Removed from CarbonLens/CarbonShield**: A 177-question AI evaluation benchmark belonging to *OnceSealed* was previously cited. In this repository, CarbonLens is Krishna's Sentinel-2 multispectral Random Forest forest classifier (Olofsson et al. 2014 95% CI bias correction), and CarbonShield implements the empirical red-team audit methodology of Swinfield et al. (*Nature Communications* 2026, DOI: 10.1038/s41467-026-71552-3).
-3. **ReGrow Metrics Removed from ClearSky**: Remote-sensing metrics (0.89 IoU fire perimeter segmentation and 0.97 ROC-AUC) from the project *ReGrow* were previously cited. In this repository, ClearSky is Team Atherion's logistics and residue routing system (WeMakeDevs x AWS Environmental Hacks, Oct 2026) featuring WhatsApp farmer intake (Hindi/Punjabi), baler logistics, and district-level Burn Risk Radar.
+1. **Rastro Metrics Removed from ImpactGraph**: An earlier draft conflated 492 test cases and an Isolation Forest detector from the external research project *Rastro* with `ecograph-main`. In this repository, ImpactGraph is the FalkorDB OpenCypher property graph engine (WeMakeDevs x FalkorDB Graph Hacks, MIT License) with 11 MCP tools.
+2. **OnceSealed Benchmark Removed from CarbonLens/CarbonShield**: A 177-question AI evaluation benchmark belonging to *OnceSealed* was previously cited. In this repository, CarbonScope is Krishna's Sentinel-2 multispectral Random Forest forest classifier (Olofsson et al. 2014 95% CI bias correction), and SinkGuard implements the empirical red-team audit methodology of Swinfield et al. (*Nature Communications* 2026, DOI: 10.1038/s41467-026-71552-3).
+3. **ReGrow Metrics Removed from AshAlert**: Remote-sensing metrics (0.89 IoU fire perimeter segmentation and 0.97 ROC-AUC) from the project *ReGrow* were previously cited. In this repository, AshAlert is Team Atherion's logistics and residue routing system (WeMakeDevs x AWS Environmental Hacks, Oct 2026) featuring WhatsApp farmer intake (Hindi/Punjabi), baler logistics, and district-level Burn Risk Radar.
 
 Below are the upstream empirical claims for the source projects (upstream claims; not re-run in this repository).
 
 ---
 
-## 1. PLUME: Methane Plume Ingestion & EIP-712 Escrow (upstream project)
+## 1. MethaneMend: Methane Plume Ingestion & EIP-712 Escrow (upstream project)
 
 | Dimension | Specification & Metric |
 |---|---|
-| **Historical Dataset** | **10,098 historical CH₄ plume observations** reported by upstream PLUME, retrieved from the [Carbon Mapper](https://carbonmapper.org) public API over the Permian Basin (TX/NM) (`PLUME-main/data/snapshots/carbonmapper_permian_ch4.json.gz`, 3.18 MB, in the upstream project). This repository ships a 60-plume sample of the upstream snapshot. |
+| **Historical Dataset** | **10,098 historical CH₄ plume observations** reported by upstream MethaneMend, retrieved from the [Carbon Mapper](https://carbonmapper.org) public API over the Permian Basin (TX/NM) (`PLUME-main/data/snapshots/carbonmapper_permian_ch4.json.gz`, 3.18 MB, in the upstream project). This repository ships a 60-plume sample of the upstream snapshot. |
 | **Geospatial Clustering** | **DBSCAN (Density-Based Spatial Clustering of Applications with Noise)** applied to latitude/longitude coordinates and observation timestamps to aggregate recurring fugitive leaks into distinct incident targets. |
 | **Priority Scoring Algorithm** | Multi-factor explainable ranking combining measured emission rate ($kg/hr$, up to $>1,000\text{ kg/hr}$ super-emitters), wind-speed vectors, persistence index ($P = N_{\text{detected}} / N_{\text{overpasses}}$), and proximity to human settlements and critical infrastructure. |
 | **Cryptographic Authorization** *(upstream only; the native module has no EIP-712 or escrow)* | **EIP-712 typed signature verification** (`PermianVerificationPolicy` domain). Verifiers sign off-chain structured data binding the incident code, review round, and canonical SHA-256 evidence manifest hash. |
@@ -35,30 +35,30 @@ Below are the upstream empirical claims for the source projects (upstream claims
 
 ---
 
-## 2. EcoGraph: FalkorDB Graph Reasoning & MCP Agent
+## 2. ImpactGraph: FalkorDB Graph Reasoning & MCP Agent
 
 | Dimension | Specification & Metric |
 |---|---|
 | **Graph Database Architecture** | **FalkorDB** property graph modeled in OpenCypher (`ecograph-main/eco/`), capturing heterogeneous relationships between `Company`, `Project`, `LandParcel`, `CreditBatch`, `Retirement`, and `AuditLog`. |
-| **Graph Fraud Risk Detectors** *(upstream EcoGraph claims; the native module runs fixtures)* | 1. **Double Retirement Detector**: Traverses paths where the same credit serial is claimed by disparate legal entities.<br/>2. **Spatial Boundary Overlap Detector**: Identifies overlapping cadastral polygon boundaries across multiple registries (e.g. Verra vs. Gold Standard).<br/>3. **Circular Ownership / Churning Loop Detector**: Finds cycle topologies ($\text{Entity A} \to \text{Entity B} \to \text{Entity C} \to \text{Entity A}$) designed to manufacture wash-trading volume.<br/>4. **Baseline Manipulation Detector**: Queries project nodes whose claimed baseline deforestation rates diverge from regional controls.<br/>5. **Herd-Inventory Carrying Capacity**: Reconciles agricultural credit volumes against biological parcel carrying capacities. |
+| **Graph Fraud Risk Detectors** *(upstream ImpactGraph claims; the native module runs fixtures)* | 1. **Double Retirement Detector**: Traverses paths where the same credit serial is claimed by disparate legal entities.<br/>2. **Spatial Boundary Overlap Detector**: Identifies overlapping cadastral polygon boundaries across multiple registries (e.g. Verra vs. Gold Standard).<br/>3. **Circular Ownership / Churning Loop Detector**: Finds cycle topologies ($\text{Entity A} \to \text{Entity B} \to \text{Entity C} \to \text{Entity A}$) designed to manufacture wash-trading volume.<br/>4. **Baseline Manipulation Detector**: Queries project nodes whose claimed baseline deforestation rates diverge from regional controls.<br/>5. **Herd-Inventory Carrying Capacity**: Reconciles agricultural credit volumes against biological parcel carrying capacities. |
 | **Governance & Safety** | Implements 11 Model Context Protocol (MCP) tools (10 read, 1 propose). The AI agent is strictly bounded: **it can only propose actions**; an identified human reviewer must explicitly execute freezes or referrals. |
-| **Provenance & License** | EcoGraph contributors (MIT License). Web UI served at `/apps/ecograph/`. *(Audit note: Isolation Forest and 492 test cases from Rastro have been removed).* |
+| **Provenance & License** | ImpactGraph contributors (MIT License). Web UI served at `/apps/ecograph/`. *(Audit note: Isolation Forest and 492 test cases from Rastro have been removed).* |
 
 ---
 
-## 3. CarbonLens & CarbonShield: Remote Sensing & Scientific Red-Teaming
+## 3. CarbonScope & SinkGuard: Remote Sensing & Scientific Red-Teaming
 
 | Dimension | Specification & Metric |
 |---|---|
 | **Remote Sensing Model** | **Multispectral Random Forest classifier** ingesting Sentinel-2 imagery (Bands B2 Blue, B3 Green, B4 Red, B8 Near-Infrared, B11 Short-Wave Infrared) to distinguish undisturbed canopy from degraded/cleared forest. |
-| **Statistical Rigor** *(upstream CarbonLens claim; the native module runs fixtures)* | **Olofsson et al. (2014) bias-corrected area estimation**: credit issuance is bounded to the **lower 95% confidence interval (CI)** of detected biomass, eliminating crediting inflation caused by classification noise. |
-| **Scientific Red-Teaming (CarbonShield)** | Implements empirical stress-testing derived from **Swinfield et al. (2026), Nature Communications** (*"Learning lessons from over-crediting to ensure additionality in forest carbon credits"*, DOI: 10.1038/s41467-026-71552-3; Zenodo 15745712). Evaluates real project design documents and baseline assumptions against empirical counterfactuals. |
+| **Statistical Rigor** *(upstream CarbonScope claim; the native module runs fixtures)* | **Olofsson et al. (2014) bias-corrected area estimation**: credit issuance is bounded to the **lower 95% confidence interval (CI)** of detected biomass, eliminating crediting inflation caused by classification noise. |
+| **Scientific Red-Teaming (SinkGuard)** | Implements empirical stress-testing derived from **Swinfield et al. (2026), Nature Communications** (*"Learning lessons from over-crediting to ensure additionality in forest carbon credits"*, DOI: 10.1038/s41467-026-71552-3; Zenodo 15745712). Evaluates real project design documents and baseline assumptions against empirical counterfactuals. |
 | **Smart Contract (upstream only)** | Solidity contract (`CarbonRegistry.sol`) with unique serial ranges, non-fungible credit retirements, and on-chain SHA-256 report hash verification via `checkReport()`. |
-| **Provenance & License** | CarbonLens: Krishna (MIT License); CarbonShield: Nature Comms 2026 / Zenodo open data. Web UI served at `/apps/carbonlens/`. *(Audit note: OnceSealed 177-question benchmark has been removed).* |
+| **Provenance & License** | CarbonScope: Krishna (MIT License); SinkGuard: Nature Comms 2026 / Zenodo open data. Web UI served at `/apps/carbonlens/`. *(Audit note: OnceSealed 177-question benchmark has been removed).* |
 
 ---
 
-## 4. ClearSky: WhatsApp Logistics & Burn Risk Radar
+## 4. AshAlert: WhatsApp Logistics & Burn Risk Radar
 
 | Dimension | Specification & Metric |
 |---|---|
@@ -76,17 +76,17 @@ Climate Chain bridges these specialist engines into an end-to-end, accountable p
 ```mermaid
 flowchart TD
   subgraph Sense["01 · Sense"]
-    S1[PLUME: Methane Plumes - 60-plume sample shipped]
-    S2[ClearSky: WhatsApp Farmer Intake]
-    S3[Vayu: Ground PM2.5 Monitors]
-    S4[JunkSnap: Community Waste Reports]
+    S1[MethaneMend: Methane Plumes - 60-plume sample shipped]
+    S2[AshAlert: WhatsApp Farmer Intake]
+    S3[AirPulse: Ground PM2.5 Monitors]
+    S4[DumpWatch: Community Waste Reports]
   end
 
   subgraph Verify["02 · Verify"]
     V1[DBSCAN Clustering & Priority Score]
     V2[Burn Risk Radar & Baling Schedule]
-    V3[CarbonLens: Olofsson 95% CI Area]
-    V4[EcoGraph: FalkorDB Graph Fraud Detection]
+    V3[CarbonScope: Olofsson 95% CI Area]
+    V4[ImpactGraph: FalkorDB Graph Fraud Detection]
     V5[Climate Chain: Evidence-to-Claim Trust Firewall]
   end
 
@@ -97,9 +97,9 @@ flowchart TD
   end
 
   subgraph Finance["04 · Finance"]
-    F1[PLUME: EIP-712 Verifier Escrow]
-    F2[ClearSky: Farmer Bounties]
-    F3[CarbonLens: Serialized Retirements]
+    F1[MethaneMend: EIP-712 Verifier Escrow]
+    F2[AshAlert: Farmer Bounties]
+    F3[CarbonScope: Serialized Retirements]
   end
 
   subgraph Prove["05 · Prove"]
@@ -135,7 +135,7 @@ Local development EVM (Hardhat/EDR, chain ID 31337, valueless ETH, reset on rest
 
 Climate Chain delivers both systemic vision and empirical depth:
 
-- **10,098 historical methane plume observations** reported by the upstream PLUME project (Carbon Mapper API snapshot; this repository ships a 60-plume sample).
+- **10,098 historical methane plume observations** reported by the upstream MethaneMend project (Carbon Mapper API snapshot; this repository ships a 60-plume sample).
 - **Olofsson et al. (2014) bias-corrected 95% CI** forest cover classification.
 - **Nature Communications (2026) REDD+ red-teaming** auditing empirical counterfactuals.
 - **FalkorDB OpenCypher property graph** with 11 MCP tools detecting double-retirements and churning cycles.

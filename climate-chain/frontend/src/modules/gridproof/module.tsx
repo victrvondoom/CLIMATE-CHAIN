@@ -4,7 +4,7 @@ import './module.css';
 
 const climateModule: ClimateModule = {
   id: 'gridproof',
-  name: 'GridProof',
+  name: 'WattCert',
   tagline: 'Demo: clean energy certificates per device-hour, minted only when the meter output passes a weather check.',
   stages: ['verify', 'finance', 'prove'],
   tone: 'energy',

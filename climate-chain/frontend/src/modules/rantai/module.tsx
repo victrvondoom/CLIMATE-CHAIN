@@ -99,7 +99,7 @@ function RantaiPage() {
     <div className="m-rantai">
       <header className="m-rantai-head">
         <div>
-          <h2 className="m-rantai-title">rantai-3c</h2>
+          <h2 className="m-rantai-title">SupplyTrail</h2>
           <p className="m-rantai-tagline">Web3 carbon management demo: analysis, governance and offsets.</p>
         </div>
         <span className="m-rantai-mode m-rantai-mode-simulated">SIMULATED</span>
@@ -231,7 +231,7 @@ function RantaiPage() {
 
 const climateModule: ClimateModule = {
   id: 'rantai',
-  name: 'rantai-3c',
+  name: 'SupplyTrail',
   tagline: 'Web3 carbon management demo: analysis, governance and offsets.',
   stages: ['finance', 'prove'],
   tone: 'carbon',

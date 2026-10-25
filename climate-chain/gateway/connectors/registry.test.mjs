@@ -243,7 +243,7 @@ test('health reports source reachability separately and uses source path convent
   assert.equal(health.http, 200);
 });
 
-test('Vayu contract checks versioned data shape and preserves model versus measured mode', async () => {
+test('AirPulse contract checks versioned data shape and preserves model versus measured mode', async () => {
   const registry = createConnectorRegistry({ fetchImpl: async () => response(vayuToday()) });
   const result = await registry.read('vayu', 'today', { query: { lat: 26.29, lng: 73.02 } });
   assert.equal(result.data.hours[0].pm25, 42);

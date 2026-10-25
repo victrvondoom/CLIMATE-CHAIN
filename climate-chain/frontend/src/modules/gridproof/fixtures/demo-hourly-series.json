@@ -1,6 +1,6 @@
 {
  "mode": "DEMO",
- "note": "Synthetic 48-hour series for the GridProof port. Not measured data: the repo holds no measured readings (oracle/state is written at run time). Weather is a generated clear-to-cloudy day pair on the grid cell; devices and buyers are the constants from simulator.py; a few hours are tampered on purpose so each rule fires.",
+ "note": "Synthetic 48-hour series for the WattCert port. Not measured data: the repo holds no measured readings (oracle/state is written at run time). Weather is a generated clear-to-cloudy day pair on the grid cell; devices and buyers are the constants from simulator.py; a few hours are tampered on purpose so each rule fires.",
  "source": {
   "files": [
    "oracle/gridproof/simulator.py",

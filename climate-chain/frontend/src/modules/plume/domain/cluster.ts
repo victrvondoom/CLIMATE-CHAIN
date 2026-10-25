@@ -1,4 +1,4 @@
-// DBSCAN with the haversine metric, run per sector, ported from PLUME
+// DBSCAN with the haversine metric, run per sector, ported from MethaneMend
 // backend/app/investigation/clustering.py. Semantics follow scikit-learn: a point is a
 // core point when at least min_samples points (itself included) lie within eps.
 

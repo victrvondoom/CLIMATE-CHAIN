@@ -62,25 +62,25 @@ export function Overview({
 
   const kpis: Kpi[] = [
     {
-      id: 'waste', tone: 'waste', icon: 'waste', label: 'Waste tracking', source: 'JunkSnap', mode: sources.junksnap.mode,
+      id: 'waste', tone: 'waste', icon: 'waste', label: 'Waste tracking', source: 'DumpWatch', mode: sources.junksnap.mode,
       value: num(waste.open), caption: 'Open dump sites',
       facts: [{ label: 'Community-verified', value: num(waste.verified) }],
       action: 'Review waste sites'
     },
     {
-      id: 'fire', tone: 'fire', icon: 'fire', label: 'Fire prevention', source: 'ClearSky', mode: sources.clearsky.mode,
+      id: 'fire', tone: 'fire', icon: 'fire', label: 'Fire prevention', source: 'AshAlert', mode: sources.clearsky.mode,
       value: num(fire.redFields), caption: 'Fields at burn risk',
       facts: [{ label: 'Acres cleared', value: num(fire.acresCleared) }],
       action: 'Open baler dispatch'
     },
     {
-      id: 'water', tone: 'water', icon: 'water', label: 'Safe water', source: 'Teesri Shikayat', mode: sources.teesri.mode,
+      id: 'water', tone: 'water', icon: 'water', label: 'Safe water', source: 'TapAlert', mode: sources.teesri.mode,
       value: num(water.warned), caption: 'Households warned',
       facts: [{ label: 'Alerts joined', value: num(water.reported) }],
       action: 'Open water tripwire'
     },
     {
-      id: 'air', tone: 'air', icon: 'air', label: 'Clean air', source: 'Vayu Project', mode: sources.vayu.mode,
+      id: 'air', tone: 'air', icon: 'air', label: 'Clean air', source: 'AirPulse', mode: sources.vayu.mode,
       value: air.pm25Now == null ? '—' : String(air.pm25Now), unit: 'µg/m³', caption: `PM2.5 · ${air.severity.label}`,
       facts: [{ label: 'Location', value: air.place?.name ?? data.city.name }],
       action: 'Open air sensors'
@@ -91,31 +91,31 @@ export function Overview({
     {
       title: 'Sense climate signals',
       desc: 'Detect environmental anomalies across satellite feeds, ground sensors and resident reports.',
-      projects: 'JunkSnap · ClearSky · Teesri Shikayat · The Vayu Project · Flarewatch',
+      projects: 'DumpWatch · AshAlert · TapAlert · AirPulse · TorchSight',
       action: () => onMission('sense')
     },
     {
       title: 'Verify the evidence',
       desc: 'Apply specialist multi-source rules and generate SHA-256 evidence digests before any claim is accepted.',
-      projects: 'CarbonLens · ClimateProof AI · CarbonTrace · PlotLock',
+      projects: 'CarbonScope · ClaimGuard AI · TonneTrail · ParcelSeal',
       action: () => onMission('verify')
     },
     {
       title: 'Dispatch accountable action',
       desc: 'Route verified environmental problems to baler operators, municipal offices and clean-up crews.',
-      projects: 'ClearSky Baler Hub · JunkSnap Municipal Letters · Teesri Water Rings',
+      projects: 'AshAlert Baler Hub · DumpWatch Municipal Letters · TapAlert Water Rings',
       action: () => onMission('act')
     },
     {
       title: 'Finance the work transparently',
       desc: 'Review funding mechanisms (escrow, registries) and their status.',
-      projects: 'PLUME Methane Escrow · Rantai 3C · GridProof Certificates',
+      projects: 'MethaneMend Methane Escrow · SupplyTrail · WattCert Certificates',
       action: () => onMission('finance')
     },
     {
       title: 'Prove it and count it once',
       desc: 'Anchor completion receipts on a local demo chain (not public or immutable) and flag duplicate claims within the local demo registry.',
-      projects: 'CarbonTwin Guard · EcoGraph Ledger · HourMatch Claims',
+      projects: 'UniqueCredit Guard · ImpactGraph Ledger · HourSync Claims',
       action: () => onMission('prove')
     }
   ];

@@ -29,7 +29,7 @@
     {
       "id": "junksnap",
       "tracks": ["sustainable-supply-chains", "climate-data-environmental-monitoring"],
-      "name": "JunkSnap",
+      "name": "DumpWatch",
       "folder": "JunkSnap-main",
       "descriptor": "Waste evidence to municipal action",
       "domain": "Waste · Jodhpur",
@@ -42,7 +42,7 @@
       "evidence": "Project-reported field run: 121 reports across 44 sites",
       "readiness": "Live app and API",
       "liveUrl": "https://junksnap.coehemang.dev",
-      "linkLabel": "Open JunkSnap",
+      "linkLabel": "Open DumpWatch",
       "module": "waste",
       "stack": ["React + Vite", "Python FastAPI + scikit-learn", "AWS (boto3)", "Tauri Android shell"],
       "tone": "waste"
@@ -50,7 +50,7 @@
     {
       "id": "clearsky",
       "tracks": ["sustainable-supply-chains", "climate-data-environmental-monitoring"],
-      "name": "clearsky",
+      "name": "AshAlert",
       "folder": "clearsky-main",
       "descriptor": "Prevent stubble fires before ignition",
       "domain": "Fire · Punjab",
@@ -72,7 +72,7 @@
     {
       "id": "teesri",
       "tracks": ["climate-data-environmental-monitoring"],
-      "name": "Teesri Shikayat",
+      "name": "TapAlert",
       "folder": "teesri-shikayat-main",
       "descriptor": "Neighbourhood water-safety tripwire",
       "domain": "Water · Mumbai",
@@ -85,7 +85,7 @@
       "evidence": "Project README reports 66 tests and measured incident cost",
       "readiness": "Live console and Telegram bot",
       "liveUrl": "https://eirioqqhvtvve3aw5xhpje2wju0jztrl.lambda-url.ap-south-1.on.aws/console",
-      "linkLabel": "Open Teesri console",
+      "linkLabel": "Open TapAlert console",
       "module": "water",
       "stack": ["Python", "AWS CDK", "AWS Lambda + Telegram bot"],
       "tone": "water"
@@ -93,7 +93,7 @@
     {
       "id": "vayu",
       "tracks": ["climate-data-environmental-monitoring"],
-      "name": "The Vayu Project",
+      "name": "AirPulse",
       "folder": "the-vayu-project-main",
       "descriptor": "One place, one provenance-backed air answer",
       "domain": "Air · Delhi & north India",
@@ -106,7 +106,7 @@
       "evidence": "Live OpenAQ, Open-Meteo and FIRMS data; measured hours are labeled",
       "readiness": "Live app and API",
       "liveUrl": "https://d3lmq1mze2gup3.cloudfront.net",
-      "linkLabel": "Open Vayu",
+      "linkLabel": "Open AirPulse",
       "module": "air",
       "stack": ["TypeScript monorepo (apps/api, apps/web, packages/*)", "React + Vite", "AWS CDK", "ESP32 firmware"],
       "tone": "air"
@@ -114,7 +114,7 @@
     {
       "id": "aquaquest",
       "tracks": ["climate-data-environmental-monitoring"],
-      "name": "AquaQuest",
+      "name": "BlueTrail",
       "folder": "AquaQuest-main",
       "descriptor": "Freshwater citizen science",
       "domain": "Water · Bangladesh",
@@ -127,7 +127,7 @@
       "evidence": "Frontend prototype; local and mock data",
       "readiness": "PWA demo",
       "liveUrl": "https://luzaynarahman-dot.github.io/AquaQuest/",
-      "linkLabel": "Open AquaQuest",
+      "linkLabel": "Open BlueTrail",
       "local": { "root": "." },
       "stack": ["Static PWA (HTML, CSS, vanilla JS)", "Service worker"],
       "tone": "water"
@@ -135,7 +135,7 @@
     {
       "id": "plume",
       "tracks": ["carbon-markets-emissions-transparency", "climate-data-environmental-monitoring"],
-      "name": "PLUME",
+      "name": "MethaneMend",
       "folder": "PLUME-main",
       "descriptor": "Methane detection to verified repair funding",
       "domain": "Methane · Permian Basin",
@@ -148,14 +148,14 @@
       "evidence": "10,098 historical Carbon Mapper detections (60-plume sample shipped); repair activity and funds are simulated",
       "readiness": "Read-only app snapshot",
       "liveUrl": "https://kaavinb.github.io/PLUME/",
-      "linkLabel": "Open PLUME snapshot",
+      "linkLabel": "Open MethaneMend snapshot",
       "stack": ["Next.js + React + Tailwind", "FastAPI + SQLAlchemy/Alembic", "scikit-learn", "Foundry (Solidity)"],
       "tone": "methane"
     },
     {
       "id": "carbonlens",
       "tracks": ["carbon-markets-emissions-transparency", "climate-data-environmental-monitoring"],
-      "name": "CarbonLens",
+      "name": "CarbonScope",
       "folder": "carbonlens-main",
       "descriptor": "Satellite checks for forest credit claims",
       "domain": "Carbon integrity",
@@ -168,7 +168,7 @@
       "evidence": "Demo: 49,315 of 71,100 claimed credits blocked",
       "readiness": "Demo dashboard",
       "liveUrl": "https://claude.ai/artifact/2uXU9qU3Brup8Kw2YTZezJ",
-      "linkLabel": "Open CarbonLens demo",
+      "linkLabel": "Open CarbonScope demo",
       "local": { "root": "dashboard", "build": "python scripts/build_dashboard.py" },
       "stack": ["Python ML pipeline (scikit-learn)", "Hardhat + Solidity CarbonRegistry", "Self-contained HTML dashboard"],
       "tone": "carbon"
@@ -176,7 +176,7 @@
     {
       "id": "carbonshield",
       "tracks": ["carbon-markets-emissions-transparency", "climate-data-environmental-monitoring"],
-      "name": "CarbonShield",
+      "name": "SinkGuard",
       "folder": "carbonshield-main",
       "descriptor": "REDD+ claims under red-team review",
       "domain": "Carbon integrity · Research",
@@ -196,7 +196,7 @@
     {
       "id": "carbontwin",
       "tracks": ["carbon-markets-emissions-transparency"],
-      "name": "CarbonTwin",
+      "name": "UniqueCredit",
       "folder": "carbontwin-main",
       "descriptor": "Cross-registry double-issuance checks",
       "domain": "Carbon integrity",
@@ -209,7 +209,7 @@
       "evidence": "Demo scan: 18 shared-vintage pairs, about 2.49M tCO₂e",
       "readiness": "Read-only live demo",
       "liveUrl": "https://hyunsikparker.github.io/carbontwin/",
-      "linkLabel": "Open CarbonTwin",
+      "linkLabel": "Open UniqueCredit",
       "local": { "root": "dist" },
       "stack": ["Vite web build", "Python pipeline (pandas, scikit-learn)", "Node contracts (Merkle anchor)"],
       "tone": "carbon"
@@ -217,7 +217,7 @@
     {
       "id": "ecograph",
       "tracks": ["carbon-markets-emissions-transparency"],
-      "name": "EcoGraph",
+      "name": "ImpactGraph",
       "folder": "ecograph-main",
       "descriptor": "Explainable ledger-fraud graph review",
       "domain": "Carbon integrity",
@@ -230,7 +230,7 @@
       "evidence": "Synthetic evaluation: 7/7 planted cases found; 0 false alarms",
       "readiness": "Live demo",
       "liveUrl": "https://ecograph-790j.onrender.com",
-      "linkLabel": "Open EcoGraph",
+      "linkLabel": "Open ImpactGraph",
       "local": { "root": "docs" },
       "stack": ["Python agent + FalkorDB graph", "MCP server (11 tools)", "Flutter app", "Render / Docker"],
       "tone": "carbon"
@@ -238,7 +238,7 @@
     {
       "id": "grounded",
       "tracks": ["renewable-energy-energy-trading"],
-      "name": "grounded",
+      "name": "Resilia",
       "folder": "grounded-main",
       "descriptor": "Microgrid resilience decision support",
       "domain": "Energy · NSW reference data",
@@ -258,7 +258,7 @@
     {
       "id": "rantai",
       "tracks": ["carbon-markets-emissions-transparency"],
-      "name": "rantai-3c",
+      "name": "SupplyTrail",
       "folder": "rantai-3c-master",
       "descriptor": "Web3 carbon management demo",
       "domain": "Carbon finance · Indonesia",
@@ -278,7 +278,7 @@
     {
       "id": "carbontrace",
       "tracks": ["carbon-markets-emissions-transparency", "climate-data-environmental-monitoring"],
-      "name": "CarbonTrace",
+      "name": "TonneTrail",
       "folder": "CarbonTrace-main",
       "descriptor": "Carbon credits checked against satellite evidence before they exist",
       "domain": "Carbon markets · Verification",
@@ -296,7 +296,7 @@
     {
       "id": "climateproof",
       "tracks": ["climate-data-environmental-monitoring"],
-      "name": "ClimateProof AI",
+      "name": "ClaimGuard AI",
       "folder": "ClimateProof-AI-main",
       "descriptor": "Environmental dataset integrity checks before anyone trusts them",
       "domain": "Climate data · Monitoring",
@@ -314,7 +314,7 @@
     {
       "id": "flarewatch",
       "tracks": ["carbon-markets-emissions-transparency", "climate-data-environmental-monitoring"],
-      "name": "Flarewatch",
+      "name": "TorchSight",
       "folder": "flarewatch-main",
       "descriptor": "Niger Delta gas flares, seen from space, anchored to a Solana devnet program in the upstream project",
       "domain": "Gas flaring · Niger Delta",
@@ -327,7 +327,7 @@
       "evidence": "First week (15–20 Oct 2026): 48 persistent flares across 91 hotspot sites and 675 detections",
       "readiness": "Live web app and Solana devnet program",
       "liveUrl": "https://flarewatch-ng.vercel.app",
-      "linkLabel": "Open Flarewatch",
+      "linkLabel": "Open TorchSight",
       "local": { "root": "web" },
       "stack": ["Node pipeline (NASA FIRMS)", "Solana program (Anchor / Rust)", "Static web (Vercel)"],
       "tone": "methane"
@@ -335,7 +335,7 @@
     {
       "id": "gridproof",
       "tracks": ["carbon-markets-emissions-transparency", "renewable-energy-energy-trading", "climate-data-environmental-monitoring"],
-      "name": "GridProof",
+      "name": "WattCert",
       "folder": "gridproof-main",
       "descriptor": "Hour-by-hour clean energy certificates, checked and recorded on-chain",
       "domain": "Renewable energy · Certificates",
@@ -353,7 +353,7 @@
     {
       "id": "hourmatch",
       "tracks": ["carbon-markets-emissions-transparency", "renewable-energy-energy-trading", "climate-data-environmental-monitoring"],
-      "name": "HourMatch",
+      "name": "HourSync",
       "folder": "hourmatch-master",
       "descriptor": "Renewable certificates per plant per hour, and a checker for green-power claims",
       "domain": "Renewable energy · Taiwan",
@@ -366,7 +366,7 @@
       "evidence": "Eval results and holdout runs in eval/; all companies and plants are fictional demo data",
       "readiness": "Live demo and on-chain registry",
       "liveUrl": "https://hourmatch.vercel.app",
-      "linkLabel": "Open HourMatch",
+      "linkLabel": "Open HourSync",
       "local": { "root": "public" },
       "stack": ["Hardhat + Solidity registry on Sepolia", "Node ES modules pipeline", "Static web (Vercel)"],
       "tone": "energy"
@@ -374,7 +374,7 @@
     {
       "id": "plotlock",
       "tracks": ["climate-data-environmental-monitoring"],
-      "name": "PlotLock",
+      "name": "ParcelSeal",
       "folder": "plotlock-main",
       "descriptor": "One on-chain attestation per plot per season, bound to satellite evidence",
       "domain": "Land claims · Stubble burning",

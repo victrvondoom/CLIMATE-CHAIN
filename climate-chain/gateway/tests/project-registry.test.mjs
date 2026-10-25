@@ -85,7 +85,7 @@ test('registry track assignments use the four declared IEEE tracks', () => {
   assert.throws(() => parseRegistry({ tracks: [{ id: 'valid-track', label: 'Track' }], projects: [{ id: 'demo', stages: ['sense'], tracks: ['missing-track'] }] }), /unknown or missing track/);
 });
 
-test('Clearsky maps estimated farmer payouts into the sustainable supply chain finance stage', () => {
+test('AshAlert maps estimated farmer payouts into the sustainable supply chain finance stage', () => {
   const clearsky = byId.clearsky;
   assert.ok(clearsky.stages.includes('finance'));
   assert.ok(clearsky.tracks.includes('sustainable-supply-chains'));

@@ -80,9 +80,9 @@ Several of these already held uncommitted changes from earlier work. Do **not** 
 | `README.md` | Lab section, configuration rows, verification commands, and the corrected Boundaries and Start sentences | Remove the lab section and rows; restore the two sentences |
 | `docs/dashboard-consolidation.md` | Removed an audience line that belonged in a chat message, not the doc | Optional |
 
-## The Vayu duplicate-key warning
+## The AirPulse duplicate-key warning
 
-The earlier report placed it near `vayu/module.tsx:203`. The React stack trace shows the real cause: `ModuleScreen.tsx` gave two sibling elements the same key (`climateModule.id`), so every native module page logged it, not only Vayu. Two keys were changed in `ModuleScreen.tsx`. `vayu/module.tsx` and its uncommitted edits were not touched. A new test failed before the fix (`junksnap keys: junksnap, junksnap`) and passes after. A fresh browser load of `#module:vayu` logged the warning 6 times before the fix and 0 times after.
+The earlier report placed it near `vayu/module.tsx:203`. The React stack trace shows the real cause: `ModuleScreen.tsx` gave two sibling elements the same key (`climateModule.id`), so every native module page logged it, not only AirPulse. Two keys were changed in `ModuleScreen.tsx`. `vayu/module.tsx` and its uncommitted edits were not touched. A new test failed before the fix (`junksnap keys: DumpWatch, junksnap`) and passes after. A fresh browser load of `#module:vayu` logged the warning 6 times before the fix and 0 times after.
 
 ## Tools used and not used
 

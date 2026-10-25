@@ -4,7 +4,7 @@ import './module.css';
 
 const climateModule: ClimateModule = {
   id: 'plume',
-  name: 'PLUME',
+  name: 'MethaneMend',
   tagline: 'Methane detections grouped into candidate sources, ranked for field investigation, then a simulated repair workflow.',
   stages: ['sense', 'verify', 'act', 'finance', 'prove'],
   tone: 'methane',

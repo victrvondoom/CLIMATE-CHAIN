@@ -1,4 +1,4 @@
-// Incident building, ported from PLUME backend/app/ingestion/pipeline.py (build_incidents and
+// Incident building, ported from MethaneMend backend/app/ingestion/pipeline.py (build_incidents and
 // _refresh_incident) for a fresh database: every observation is pending, clustered once, and
 // each group is scored with priority-v1 against the provider's source persistence.
 

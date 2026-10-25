@@ -12,7 +12,7 @@ describe('hourmatch module', () => {
   it('renders its sections with the mode labels visible', () => {
     const Page = climateModule.Page;
     const html = renderToString(<Page />);
-    expect(html).toContain('HourMatch');
+    expect(html).toContain('HourSync');
     expect(html).toContain('Taipower curves');
     expect(html).toContain('RESEARCH');
     expect(html).toContain('Transfer-once rule');

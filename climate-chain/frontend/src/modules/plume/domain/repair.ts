@@ -1,4 +1,4 @@
-// Repair lifecycle, ported from PLUME backend/app/repair/state_machine.py. It mirrors the
+// Repair lifecycle, ported from MethaneMend backend/app/repair/state_machine.py. It mirrors the
 // RepairEscrow contract's states. The EIP-712 verifier signature and the on-chain funds are not
 // modelled here: this is the rule for which action may happen next, nothing more.
 

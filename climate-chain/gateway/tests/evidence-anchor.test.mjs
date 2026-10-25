@@ -8,7 +8,7 @@ function manifest() {
     schemaVersion: 1,
     id: 'cascade:public-site-17',
     capturedAt: '2026-10-23T11:00:00.000Z',
-    evidence: { sources: ['JunkSnap', 'The Vayu Project'], assessment: { status: 'source_not_observed' } },
+    evidence: { sources: ['DumpWatch', 'AirPulse'], assessment: { status: 'source_not_observed' } },
   };
   return {
     ...payload,

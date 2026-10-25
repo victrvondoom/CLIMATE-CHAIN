@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { CsvParseError, decodeUtf8, parseCsv } from './csv';
 
-// The reading rules come from pandas.read_csv as used by ClimateProof app/main.py: header row,
+// The reading rules come from pandas.read_csv as used by ClaimGuard app/main.py: header row,
 // default NA spellings, blank lines skipped, short rows padded with missing values, long rows refused.
 
 describe('parseCsv', () => {

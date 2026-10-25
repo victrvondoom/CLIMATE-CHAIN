@@ -113,15 +113,15 @@ test('mission connector allowlist rejects individual and unreviewed source paylo
     tasks: [{ id: 'source', type: 'climate.connector_snapshot', input: { connector: 'clearsky', url: 'http://127.0.0.1/private' } }],
   }), { code: 'INVALID_TASK_INPUT' });
   await assert.rejects(() => engine.createMission({
-    title: 'Vayu arbitrary coordinates',
+    title: 'AirPulse arbitrary coordinates',
     tasks: [{ id: 'source', type: 'climate.connector_snapshot', input: { connector: 'vayu', city: 'jodhpur', lat: 19.1, lng: 72.8 } }],
   }), { code: 'INVALID_TASK_INPUT' });
   await assert.rejects(() => engine.createMission({
-    title: 'Vayu unsupported city',
+    title: 'AirPulse unsupported city',
     tasks: [{ id: 'source', type: 'climate.connector_snapshot', input: { connector: 'vayu', city: 'unknown' } }],
   }), { code: 'INVALID_TASK_INPUT' });
   const configuredCity = await engine.createMission({
-    title: 'Vayu configured city',
+    title: 'AirPulse configured city',
     tasks: [{ id: 'source', type: 'climate.connector_snapshot', input: { connector: 'vayu', city: 'jodhpur' } }],
   });
   assert.equal(configuredCity.tasks[0].input.city, 'jodhpur');

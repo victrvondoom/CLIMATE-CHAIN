@@ -19,7 +19,7 @@ const base: RawPlume = {
   geometry_json: { type: 'Point', coordinates: [-101.77, 31.84] },
 };
 
-// Ingestion rules from PLUME backend/app/providers/carbonmapper.py and ingestion/pipeline.py.
+// Ingestion rules from MethaneMend backend/app/providers/carbonmapper.py and ingestion/pipeline.py.
 describe('Carbon Mapper record normalization', () => {
   it('drops a re-issued record with the same external id (the fixture has one)', () => {
     const { observations, dropped } = normalizeBatch(raw);

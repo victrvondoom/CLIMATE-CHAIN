@@ -118,7 +118,7 @@ function HourmatchPage() {
     <div className="m-hourmatch">
       <header className="m-hourmatch-head">
         <div>
-          <h2 className="m-hourmatch-title">HourMatch</h2>
+          <h2 className="m-hourmatch-title">HourSync</h2>
           <p className="m-hourmatch-tagline">Renewable certificates per plant per hour, and a checker for green-power claims.</p>
         </div>
         <ModeTag mode="DEMO" />
@@ -327,7 +327,7 @@ function ClaimOutcome({ outcome }: { outcome: Outcome }) {
 
 const climateModule: ClimateModule = {
   id: 'hourmatch',
-  name: 'HourMatch',
+  name: 'HourSync',
   tagline: 'Renewable certificates per plant per hour, and a checker for green-power claims.',
   stages: ['verify', 'finance', 'prove'],
   tone: 'energy',

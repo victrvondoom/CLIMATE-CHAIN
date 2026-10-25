@@ -69,7 +69,7 @@ function CarbonLensPage() {
       <header className="m-carbonlens-head">
         <div>
           <p className="m-carbonlens-kicker">Carbon integrity · Verify, finance, prove</p>
-          <h2>CarbonLens</h2>
+          <h2>CarbonScope</h2>
           <p>
             Satellite checks for forest credit claims. The port covers serial uniqueness and report hashes. Pipeline
             outputs are shown as recorded.
@@ -261,7 +261,7 @@ function CarbonLensPage() {
 
 const climateModule: ClimateModule = {
   id: 'carbonlens',
-  name: 'CarbonLens',
+  name: 'CarbonScope',
   tagline: 'Research: satellite checks for forest credit claims, with serial and report-hash checks on the recorded ledger.',
   stages: ['verify', 'finance', 'prove'],
   tone: 'carbon',

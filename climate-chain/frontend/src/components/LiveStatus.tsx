@@ -17,7 +17,7 @@ export function SignalsPending({ label, error, online, onRetry }: { label: strin
   return (
     <section className="signals-pending" role="status" aria-live="polite">
       <span className="eyebrow">LOADING SIGNALS</span>
-      <p>Requesting the latest snapshot from JunkSnap, clearsky, Teesri Shikayat and The Vayu Project for {label}…</p>
+      <p>Requesting the latest snapshot from DumpWatch, AshAlert, TapAlert and AirPulse for {label}…</p>
     </section>
   );
 }

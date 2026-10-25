@@ -7,7 +7,7 @@ describe('searchKnowledge', () => {
   it('sends the query and limit to the retrieval route and returns cited excerpts without a generated answer', async () => {
     const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({
       query: 'methane', mode: 'lexical-bm25', answered: false, note: 'Ranked excerpts.',
-      results: [{ id: 'a', source: 'registry/projects.json', title: 'Registry', heading: 'PLUME', startLine: 1, score: 1.2, snippet: 'Methane detection' }],
+      results: [{ id: 'a', source: 'registry/projects.json', title: 'Registry', heading: 'MethaneMend', startLine: 1, score: 1.2, snippet: 'Methane detection' }],
       index: { documents: 2, chunks: 9, builtAt: '2026-10-23T00:00:00.000Z' }, asOf: '2026-10-23T00:00:00.000Z',
     }), { status: 200, headers: { 'content-type': 'application/json' } }));
     vi.stubGlobal('fetch', fetchMock);

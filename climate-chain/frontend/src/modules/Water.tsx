@@ -1,4 +1,4 @@
-// Water module: Teesri Shikayat's features — the 250 m ring, the warned
+// Water module: TapAlert's features — the 250 m ring, the warned
 // phone wall, resident-only case closure — surfaced in the unified shell.
 
 import { useState } from 'react';
@@ -23,7 +23,7 @@ export function Water({ data }: { data: Overview }) {
     <div className="stack signal-page">
       <div className="module-head">
         <div>
-          <h1>Water <span className="by">· Teesri Shikayat</span></h1>
+          <h1>Water <span className="by">· TapAlert</span></h1>
           <ModeBadge mode={data.sources.teesri.mode} />
           <p>A tripwire for dirty tap water. When three homes close together report dirty water, every enrolled
              home within 250 m is warned, and only the residents can close the case. Join in one tap over Telegram —
@@ -73,8 +73,8 @@ export function Water({ data }: { data: Overview }) {
             <span className="dot dot-ring" /> in ring, silent &nbsp;
             <span className="dot dot-outside" /> outside ring
           </div>
-          <p className="muted">This summary shows the number of households in each source-reported status. The resident-level warning and case workflow remains in Teesri Shikayat.</p>
-          <ExternalLink href="https://eirioqqhvtvve3aw5xhpje2wju0jztrl.lambda-url.ap-south-1.on.aws/console">Open the Teesri console</ExternalLink>
+          <p className="muted">This summary shows the number of households in each source-reported status. The resident-level warning and case workflow remains in TapAlert.</p>
+          <ExternalLink href="https://eirioqqhvtvve3aw5xhpje2wju0jztrl.lambda-url.ap-south-1.on.aws/console">Open the TapAlert console</ExternalLink>
         </Card>
       </div>
     </div>

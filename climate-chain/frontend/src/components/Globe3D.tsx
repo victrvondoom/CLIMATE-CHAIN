@@ -42,7 +42,7 @@ export function Globe3D({
           : [
               {
                 id: site.id,
-                name: `JunkSnap ${site.id}`,
+                name: `DumpWatch ${site.id}`,
                 lat: site.lat,
                 lng: site.lng,
                 kind: 'waste' as const,

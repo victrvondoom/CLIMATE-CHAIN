@@ -25,10 +25,10 @@ const NAV_GROUPS: { title: string; items: { view: WorkspaceView; label: string; 
   {
     title: 'Climate signals',
     items: [
-      { view: 'waste', label: 'Waste · JunkSnap', icon: 'waste' },
-      { view: 'fire', label: 'Fire · ClearSky', icon: 'fire' },
-      { view: 'water', label: 'Water · Teesri Shikayat', icon: 'water' },
-      { view: 'air', label: 'Air · Vayu Project', icon: 'air' },
+      { view: 'waste', label: 'Waste · DumpWatch', icon: 'waste' },
+      { view: 'fire', label: 'Fire · AshAlert', icon: 'fire' },
+      { view: 'water', label: 'Water · TapAlert', icon: 'water' },
+      { view: 'air', label: 'Air · AirPulse', icon: 'air' },
       { view: 'pollution', label: 'Global Pollution Atlas', icon: 'cloud' },
     ],
   },

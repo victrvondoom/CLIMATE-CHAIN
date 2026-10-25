@@ -93,7 +93,7 @@ function CarbonTracePage() {
     <div className="m-carbontrace-root">
       <Card className="m-carbontrace-head">
         <div className="m-carbontrace-title-row">
-          <h2>CarbonTrace</h2>
+          <h2>TonneTrail</h2>
           <span className="m-carbontrace-mode">DEMO</span>
           <span className="m-carbontrace-chip">preset scenarios, simulated satellite series</span>
         </div>
@@ -234,7 +234,7 @@ function CarbonTracePage() {
 
 const climateModule: ClimateModule = {
   id: 'carbontrace',
-  name: 'CarbonTrace',
+  name: 'TonneTrail',
   tagline: 'Demo: carbon credits checked against satellite evidence before they exist.',
   stages: ['verify', 'finance', 'prove'],
   tone: 'carbon',

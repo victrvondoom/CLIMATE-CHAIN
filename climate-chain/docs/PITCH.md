@@ -14,9 +14,9 @@ Climate Chain is the workspace where a climate signal becomes proof. Every missi
 
 - **One workspace, every project.** 18 native modules are re-implemented in climate-chain/frontend/src/modules from the source projects and run on bundled fixtures (8 SIMULATED, 6 RESEARCH, 4 DEMO). The original project folders are not included in this repository.
 - **One registry.** `registry/projects.json` is the only list the gateway and the interface trust. The gateway serves it at `/api/v1/projects`; the launchpad reads the same file.
-- **Standalone apps only when present locally.** Seven projects (AquaQuest, Flarewatch, PlotLock, HourMatch, CarbonTwin, CarbonLens, and the EcoGraph story page) can open from `/apps/<id>/` only when the optional local `projects/` folder is present; it is not included in this repository, and the gateway checks each app is present before linking to it.
+- **Standalone apps only when present locally.** Seven projects (BlueTrail, TorchSight, ParcelSeal, HourSync, UniqueCredit, CarbonScope, and the ImpactGraph story page) can open from `/apps/<id>/` only when the optional local `projects/` folder is present; it is not included in this repository, and the gateway checks each app is present before linking to it.
 - **Honest labels travel with the numbers.** Data from a reachable source shows as **LIVE**. Fallback values show as **SIMULATED**. Demo and research results keep their original labels.
-- **Place-based review with evidence.** From an open JunkSnap site, Cascade Review checks Vayu air data at that point and exports a SHA-256 evidence manifest. A match is a lead for a person to review. It is not a finding of cause.
+- **Place-based review with evidence.** From an open DumpWatch site, Cascade Review checks AirPulse air data at that point and exports a SHA-256 evidence manifest. A match is a lead for a person to review. It is not a finding of cause.
 - **Mission studio.** Compose a mission from any of the projects, arrange it across the five stages, and export a Markdown brief with the source labels attached.
 
 ## Why this is different
@@ -28,15 +28,15 @@ Climate Chain is the workspace where a climate signal becomes proof. Every missi
 
 ## What is next (not built yet)
 
-- A shared receipt ledger, so a Flarewatch night and a HourMatch certificate can reference the same evidence hash.
+- A shared receipt ledger, so a TorchSight night and a HourSync certificate can reference the same evidence hash.
 - Serving the standalone apps from a separate origin, so an app can't reach the memory vault on the workspace origin.
-- Backend routes for the projects whose apps need a server: the PLUME and CarbonShield APIs, and the PlotLock oracle.
+- Backend routes for the projects whose apps need a server: the MethaneMend and SinkGuard APIs, and the ParcelSeal oracle.
 - Verifying the feature claims carried over from earlier maps, project by project.
 
 ## Limits, stated plainly
 
 - There is no shared identity, database, or write-back between projects. Each project keeps its own accounts and approvals.
-- Only four live feeds (JunkSnap, clearsky, Teesri Shikayat, Vayu) are normalised by the gateway. The other projects are linked, not connected.
+- Only four live feeds (DumpWatch, AshAlert, TapAlert, AirPulse) are normalised by the gateway. The other projects are linked, not connected.
 - Several projects use simulated or demo data. Their labels say so.
 - Some hardcoded development keys in the source need review before any public push. See [`REVERSE_ENGINEERING_INVENTORY.md`](REVERSE_ENGINEERING_INVENTORY.md).
 

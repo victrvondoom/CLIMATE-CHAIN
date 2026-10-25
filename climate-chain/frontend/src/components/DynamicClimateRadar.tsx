@@ -48,7 +48,7 @@ const HOTSPOTS: Hotspot[] = [
     title: 'Community Waste Sites',
     metric: '4 Open Dumps · 1 Verified',
     status: 'ILLUSTRATIVE EXAMPLE',
-    description: 'Privacy-preserving community photos submitted via JunkSnap.'
+    description: 'Privacy-preserving community photos submitted via DumpWatch.'
   },
   {
     id: 'mumbai',
@@ -59,7 +59,7 @@ const HOTSPOTS: Hotspot[] = [
     title: 'Drinking Water Tripwire',
     metric: '23 Homes Warned',
     status: 'ILLUSTRATIVE EXAMPLE',
-    description: 'Teesri Shikayat telegram bot joined by 23 resident households.'
+    description: 'TapAlert telegram bot joined by 23 resident households.'
   },
   {
     id: 'niger',

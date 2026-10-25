@@ -3,7 +3,7 @@ import series from '../fixtures/demo-hourly-series.json';
 import { expectedWh, maxPlausibleWh, type Kind, type Weather } from './physics';
 import { THRESHOLD, scoreSeries, type Hour } from './integrity';
 
-// Rules from GridProof oracle/gridproof/integrity.py, physics part only (the IsolationForest part is
+// Rules from WattCert oracle/gridproof/integrity.py, physics part only (the IsolationForest part is
 // not ported). The threshold matches GranularCertificate.anomalyThresholdBps = 7000.
 
 function deviceHours(key: string): { kind: Kind; capacityW: number; hours: Hour[] } {

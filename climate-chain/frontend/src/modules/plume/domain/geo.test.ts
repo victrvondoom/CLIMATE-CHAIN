@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { centroid, haversineM, spreadM } from './geo';
 
-// Vectors from PLUME backend/tests/test_investigation_units.py.
+// Vectors from MethaneMend backend/tests/test_investigation_units.py.
 describe('geodesy', () => {
   it('measures 0.001 degrees of latitude as about 111.2 m', () => {
     const d = haversineM({ lon: -102, lat: 32 }, { lon: -102, lat: 32.001 });

@@ -88,7 +88,7 @@ function buildBrief(title: string, place: string, trackId: TrackId, selected: Ca
   lines.push(
     '## Integration boundary',
     '',
-    'Climate Chain normalizes live data from JunkSnap, clearsky, Teesri Shikayat and Vayu when those upstreams are reachable. Other project capabilities are specialist handoffs with their own data, evidence, permissions and execution. This brief does not combine project claims into a verified impact total or execute specialist actions.',
+    'Climate Chain normalizes live data from DumpWatch, AshAlert, TapAlert and AirPulse when those upstreams are reachable. Other project capabilities are specialist handoffs with their own data, evidence, permissions and execution. This brief does not combine project claims into a verified impact total or execute specialist actions.',
     '',
   );
   return lines.join('\n');

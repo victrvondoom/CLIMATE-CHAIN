@@ -54,7 +54,7 @@ In addition to the Trust Firewall, the Climate Chain team authored:
    - `EnvironmentalEvidenceRegistry.sol`: Enforces role-based attestation with append-only parent-child lineage inside a resettable local development chain (Hardhat/EDR, chain ID 31337, valueless ETH, reset on restart or when the demo ledger fills; not a public or immutable ledger).
    - `ClimateClaimRegistry.sol`: Enforces scope-level exclusivity, challenge adjudication, and zero speculative tokenomics.
 3. **Framework-free Node.js Gateway (3 runtime dependencies)**:
-   Gateway unit tests (run npm test for current counts), Windows DPAPI (Windows; env key elsewhere) / AES-256-GCM memory encryption, and live API adapters for four civic services (JunkSnap, ClearSky, Teesri Shikayat, Vayu) with explicit `LIVE` vs `SIMULATED` labeling.
+   Gateway unit tests (run npm test for current counts), Windows DPAPI (Windows; env key elsewhere) / AES-256-GCM memory encryption, and live API adapters for four civic services (DumpWatch, AshAlert, TapAlert, AirPulse) with explicit `LIVE` vs `SIMULATED` labeling.
 4. **Interactive Command Center & Cesium Satellite Globe**:
    Vitest tests (run npm test for current counts), 0 ESLint warnings, 32 distinct views, interactive browser-based SHA-256 recomputation matching EVM contract storage, and terminal curl reproduction.
 
@@ -62,4 +62,4 @@ In addition to the Trust Firewall, the Climate Chain team authored:
 
 ## 3. Strict Boundary on Third-Party Code
 
-We explicitly acknowledge that 18 native modules are re-implemented in climate-chain/frontend/src/modules from the source projects and run on bundled fixtures (8 SIMULATED, 6 RESEARCH, 4 DEMO); the original project folders are not included in this repository. All third-party metrics (such as PLUME's 10,098 Carbon Mapper CH₄ plumes, reported upstream; this repository ships a 60-plume sample, EcoGraph's FalkorDB property graph, and CarbonLens's Random Forest classifier) are accurately attributed to their respective authors in [`docs/COMPONENT_PROVENANCE_AND_ATTRIBUTION.md`](COMPONENT_PROVENANCE_AND_ATTRIBUTION.md). We do not claim to have authored those external projects.
+We explicitly acknowledge that 18 native modules are re-implemented in climate-chain/frontend/src/modules from the source projects and run on bundled fixtures (8 SIMULATED, 6 RESEARCH, 4 DEMO); the original project folders are not included in this repository. All third-party metrics (such as MethaneMend's 10,098 Carbon Mapper CH₄ plumes, reported upstream; this repository ships a 60-plume sample, ImpactGraph's FalkorDB property graph, and CarbonScope's Random Forest classifier) are accurately attributed to their respective authors in [`docs/COMPONENT_PROVENANCE_AND_ATTRIBUTION.md`](COMPONENT_PROVENANCE_AND_ATTRIBUTION.md). We do not claim to have authored those external projects.

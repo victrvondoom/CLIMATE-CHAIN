@@ -39,7 +39,7 @@ const STAGE_GUIDANCE: Record<StageId, { eyebrow: string; heading: string; body: 
     eyebrow: 'Step 04 · Fund responsibly', heading: 'Tie funding to a verifiable action',
     body: 'Choose a funding context by IEEE track, then open the source capability that fits. Market records, clean-energy certificates, farmer supply flows and climate evidence stay in separate pathways.',
     checklist: ['Name the action and its evidence requirement.', 'Check who approves release or issuance.', 'Distinguish test-chain and simulated flows from real funds.'],
-    boundary: 'Climate Chain reads and routes; it does not transfer funds. A live Clearsky payout total is an estimate based on demo prices, while contracts and payment actions stay in their source apps.',
+    boundary: 'Climate Chain reads and routes; it does not transfer funds. A live AshAlert payout total is an estimate based on demo prices, while contracts and payment actions stay in their source apps.',
   },
   prove: {
     eyebrow: 'Step 05 · Account for outcomes', heading: 'Show what changed and what remains uncertain',
@@ -108,14 +108,14 @@ function FinanceSnapshot({ data, onNavigate }: { data: Overview | null; onNaviga
       {amount != null && Number.isFinite(amount)
         ? <strong className="finance-payout-value">{inr(amount)}</strong>
         : <strong className="finance-payout-value">Unavailable</strong>}
-      <p className="muted">Clearsky reports this estimate in its season summary. It is not a payment receipt or a Climate Chain transaction.</p>
+      <p className="muted">AshAlert reports this estimate in its season summary. It is not a payment receipt or a Climate Chain transaction.</p>
       {data?.fire.demoPrices === true && <p className="finance-demo-note">Demo buyer prices · estimate only · no money moves here.</p>}
       {data && data.fire.demoPrices == null && <p className="finance-demo-note">The source did not provide its demo-price flag; treat the reported amount as an estimate only.</p>}
       {data?.fire.demoPrices === false && <p className="finance-demo-note">The source marks its price inputs as non-demo; this reported amount is still an estimate, not proof of payment.</p>}
       {source?.error && <p role="alert" className="finance-source-error">Latest source check failed: {source.error.message}</p>}
       <div className="finance-source-footer">
         <small className="muted">{source?.provenance?.fetchedAt ? `Source fetched ${new Date(source.provenance.fetchedAt).toLocaleString()}` : 'No source fetch time is available.'}</small>
-        <button type="button" className="mini-action finance-open-source" onClick={() => onNavigate('fire')}>Open Clearsky source detail</button>
+        <button type="button" className="mini-action finance-open-source" onClick={() => onNavigate('fire')}>Open AshAlert source detail</button>
       </div>
     </Card>
   );

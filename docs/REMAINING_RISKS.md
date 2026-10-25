@@ -17,8 +17,8 @@
 
 ## Data and product integration
 
-- Only JunkSnap, clearsky, Teesri and Vayu have central read adapters. All were disconnected in the live browser smoke; fallback overview values were labeled simulated. Fixture integration tests do not prove production availability.
-- Persisted connector tasks currently support ClearSky aggregate statistics and Vayu city-preset PM2.5 samples. JunkSnap site features and Teesri household feeds remain dashboard-only until separate privacy-reviewed projections are added.
+- Only DumpWatch, AshAlert, TapAlert and AirPulse have central read adapters. All were disconnected in the live browser smoke; fallback overview values were labeled simulated. Fixture integration tests do not prove production availability.
+- Persisted connector tasks currently support AshAlert aggregate statistics and AirPulse city-preset PM2.5 samples. DumpWatch site features and TapAlert household feeds remain dashboard-only until separate privacy-reviewed projections are added.
 - Worker heartbeat, age, stale/missing/corrupt state, restart count and backoff are exposed by the local gateway health endpoint and frontend health panel. Supervisor/worker control is still local-process-only and has no remote authenticated operations API.
 - The remaining eight specialist projects are launchable handoffs, not centrally executed data services. No shared identity or common storage transaction exists.
 - Climate scenario handling is an illustrative linear simulation, not a forecast or measured pathway. Cascade is a human-review proximity/recency lead, not causal evidence.

@@ -1,4 +1,4 @@
-// Port of the challenge progress logic in AquaQuest js/features/contributions.js (getProgress,
+// Port of the challenge progress logic in BlueTrail js/features/contributions.js (getProgress,
 // countByChallenge, hasUserContributed). Pure TypeScript.
 
 export interface ChallengeRecord {

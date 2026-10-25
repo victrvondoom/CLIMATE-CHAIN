@@ -7,7 +7,7 @@ import {
   type ContributionRecord,
 } from './challenges';
 
-// Rules ported from AquaQuest js/features/contributions.js: getProgress, countByChallenge,
+// Rules ported from BlueTrail js/features/contributions.js: getProgress, countByChallenge,
 // hasUserContributed. Goal and fallback values are the source's own.
 
 const challenge = (id: string, goal?: number): ChallengeRecord => ({ id, title: id, goal });

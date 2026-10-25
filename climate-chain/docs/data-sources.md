@@ -59,4 +59,4 @@ Planned in the master brief as later work: Climate TRACE, EU EDGAR, USGS / Water
 
 ## Existing sources, unchanged
 
-The four pilot connectors (JunkSnap, clearsky, Teesri Shikayat, The Vayu Project) and the Earth intelligence Open-Meteo weather and air reads ([`gateway/place-environment.mjs`](../gateway/place-environment.mjs)) work as before. See the [README](../README.md).
+The four pilot connectors (DumpWatch, AshAlert, TapAlert, AirPulse) and the Earth intelligence Open-Meteo weather and air reads ([`gateway/place-environment.mjs`](../gateway/place-environment.mjs)) work as before. See the [README](../README.md).

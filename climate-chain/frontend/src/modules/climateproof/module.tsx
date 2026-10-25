@@ -150,7 +150,7 @@ function ClimateProofPage() {
   return (
     <div className="m-climateproof-root">
       <header className="m-climateproof-head">
-        <div className="m-climateproof-kicker">ClimateProof AI · Climate data</div>
+        <div className="m-climateproof-kicker">ClaimGuard AI · Climate data</div>
         <h2 className="m-climateproof-title">Check an environmental dataset before anyone trusts it</h2>
         <p className="m-climateproof-lede">
           The rules are the ones in the project's API: required columns, blank cells, duplicate rows, timestamps, numeric
@@ -326,7 +326,7 @@ function ClimateProofPage() {
 
 const climateModule: ClimateModule = {
   id: 'climateproof',
-  name: 'ClimateProof AI',
+  name: 'ClaimGuard AI',
   tagline: 'Check a CSV of environmental readings for schema, blank cells, duplicates, ranges and outliers, and fingerprint it.',
   stages: ['verify', 'prove'],
   tone: 'air',

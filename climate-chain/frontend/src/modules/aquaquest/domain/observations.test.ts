@@ -11,7 +11,7 @@ import {
   type ObservationDraft,
 } from './observations';
 
-// Rules ported from AquaQuest js/pages/observe.js (validateCurrentStep, submitObservation, captureStep4Inputs)
+// Rules ported from BlueTrail js/pages/observe.js (validateCurrentStep, submitObservation, captureStep4Inputs)
 // and the HTML limits on the pH, turbidity and note inputs.
 
 const filled = (overrides: Partial<ObservationDraft> = {}): ObservationDraft => ({

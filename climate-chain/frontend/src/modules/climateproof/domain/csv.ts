@@ -1,5 +1,5 @@
 // A small CSV reader for the browser, with no dependency. It follows what pandas.read_csv does for
-// ClimateProof (app/main.py): a header row, quoted fields with "" escapes, LF or CRLF line endings,
+// ClaimGuard (app/main.py): a header row, quoted fields with "" escapes, LF or CRLF line endings,
 // blank lines skipped, short rows padded with missing values, rows longer than the header refused,
 // and the default pandas spellings for missing values (NA, null, nan, empty, ...).
 

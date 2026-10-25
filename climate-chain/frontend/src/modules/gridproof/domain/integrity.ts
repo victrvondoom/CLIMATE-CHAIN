@@ -1,4 +1,4 @@
-// Plausibility check for a meter reading, ported from GridProof oracle/gridproof/integrity.py.
+// Plausibility check for a meter reading, ported from WattCert oracle/gridproof/integrity.py.
 // Only the physics part is ported: how far a reading exceeds what the weather allowed, a solar
 // reading at night, and a replayed peak. The source also blends in an IsolationForest score
 // (scikit-learn, learned on the device's own history), which is not ported here. The score below

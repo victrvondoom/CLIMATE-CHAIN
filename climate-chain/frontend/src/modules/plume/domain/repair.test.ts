@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { allowedActions, checkTransition, TransitionError } from './repair';
 
-// Rules from PLUME backend/app/repair/state_machine.py (mirrors the RepairEscrow contract).
+// Rules from MethaneMend backend/app/repair/state_machine.py (mirrors the RepairEscrow contract).
 describe('repair lifecycle', () => {
   it('moves a draft through funding, assignment, repair, verification and payment', () => {
     let status = 'DRAFT';

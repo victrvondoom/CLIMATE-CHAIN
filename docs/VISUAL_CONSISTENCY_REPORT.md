@@ -31,10 +31,10 @@ The visual design system strictly implements the specified creamy-white color pa
 
 ### Preservation of Functional Domain Accents
 Meaningful state and track indicators preserve their distinct, accessible hues:
-- **Waste (JunkSnap)**: `#B45309` (Warm Amber/Earth)
-- **Fire (ClearSky)**: `#B84A1D` (Burnt Terracotta)
-- **Water (Teesri Shikayat)**: `#27627E` (Deep Marine Teal)
-- **Air (The Vayu Project)**: `#526E51` (Sage/Atmospheric Green)
+- **Waste (DumpWatch)**: `#B45309` (Warm Amber/Earth)
+- **Fire (AshAlert)**: `#B84A1D` (Burnt Terracotta)
+- **Water (TapAlert)**: `#27627E` (Deep Marine Teal)
+- **Air (AirPulse)**: `#526E51` (Sage/Atmospheric Green)
 - **Verified State (Pass)**: `#3A684B` (Forest Green)
 - **Failure / Warning**: `#B3392F` (Crimson / Rust)
 

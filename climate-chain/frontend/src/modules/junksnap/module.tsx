@@ -82,7 +82,7 @@ function JunkSnapPage() {
       <header className="m-junksnap-head">
         <div>
           <p className="m-junksnap-kicker">Waste · Jodhpur</p>
-          <h2>JunkSnap</h2>
+          <h2>DumpWatch</h2>
           <p>Waste evidence to municipal action: 10 backers verify a site, and the letter cites only quotes it can prove.</p>
         </div>
         <span className="m-junksnap-mode" title="The module's data is a fixture unless the overview feed is live">
@@ -187,7 +187,7 @@ function JunkSnapPage() {
 
 const climateModule: ClimateModule = {
   id: 'junksnap',
-  name: 'JunkSnap',
+  name: 'DumpWatch',
   tagline: 'Waste photos become verified sites and cited letters to the municipal body.',
   stages: ['sense', 'verify', 'act', 'prove'],
   tone: 'waste',

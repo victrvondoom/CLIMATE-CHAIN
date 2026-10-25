@@ -1,4 +1,4 @@
-// Spherical geometry, ported from PLUME backend/app/investigation/clustering.py.
+// Spherical geometry, ported from MethaneMend backend/app/investigation/clustering.py.
 
 export const EARTH_RADIUS_M = 6_371_008.8;
 

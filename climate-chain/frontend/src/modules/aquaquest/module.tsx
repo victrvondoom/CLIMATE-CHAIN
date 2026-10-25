@@ -136,7 +136,7 @@ function AquaQuestPage() {
   return (
     <div className="m-aquaquest-root">
       <header className="m-aquaquest-head">
-        <div className="m-aquaquest-kicker">AquaQuest · Water · Bangladesh</div>
+        <div className="m-aquaquest-kicker">BlueTrail · Water · Bangladesh</div>
         <h2 className="m-aquaquest-title">Guided water observation and challenge progress</h2>
         <p className="m-aquaquest-lede">
           The observation steps, their required fields and the reading limits are ported from the app. Mode:{' '}
@@ -367,7 +367,7 @@ function AquaQuestPage() {
 
 const climateModule: ClimateModule = {
   id: 'aquaquest',
-  name: 'AquaQuest',
+  name: 'BlueTrail',
   tagline: 'Guided water observations checked the way the app checks them, with challenge progress from logged contributions.',
   stages: ['sense', 'act', 'prove'],
   tone: 'water',

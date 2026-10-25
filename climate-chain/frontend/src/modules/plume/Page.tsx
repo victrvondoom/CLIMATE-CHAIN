@@ -122,7 +122,7 @@ export default function PlumePage() {
     <main className="m-plume">
       <header className="m-plume-head">
         <p className="m-plume-kicker">Methane · Permian Basin</p>
-        <h2>PLUME: from detection to a verified repair</h2>
+        <h2>MethaneMend: from detection to a verified repair</h2>
         <p className="m-plume-lede">
           Carbon Mapper methane detections are grouped into candidate sources, ranked for field investigation, and moved
           through a repair workflow. The detections are measured. The repair and its funds are simulated.
@@ -144,7 +144,7 @@ export default function PlumePage() {
             <select value={epsM} onChange={(e) => setEpsM(Number(e.target.value))}>
               {EPS_OPTIONS.map((eps) => (
                 <option key={eps} value={eps}>
-                  {eps} m{eps === DEFAULT_CLUSTER_PARAMS.epsM ? ' (PLUME default)' : ''}
+                  {eps} m{eps === DEFAULT_CLUSTER_PARAMS.epsM ? ' (MethaneMend default)' : ''}
                 </option>
               ))}
             </select>
@@ -203,7 +203,7 @@ export default function PlumePage() {
           <ModeLabel mode="SIMULATED" />
         </div>
         <p className="m-plume-note">
-          Simulated escrow: {SIMULATED_FUNDING} (the value from PLUME's integration test). No value moves. The buttons
+          Simulated escrow: {SIMULATED_FUNDING} (the value from MethaneMend's integration test). No value moves. The buttons
           below follow the escrow rule: each role may take only the actions allowed from the current state.
         </p>
         <div className="m-plume-controls">

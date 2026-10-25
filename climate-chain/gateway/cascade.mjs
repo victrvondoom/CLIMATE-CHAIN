@@ -36,7 +36,7 @@ export function hashEvidence(value) {
 }
 
 /**
- * Assess a single JunkSnap site against the nearest Vayu monitor response for
+ * Assess a single DumpWatch site against the nearest AirPulse monitor response for
  * that site's query point. The monitor's coordinates are not returned by this
  * route, so this is a bounded proximity lead, never a causal attribution.
  */
@@ -97,13 +97,13 @@ export function assessCascade({ site, air, wasteMode, airUpstreamMode, sourceUrl
     coverage,
     proximity: {
       nearestMonitorDistanceKm: distanceKm,
-      distanceMeaning: 'Vayu-reported distance from the rounded query point to its nearest monitor; monitor coordinates are not included in this response.',
+      distanceMeaning: 'AirPulse-reported distance from the rounded query point to its nearest monitor; monitor coordinates are not included in this response.',
       temporalGapHours: temporalGapHours == null ? null : Number(temporalGapHours.toFixed(2)),
       siteAgeHours: siteAgeHours == null ? null : Number(siteAgeHours.toFixed(2)),
       airAgeHours: airAgeHours == null ? null : Number(airAgeHours.toFixed(2)),
     },
     explanation: status === 'ready_for_human_review'
-      ? 'A recent open waste-site report and a recent PM2.5 observation from a nearby Vayu monitor meet the configured proximity and time checks. This is a review lead; it does not show that the waste site caused the air reading.'
+      ? 'A recent open waste-site report and a recent PM2.5 observation from a nearby AirPulse monitor meet the configured proximity and time checks. This is a review lead; it does not show that the waste site caused the air reading.'
       : `No review lead was created (${status.replace(/_/g, ' ')}). Missing or ineligible evidence is left explicit.`,
   };
 
@@ -111,7 +111,7 @@ export function assessCascade({ site, air, wasteMode, airUpstreamMode, sourceUrl
     schemaVersion: CASCADE_SCHEMA_VERSION,
     capturedAt,
     site: {
-      source: 'JunkSnap',
+      source: 'DumpWatch',
       sourceUrl: sourceUrls.waste ?? null,
       sourceId: site?.id ?? null,
       status: site?.status ?? null,
@@ -119,11 +119,11 @@ export function assessCascade({ site, air, wasteMode, airUpstreamMode, sourceUrl
       reportCount: Number.isFinite(site?.reportCount) ? site.reportCount : null,
       firstReportedAt: site?.firstReportedAt ?? null,
       lastReportedAt: site?.lastReportedAt ?? null,
-      location: validPoint(site) ? { lat: site.lat, lng: site.lng, precision: 'JunkSnap public site point' } : null,
+      location: validPoint(site) ? { lat: site.lat, lng: site.lng, precision: 'DumpWatch public site point' } : null,
       sourceMode: wasteMode,
     },
     air: {
-      source: 'The Vayu Project',
+      source: 'AirPulse',
       sourceUrl: sourceUrls.air ?? null,
       queryPlace: air?.place ?? null,
       pm25: Number.isFinite(air?.pm25Now) ? air.pm25Now : null,

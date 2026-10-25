@@ -15,7 +15,7 @@ const { observations } = normalizeBatch(sample.plumes as RawPlume[]);
 const result = buildIncidents(observations, sources, DEFAULT_CLUSTER_PARAMS);
 const top = [...result.incidents].sort((a, b) => b.score - a.score)[0];
 
-// Expected values come from running PLUME's clustering.py and scoring.py on the same 59 detections.
+// Expected values come from running MethaneMend's clustering.py and scoring.py on the same 59 detections.
 describe('incidents from the Carbon Mapper sample', () => {
   it('groups the 59 unique detections into the 7 provider source groups', () => {
     expect(result.incidents).toHaveLength(7);
