@@ -13,12 +13,12 @@ The app is running at [http://127.0.0.1:8080](http://127.0.0.1:8080). The launch
 | Area | Command | Result |
 |---|---|---|
 | Frontend types | `npx tsc --noEmit` in `frontend` | Pass |
-| Frontend unit/component tests | `npx vitest run` in `frontend` | 71 files, 500 passed |
+| Frontend unit/component tests | `npx vitest run` in `frontend` | Passed on 2026-10-23 (run npm test for current counts) |
 | Frontend lint | `npm run lint` in `frontend` | Pass |
 | Frontend production build | `npm run build` in `frontend` | Pass; large-chunk warnings remain |
-| Gateway suite | `npm test` in `gateway` | 159 tests: 158 passed, 1 opt-in test skipped, 0 failed |
+| Gateway suite | `npm test` in `gateway` | Passed with 0 failed; 1 opt-in test skipped on 2026-10-23 (run npm test for current counts) |
 | On-chain journey | `CLIMATE_CHAIN_E2E=1 node --test tests/integrity-e2e.test.mjs` in `gateway`, against the running local chain | 1 passed; covers evidence, anchor, verify, tamper, replay, claim, duplicate, challenge and correction |
-| Solidity contracts | `npx hardhat test` in `blockchain` | 19 passed |
+| Solidity contracts | `npx hardhat test` in `blockchain` | Passed (19 tests on 2026-10-23; run npm test for current counts) |
 | Browser route audit | Playwright on the running app | 32/32 dashboard destinations rendered |
 | Four-panel/browser performance sample | Playwright at 1440×1000 | Four panels rendered; two Cesium viewers; 60.2 mean frames/s and 16.8 ms p95 frame spacing over 5 seconds; 45.9 MB Chromium JS heap at measurement time |
 
@@ -119,10 +119,10 @@ This pass changed the Command center, carried the air location into Earth and th
 | Check | Result |
 |---|---|
 | Frontend typecheck (`npx tsc --noEmit`) | Pass |
-| Frontend tests (`npx vitest run`) | 72 files, 510 passed (was 71 files, 500) |
+| Frontend tests (`npx vitest run`) | Passed on 2026-10-24 (counts differ between documents; run npm test for current counts) |
 | Frontend lint (`npm run lint`) | Pass |
-| Gateway tests (`npm test`) | 163 tests: 162 passed, 1 opt-in skipped, 0 failed (was 159: 158 passed, 1 skipped). This is the last run, after another session added a track registry and its tests to the same tree. |
-| Contracts (`npx hardhat test`) | 19 passed |
+| Gateway tests (`npm test`) | Passed, 1 opt-in skipped, 0 failed on the last recorded run (counts changed between runs and differ from other documents; run npm test for current counts). |
+| Contracts (`npx hardhat test`) | Passed (19 tests when recorded; run npm test for current counts) |
 | Fresh-chain verification on 18546, twice | 32 of 32 checks passed each time, plus the opt-in end-to-end test. Checks include role boundaries: a claimant cannot anchor (`NotAttester`), a challenger cannot submit a claim (`NotClaimant`), a claimant cannot resolve a challenge (`NotReviewer`), and a claimant cannot add an attester (`NotAdmin`). The end-to-end test ran against that fresh chain both times. |
 | Dependency audit, production dependencies (`npm audit --omit=dev`) | gateway 0, frontend 0, blockchain 0. The 19 advisories in the blockchain development toolchain recorded above come from dev dependencies. |
 | Full browser audit on the relaunched app | 96 page loads, detailed in the capability matrix |

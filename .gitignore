@@ -40,3 +40,6 @@ output/
 
 .vercel
 .env*.local
+
+# local scratch for parallel agents
+.agent/

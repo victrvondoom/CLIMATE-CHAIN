@@ -24,7 +24,7 @@ const INDICATORS: { id: IndicatorType; label: string; unit: string; range: strin
   {
     id: 'temperature_anomaly',
     label: 'Global Surface Temperature Anomaly',
-    unit: '°C (vs 1901-2000)',
+    unit: '°C (vs 1951-1980)',
     range: '1880–2026 (Gap 1826–1879)',
     agency: 'NOAA NCEI / NASA GISS GISTEMP v4',
     baseValue: 1.412,
@@ -127,9 +127,7 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
         session_high: curVal + 0.012,
         session_low: curVal - 0.012,
         tick_count: count - i + 1,
-        proof_hash: `0x7a69${Math.random().toString(16).slice(2, 10)}`,
-        station: cfg.agency,
-        block_number: 31337 + count - i
+        simulated: true
       });
     }
 
@@ -153,7 +151,7 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
       if (!isStreamingRef.current) return;
 
       try {
-        // Fetch real-time tick from gateway
+        // Fetch the next simulated tick (random walk) from the gateway
         const tick = await fetchLiveTelemetryTick(selectedIndicator);
         if (tick) {
           setLatestTick(tick);
@@ -166,7 +164,7 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
           });
         }
       } catch {
-        // High-fidelity fallback client generator if gateway is temporarily busy
+        // Client-side random-walk fallback if the gateway is temporarily busy
         setLiveTicks((prev) => {
           const last = prev[prev.length - 1];
           const cfg = activeIndConfig;
@@ -191,9 +189,7 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
             session_high: Math.max(last ? last.session_high : nextVal, nextVal),
             session_low: Math.min(last ? last.session_low : nextVal, nextVal),
             tick_count: (last ? last.tick_count : 0) + 1,
-            proof_hash: `0x5fb${Math.random().toString(16).slice(2, 10)}`,
-            station: cfg.agency,
-            block_number: 31337 + ((last ? last.tick_count : 0) + 1)
+            simulated: true
           };
 
           setLatestTick(newTick);
@@ -254,6 +250,16 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
     return timelineData.find((o) => o.year === selectedYear) || null;
   }, [timelineData, selectedYear]);
 
+  // Tolerant of old (firewall_claim_tier = observation tier) and new (HAND_KEYED_REFERENCE | INTERPOLATED) gateway shapes.
+  const evidenceValueLabel = useMemo(() => {
+    const v = activeEvidence?.payload?.verification;
+    const tier = v?.evidence_class ?? v?.firewall_claim_tier;
+    const cls = currentObservation?.classification ?? activeEvidence?.payload?.data_classification ?? '';
+    if (tier === 'INTERPOLATED' || v?.is_interpolated || /INTERPOLATED/i.test(cls)) return 'Interpolated Value';
+    if (tier === 'HAND_KEYED_REFERENCE') return 'Hand-keyed Reference Value';
+    return 'Recorded Value';
+  }, [activeEvidence, currentObservation]);
+
   // Manual Anomaly Injection Trigger (shows dynamic chart reaction instantly)
   const handleInjectSurge = () => {
     setLiveTicks((prev) => {
@@ -274,9 +280,7 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
         session_high: Math.max(last ? last.session_high : nextVal, nextVal),
         session_low: last ? last.session_low : nextVal - 0.02,
         tick_count: (last ? last.tick_count : 0) + 1,
-        proof_hash: `0xALERT${Math.random().toString(16).slice(2, 8)}`,
-        station: `${cfg.agency} [ANOMALY DETECTED]`,
-        block_number: 31337 + ((last ? last.tick_count : 0) + 1)
+        simulated: true
       };
       setLatestTick(surgeTick);
       setTickFlash('up');
@@ -392,8 +396,8 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
           <div>
             <h1 className="ctl-title">Climate Intelligence Timeline — 200 Years of Environmental Evidence</h1>
             <p className="ctl-subtitle">
-              Explore validated historical climate measurements, official meteorological series, and documented policy interventions from 1826 to 2026.
-              Live moving trading mark telemetry streams concurrently with deterministic local EVM cryptographic proof anchors.
+              Explore hand-keyed reference values (with linearly interpolated years labelled INTERPOLATED) for four climate indicators, and documented policy interventions from 1826 to 2026.
+              The tick stream is a simulated random walk for illustration; it is not a measurement and anchors nothing.
             </p>
           </div>
 
@@ -404,7 +408,7 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
               onClick={() => setViewMode('live-stream')}
             >
               <span className="ctl-live-pulse-dot" />
-              ⚡ LIVE TELEMETRY STREAM
+              ⚡ SIMULATED TICK STREAM (random walk, illustrative)
             </button>
             <button
               className={`ctl-mode-pill ${viewMode === 'macro-history' ? 'active' : ''}`}
@@ -416,14 +420,13 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
         </div>
 
         <div className="ctl-badges-row">
-          <span className="ctl-badge ctl-badge-gold">8 AUDITED OFFICIAL DATASETS</span>
+          <span className="ctl-badge ctl-badge-gold">8 CATALOGUED DATASETS</span>
           <span className="ctl-badge">200-YEAR SPAN (1826–2026)</span>
-          <span className="ctl-badge ctl-badge-green">ZERO UNANCHORED INTERPOLATION</span>
-          <span className="ctl-badge">TRUST FIREWALL COMPLIANT</span>
+          <span className="ctl-badge ctl-badge-green">INTERPOLATED YEARS LABELLED</span>
           {isStreaming ? (
             <span className="ctl-badge ctl-badge-live">
               <span className="ctl-blink-dot" />
-              LIVE TICK CADENCE ({tickSpeed}ms)
+              SIMULATED TICK CADENCE ({tickSpeed}ms)
             </span>
           ) : (
             <span className="ctl-badge" style={{ background: 'var(--t-fee2e2)', color: 'var(--t-991b1b)' }}>
@@ -455,7 +458,7 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
           {/* Live Spot / Mark Indicator */}
           <div className="ctl-hud-mark-box">
             <div className="ctl-hud-label">
-              <span>CURRENT SPOT MARK</span>
+              <span>LATEST SIMULATED TICK</span>
               <span className={`ctl-hud-status-badge ${isStreaming ? 'streaming' : 'paused'}`}>
                 {isStreaming ? '● STREAMING' : 'PAUSED'}
               </span>
@@ -468,7 +471,7 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
 
           {/* Delta & Movement */}
           <div className="ctl-hud-stat-box">
-            <div className="ctl-hud-label">LIVE TICK FLUX</div>
+            <div className="ctl-hud-label">SIMULATED TICK FLUX</div>
             <div className={`ctl-hud-delta ${latestTick && latestTick.direction === 'down' ? 'down' : 'up'}`}>
               {latestTick && latestTick.direction === 'down' ? '▼ ' : '▲ '}
               {latestTick ? (latestTick.delta > 0 ? `+${latestTick.delta}` : latestTick.delta) : '+0.000'}
@@ -490,10 +493,10 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
 
           {/* Proof Hash & Block Anchor */}
           <div className="ctl-hud-stat-box ctl-hud-hide-mobile">
-            <div className="ctl-hud-label">CRYPTOGRAPHIC PROOF ANCHOR</div>
+            <div className="ctl-hud-label">SIMULATION BASIS</div>
             <div className="ctl-hud-proof ctl-mono">
-              {latestTick ? `${latestTick.proof_hash.slice(0, 16)}...` : '0x31337...'}
-              <span className="ctl-block-pill">BLK #{latestTick ? latestTick.block_number : 31337}</span>
+              Random walk, not a measurement
+              <span className="ctl-block-pill">SIMULATED</span>
             </div>
           </div>
 
@@ -514,7 +517,7 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
             <button
               className="ctl-surge-btn"
               onClick={handleInjectSurge}
-              title="Simulate sudden atmospheric surge or plume detection"
+              title="Inject a simulated +2.5% step into the random walk (illustrative only)"
             >
               ⚡ Anomaly Surge
             </button>
@@ -693,7 +696,7 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
                   -7s
                 </text>
                 <text x={padding.left + innerWidth} y={padding.top + innerHeight + 22} textAnchor="end" fontSize="11" fill="#059669" fontWeight="700" className="ctl-mono">
-                  ● LIVE (NOW)
+                  ● SIMULATED (NOW)
                 </text>
               </>
             )}
@@ -777,7 +780,7 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
                 <text x={getMacroX(1875)} y={padding.top + innerHeight + 20} textAnchor="middle" fontSize="11" fill="#64615C">1875</text>
                 <text x={getMacroX(1925)} y={padding.top + innerHeight + 20} textAnchor="middle" fontSize="11" fill="#64615C">1925</text>
                 <text x={getMacroX(1975)} y={padding.top + innerHeight + 20} textAnchor="middle" fontSize="11" fill="#64615C">1975</text>
-                <text x={getMacroX(2026)} y={padding.top + innerHeight + 20} textAnchor="end" fontSize="11" fill="#059669" fontWeight="700">2026 (Live)</text>
+                <text x={getMacroX(2026)} y={padding.top + innerHeight + 20} textAnchor="end" fontSize="11" fill="#059669" fontWeight="700">2026</text>
               </>
             )}
 
@@ -818,7 +821,7 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
           <button className="ctl-jump-btn" onClick={() => { setSelectedYear(1970); setViewMode('macro-history'); }}>1970 (Clean Air)</button>
           <button className="ctl-jump-btn" onClick={() => { setSelectedYear(1987); setViewMode('macro-history'); }}>1987 (Montreal)</button>
           <button className="ctl-jump-btn" onClick={() => { setSelectedYear(2015); setViewMode('macro-history'); }}>2015 (Paris Accord)</button>
-          <button className="ctl-jump-btn" onClick={() => { setSelectedYear(2026); setViewMode('live-stream'); }}>2026 (Live Stream)</button>
+          <button className="ctl-jump-btn" onClick={() => { setSelectedYear(2026); setViewMode('live-stream'); }}>2026 (Simulated Stream)</button>
         </div>
 
         {/* Real-time Order Book / Telemetry Stream Tape */}
@@ -826,10 +829,10 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
           <div className="ctl-tape-header">
             <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 600, fontSize: '12px', color: 'var(--t-171717)' }}>
               <span className="ctl-live-pulse-dot" />
-              LIVE TELEMETRY STREAM TAPE (EIP-712 EVIDENCE FEED)
+              SIMULATED TICK TAPE (random walk, illustrative)
             </span>
             <span style={{ fontSize: '11px', color: 'var(--t-64615c)' }}>
-              Station: {activeIndConfig.agency}
+              Illustrative base near: {activeIndConfig.agency} (no live station)
             </span>
           </div>
 
@@ -846,11 +849,8 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
                   {t.direction === 'down' ? '▼ ' : '▲ '}
                   {t.delta > 0 ? `+${t.delta}` : t.delta}
                 </span>
-                <span className="ctl-tape-proof ctl-mono ctl-hud-hide-mobile">
-                  {t.proof_hash.slice(0, 14)}...
-                </span>
-                <span className="ctl-badge ctl-badge-green" style={{ fontSize: '10px', padding: '2px 6px' }}>
-                  VERIFIED
+                <span className="ctl-badge" style={{ fontSize: '10px', padding: '2px 6px' }}>
+                  SIMULATED
                 </span>
               </div>
             ))}
@@ -865,13 +865,13 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
                 Evidence Manifest: {activeEvidence.evidence_id}
               </h3>
               <span className="ctl-badge ctl-badge-green">
-                {activeEvidence.payload.verification.firewall_claim_tier}
+                {activeEvidence.payload.verification?.evidence_class ?? activeEvidence.payload.verification?.firewall_claim_tier ?? activeEvidence.payload.data_classification ?? 'UNCLASSIFIED'}
               </span>
             </div>
 
             <div className="ctl-evidence-grid">
               <div className="ctl-fact-box">
-                <div className="ctl-fact-label">Observed Measurement</div>
+                <div className="ctl-fact-label">{evidenceValueLabel}</div>
                 <div className="ctl-fact-val">
                   {activeEvidence.payload.observed_value} {activeEvidence.payload.measurement_unit}
                 </div>
@@ -892,7 +892,7 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
               </div>
 
               <div className="ctl-fact-box">
-                <div className="ctl-fact-label">Cryptographic Digest</div>
+                <div className="ctl-fact-label">SHA-256 Digest of Manifest</div>
                 <div className="ctl-fact-val ctl-mono" style={{ fontSize: '11px', wordBreak: 'break-all' }}>
                   {activeEvidence.sha256_digest.slice(0, 18)}...
                 </div>
@@ -925,10 +925,10 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
             <h3 style={{ margin: '0 0 4px 0', fontSize: '17px', color: 'var(--t-171717)' }}>
-              Official Dataset Registry (IEEE Integrity Catalog)
+              Dataset registry (project catalogue)
             </h3>
             <p style={{ margin: 0, fontSize: '13px', color: 'var(--t-64615c)' }}>
-              {datasets.length} distinct public scientific datasets with immutable SHA-256 reference digests.
+              {datasets.length} catalogued datasets. SHA-256 is that of the upstream file as recorded by the authors; not reproducible here.
             </p>
           </div>
           <button className="ctl-btn-secondary" onClick={() => setShowCatalog(!showCatalog)}>
@@ -945,7 +945,7 @@ export function ClimateTimeline({ onSendToFirewall }: ClimateTimelineProps) {
                   <th>Title / Agency</th>
                   <th>Coverage & Span</th>
                   <th>License</th>
-                  <th>SHA-256 Digest</th>
+                  <th>SHA-256 (upstream file, as recorded)</th>
                 </tr>
               </thead>
               <tbody>

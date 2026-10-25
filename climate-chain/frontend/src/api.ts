@@ -590,7 +590,10 @@ export interface HistoricalObservation {
 export interface HistoricalTimelineResponse {
   indicator: string;
   temporal_span: string;
-  observation_count: number;
+  /** Legacy name; newer gateways send value_count and anchor_count. */
+  observation_count?: number;
+  value_count?: number;
+  anchor_count?: number;
   gap_count: number;
   observations: HistoricalObservation[];
 }
@@ -631,7 +634,9 @@ export interface ObservationEvidenceManifest {
       is_modeled_estimate: boolean;
       is_direct_measurement: boolean;
       is_interpolated: boolean;
-      firewall_claim_tier: string;
+      /** Legacy tier string, or HAND_KEYED_REFERENCE | INTERPOLATED on newer gateways. */
+      firewall_claim_tier?: string; // legacy gateway field
+      evidence_class?: string;
     };
     generated_at: string;
   };
@@ -697,9 +702,12 @@ export interface LiveTelemetryTick {
   session_high: number;
   session_low: number;
   tick_count: number;
-  proof_hash: string;
-  station: string;
-  block_number: number;
+  /** Present (true) on newer gateways: the tick is a simulated random walk. */
+  simulated?: boolean;
+  /** Legacy fields; newer gateways omit them. Do not display as proof. */
+  proof_hash?: string;
+  station?: string;
+  block_number?: number;
 }
 
 export function fetchLiveTelemetryTick(indicator = 'temperature_anomaly', signal?: AbortSignal): Promise<LiveTelemetryTick> {

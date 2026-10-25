@@ -16,7 +16,9 @@ import {
 } from './integrity-evidence.mjs';
 import { AIR_ANALYTES, SITES, createAirQualitySource } from './integrity-sources.mjs';
 import { evaluateClaimThroughFirewall, VERDICTS } from './trust-firewall.mjs';
-import { runBenchmark } from './benchmark-runner.mjs';
+import { animalIdsOf, evidenceFingerprints, isModelLike } from './claim-sufficiency.mjs';
+import { createPlausibilityProvider } from './plausibility.mjs';
+import { runAdversarialV2, runBenchmark } from './benchmark-runner.mjs';
 import { StorageError, createFileStorage } from './storage.mjs';
 
 const ROOT = fileURLToPath(new URL('../', import.meta.url));
@@ -28,6 +30,9 @@ const NETWORK = 'Hardhat local development chain';
 // A fixed gas limit lets a known-bad call be mined, so the rejection has a real receipt.
 const REJECTION_GAS_LIMIT = 600_000n;
 const MAX_TIMELINE = 300;
+// The firewall checks a new claim against every claim in the registry. Beyond this many it refuses to guess.
+const REGISTRY_SCAN_LIMIT = 200;
+const REGISTRY_READ_CONCURRENCY = 8;
 export const CLAIM_STATUS = ['None', 'Submitted', 'Challenged', 'Rejected', 'Superseded'];
 const ROLES = ['attester', 'claimant', 'reviewer', 'challenger'];
 
@@ -147,6 +152,18 @@ function createStore(storage) {
     readRaw: (sha) => readText(path.raw(sha)),
     async saveClaim(entry) { keys.set(claimKeyOf(entry.claim.claimId), entry.claim.claimId); await write(path.claim(entry.claim.claimId), JSON.stringify(entry, null, 2)); },
     readClaim: (id) => readJson(path.claim(id)),
+    // Every stored claim document, for duplicate/overlap checks across the registry. Reads run a few at a time. When
+    // there are more claims than `limit` the result says so, because a partial view must never be treated as complete.
+    async listClaims(limit = REGISTRY_SCAN_LIMIT) {
+      const all = (await guarded(() => storage.list('claims/'))).filter((n) => n.endsWith('.json'));
+      const names = all.slice(0, limit);
+      const entries = [];
+      for (let i = 0; i < names.length; i += REGISTRY_READ_CONCURRENCY) {
+        const chunk = await Promise.all(names.slice(i, i + REGISTRY_READ_CONCURRENCY).map((name) => readJson(name)));
+        for (const entry of chunk) if (entry?.claim) entries.push(entry);
+      }
+      return { entries, truncated: all.length > limit };
+    },
     saveChallenge: (entry) => write(path.challenge(entry.reasonHash), JSON.stringify(entry, null, 2)),
     readSession: (key) => readJson(path.session(key)),
     saveSession: (session) => write(path.session(session.sessionKey), JSON.stringify(session, null, 2)),
@@ -177,6 +194,10 @@ export function createIntegrityService({
   // node at rpcUrl, exactly as before. `storage` overrides where evidence and claim documents are kept.
   chain = null,
   storage = null,
+  // Opt-in gate: when true, submitClaim runs the Trust Firewall first and refuses (409) anything not ACCEPTED.
+  // Off by default so existing demo flows are unchanged; the firewall verdict is then advisory.
+  enforceFirewall = process.env.CLIMATE_CHAIN_FIREWALL_ENFORCE === '1',
+  plausibility = createPlausibilityProvider(),
 } = {}) {
   const store = createStore(storage ?? chain?.storage ?? createFileStorage(dataDir));
   const localRpc = chain ? true : isLoopbackUrl(rpcUrl);
@@ -583,6 +604,81 @@ export function createIntegrityService({
     return { evidenceId, controlledTest: true, ...rejection };
   });
 
+  // Claims already in this registry, shaped for the firewall's duplicate, overlap and animal-reuse checks. Claims from
+  // other demo runs (scope.project) are separate records, and a correction supersedes the claim it replaces.
+  // Facts the firewall needs about a stored claim's evidence. They are immutable once the claim exists, so new claims
+  // carry them in their own document and older ones are read once and remembered.
+  const factsOf = (bundle) => ({ location: bundle?.location ?? null, evidenceFingerprints: evidenceFingerprints(bundle), animalIds: animalIdsOf(bundle) });
+  const registryFacts = new Map();
+  async function factsFor(entry) {
+    const c = entry.claim;
+    if (entry.registry) return entry.registry;
+    if (registryFacts.has(c.claimId)) return registryFacts.get(c.claimId);
+    const stored = await store.readEvidence(c.evidence?.[0]?.evidenceId);
+    if (!stored) throw fail('firewall_registry_unavailable', `The evidence behind stored claim ${c.claimId} is missing, so duplicate checks cannot be completed.`, 503);
+    const facts = factsOf(stored.bundle);
+    registryFacts.set(c.claimId, facts);
+    return facts;
+  }
+
+  // `project` and `excludeClaimIds` must come from the server (a stored claim or a claim this service just built),
+  // never from the client's submitted claim. A registry that cannot be read completely fails closed (503).
+  async function registryClaims({ project = null, excludeClaimIds = [] } = {}) {
+    const { entries, truncated } = await store.listClaims();
+    if (truncated) throw fail('firewall_registry_too_large', `The claim registry holds more than ${REGISTRY_SCAN_LIMIT} claims; duplicate checks cannot be completed, so nothing is accepted.`, 503);
+    const superseded = new Set(entries.map((e) => e.claim.supersedes).filter(Boolean));
+    const excluded = new Set(excludeClaimIds);
+    const live = entries.filter((entry) => {
+      const c = entry.claim;
+      if (entry.notSubmitted || excluded.has(c.claimId)) return false;
+      return !(project && c.scope?.project && c.scope.project !== project);
+    });
+    const out = [];
+    for (let i = 0; i < live.length; i += REGISTRY_READ_CONCURRENCY) {
+      const facts = await Promise.all(live.slice(i, i + REGISTRY_READ_CONCURRENCY).map(factsFor));
+      live.slice(i, i + REGISTRY_READ_CONCURRENCY).forEach((entry, k) => {
+        const c = entry.claim;
+        out.push({ claimId: c.claimId, status: superseded.has(c.claimId) ? 'Superseded' : 'Submitted', scope: c.scope, evidence: c.evidence, ...facts[k] });
+      });
+    }
+    return out;
+  }
+
+  // Lab claims are advisory information claims. Modelled evidence belongs to the risk-alert tier (it may inform,
+  // never prove); only non-model evidence is held to the observation tier.
+  const inferClaimType = (bundle) => (isModelLike(bundle?.sources?.[0]?.dataKind, bundle?.sources?.[0]?.basis, bundle?.measurements?.[0]?.basis)
+    ? 'ENVIRONMENTAL_RISK_ALERT'
+    : 'ENVIRONMENTAL_OBSERVATION');
+
+  // An emissions-reduction claim without a supported evidence profile has nothing that could bind its quantity to the
+  // evidence, so profile selection is required for that tier unless the caller explicitly opts out.
+  async function runFirewall({ claim, bundle, expectedDigest, claimType, claimSubtype, requireSubtype, project = null, excludeClaimIds = [] }) {
+    const tier = claimType || claim?.claimType;
+    return evaluateClaimThroughFirewall({
+      claim,
+      evidence: bundle,
+      expectedDigest,
+      claimType,
+      claimSubtype: typeof claimSubtype === 'string' ? claimSubtype : undefined,
+      requireSubtype: requireSubtype ?? tier === 'QUANTIFIED_EMISSIONS_REDUCTION',
+      existingClaims: await registryClaims({ project, excludeClaimIds }),
+      plausibility,
+      evaluationTime: new Date(now()),
+    });
+  }
+
+  // The opt-in gate. It is applied to every claim this service builds itself (submit and correction), where the claim,
+  // its scope and the project are server-derived. Returns the receipt to store, or null when the gate is off.
+  async function gateClaim({ claim, bundle, digest, project, excludeClaimIds = [] }) {
+    if (!enforceFirewall) return null;
+    const gate = await runFirewall({ claim, bundle, expectedDigest: digest, claimType: inferClaimType(bundle), project, excludeClaimIds });
+    if (gate.verdict !== VERDICTS.ACCEPTED) {
+      const why = [...gate.errors, ...(gate.notes || [])].join(' ') || 'No rule detail was produced.';
+      throw new IntegrityServiceError('firewall_not_accepted', `Trust Firewall verdict ${gate.verdict}; the claim was not submitted. ${why}`, 409, { firewall: { verdict: gate.verdict, receiptId: gate.receiptId, errors: gate.errors, notes: gate.notes } });
+    }
+    return gate.receipt;
+  }
+
   const submitClaim = ({ evidenceId } = {}) => exclusive(async () => {
     const entry = await mustEvidence(evidenceId);
     const ctx = await connect();
@@ -591,8 +687,17 @@ export function createIntegrityService({
     if (!found.current) throw fail('evidence_superseded', 'This evidence was corrected. Use the newest record.', 409);
     const session = await loadSession(ctx);
     const built = buildClaim({ bundle: entry.bundle, digest: entry.digest, claimant: ctx.deployment.accounts.claimant, scope: claimScope(entry.bundle, session.demoRun), createdAt: now() });
-    await store.saveClaim({ claim: built.claim, claimHash: built.claimHash });
-    const receipt = await send(ctx, ctx.claims, 'claimant', 'submitClaim', [claimKeyOf(built.claim.claimId), hex32(built.exclusivityKey), evidenceKeyOf(evidenceId), hex32(built.claimHash)]);
+    const firewallReceipt = await gateClaim({ claim: built.claim, bundle: entry.bundle, digest: entry.digest, project: built.claim.scope.project });
+    const document = { claim: built.claim, claimHash: built.claimHash, registry: factsOf(entry.bundle), ...(firewallReceipt ? { firewallReceipt } : {}) };
+    await store.saveClaim(document);
+    let receipt;
+    try {
+      receipt = await send(ctx, ctx.claims, 'claimant', 'submitClaim', [claimKeyOf(built.claim.claimId), hex32(built.exclusivityKey), evidenceKeyOf(evidenceId), hex32(built.claimHash)]);
+    } catch (error) {
+      // The chain did not take the claim. Keep the document for the record, but stop it blocking later claims.
+      await store.saveClaim({ ...document, notSubmitted: true }).catch(() => {});
+      throw error;
+    }
     await note(ctx, { kind: 'claim-submitted', claimId: built.claim.claimId, evidenceId, transactionHash: receipt.hash, blockNumber: receipt.blockNumber });
     return { claim: built.claim, claimHash: built.claimHash, proof: await claimProof(ctx, built.claim.claimId) };
   });
@@ -646,7 +751,9 @@ export function createIntegrityService({
     const anchorReceipt = await send(ctx, ctx.evidence, 'attester', 'anchorEvidence', [evidenceKeyOf(revised.bundle.evidenceId), hex32(revised.digest), evidenceKeyOf(originalEvidenceId), hex32(revised.metadataHash)]);
 
     const corrected = buildClaim({ bundle: revised.bundle, digest: revised.digest, claimant: original.claim.claimant.account, scope: original.claim.scope, supersedes: claimId, correctionNote, createdAt: now() });
-    await store.saveClaim({ claim: corrected.claim, claimHash: corrected.claimHash });
+    // The claim being replaced no longer counts as a competing claim.
+    const correctionReceipt = await gateClaim({ claim: corrected.claim, bundle: revised.bundle, digest: revised.digest, project: corrected.claim.scope.project, excludeClaimIds: [claimId] });
+    await store.saveClaim({ claim: corrected.claim, claimHash: corrected.claimHash, registry: factsOf(revised.bundle), ...(correctionReceipt ? { firewallReceipt: correctionReceipt } : {}) });
     const approval = await send(ctx, ctx.claims, 'reviewer', 'approveCorrection', [claimKeyOf(claimId), claimKeyOf(corrected.claim.claimId), evidenceKeyOf(revised.bundle.evidenceId), hex32(corrected.claimHash)]);
     await note(ctx, { kind: 'claim-corrected', claimId, correctedClaimId: corrected.claim.claimId, revisedEvidenceId: revised.bundle.evidenceId, transactionHash: approval.hash, blockNumber: approval.blockNumber });
 
@@ -700,36 +807,48 @@ export function createIntegrityService({
   });
 
   // Evaluates a custom claim and evidence bundle through the Trust Firewall.
-  async function evaluateFirewall({ claim, evidence, expectedDigest, claimType } = {}) {
-    if (!claim || !evidence) throw fail('invalid_request', 'claim and evidence objects are required for firewall evaluation.', 400);
-    return evaluateClaimThroughFirewall({
-      claim,
-      evidence,
-      expectedDigest: expectedDigest || claim.evidence?.[0]?.digest || digestOf(evidence),
-      claimType,
-      existingClaims: [],
-      evaluationTime: new Date(),
-    });
+  // Duplicate and overlap checks see the claims stored in this registry (and nothing outside it).
+  async function evaluateFirewall({ claim, evidence, expectedDigest, claimType, claimSubtype, requireSubtype } = {}) {
+    if (!claim || typeof claim !== 'object' || Array.isArray(claim) || !evidence || typeof evidence !== 'object') {
+      throw fail('invalid_request', 'claim and evidence objects are required for firewall evaluation.', 400);
+    }
+    // A client cannot be allowed to pick which claims it is compared with. The claim id must be new (otherwise the
+    // firewall would skip the stored claim it copies), and every project's claims are checked.
+    if (typeof claim.claimId === 'string' && CLAIM_ID.test(claim.claimId) && await store.readClaim(claim.claimId)) {
+      throw fail('claim_id_in_use', 'That claim id is already stored. Evaluate the stored claim with POST /claims/:id/firewall instead.', 409);
+    }
+    let digest = expectedDigest || claim.evidence?.[0]?.digest;
+    if (!digest) {
+      try { digest = digestOf(evidence); } catch { throw fail('invalid_request', 'The evidence cannot be canonically serialised.', 400); }
+    }
+    return runFirewall({ claim, bundle: evidence, expectedDigest: digest, claimType, claimSubtype, requireSubtype, project: null, excludeClaimIds: [] });
   }
 
   // Evaluates an existing saved claim in the registry through the Trust Firewall.
-  async function evaluateClaimFirewall(claimId, { claimType } = {}) {
+  async function evaluateClaimFirewall(claimId, { claimType, claimSubtype, requireSubtype } = {}) {
     const entry = await mustClaim(claimId);
     const evidenceId = entry.claim.evidence[0].evidenceId;
     const evidenceEntry = await mustEvidence(evidenceId);
-    return evaluateClaimThroughFirewall({
+    return runFirewall({
       claim: entry.claim,
-      evidence: evidenceEntry.bundle,
+      bundle: evidenceEntry.bundle,
       expectedDigest: entry.claim.evidence[0].digest,
       claimType: claimType || entry.claim.claimType,
-      existingClaims: [],
-      evaluationTime: new Date(),
+      claimSubtype,
+      requireSubtype,
+      project: entry.claim.scope?.project ?? null,
+      excludeClaimIds: [claimId],
     });
   }
 
-  // Runs the 55-case reproducible benchmark and returns the comparative baseline statistics.
+  // Runs the reproducible benchmarks. Both suites are synthetic and author-written; the labels say so.
   async function benchmarkFirewall() {
-    return runBenchmark();
+    const regression = await runBenchmark();
+    return {
+      ...regression,
+      label: 'Synthetic regression suite written by the project authors (55 cases). Not an external accuracy or security evaluation.',
+      adversarialV2: await runAdversarialV2(),
+    };
   }
 
   return Object.freeze({

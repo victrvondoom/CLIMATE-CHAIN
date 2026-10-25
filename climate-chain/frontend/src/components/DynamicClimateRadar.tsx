@@ -11,7 +11,7 @@ interface Hotspot {
   category: 'waste' | 'fire' | 'water' | 'air';
   title: string;
   metric: string;
-  status: 'LIVE' | 'SIMULATED' | 'ALERT';
+  status: 'ILLUSTRATIVE EXAMPLE';
   description: string;
 }
 
@@ -25,8 +25,8 @@ const HOTSPOTS: Hotspot[] = [
     category: 'air',
     title: 'Air Exposure & Ambient PM2.5',
     metric: '107 µg/m³ PM2.5',
-    status: 'LIVE',
-    description: 'Ground monitoring station active near Anand Vihar corridor.'
+    status: 'ILLUSTRATIVE EXAMPLE',
+    description: 'Example scenario near the Anand Vihar corridor.'
   },
   {
     id: 'punjab',
@@ -36,7 +36,7 @@ const HOTSPOTS: Hotspot[] = [
     category: 'fire',
     title: 'Stubble Burn Prevention',
     metric: '10 Fields · 55 Acres Cleared',
-    status: 'LIVE',
+    status: 'ILLUSTRATIVE EXAMPLE',
     description: 'Baler teams dispatched to harvest paddy straw before burning season.'
   },
   {
@@ -47,7 +47,7 @@ const HOTSPOTS: Hotspot[] = [
     category: 'waste',
     title: 'Community Waste Sites',
     metric: '4 Open Dumps · 1 Verified',
-    status: 'LIVE',
+    status: 'ILLUSTRATIVE EXAMPLE',
     description: 'Privacy-preserving community photos submitted via JunkSnap.'
   },
   {
@@ -58,7 +58,7 @@ const HOTSPOTS: Hotspot[] = [
     category: 'water',
     title: 'Drinking Water Tripwire',
     metric: '23 Homes Warned',
-    status: 'LIVE',
+    status: 'ILLUSTRATIVE EXAMPLE',
     description: 'Teesri Shikayat telegram bot joined by 23 resident households.'
   },
   {
@@ -69,8 +69,8 @@ const HOTSPOTS: Hotspot[] = [
     category: 'fire',
     title: 'Gas Flare Satellite Anchor',
     metric: 'Methane Watch Active',
-    status: 'LIVE',
-    description: 'Nightly satellite observations verified and anchored on Solana.'
+    status: 'ILLUSTRATIVE EXAMPLE',
+    description: 'Example scenario: nightly satellite flare detections would be checked against recorded file digests.'
   }
 ];
 
@@ -224,7 +224,7 @@ export function DynamicClimateRadar({
 
         <div className="radar-status-badge">
           <span className="pulse-dot-green" />
-          <span>LIVE CLIMATE SENSORS CONNECTED</span>
+          <span>ILLUSTRATIVE EXAMPLE · NOT LIVE SENSOR DATA</span>
         </div>
       </div>
 

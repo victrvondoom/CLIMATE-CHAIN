@@ -1,18 +1,18 @@
 # Deduplication & Consolidation Audit Report
 
 **IEEE ClimateChain Global Hackathon 2026**  
-*Audited & Executed: October 24, 2026 | Environment: Windows / Node.js 22 LTS / Hardhat EVM*
+*Self-reviewed: October 24, 2026 | Environment: Windows / Node.js 22 LTS / Hardhat EVM*
 
 ---
 
 ## 1. Executive Summary
 
-This report establishes the mathematical and structural deduplication audit of the `IEEE CLIMATE CHAIN` workspace. It documents the exact relationship between the 18 specialist project folders found at the workspace root and the consolidated canonical module directory inside `climate-chain/projects/`.
+This report records a local comparison on the author's workstation (not reproducible from this repository: both copies are excluded and the manifest has no hashes) of the `IEEE CLIMATE CHAIN` workspace. It documents the exact relationship between the 18 specialist project folders found at the workspace root and the consolidated canonical module directory inside `climate-chain/projects/`.
 
-### Core Mathematical Audit Findings
+### Core Comparison Findings
 1. **Total Extracted Folders Audited**: all projects across the 4 IEEE Climate Tracks.
 2. **Tracked Source & Dataset Comparison**: 
-   - Every active tracked source file, test fixture, smart contract, and dataset in `climate-chain/projects/` is an **exact 1:1 SHA-256 hash match** with its counterpart in the root workspace folder.
+   - Every active tracked source file, test fixture, smart contract, and dataset in `climate-chain/projects/` matched its counterpart in the root workspace folder (exact SHA-256 match, 23/23 files in the first module, as recorded by the authors on their workstation; not reproducible from this repository).
    - **0 modified source code files** exist between `climate-chain/projects/` and the root copies.
 3. **Difference Accounting (Ephemeral Build Caches & Virtual Envs)**:
    The file count variations between the root folders and `climate-chain/projects/` were thoroughly analyzed and categorized into ephemeral, reproducible build and runtime artifacts:
@@ -31,7 +31,7 @@ This report establishes the mathematical and structural deduplication audit of t
 
 ## 2. Granular Per-Module Deduplication Matrix
 
-| Module Directory | Root Copy Status | Canonical Copy (`climate-chain/projects/`) | Exact SHA-256 Source Match | Ephemeral Differences Identified | Resolution |
+| Module Directory | Root Copy Status | Canonical Copy (`climate-chain/projects/`) | Local SHA-256 Comparison (author-recorded; not reproducible here) | Ephemeral Differences Identified | Resolution |
 |---|---|---|:---:|---|---|
 | `AquaQuest-main` | Standalone clone | `projects/AquaQuest-main` | **100% (23/23 files)** | Identical file count and contents | Archived to `.archive/`; active in `projects/` |
 | `CarbonTrace-main` | Standalone clone | `projects/CarbonTrace-main` | **100% (34/34 files)** | Identical file count and contents | Archived to `.archive/`; active in `projects/` |

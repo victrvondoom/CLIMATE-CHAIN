@@ -1,7 +1,7 @@
 # Migration Inventory: Comprehensive Workspace Audit
 
 **IEEE ClimateChain Global Hackathon 2026**  
-*Audited: October 24, 2026 | Environment: Windows / Node.js 22 LTS / Hardhat EVM*
+*Self-reviewed: October 24, 2026 | Environment: Windows / Node.js 22 LTS / Hardhat EVM*
 
 ---
 
@@ -13,11 +13,11 @@ This inventory documents every directory, file type, dependency manifest, smart 
 1. **Repository Topology**:
    - The workspace root `IEEE CLIMATE CHAIN/` contained the primary application repository (`climate-chain/`) alongside 18 separately extracted competitor/specialist project folders.
    - All 18 specialist project folders were previously integrated into `climate-chain/projects/`.
-   - A cryptographic byte-level audit across all 18 folders confirmed that **every active source file, test, contract, and dataset in `climate-chain/projects/` is an exact hash match with the root folders**, while the root folders retained ephemeral build artifacts (`.venv`, `.next`, `__pycache__`, `.pytest_cache`, `.mypy_cache`, `.ruff_cache`).
+   - A local byte-level comparison on the author's workstation (not reproducible from this repository; the archive manifest has no hashes) across all 18 folders reported that **every active source file, test, contract, and dataset in `climate-chain/projects/` matched the root folders**, while the root folders retained ephemeral build artifacts (`.venv`, `.next`, `__pycache__`, `.pytest_cache`, `.mypy_cache`, `.ruff_cache`).
 2. **Canonical Application Stack**:
-   - **Frontend**: React 19 + TypeScript + Vite (`climate-chain/frontend`), 510 passing Vitest tests, 32 distinct views, Cesium 3D Earth, Climate Integrity Lab.
-   - **Backend Gateway**: Zero-dependency Node.js (`climate-chain/gateway`), 173 passing unit tests, Windows DPAPI / AES-256-GCM memory vault, Trust Firewall policy engine.
-   - **Blockchain**: Local Hardhat EVM (`climate-chain/blockchain`), 19 unit tests, `EvidenceAnchor.sol`, `EnvironmentalEvidenceRegistry.sol`, `ClimateClaimRegistry.sol`.
+   - **Frontend**: React 19 + TypeScript + Vite (`climate-chain/frontend`), Vitest tests (run npm test for current counts), 32 distinct views, Cesium 3D Earth, Climate Integrity Lab.
+   - **Backend Gateway**: Framework-free Node.js (`climate-chain/gateway`, 3 runtime dependencies), unit tests (run npm test for current counts), Windows DPAPI (Windows; env key elsewhere) / AES-256-GCM memory vault, Trust Firewall policy engine.
+   - **Blockchain**: Local Hardhat EVM (`climate-chain/blockchain`), unit tests (run npm test for current counts), `EvidenceAnchor.sol`, `EnvironmentalEvidenceRegistry.sol`, `ClimateClaimRegistry.sol`.
    - **Registry**: `projects.json` (all projects across 4 IEEE tracks), `features.json` (canonical cross-cutting capability map).
 
 ---
@@ -54,14 +54,14 @@ This inventory documents every directory, file type, dependency manifest, smart 
 
 ## 3. Dataset & Empirical Evidence Inventory
 
-Every dataset in the workspace has been inventoried and verified against its authentic source:
+Every dataset in the original workspace was inventoried by the authors (the original project folders, `.archive/` and `climate-chain/projects/` are not committed to this repository; this repo ships a 60-plume sample and 675 Flarewatch detections):
 
 1. **Carbon Mapper Methane Plumes** (`PLUME-main/data/snapshots/carbonmapper_permian_ch4.json.gz`):
    - 10,098 real historical plume records over the Permian Basin (TX/NM). Size: 3.18 MB compressed.
 2. **CarbonTwin Candidate Pairs** (`carbontwin-main/data/candidates.json`):
    - ACR, CAR, and VCS duplicate credit screening candidates. Size: ~31 MB.
 3. **Flarewatch Satellite Detections** (`frontend/src/modules/flarewatch/fixtures/`):
-   - Daily VIIRS nightfire gas flaring observations over the Niger Delta (Oct 15–19, 2026).
+   - Daily VIIRS nightfire gas flaring observations over the Niger Delta (Oct 15–20, 2026 in the repo fixtures).
 4. **Vayu Air Quality Readings** (`the-vayu-project-main/data/`):
    - Delhi & NCR ground monitor records and coordinate models.
 5. **JunkSnap Civic Waste Reports** (`JunkSnap-main/backend/data/`):

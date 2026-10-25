@@ -1,7 +1,7 @@
 # Final Demo Script: ClimateChain & Trust Firewall (3–5 Minutes)
 
 **IEEE ClimateChain Global Hackathon 2026**  
-*Audited Demonstration Guide for Judges, Evaluators, and Reviewers*  
+*Demonstration Guide for Judges, Evaluators, and Reviewers (self-reviewed)*  
 *Runs against live local stack at `http://127.0.0.1:8080/#integrity`*
 
 ---
@@ -64,15 +64,15 @@
 
 ---
 
-### 2:30 – 3:30: Reproducible 55-Case Adversarial Benchmark
+### 2:30 – 3:30: Reproducible 55-Case Synthetic Regression Suite
 - **Action**:
   1. Click **Run 55-Case Adversarial Benchmark**.
   2. Display the live comparative benchmark table:
      - **Baseline A (Hash-Only)**: Precision `54.0%`, Unsafe-Claim Acceptance Rate `82.1%` (fails on models, stale data, duplicate scopes).
      - **Baseline B (Existing Registry)**: Precision `58.7%`, Unsafe-Claim Acceptance Rate `67.9%` (evaded by generating new claim IDs).
-     - **Baseline C (Trust Firewall)**: Precision `100.0%`, Unsafe-Claim Acceptance Rate `0.0%`, Average Latency `0.117 ms`.
+     - **Baseline C (Trust Firewall)**: Precision `100.0%`, Unsafe-Claim Acceptance Rate `0.0%`, Average Latency about `0.1 ms` on the author's machine (synthetic regression suite; not an external evaluation).
 - **Say**:
-  > *"On 55 labelled adversarial cases spanning five biomes, hash-only verification accepts 82% of fraudulent claims. The Trust Firewall completely eliminates unsafe acceptance without falsely rejecting legitimate co-located activities."*
+  > *"On 55 author-written synthetic regression cases across five sites, hash-only verification accepts 82% of the unsafe cases. The Trust Firewall scores 27 TP / 28 TN / 0 FP / 0 FN (F1 1.00) on this suite by construction. This is a regression check, not an external accuracy or security evaluation, and latency is about 0.1 ms per claim on the author's machine."*
 
 ---
 
@@ -93,7 +93,7 @@
   1. Expand **Reproduce from a terminal**.
   2. Point out the zero-dependency `curl` commands to inspect contract state directly.
 - **Say**:
-  > *"Climate Chain delivers demonstrable technical novelty: one independently reproducible, mathematically sound environmental verification workflow with zero speculative tokens. Thank you."*
+  > *"Climate Chain delivers demonstrable technical novelty: one reproducible environmental evidence-checking workflow with zero speculative tokens. Thank you."*
 
 ---
 
@@ -111,7 +111,7 @@ node --test tests/trust-firewall.test.mjs
 cd ../blockchain
 npm test
 
-# 4. Verify Frontend TypeScript & 510 Unit Tests
+# 4. Verify Frontend TypeScript & Unit Tests (run npm test for current counts)
 cd ../frontend
 npm test
 npm run lint

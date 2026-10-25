@@ -6,7 +6,7 @@
     "api/index.mjs": {
       "maxDuration": 60,
       "memory": 1769,
-      "includeFiles": "{climate-chain/registry/**,climate-chain/data/**,data/**,climate-chain/docs/**,climate-chain/gateway/chain-artifacts.json,climate-chain/gateway/node_modules/@nomicfoundation/edr-linux-x64-gnu/**}"
+      "includeFiles": "{climate-chain/registry/**,climate-chain/data/**,data/**,climate-chain/docs/**,climate-chain/gateway/chain-artifacts.json,climate-chain/gateway/fixtures/**,climate-chain/gateway/node_modules/@nomicfoundation/edr-linux-x64-gnu/**}"
     }
   },
   "rewrites": [

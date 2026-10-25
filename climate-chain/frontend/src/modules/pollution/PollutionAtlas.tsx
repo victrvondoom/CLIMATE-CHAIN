@@ -51,7 +51,7 @@ export function PollutionAtlas() {
       <header className="pa-head">
         <div>
           <h1>Global Pollution Atlas</h1>
-          <p>Live air quality for 195 countries. Click a country marker or any spot on the globe to see the pollutants, how far above WHO guidance the air is, and how much of the surrounding area is polluted.</p>
+          <p>Modelled (CAMS) air quality at 195 capitals. Click a country marker or any spot on the globe to see the pollutants, how far above WHO guidance the air is, and how much of the surrounding area is polluted.</p>
         </div>
         <div className="pa-source" role="status">
           <span className="pa-badge">MODELLED</span>

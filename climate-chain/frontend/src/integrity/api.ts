@@ -312,10 +312,14 @@ export interface FirewallEvaluationResult {
   receiptId: string;
   receipt: FirewallReceipt;
   errors: string[];
+  /** Reasons a claim is UNKNOWN or needs human review (not hard rejections). */
+  notes?: string[];
   ruleResults: FirewallRuleResult[];
   eligibleForOnChainSubmission: boolean;
   scopeKey?: string;
   limitsNotice: string;
+  /** What the firewall cannot detect; shown beside every verdict. */
+  knownLimitations?: string[];
 }
 
 export interface BenchmarkSystemStats {
@@ -332,10 +336,25 @@ export interface BenchmarkSystemStats {
   avgLatencyMs: number;
 }
 
+export interface AdversarialV2Report {
+  totalCases: number;
+  scoredCases: number;
+  passed: number;
+  unsafeAccepted: number;
+  legitimateNotAccepted: number;
+  byGroup: Record<string, { cases: number; passed: number }>;
+  failures: Array<{ id: number; name: string; expectedVerdict: string; actualVerdict: string }>;
+  knownLimitations: Array<{ id: number; name: string; category: string; firewallVerdict: string; missedByDesign: boolean }>;
+  label: string;
+}
+
 export interface FirewallBenchmarkResponse {
   timestamp: string;
   totalCases: number;
   results: Record<string, BenchmarkSystemStats>;
+  /** States that the 55-case suite is a synthetic, author-written regression suite. */
+  label?: string;
+  adversarialV2?: AdversarialV2Report;
 }
 
 export const integrityApi = {
@@ -355,7 +374,7 @@ export const integrityApi = {
   resolve: (claimId: string, upheld: boolean) => request<ResolveResponse>(`/claims/${claimId}/resolve`, { method: 'POST', body: { upheld } }),
   correct: (claimId: string, note: string) => request<CorrectionResponse>(`/claims/${claimId}/correct`, { method: 'POST', body: { note } }),
   reset: () => request<{ demoRun: number; note: string }>('/reset', { method: 'POST' }),
-  evaluateFirewall: (body: { claim?: unknown; evidence?: unknown; expectedDigest?: string; claimType?: string }) => request<FirewallEvaluationResult>('/firewall/evaluate', { method: 'POST', body }),
+  evaluateFirewall: (body: { claim?: unknown; evidence?: unknown; expectedDigest?: string; claimType?: string; claimSubtype?: string; requireSubtype?: boolean }) => request<FirewallEvaluationResult>('/firewall/evaluate', { method: 'POST', body }),
   benchmarkFirewall: () => request<FirewallBenchmarkResponse>('/firewall/benchmark'),
   evaluateClaimFirewall: (claimId: string, claimType?: string) => request<FirewallEvaluationResult>(`/claims/${claimId}/firewall`, { method: 'POST', body: { claimType } }),
 };

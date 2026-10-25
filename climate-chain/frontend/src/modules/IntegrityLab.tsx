@@ -163,6 +163,8 @@ export function IntegrityLab({ initialSiteId }: { initialSiteId?: string } = {})
   const [detail, setDetail] = useState(REASONS[0].detail);
   const [note, setNote] = useState(DEFAULT_NOTE);
   const [firewallClaimType, setFirewallClaimType] = useState('ENVIRONMENTAL_OBSERVATION');
+  const [firewallSubtype, setFirewallSubtype] = useState('');
+  const [claimedValue, setClaimedValue] = useState('');
   const [firewallResult, setFirewallResult] = useState<FirewallEvaluationResult | null>(null);
   const [benchmarkResult, setBenchmarkResult] = useState<FirewallBenchmarkResponse | null>(null);
   const [busy, setBusy] = useState<string | null>(null);
@@ -267,6 +269,13 @@ export function IntegrityLab({ initialSiteId }: { initialSiteId?: string } = {})
 
   const runFirewall = () => {
     if (!evidence) return;
+    // With the air-quality profile the claim states a value and unit that must match the evidence. The default is the
+    // latest value in the bundle; type a different number to watch claim-type-aware sufficiency reject it.
+    const focus = evidence.bundle.focusAnalyte;
+    const series = evidence.bundle.measurements.filter((m) => m.analyte === focus && typeof m.value === 'number');
+    const latest = series[series.length - 1];
+    const typed = Number(claimedValue);
+    const stated = claimedValue.trim() !== '' && Number.isFinite(typed) ? typed : latest?.value;
     const testClaim = {
       claimId: `cl-firewall-test-${evidence.evidenceId.slice(3, 15)}`,
       claimType: firewallClaimType,
@@ -275,15 +284,24 @@ export function IntegrityLab({ initialSiteId }: { initialSiteId?: string } = {})
         boundary: evidence.bundle.location.siteId,
         timeEpoch: evidence.bundle.timeframe.endUtc.slice(0, 10),
         activityType: evidence.bundle.focusAnalyte,
+        lat: evidence.bundle.location.lat,
+        lon: evidence.bundle.location.lon,
       },
       evidence: [{ evidenceId: evidence.evidenceId, digest: evidence.digest }],
-      result: { statement: `Claim submitted for evaluation under tier ${firewallClaimType}` },
+      result: {
+        statement: `Claim submitted for evaluation under tier ${firewallClaimType}`,
+        analyte: focus,
+        value: stated,
+        unit: latest?.unit,
+        aggregation: 'latest',
+      },
     };
     void run('Firewall evaluation', () => integrityApi.evaluateFirewall({
       claim: testClaim,
       evidence: evidence.bundle,
       expectedDigest: evidence.digest,
       claimType: firewallClaimType,
+      ...(firewallSubtype ? { claimSubtype: firewallSubtype } : {}),
     }), setFirewallResult);
   };
 
@@ -611,6 +629,30 @@ export function IntegrityLab({ initialSiteId }: { initialSiteId?: string } = {})
                 <option value="QUANTIFIED_EMISSIONS_REDUCTION">4. Quantified Emissions Reduction (Must reject pure model)</option>
               </select>
             </label>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-bright)' }}>
+              <span>Evidence profile:</span>
+              <select
+                value={firewallSubtype}
+                onChange={(e) => setFirewallSubtype(e.target.value)}
+                style={{ background: 'var(--bg-layer-2)', color: 'var(--text-bright)', border: '1px solid var(--border)', padding: '0.4rem', borderRadius: '4px' }}
+              >
+                <option value="">None (tier rules only)</option>
+                <option value="air-quality">Air quality (claimed value must match the evidence)</option>
+                <option value="methane-response">Methane response (needs a measured before/after drop)</option>
+                <option value="livestock-traceability">Livestock traceability (needs custody events)</option>
+              </select>
+            </label>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-bright)' }}>
+              <span>Claimed value:</span>
+              <input
+                type="number"
+                inputMode="decimal"
+                placeholder="latest measured"
+                value={claimedValue}
+                onChange={(e) => setClaimedValue(e.target.value)}
+                style={{ width: '9rem', background: 'var(--bg-layer-2)', color: 'var(--text-bright)', border: '1px solid var(--border)', padding: '0.4rem', borderRadius: '4px' }}
+              />
+            </label>
             <button
               type="button"
               className="primary-action"
@@ -624,7 +666,7 @@ export function IntegrityLab({ initialSiteId }: { initialSiteId?: string } = {})
               onClick={runAdversarialBenchmark}
               disabled={busy !== null}
             >
-              {busy === 'Adversarial benchmark' ? 'Running 55 test cases…' : 'Run 55-Case Adversarial Benchmark'}
+              {busy === 'Adversarial benchmark' ? 'Running synthetic test suites…' : 'Run synthetic regression + adversarial suites'}
             </button>
           </div>
 
@@ -655,16 +697,32 @@ export function IntegrityLab({ initialSiteId }: { initialSiteId?: string } = {})
                   </ul>
                 </div>
               )}
+              {firewallResult.notes && firewallResult.notes.length > 0 && (
+                <div style={{ marginTop: '0.75rem', padding: '0.75rem', background: 'rgba(234, 179, 8, 0.1)', border: '1px solid rgba(234, 179, 8, 0.3)', borderRadius: '4px' }}>
+                  <strong>Not accepted yet (needs more evidence or a human):</strong>
+                  <ul style={{ margin: '0.5rem 0 0 1.25rem', padding: 0 }}>
+                    {firewallResult.notes.map((note, idx) => <li key={idx}>{note}</li>)}
+                  </ul>
+                </div>
+              )}
               <p className="muted small" style={{ marginTop: '0.5rem' }}>{firewallResult.limitsNotice}</p>
+              {firewallResult.knownLimitations && firewallResult.knownLimitations.length > 0 && (
+                <details className="small muted" style={{ marginTop: '0.5rem' }}>
+                  <summary>What this firewall cannot detect ({firewallResult.knownLimitations.length})</summary>
+                  <ul style={{ margin: '0.5rem 0 0 1.25rem', padding: 0 }}>
+                    {firewallResult.knownLimitations.map((item, idx) => <li key={idx}>{item}</li>)}
+                  </ul>
+                </details>
+              )}
             </div>
           )}
 
           {benchmarkResult && (
             <div className="il-result" role="status" style={{ marginTop: '1rem' }}>
               <div className="il-badges">
-                <Badge tone="pass">55-CASE ADVERSARIAL BENCHMARK COMPLETE</Badge>
+                <Badge tone="demo">SYNTHETIC REGRESSION SUITE</Badge>
               </div>
-              <p className="small muted">Evaluated against 55 adversarial test cases (tampering, duplicate evasion, stale observations, model-as-observation, model-as-carbon, collocated distinct activities).</p>
+              <p className="small muted">{benchmarkResult.label ?? '55 author-written synthetic regression cases.'} The perfect score is by construction: the cases were written around the firewall&apos;s own rule categories. It is a regression check, not evidence of real-world fraud detection.</p>
               <div style={{ overflowX: 'auto', marginTop: '0.5rem' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.85rem' }}>
                   <thead>
@@ -693,6 +751,28 @@ export function IntegrityLab({ initialSiteId }: { initialSiteId?: string } = {})
                   </tbody>
                 </table>
               </div>
+              {benchmarkResult.adversarialV2 && (
+                <div style={{ marginTop: '1rem' }}>
+                  <strong>Adversarial suite v2 (synthetic, written after probing the v1 blind spots)</strong>
+                  <p className="small muted">
+                    {benchmarkResult.adversarialV2.passed}/{benchmarkResult.adversarialV2.scoredCases} scored cases match both the expected verdict and the expected rule.
+                    {' '}{benchmarkResult.adversarialV2.label}
+                  </p>
+                  <ul className="small" style={{ margin: '0 0 0.5rem 1.25rem', padding: 0 }}>
+                    {Object.entries(benchmarkResult.adversarialV2.byGroup).map(([group, v]) => (
+                      <li key={group}>{group.replace(/_/g, ' ').toLowerCase()}: {v.passed}/{v.cases}</li>
+                    ))}
+                  </ul>
+                  <div style={{ padding: '0.75rem', background: 'rgba(239, 68, 68, 0.08)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '4px' }}>
+                    <strong>Known limitations: unsafe claims this firewall does NOT catch ({benchmarkResult.adversarialV2.knownLimitations.filter((k) => k.missedByDesign).length}/{benchmarkResult.adversarialV2.knownLimitations.length})</strong>
+                    <ul className="small" style={{ margin: '0.5rem 0 0 1.25rem', padding: 0 }}>
+                      {benchmarkResult.adversarialV2.knownLimitations.map((k) => (
+                        <li key={k.id}>{k.name} <em>(firewall verdict: {k.firewallVerdict})</em></li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
             </div>
           )}
           {continueButton}

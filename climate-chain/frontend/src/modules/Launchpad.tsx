@@ -61,16 +61,16 @@ export function Launchpad({
     <section id="launchpad" className="launchpad signal-page launchpad-centralized" aria-labelledby="launchpad-title">
       <header className="launchpad-head">
         <div>
-          <span className="eyebrow">{projects.length} PROJECTS · 100% NATIVE CENTRALIZED WORKFLOW</span>
+          <span className="eyebrow">{projects.length} PROJECT MODULES · RE-IMPLEMENTED IN-APP ON BUNDLED FIXTURES</span>
           <h2 id="launchpad-title">Centralized Project Module Hub</h2>
           <p className="muted">
-            All 18 specialized climate initiatives operate directly inside this centralized platform.
-            Every workflow runs in-app with verified provenance, cryptographic rules, and zero external redirects.
+            18 specialized climate initiatives are re-implemented inside this platform.
+            Each module is re-implemented in-app and runs on bundled fixtures (see its mode badge); 4 feeds are live.
           </p>
         </div>
         <div className="launchpad-counts" aria-label="Launchpad totals">
           <span><strong>{projects.length}</strong> Centralized Modules</span>
-          <span className="zero-ext"><strong>0</strong> External Links</span>
+          <span className="zero-ext"><strong>4</strong> Live Feeds</span>
         </div>
       </header>
 
@@ -209,7 +209,7 @@ function LaunchCard({
             ))}
           </ul>
           <p className="muted small">
-            Fully merged into the central Climate Chain pipeline. Execution and cryptographic verification run in-app.
+            Re-implemented in-app on bundled fixtures (see mode badge).
           </p>
         </div>
       )}

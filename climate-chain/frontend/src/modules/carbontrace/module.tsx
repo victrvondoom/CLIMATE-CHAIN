@@ -235,7 +235,7 @@ function CarbonTracePage() {
 const climateModule: ClimateModule = {
   id: 'carbontrace',
   name: 'CarbonTrace',
-  tagline: 'Carbon credits checked against satellite evidence before they exist.',
+  tagline: 'Demo: carbon credits checked against satellite evidence before they exist.',
   stages: ['verify', 'finance', 'prove'],
   tone: 'carbon',
   mode: 'DEMO',

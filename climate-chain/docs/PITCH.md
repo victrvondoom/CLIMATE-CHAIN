@@ -12,9 +12,9 @@ Climate Chain is the workspace where a climate signal becomes proof. Every missi
 
 ## What is built today
 
-- **One folder, every project.** Every project folder lives in `climate-chain/projects/`, and the originals are untouched.
+- **One workspace, every project.** 18 native modules are re-implemented in climate-chain/frontend/src/modules from the source projects and run on bundled fixtures (8 SIMULATED, 6 RESEARCH, 4 DEMO). The original project folders are not included in this repository.
 - **One registry.** `registry/projects.json` is the only list the gateway and the interface trust. The gateway serves it at `/api/v1/projects`; the launchpad reads the same file.
-- **Standalone apps from one origin.** Seven projects open from `/apps/<id>/` in the same workspace: AquaQuest, Flarewatch, PlotLock, HourMatch, CarbonTwin, CarbonLens, and the EcoGraph story page. The gateway checks each app is present before linking to it.
+- **Standalone apps only when present locally.** Seven projects (AquaQuest, Flarewatch, PlotLock, HourMatch, CarbonTwin, CarbonLens, and the EcoGraph story page) can open from `/apps/<id>/` only when the optional local `projects/` folder is present; it is not included in this repository, and the gateway checks each app is present before linking to it.
 - **Honest labels travel with the numbers.** Data from a reachable source shows as **LIVE**. Fallback values show as **SIMULATED**. Demo and research results keep their original labels.
 - **Place-based review with evidence.** From an open JunkSnap site, Cascade Review checks Vayu air data at that point and exports a SHA-256 evidence manifest. A match is a lead for a person to review. It is not a finding of cause.
 - **Mission studio.** Compose a mission from any of the projects, arrange it across the five stages, and export a Markdown brief with the source labels attached.

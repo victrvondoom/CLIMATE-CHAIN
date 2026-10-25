@@ -1,0 +1,328 @@
+{
+  "schema": "climate-chain.hourly-cams-era5.v1",
+  "generated_by": "fetch-climate-hourly.mjs",
+  "generated_at": "2026-10-25T10:51:07.501Z",
+  "data_file": "climate-hourly.csv.gz",
+  "data_file_sha256": "986136455c8b21dfb4fbe91c6f5bad4cb366725f81c9931bf55c3529ffe2d820",
+  "csv_uncompressed_sha256": "c7f3a77f0e6c26aab0768b6ea676ecf91b7059ba3e5f503e26a959f47a43efb2",
+  "bytes_gz": 2491180,
+  "bytes_csv": 8806298,
+  "row_unit": "one row = one city x one UTC hour",
+  "rows": 91872,
+  "rows_with_methane": 91872,
+  "period_utc": [
+    "2024-11-01",
+    "2026-07-31"
+  ],
+  "cities": [
+    {
+      "id": "delhi",
+      "name": "Delhi, IN",
+      "lat": 28.6139,
+      "lon": 77.209
+    },
+    {
+      "id": "midland_tx",
+      "name": "Midland TX (Permian)",
+      "lat": 31.9973,
+      "lon": -102.0779
+    },
+    {
+      "id": "chennai",
+      "name": "Chennai, IN",
+      "lat": 13.0827,
+      "lon": 80.2707
+    },
+    {
+      "id": "jodhpur",
+      "name": "Jodhpur, IN",
+      "lat": 26.2389,
+      "lon": 73.0243
+    },
+    {
+      "id": "chandigarh",
+      "name": "Chandigarh, IN",
+      "lat": 30.7333,
+      "lon": 76.7794
+    },
+    {
+      "id": "port_harcourt",
+      "name": "Port Harcourt (Niger Delta)",
+      "lat": 4.8156,
+      "lon": 7.0498
+    }
+  ],
+  "non_null_counts": {
+    "cams_pm2_5": 91872,
+    "cams_pm10": 91872,
+    "cams_nitrogen_dioxide": 91872,
+    "cams_sulphur_dioxide": 91872,
+    "cams_ozone": 91872,
+    "cams_carbon_monoxide": 91872,
+    "cams_methane": 91872,
+    "cams_carbon_dioxide": 91872,
+    "cams_methane_ppb_approx": 91872,
+    "era5_temperature_2m": 91872,
+    "era5_relative_humidity_2m": 91872,
+    "era5_wind_speed_10m": 91872,
+    "era5_wind_direction_10m": 91872,
+    "era5_surface_pressure": 91872,
+    "era5_precipitation": 91872
+  },
+  "classification": {
+    "cams_*": "MODELLED (Copernicus CAMS global atmospheric composition, ~40 km grid, via Open-Meteo). Not a station observation.",
+    "era5_*": "REANALYSIS (ECMWF ERA5, ~0.25 deg, via Open-Meteo). Not a station observation.",
+    "cams_methane_ppb_approx": "DERIVED: ug/m3 -> ppb at assumed 25C/1013.25hPa; approximate."
+  },
+  "licence": {
+    "data": "CC BY 4.0",
+    "attribution": "Weather data by Open-Meteo.com (CC BY 4.0). Contains modified Copernicus Atmosphere Monitoring Service information (CAMS) and Copernicus Climate Change Service ERA5 data (2024-2026).",
+    "terms": "https://open-meteo.com/en/license",
+    "free_tier": "non-commercial use only; <=10,000 calls/day (600/min, 5,000/h documented)"
+  },
+  "requests_made": 24,
+  "requests": [
+    {
+      "city": "delhi",
+      "kind": "cams_global",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=28.6139&longitude=77.209&start_date=2024-11-01&end_date=2025-11-01&hourly=pm2_5,pm10,nitrogen_dioxide,sulphur_dioxide,ozone,carbon_monoxide,methane,carbon_dioxide&timezone=GMT&domains=cams_global",
+      "response_sha256": "572ad669181f8052e3beeda76b9e54ed012ef2933331283a5817d97121d6e386",
+      "response_bytes": 548950,
+      "grid_lat": 28.599998,
+      "grid_lon": 77.20001
+    },
+    {
+      "city": "delhi",
+      "kind": "era5",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=28.6139&longitude=77.209&start_date=2024-11-01&end_date=2025-11-01&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,surface_pressure,precipitation&timezone=GMT",
+      "response_sha256": "2076d86347e0ead32e600be4fe5d407b35387678de8b34a3c5e29f25ec659352",
+      "response_bytes": 404027,
+      "grid_lat": 28.576448,
+      "grid_lon": 77.18678
+    },
+    {
+      "city": "delhi",
+      "kind": "cams_global",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=28.6139&longitude=77.209&start_date=2025-11-02&end_date=2026-07-31&hourly=pm2_5,pm10,nitrogen_dioxide,sulphur_dioxide,ozone,carbon_monoxide,methane,carbon_dioxide&timezone=GMT&domains=cams_global",
+      "response_sha256": "ada9dad98cf6120b3a4eece11df31c288030e8bbc45d267ccf79ac0b5bc71185",
+      "response_bytes": 409697,
+      "grid_lat": 28.599998,
+      "grid_lon": 77.20001
+    },
+    {
+      "city": "delhi",
+      "kind": "era5",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=28.6139&longitude=77.209&start_date=2025-11-02&end_date=2026-07-31&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,surface_pressure,precipitation&timezone=GMT",
+      "response_sha256": "c4b368b148537262a0f1bf3aa55a5fea5bb03817fbbc427364d0bf959549c537",
+      "response_bytes": 301039,
+      "grid_lat": 28.576448,
+      "grid_lon": 77.18678
+    },
+    {
+      "city": "midland_tx",
+      "kind": "cams_global",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=31.9973&longitude=-102.0779&start_date=2024-11-01&end_date=2025-11-01&hourly=pm2_5,pm10,nitrogen_dioxide,sulphur_dioxide,ozone,carbon_monoxide,methane,carbon_dioxide&timezone=GMT&domains=cams_global",
+      "response_sha256": "880e442019b12738b7e1d0c188b0786546cb6f72c14e78a6150d60cfaebdebac",
+      "response_bytes": 507966,
+      "grid_lat": 32,
+      "grid_lon": -102.1
+    },
+    {
+      "city": "midland_tx",
+      "kind": "era5",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=31.9973&longitude=-102.0779&start_date=2024-11-01&end_date=2025-11-01&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,surface_pressure,precipitation&timezone=GMT",
+      "response_sha256": "c339838c0cf4c572985049f915182678b411826711febe934275ee5b05366b16",
+      "response_bytes": 407901,
+      "grid_lat": 32.021088,
+      "grid_lon": -102.05066
+    },
+    {
+      "city": "midland_tx",
+      "kind": "cams_global",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=31.9973&longitude=-102.0779&start_date=2025-11-02&end_date=2026-07-31&hourly=pm2_5,pm10,nitrogen_dioxide,sulphur_dioxide,ozone,carbon_monoxide,methane,carbon_dioxide&timezone=GMT&domains=cams_global",
+      "response_sha256": "7545edb16c28b5cec2dca1b348de22f25122055c5c08a1f3d4fb550c0bb73650",
+      "response_bytes": 377171,
+      "grid_lat": 32,
+      "grid_lon": -102.1
+    },
+    {
+      "city": "midland_tx",
+      "kind": "era5",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=31.9973&longitude=-102.0779&start_date=2025-11-02&end_date=2026-07-31&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,surface_pressure,precipitation&timezone=GMT",
+      "response_sha256": "3ab1313452f0aff2bcb84c11152dddf13846f285957bcf04feb82d03a7bc919b",
+      "response_bytes": 303546,
+      "grid_lat": 32.021088,
+      "grid_lon": -102.05066
+    },
+    {
+      "city": "chennai",
+      "kind": "cams_global",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=13.0827&longitude=80.2707&start_date=2024-11-01&end_date=2025-11-01&hourly=pm2_5,pm10,nitrogen_dioxide,sulphur_dioxide,ozone,carbon_monoxide,methane,carbon_dioxide&timezone=GMT&domains=cams_global",
+      "response_sha256": "c6778092d69c4ba85c06030d05fd5ac12641a12a5b34cece703b182a85cf9c97",
+      "response_bytes": 524754,
+      "grid_lat": 13.099998,
+      "grid_lon": 80.30002
+    },
+    {
+      "city": "chennai",
+      "kind": "era5",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=13.0827&longitude=80.2707&start_date=2024-11-01&end_date=2025-11-01&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,surface_pressure,precipitation&timezone=GMT",
+      "response_sha256": "73dcc679c91eb066bad7965d592a112585e7e05b0bef76397e0b8b27f3084f6b",
+      "response_bytes": 415238,
+      "grid_lat": 13.110721,
+      "grid_lon": 80.2459
+    },
+    {
+      "city": "chennai",
+      "kind": "cams_global",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=13.0827&longitude=80.2707&start_date=2025-11-02&end_date=2026-07-31&hourly=pm2_5,pm10,nitrogen_dioxide,sulphur_dioxide,ozone,carbon_monoxide,methane,carbon_dioxide&timezone=GMT&domains=cams_global",
+      "response_sha256": "8eb6c6061191d2de5ff12c9cce11ecb50a5179afe196e972770dd124c1c7bbc0",
+      "response_bytes": 389682,
+      "grid_lat": 13.099998,
+      "grid_lon": 80.30002
+    },
+    {
+      "city": "chennai",
+      "kind": "era5",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=13.0827&longitude=80.2707&start_date=2025-11-02&end_date=2026-07-31&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,surface_pressure,precipitation&timezone=GMT",
+      "response_sha256": "d81f8e5e0ced6cd5ec4eaaa4ae7f921c7c0198c85efd2b2c8e5a59bfa3aaeeda",
+      "response_bytes": 308770,
+      "grid_lat": 13.110721,
+      "grid_lon": 80.2459
+    },
+    {
+      "city": "jodhpur",
+      "kind": "cams_global",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=26.2389&longitude=73.0243&start_date=2024-11-01&end_date=2025-11-01&hourly=pm2_5,pm10,nitrogen_dioxide,sulphur_dioxide,ozone,carbon_monoxide,methane,carbon_dioxide&timezone=GMT&domains=cams_global",
+      "response_sha256": "071370927d8d5abcc700d309f5db15f295f61b138b27b40b71ec1dc67d9b6b94",
+      "response_bytes": 526993,
+      "grid_lat": 26.200005,
+      "grid_lon": 73
+    },
+    {
+      "city": "jodhpur",
+      "kind": "era5",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=26.2389&longitude=73.0243&start_date=2024-11-01&end_date=2025-11-01&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,surface_pressure,precipitation&timezone=GMT",
+      "response_sha256": "7fb60aa091426816849d4db74ba61c2e27e711f9bcda734fc34c95ff676a6641",
+      "response_bytes": 404869,
+      "grid_lat": 26.25659,
+      "grid_lon": 73.00768
+    },
+    {
+      "city": "jodhpur",
+      "kind": "cams_global",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=26.2389&longitude=73.0243&start_date=2025-11-02&end_date=2026-07-31&hourly=pm2_5,pm10,nitrogen_dioxide,sulphur_dioxide,ozone,carbon_monoxide,methane,carbon_dioxide&timezone=GMT&domains=cams_global",
+      "response_sha256": "68ae668f9aed78ba66fc41cce76fe2e32dd91341ed4814984aac458062a8fc30",
+      "response_bytes": 392575,
+      "grid_lat": 26.200005,
+      "grid_lon": 73
+    },
+    {
+      "city": "jodhpur",
+      "kind": "era5",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=26.2389&longitude=73.0243&start_date=2025-11-02&end_date=2026-07-31&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,surface_pressure,precipitation&timezone=GMT",
+      "response_sha256": "02b3b04c9fa82c162e2905bc145a536c7a9d9bd0e6a104a2d00d89585e9d5d95",
+      "response_bytes": 301259,
+      "grid_lat": 26.25659,
+      "grid_lon": 73.00768
+    },
+    {
+      "city": "chandigarh",
+      "kind": "cams_global",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=30.7333&longitude=76.7794&start_date=2024-11-01&end_date=2025-11-01&hourly=pm2_5,pm10,nitrogen_dioxide,sulphur_dioxide,ozone,carbon_monoxide,methane,carbon_dioxide&timezone=GMT&domains=cams_global",
+      "response_sha256": "ead8b70d9d8235716785d9c67c1d4127af55c13c9e48dda8e97ffb49c95939d1",
+      "response_bytes": 537271,
+      "grid_lat": 30.700005,
+      "grid_lon": 76.80002
+    },
+    {
+      "city": "chandigarh",
+      "kind": "era5",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=30.7333&longitude=76.7794&start_date=2024-11-01&end_date=2025-11-01&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,surface_pressure,precipitation&timezone=GMT",
+      "response_sha256": "c5fe708be2a048b8e9210f20e041b0295cebf7b768cb7d6681e83be08825f980",
+      "response_bytes": 403952,
+      "grid_lat": 30.75571,
+      "grid_lon": 76.82408
+    },
+    {
+      "city": "chandigarh",
+      "kind": "cams_global",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=30.7333&longitude=76.7794&start_date=2025-11-02&end_date=2026-07-31&hourly=pm2_5,pm10,nitrogen_dioxide,sulphur_dioxide,ozone,carbon_monoxide,methane,carbon_dioxide&timezone=GMT&domains=cams_global",
+      "response_sha256": "3ba734626450937e4b13a81c45e931d449217d349a172b4ac9a7ddd35c5ffc83",
+      "response_bytes": 399970,
+      "grid_lat": 30.700005,
+      "grid_lon": 76.80002
+    },
+    {
+      "city": "chandigarh",
+      "kind": "era5",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=30.7333&longitude=76.7794&start_date=2025-11-02&end_date=2026-07-31&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,surface_pressure,precipitation&timezone=GMT",
+      "response_sha256": "7fbdbe3e21f95595de26e877cca2a5befa4748abced2f8dafe38faed0c5f4555",
+      "response_bytes": 300224,
+      "grid_lat": 30.75571,
+      "grid_lon": 76.82408
+    },
+    {
+      "city": "port_harcourt",
+      "kind": "cams_global",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=4.8156&longitude=7.0498&start_date=2024-11-01&end_date=2025-11-01&hourly=pm2_5,pm10,nitrogen_dioxide,sulphur_dioxide,ozone,carbon_monoxide,methane,carbon_dioxide&timezone=GMT&domains=cams_global",
+      "response_sha256": "61e80d34deb4c02fd5d13d8e4d3c70776b1887f1a7f13c74762de84695bc433d",
+      "response_bytes": 522399,
+      "grid_lat": 4.800003,
+      "grid_lon": 7
+    },
+    {
+      "city": "port_harcourt",
+      "kind": "era5",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=4.8156&longitude=7.0498&start_date=2024-11-01&end_date=2025-11-01&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,surface_pressure,precipitation&timezone=GMT",
+      "response_sha256": "ca5a3f5a7539cb440eeb51c7f58eb8a469fbd3fb6e0a74af47090a1bde1eba44",
+      "response_bytes": 413649,
+      "grid_lat": 4.815466,
+      "grid_lon": 7.03125
+    },
+    {
+      "city": "port_harcourt",
+      "kind": "cams_global",
+      "url": "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=4.8156&longitude=7.0498&start_date=2025-11-02&end_date=2026-07-31&hourly=pm2_5,pm10,nitrogen_dioxide,sulphur_dioxide,ozone,carbon_monoxide,methane,carbon_dioxide&timezone=GMT&domains=cams_global",
+      "response_sha256": "9fed9170e6a59340a22497070d0309658afc2039041b622bc96f525191b0f4e2",
+      "response_bytes": 387933,
+      "grid_lat": 4.800003,
+      "grid_lon": 7
+    },
+    {
+      "city": "port_harcourt",
+      "kind": "era5",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=4.8156&longitude=7.0498&start_date=2025-11-02&end_date=2026-07-31&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,surface_pressure,precipitation&timezone=GMT",
+      "response_sha256": "6a4d635acf9b494f98b049c8e632763c792e2d1bbbc37cd4accfc5380b5a646d",
+      "response_bytes": 307562,
+      "grid_lat": 4.815466,
+      "grid_lon": 7.03125
+    }
+  ],
+  "measured_tier": [
+    {
+      "file": "noaa_ch4_monthly_global.csv.gz",
+      "url": "https://gml.noaa.gov/webdata/ccgg/trends/ch4/ch4_mm_gl.csv",
+      "raw_sha256": "da20ed8761f4c26e1d08cb8c9d4d2667152aa1b196561f5a7d42e83da1226ad2",
+      "gz_sha256": "e352b5e0b86df12119e3d2fe56c1d84d99e839bc64f9c83e901c738a127d4cd0",
+      "data_lines": 516,
+      "classification": "MEASURED"
+    },
+    {
+      "file": "noaa_co2_daily_mlo.csv.gz",
+      "url": "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_daily_mlo.csv",
+      "raw_sha256": "76ea887993cf5a3eaf4c70cb627f733846049484cd4fed84f1a178fc9c97394f",
+      "gz_sha256": "ed9f2b53a845d42f2c8dd578e5b9501442fa4b12ba8fb52c25d0da93fbe3d2dc",
+      "data_lines": 16011,
+      "classification": "MEASURED"
+    },
+    {
+      "file": "nasa_gistemp_glb_monthly.csv.gz",
+      "url": "https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.csv",
+      "raw_sha256": "4c64eda288bce32b8d76926278f346ecea1e53506df8ee72a3d5accb0657c416",
+      "gz_sha256": "df435ed9b653fc752ebab0ee1ea4d0b41e74afa324266127182c6903c3c75349",
+      "data_lines": 147,
+      "classification": "MEASURED"
+    }
+  ]
+}

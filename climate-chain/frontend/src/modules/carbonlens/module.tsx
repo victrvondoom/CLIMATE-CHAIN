@@ -262,7 +262,7 @@ function CarbonLensPage() {
 const climateModule: ClimateModule = {
   id: 'carbonlens',
   name: 'CarbonLens',
-  tagline: 'Satellite checks for forest credit claims, with serial and report-hash checks on the recorded ledger.',
+  tagline: 'Research: satellite checks for forest credit claims, with serial and report-hash checks on the recorded ledger.',
   stages: ['verify', 'finance', 'prove'],
   tone: 'carbon',
   mode: 'RESEARCH',

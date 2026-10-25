@@ -26,7 +26,7 @@ export function getDatasetsCatalog() {
  * All units, sources, and uncertainties are deterministic and traceable.
  */
 
-// Global Temperature Anomalies (1880-2026 from NOAA/NASA GISTEMP v4, base 1901-2000)
+// Global Temperature Anomalies (1880-2026 from NOAA/NASA GISTEMP v4, base 1951-1980)
 // 1826-1879: NO GLOBAL INSTRUMENTAL NETWORK (explicitly null / gap)
 const TEMP_BENCHMARKS = [
   { year: 1880, anomaly: -0.16, unc: 0.15 },
@@ -300,7 +300,7 @@ export function getTimelineObservations(indicator = 'temperature_anomaly', start
           year,
           value: match.anomaly,
           uncertainty: match.unc,
-          unit: '°C (anomaly vs 1901-2000)',
+          unit: '°C (anomaly vs 1951-1980)',
           source: 'NOAA NCEI / NASA GISTEMP v4',
           dataset_id: 'noaa-ghcn-gistemp-v4',
           classification: 'OBSERVED_MEASUREMENT',
@@ -330,7 +330,7 @@ export function getTimelineObservations(indicator = 'temperature_anomaly', start
             year,
             value: val,
             uncertainty: unc,
-            unit: '°C (anomaly vs 1901-2000)',
+            unit: '°C (anomaly vs 1951-1980)',
             source: 'NOAA NCEI / NASA GISTEMP v4 (Annual Series)',
             dataset_id: 'noaa-ghcn-gistemp-v4',
             classification: 'INTERPOLATED_CONTINUOUS_SERIES',
@@ -467,7 +467,7 @@ export function getTimelineObservations(indicator = 'temperature_anomaly', start
             unit: '% of electricity',
             source: 'IRENA / Energy Institute Statistical Review',
             dataset_id: 'irena-global-renewable-share',
-            classification: 'REPORTED_STATISTICAL_OBSERVATION',
+            classification: 'INTERPOLATED_CONTINUOUS_SERIES',
             is_gap: false
           };
         }
@@ -482,7 +482,9 @@ export function getTimelineObservations(indicator = 'temperature_anomaly', start
   return {
     indicator,
     temporal_span: `${startYear}-${endYear}`,
-    observation_count: result.filter(o => !o.is_gap).length,
+    // value_count includes linearly interpolated years; anchor_count is only the hand-keyed reference values.
+    value_count: result.filter(o => !o.is_gap).length,
+    anchor_count: result.filter(o => !o.is_gap && !String(o.classification).startsWith('INTERPOLATED')).length,
     gap_count: result.filter(o => o.is_gap).length,
     observations: result
   };
@@ -511,7 +513,7 @@ export function generateObservationEvidenceManifest(indicator, year) {
       dataset_id: obs.dataset_id,
       official_title: datasetMeta.official_title || obs.source,
       source_agency: datasetMeta.source_agency || 'Official Meteorological / Scientific Agency',
-      source_url: datasetMeta.source_url || 'https://climatechain.ieee.org',
+      source_url: datasetMeta.source_url || null,
       data_license: datasetMeta.data_license || 'Public Domain / Open Data',
       citation: datasetMeta.citation || obs.source
     },
@@ -519,24 +521,26 @@ export function generateObservationEvidenceManifest(indicator, year) {
       is_modeled_estimate: obs.classification === 'MODELLED_ESTIMATE',
       is_direct_measurement: obs.classification === 'OBSERVED_MEASUREMENT',
       is_interpolated: obs.classification.startsWith('INTERPOLATED'),
-      firewall_claim_tier: obs.classification === 'OBSERVED_MEASUREMENT' ? 'TIER_1_CERTIFIED' : 'TIER_2_UNVERIFIED'
-    },
-    generated_at: new Date().toISOString()
+      // A hand-keyed anchor is a reference value typed from a published series; it is not certified by anyone.
+      evidence_class: obs.is_interpolated || String(obs.classification).startsWith('INTERPOLATED') ? 'INTERPOLATED' : 'HAND_KEYED_REFERENCE'
+    }
   };
 
+  // The digest covers the payload only, so the same indicator and year always hash to the same value.
   const digest = createHash('sha256').update(JSON.stringify(evidencePayload)).digest('hex');
   return {
     evidence_id: `HIST-${indicator.toUpperCase()}-${year}`,
     sha256_digest: digest,
+    generated_at: new Date().toISOString(),
     payload: evidencePayload
   };
 }
 
 const LIVE_INDICATOR_BASELINES = {
-  temperature_anomaly: { base: 1.412, unit: '°C (vs 1901-2000)', sigma: 0.005, decimals: 3, station: 'NASA GISS Surface Station Network #42' },
-  co2_concentration: { base: 427.85, unit: 'ppm', sigma: 0.09, decimals: 2, station: 'NOAA GML Mauna Loa Keeling Observatory (MLO)' },
-  ch4_concentration: { base: 1938.4, unit: 'ppb', sigma: 0.40, decimals: 1, station: 'NOAA Marine Boundary Layer Sampling Network' },
-  renewable_share: { base: 32.48, unit: '% of electricity', sigma: 0.06, decimals: 2, station: 'IRENA Global Renewable Electricity Dispatch' },
+  temperature_anomaly: { base: 1.412, unit: '°C (vs 1951-1980)', sigma: 0.005, decimals: 3, label: 'Simulated random walk around an illustrative reference value (not a measurement)' },
+  co2_concentration: { base: 427.85, unit: 'ppm', sigma: 0.09, decimals: 2, label: 'Simulated random walk around an illustrative reference value (not a measurement)' },
+  ch4_concentration: { base: 1938.4, unit: 'ppb', sigma: 0.40, decimals: 1, label: 'Simulated random walk around an illustrative reference value (not a measurement)' },
+  renewable_share: { base: 32.48, unit: '% of electricity', sigma: 0.06, decimals: 2, label: 'Simulated random walk around an illustrative reference value (not a measurement)' },
 };
 
 const liveTelemetryState = new Map();
@@ -570,9 +574,6 @@ export function getLiveTelemetryTick(indicator = 'temperature_anomaly') {
 
   const direction = delta > 0 ? 'up' : delta < 0 ? 'down' : 'flat';
   const nowIso = new Date().toISOString();
-  const proofHash = createHash('sha256')
-    .update(`${indicator}:${nextValue}:${nowIso}:${state.tickCount}`)
-    .digest('hex');
 
   return {
     indicator,
@@ -587,9 +588,11 @@ export function getLiveTelemetryTick(indicator = 'temperature_anomaly') {
     session_high: state.sessionHigh,
     session_low: state.sessionLow,
     tick_count: state.tickCount,
-    proof_hash: `0x${proofHash.slice(0, 40)}`,
-    station: config.station,
-    block_number: 31337 + Math.floor(state.tickCount / 3),
+    // This stream is a simulation: a random walk around a reference value. It is not a measurement, has no
+    // station and is not anchored to any chain, so none of those fields are returned.
+    simulated: true,
+    mode: 'SIMULATED',
+    series_label: config.label,
   };
 }
 

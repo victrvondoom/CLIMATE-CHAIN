@@ -1,112 +1,80 @@
-# Evidence-to-Claim Trust Firewall: Benchmark Report
+# Evidence-to-Claim Trust Firewall: Evaluation Report
 
-**IEEE ClimateChain Global Hackathon 2026**  
-*Evaluated on 55 Labelled Adversarial Test Cases*  
-*Timestamp: 2026-10-24 | Environment: Node.js 22 LTS | Execution: Gateway Deterministic Engine*
+**IEEE ClimateChain Global Hackathon 2026.** Hackathon submission; not certified, audited or endorsed by IEEE or any third party.
 
----
+This report says what was measured, how, and what the numbers do **not** show. Every figure is reproducible with the
+command beside it. Trust boundaries and known limitations: [`climate-chain/docs/THREAT_MODEL.md`](../climate-chain/docs/THREAT_MODEL.md).
 
-## Executive Summary
+## 1. The 55-case regression suite (synthetic, author-written)
 
-The **Evidence-to-Claim Trust Firewall** addresses the central vulnerability in environmental registries and digital MRV (Measurement, Reporting, and Verification):
+`climate-chain/gateway/scripts/generate-adversarial-fixtures.mjs` generates 55 cases across 5 sites: valid claims in each
+of the four tiers, tampered evidence, model data presented as an observation, model data presented as carbon reduction,
+stale evidence, a new claim id on an existing scope, co-located but distinct activities, broken custody and contradictory
+sources. Labels were set by the same authors who wrote the rules.
 
-> **"Can an environmental claim be accepted when the underlying evidence is duplicated, altered, outdated, contradictory, derived only from a model, or insufficient to establish the claimed outcome?"**
+| System | TP | FP | TN | FN | Unsafe accepted |
+|---|---:|---:|---:|---:|---:|
+| A: hash only | 27 | 23 | 5 | 0 | 82.1% |
+| B: hash + exact scope key (as defined by the authors) | 27 | 19 | 9 | 0 | 67.9% |
+| C: Trust Firewall | 27 | 0 | 28 | 0 | 0% |
 
-We created a reproducible, labelled test fixture (`gateway/fixtures/adversarial-claims.json`) comprising **55 realistic test cases** across five geographic biomes (Delhi, Punjab agricultural belt, Permian Basin, Niger Delta, Amazon Acre conservation block) and evaluated three verification paradigms:
+`node benchmark-runner.mjs`. Latency is about 0.1 ms per claim on the author's machine.
 
-1. **Baseline A: Hash-Only Verification** (Traditional cryptographic proof checking only byte-level SHA-256 match).
-2. **Baseline B: Existing Claim-Registry Rules** (Checks hash integrity and simple claim-level uniqueness).
-3. **Baseline C: Improved Provenance-Aware Trust Firewall** (Multi-tiered deterministic policy engine evaluating provenance, claim-type vs. evidence-basis compatibility, freshness, geographic consistency, composite scope exclusivity, and contradiction detection).
+**How to read it.** C's perfect score is *by construction*: the cases were written around the firewall's own rule
+categories. A and B are baselines the authors defined, so their weak scores are not a comparison with any external system.
+This suite is a **regression check**, not an accuracy, fraud-detection or security evaluation. It also does not check which
+rule fired, so a case rejected for the wrong reason still counts as correct (the v2 suite fixes that).
 
----
+## 2. The v2 adversarial suite (synthetic, written after probing v1)
 
-## 1. Empirical Results Table
+We probed the v1 firewall with 21 hand-written attacks and genuine-but-unusual claims; it wrongly accepted 16 and wrongly
+rejected 2. Those probes, plus subtype cases, became `scripts/generate-adversarial-v2.mjs`. The runner checks the expected
+**verdict and the expected rule code**.
 
-| Verification System | True Positives (TP) | False Positives (FP) | True Negatives (TN) | False Negatives (FN) | Precision | Recall | $F_1$ Score | Unsafe Acceptance Rate | False Rejection Rate | Mean Latency |
-|---|---|---|---|---|---|---|---|---|---|---|
-| **Baseline A: Hash-Only** | 27 | 23 | 5 | 0 | **54.0%** | 100.0% | 0.701 | **82.1%** | 0.0% | **0.052 ms** |
-| **Baseline B: Existing Registry** | 27 | 19 | 9 | 0 | **58.7%** | 100.0% | 0.740 | **67.9%** | 0.0% | **0.034 ms** |
-| **Baseline C: Trust Firewall** | 27 | **0** | 28 | **0** | **100.0%** | **100.0%** | **1.000** | **0.0%** | **0.0%** | **0.117 ms** |
+`node benchmark-runner.mjs --v2` (also exits non-zero on any failure, so CI can gate on it):
 
-*Note: Latency measured per claim evaluation on local runtime across 55 test cases.*
+| Group | Cases | Passing |
+|---|---:|---:|
+| Fixed blind spots (wrong place, label tricks, hidden modelled value, overlap by synonym / nested period / relabelled boundary / re-wrapped evidence, stale-data laundering, unbounded forecast, cancelled or dispatch-only interventions, invented claim type, and two genuine claims v1 wrongly rejected) | 20 | 20 |
+| Claim-type sufficiency (methane response 8, livestock traceability 7, air quality 4) | 19 | 19 |
+| **Known limitations** (unsafe claims the firewall accepts, documented on purpose) | 2 | n/a |
 
----
+**Not a blind test.** The cases were written by us *after* seeing what v1 got wrong, so 39/39 shows the fixes work and keep
+working, not that the firewall generalises. The independent reviews of this change then found further problems the suite
+had not covered (hostile input shapes, unbounded `periodHours`, unit and label evasion, a fail-open registry read); they
+are fixed and each has its own regression test in `tests/trust-firewall-v2.test.mjs`.
 
-## 2. Metric Definitions & Statistical Formulae
+## 3. What the firewall cannot detect (counterexamples in the suite)
 
-- **True Positive (TP)**: A legitimate, properly evidenced environmental claim is correctly `ACCEPTED`.
-- **False Positive (FP)**: An unsafe, tampered, stale, model-based, or duplicate claim is erroneously `ACCEPTED`.
-- **True Negative (TN)**: An unsafe claim is correctly `REJECTED` or flagged for `HUMAN_REVIEW_REQUIRED`.
-- **False Negative (FN)**: A legitimate, compliant claim is erroneously `REJECTED`.
-- **Precision**: $\frac{\text{TP}}{\text{TP} + \text{FP}}$ — Measures how trustworthy an "ACCEPTED" verdict is.
-- **Recall**: $\frac{\text{TP}}{\text{TP} + \text{FN}}$ — Measures coverage of legitimate claims without accidental suppression.
-- **$F_1$ Score**: $2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$ — The harmonic mean of precision and recall.
-- **Unsafe-Claim Acceptance Rate**: $\frac{\text{FP}}{\text{FP} + \text{TN}}$ — Critical safety metric measuring vulnerability to fraudulent claims.
-- **Legitimate-Claim False Rejection Rate**: $\frac{\text{FN}}{\text{TP} + \text{FN}}$ — Usability metric measuring unwarranted rejection of valid work.
+* **K1: fabricated-but-consistent evidence.** An invented Delhi monitor reading, internally consistent, naming a plausible
+  source and carrying its own correct digest, is ACCEPTED. The firewall judges the bundle, not the sensor.
+* **K2: overlap threshold.** The same leak repair re-claimed about 8 km away under a different label slips past the 0.05
+  degree overlap cell.
 
----
+Closing K1 needs signed attestations from devices or registries, or a re-fetch from the upstream source at verification time.
 
-## 3. Failure Mode Analysis of Baselines A and B
+## 4. Plausibility envelope: real held-out data
 
-### Why Hash-Only Verification Fails (Baseline A: 82.1% Unsafe Acceptance)
-Baseline A operates on the assumption that if an evidence bundle's SHA-256 hash matches the digest stored on-chain, the claim is valid. It successfully catches direct byte tampering (5 cases), but is **completely blind** to:
-1. **Modelled Data Claimed as Physical Observation**: Accepts Open-Meteo CAMS 45 km model forecasts as if they were ground monitor PM2.5 readings (5 cases).
-2. **Model Forecasts Claimed as Avoided Emissions**: Accepts climate simulations claiming 500 tCO₂e carbon reduction (5 cases).
-3. **Stale Evidence**: Accepts observations that are 4 to 8 days old as current air quality (5 cases).
-4. **Duplicate Evasion**: Accepts duplicate claims simply because a fraudster generated a new claim ID with the same physical scope (4 cases).
-5. **Broken Provenance & Contradictory Sensors**: Accepts payloads lacking custody trails or containing 8x divergent collocated sensors (4 cases).
+`node scripts/evaluate-plausibility.mjs`. A per-city, per-variable, per-season, per-6-hour-block quantile model fitted on
+69,840 rows (2024-11 to 2026-02) and evaluated on 22,032 **real** rows it never saw (2026-03 to 2026-07). The data is CAMS
+(modelled) and ERA5 (reanalysis), not station observations.
 
-### Why Existing Claim Registry Rules Fail (Baseline B: 67.9% Unsafe Acceptance)
-Baseline B incorporates a simple registry uniqueness lock. However, it still exhibits a **67.9% unsafe acceptance rate** because:
-1. **Claim ID Evasion**: Attackers generate a fresh random claim identifier (`cl-...`). Without composite scope hashing ($\text{Domain} + \text{Boundary} + \text{TimeEpoch} + \text{Activity}$), the registry allows duplicate claims for the same physical parcel.
-2. **Lack of Evidence Tier Separation**: Existing registries treat all bytes equally. They do not distinguish between an observation, a risk forecast, an intervention manifest, and a certified carbon reduction.
+At the default margin (0.25):
 
----
+| Measure | Result |
+|---|---|
+| False alarms on real held-out values | 0.24% overall (PM2.5 0.91%, PM10 0.43%, NO2 0.14%, CH4 0.25%, temperature 0.06%) |
+| Detection of **synthetic** injected spikes, PM2.5 | x10: 96%, x5: 75%, x3: 43%, x2: 19%, x1.5: 8% |
+| Detection of synthetic spikes, methane | x3: 98%, x2: 88% (methane is very stable in CAMS) |
 
-## 4. How the Trust Firewall (Baseline C) Eliminates Unsafe Acceptance
+It only catches large deviations, it is silent outside the six covered cities, and it routes to a human rather than rejecting.
+Observed (non-model-labelled) values get a 2x wider upper bound because CAMS under-predicts real station peaks; that
+allowance is a judgement and is **not** covered by this evaluation.
 
-The Trust Firewall implements 8 deterministic policy checks:
+## 5. What we have not done
 
-```mermaid
-flowchart TD
-  In[Incoming Claim & Evidence] --> R1{1. Canonical SHA-256 Match?}
-  R1 -- Mismatch --> Rej1[REJECT: EVIDENCE_TAMPERED]
-  R1 -- Match --> R2{2. Custody & Source Valid?}
-  R2 -- Broken --> Rej2[REJECT: BROKEN_PROVENANCE]
-  R2 -- Valid --> R3{3. Basis Compatible with Claim Type?}
-  R3 -- Model used as Obs/Carbon --> Rej3[REJECT: MODEL_PROHIBITION]
-  R3 -- Compatible --> R4{4. Age <= Threshold?}
-  R4 -- Stale --> Rej4[REJECT: EVIDENCE_STALE]
-  R4 -- Fresh --> R5{5. Composite Scope Duplicate?}
-  R5 -- Evasion / Duplicate --> Rej5[REJECT: DUPLICATE_SCOPE_DETECTED]
-  R5 -- Unique or Distinct Activity --> R6{6. Collocated Contradictions?}
-  R6 -- Multi-sensor Divergence --> Rev[HUMAN_REVIEW_REQUIRED]
-  R6 -- Consistent --> R7{7. Sufficient Data?}
-  R7 -- Null / Empty --> Unk[UNKNOWN: INSUFFICIENT_EVIDENCE]
-  R7 -- Complete --> Acc[ACCEPTED: Generate FirewallReceipt]
-```
-
-### Key Innovations:
-1. **Model-to-Observation Prohibition**: Pure model forecasts (`MODEL_FORECAST`) are strictly prohibited from supporting `ENVIRONMENTAL_OBSERVATION` claims.
-2. **Model-to-Carbon Prohibition**: Unbacked model forecasts or linear simulations are strictly prohibited from generating `QUANTIFIED_EMISSIONS_REDUCTION` claims. Verified physical observations and peer-reviewed MRV baseline methodologies (e.g. EPA Subpart W or Nature Comms 2026 counterfactuals) are mandatory.
-3. **Composite Scope Exclusivity**: Hashes $\text{domain} + \text{boundary} + \text{timeEpoch} + \text{activityType}$ preventing claim ID evasion, while **allowing legitimate co-located distinct activities** (e.g. straw baling collection vs. solar pump installation on the same grid cell) to be accepted without false rejections.
-4. **Explicit UNKNOWN & HUMAN_REVIEW_REQUIRED States**: Never guesses when sensor inputs are missing or collocated reference monitors diverge.
-5. **Cryptographic Firewall Receipts**: Every evaluation emits an immutable `FirewallReceipt` with canonical SHA-256 hash eligible for on-chain anchoring only upon `ACCEPTED` status.
-
----
-
-## 5. Reproducible Verification Instructions
-
-To reproduce these benchmark numbers locally:
-
-```powershell
-cd climate-chain/gateway
-
-# Run the benchmark runner directly
-node benchmark-runner.mjs
-
-# Run the full automated test suite (including all 7 firewall test suites)
-node --test tests/trust-firewall.test.mjs
-```
-
-All 55 test cases are stored in `gateway/fixtures/adversarial-claims.json` and can be inspected or extended without modifying the deterministic policy engine.
+* No external or blind evaluation; no real fraud corpus exists for these claim types.
+* The livestock profile has only been exercised on synthetic records; it is not integrated with a real registry.
+* No formal verification and no external security audit of the firewall or the contracts. Two internal reviews (security
+  and correctness) were run on this change; their findings are fixed and tested.
+* Receipts are unsigned and the chain is a local development chain, so anchoring shows bytes were recorded, not that they are true.

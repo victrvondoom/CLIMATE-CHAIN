@@ -127,8 +127,69 @@ export async function runBenchmark() {
   return { timestamp: new Date().toISOString(), totalCases: cases.length, results };
 }
 
+const FIXTURES_V2_FILE = join(ROOT, 'fixtures/adversarial-claims-v2.json');
+const V2_EVALUATION_TIME = new Date('2026-10-24T12:00:00Z');
+
+/**
+ * v2 adversarial suite. Unlike the v1 runner it compares the EXPECTED VERDICT and the expected rule code, so a case
+ * rejected for the wrong reason counts as a failure. Cases in group KNOWN_LIMITATION are unsafe claims the firewall
+ * cannot detect (expected ACCEPTED); they are reported separately and never counted as passes of the firewall.
+ */
+export async function runAdversarialV2() {
+  const cases = JSON.parse(await readFile(FIXTURES_V2_FILE, 'utf8'));
+  const rows = [];
+  for (const tc of cases) {
+    const result = evaluateClaimThroughFirewall({
+      claim: tc.claim,
+      evidence: tc.evidence,
+      expectedDigest: tc.expectedDigest,
+      existingClaims: tc.existingClaims || [],
+      claimSubtype: tc.options?.claimSubtype || undefined,
+      requireSubtype: Boolean(tc.options?.requireSubtype),
+      evaluationTime: V2_EVALUATION_TIME,
+    });
+    const codeSeen = !tc.expectedCode || result.ruleResults.some((r) => r.code === tc.expectedCode);
+    rows.push({
+      id: tc.id, name: tc.name, group: tc.group, category: tc.category, isUnsafeClaim: tc.isUnsafeClaim, knownLimitation: Boolean(tc.knownLimitation),
+      expectedVerdict: tc.expectedVerdict, actualVerdict: result.verdict, expectedCode: tc.expectedCode, codeSeen,
+      pass: result.verdict === tc.expectedVerdict && codeSeen,
+    });
+  }
+  const scored = rows.filter((r) => !r.knownLimitation);
+  const known = rows.filter((r) => r.knownLimitation);
+  const unsafe = scored.filter((r) => r.isUnsafeClaim);
+  const legit = scored.filter((r) => !r.isUnsafeClaim);
+  const byGroup = {};
+  for (const r of scored) {
+    byGroup[r.group] ||= { cases: 0, passed: 0 };
+    byGroup[r.group].cases += 1;
+    if (r.pass) byGroup[r.group].passed += 1;
+  }
+  return {
+    totalCases: rows.length,
+    scoredCases: scored.length,
+    passed: scored.filter((r) => r.pass).length,
+    failures: scored.filter((r) => !r.pass),
+    unsafeAccepted: unsafe.filter((r) => r.actualVerdict === VERDICTS.ACCEPTED).length,
+    legitimateNotAccepted: legit.filter((r) => r.actualVerdict !== VERDICTS.ACCEPTED).length,
+    byGroup,
+    knownLimitations: known.map((r) => ({ id: r.id, name: r.name, category: r.category, firewallVerdict: r.actualVerdict, missedByDesign: r.actualVerdict === VERDICTS.ACCEPTED })),
+    label: 'Synthetic adversarial suite authored by the project team after probing the v1 firewall; a targeted regression and threat-model suite, not a blind held-out evaluation.',
+  };
+}
+
 // If run directly from CLI
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+if (process.argv[1] === fileURLToPath(import.meta.url) && process.argv.includes('--v2')) {
+  runAdversarialV2().then((r) => {
+    console.log('\n=== TRUST FIREWALL v2 ADVERSARIAL SUITE (synthetic, author-written) ===');
+    console.log(`${r.passed}/${r.scoredCases} scored cases pass (verdict AND rule code). Unsafe accepted: ${r.unsafeAccepted}. Legitimate not accepted: ${r.legitimateNotAccepted}.`);
+    for (const [g, v] of Object.entries(r.byGroup)) console.log(`  ${g}: ${v.passed}/${v.cases}`);
+    for (const f of r.failures) console.log(`  FAIL #${f.id} ${f.name}: expected ${f.expectedVerdict}${f.expectedCode ? `/${f.expectedCode}` : ''}, got ${f.actualVerdict}${f.codeSeen ? '' : ' (code not seen)'}`);
+    console.log(`Known limitations (unsafe claims the firewall does NOT catch): ${r.knownLimitations.filter((k) => k.missedByDesign).length}/${r.knownLimitations.length}`);
+    for (const k of r.knownLimitations) console.log(`  ${k.missedByDesign ? 'MISSED' : 'caught'} #${k.id} ${k.name}`);
+    if (r.failures.length) process.exitCode = 1; // lets CI gate on the suite
+  }).catch((error) => { console.error(error); process.exitCode = 1; });
+} else if (process.argv[1] === fileURLToPath(import.meta.url)) {
   runBenchmark().then((report) => {
     console.log('\n=== ADVERSARIAL CLIMATE TRUST FIREWALL BENCHMARK RESULTS ===');
     console.log(`Evaluated on ${report.totalCases} labelled test cases.\n`);

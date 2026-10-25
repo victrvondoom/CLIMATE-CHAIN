@@ -7,9 +7,9 @@ describe('ClimateTimeline component', () => {
   it('renders the 200-Year Climate Intelligence title and official dataset badges', () => {
     const html = renderToStaticMarkup(createElement(ClimateTimeline));
     expect(html).toContain('Climate Intelligence Timeline — 200 Years of Environmental Evidence');
-    expect(html).toContain('8 AUDITED OFFICIAL DATASETS');
+    expect(html).toContain('8 CATALOGUED DATASETS');
     expect(html).toContain('200-YEAR SPAN (1826–2026)');
-    expect(html).toContain('ZERO UNANCHORED INTERPOLATION');
+    expect(html).toContain('INTERPOLATED YEARS LABELLED');
   });
 
   it('renders all 4 scientific climate indicator buttons', () => {
@@ -28,9 +28,9 @@ describe('ClimateTimeline component', () => {
     expect(html).toContain('2026');
   });
 
-  it('renders the Official Dataset Registry section and IEEE compliance statement', () => {
+  it('renders the dataset registry section', () => {
     const html = renderToStaticMarkup(createElement(ClimateTimeline));
-    expect(html).toContain('Official Dataset Registry (IEEE Integrity Catalog)');
+    expect(html).toContain('Dataset registry (project catalogue)');
     expect(html).toContain('View Full Catalog');
   });
 });

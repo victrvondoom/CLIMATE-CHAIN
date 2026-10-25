@@ -86,7 +86,7 @@ export function CommandStatus({
             </div>
             <h4>Prove an Environmental Record</h4>
             <p>
-              Generate a cryptographic SHA-256 digest of sensor readings and verify tamper-proof audit trails in the browser.
+              Generate a cryptographic SHA-256 digest of sensor readings and detect changes by re-hashing in the browser.
             </p>
             <div className="workflow-actions">
               <button

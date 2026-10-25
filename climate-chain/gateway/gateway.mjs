@@ -47,6 +47,7 @@ import { createFacilityService } from './place-facilities.mjs';
 import { createKnowledgeService, KnowledgeError } from './knowledge-index.mjs';
 import { createEvidenceAnchorService, EvidenceAnchorError, isValidEvidenceDigest } from './evidence-anchor.mjs';
 import { createIntegrityService } from './integrity-service.mjs';
+import { hourlyDatasetInfo, queryHourly } from './plausibility.mjs';
 import { createWorldSignalService, WorldSignalError } from './world-signals.mjs';
 import { createRateLimiter } from './rate-limit.mjs';
 import { createChainRuntime } from './chain-runtime.mjs';
@@ -478,7 +479,8 @@ async function handleIntegrity(req, res, url, service) {
   const denied = isWrite ? chainWriteDenial(req, 'Integrity lab writes are available only from the local Climate Chain app.') : null;
   if (denied) return refuseWrite(req, res, denied);
   try {
-    const body = isWrite ? await readOptionalJsonBody(req, 20_000) : {};
+    // A real evidence bundle runs ~22 KB, so firewall evaluation accepts larger bodies than the other lab writes.
+    const body = isWrite ? await readOptionalJsonBody(req, parts[0] === 'firewall' ? 262_144 : 20_000) : {};
     if (!isWrite) req.resume();
     const result = await routeIntegrity(service, req.method, parts, body);
     if (result === undefined) return sendLocalJson(res, 404, { error: { code: 'not_found', message: `No integrity lab route for ${req.method} ${url.pathname}.` } });
@@ -493,6 +495,7 @@ async function handleIntegrity(req, res, url, service) {
         ...(error?.errorName ? { errorName: error.errorName, errorArgs: error.errorArgs } : {}),
         ...(error?.retryAfterSeconds != null ? { retryAfterSeconds: error.retryAfterSeconds } : {}),
         ...(Array.isArray(error?.fields) ? { fields: error.fields } : {}),
+        ...(error?.firewall ? { firewall: error.firewall } : {}),
       },
     });
   }
@@ -523,6 +526,21 @@ function handleHistory(req, res, url) {
       return sendJson(res, 400, { error: { code: 'invalid_observation_request', message: manifest.error } });
     }
     return sendJson(res, 200, manifest);
+  }
+  if (subpath === 'hourly') {
+    const throttled = chainReadDenial(req);
+    if (throttled) return refuseWrite(req, res, throttled);
+    const notShipped = () => sendJson(res, 404, { error: { code: 'dataset_not_available', message: 'The climate-hourly dataset is not shipped with this deployment.' } });
+    const city = url.searchParams.get('city');
+    if (!city) {
+      const info = hourlyDatasetInfo();
+      return info ? sendJson(res, 200, info) : notShipped();
+    }
+    const result = queryHourly({ city, from: url.searchParams.get('from'), to: url.searchParams.get('to'), limit: url.searchParams.get('limit') });
+    if (!result) return notShipped();
+    if (result.error === 'unknown_city') return sendJson(res, 400, { error: { code: 'unknown_city', message: `city must be one of ${result.cities.join(', ')}.` } });
+    if (result.error) return sendJson(res, 400, { error: { code: result.error, message: 'from and to must be ISO-8601 timestamps.' } });
+    return sendJson(res, 200, result);
   }
   if (subpath === 'live-tick') {
     const indicator = url.searchParams.get('indicator') || 'temperature_anomaly';

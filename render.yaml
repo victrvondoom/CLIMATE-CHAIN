@@ -28,7 +28,5 @@ services:
         value: https://plume.kaavin.dev
       - key: CLIMATE_CHAIN_MEMORY_KEY
         sync: false
-      - key: ANTHROPIC_API_KEY
-        sync: false
       - key: VITE_CESIUM_ION_TOKEN
         sync: false

@@ -1,0 +1,4060 @@
+[
+  {
+    "id": 1,
+    "name": "A1 evidence from Chennai backs a claim scoped to Delhi",
+    "group": "FIXED_BLIND_SPOT",
+    "category": "WRONG_PLACE",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "EVIDENCE_NOT_AT_CLAIMED_LOCATION",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": null,
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-1",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monitoring",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-5c4e0b35775b5384fa7359c7",
+          "digest": "dabe0fec310a195bacdfe5d309c63580ca9f0f5f7a58a4d59b1a96ad83b5aa79"
+        }
+      ],
+      "result": {
+        "value": 42.5
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-5c4e0b35775b5384fa7359c7",
+      "location": {
+        "siteId": "chennai-adyar",
+        "lat": 13.0067,
+        "lon": 80.2575
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "monitor-chennai-adyar",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@2026-10-24T10:00:00.000Z",
+          "analyte": "pm2_5",
+          "value": 42.5,
+          "unit": "ug/m3",
+          "basis": "OBSERVED_MONITOR",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "dabe0fec310a195bacdfe5d309c63580ca9f0f5f7a58a4d59b1a96ad83b5aa79"
+  },
+  {
+    "id": 2,
+    "name": "A2a PM2.5 bundle backing a methane-avoidance claim with \"trust me\" methodology",
+    "group": "FIXED_BLIND_SPOT",
+    "category": "SOURCE_DOES_NOT_SUPPORT_CLAIM",
+    "expectedVerdict": "HUMAN_REVIEW_REQUIRED",
+    "expectedCode": "UNRECOGNISED_METHODOLOGY",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": null,
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-2",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "methane_abatement",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-Q4",
+        "activityType": "leak_repair",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-66272a0586685cfaa2e0ec62",
+          "digest": "bcece268d0dfbb26a055da4d7df02a3b531cc32f87c10d4f813b4580e0aa052e"
+        }
+      ],
+      "result": {
+        "value": 5000,
+        "unit": "tCO2e",
+        "baselineMethodology": "trust me"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-66272a0586685cfaa2e0ec62",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "monitor-delhi-anand-vihar",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@2026-10-24T10:00:00.000Z",
+          "analyte": "pm2_5",
+          "value": 42.5,
+          "unit": "ug/m3",
+          "basis": "OBSERVED_MONITOR",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "bcece268d0dfbb26a055da4d7df02a3b531cc32f87c10d4f813b4580e0aa052e"
+  },
+  {
+    "id": 3,
+    "name": "A2b same claim with the methane-response profile selected",
+    "group": "FIXED_BLIND_SPOT",
+    "category": "SOURCE_DOES_NOT_SUPPORT_CLAIM",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "CLAIM_ANALYTE_NOT_IN_EVIDENCE",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": "methane-response",
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-3",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "methane_abatement",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-Q4",
+        "activityType": "leak_repair",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-66272a0586685cfaa2e0ec62",
+          "digest": "bcece268d0dfbb26a055da4d7df02a3b531cc32f87c10d4f813b4580e0aa052e"
+        }
+      ],
+      "result": {
+        "value": 5000,
+        "unit": "tCO2e",
+        "baselineMethodology": "EPA Subpart W"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-66272a0586685cfaa2e0ec62",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "monitor-delhi-anand-vihar",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@2026-10-24T10:00:00.000Z",
+          "analyte": "pm2_5",
+          "value": 42.5,
+          "unit": "ug/m3",
+          "basis": "OBSERVED_MONITOR",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "bcece268d0dfbb26a055da4d7df02a3b531cc32f87c10d4f813b4580e0aa052e"
+  },
+  {
+    "id": 4,
+    "name": "A3 dataKind UNOBSERVED_MODEL_ESTIMATE passes a substring test for OBSERVED",
+    "group": "FIXED_BLIND_SPOT",
+    "category": "LABEL_TRICK",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "MODEL_CANNOT_PROVE_OBSERVATION",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": null,
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-4",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monitoring",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-2d9a324c58b8bb466f015e28",
+          "digest": "1ec6f235b1870ba21b15485cdcbb8ce60eb6eb3c6943b01dbc1441dbfbe45d85"
+        }
+      ],
+      "result": {
+        "value": 42.5
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-2d9a324c58b8bb466f015e28",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "cams-global",
+          "dataKind": "UNOBSERVED_MODEL_ESTIMATE",
+          "basis": "MODEL_FORECAST",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@2026-10-24T10:00:00.000Z",
+          "analyte": "pm2_5",
+          "value": 42.5,
+          "unit": "ug/m3",
+          "basis": "MODEL_FORECAST",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "1ec6f235b1870ba21b15485cdcbb8ce60eb6eb3c6943b01dbc1441dbfbe45d85"
+  },
+  {
+    "id": 5,
+    "name": "A3b observed temperature first, modelled PM2.5 second",
+    "group": "FIXED_BLIND_SPOT",
+    "category": "HIDDEN_MODEL_VALUE",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "MODEL_CANNOT_PROVE_OBSERVATION",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": null,
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-5",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monitoring",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-374631b01ba33c9b4cc9aee7",
+          "digest": "742bb48ba3def48585e0b6eb8c722c076c27e6d7d246626bf39f31acf8ac0fa4"
+        }
+      ],
+      "result": {
+        "value": 42.5
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-374631b01ba33c9b4cc9aee7",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "monitor-mixed",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "temperature_2m@2026-10-24T10:00:00.000Z",
+          "analyte": "temperature_2m",
+          "value": 31,
+          "unit": "C",
+          "basis": "OBSERVED_MONITOR",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        },
+        {
+          "measurementId": "pm2_5@2026-10-24T10:00:00.000Z",
+          "analyte": "pm2_5",
+          "value": 42.5,
+          "unit": "ug/m3",
+          "basis": "MODEL_FORECAST",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "742bb48ba3def48585e0b6eb8c722c076c27e6d7d246626bf39f31acf8ac0fa4"
+  },
+  {
+    "id": 6,
+    "name": "A4 simulated/synthetic scenario claimed as a carbon reduction",
+    "group": "FIXED_BLIND_SPOT",
+    "category": "MODEL_UNDER_ANOTHER_NAME",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "MODEL_CANNOT_PROVE_EMISSIONS_REDUCTION",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": null,
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-6",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "carbon_offset",
+        "boundary": "permian-wellhead-4",
+        "timeEpoch": "2026-Q4",
+        "activityType": "offset",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-4bfcff49e5b28f6b5571d20e",
+          "digest": "a6d5e5118eba0feac304869080d3e2391968ad3146d02a3f20ddf4f1df05802b"
+        }
+      ],
+      "result": {
+        "value": 900,
+        "unit": "tCO2e",
+        "baselineMethodology": "EPA Subpart W"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-4bfcff49e5b28f6b5571d20e",
+      "location": {
+        "siteId": "permian-wellhead-4",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "scenario-engine",
+          "dataKind": "SYNTHETIC_SCENARIO",
+          "basis": "SIMULATED",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "ch4_emission_rate@2026-10-24T10:00:00.000Z",
+          "analyte": "ch4_emission_rate",
+          "value": 400,
+          "unit": "kg/h",
+          "basis": "SIMULATED",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "a6d5e5118eba0feac304869080d3e2391968ad3146d02a3f20ddf4f1df05802b"
+  },
+  {
+    "id": 7,
+    "name": "B0 control: identical scope under a new claim id",
+    "group": "FIXED_BLIND_SPOT",
+    "category": "EXACT_DUPLICATE_CONTROL",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "DUPLICATE_CLAIM_SCOPE_DETECTED",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": null,
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-7",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "methane",
+        "boundary": "permian-wellhead-4",
+        "timeEpoch": "2026-Q4",
+        "activityType": "fugitive_leak_repair",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-5cb98e24ac0638de959dbdbe",
+          "digest": "2ab5b8af55d6dd9740a1d3e5d9cf25f728b72cef77c77137176f55ea966b517e"
+        }
+      ],
+      "result": {
+        "value": 12.4,
+        "unit": "tCO2e",
+        "baselineMethodology": "EPA Subpart W"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-5cb98e24ac0638de959dbdbe",
+      "location": {
+        "siteId": "permian-wellhead-4",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "carbonmapper",
+          "dataKind": "SATELLITE_MEASURED_CARBON_MAPPER",
+          "basis": "SATELLITE_MEASURED",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "ch4_emission_rate@2026-10-23T06:00:00.000Z",
+          "analyte": "ch4_emission_rate",
+          "value": 450,
+          "unit": "kg/h",
+          "basis": "SATELLITE_MEASURED",
+          "validTimeUtc": "2026-10-23T06:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "methodology": "EPA Subpart W"
+    },
+    "expectedDigest": "2ab5b8af55d6dd9740a1d3e5d9cf25f728b72cef77c77137176f55ea966b517e",
+    "existingClaims": [
+      {
+        "claimId": "existing-permian-claim",
+        "status": "Submitted",
+        "scope": {
+          "domain": "methane",
+          "boundary": "permian-wellhead-4",
+          "timeEpoch": "2026-Q4",
+          "activityType": "fugitive_leak_repair",
+          "lat": 31.89,
+          "lon": -102.32
+        },
+        "compositeScopeKey": "93f8028885ae7afb4c354e0cba109db6380fa55b8e2d6021c41f789aa107c596",
+        "location": {
+          "lat": 31.89,
+          "lon": -102.32
+        },
+        "evidence": [
+          {
+            "digest": "0xabababababababababababababababababababababababababababababababab"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "B1 boundary relabelled \"Permian Wellhead #4\"",
+    "group": "FIXED_BLIND_SPOT",
+    "category": "OVERLAP_BOUNDARY_RELABEL",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "OVERLAPPING_CLAIM_SCOPE_DETECTED",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": null,
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-8",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "methane",
+        "boundary": "Permian Wellhead #4",
+        "timeEpoch": "2026-Q4",
+        "activityType": "fugitive_leak_repair",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-5cb98e24ac0638de959dbdbe",
+          "digest": "2ab5b8af55d6dd9740a1d3e5d9cf25f728b72cef77c77137176f55ea966b517e"
+        }
+      ],
+      "result": {
+        "value": 12.4,
+        "unit": "tCO2e",
+        "baselineMethodology": "EPA Subpart W"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-5cb98e24ac0638de959dbdbe",
+      "location": {
+        "siteId": "permian-wellhead-4",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "carbonmapper",
+          "dataKind": "SATELLITE_MEASURED_CARBON_MAPPER",
+          "basis": "SATELLITE_MEASURED",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "ch4_emission_rate@2026-10-23T06:00:00.000Z",
+          "analyte": "ch4_emission_rate",
+          "value": 450,
+          "unit": "kg/h",
+          "basis": "SATELLITE_MEASURED",
+          "validTimeUtc": "2026-10-23T06:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "methodology": "EPA Subpart W"
+    },
+    "expectedDigest": "2ab5b8af55d6dd9740a1d3e5d9cf25f728b72cef77c77137176f55ea966b517e",
+    "existingClaims": [
+      {
+        "claimId": "existing-permian-claim",
+        "status": "Submitted",
+        "scope": {
+          "domain": "methane",
+          "boundary": "permian-wellhead-4",
+          "timeEpoch": "2026-Q4",
+          "activityType": "fugitive_leak_repair",
+          "lat": 31.89,
+          "lon": -102.32
+        },
+        "compositeScopeKey": "93f8028885ae7afb4c354e0cba109db6380fa55b8e2d6021c41f789aa107c596",
+        "location": {
+          "lat": 31.89,
+          "lon": -102.32
+        },
+        "evidence": [
+          {
+            "digest": "0xabababababababababababababababababababababababababababababababab"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "B2 October claimed inside an existing Q4 claim",
+    "group": "FIXED_BLIND_SPOT",
+    "category": "OVERLAP_NESTED_PERIOD",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "OVERLAPPING_CLAIM_SCOPE_DETECTED",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": null,
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-9",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "methane",
+        "boundary": "permian-wellhead-4",
+        "timeEpoch": "2026-10",
+        "activityType": "fugitive_leak_repair",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-5cb98e24ac0638de959dbdbe",
+          "digest": "2ab5b8af55d6dd9740a1d3e5d9cf25f728b72cef77c77137176f55ea966b517e"
+        }
+      ],
+      "result": {
+        "value": 12.4,
+        "unit": "tCO2e",
+        "baselineMethodology": "EPA Subpart W"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-5cb98e24ac0638de959dbdbe",
+      "location": {
+        "siteId": "permian-wellhead-4",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "carbonmapper",
+          "dataKind": "SATELLITE_MEASURED_CARBON_MAPPER",
+          "basis": "SATELLITE_MEASURED",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "ch4_emission_rate@2026-10-23T06:00:00.000Z",
+          "analyte": "ch4_emission_rate",
+          "value": 450,
+          "unit": "kg/h",
+          "basis": "SATELLITE_MEASURED",
+          "validTimeUtc": "2026-10-23T06:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "methodology": "EPA Subpart W"
+    },
+    "expectedDigest": "2ab5b8af55d6dd9740a1d3e5d9cf25f728b72cef77c77137176f55ea966b517e",
+    "existingClaims": [
+      {
+        "claimId": "existing-permian-claim",
+        "status": "Submitted",
+        "scope": {
+          "domain": "methane",
+          "boundary": "permian-wellhead-4",
+          "timeEpoch": "2026-Q4",
+          "activityType": "fugitive_leak_repair",
+          "lat": 31.89,
+          "lon": -102.32
+        },
+        "compositeScopeKey": "93f8028885ae7afb4c354e0cba109db6380fa55b8e2d6021c41f789aa107c596",
+        "location": {
+          "lat": 31.89,
+          "lon": -102.32
+        },
+        "evidence": [
+          {
+            "digest": "0xabababababababababababababababababababababababababababababababab"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "B3 activity reworded to \"leak_repair\"",
+    "group": "FIXED_BLIND_SPOT",
+    "category": "OVERLAP_ACTIVITY_SYNONYM",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "OVERLAPPING_CLAIM_SCOPE_DETECTED",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": null,
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-10",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "methane",
+        "boundary": "permian-wellhead-4",
+        "timeEpoch": "2026-Q4",
+        "activityType": "leak_repair",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-5cb98e24ac0638de959dbdbe",
+          "digest": "2ab5b8af55d6dd9740a1d3e5d9cf25f728b72cef77c77137176f55ea966b517e"
+        }
+      ],
+      "result": {
+        "value": 12.4,
+        "unit": "tCO2e",
+        "baselineMethodology": "EPA Subpart W"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-5cb98e24ac0638de959dbdbe",
+      "location": {
+        "siteId": "permian-wellhead-4",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "carbonmapper",
+          "dataKind": "SATELLITE_MEASURED_CARBON_MAPPER",
+          "basis": "SATELLITE_MEASURED",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "ch4_emission_rate@2026-10-23T06:00:00.000Z",
+          "analyte": "ch4_emission_rate",
+          "value": 450,
+          "unit": "kg/h",
+          "basis": "SATELLITE_MEASURED",
+          "validTimeUtc": "2026-10-23T06:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "methodology": "EPA Subpart W"
+    },
+    "expectedDigest": "2ab5b8af55d6dd9740a1d3e5d9cf25f728b72cef77c77137176f55ea966b517e",
+    "existingClaims": [
+      {
+        "claimId": "existing-permian-claim",
+        "status": "Submitted",
+        "scope": {
+          "domain": "methane",
+          "boundary": "permian-wellhead-4",
+          "timeEpoch": "2026-Q4",
+          "activityType": "fugitive_leak_repair",
+          "lat": 31.89,
+          "lon": -102.32
+        },
+        "compositeScopeKey": "93f8028885ae7afb4c354e0cba109db6380fa55b8e2d6021c41f789aa107c596",
+        "location": {
+          "lat": 31.89,
+          "lon": -102.32
+        },
+        "evidence": [
+          {
+            "digest": "0xabababababababababababababababababababababababababababababababab"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "B4 domain renamed \"ch4_abatement\"",
+    "group": "FIXED_BLIND_SPOT",
+    "category": "OVERLAP_DOMAIN_ALIAS",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "OVERLAPPING_CLAIM_SCOPE_DETECTED",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": null,
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-11",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "ch4_abatement",
+        "boundary": "permian-wellhead-4",
+        "timeEpoch": "2026-Q4",
+        "activityType": "fugitive_leak_repair",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-5cb98e24ac0638de959dbdbe",
+          "digest": "2ab5b8af55d6dd9740a1d3e5d9cf25f728b72cef77c77137176f55ea966b517e"
+        }
+      ],
+      "result": {
+        "value": 12.4,
+        "unit": "tCO2e",
+        "baselineMethodology": "EPA Subpart W"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-5cb98e24ac0638de959dbdbe",
+      "location": {
+        "siteId": "permian-wellhead-4",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "carbonmapper",
+          "dataKind": "SATELLITE_MEASURED_CARBON_MAPPER",
+          "basis": "SATELLITE_MEASURED",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "ch4_emission_rate@2026-10-23T06:00:00.000Z",
+          "analyte": "ch4_emission_rate",
+          "value": 450,
+          "unit": "kg/h",
+          "basis": "SATELLITE_MEASURED",
+          "validTimeUtc": "2026-10-23T06:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "methodology": "EPA Subpart W"
+    },
+    "expectedDigest": "2ab5b8af55d6dd9740a1d3e5d9cf25f728b72cef77c77137176f55ea966b517e",
+    "existingClaims": [
+      {
+        "claimId": "existing-permian-claim",
+        "status": "Submitted",
+        "scope": {
+          "domain": "methane",
+          "boundary": "permian-wellhead-4",
+          "timeEpoch": "2026-Q4",
+          "activityType": "fugitive_leak_repair",
+          "lat": 31.89,
+          "lon": -102.32
+        },
+        "compositeScopeKey": "93f8028885ae7afb4c354e0cba109db6380fa55b8e2d6021c41f789aa107c596",
+        "location": {
+          "lat": 31.89,
+          "lon": -102.32
+        },
+        "evidence": [
+          {
+            "digest": "0xabababababababababababababababababababababababababababababababab"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "B5 same measurements re-wrapped to obtain a new digest",
+    "group": "FIXED_BLIND_SPOT",
+    "category": "EVIDENCE_REWRAP",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "EVIDENCE_CONTENT_ALREADY_CLAIMED",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": null,
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-12",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "methane",
+        "boundary": "another-boundary",
+        "timeEpoch": "2026-Q3",
+        "activityType": "compressor_replacement",
+        "lat": 40,
+        "lon": -100
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-5cb98e24ac0638de959dbdbe",
+          "digest": "c9053c9c7456ecf893ab7c096317cb22ce96e08f50ceb39ffc175fe7e35be4e0"
+        }
+      ],
+      "result": {
+        "value": 12.4,
+        "unit": "tCO2e",
+        "baselineMethodology": "EPA Subpart W"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-5cb98e24ac0638de959dbdbe",
+      "location": {
+        "siteId": "x",
+        "lat": 40,
+        "lon": -100
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "carbonmapper",
+          "dataKind": "SATELLITE_MEASURED_CARBON_MAPPER",
+          "basis": "SATELLITE_MEASURED",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "ch4_emission_rate@2026-10-23T06:00:00.000Z",
+          "analyte": "ch4_emission_rate",
+          "value": 450,
+          "unit": "kg/h",
+          "basis": "SATELLITE_MEASURED",
+          "validTimeUtc": "2026-10-23T06:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "methodology": "EPA Subpart W",
+      "notes": "resubmitted with an extra wrapper field"
+    },
+    "expectedDigest": "c9053c9c7456ecf893ab7c096317cb22ce96e08f50ceb39ffc175fe7e35be4e0",
+    "existingClaims": [
+      {
+        "claimId": "existing-permian-claim",
+        "status": "Submitted",
+        "scope": {
+          "domain": "methane",
+          "boundary": "permian-wellhead-4",
+          "timeEpoch": "2026-Q4",
+          "activityType": "fugitive_leak_repair",
+          "lat": 31.89,
+          "lon": -102.32
+        },
+        "compositeScopeKey": "93f8028885ae7afb4c354e0cba109db6380fa55b8e2d6021c41f789aa107c596",
+        "location": {
+          "lat": 31.89,
+          "lon": -102.32
+        },
+        "evidence": [
+          {
+            "digest": "0xabababababababababababababababababababababababababababababababab"
+          }
+        ],
+        "evidenceFingerprints": [
+          "4343a8a36b1d3b6024e360d905753117"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "C1 fresh download of a 2019 measurement",
+    "group": "FIXED_BLIND_SPOT",
+    "category": "STALE_DATA_LAUNDERING",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "EVIDENCE_STALE",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": null,
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-13",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monitoring",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-d54abecd8e747b2e5e29c674",
+          "digest": "70000fef43c31b157ce172fc89445a9f708e06a8b9db17051ccb85dd246c9124"
+        }
+      ],
+      "result": {
+        "value": 42.5
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-d54abecd8e747b2e5e29c674",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "monitor-old",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@2019-01-01T00:00:00Z",
+          "analyte": "pm2_5",
+          "value": 42.5,
+          "unit": "ug/m3",
+          "basis": "OBSERVED_MONITOR",
+          "validTimeUtc": "2019-01-01T00:00:00Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "70000fef43c31b157ce172fc89445a9f708e06a8b9db17051ccb85dd246c9124"
+  },
+  {
+    "id": 14,
+    "name": "C2a risk alert with a 9,999 hour horizon",
+    "group": "FIXED_BLIND_SPOT",
+    "category": "UNBOUNDED_FORECAST",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "RISK_HORIZON_EXCEEDED",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": null,
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-14",
+      "claimType": "ENVIRONMENTAL_RISK_ALERT",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monitoring",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-36bc82759cb78072115ca07e",
+          "digest": "47a8338a96feca828d2dd613b9bfda673576f7e1850e2648109ffb943628dc80"
+        }
+      ],
+      "result": {
+        "value": 0.9
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-36bc82759cb78072115ca07e",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "burn-model",
+          "dataKind": "PREDICTIVE_MODEL",
+          "basis": "MODEL_FORECAST",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "burn_risk_index@2026-10-24T10:00:00.000Z",
+          "analyte": "burn_risk_index",
+          "value": 0.9,
+          "unit": "index",
+          "basis": "MODEL_FORECAST",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "forecastHorizonHours": 9999
+    },
+    "expectedDigest": "47a8338a96feca828d2dd613b9bfda673576f7e1850e2648109ffb943628dc80"
+  },
+  {
+    "id": 15,
+    "name": "C2b risk alert resting on a forecast issued 100 hours ago",
+    "group": "FIXED_BLIND_SPOT",
+    "category": "STALE_FORECAST",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "FORECAST_STALE",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": null,
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-15",
+      "claimType": "ENVIRONMENTAL_RISK_ALERT",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monitoring",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-7e985cfb2efb197e2fcfac2d",
+          "digest": "61401ca3b359d349a2ca0baabeb37bcbd9df430183c65df084c6aee217d7de2f"
+        }
+      ],
+      "result": {
+        "value": 0.9
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-7e985cfb2efb197e2fcfac2d",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-20T08:00:00.000Z",
+        "endUtc": "2026-10-20T08:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "burn-model",
+          "dataKind": "PREDICTIVE_MODEL",
+          "basis": "MODEL_FORECAST",
+          "retrievedAt": "2026-10-20T08:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "burn_risk_index@2026-10-20T08:00:00.000Z",
+          "analyte": "burn_risk_index",
+          "value": 0.9,
+          "unit": "index",
+          "basis": "MODEL_FORECAST",
+          "validTimeUtc": "2026-10-20T08:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-20T08:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "forecastHorizonHours": 48
+    },
+    "expectedDigest": "61401ca3b359d349a2ca0baabeb37bcbd9df430183c65df084c6aee217d7de2f"
+  },
+  {
+    "id": 16,
+    "name": "D1 intervention manifest says CANCELLED",
+    "group": "FIXED_BLIND_SPOT",
+    "category": "INCOMPLETE_INTERVENTION",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "INTERVENTION_NOT_COMPLETED",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": null,
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-16",
+      "claimType": "INTERVENTION_COMPLETION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "baler_logistics",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-e973f10de0f7a085b95d49aa",
+          "digest": "6810393492d5b2fca2b90d3a8dec9f450447cfee40485bb2d7bc002edd91dff5"
+        }
+      ],
+      "result": {
+        "statement": "Straw cleared"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-e973f10de0f7a085b95d49aa",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "field-agent",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "COMMUNITY_REPORT",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "baler_dispatch@2026-10-24T10:00:00.000Z",
+          "analyte": "baler_dispatch",
+          "value": 1,
+          "unit": "job",
+          "basis": "COMMUNITY_REPORT",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "manifest": {
+        "dispatchId": "j1",
+        "status": "CANCELLED"
+      }
+    },
+    "expectedDigest": "6810393492d5b2fca2b90d3a8dec9f450447cfee40485bb2d7bc002edd91dff5"
+  },
+  {
+    "id": 17,
+    "name": "D2 only a dispatch step, no completion",
+    "group": "FIXED_BLIND_SPOT",
+    "category": "DISPATCH_IS_NOT_COMPLETION",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "DISPATCH_IS_NOT_COMPLETION",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": null,
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-17",
+      "claimType": "INTERVENTION_COMPLETION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "baler_logistics",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-e973f10de0f7a085b95d49aa",
+          "digest": "e689b1cec37477fc1e1d75a2baf163736b253c85a5f96b8f254fb5f57736bba1"
+        }
+      ],
+      "result": {
+        "statement": "Straw cleared"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-e973f10de0f7a085b95d49aa",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "field-agent",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "COMMUNITY_REPORT",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "baler_dispatch@2026-10-24T10:00:00.000Z",
+          "analyte": "baler_dispatch",
+          "value": 1,
+          "unit": "job",
+          "basis": "COMMUNITY_REPORT",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        },
+        {
+          "step": "dispatched",
+          "at": "2026-10-24T11:00:00.000Z"
+        }
+      ]
+    },
+    "expectedDigest": "e689b1cec37477fc1e1d75a2baf163736b253c85a5f96b8f254fb5f57736bba1"
+  },
+  {
+    "id": 18,
+    "name": "F2 invented claim type with a model-sourced 1e9 tCO2e",
+    "group": "FIXED_BLIND_SPOT",
+    "category": "UNKNOWN_CLAIM_TYPE",
+    "expectedVerdict": "UNKNOWN",
+    "expectedCode": "UNKNOWN_CLAIM_TYPE",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": null,
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-18",
+      "claimType": "SUPER_CARBON_CREDIT",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monitoring",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-ccfb1f53db92dd36ed4d6a16",
+          "digest": "039998807b1b97cd85ae6acf6acbba54d1a869fab2241b661b46a0e59c73c0a0"
+        }
+      ],
+      "result": {
+        "value": 1000000000,
+        "unit": "tCO2e"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-ccfb1f53db92dd36ed4d6a16",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "cams-global",
+          "dataKind": "GLOBAL_CLIMATE_MODEL",
+          "basis": "MODEL_FORECAST",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "co2_model@2026-10-24T10:00:00.000Z",
+          "analyte": "co2_model",
+          "value": 1000000000,
+          "unit": "tCO2e",
+          "basis": "MODEL_FORECAST",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "039998807b1b97cd85ae6acf6acbba54d1a869fab2241b661b46a0e59c73c0a0"
+  },
+  {
+    "id": 19,
+    "name": "E1 genuine TROPOMI retrieval (basis RETRIEVAL) is NOT a modelled reading",
+    "group": "FIXED_BLIND_SPOT",
+    "category": "GENUINE_BUT_UNUSUAL_LABEL",
+    "expectedVerdict": "ACCEPTED",
+    "expectedCode": null,
+    "isUnsafeClaim": false,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": null,
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-19",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monitoring",
+        "lat": 28.6469,
+        "lon": 77.316,
+        "analyte": "no2"
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-a3ef1ecdc3a792ca325d7257",
+          "digest": "1f4817b356ccb67c50591851c94409f7c4e07d884dc34edf1d18f7a2dcb721b5"
+        }
+      ],
+      "result": {
+        "value": 9000000000000000
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-a3ef1ecdc3a792ca325d7257",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-23T06:00:00.000Z",
+        "endUtc": "2026-10-23T06:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "sentinel-5p-tropomi",
+          "dataKind": "REMOTE_SENSING_L2_RETRIEVAL",
+          "basis": "RETRIEVAL",
+          "retrievedAt": "2026-10-23T06:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "no2_column@2026-10-23T06:00:00.000Z",
+          "analyte": "no2_column",
+          "value": 9000000000000000,
+          "unit": "molec/cm2",
+          "basis": "RETRIEVAL",
+          "validTimeUtc": "2026-10-23T06:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-23T06:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "1f4817b356ccb67c50591851c94409f7c4e07d884dc34edf1d18f7a2dcb721b5"
+  },
+  {
+    "id": 20,
+    "name": "E3 monthly-mean claim resting on a 10-day-old satellite retrieval",
+    "group": "FIXED_BLIND_SPOT",
+    "category": "GENUINE_AVERAGING_PERIOD",
+    "expectedVerdict": "ACCEPTED",
+    "expectedCode": null,
+    "isUnsafeClaim": false,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": null,
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-20",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monthly_mean",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-ff0791fd2e362874b7cf858f",
+          "digest": "a74274c800797d573780961b7341e9ee1a91f6a5bb023b7cad9bd80b3e417db8"
+        }
+      ],
+      "result": {
+        "value": 9000000000000000,
+        "periodHours": 720
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-ff0791fd2e362874b7cf858f",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-14T12:00:00.000Z",
+        "endUtc": "2026-10-14T12:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "sentinel-5p-tropomi",
+          "dataKind": "SATELLITE_MEASURED",
+          "basis": "SATELLITE_MEASURED",
+          "retrievedAt": "2026-10-14T12:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "no2_column@2026-10-14T12:00:00.000Z",
+          "analyte": "no2_column",
+          "value": 9000000000000000,
+          "unit": "molec/cm2",
+          "basis": "SATELLITE_MEASURED",
+          "validTimeUtc": "2026-10-14T12:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-14T12:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "a74274c800797d573780961b7341e9ee1a91f6a5bb023b7cad9bd80b3e417db8"
+  },
+  {
+    "id": 21,
+    "name": "M1 valid: measured rate drop 430 kg/h supports the claimed 100 tCO2e",
+    "group": "SUBTYPE",
+    "category": "METHANE_RESPONSE",
+    "expectedVerdict": "ACCEPTED",
+    "expectedCode": null,
+    "isUnsafeClaim": false,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": "methane-response",
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-21",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "methane_abatement",
+        "boundary": "permian-wellhead-4",
+        "timeEpoch": "2026-10",
+        "activityType": "wellhead_repair",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "claimant": "operator-x",
+      "evidence": [
+        {
+          "evidenceId": "ev-2b775ce586b82c511714c7c5",
+          "digest": "44215d8f0ba23846e64173d0ea33748e6b56b71d9c961ca6aa0bf0f230cb1384"
+        }
+      ],
+      "result": {
+        "value": 100,
+        "unit": "tCO2e",
+        "periodHours": 24,
+        "baselineMethodology": "EPA Subpart W"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-2b775ce586b82c511714c7c5",
+      "location": {
+        "siteId": "permian-wellhead-4",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "carbonmapper",
+          "dataKind": "SATELLITE_MEASURED_CARBON_MAPPER",
+          "basis": "SATELLITE_MEASURED",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "ch4_emission_rate@2026-10-12T00:00:00.000Z",
+          "analyte": "ch4_emission_rate",
+          "value": 450,
+          "unit": "kg/h",
+          "basis": "SATELLITE_MEASURED",
+          "validTimeUtc": "2026-10-12T00:00:00.000Z",
+          "phase": "baseline"
+        },
+        {
+          "measurementId": "ch4_emission_rate@2026-10-20T08:00:00.000Z",
+          "analyte": "ch4_emission_rate",
+          "value": 20,
+          "unit": "kg/h",
+          "basis": "SATELLITE_MEASURED",
+          "validTimeUtc": "2026-10-20T08:00:00.000Z",
+          "phase": "post_repair"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "manifest": {
+        "workOrder": "WO-77",
+        "status": "COMPLETED",
+        "dispatchedAt": "2026-10-14T02:00:00.000Z",
+        "completedAt": "2026-10-16T04:00:00.000Z",
+        "verifier": "independent-auditor"
+      },
+      "methodology": "EPA Subpart W"
+    },
+    "expectedDigest": "44215d8f0ba23846e64173d0ea33748e6b56b71d9c961ca6aa0bf0f230cb1384"
+  },
+  {
+    "id": 22,
+    "name": "M2 claimed 5,000 tCO2e but the rate drop supports at most ~310",
+    "group": "SUBTYPE",
+    "category": "METHANE_RESPONSE",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "CLAIM_EXCEEDS_MEASURED_REDUCTION",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": "methane-response",
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-22",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "methane_abatement",
+        "boundary": "permian-wellhead-4",
+        "timeEpoch": "2026-10",
+        "activityType": "wellhead_repair",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "claimant": "operator-x",
+      "evidence": [
+        {
+          "evidenceId": "ev-2b775ce586b82c511714c7c5",
+          "digest": "44215d8f0ba23846e64173d0ea33748e6b56b71d9c961ca6aa0bf0f230cb1384"
+        }
+      ],
+      "result": {
+        "value": 5000,
+        "unit": "tCO2e",
+        "periodHours": 24,
+        "baselineMethodology": "EPA Subpart W"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-2b775ce586b82c511714c7c5",
+      "location": {
+        "siteId": "permian-wellhead-4",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "carbonmapper",
+          "dataKind": "SATELLITE_MEASURED_CARBON_MAPPER",
+          "basis": "SATELLITE_MEASURED",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "ch4_emission_rate@2026-10-12T00:00:00.000Z",
+          "analyte": "ch4_emission_rate",
+          "value": 450,
+          "unit": "kg/h",
+          "basis": "SATELLITE_MEASURED",
+          "validTimeUtc": "2026-10-12T00:00:00.000Z",
+          "phase": "baseline"
+        },
+        {
+          "measurementId": "ch4_emission_rate@2026-10-20T08:00:00.000Z",
+          "analyte": "ch4_emission_rate",
+          "value": 20,
+          "unit": "kg/h",
+          "basis": "SATELLITE_MEASURED",
+          "validTimeUtc": "2026-10-20T08:00:00.000Z",
+          "phase": "post_repair"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "manifest": {
+        "workOrder": "WO-77",
+        "status": "COMPLETED",
+        "dispatchedAt": "2026-10-14T02:00:00.000Z",
+        "completedAt": "2026-10-16T04:00:00.000Z",
+        "verifier": "independent-auditor"
+      },
+      "methodology": "EPA Subpart W"
+    },
+    "expectedDigest": "44215d8f0ba23846e64173d0ea33748e6b56b71d9c961ca6aa0bf0f230cb1384"
+  },
+  {
+    "id": 23,
+    "name": "M3 no post-repair measurement",
+    "group": "SUBTYPE",
+    "category": "METHANE_RESPONSE",
+    "expectedVerdict": "UNKNOWN",
+    "expectedCode": "BASELINE_AND_POST_REPAIR_REQUIRED",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": "methane-response",
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-23",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "methane_abatement",
+        "boundary": "permian-wellhead-4",
+        "timeEpoch": "2026-10",
+        "activityType": "wellhead_repair",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "claimant": "operator-x",
+      "evidence": [
+        {
+          "evidenceId": "ev-8cc8577ff5154aed428bbbd4",
+          "digest": "f4b7e55ff90670be80e47776ae9204c620bdb47e9152fee00560816b28f3423c"
+        }
+      ],
+      "result": {
+        "value": 100,
+        "unit": "tCO2e",
+        "periodHours": 24,
+        "baselineMethodology": "EPA Subpart W"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-8cc8577ff5154aed428bbbd4",
+      "location": {
+        "siteId": "permian-wellhead-4",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "carbonmapper",
+          "dataKind": "SATELLITE_MEASURED_CARBON_MAPPER",
+          "basis": "SATELLITE_MEASURED",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "ch4_emission_rate@2026-10-12T00:00:00.000Z",
+          "analyte": "ch4_emission_rate",
+          "value": 450,
+          "unit": "kg/h",
+          "basis": "SATELLITE_MEASURED",
+          "validTimeUtc": "2026-10-12T00:00:00.000Z",
+          "phase": "baseline"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "manifest": {
+        "workOrder": "WO-77",
+        "status": "COMPLETED",
+        "dispatchedAt": "2026-10-14T02:00:00.000Z",
+        "completedAt": "2026-10-16T04:00:00.000Z",
+        "verifier": "independent-auditor"
+      },
+      "methodology": "EPA Subpart W"
+    },
+    "expectedDigest": "f4b7e55ff90670be80e47776ae9204c620bdb47e9152fee00560816b28f3423c"
+  },
+  {
+    "id": 24,
+    "name": "M4 post-repair measurement predates the repair",
+    "group": "SUBTYPE",
+    "category": "METHANE_RESPONSE",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "POST_REPAIR_NOT_AFTER_REPAIR",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": "methane-response",
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-24",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "methane_abatement",
+        "boundary": "permian-wellhead-4",
+        "timeEpoch": "2026-10",
+        "activityType": "wellhead_repair",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "claimant": "operator-x",
+      "evidence": [
+        {
+          "evidenceId": "ev-f5d2be571c59cc5c2f887062",
+          "digest": "f896fdfb601463bc332938865d6099ce9282cd4a61f66c918a890de5529d6ab6"
+        }
+      ],
+      "result": {
+        "value": 100,
+        "unit": "tCO2e",
+        "periodHours": 24,
+        "baselineMethodology": "EPA Subpart W"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-f5d2be571c59cc5c2f887062",
+      "location": {
+        "siteId": "permian-wellhead-4",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "carbonmapper",
+          "dataKind": "SATELLITE_MEASURED_CARBON_MAPPER",
+          "basis": "SATELLITE_MEASURED",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "ch4_emission_rate@2026-10-12T00:00:00.000Z",
+          "analyte": "ch4_emission_rate",
+          "value": 450,
+          "unit": "kg/h",
+          "basis": "SATELLITE_MEASURED",
+          "validTimeUtc": "2026-10-12T00:00:00.000Z",
+          "phase": "baseline"
+        },
+        {
+          "measurementId": "ch4_emission_rate@2026-10-13T16:00:00.000Z",
+          "analyte": "ch4_emission_rate",
+          "value": 20,
+          "unit": "kg/h",
+          "basis": "SATELLITE_MEASURED",
+          "validTimeUtc": "2026-10-13T16:00:00.000Z",
+          "phase": "post_repair"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "manifest": {
+        "workOrder": "WO-77",
+        "status": "COMPLETED",
+        "dispatchedAt": "2026-10-14T02:00:00.000Z",
+        "completedAt": "2026-10-16T04:00:00.000Z",
+        "verifier": "independent-auditor"
+      },
+      "methodology": "EPA Subpart W"
+    },
+    "expectedDigest": "f896fdfb601463bc332938865d6099ce9282cd4a61f66c918a890de5529d6ab6"
+  },
+  {
+    "id": 25,
+    "name": "M5 repair verified by the claimant itself",
+    "group": "SUBTYPE",
+    "category": "METHANE_RESPONSE",
+    "expectedVerdict": "HUMAN_REVIEW_REQUIRED",
+    "expectedCode": "VERIFIER_NOT_INDEPENDENT",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": "methane-response",
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-25",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "methane_abatement",
+        "boundary": "permian-wellhead-4",
+        "timeEpoch": "2026-10",
+        "activityType": "wellhead_repair",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "claimant": "operator-x",
+      "evidence": [
+        {
+          "evidenceId": "ev-2b775ce586b82c511714c7c5",
+          "digest": "2d9f7033ee1b596c668116ff4cf8ac5b9b31db29eb42e7c4122e84e60981626f"
+        }
+      ],
+      "result": {
+        "value": 100,
+        "unit": "tCO2e",
+        "periodHours": 24,
+        "baselineMethodology": "EPA Subpart W"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-2b775ce586b82c511714c7c5",
+      "location": {
+        "siteId": "permian-wellhead-4",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "carbonmapper",
+          "dataKind": "SATELLITE_MEASURED_CARBON_MAPPER",
+          "basis": "SATELLITE_MEASURED",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "ch4_emission_rate@2026-10-12T00:00:00.000Z",
+          "analyte": "ch4_emission_rate",
+          "value": 450,
+          "unit": "kg/h",
+          "basis": "SATELLITE_MEASURED",
+          "validTimeUtc": "2026-10-12T00:00:00.000Z",
+          "phase": "baseline"
+        },
+        {
+          "measurementId": "ch4_emission_rate@2026-10-20T08:00:00.000Z",
+          "analyte": "ch4_emission_rate",
+          "value": 20,
+          "unit": "kg/h",
+          "basis": "SATELLITE_MEASURED",
+          "validTimeUtc": "2026-10-20T08:00:00.000Z",
+          "phase": "post_repair"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "manifest": {
+        "workOrder": "WO-77",
+        "status": "COMPLETED",
+        "dispatchedAt": "2026-10-14T02:00:00.000Z",
+        "completedAt": "2026-10-16T04:00:00.000Z",
+        "verifier": "operator-x"
+      },
+      "methodology": "EPA Subpart W"
+    },
+    "expectedDigest": "2d9f7033ee1b596c668116ff4cf8ac5b9b31db29eb42e7c4122e84e60981626f"
+  },
+  {
+    "id": 26,
+    "name": "M6 modelled methane cannot prove a reduction",
+    "group": "SUBTYPE",
+    "category": "METHANE_RESPONSE",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "MODEL_CANNOT_PROVE_EMISSIONS_REDUCTION",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": "methane-response",
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-26",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "methane_abatement",
+        "boundary": "permian-wellhead-4",
+        "timeEpoch": "2026-10",
+        "activityType": "wellhead_repair",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "claimant": "operator-x",
+      "evidence": [
+        {
+          "evidenceId": "ev-84cf9553218d7b621f3aa4ad",
+          "digest": "b038fb5941287b1e70f63c9be83c732bab95071663bd10a722a0f920b87af0f7"
+        }
+      ],
+      "result": {
+        "value": 100,
+        "unit": "tCO2e",
+        "periodHours": 24,
+        "baselineMethodology": "EPA Subpart W"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-84cf9553218d7b621f3aa4ad",
+      "location": {
+        "siteId": "permian-wellhead-4",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "carbonmapper",
+          "dataKind": "SATELLITE_MEASURED_CARBON_MAPPER",
+          "basis": "MODEL_FORECAST",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "ch4_emission_rate@2026-10-12T00:00:00.000Z",
+          "analyte": "ch4_emission_rate",
+          "value": 450,
+          "unit": "kg/h",
+          "basis": "MODEL_FORECAST",
+          "validTimeUtc": "2026-10-12T00:00:00.000Z",
+          "phase": "baseline"
+        },
+        {
+          "measurementId": "ch4_emission_rate@2026-10-20T08:00:00.000Z",
+          "analyte": "ch4_emission_rate",
+          "value": 20,
+          "unit": "kg/h",
+          "basis": "MODEL_FORECAST",
+          "validTimeUtc": "2026-10-20T08:00:00.000Z",
+          "phase": "post_repair"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "manifest": {
+        "workOrder": "WO-77",
+        "status": "COMPLETED",
+        "dispatchedAt": "2026-10-14T02:00:00.000Z",
+        "completedAt": "2026-10-16T04:00:00.000Z",
+        "verifier": "independent-auditor"
+      },
+      "methodology": "EPA Subpart W"
+    },
+    "expectedDigest": "b038fb5941287b1e70f63c9be83c732bab95071663bd10a722a0f920b87af0f7"
+  },
+  {
+    "id": 27,
+    "name": "M7 evidence collected 20 km from the claimed wellhead",
+    "group": "SUBTYPE",
+    "category": "METHANE_RESPONSE",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "EVIDENCE_NOT_AT_CLAIMED_LOCATION",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": "methane-response",
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-27",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "methane_abatement",
+        "boundary": "permian-wellhead-4",
+        "timeEpoch": "2026-10",
+        "activityType": "wellhead_repair",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "claimant": "operator-x",
+      "evidence": [
+        {
+          "evidenceId": "ev-2b775ce586b82c511714c7c5",
+          "digest": "d4e68b53d86ae4206b7eb13bc8266f9c6ff6602f00decf9fe66a1a8aef592170"
+        }
+      ],
+      "result": {
+        "value": 100,
+        "unit": "tCO2e",
+        "periodHours": 24,
+        "baselineMethodology": "EPA Subpart W"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-2b775ce586b82c511714c7c5",
+      "location": {
+        "siteId": "permian-wellhead-4",
+        "lat": 32.07,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "carbonmapper",
+          "dataKind": "SATELLITE_MEASURED_CARBON_MAPPER",
+          "basis": "SATELLITE_MEASURED",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "ch4_emission_rate@2026-10-12T00:00:00.000Z",
+          "analyte": "ch4_emission_rate",
+          "value": 450,
+          "unit": "kg/h",
+          "basis": "SATELLITE_MEASURED",
+          "validTimeUtc": "2026-10-12T00:00:00.000Z",
+          "phase": "baseline"
+        },
+        {
+          "measurementId": "ch4_emission_rate@2026-10-20T08:00:00.000Z",
+          "analyte": "ch4_emission_rate",
+          "value": 20,
+          "unit": "kg/h",
+          "basis": "SATELLITE_MEASURED",
+          "validTimeUtc": "2026-10-20T08:00:00.000Z",
+          "phase": "post_repair"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "manifest": {
+        "workOrder": "WO-77",
+        "status": "COMPLETED",
+        "dispatchedAt": "2026-10-14T02:00:00.000Z",
+        "completedAt": "2026-10-16T04:00:00.000Z",
+        "verifier": "independent-auditor"
+      },
+      "methodology": "EPA Subpart W"
+    },
+    "expectedDigest": "d4e68b53d86ae4206b7eb13bc8266f9c6ff6602f00decf9fe66a1a8aef592170"
+  },
+  {
+    "id": 28,
+    "name": "M8 repair work order is still IN_PROGRESS",
+    "group": "SUBTYPE",
+    "category": "METHANE_RESPONSE",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "REPAIR_NOT_COMPLETED",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": "methane-response",
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-28",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "methane_abatement",
+        "boundary": "permian-wellhead-4",
+        "timeEpoch": "2026-10",
+        "activityType": "wellhead_repair",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "claimant": "operator-x",
+      "evidence": [
+        {
+          "evidenceId": "ev-2b775ce586b82c511714c7c5",
+          "digest": "f4b629ad97bc62fc4829b4b9bc26a73979cbb9e44bdd27b56822a19ee4f33a0f"
+        }
+      ],
+      "result": {
+        "value": 100,
+        "unit": "tCO2e",
+        "periodHours": 24,
+        "baselineMethodology": "EPA Subpart W"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-2b775ce586b82c511714c7c5",
+      "location": {
+        "siteId": "permian-wellhead-4",
+        "lat": 31.89,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "carbonmapper",
+          "dataKind": "SATELLITE_MEASURED_CARBON_MAPPER",
+          "basis": "SATELLITE_MEASURED",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "ch4_emission_rate@2026-10-12T00:00:00.000Z",
+          "analyte": "ch4_emission_rate",
+          "value": 450,
+          "unit": "kg/h",
+          "basis": "SATELLITE_MEASURED",
+          "validTimeUtc": "2026-10-12T00:00:00.000Z",
+          "phase": "baseline"
+        },
+        {
+          "measurementId": "ch4_emission_rate@2026-10-20T08:00:00.000Z",
+          "analyte": "ch4_emission_rate",
+          "value": 20,
+          "unit": "kg/h",
+          "basis": "SATELLITE_MEASURED",
+          "validTimeUtc": "2026-10-20T08:00:00.000Z",
+          "phase": "post_repair"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "manifest": {
+        "workOrder": "WO-77",
+        "status": "IN_PROGRESS",
+        "dispatchedAt": "2026-10-14T02:00:00.000Z",
+        "completedAt": "2026-10-16T04:00:00.000Z",
+        "verifier": "independent-auditor"
+      },
+      "methodology": "EPA Subpart W"
+    },
+    "expectedDigest": "f4b629ad97bc62fc4829b4b9bc26a73979cbb9e44bdd27b56822a19ee4f33a0f"
+  },
+  {
+    "id": 29,
+    "name": "L1 valid: continuous custody, registry MATCHED, head count agrees",
+    "group": "SUBTYPE",
+    "category": "LIVESTOCK_TRACEABILITY",
+    "expectedVerdict": "ACCEPTED",
+    "expectedCode": null,
+    "isUnsafeClaim": false,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": "livestock-traceability",
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-29",
+      "claimType": "INTERVENTION_COMPLETION",
+      "scope": {
+        "domain": "livestock",
+        "boundary": "feedlot-c",
+        "timeEpoch": "2026-10",
+        "activityType": "lot_traceability",
+        "lat": 35.2,
+        "lon": -101.8
+      },
+      "claimant": "feedlot-c",
+      "evidence": [
+        {
+          "evidenceId": "ev-00c79d2713d9966cf93814a4",
+          "digest": "c371e66c78d75d1d9fd3633f5860bcd5da5bfdb5eddb1909c83259afdda3b891"
+        }
+      ],
+      "result": {
+        "statement": "Lot LOT-7 traced from birth farm to feedlot",
+        "headCount": 5
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-00c79d2713d9966cf93814a4",
+      "location": {
+        "siteId": "feedlot-c",
+        "lat": 35.2,
+        "lon": -101.8
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "lot-ledger",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "COMMUNITY_REPORT",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "head_count@2026-10-24T10:00:00.000Z",
+          "analyte": "head_count",
+          "value": 5,
+          "unit": "animals",
+          "basis": "COMMUNITY_REPORT",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "traceability": {
+        "lotId": "LOT-7",
+        "animalIds": [
+          "BR-001",
+          "BR-002",
+          "BR-003",
+          "BR-004",
+          "BR-005"
+        ],
+        "events": [
+          {
+            "type": "birth",
+            "at": "2026-08-05T12:00:00.000Z",
+            "from": null,
+            "to": "farm-a"
+          },
+          {
+            "type": "move",
+            "at": "2026-09-04T12:00:00.000Z",
+            "from": "farm-a",
+            "to": "auction-b"
+          },
+          {
+            "type": "move",
+            "at": "2026-09-14T12:00:00.000Z",
+            "from": "auction-b",
+            "to": "feedlot-c"
+          }
+        ],
+        "registryCrossCheck": {
+          "registry": "state-animal-registry",
+          "status": "MATCHED",
+          "checkedBy": "state-animal-registry"
+        }
+      },
+      "manifest": {
+        "status": "COMPLETED",
+        "lotId": "LOT-7"
+      }
+    },
+    "expectedDigest": "c371e66c78d75d1d9fd3633f5860bcd5da5bfdb5eddb1909c83259afdda3b891"
+  },
+  {
+    "id": 30,
+    "name": "L2 custody break: animals left auction-b but next event starts at farm-z",
+    "group": "SUBTYPE",
+    "category": "LIVESTOCK_TRACEABILITY",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "CUSTODY_BREAK",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": "livestock-traceability",
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-30",
+      "claimType": "INTERVENTION_COMPLETION",
+      "scope": {
+        "domain": "livestock",
+        "boundary": "feedlot-c",
+        "timeEpoch": "2026-10",
+        "activityType": "lot_traceability",
+        "lat": 35.2,
+        "lon": -101.8
+      },
+      "claimant": "feedlot-c",
+      "evidence": [
+        {
+          "evidenceId": "ev-00c79d2713d9966cf93814a4",
+          "digest": "18102b23c16151736f3dc11f95bfaa9f5e54d2adef3d4fc23da95d72433da70d"
+        }
+      ],
+      "result": {
+        "statement": "Lot LOT-7 traced from birth farm to feedlot",
+        "headCount": 5
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-00c79d2713d9966cf93814a4",
+      "location": {
+        "siteId": "feedlot-c",
+        "lat": 35.2,
+        "lon": -101.8
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "lot-ledger",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "COMMUNITY_REPORT",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "head_count@2026-10-24T10:00:00.000Z",
+          "analyte": "head_count",
+          "value": 5,
+          "unit": "animals",
+          "basis": "COMMUNITY_REPORT",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "traceability": {
+        "lotId": "LOT-7",
+        "animalIds": [
+          "BR-001",
+          "BR-002",
+          "BR-003",
+          "BR-004",
+          "BR-005"
+        ],
+        "events": [
+          {
+            "type": "birth",
+            "at": "2026-08-05T12:00:00.000Z",
+            "from": null,
+            "to": "farm-a"
+          },
+          {
+            "type": "move",
+            "at": "2026-09-04T12:00:00.000Z",
+            "from": "farm-a",
+            "to": "auction-b"
+          },
+          {
+            "type": "move",
+            "at": "2026-09-14T12:00:00.000Z",
+            "from": "farm-z",
+            "to": "feedlot-c"
+          }
+        ],
+        "registryCrossCheck": {
+          "registry": "state-animal-registry",
+          "status": "MATCHED",
+          "checkedBy": "state-animal-registry"
+        }
+      },
+      "manifest": {
+        "status": "COMPLETED",
+        "lotId": "LOT-7"
+      }
+    },
+    "expectedDigest": "18102b23c16151736f3dc11f95bfaa9f5e54d2adef3d4fc23da95d72433da70d"
+  },
+  {
+    "id": 31,
+    "name": "L3 sixty days unaccounted between two events",
+    "group": "SUBTYPE",
+    "category": "LIVESTOCK_TRACEABILITY",
+    "expectedVerdict": "HUMAN_REVIEW_REQUIRED",
+    "expectedCode": "UNACCOUNTED_CUSTODY_GAP",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": "livestock-traceability",
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-31",
+      "claimType": "INTERVENTION_COMPLETION",
+      "scope": {
+        "domain": "livestock",
+        "boundary": "feedlot-c",
+        "timeEpoch": "2026-10",
+        "activityType": "lot_traceability",
+        "lat": 35.2,
+        "lon": -101.8
+      },
+      "claimant": "feedlot-c",
+      "evidence": [
+        {
+          "evidenceId": "ev-00c79d2713d9966cf93814a4",
+          "digest": "4ed182a89160f612688aea395277f6df681a0a86c3dcbd878856fcfa0be915fb"
+        }
+      ],
+      "result": {
+        "statement": "Lot LOT-7 traced from birth farm to feedlot",
+        "headCount": 5
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-00c79d2713d9966cf93814a4",
+      "location": {
+        "siteId": "feedlot-c",
+        "lat": 35.2,
+        "lon": -101.8
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "lot-ledger",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "COMMUNITY_REPORT",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "head_count@2026-10-24T10:00:00.000Z",
+          "analyte": "head_count",
+          "value": 5,
+          "unit": "animals",
+          "basis": "COMMUNITY_REPORT",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "traceability": {
+        "lotId": "LOT-7",
+        "animalIds": [
+          "BR-001",
+          "BR-002",
+          "BR-003",
+          "BR-004",
+          "BR-005"
+        ],
+        "events": [
+          {
+            "type": "birth",
+            "at": "2026-08-05T12:00:00.000Z",
+            "from": null,
+            "to": "farm-a"
+          },
+          {
+            "type": "move",
+            "at": "2026-10-14T12:00:00.000Z",
+            "from": "farm-a",
+            "to": "feedlot-c"
+          }
+        ],
+        "registryCrossCheck": {
+          "registry": "state-animal-registry",
+          "status": "MATCHED",
+          "checkedBy": "state-animal-registry"
+        }
+      },
+      "manifest": {
+        "status": "COMPLETED",
+        "lotId": "LOT-7"
+      }
+    },
+    "expectedDigest": "4ed182a89160f612688aea395277f6df681a0a86c3dcbd878856fcfa0be915fb"
+  },
+  {
+    "id": 32,
+    "name": "L4 animal BR-003 already belongs to another active claim (laundering)",
+    "group": "SUBTYPE",
+    "category": "LIVESTOCK_TRACEABILITY",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "ANIMAL_ALREADY_CLAIMED",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": "livestock-traceability",
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-32",
+      "claimType": "INTERVENTION_COMPLETION",
+      "scope": {
+        "domain": "livestock",
+        "boundary": "feedlot-c",
+        "timeEpoch": "2026-10",
+        "activityType": "lot_traceability",
+        "lat": 35.2,
+        "lon": -101.8
+      },
+      "claimant": "feedlot-c",
+      "evidence": [
+        {
+          "evidenceId": "ev-00c79d2713d9966cf93814a4",
+          "digest": "c371e66c78d75d1d9fd3633f5860bcd5da5bfdb5eddb1909c83259afdda3b891"
+        }
+      ],
+      "result": {
+        "statement": "Lot LOT-7 traced from birth farm to feedlot",
+        "headCount": 5
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-00c79d2713d9966cf93814a4",
+      "location": {
+        "siteId": "feedlot-c",
+        "lat": 35.2,
+        "lon": -101.8
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "lot-ledger",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "COMMUNITY_REPORT",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "head_count@2026-10-24T10:00:00.000Z",
+          "analyte": "head_count",
+          "value": 5,
+          "unit": "animals",
+          "basis": "COMMUNITY_REPORT",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "traceability": {
+        "lotId": "LOT-7",
+        "animalIds": [
+          "BR-001",
+          "BR-002",
+          "BR-003",
+          "BR-004",
+          "BR-005"
+        ],
+        "events": [
+          {
+            "type": "birth",
+            "at": "2026-08-05T12:00:00.000Z",
+            "from": null,
+            "to": "farm-a"
+          },
+          {
+            "type": "move",
+            "at": "2026-09-04T12:00:00.000Z",
+            "from": "farm-a",
+            "to": "auction-b"
+          },
+          {
+            "type": "move",
+            "at": "2026-09-14T12:00:00.000Z",
+            "from": "auction-b",
+            "to": "feedlot-c"
+          }
+        ],
+        "registryCrossCheck": {
+          "registry": "state-animal-registry",
+          "status": "MATCHED",
+          "checkedBy": "state-animal-registry"
+        }
+      },
+      "manifest": {
+        "status": "COMPLETED",
+        "lotId": "LOT-7"
+      }
+    },
+    "expectedDigest": "c371e66c78d75d1d9fd3633f5860bcd5da5bfdb5eddb1909c83259afdda3b891",
+    "existingClaims": [
+      {
+        "claimId": "other-lot-claim",
+        "status": "Submitted",
+        "scope": {
+          "domain": "livestock",
+          "boundary": "other-farm",
+          "timeEpoch": "2026-10",
+          "activityType": "other_lot",
+          "lat": 35.2,
+          "lon": -101.8
+        },
+        "animalIds": [
+          "BR-003",
+          "BR-900"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "name": "L5 no registry cross-check",
+    "group": "SUBTYPE",
+    "category": "LIVESTOCK_TRACEABILITY",
+    "expectedVerdict": "UNKNOWN",
+    "expectedCode": "REGISTRY_CROSS_CHECK_REQUIRED",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": "livestock-traceability",
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-33",
+      "claimType": "INTERVENTION_COMPLETION",
+      "scope": {
+        "domain": "livestock",
+        "boundary": "feedlot-c",
+        "timeEpoch": "2026-10",
+        "activityType": "lot_traceability",
+        "lat": 35.2,
+        "lon": -101.8
+      },
+      "claimant": "feedlot-c",
+      "evidence": [
+        {
+          "evidenceId": "ev-00c79d2713d9966cf93814a4",
+          "digest": "6e71e31fd64cc2690e519a0e7cbf236ebd1ba255eae304d0991785ea92fc02f2"
+        }
+      ],
+      "result": {
+        "statement": "Lot LOT-7 traced from birth farm to feedlot",
+        "headCount": 5
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-00c79d2713d9966cf93814a4",
+      "location": {
+        "siteId": "feedlot-c",
+        "lat": 35.2,
+        "lon": -101.8
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "lot-ledger",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "COMMUNITY_REPORT",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "head_count@2026-10-24T10:00:00.000Z",
+          "analyte": "head_count",
+          "value": 5,
+          "unit": "animals",
+          "basis": "COMMUNITY_REPORT",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "traceability": {
+        "lotId": "LOT-7",
+        "animalIds": [
+          "BR-001",
+          "BR-002",
+          "BR-003",
+          "BR-004",
+          "BR-005"
+        ],
+        "events": [
+          {
+            "type": "birth",
+            "at": "2026-08-05T12:00:00.000Z",
+            "from": null,
+            "to": "farm-a"
+          },
+          {
+            "type": "move",
+            "at": "2026-09-04T12:00:00.000Z",
+            "from": "farm-a",
+            "to": "auction-b"
+          },
+          {
+            "type": "move",
+            "at": "2026-09-14T12:00:00.000Z",
+            "from": "auction-b",
+            "to": "feedlot-c"
+          }
+        ]
+      },
+      "manifest": {
+        "status": "COMPLETED",
+        "lotId": "LOT-7"
+      }
+    },
+    "expectedDigest": "6e71e31fd64cc2690e519a0e7cbf236ebd1ba255eae304d0991785ea92fc02f2"
+  },
+  {
+    "id": 34,
+    "name": "L6 claim states 9 animals, record lists 5",
+    "group": "SUBTYPE",
+    "category": "LIVESTOCK_TRACEABILITY",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "HEAD_COUNT_MISMATCH",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": "livestock-traceability",
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-34",
+      "claimType": "INTERVENTION_COMPLETION",
+      "scope": {
+        "domain": "livestock",
+        "boundary": "feedlot-c",
+        "timeEpoch": "2026-10",
+        "activityType": "lot_traceability",
+        "lat": 35.2,
+        "lon": -101.8
+      },
+      "claimant": "feedlot-c",
+      "evidence": [
+        {
+          "evidenceId": "ev-00c79d2713d9966cf93814a4",
+          "digest": "c371e66c78d75d1d9fd3633f5860bcd5da5bfdb5eddb1909c83259afdda3b891"
+        }
+      ],
+      "result": {
+        "statement": "Lot LOT-7 traced from birth farm to feedlot",
+        "headCount": 9
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-00c79d2713d9966cf93814a4",
+      "location": {
+        "siteId": "feedlot-c",
+        "lat": 35.2,
+        "lon": -101.8
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "lot-ledger",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "COMMUNITY_REPORT",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "head_count@2026-10-24T10:00:00.000Z",
+          "analyte": "head_count",
+          "value": 5,
+          "unit": "animals",
+          "basis": "COMMUNITY_REPORT",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "traceability": {
+        "lotId": "LOT-7",
+        "animalIds": [
+          "BR-001",
+          "BR-002",
+          "BR-003",
+          "BR-004",
+          "BR-005"
+        ],
+        "events": [
+          {
+            "type": "birth",
+            "at": "2026-08-05T12:00:00.000Z",
+            "from": null,
+            "to": "farm-a"
+          },
+          {
+            "type": "move",
+            "at": "2026-09-04T12:00:00.000Z",
+            "from": "farm-a",
+            "to": "auction-b"
+          },
+          {
+            "type": "move",
+            "at": "2026-09-14T12:00:00.000Z",
+            "from": "auction-b",
+            "to": "feedlot-c"
+          }
+        ],
+        "registryCrossCheck": {
+          "registry": "state-animal-registry",
+          "status": "MATCHED",
+          "checkedBy": "state-animal-registry"
+        }
+      },
+      "manifest": {
+        "status": "COMPLETED",
+        "lotId": "LOT-7"
+      }
+    },
+    "expectedDigest": "c371e66c78d75d1d9fd3633f5860bcd5da5bfdb5eddb1909c83259afdda3b891"
+  },
+  {
+    "id": 35,
+    "name": "L7 registry reports UNMATCHED",
+    "group": "SUBTYPE",
+    "category": "LIVESTOCK_TRACEABILITY",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "REGISTRY_MISMATCH",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": "livestock-traceability",
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-35",
+      "claimType": "INTERVENTION_COMPLETION",
+      "scope": {
+        "domain": "livestock",
+        "boundary": "feedlot-c",
+        "timeEpoch": "2026-10",
+        "activityType": "lot_traceability",
+        "lat": 35.2,
+        "lon": -101.8
+      },
+      "claimant": "feedlot-c",
+      "evidence": [
+        {
+          "evidenceId": "ev-00c79d2713d9966cf93814a4",
+          "digest": "1f351283929583beaf2f869889d6160e20b83a583299ceb296475f92cdb2a719"
+        }
+      ],
+      "result": {
+        "statement": "Lot LOT-7 traced from birth farm to feedlot",
+        "headCount": 5
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-00c79d2713d9966cf93814a4",
+      "location": {
+        "siteId": "feedlot-c",
+        "lat": 35.2,
+        "lon": -101.8
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "lot-ledger",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "COMMUNITY_REPORT",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "head_count@2026-10-24T10:00:00.000Z",
+          "analyte": "head_count",
+          "value": 5,
+          "unit": "animals",
+          "basis": "COMMUNITY_REPORT",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "traceability": {
+        "lotId": "LOT-7",
+        "animalIds": [
+          "BR-001",
+          "BR-002",
+          "BR-003",
+          "BR-004",
+          "BR-005"
+        ],
+        "events": [
+          {
+            "type": "birth",
+            "at": "2026-08-05T12:00:00.000Z",
+            "from": null,
+            "to": "farm-a"
+          },
+          {
+            "type": "move",
+            "at": "2026-09-04T12:00:00.000Z",
+            "from": "farm-a",
+            "to": "auction-b"
+          },
+          {
+            "type": "move",
+            "at": "2026-09-14T12:00:00.000Z",
+            "from": "auction-b",
+            "to": "feedlot-c"
+          }
+        ],
+        "registryCrossCheck": {
+          "registry": "state-animal-registry",
+          "status": "UNMATCHED",
+          "checkedBy": "state-animal-registry"
+        }
+      },
+      "manifest": {
+        "status": "COMPLETED",
+        "lotId": "LOT-7"
+      }
+    },
+    "expectedDigest": "1f351283929583beaf2f869889d6160e20b83a583299ceb296475f92cdb2a719"
+  },
+  {
+    "id": 36,
+    "name": "Q1 valid: claimed PM2.5 matches the observed value",
+    "group": "SUBTYPE",
+    "category": "AIR_QUALITY",
+    "expectedVerdict": "ACCEPTED",
+    "expectedCode": null,
+    "isUnsafeClaim": false,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": "air-quality",
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-36",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monitoring",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "claimant": "ngo-a",
+      "evidence": [
+        {
+          "evidenceId": "ev-66272a0586685cfaa2e0ec62",
+          "digest": "bcece268d0dfbb26a055da4d7df02a3b531cc32f87c10d4f813b4580e0aa052e"
+        }
+      ],
+      "result": {
+        "analyte": "pm2_5",
+        "value": 42.5,
+        "unit": "µg/m³"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-66272a0586685cfaa2e0ec62",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "monitor-delhi-anand-vihar",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@2026-10-24T10:00:00.000Z",
+          "analyte": "pm2_5",
+          "value": 42.5,
+          "unit": "ug/m3",
+          "basis": "OBSERVED_MONITOR",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "bcece268d0dfbb26a055da4d7df02a3b531cc32f87c10d4f813b4580e0aa052e"
+  },
+  {
+    "id": 37,
+    "name": "Q2 claimed PM2.5 of 120 against an observed 42.5",
+    "group": "SUBTYPE",
+    "category": "AIR_QUALITY",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "CLAIM_VALUE_MISMATCH",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": "air-quality",
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-37",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monitoring",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "claimant": "ngo-a",
+      "evidence": [
+        {
+          "evidenceId": "ev-66272a0586685cfaa2e0ec62",
+          "digest": "bcece268d0dfbb26a055da4d7df02a3b531cc32f87c10d4f813b4580e0aa052e"
+        }
+      ],
+      "result": {
+        "analyte": "pm2_5",
+        "value": 120,
+        "unit": "ug/m3"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-66272a0586685cfaa2e0ec62",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "monitor-delhi-anand-vihar",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@2026-10-24T10:00:00.000Z",
+          "analyte": "pm2_5",
+          "value": 42.5,
+          "unit": "ug/m3",
+          "basis": "OBSERVED_MONITOR",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "bcece268d0dfbb26a055da4d7df02a3b531cc32f87c10d4f813b4580e0aa052e"
+  },
+  {
+    "id": 38,
+    "name": "Q3 claims NO2 but the bundle only contains PM2.5",
+    "group": "SUBTYPE",
+    "category": "AIR_QUALITY",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "CLAIM_ANALYTE_NOT_IN_EVIDENCE",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": "air-quality",
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-38",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monitoring",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "claimant": "ngo-a",
+      "evidence": [
+        {
+          "evidenceId": "ev-66272a0586685cfaa2e0ec62",
+          "digest": "bcece268d0dfbb26a055da4d7df02a3b531cc32f87c10d4f813b4580e0aa052e"
+        }
+      ],
+      "result": {
+        "analyte": "no2",
+        "value": 42.5,
+        "unit": "ug/m3"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-66272a0586685cfaa2e0ec62",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "monitor-delhi-anand-vihar",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@2026-10-24T10:00:00.000Z",
+          "analyte": "pm2_5",
+          "value": 42.5,
+          "unit": "ug/m3",
+          "basis": "OBSERVED_MONITOR",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "bcece268d0dfbb26a055da4d7df02a3b531cc32f87c10d4f813b4580e0aa052e"
+  },
+  {
+    "id": 39,
+    "name": "Q4 claims ppb while the bundle is in ug/m3",
+    "group": "SUBTYPE",
+    "category": "AIR_QUALITY",
+    "expectedVerdict": "REJECTED",
+    "expectedCode": "UNIT_MISMATCH",
+    "isUnsafeClaim": true,
+    "knownLimitation": false,
+    "options": {
+      "claimSubtype": "air-quality",
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-39",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monitoring",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "claimant": "ngo-a",
+      "evidence": [
+        {
+          "evidenceId": "ev-66272a0586685cfaa2e0ec62",
+          "digest": "bcece268d0dfbb26a055da4d7df02a3b531cc32f87c10d4f813b4580e0aa052e"
+        }
+      ],
+      "result": {
+        "analyte": "pm2_5",
+        "value": 42.5,
+        "unit": "ppb"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-66272a0586685cfaa2e0ec62",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "monitor-delhi-anand-vihar",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@2026-10-24T10:00:00.000Z",
+          "analyte": "pm2_5",
+          "value": 42.5,
+          "unit": "ug/m3",
+          "basis": "OBSERVED_MONITOR",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "bcece268d0dfbb26a055da4d7df02a3b531cc32f87c10d4f813b4580e0aa052e"
+  },
+  {
+    "id": 40,
+    "name": "K1 fabricated-but-consistent: invented Delhi monitor reading with its own correct digest",
+    "group": "KNOWN_LIMITATION",
+    "category": "FABRICATED_EVIDENCE",
+    "expectedVerdict": "ACCEPTED",
+    "expectedCode": null,
+    "isUnsafeClaim": true,
+    "knownLimitation": true,
+    "options": {
+      "claimSubtype": "air-quality",
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-40",
+      "claimType": "ENVIRONMENTAL_OBSERVATION",
+      "scope": {
+        "domain": "air_quality",
+        "boundary": "delhi-anand-vihar",
+        "timeEpoch": "2026-10-24",
+        "activityType": "monitoring",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "claimant": "bad-actor",
+      "evidence": [
+        {
+          "evidenceId": "ev-66272a0586685cfaa2e0ec62",
+          "digest": "bcece268d0dfbb26a055da4d7df02a3b531cc32f87c10d4f813b4580e0aa052e"
+        }
+      ],
+      "result": {
+        "analyte": "pm2_5",
+        "value": 42.5,
+        "unit": "ug/m3"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-66272a0586685cfaa2e0ec62",
+      "location": {
+        "siteId": "delhi-anand-vihar",
+        "lat": 28.6469,
+        "lon": 77.316
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "monitor-delhi-anand-vihar",
+          "dataKind": "GROUND_STATION_OBSERVED",
+          "basis": "OBSERVED_MONITOR",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "pm2_5@2026-10-24T10:00:00.000Z",
+          "analyte": "pm2_5",
+          "value": 42.5,
+          "unit": "ug/m3",
+          "basis": "OBSERVED_MONITOR",
+          "validTimeUtc": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ]
+    },
+    "expectedDigest": "bcece268d0dfbb26a055da4d7df02a3b531cc32f87c10d4f813b4580e0aa052e"
+  },
+  {
+    "id": 41,
+    "name": "K2 same leak repair re-claimed ~8 km away under a different boundary label (outside the 0.05 degree overlap cell)",
+    "group": "KNOWN_LIMITATION",
+    "category": "OVERLAP_THRESHOLD_EVASION",
+    "expectedVerdict": "ACCEPTED",
+    "expectedCode": null,
+    "isUnsafeClaim": true,
+    "knownLimitation": true,
+    "options": {
+      "claimSubtype": null,
+      "requireSubtype": false
+    },
+    "claim": {
+      "claimId": "v2-cl-41",
+      "claimType": "QUANTIFIED_EMISSIONS_REDUCTION",
+      "scope": {
+        "domain": "methane",
+        "boundary": "other-label",
+        "timeEpoch": "2026-Q4",
+        "activityType": "fugitive_leak_repair",
+        "lat": 31.96,
+        "lon": -102.32
+      },
+      "evidence": [
+        {
+          "evidenceId": "ev-0804596803c6e4856168883d",
+          "digest": "c1b9eb1287d4931ac839bc003f608280e0ca9c467974c8435917e02feee96288"
+        }
+      ],
+      "result": {
+        "value": 12.4,
+        "unit": "tCO2e",
+        "baselineMethodology": "EPA Subpart W"
+      }
+    },
+    "evidence": {
+      "schema": "climate-chain:evidence-bundle:v1",
+      "evidenceId": "ev-0804596803c6e4856168883d",
+      "location": {
+        "siteId": "x",
+        "lat": 31.96,
+        "lon": -102.32
+      },
+      "timeframe": {
+        "startUtc": "2026-10-24T10:00:00.000Z",
+        "endUtc": "2026-10-24T10:00:00.000Z"
+      },
+      "sources": [
+        {
+          "sourceId": "carbonmapper",
+          "dataKind": "SATELLITE_MEASURED_CARBON_MAPPER",
+          "basis": "SATELLITE_MEASURED",
+          "retrievedAt": "2026-10-24T10:00:00.000Z"
+        }
+      ],
+      "measurements": [
+        {
+          "measurementId": "ch4_emission_rate@2026-10-23T05:00:00.000Z",
+          "analyte": "ch4_emission_rate",
+          "value": 449,
+          "unit": "kg/h",
+          "basis": "SATELLITE_MEASURED",
+          "validTimeUtc": "2026-10-23T05:00:00.000Z"
+        }
+      ],
+      "uncertainty": [
+        "Instrument tolerance +/- 5%"
+      ],
+      "comparisons": [],
+      "custody": [
+        {
+          "step": "retrieved",
+          "at": "2026-10-24T10:00:00.000Z",
+          "actor": "gateway"
+        },
+        {
+          "step": "bundled",
+          "actor": "trust-firewall"
+        }
+      ],
+      "methodology": "EPA Subpart W"
+    },
+    "expectedDigest": "c1b9eb1287d4931ac839bc003f608280e0ca9c467974c8435917e02feee96288",
+    "existingClaims": [
+      {
+        "claimId": "existing-permian-claim",
+        "status": "Submitted",
+        "scope": {
+          "domain": "methane",
+          "boundary": "permian-wellhead-4",
+          "timeEpoch": "2026-Q4",
+          "activityType": "fugitive_leak_repair",
+          "lat": 31.89,
+          "lon": -102.32
+        },
+        "compositeScopeKey": "93f8028885ae7afb4c354e0cba109db6380fa55b8e2d6021c41f789aa107c596",
+        "location": {
+          "lat": 31.89,
+          "lon": -102.32
+        },
+        "evidence": [
+          {
+            "digest": "0xabababababababababababababababababababababababababababababababab"
+          }
+        ]
+      }
+    ]
+  }
+]

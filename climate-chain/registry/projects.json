@@ -145,7 +145,7 @@
         "Verifier-signed EIP-712 escrow",
         "Public receipt for every workflow step"
       ],
-      "evidence": "10,098 historical Carbon Mapper detections; repair activity and funds are simulated",
+      "evidence": "10,098 historical Carbon Mapper detections (60-plume sample shipped); repair activity and funds are simulated",
       "readiness": "Read-only app snapshot",
       "liveUrl": "https://kaavinb.github.io/PLUME/",
       "linkLabel": "Open PLUME snapshot",
@@ -316,7 +316,7 @@
       "tracks": ["carbon-markets-emissions-transparency", "climate-data-environmental-monitoring"],
       "name": "Flarewatch",
       "folder": "flarewatch-main",
-      "descriptor": "Niger Delta gas flares, seen from space, recorded where nobody can edit them",
+      "descriptor": "Niger Delta gas flares, seen from space, anchored to a Solana devnet program in the upstream project",
       "domain": "Gas flaring · Niger Delta",
       "stages": ["sense", "verify", "prove"],
       "features": [

@@ -75,13 +75,13 @@ export function Overview({
     },
     {
       title: 'Transparent Climate Finance',
-      desc: 'Connect smart contract escrow funding to verified performance milestones with zero intermediaries.',
+      desc: 'Review specialist funding mechanisms (escrow, registries) and their status.',
       projects: 'PLUME Methane Escrow · Rantai 3C · GridProof Certificates',
       action: () => onMission('finance')
     },
     {
       title: 'Proof & Zero Double-Counting',
-      desc: 'Anchor immutable completion receipts on-chain and prevent duplicate claims across public registries.',
+      desc: 'Anchor completion receipts on a local demo chain (not public or immutable) and flag duplicate claims within the local demo registry.',
       projects: 'CarbonTwin Guard · EcoGraph Ledger · HourMatch Claims',
       action: () => onMission('prove')
     }
@@ -101,10 +101,10 @@ export function Overview({
               type="button"
               className={`live-pulse-btn ${livePulseActive ? 'pulsing' : ''}`}
               onClick={triggerLiveSim}
-              title="Simulate live sensor broadcast"
+              title="Toggles a short visual pulse animation only"
             >
               <span className="icon">⚡</span>
-              {livePulseActive ? 'Receiving Live Signals…' : 'Simulate Live Stream'}
+              {livePulseActive ? 'Pulse animation on…' : 'Pulse animation'}
             </button>
           </div>
         </div>
@@ -113,7 +113,7 @@ export function Overview({
           <h1>Track & Verify Real-World Climate Action</h1>
           <p>
             One unified mission connecting 18 specialized climate initiatives: sense a place-based signal,
-            verify with cryptographic certainty, dispatch field teams, and prove what changed.
+            check evidence integrity with SHA-256 digests, dispatch field teams, and prove what changed.
           </p>
 
           <div className="hero-quick-actions">
@@ -372,8 +372,8 @@ export function Overview({
         <Card className="modern-card">
           <div className="card-header-clean">
             <div>
-              <h3>Verified Season Ledger</h3>
-              <p className="muted small">Quantified and audited environmental outcomes this season</p>
+              <h3>Season Ledger</h3>
+              <p className="muted small">Source-reported counters (labelled LIVE/SIMULATED); not independently audited</p>
             </div>
           </div>
 
@@ -391,23 +391,23 @@ export function Overview({
                 {num(waste.sites.filter((s) => s.status === 'cleared' || s.status === 'resolved').length)}
               </div>
               <div className="metric-box-label">Waste Dumps Cleared</div>
-              <div className="metric-box-hint">Audited and closed via community verification</div>
+              <div className="metric-box-hint">Sites marked cleared or resolved in the source feed</div>
             </div>
 
             <div className="metric-box">
               <span className="metric-box-icon">💧</span>
               <div className="metric-box-val">{num(water.warned)} / {num(water.inRing)}</div>
-              <div className="metric-box-label">Residents Protected from Bad Water</div>
+              <div className="metric-box-label">Households Warned of Bad Water</div>
               <div className="metric-box-hint">Early tripwire automated warning system</div>
             </div>
 
             <div className="metric-box">
               <span className="metric-box-icon">🚜</span>
               <div className="metric-box-val">
-                {fire.fieldsSavedAfterAlert == null ? '55' : num(fire.fieldsSavedAfterAlert)}
+                {fire.fieldsSavedAfterAlert == null ? '—' : num(fire.fieldsSavedAfterAlert)}
               </div>
               <div className="metric-box-label">Fields Saved After Alerts</div>
-              <div className="metric-box-hint">Stubble fires intercepted before ignition</div>
+              <div className="metric-box-hint">Fields alerted</div>
             </div>
           </div>
 
@@ -415,7 +415,7 @@ export function Overview({
           <div className="sparkline-section">
             <div className="sparkline-title">
               <span>24-Hour PM2.5 Air Exposure Trend ({air.place?.name ?? data.city.name})</span>
-              <span className="sparkline-tag">Real-time Vayu Sensors</span>
+              <span className="sparkline-tag">Vayu feed (monitor or model; see badge)</span>
             </div>
             <Sparkline hours={air.hours.slice(-24)} />
           </div>

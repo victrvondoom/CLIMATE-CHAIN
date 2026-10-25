@@ -1,5 +1,7 @@
 # Canonical feature catalogue
 
+Note: evidence paths below refer to the original project repositories, which are not included in this repository (the local `projects/` folder is gitignored).
+
 Generated from `docs/feature-audit/` and `registry/projects.json` by `scripts/build-feature-catalogue.mjs`.
 Each capability appears once. When projects implement the same capability, their distinct behavior, status, and evidence are listed under that canonical feature. Project records link to feature IDs instead of repeating feature data. Registry claims without a code match remain explicitly unverified.
 

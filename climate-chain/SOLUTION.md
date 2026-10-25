@@ -2,7 +2,7 @@
 
 ## Product intent
 
-The repository contains 18 climate projects that address different points in an impact chain: community sensing, evidence review, local response, climate finance, and outcome proof. Climate Chain gives users one simple place to move through that chain while preserving the useful specialist work in every source folder.
+The 18 source climate projects address different points in an impact chain: community sensing, evidence review, local response, climate finance, and outcome proof. Climate Chain gives users one simple place to move through that chain. 18 native modules are re-implemented in climate-chain/frontend/src/modules from the source projects and run on bundled fixtures (8 SIMULATED, 6 RESEARCH, 4 DEMO). The original project folders are not included in this repository.
 
 The shared unit is a **place-based climate mission**. A person begins with a local signal, checks the evidence and its age, chooses an intervention, sees how funding is controlled, and records what can be proven. The workspace guides and connects that process; it does not claim every source system has been merged into a single backend.
 
@@ -26,7 +26,7 @@ The focus choices are healthy neighbourhoods, cleaner harvests, trusted forest c
 
 ### Unified mission studio
 
-The studio starts with the full set of 18 project capabilities and groups them under Sense, Verify, Act, Finance and Prove. People can select a narrower toolset, add a focus bundle, review each project's feature and evidence notes, open its source tool, and export a Markdown mission brief. The mission scope and selection stay in the current browser session. Only JunkSnap, clearsky, Teesri Shikayat and Vayu have normalized live feeds; all other workflows remain handoffs to their source projects.
+The studio starts with the full set of 18 project capabilities and groups them under Sense, Verify, Act, Finance and Prove. People can select a narrower toolset, add a focus bundle, review each project's feature and evidence notes, open its source tool, and export a Markdown mission brief. The mission scope and selection stay in the current browser session. Only JunkSnap, clearsky, Teesri Shikayat and Vayu have normalized live feeds; all other modules are native re-implementations that run on bundled fixtures (8 SIMULATED, 6 RESEARCH, 4 DEMO); the original project folders are not included in this repository.
 
 ### Place-based Waste-to-Air review
 
@@ -34,7 +34,7 @@ From an open JunkSnap site, choose **Review nearby air context**. Climate Chain 
 
 ### Capability library
 
-The searchable library contains all 18 folders, including Climate Chain itself. Cards group capabilities by mission step and show the project domain, distinctive features, evidence note, readiness, and an app or source link. No project's underlying implementation is removed or rewritten by this navigation layer.
+The searchable library lists all 18 projects, including Climate Chain itself. Cards group capabilities by mission step and show the project domain, distinctive features, evidence note, readiness, and an app or source link. 18 native modules are re-implemented in climate-chain/frontend/src/modules from the source projects and run on bundled fixtures (8 SIMULATED, 6 RESEARCH, 4 DEMO). The original project folders are not included in this repository.
 
 ## System architecture
 
@@ -108,4 +108,4 @@ Open <http://localhost:8080>. In frontend dev mode, run `npm run dev` from `fron
 - The gateway connects only JunkSnap, clearsky, Teesri Shikayat and Vayu. The rest are not presented as gateway-live sources.
 - Project app links may have their own authentication, uptime, or demo constraints. A link in the directory does not guarantee its current availability.
 - The gateway does not provide unified identity, a shared database, or cross-project write-back. Mission records persist on the local host in a checksummed JSON store, not a shared database. Persisted tasks can refresh ClearSky aggregate statistics and privacy-limited Vayu city-center air samples; other connectors remain dashboard reads.
-- Current verification is recorded in `docs/workspace/GENESIS_FINAL_REPORT.md`: 77 gateway tests, eight frontend unit tests, frontend lint/type-check/build, encrypted retrieval-audit migration and corruption checks, worker-side ClearSky and Vayu fixture integrations, and isolated launcher health/encrypted-audit/shutdown smokes. Public upstreams were disconnected during the browser smoke; no production availability or specialist write workflow is claimed.
+- Current verification is recorded in `docs/workspace/GENESIS_FINAL_REPORT.md`: gateway and frontend tests (run npm test for current counts), frontend lint/type-check/build, encrypted retrieval-audit migration and corruption checks, worker-side ClearSky and Vayu fixture integrations, and isolated launcher health/encrypted-audit/shutdown smokes. Public upstreams were disconnected during the browser smoke; no production availability or specialist write workflow is claimed.

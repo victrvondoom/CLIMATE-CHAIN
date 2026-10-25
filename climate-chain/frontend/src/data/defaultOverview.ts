@@ -1,13 +1,16 @@
 import type { Overview } from '../types';
 
+// Placeholder figures shown before the first fetch or when offline. Every source is marked
+// 'mock' (SIMULATED) and the air series is marked modelled/simulated: none of this is live or observed data.
+
 export const DEFAULT_OVERVIEW: Overview = {
   asOf: new Date().toISOString(),
   city: { lat: 28.6139, lng: 77.2090, name: 'Delhi' },
   sources: {
-    junksnap: { mode: 'live', label: 'JunkSnap API' },
-    clearsky: { mode: 'live', label: 'ClearSky Hub' },
-    teesri: { mode: 'live', label: 'Teesri Shikayat Bot' },
-    vayu: { mode: 'live', label: 'The Vayu Project' }
+    junksnap: { mode: 'mock', label: 'JunkSnap API' },
+    clearsky: { mode: 'mock', label: 'ClearSky Hub' },
+    teesri: { mode: 'mock', label: 'Teesri Shikayat Bot' },
+    vayu: { mode: 'mock', label: 'The Vayu Project' }
   },
   waste: {
     sites: [
@@ -72,30 +75,30 @@ export const DEFAULT_OVERVIEW: Overview = {
   air: {
     place: { name: 'Delhi & NCR', lat: 28.6139, lng: 77.2090 },
     asOf: new Date().toISOString(),
-    mode: 'live',
+    mode: 'mock',
     pm25Now: 82.4,
     pm25Max24h: 146.2,
     hours: [
-      { t: '00:00', pm25: 68.2, kind: 'observed' },
-      { t: '04:00', pm25: 75.1, kind: 'observed' },
-      { t: '08:00', pm25: 112.4, kind: 'observed' },
-      { t: '12:00', pm25: 98.7, kind: 'observed' },
-      { t: '16:00', pm25: 88.3, kind: 'observed' },
-      { t: '20:00', pm25: 82.4, kind: 'observed' }
+      { t: '00:00', pm25: 68.2, kind: 'modelled' },
+      { t: '04:00', pm25: 75.1, kind: 'modelled' },
+      { t: '08:00', pm25: 112.4, kind: 'modelled' },
+      { t: '12:00', pm25: 98.7, kind: 'modelled' },
+      { t: '16:00', pm25: 88.3, kind: 'modelled' },
+      { t: '20:00', pm25: 82.4, kind: 'modelled' }
     ],
     severity: { level: 'high', label: 'Unhealthy' },
     source: 'vayu',
     provenance: {
-      mode: 'live',
-      source: 'vayu_anand_vihar',
-      stationId: 'vayu-delhi-01',
-      stationName: 'Anand Vihar Air Monitor',
-      distanceKm: 1.5,
-      observedAt: new Date().toISOString(),
-      fetchedAt: new Date().toISOString(),
+      mode: 'mock',
+      source: 'placeholder',
+      stationId: null,
+      stationName: 'Placeholder (no monitor)',
+      distanceKm: null,
+      observedAt: null,
+      fetchedAt: null,
       asOf: new Date().toISOString(),
-      ageMinutes: 12,
-      simulated: false
+      ageMinutes: null,
+      simulated: true
     }
   },
   feed: [
@@ -121,7 +124,7 @@ export const DEFAULT_OVERVIEW: Overview = {
       severity: 'low',
       modules: ['fire'],
       title: '55 acres reported cleared without fires',
-      detail: 'Baler delivery verified and ₹8.29L conditional farmer payouts calculated.'
+      detail: 'Placeholder figures: baler delivery and ₹8.29L conditional farmer payouts are example values.'
     }
   ]
 };

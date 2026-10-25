@@ -1,13 +1,13 @@
 # Test Results, Suite Status, and Failure Summary
 
 **IEEE ClimateChain Global Hackathon 2026**  
-*Audited Execution Record | Timestamp: 24 October 2026*
+*Self-reported Execution Record | Timestamp: 24 October 2026 | counts are a snapshot; run npm test for current counts*
 
 ---
 
 ## 1. Complete Test Suite Execution Summary
 
-Every test suite across the smart contract, backend gateway, and frontend applications has been executed directly in this workspace without mocks masking failures or deleted assertions.
+Every test suite across the smart contract, backend gateway, and frontend applications was executed directly in this workspace by the project authors (self-reported snapshot; counts differ from other documents because tests were added over time, run npm test for current counts).
 
 | Component / Subsystem | Test Framework | Total Tests | Passing | Failing | Skipped | Execution Command | Result |
 |---|---|---|---|---|---|---|---|
@@ -104,6 +104,6 @@ Summary: 510 passing tests (5.56 seconds)
 1. **Modelled Air Quality vs. Ground Observations**:
    Open-Meteo CAMS provides near-surface concentrations on a 45 km grid cell. It provides broad atmospheric context, not a calibrated street-level monitor measurement. The Trust Firewall explicitly flags this and refuses to allow CAMS data to be claimed as an observed measurement.
 2. **Local EVM Chain Deployment**:
-   Smart contracts are deployed to a local Hardhat development chain (`chainId: 31337`). We deliberately do not deploy toy token contracts to public mainnets, adhering to IEEE standards regarding test environments.
+   Smart contracts are deployed to a local Hardhat development chain (`chainId: 31337`). No public-network or testnet deployment was attempted. Local development EVM (Hardhat/EDR, chain ID 31337, valueless ETH, reset on restart or when the demo ledger fills). Anchoring shows the recorded bytes were committed to this chain. It is not a public or immutable ledger and does not show a measurement is true.
 3. **Third-Party Service Isolation**:
-   The central gateway normalizes live data from JunkSnap, ClearSky, Teesri Shikayat, and Vayu. The remaining 14 merged folders are served from their respective static applications or retain their independent codebases without simulated unified totals.
+   The central gateway normalizes live data from JunkSnap, ClearSky, Teesri Shikayat, and Vayu. The remaining modules are native re-implementations in climate-chain/frontend/src/modules that run on bundled fixtures (8 SIMULATED, 6 RESEARCH, 4 DEMO); the original project folders are not included in this repository. No unified totals are fabricated.

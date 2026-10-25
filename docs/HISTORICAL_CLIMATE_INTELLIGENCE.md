@@ -1,33 +1,33 @@
 # Climate Intelligence Timeline — 200 Years of Environmental Evidence
 
 **IEEE ClimateChain Global Hackathon 2026**  
-*Scientific Architecture & Historical Methodology Report | Audited: October 24, 2026*
+*Scientific Architecture & Historical Methodology Report | Self-reviewed: October 24, 2026*
 
 ---
 
 ## 1. Scientific Objective & Philosophy
 
-The **Climate Intelligence Timeline** is a research-grade environmental intelligence system enabling users to explore verified historical climate observations, atmospheric greenhouse gas concentrations, renewable energy transitions, and documented policy interventions across 200 continuous years (1826 to 2026).
+The **Climate Intelligence Timeline** is a research-grade environmental intelligence system enabling users to explore hand-keyed reference values for historical climate observations, atmospheric greenhouse gas concentrations, renewable energy transitions, and documented policy interventions across a 200-year window (1826 to 2026). This repository embeds 108 hand-keyed anchor values; other annual values are linearly interpolated and labelled INTERPOLATED.
 
 ### The Golden Rule of Scientific Integrity
 In environmental data science, **a dataset with 20,000 rows is not 20,000 datasets**, and **a 200-year window does not mean every region and variable has complete observations**.
 
 Climate Chain strictly adheres to the following principles:
-1. **Explicit Data Gaps**: Where instrument records did not exist (e.g., global surface temperature anomaly networks prior to 1880, or international grid fuel statistics prior to 1965), Climate Chain **preserves the data gap explicitly**. It refuses to invent fictional proxy observations or unanchored smooth curves.
-2. **Deterministic Preimage Evidence**: Every data point clicked on the timeline links to an official agency citation, open scientific data license, measurement uncertainty bound, and an immutable SHA-256 evidence digest.
+1. **Explicit Data Gaps**: Where instrument records did not exist (e.g., global surface temperature anomaly networks prior to 1880, or international grid fuel statistics prior to 1965), Climate Chain **preserves the data gap explicitly**. It does not invent proxy observations; interpolated years between anchors are linear and labelled INTERPOLATED.
+2. **Deterministic Preimage Evidence**: Every data point clicked on the timeline links to an agency citation, data license, measurement uncertainty bound, and a SHA-256 digest of the evidence payload.
 3. **No Model-to-Observation Conflation**: Modeled projections, counterfactual baselines, and satellite retrievals are strictly partitioned from ground-truth observed measurements.
 
 ---
 
 ## 2. Official Scientific Data Sources
 
-Climate Chain indexes 8 verified official datasets in [`climate-chain/registry/datasets.json`](../climate-chain/registry/datasets.json):
+Climate Chain catalogues 8 reference datasets (record counts and checksums describe upstream files that are not stored here) in [`climate-chain/registry/datasets.json`](../climate-chain/registry/datasets.json):
 
 ### A. Global Surface Temperature Anomaly (1880–2026)
 - **Source Agency**: NOAA National Centers for Environmental Information (NCEI) / NASA Goddard Institute for Space Studies (GISS).
 - **Dataset**: GISTEMP v4 (`GISTEMP-v4-GLB.Ts+dSST`).
-- **Variable**: Surface Temperature Anomaly (°C relative to 1901–2000 global baseline).
-- **Temporal Resolution**: Monthly & Annual (1880 to 2026).
+- **Variable**: Surface Temperature Anomaly (°C relative to the GISTEMP native 1951–1980 baseline).
+- **Temporal Resolution**: Annual (1880 to 2026).
 - **Uncertainty Envelope**: 95% confidence interval accounting for spatial coverage and urban heat island effects (±0.15°C in 1880, reducing to ±0.04°C in 2026).
 - **Explicit Gap**: **1826 to 1879**. Prior to 1880, global instrumental weather station networks lacked sufficient spatial density to compute a calibrated global mean.
 
@@ -73,31 +73,22 @@ The timeline overlays 12 documented legal, scientific, and treaty milestones:
 9. **1997**: *Kyoto Protocol to the UNFCCC* (2303 UNTS 162). First legally binding emissions caps for Annex I nations.
 10. **2015**: *Paris Climate Agreement (COP21)* (54113 UNTS). 1.5°C global warming boundary and Nationally Determined Contributions.
 11. **2021**: *Global Methane Pledge (COP26)* (Glasgow Declaration). 30% voluntary methane reduction commitment by 2030.
-12. **2026**: *IEEE Climate Chain Trust Firewall Deployment*. Deterministic evidence verification preventing greenwashing.
+12. **2026**: *IEEE Climate Chain Trust Firewall Deployment*. Deterministic evidence rule checks (advisory).
 
 ---
 
 ## 4. Evidence-to-Claim Trust Firewall Integration
 
-When exploring the timeline, any historical observation can be inspected and exported as an immutable evidence record:
+When exploring the timeline, any historical observation can be inspected and exported as an evidence manifest:
 
 ```
 [ User Selects Year 2024 Temperature Anomaly (1.28°C) ]
                          ↓
   Gateway Generates Evidence Manifest (`HIST-TEMPERATURE_ANOMALY-2024`)
-  Computes SHA-256 Preimage Digest over Raw Observation & Metadata
+  Computes a SHA-256 digest of the payload (observation & metadata)
                          ↓
-  User Clicks "Verify in Climate Integrity Lab"
-                         ↓
-  Trust Firewall Evaluates Against Claim Tiers:
-    - Verifies Observation Preimage Hash
-    - Checks Instrument Uncertainty Threshold
-    - Validates Geographic Bounds
-    - Enforces Model-to-Observation Prohibition
-                         ↓
-  Claim Accepted under TIER_1_CERTIFIED
-                         ↓
-  Anchored to Local Hardhat EVM (Chain ID 31337)
+  User downloads the manifest (SHA-256 over its JSON)
+  and pastes it into the Climate Integrity Lab
 ```
 
-This ensures a direct, unbreakable bridge between 200 years of historical scientific evidence and modern on-chain verification.
+Download the manifest (SHA-256 over its JSON) and paste it into the Integrity Lab; no automatic firewall evaluation or anchoring occurs. The "Verify in Climate Integrity Lab" button only navigates to the Lab.

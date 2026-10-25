@@ -5,7 +5,7 @@ import './module.css';
 const climateModule: ClimateModule = {
   id: 'flarewatch',
   name: 'Flarewatch',
-  tagline: 'Gas flares seen each night by NASA VIIRS, with every night’s file checked against its anchored SHA-256.',
+  tagline: 'Research: gas flares seen each night by NASA VIIRS, with every night’s file checked against its anchored SHA-256.',
   stages: ['sense', 'verify', 'prove'],
   tone: 'methane',
   mode: 'RESEARCH',

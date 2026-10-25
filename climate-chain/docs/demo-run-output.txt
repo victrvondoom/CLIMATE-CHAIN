@@ -1,0 +1,32 @@
+# Trust Firewall demo run: node scripts/demo-trust-firewall.mjs
+# Captured 2026-10-25T11:27Z. Source: live Open-Meteo CAMS (MODELLED). Chain: in-memory local EVM, chain id 31337, valueless.
+
+== 1. One real source
+provider: Open-Meteo / Copernicus Atmosphere Monitoring Service (CAMS) global atmospheric composition forecasts
+retrieval: LIVE_FETCH   dataKind: MODEL_FORECAST   retrievedAt: 2026-10-25T11:27:07.076Z
+evidence digest (sha256): c110ef2a5f812e3aa82b85321c5af0dc2878c7b40d4170314da582d798bef5fb
+pm2_5 latest modelled value: 32.2 μg/m³ at 2026-10-25T11:00:00Z (MODELLED, not a station reading)
+
+== 2. Anchor the digest on the local chain
+tx 0x7a459ccffb400bae6c5ad7929f9f9e3d7ef979cc21c45e6b727142900667eaa6  block 6  receipt status 1  on-chain digest matches: true
+
+== 3. A FALSE claim is rejected: modelled data presented as an observation
+"observed pollution": REJECTED  eligible-for-anchoring=false  receipt=rcpt-1a81a7f48d72dd39aa021be0
+   - Model-to-Observation Prohibition: A modelled reading (MODEL_FORECAST) cannot be accepted as independently observed environmental pollution.
+   - Measurement pm2_5@2026-10-24T12:00:00Z backing the claimed value is not an observation (basis MODEL_FORECAST).
+
+== 4. An INFLATED claim is rejected: claim-type-aware sufficiency compares the claim with the evidence
+risk alert claiming 97 (3x the evidence): REJECTED  eligible-for-anchoring=false  receipt=rcpt-30b5ab692d8899935f50c71e
+   - Claimed 97 but the evidence latest is 32.2 (tolerance 5%).
+
+== 5. A VALID claim is accepted (as what it is: a modelled risk advisory, not an observation)
+risk alert claiming 32.2: ACCEPTED  eligible-for-anchoring=true  receipt=rcpt-ad9ca05f3364880cac0db8e8
+
+== 6. Enforced submission: the firewall runs first, then the claim reaches the chain
+ACCEPTED -> claim cl-23ec2277b9739da109544b48  status Submitted  tx 0xa6c92b0402b8e98ce97ade2146a8808b46224ae32119e5ab28180b3cfbb6a783  block 7  receipt status 1
+same claim again -> chain revert DuplicateClaim  tx 0x97510abe005c08ce661572eecacdb61a9c06fe31fe576bcd11536e1f32cf0993  mined with status 0
+
+== 7. What the firewall can NOT catch
+MISSED: K1 fabricated-but-consistent: invented Delhi monitor reading with its own correct digest
+MISSED: K2 same leak repair re-claimed ~8 km away under a different boundary label (outside the 0.05 degree overlap cell)
+39/39 synthetic adversarial cases pass; they were written after probing the v1 blind spots, so this is a regression suite, not a blind test.

@@ -3,7 +3,7 @@
   "title": "Climate Chain Unified Historical Dataset Registry",
   "version": "1.0.0",
   "last_updated": "2026-10-24T21:44:00Z",
-  "audit_statement": "Independent dataset audit conducted under IEEE ClimateChain guidelines. Counts represent distinct cataloged datasets; observation record counts reflect validated historical data rows.",
+  "audit_statement": "Catalogue compiled by the project authors; not independently audited. number_of_records is the upstream series length, not rows stored here.",
   "total_cataloged_datasets": 8,
   "temporal_span": "1832-2026",
   "datasets": [
@@ -18,8 +18,8 @@
       "variable": "Surface Temperature Anomaly",
       "measurement_unit": "degrees_celsius",
       "geographic_coverage": "Global",
-      "latitude": 0.0,
-      "longitude": 0.0,
+      "latitude": 0,
+      "longitude": 0,
       "temporal_resolution": "Annual and Monthly",
       "first_observation_date": "1880-01-01",
       "last_observation_date": "2026-09-30",
@@ -32,7 +32,10 @@
       "uncertainty_method": "95% confidence interval including spatial coverage and urban heat island adjustments (Hansen et al., 2010)",
       "data_classification": "OBSERVED_MEASUREMENT",
       "processing_pipeline_version": "gistemp-v4-qc-clean",
-      "citation": "GISTEMP Team, 2026: GISS Surface Temperature Analysis (GISTEMP), version 4. NASA Goddard Institute for Space Studies. Lenssen et al., 2019, J. Geophys. Res. Atmos., 124, 6307-6326."
+      "citation": "GISTEMP Team, 2026: GISS Surface Temperature Analysis (GISTEMP), version 4. NASA Goddard Institute for Space Studies. Lenssen et al., 2019, J. Geophys. Res. Atmos., 124, 6307-6326.",
+      "stored_in_repo": "35 hand-keyed anchor values; other annual values are linearly interpolated",
+      "records_note": "number_of_records is the upstream series length (the span of years), not rows stored in this repository",
+      "checksum_note": "checksum_sha256 and retrieved_at are as recorded by the authors; they cannot be reproduced here because the gateway never fetches this source"
     },
     {
       "dataset_id": "law-dome-noaa-co2-combined",
@@ -59,7 +62,10 @@
       "uncertainty_method": "Ice core gas enclosure age distribution ±5 yr; Mauna Loa flask and continuous analyzer precision ±0.12 ppm",
       "data_classification": "OBSERVED_MEASUREMENT",
       "processing_pipeline_version": "lawdome-mlo-spliced-v1",
-      "citation": "Etheridge, D.M. et al. (1996), J. Geophys. Res., 101(D2), 4115-4128; Tans, P. and Keeling, R. (2026), NOAA/GML Trends in Atmospheric Carbon Dioxide."
+      "citation": "Etheridge, D.M. et al. (1996), J. Geophys. Res., 101(D2), 4115-4128; Tans, P. and Keeling, R. (2026), NOAA/GML Trends in Atmospheric Carbon Dioxide.",
+      "stored_in_repo": "30 hand-keyed anchor values; other annual values are linearly interpolated",
+      "records_note": "number_of_records is the upstream series length (the span of years), not rows stored in this repository",
+      "checksum_note": "checksum_sha256 and retrieved_at are as recorded by the authors; they cannot be reproduced here because the gateway never fetches this source"
     },
     {
       "dataset_id": "law-dome-noaa-ch4-combined",
@@ -72,8 +78,8 @@
       "variable": "Atmospheric Methane Concentration",
       "measurement_unit": "parts_per_billion (ppb)",
       "geographic_coverage": "Global Marine Boundary Layer",
-      "latitude": 0.0,
-      "longitude": 0.0,
+      "latitude": 0,
+      "longitude": 0,
       "temporal_resolution": "Annual Mean",
       "first_observation_date": "1841-01-01",
       "last_observation_date": "2026-08-31",
@@ -86,7 +92,10 @@
       "uncertainty_method": "WMO X2004A methane mole fraction scale repeatability ±0.8 ppb",
       "data_classification": "OBSERVED_MEASUREMENT",
       "processing_pipeline_version": "ch4-icecore-marine-v2",
-      "citation": "MacFarling Meure, C. et al. (2006), Geophys. Res. Lett., 33, L14810; Dlugokencky, E.J. (2026), Atmospheric Methane Dry Air Mole Fractions from the NOAA GML Carbon Cycle Cooperative Global Air Sampling Network."
+      "citation": "MacFarling Meure, C. et al. (2006), Geophys. Res. Lett., 33, L14810; Dlugokencky, E.J. (2026), Atmospheric Methane Dry Air Mole Fractions from the NOAA GML Carbon Cycle Cooperative Global Air Sampling Network.",
+      "stored_in_repo": "27 hand-keyed anchor values; other annual values are linearly interpolated",
+      "records_note": "number_of_records is the upstream series length (the span of years), not rows stored in this repository",
+      "checksum_note": "checksum_sha256 and retrieved_at are as recorded by the authors; they cannot be reproduced here because the gateway never fetches this source"
     },
     {
       "dataset_id": "permian-carbonmapper-ch4-plumes",
@@ -100,7 +109,7 @@
       "measurement_unit": "kilograms_per_hour (kg/hr)",
       "geographic_coverage": "Permian Basin (31.0°N to 33.5°N, -104.5°W to -101.5°W)",
       "latitude": 32.2,
-      "longitude": -103.0,
+      "longitude": -103,
       "temporal_resolution": "Flight Overpass Events",
       "first_observation_date": "2020-09-15",
       "last_observation_date": "2024-11-20",
@@ -113,7 +122,10 @@
       "uncertainty_method": "Wind speed retrieval uncertainty 20-35%; Minimum Detection Limit ~50-100 kg/hr at 3 m/s wind speed (Cusworth et al., 2021)",
       "data_classification": "CALIBRATED_REMOTE_SENSING",
       "processing_pipeline_version": "plume-dbscan-v1.2",
-      "citation": "Duren, R.M. et al. (2019), Nature, 575, 180-184; Cusworth, D.H. et al. (2021), Environ. Sci. Technol. Lett., 8(9), 739-746."
+      "citation": "Duren, R.M. et al. (2019), Nature, 575, 180-184; Cusworth, D.H. et al. (2021), Environ. Sci. Technol. Lett., 8(9), 739-746.",
+      "stored_in_repo": "60-plume sample; the full upstream snapshot is not stored here",
+      "records_note": "number_of_records is the upstream series length (the span of years), not rows stored in this repository",
+      "checksum_note": "checksum_sha256 and retrieved_at are as recorded by the authors; they cannot be reproduced here because the gateway never fetches this source"
     },
     {
       "dataset_id": "cpcb-india-naaqi-stations",
@@ -127,7 +139,7 @@
       "measurement_unit": "micrograms_per_cubic_meter (ug/m3)",
       "geographic_coverage": "National Capital Region (Delhi, Gurugram, Noida, Faridabad)",
       "latitude": 28.6139,
-      "longitude": 77.2090,
+      "longitude": 77.209,
       "temporal_resolution": "Hourly and 24-Hour Continuous",
       "first_observation_date": "2015-04-01",
       "last_observation_date": "2026-10-24",
@@ -140,7 +152,10 @@
       "uncertainty_method": "Continuous automated baseline calibration with manual periodic reference checks",
       "data_classification": "OBSERVED_MEASUREMENT",
       "processing_pipeline_version": "vayu-cpcb-clean-v2",
-      "citation": "CPCB Guidelines for Continuous Ambient Air Quality Monitoring (CAAQMS), Central Pollution Control Board, New Delhi (2024)."
+      "citation": "CPCB Guidelines for Continuous Ambient Air Quality Monitoring (CAAQMS), Central Pollution Control Board, New Delhi (2024).",
+      "stored_in_repo": "No CPCB rows are stored in this repository",
+      "records_note": "number_of_records is the upstream series length (the span of years), not rows stored in this repository",
+      "checksum_note": "checksum_sha256 and retrieved_at are as recorded by the authors; they cannot be reproduced here because the gateway never fetches this source"
     },
     {
       "dataset_id": "irena-global-renewable-share",
@@ -153,8 +168,8 @@
       "variable": "Share of Electricity from Renewable Sources",
       "measurement_unit": "percentage (%)",
       "geographic_coverage": "Global and Country Breakdown",
-      "latitude": 0.0,
-      "longitude": 0.0,
+      "latitude": 0,
+      "longitude": 0,
       "temporal_resolution": "Annual",
       "first_observation_date": "1965-01-01",
       "last_observation_date": "2026-06-30",
@@ -167,7 +182,10 @@
       "uncertainty_method": "National grid accounting reconciliation; uncertainty estimated <2% for OECD, 3-5% non-OECD",
       "data_classification": "REPORTED_STATISTICAL_OBSERVATION",
       "processing_pipeline_version": "irena-grid-share-v1",
-      "citation": "IRENA (2026), Renewable Energy Statistics 2026, International Renewable Energy Agency, Abu Dhabi."
+      "citation": "IRENA (2026), Renewable Energy Statistics 2026, International Renewable Energy Agency, Abu Dhabi.",
+      "stored_in_repo": "16 hand-keyed anchor values; other annual values are linearly interpolated",
+      "records_note": "number_of_records is the upstream series length (the span of years), not rows stored in this repository",
+      "checksum_note": "checksum_sha256 and retrieved_at are as recorded by the authors; they cannot be reproduced here because the gateway never fetches this source"
     },
     {
       "dataset_id": "redd-nature-comms-swinfield",
@@ -194,7 +212,10 @@
       "uncertainty_method": "Synthetic control matching with leave-one-out cross validation; bootstrap confidence intervals (p < 0.01)",
       "data_classification": "RESEARCH_EVALUATION_BENCHMARK",
       "processing_pipeline_version": "carbonshield-zenodo-v1",
-      "citation": "Swinfield, T., et al. (2026). Learning lessons from over-crediting to ensure additionality in forest carbon credits. Nature Communications, 17, 2145. DOI: 10.1038/s41467-026-71552-3."
+      "citation": "Swinfield, T., et al. (2026). Learning lessons from over-crediting to ensure additionality in forest carbon credits. Nature Communications, 17, 2145. DOI: 10.1038/s41467-026-71552-3.",
+      "stored_in_repo": "No REDD rows are stored in this repository",
+      "records_note": "number_of_records is the upstream series length (the span of years), not rows stored in this repository",
+      "checksum_note": "checksum_sha256 and retrieved_at are as recorded by the authors; they cannot be reproduced here because the gateway never fetches this source"
     },
     {
       "dataset_id": "viirs-nightfire-niger-delta",
@@ -221,7 +242,11 @@
       "uncertainty_method": "Planck curve fit temperature threshold >1600 K; cloud obstruction and heavy rain exclusion flags applied",
       "data_classification": "CALIBRATED_REMOTE_SENSING",
       "processing_pipeline_version": "flarewatch-viirs-v2",
-      "citation": "Elvidge, C.D. et al. (2016), Remote Sensing, 8(4), 323; Methods for Global Survey of Natural Gas Flaring from VIIRS."
+      "citation": "Elvidge, C.D. et al. (2016), Remote Sensing, 8(4), 323; Methods for Global Survey of Natural Gas Flaring from VIIRS.",
+      "stored_in_repo": "6 days (15-20 Oct 2026), 675 detections in bundled fixtures; no VIIRS 2020+ series is stored here",
+      "records_note": "number_of_records is the upstream series length (the span of years), not rows stored in this repository",
+      "checksum_note": "checksum_sha256 and retrieved_at are as recorded by the authors; they cannot be reproduced here because the gateway never fetches this source"
     }
-  ]
+  ],
+  "repository_data_note": "Registry of 8 reference datasets. This repository embeds 108 hand-keyed anchor values (35 temperature, 30 CO2, 27 CH4, 16 renewable share); other annual values are linearly interpolated and labelled INTERPOLATED. Record counts and checksums describe upstream files that are not stored here."
 }

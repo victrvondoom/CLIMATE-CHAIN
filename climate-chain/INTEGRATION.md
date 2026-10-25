@@ -14,7 +14,7 @@ Climate Chain is the central navigation and mission workspace for the 18 project
 
 Project cards retain a readiness label: live app/API, read-only snapshot, demo, research foundation, or prototype. Mission guidance recommends a tool; it does not execute its writes or replace its specialist checks.
 
-The **Unified mission studio** lets a user include capability sets from any of the 18 folders, arrange them under these five stages, and export a Markdown mission brief with project features, readiness and evidence notes. Four API-backed projects show their current live/simulated mode. The remaining capabilities are source-project handoffs; the brief does not imply shared storage, execution, or verified cross-project impact.
+The **Unified mission studio** lets a user include capability sets from any of the 18 folders, arrange them under these five stages, and export a Markdown mission brief with project features, readiness and evidence notes. Four API-backed projects show their current live/simulated mode. The remaining modules are native re-implementations on bundled fixtures (8 SIMULATED, 6 RESEARCH, 4 DEMO; the original project folders are not included in this repository); the brief does not imply shared storage, execution, or verified cross-project impact.
 
 ## 2. Project-to-capability map
 
@@ -26,13 +26,13 @@ The **Unified mission studio** lets a user include capability sets from any of t
 | `teesri-shikayat-main` | Voice/text water complaints, 3-home/250 m/72 h tripwire, resident-only closure | Live console/API and Telegram bot; normalized Water view |
 | `the-vayu-project-main` | Monitor-backed air exposure, 24-hour dial, assistant, room sensor and air cleaner | Live app and API; normalized Air view |
 | `AquaQuest-main` | Freshwater map, guided observations, reports, challenges, learning and community feed | PWA prototype with local/mock data |
-| `PLUME-main` | Carbon Mapper plume records, repair ranking, EIP-712 verifier-gated escrow, public receipts | Read-only app snapshot; local workflow and repair actions have simulated elements |
+| `PLUME-main` | Carbon Mapper plume records, repair ranking, EIP-712 verifier-gated escrow (exists in the upstream project only; not executed here), public receipts | Read-only app snapshot; local workflow and repair actions have simulated elements |
 | `carbonlens-main` | Forest classification, bias correction, reversal checks, unique credit serials and report hashes | Demo dashboard and synthetic project cases |
 | `carbonshield-main` | REDD+ baseline, leakage, measurement and carbon-stock red-team review | Local phase-3 React auditor UI and read-only FastAPI artifact API; research-scope handoff with no central adapter |
 | `carbontwin-main` | Cross-registry matching, LLM adjudication, contract issuance guard and Merkle findings | Read-only demo; matching results are demo findings |
 | `ecograph-main` | Carbon-ledger graph checks, explainable score, 11 MCP tools and human-reviewed freeze decisions | Live demo with synthetic evaluation cases |
 | `grounded-main` | 72-hour microgrid dispatch, policy search, holdout validation and investment search | Public research and decision-support app |
-| `rantai-3c-master` | Carbon workflow demo with Sepolia contracts, NFT, DAO and marketplace paths | Source project; some flows are simulated. Its README's public URL currently leads to an unrelated site, so the hub links to the source repository. |
+| `rantai-3c-master` | Carbon workflow demo with Sepolia contracts, NFT, DAO and marketplace paths (exist in the upstream project only; not executed here) | Source project; some flows are simulated. Its README's public URL currently leads to an unrelated site, so the hub links to the source repository. |
 
 ## 3. Shared API boundary
 
@@ -50,7 +50,7 @@ Only four upstreams are currently normalized in `gateway/services.mjs`:
 
 Each request has a timeout. Overview fallback data carries `mode: "mock"` and the UI calls it **SIMULATED**. Passthrough routes preserve the source method and forward caller-supplied authorization; Climate Chain does not issue project credentials. Teesri's state route returns only an allowlisted aggregate and does not pass household identifiers, messages or coordinates to the central client. Ordinary Cascade requests use live sources only and return a clear source error when either call fails. The explicitly requested `demo=1` route uses local fixtures, makes no upstream call, labels the response simulated and cannot produce a review candidate.
 
-The eight other specialist project folders are not currently API-connected. They are listed and placed into the mission steps as launchable tools, with their readiness and evidence limits shown. Climate Chain itself is the central app, not an additional upstream. The specialist projects' native APIs, stores, sign-ins, and write operations are not silently reinterpreted as unified Climate Chain data.
+The eight other specialist project folders are not currently API-connected. They are listed and placed into the mission steps as native modules re-implemented in climate-chain/frontend/src/modules on bundled fixtures (the original project folders are not included in this repository), with their readiness and evidence limits shown. Climate Chain itself is the central app, not an additional upstream. The specialist projects' native APIs, stores, sign-ins, and write operations are not silently reinterpreted as unified Climate Chain data.
 
 ## 4. Data and privacy rules
 

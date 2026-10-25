@@ -47,7 +47,7 @@ test('Historical Service: Continuous 200-year span correctly aggregates observat
   const span = getTimelineObservations('co2_concentration', 1826, 2026);
   assert.equal(span.observations.length, 201); // 1826 to 2026 inclusive
   assert.equal(span.gap_count, 6); // 1826-1831 (6 years)
-  assert.equal(span.observation_count, 195); // 1832-2026 (195 years)
+  assert.equal(span.value_count, 195); // 1832-2026 (195 years)
 
   const latest2026 = span.observations.find(o => o.year === 2026);
   assert.ok(latest2026.value > 420, '2026 atmospheric CO2 must exceed 420 ppm');

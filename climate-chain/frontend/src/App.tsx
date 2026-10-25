@@ -111,7 +111,7 @@ export default function App() {
           <div className="overview-loading-skeleton">
             <div className="pulse-loader">
               <span className="live-status-dot" />
-              <span>Connecting to live climate sensors and 18 module feeds…</span>
+              <span>Connecting to the 4 live project feeds…</span>
             </div>
           </div>
         );
