@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { fetchIntegrationEvidence, type IntegrationEvidence } from '../api';
 import { downloadSnapshot } from './SignalSnapshot';
 import { hashValue } from '../core/evidence';
+import { displayEndpoint, displayText } from '../core/displayNames';
 import { useLiveQuery } from '../hooks/useLiveQuery';
 import type { Overview, SourceStatus } from '../types';
 import type { WorkspaceView } from '../data/capabilities';
@@ -112,13 +113,13 @@ export function ConnectionEvidence({ data, services, servicesError, onRefresh, o
                 {source?.error && <p className="connection-error">{source.error.code}: {source.error.message}</p>}
                 <dl>
                   <div><dt>Health probe</dt><dd>{health?.status ?? 'Not checked'}</dd></div>
-                  <div><dt>Public endpoint</dt><dd>{provenance?.url ?? config?.endpoint ?? 'Unavailable'}</dd></div>
-                  <div><dt>Operation / schema</dt><dd>{provenance ? `${provenance.operation} / ${provenance.schema}` : config?.operations.map((item) => `${item.operation} / ${item.schema}`).join(', ') ?? 'No source receipt'}</dd></div>
+                  <div><dt>Public endpoint</dt><dd>{displayEndpoint(name, provenance?.url ?? config?.endpoint)}</dd></div>
+                  <div><dt>Operation / schema</dt><dd>{displayText(provenance ? `${provenance.operation} / ${provenance.schema}` : config?.operations.map((item) => `${item.operation} / ${item.schema}`).join(', ') ?? 'No source receipt')}</dd></div>
                   <div><dt>Fetched</dt><dd>{formatTime(provenance?.fetchedAt)}</dd></div>
                   <div><dt>Request evidence</dt><dd>{provenance ? `${provenance.elapsedMs} ms · ${provenance.attempts} attempt(s)${provenance.cacheHit ? ' · cache hit' : ''}` : 'No live response in this snapshot'}</dd></div>
                   {provenance?.requestId && <div><dt>Request ID</dt><dd>{provenance.requestId}</dd></div>}
                 </dl>
-                {name === 'vayu' && data?.air.provenance && <p className="connection-footnote">Air provenance: {data.air.provenance.source}; {data.air.provenance.mode}; {data.air.provenance.simulated ? 'simulated' : 'not marked simulated'}; observation {formatTime(data.air.provenance.observedAt)}.</p>}
+                {name === 'vayu' && data?.air.provenance && <p className="connection-footnote">Air provenance: {displayText(data.air.provenance.source)}; {data.air.provenance.mode}; {data.air.provenance.simulated ? 'simulated' : 'not marked simulated'}; observation {formatTime(data.air.provenance.observedAt)}.</p>}
               </article>
             );
           })}

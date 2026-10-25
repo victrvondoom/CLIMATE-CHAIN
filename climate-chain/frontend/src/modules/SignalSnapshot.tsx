@@ -1,4 +1,5 @@
 import type { Overview } from '../types';
+import { displayText } from '../core/displayNames';
 import './signals.css';
 
 export function downloadSnapshot(name: string, snapshot: unknown) {
@@ -20,7 +21,7 @@ export function SignalSnapshot({ data, source }: { data: Overview; source: keyof
       {status.error && <p role="status">{status.error.code}: {status.error.message}</p>}
       {provenance && <dl className="cascade-facts">
         <div><dt>Fetched</dt><dd>{new Date(provenance.fetchedAt).toLocaleString()}</dd></div>
-        <div><dt>Source operation</dt><dd>{provenance.source} / {provenance.operation}</dd></div>
+        <div><dt>Source operation</dt><dd>{displayText(`${provenance.source} / ${provenance.operation}`)}</dd></div>
         <div><dt>Request</dt><dd>{provenance.elapsedMs} ms · {provenance.attempts} attempt(s){provenance.cacheHit ? ' · cached response' : ''}</dd></div>
       </dl>}
     </details>

@@ -99,7 +99,7 @@ function ClearskyPage() {
         <Card className="m-clearsky-card">
           <h3>Burn Risk Radar</h3>
           <div className="m-clearsky-stats">
-            <Stat label={`RED fields (${overview?.sources.clearsky.mode === 'live' ? 'connected' : 'simulated'})`} value={fire ? fire.redFields : 'n/a'} hint={feedError ? `Overview not reachable: ${feedError}` : 'From the shared, refreshed clearsky feed'} />
+            <Stat label={`RED fields (${overview?.sources.clearsky.mode === 'live' ? 'connected' : 'simulated'})`} value={fire ? fire.redFields : 'n/a'} hint={feedError ? `Overview not reachable: ${feedError}` : 'From the shared, refreshed AshAlert feed'} />
             <Stat label={`YELLOW fields (${overview?.sources.clearsky.mode === 'live' ? 'connected' : 'simulated'})`} value={fire ? fire.yellowFields : 'n/a'} />
           </div>
           <table className="m-clearsky-table">
