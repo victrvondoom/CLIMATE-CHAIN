@@ -42,7 +42,7 @@ body::before {
 
 .app {
   display: grid;
-  grid-template-columns: 264px 1fr;
+  grid-template-columns: 300px 1fr;
   min-height: 100vh;
   position: relative;
   z-index: 1;
@@ -2761,3 +2761,22 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .sidebar-modern .upstream-item { font-size: 16px; }
 .sidebar-modern .upstream-name { font-weight: 400; }
 .sidebar-modern .upstream-mode { font-size: 12px; font-weight: 400; letter-spacing: 0.06em; }
+
+/* Compact sidebar: sizes scale with viewport height so the whole menu fits without scrolling. */
+@media (min-width: 761px) {
+  .sidebar-modern { padding: clamp(8px, 1.6vh, 18px) 12px; gap: clamp(4px, 0.9vh, 12px); overflow-y: auto; scrollbar-width: none; }
+  .sidebar-modern::-webkit-scrollbar { display: none; }
+  .sidebar-modern .sidebar-brand { padding: 0 6px clamp(4px, 1vh, 10px); gap: 10px; }
+  .sidebar-modern .brand-badge { width: clamp(30px, 4.6vh, 42px); height: clamp(30px, 4.6vh, 42px); font-size: 15px; }
+  .sidebar-modern .brand-title { font-size: clamp(22px, 3.4vh, 30px); white-space: nowrap; }
+  .sidebar-modern .brand-tagline { font-size: clamp(12px, 1.7vh, 15px); }
+  .sidebar-modern .nav-menu { gap: clamp(0px, 0.25vh, 3px); flex: 0 1 auto; }
+  .sidebar-modern .nav-button,
+  .sidebar-modern .nav-search-button { font-size: clamp(15px, 2.35vh, 20px); padding: clamp(3px, 0.7vh, 8px) 10px; gap: 10px; white-space: nowrap; line-height: 1.15; }
+  .sidebar-modern .nav-search-button { margin-bottom: 0; }
+  .sidebar-modern .nav-icon { font-size: clamp(13px, 2vh, 17px); }
+  .sidebar-modern .nav-section-title { font-size: clamp(13px, 1.9vh, 16px); padding: clamp(5px, 1.1vh, 12px) 10px 2px; }
+  .sidebar-modern .sidebar-upstreams-box { padding: clamp(6px, 1vh, 10px) 10px; gap: clamp(2px, 0.5vh, 6px); margin-top: auto; }
+  .sidebar-modern .upstreams-list { gap: 1px; }
+  .sidebar-modern .upstream-item { font-size: clamp(12px, 1.8vh, 15px); line-height: 1.2; }
+}
